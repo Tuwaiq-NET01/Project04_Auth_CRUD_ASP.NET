@@ -47,5 +47,5 @@
 ## [Wireframes](https://www.figma.com/file/VsHGJZBJGujmnWRzuCRM9G/Bitchunk-Web-App)
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/YounesAlturkey/PokeWars/main/frontend/public/demo.png" alt="demo"/>
+  <img src="https://raw.githubusercontent.com/YounesAlturkey/bitchunk/main/documentation/bitchunk-erd.png" alt="demo"/>
 </p>
