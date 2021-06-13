@@ -1,0 +1,57 @@
+﻿/*Import fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Libre+Barcode+128+Text&family=Source+Code+Pro:wght@200;400;600;900&display=swap');
+/**/
+
+body {
+    background-color: black;
+    font-family: 'Source Code Pro', monospace;
+    color: white;
+}
+
+.homeHeader {
+    font-family: 'Libre Barcode 128 Text', cursive;
+}
+:focus {
+    outline: none;
+}
+
+label {
+    color: white;
+}
+.input-container {
+    float: left;
+    width: 28%;
+    margin: 42px 5%;
+    position: relative;
+}
+
+input[type="text"] {
+    font: 15px/24px ;
+    color: #1d9af2;
+    width: 80%;
+    box-sizing: border-box;
+    letter-spacing: 1px;
+    background-color: white;
+    border: none;
+}
+
+.effect-1 ~ .focus-border {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #3399Ff;
+    transition: 0.4s;
+}
+
+.effect-1:focus ~ .focus-border {
+    width: 80%;
+    transition: 0.4s;
+}
+
+
+/******/
+
+
+

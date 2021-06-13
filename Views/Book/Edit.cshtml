@@ -1,0 +1,22 @@
+﻿@model Book
+@{
+    var book = (Book)ViewData["books"];
+}
+
+<form asp-action="Edit" method="post" class="form-group">
+    <label asp-for="Title">Title: </label>
+    <div class="form-group">
+        <input asp-for="Title" value="@book.Title" />
+    </div>
+    <label asp-for="Price">Price: </label>
+    <div class="form-group">
+        <input asp-for="Price" value="@book.Price" />
+    </div>
+    <label asp-for="Availabe">Availabe: </label>
+    <div class="form-group">
+        @Html.CheckBoxFor(m => m.Availabe)
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary" />
+    </div>
+</form>

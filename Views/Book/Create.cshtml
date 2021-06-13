@@ -1,0 +1,21 @@
+﻿@model Book
+@{
+}
+
+<form asp-action="Create" method="post" class="form-group">
+    <label asp-for="Title">Title: </label>
+    <div class="form-group">
+        <input asp-for="Title" />
+    </div>
+    <label asp-for="Price">Price: </label>
+    <div class="form-group">
+        <input asp-for="Price" />
+    </div>
+    <label asp-for="Availabe">Availabe: </label>
+    <div class="form-group">
+        <input asp-for="Availabe" />
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary" />
+    </div>
+</form>

@@ -1,0 +1,50 @@
+﻿@{
+    var books = (List<Book>)ViewData["books"];
+}
+
+
+<h1 class="text-center">Books List</h1>
+<table class="table text-white">
+    <thead>
+        <tr>
+            <th scope="col">Book Id</th>
+            <th scope="col">Title</th>
+            <th scope="col">Price</th>
+            <th scope="col">Availabe</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        
+            @foreach (var book in books)
+            {
+        <tr>
+
+            <td> @book.Id</td>
+
+            <td> @book.Title</td>
+
+            <td> @book.Price</td>
+
+            <td> @book.Availabe</td>
+            <td>@book.Author.Name</td>
+
+            <td> <a asp-controller="Book" asp-action="Details" asp-route-id="@book.Id" class="btn btn-primary">Show</a></td>
+
+            <td> <a asp-controller="Book" asp-action="Edit" asp-route-id="@book.Id" class="btn btn-danger">Edit</a></td>
+
+            <td>
+                <form asp-controller="Book" asp-route-id="@book.Id" asp-action="Delete">
+                    <input type="submit" value="Delete" class="btn btn-danger" />
+                </form>
+            </td>
+        </tr>
+                
+            }
+
+    </tbody>
+</table>
+
+<a asp-controller="Book" asp-action="Create" class="btn btn-success">Add Book</a>
+

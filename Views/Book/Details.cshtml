@@ -1,0 +1,16 @@
+﻿@{
+    var book = (Book)ViewData["books"];
+}
+
+<div class=" text-center">
+    <div class="card-body">
+        <h3 class="card-title">@book.Title</h3>
+        <p class="card-text"><span>Book Id: </span> @book.Id</p>
+        <p class="card-text"><span>Price: </span> @book.Price</p>
+        <p class="card-text"><span>Available: </span> @book.Availabe</p>
+        <a asp-controller="Book" asp-action="Edit" asp-route-id="@book.Id" class="btn btn-primary">Edit</a>
+    </div>
+    <div class="card-footer text-muted">
+        2 days ago
+    </div>
+</div>
