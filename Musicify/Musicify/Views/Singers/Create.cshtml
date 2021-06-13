@@ -1,0 +1,34 @@
+﻿@model SingerModel
+
+<form asp-action="create" method="post" class="from-horizontal">
+
+   @* <div class="from-group">
+        <label asp-for="Id">Id</label>
+        <input asp-for="Id" />
+    </div>*@
+
+    <div class="from-group">
+        <label asp-for="Name">Name</label>
+        <input asp-for="Name" />
+    </div>
+
+    <div class="from-group">
+        <label asp-for="Photo">Photo</label>
+        <input asp-for="Photo" />
+        <span asp-validation-for="Photo"></span>
+    </div>
+
+    <div class="from-group">
+        <label asp-for="Info">Info</label>
+        <input asp-for="Info" />
+        <span asp-validation-for="Info"></span>
+    </div>
+
+    <div class="from-group">
+
+        <input type="submit" class="btn-btn-primary" value="Submit" />
+    </div>
+
+
+
+</form>

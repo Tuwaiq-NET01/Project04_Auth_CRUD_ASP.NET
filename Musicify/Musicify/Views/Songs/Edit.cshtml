@@ -1,0 +1,35 @@
+﻿@model SongModel
+@{ 
+ var Songs = (SongModel)ViewData["Songs"];
+}
+<form asp-action="Edit" method="post" class="from-horizontal">
+
+    <div class="from-group">
+        <label asp-for="Id">Id</label>
+        <input type="hidden" asp-for="Id" value="@Songs.Id" disabled />
+    </div>
+
+    <div class="from-group">
+        <label asp-for="Name">Name</label>
+        <input asp-for="Name" value="@Songs.Name" />
+    </div>
+
+    <div class="from-group">
+        <label asp-for="Type">Type</label>
+        <input asp-for="Type" value="@Songs.Type" />
+    </div>
+
+    <div class="from-group">
+        <label asp-for="URL">URL</label>
+        <input asp-for="URL" value="@Songs.URL" />
+    </div>
+
+
+    <div class="from-group">
+
+        <input type="submit" class="btn-btn-primary" value="Update" />
+    </div>
+
+
+
+</form>

@@ -1,0 +1,35 @@
+﻿@model SingerModel
+@{ 
+ var Singers = (SingerModel)ViewData["Singers"];
+}
+<form asp-action="Edit" method="post" class="from-horizontal">
+
+    <div class="from-group">
+        <label asp-for="Id">Id</label>
+        <input type="hidden" asp-for="Id" value="@Singers.Id" disabled />
+    </div>
+
+    <div class="from-group">
+        <label asp-for="Name">Name</label>
+        <input asp-for="Name" value="@Singers.Name" />
+    </div>
+
+    <div class="from-group">
+        <label asp-for="Photo">Photo</label>
+        <input asp-for="Photo" value="@Singers.Photo" />
+    </div>
+
+    <div class="from-group">
+        <label asp-for="Info">Info</label>
+        <input asp-for="Info" value="@Singers.Info" />
+    </div>
+
+
+    <div class="from-group">
+
+        <input type="submit" class="btn-btn-primary" value="Update" />
+    </div>
+
+
+
+</form>

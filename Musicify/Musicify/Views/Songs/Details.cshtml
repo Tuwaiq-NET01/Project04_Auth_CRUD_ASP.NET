@@ -1,0 +1,17 @@
+﻿@{
+    var Songs = (SongModel)ViewData["Songs"];
+}
+
+
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">Id: @Songs.Id</h5>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Name: @Songs.Name</li>
+        <li class="list-group-item">Type: @Songs.Type</li>
+    </ul>
+</div>
+
+
+<a asp-controller="Songs" asp-action="Index">Back to Songs</a>

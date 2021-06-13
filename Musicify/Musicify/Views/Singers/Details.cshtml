@@ -1,0 +1,18 @@
+﻿@{
+    var Singers = (SingerModel)ViewData["Singers"];
+}
+
+
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">Id: @Singers.Id</h5>
+        <h5 class="card-title">Name: @Singers.Name</h5>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Photo:<img src="@Singers.Photo"/> </li>
+        <li class="list-group-item">Info: @Singers.Info</li>
+    </ul>
+</div>
+
+
+<a asp-controller="Singers" asp-action="Index">Back to Singers</a>
