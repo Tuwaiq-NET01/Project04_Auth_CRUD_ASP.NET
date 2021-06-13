@@ -1,5 +1,6 @@
 # Project04_Auth_CRUD_ASP.NET
 
+<div dir="rtl" align="right">
 
 فكرة المشروع
 
@@ -51,3 +52,4 @@
         - Cloudinary: https://cloudinary.com/
         -  AWS: https://aws.amazon.com/s3/?nc2=h_ql_prod_st_s3
     - حفظها  بالـLocal server 
+</div>
