@@ -1,0 +1,47 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInManager
+
+
+@{
+    var records = (List<Drop>)ViewData["Records"];
+    var signedin = SignInManager.IsSignedIn(User);
+}
+
+@if (signedin)
+{
+    <a class="btn btn-primary" asp-controller="Drops" asp-action="Create">Add New</a>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>User Email</td>
+            <td>Content</td>
+            @if (signedin)
+            {
+                <td>Actions</td>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var row in records)
+        {
+        <tr>
+            <td>@row.Id</td>
+            <td>@row.UserId</td>
+            <td>@(row.Content.Length > 50 ? (row.Content.Substring(0, 50)+"...") : row.Content)</td>
+            @if (signedin)
+            {
+                <td>
+                    <a asp-action="Edit" asp-route-id="@row.Id" class="btn btn-warning">Edit</a>
+                    <form method="post" class="form-inline" asp-controller="Drops" asp-action="Delete" asp-route-id="@row.Id">
+                        <button class="btn btn-danger" type="submit">Delete</button>
+                    </form>
+                </td>
+            }
+        </tr>
+        }
+    </tbody>
+</table>

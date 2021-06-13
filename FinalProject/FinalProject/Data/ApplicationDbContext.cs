@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using FinalProject.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -12,5 +13,7 @@ namespace FinalProject.Data
         public ApplicationDbContext(DbContextOptions options) : base(options)
         {
         }
+
+        public DbSet<Drop> Drops { get; set; }
     }
 }

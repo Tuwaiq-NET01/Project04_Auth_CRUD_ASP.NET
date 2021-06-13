@@ -1,0 +1,27 @@
+﻿@model DropViewModel
+
+<h1 class="text-info">Add New Drop</h1>
+<form asp-controller="Drops" asp-action="Create" method="post" role="form">
+    <h4>Add New Drop</h4>
+    <hr />
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="Content" class="col-md-2"></label>
+        <div class="col-md-10">
+            @*<input asp-for="Content" class="form-control" />*@
+            <textarea asp-for="Content" class="form-control"></textarea>
+            <span asp-validation-for="Content" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-success form-control">Add</button>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+} 

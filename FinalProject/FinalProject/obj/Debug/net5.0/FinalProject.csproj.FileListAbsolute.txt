@@ -389,3 +389,5 @@ C:\Users\user\Desktop\final-project\Project04_Auth_CRUD_ASP.NET\FinalProject\Fin
 C:\Users\user\Desktop\final-project\Project04_Auth_CRUD_ASP.NET\FinalProject\FinalProject\obj\Debug\net5.0\Razor\Views\Account\Register.cshtml.g.cs
 C:\Users\user\Desktop\final-project\Project04_Auth_CRUD_ASP.NET\FinalProject\FinalProject\obj\Debug\net5.0\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
 C:\Users\user\Desktop\final-project\Project04_Auth_CRUD_ASP.NET\FinalProject\FinalProject\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
+C:\Users\user\Desktop\final-project\Project04_Auth_CRUD_ASP.NET\FinalProject\FinalProject\obj\Debug\net5.0\Razor\Views\Drops\Create.cshtml.g.cs
+C:\Users\user\Desktop\final-project\Project04_Auth_CRUD_ASP.NET\FinalProject\FinalProject\obj\Debug\net5.0\Razor\Views\Drops\Index.cshtml.g.cs
