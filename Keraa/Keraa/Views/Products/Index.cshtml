@@ -1,0 +1,30 @@
+﻿
+@{
+    var products = (List<ProductModel>)ViewData["products"];
+}
+
+
+<h1>Hey Products</h1>
+
+@foreach (var product in products)
+{
+
+    <center>
+        <div>  @product.Id</div>
+        <div>  @product.Catagory</div>
+        <div>  @product.Name</div>
+        <div>  @product.ShortDesc</div>
+        <div>  @product.CoverImage</div>
+        <div>  @product.IsRented</div>
+        <div>
+            <span><button type="button" class="btn btn-dark"><a style="color:white" href="/products/Details/@product.Id"> SHOW </a></button></span>
+            <span><a class="btn btn-primary" asp-controller="Products" asp-action="Edit" asp-route-id="@product.Id">Edit</a></span>
+            <div>
+                <form method="post" asp-controller="Products" asp-action="Delete" asp-route-id="@product.Id">
+                    <input type="submit" value="Delete" class="btn btn-danger" />
+
+                </form>
+                </div>
+        </div>
+    </center>
+}

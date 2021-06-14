@@ -1,0 +1,27 @@
+﻿@{
+    var Product = (ProductModel)ViewData["Product"];
+}
+
+
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">Name: @Product.Name</h5>
+        <p class="card-text">Description: @Product.ShortDesc</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Id: @Product.Id</li>
+        <li class="list-group-item">Catagory: @Product.Catagory</li>
+
+    </ul>
+</div>
+
+
+@*Normal HTML*@
+@*<a href="/products">Back to products</a>*@
+
+@*HTML Helper*@
+@*@Html.ActionLink("Back to Products", "Index","Products")*@
+
+
+@*Tag Helper*@
+<a asp-controller="Products" asp-action="Index">Back to products</a>
