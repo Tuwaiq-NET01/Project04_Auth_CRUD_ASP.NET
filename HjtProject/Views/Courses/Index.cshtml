@@ -1,0 +1,27 @@
+﻿@*@using Microsoft.AspNetCore.Identity
+@{
+
+    var emails = (List<IdentityUser>)ViewData["users"];
+}
+
+@{
+    if (emails == null)
+    {
+        <h3> You have no users </h3>
+    }
+    else
+    {
+        foreach (var item in emails)
+        {
+            <p>
+                @item.Email <br />
+                @item.Id
+            </p>
+
+        }
+    }
+
+}
+
+
+*@
