@@ -396,3 +396,5 @@ C:\Users\Norah\source\repos\GreenLifeStore\GreenLifeStore\obj\Debug\net5.0\Razor
 C:\Users\Norah\source\repos\GreenLifeStore\GreenLifeStore\obj\Debug\net5.0\Razor\Views\Products\Edit.cshtml.g.cs
 C:\Users\Norah\source\repos\GreenLifeStore\GreenLifeStore\obj\Debug\net5.0\Razor\Views\Products\Index.cshtml.g.cs
 C:\Users\Norah\source\repos\GreenLifeStore\GreenLifeStore\obj\Debug\net5.0\Razor\Views\Products\_NotFound.cshtml.g.cs
+C:\Users\Norah\source\repos\GreenLifeStore\GreenLifeStore\bin\Debug\net5.0\Humanizer.dll
+C:\Users\Norah\source\repos\GreenLifeStore\GreenLifeStore\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll

@@ -1,5 +1,6 @@
-﻿using GreenLifeStore.Models;
-using GroceryStore.Data;
+﻿using GreenLifeStore.Data;
+using GreenLifeStore.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -13,25 +14,26 @@ namespace GreenLifeStore.Controllers
     public class HomeController : Controller
     {
 
-        private readonly AppDbContext _db;
+        private readonly ApplicationDbContext _db;
 
-        public HomeController(AppDbContext db)
+        public HomeController(ApplicationDbContext db)
         {
             _db = db;
         }
 
-
+        [AllowAnonymous]
         public IActionResult Index()
         {
             return View();
         }
 
-
+        [AllowAnonymous]
         public IActionResult About()
         {
             return View();
         }
 
+        [AllowAnonymous]
         public IActionResult Branches()
         {
 

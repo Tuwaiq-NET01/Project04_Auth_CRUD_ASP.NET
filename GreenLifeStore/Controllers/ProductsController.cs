@@ -5,15 +5,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using GreenLifeStore.Models;
 using Microsoft.AspNetCore.Mvc;
-using GroceryStore.Data;
+using GreenLifeStore.Data;
 
 namespace GreenLifeStore.Controllers
 {
     public class ProductsController : Controller
     {
-        private readonly AppDbContext _db;
+        private readonly ApplicationDbContext _db;
 
-        public ProductsController(AppDbContext db)
+        public ProductsController(ApplicationDbContext db)
         {
             _db = db;
         }
@@ -39,6 +39,9 @@ namespace GreenLifeStore.Controllers
             return View(Product);
 
         }
+
+
+       
         //GET - /products/create
         public IActionResult Create()
         {
