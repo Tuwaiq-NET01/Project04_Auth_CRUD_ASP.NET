@@ -1,0 +1,21 @@
+﻿@{
+    var hotel = (HotelModel)ViewData["Hotel"];
+
+}
+
+<h3>Hotel Details:</h3>>
+
+<div class="card mb-3">
+    <img class="card-img-top" src="@hotel.HotelImage" alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title">@hotel.HotelName</h5>
+        <p class="card-text">Phone Number :@hotel.PhoneNumber</p>
+        <p class="card-text">City :@hotel.City</p>
+        <p class="card-text">State :@hotel.State</p>
+        <p class="card-text">ZipCode :@hotel.ZipCode</p>
+      
+    </div>
+</div>
+
+
+<a asp-controller="Hotels" asp-action="Index"> Back to Hotels </a>
