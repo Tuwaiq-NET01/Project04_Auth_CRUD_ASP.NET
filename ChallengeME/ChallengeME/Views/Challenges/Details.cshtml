@@ -3,6 +3,7 @@
 @{
 
     var challenge = (Challenge)ViewData["challenge"];
+    //var comments = (List<Comment>)ViewData["comments"];
 }
 
 
@@ -11,3 +12,9 @@
 
 <h2>@challenge.Title</h2>
 <h4>@challenge.Description</h4>
+
+
+
+<partial name="_CommentsPartial" />
+
+@*@Html.Partial("_ViewPartial") not recommended  *@

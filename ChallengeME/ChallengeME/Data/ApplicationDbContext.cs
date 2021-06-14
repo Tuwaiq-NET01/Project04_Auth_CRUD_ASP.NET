@@ -18,6 +18,7 @@ namespace ChallengeME.Data
 
         public DbSet<Game> Games { get; set; }
         public DbSet<Challenge> Challenges { get; set; }
+        public DbSet<Comment> Comments { get; set; }
 
     }
 }

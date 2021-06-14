@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -19,8 +20,8 @@ namespace ChallengeME.Models
         public Challenge challenge{ get; set; }
         public int ChallengeId { get; set; }
 
+        public IdentityUser User { get; set; }
         public string UserId { get; set; }
-
 
     }
 }

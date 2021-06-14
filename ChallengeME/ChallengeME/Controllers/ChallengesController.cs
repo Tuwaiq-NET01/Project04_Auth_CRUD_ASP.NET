@@ -32,6 +32,21 @@ namespace ChallengeME.Controllers
         public IActionResult Details(int? id)
         {
             var challenge = _context.Challenges.ToList().Find(m => m.Id == id);
+            var comments = _context.Comments.Where(x => x.ChallengeId == challenge.Id).ToList();
+            var user = _context.Users.ToList();
+
+            //LINQ QUERY
+            //var res = from cmt in _context.Comments
+            //          join u in _context.Users
+            //          on cmt.UserId equals u.Id
+            //          select new 
+            //          {
+            //              CommentTitle = cmt.Title,
+            //              CommentBody = cmt.Body,
+            //              Username = u.UserName,
+            //          };
+            //var result = res.ToList();
+            
 
             if (challenge == null)
             {
@@ -39,6 +54,7 @@ namespace ChallengeME.Controllers
             }
 
             ViewData["challenge"] = challenge;
+            ViewData["comments"] = comments;
             return View();
         }
 
@@ -60,7 +76,7 @@ namespace ChallengeME.Controllers
             {
                 _context.Challenges.Add(challenge);
                 _context.SaveChanges();
-                return RedirectToAction("Details", "games", new { id = 7 });
+                return RedirectToAction("Details", "games", new { id = "same as the above if you figured it out..." });
             }
 
             return View();
