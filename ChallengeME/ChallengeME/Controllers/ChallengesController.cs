@@ -34,6 +34,7 @@ namespace ChallengeME.Controllers
             var challenge = _context.Challenges.ToList().Find(m => m.Id == id);
             var comments = _context.Comments.Where(x => x.ChallengeId == challenge.Id).ToList();
             var user = _context.Users.ToList();
+            var games = _context.Games.ToList();
 
             //LINQ QUERY
             //var res = from cmt in _context.Comments
@@ -46,7 +47,7 @@ namespace ChallengeME.Controllers
             //              Username = u.UserName,
             //          };
             //var result = res.ToList();
-            
+
 
             if (challenge == null)
             {

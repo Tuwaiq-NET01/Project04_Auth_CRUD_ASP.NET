@@ -3,12 +3,13 @@
 }
 
 <hr />
-<h1>COMMENT SECTIONS:</h1>
+<h1 class="display-6">Comments</h1>
 
 
 @foreach (var cmt in comments)
 {
 
-    <h3>@cmt.Title </h3>
-    <h3>@cmt.User.UserName</h3>
+    <h4>@cmt.Title </h4>
+    <p class="text-muted">@cmt.User.UserName</p>
 }
+

@@ -34,21 +34,23 @@
 <hr />
 
 
-<h2>CHALLENGES:</h2>
+<h1 class="display-5">Challenges:</h1>
 
 @if (isUser)
 {
     <a asp-action="create" asp-controller="challenges" asp-route-id="@game.Id">Create new challenge</a>
 }
 
+<div class="list-group ">
 
 
-@foreach (var chlng in challenges)
-{
-    <a asp-controller="challenges" asp-action="details" asp-route-id="@chlng.Id">@chlng.Title</a>
-}
+    @foreach (var chlng in challenges)
+    {
+        <a class="list-group-item list-group-item-action text-light mb-3" asp-controller="challenges" asp-action="details" asp-route-id="@chlng.Id">
+            @chlng.Title
+        </a>
+    }
 
 
 
-
-
+</div>

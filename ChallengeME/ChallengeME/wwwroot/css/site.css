@@ -63,7 +63,11 @@ body {
     margin-bottom: 60px;
     background-color: #281e33;
     font-family: 'Nunito', sans-serif;
-    color:white;
+    color: white;
+    background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url(https://www.teahub.io/photos/full/5-52820_shadow-stripes-shape-black-red-wallpaper-background-black.jpg) #35536b;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 .footer {
   position: absolute;
@@ -85,6 +89,7 @@ hr {
 
 .card {
     transition: transform .2s;
+    box-shadow: 0 0 20px 7px rgba(0,0,0,0.5);
 }
 
     .card:hover {
@@ -92,6 +97,13 @@ hr {
     }
 
 
+.list-group-item {
+    background-color: rgba(134, 105, 107, 0.20);
+}
+
+    .list-group-item:hover {
+        background-color: rgba(134, 105, 107, 0.50);
+    }
 .card-img-top {
     filter: brightness(75%);
 }
