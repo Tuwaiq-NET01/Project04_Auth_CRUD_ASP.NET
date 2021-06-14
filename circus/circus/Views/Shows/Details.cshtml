@@ -1,0 +1,15 @@
+﻿@{
+    var show = (ShowModel)ViewData["show"];
+    var performers = (List<PerformerModel>)ViewData["performers"];
+    var venues = (List<VenueModel>)ViewData["venues"];
+    string[] month = new string[] { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
+
+}
+<h1>Show details</h1>
+<div>
+    <h3>@performers.Find(x => x.Id == show.PerformerId).Name</h3>
+    <h4>with their amazing @performers.Find(x => x.Id == show.PerformerId).Profession performance at  @venues.Find(x => x.Id == show.VenueId).Name  @venues.Find(x => x.Id == show.VenueId).Type</h4>
+    <h5>@show.Date.Year @month[show.Date.Month-1], @show.Date.Day</h5>
+    <img src="@performers.Find(x => x.Id == show.PerformerId).Image" alt="performers img"/>
+    <a href="~/tickets/create/@show.Id">Attend show!</a>
+</div>

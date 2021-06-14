@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31402.337
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "circus", "circus\circus.csproj", "{B2F31690-8A4B-474B-861E-76A4BC542442}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B2F31690-8A4B-474B-861E-76A4BC542442}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2F31690-8A4B-474B-861E-76A4BC542442}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2F31690-8A4B-474B-861E-76A4BC542442}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2F31690-8A4B-474B-861E-76A4BC542442}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1D64037B-091C-47F0-9925-371A13ABE1C6}
+	EndGlobalSection
+EndGlobal

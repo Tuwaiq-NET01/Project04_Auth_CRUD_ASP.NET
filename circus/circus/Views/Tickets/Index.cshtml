@@ -1,0 +1,20 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject UserManager<IdentityUser> UserManager
+@{
+    var tickets = (List<TicketModel>)ViewData["tickets"];
+    var shows = (List<ShowModel>)ViewData["shows"];
+}
+@{/*UserManager.GetUserId(User)*/}
+<div>
+    <h3>Tickets</h3>
+    <h5>@User.Identity.Name</h5>
+    
+</div>
+@foreach(var t in tickets)
+            {
+<div>
+    Day: <b>@shows.Find(x => x.Id == t.ShowId).Date.Day</b>
+    Performer:  <b>@shows.Find(x => x.Id == t.ShowId).PerformerId</b>
+    Quantity: <b>@t.Quantity</b>
+</div>
+            }

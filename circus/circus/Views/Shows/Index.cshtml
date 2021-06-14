@@ -1,0 +1,22 @@
+﻿@{ 
+    var shows = (List<ShowModel>)ViewData["shows"];
+    var performers = (List<PerformerModel>)ViewData["performers"];
+    var venues = (List<VenueModel>)ViewData["venues"];
+    string[] month = new string[] { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
+
+}
+<h1>SHOWS</h1>
+    @foreach (var s in shows)
+    {
+        <div>
+            <h3>
+                @performers.Find(x => x.Id == s.PerformerId).Name
+
+            </h3>
+            <h5>
+                @venues.Find(x => x.Id == s.VenueId).Name,  @venues.Find(x => x.Id == s.VenueId).Address
+            </h5>
+            <p>@s.Date.Year @month[s.Date.Month - 1], @s.Date.Day</p>
+            <a href="shows/details/@s.Id">Learn more >></a>
+        </div>
+            }

@@ -1,0 +1,22 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject UserManager<IdentityUser> UserManager
+@model TicketModel
+@{
+    var show = (ShowModel)ViewData["show"];
+    var performers = (List<PerformerModel>)ViewData["performers"];
+}
+
+<h3>Confirm attendance for @performers.Find(x => x.Id == show.PerformerId).Name</h3>
+
+    <form asp-action="Create" method="post">
+           <div>
+               @show.Date
+           </div>
+           <div>
+               <label asp-for="Quantity"> Number of tickets</label>
+               <input type="number" asp-for="Quantity" />
+           </div>
+        <input asp-for="UserId" type="hidden" value="@UserManager.GetUserId(User)"/>
+        <input asp-for="ShowId" type="hidden" value="@show.Id"/>
+           <input type="submit" value="Add tickets!" />
+        </form>
