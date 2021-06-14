@@ -7,8 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Project04_Auth_CRUD_ASP.NET.Data;
+using Project04_Auth_CRUD_ASP.NET.Models;
 
-namespace Project04_Auth_CRUD_ASP.NET.Models
+namespace Project04_Auth_CRUD_ASP.NET.Controllers
 {
     [Authorize]
     public class PricesController : Controller
@@ -23,7 +24,8 @@ namespace Project04_Auth_CRUD_ASP.NET.Models
         // GET: PriceModels
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Prices.ToListAsync());
+            var applicationDbContext = _context.Prices.Include(p => p.Barber);
+            return View(await applicationDbContext.ToListAsync());
         }
 
         // GET: PriceModels/Details/5
@@ -35,6 +37,7 @@ namespace Project04_Auth_CRUD_ASP.NET.Models
             }
 
             var priceModel = await _context.Prices
+                .Include(p => p.Barber)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (priceModel == null)
             {
@@ -47,6 +50,7 @@ namespace Project04_Auth_CRUD_ASP.NET.Models
         // GET: PriceModels/Create
         public IActionResult Create()
         {
+            ViewData["BarberId"] = new SelectList(_context.Barbers, "Id", "Name");
             return View();
         }
 
@@ -55,7 +59,7 @@ namespace Project04_Auth_CRUD_ASP.NET.Models
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Value,Time")] PriceModel priceModel)
+        public async Task<IActionResult> Create([Bind("Id,Value,Time,BarberId")] PriceModel priceModel)
         {
             if (ModelState.IsValid)
             {
@@ -64,6 +68,7 @@ namespace Project04_Auth_CRUD_ASP.NET.Models
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["BarberId"] = new SelectList(_context.Barbers, "Id", "Name", priceModel.BarberId);
             return View(priceModel);
         }
 
@@ -80,6 +85,7 @@ namespace Project04_Auth_CRUD_ASP.NET.Models
             {
                 return NotFound();
             }
+            ViewData["BarberId"] = new SelectList(_context.Barbers, "Id", "Name", priceModel.BarberId);
             return View(priceModel);
         }
 
@@ -88,7 +94,7 @@ namespace Project04_Auth_CRUD_ASP.NET.Models
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Value,Time")] PriceModel priceModel)
+        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Value,Time,BarberId")] PriceModel priceModel)
         {
             if (id != priceModel.Id)
             {
@@ -115,6 +121,7 @@ namespace Project04_Auth_CRUD_ASP.NET.Models
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["BarberId"] = new SelectList(_context.Barbers, "Id", "Name", priceModel.BarberId);
             return View(priceModel);
         }
 
@@ -127,6 +134,7 @@ namespace Project04_Auth_CRUD_ASP.NET.Models
             }
 
             var priceModel = await _context.Prices
+                .Include(p => p.Barber)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (priceModel == null)
             {

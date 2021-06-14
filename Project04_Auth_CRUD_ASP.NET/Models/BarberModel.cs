@@ -12,5 +12,7 @@ namespace Project04_Auth_CRUD_ASP.NET.Models
         
         [Required]
         public string Name { get; set; }
+
+        public List<PriceModel> Prices { get; set; }
     }
 }

@@ -15,5 +15,8 @@ namespace Project04_Auth_CRUD_ASP.NET.Models
 
         [Required]
         public string Time { get; set; }
+
+        public BarberModel Barber { get; set; }
+        public Guid BarberId { get; set; }
     }
 }
