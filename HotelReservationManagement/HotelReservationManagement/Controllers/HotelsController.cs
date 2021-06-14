@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace HotelReservationManagement.Controllers
 {
-    [AllowAnonymous]
+    
     public class HotelsController : Controller
     {
         private readonly ApplicationDbContext _db;
