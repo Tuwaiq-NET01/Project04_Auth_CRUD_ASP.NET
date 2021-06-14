@@ -17,6 +17,7 @@
             <th scope="col">Availabe</th>
             <th scope="col">Author Name</th>
             <th scope="col">Publisher Name</th>
+            <th scope="col">User</th>
             <th scope="col"></th>
             <th scope="col"></th>
         </tr>
@@ -37,6 +38,7 @@
             <td>@author[index++].Name</td>
 
             <td>@publisher[indexP++].Name</td>
+            <td></td>
 
             <td> <a asp-controller="Book" asp-action="Details" asp-route-id="@book.Id" class="btn btn-primary">Show</a></td>
 

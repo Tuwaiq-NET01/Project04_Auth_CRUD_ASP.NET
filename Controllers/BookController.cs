@@ -18,11 +18,6 @@ namespace MVC_Final.Controllers
             _db = context;
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
-
         public IActionResult Book()
         {
             var books = _db.Books.ToList();
@@ -43,12 +38,18 @@ namespace MVC_Final.Controllers
         public IActionResult Details(int id)
         {
             var book = _db.Books.ToList().Find(B => B.Id == id);
+            var author = _db.Authors.ToList();
+            var publisher = _db.Publishers.ToList();
+            var user = _db.Users.ToList();
 
             if (book == null)
             {
                 return Content("ii");
             }
 
+            ViewData["user"] = user;
+            ViewData["publisher"] = publisher;
+            ViewData["author"] = author;
             ViewData["books"] = book;
             return View(book);
         }
@@ -56,13 +57,16 @@ namespace MVC_Final.Controllers
         //Get - path: Book/Create
         public IActionResult Create()
         {
+            var authorId = _db.Books.ToList();
+            ViewData["books"] = authorId;
             return View();
         }
 
         //Post - path: Book/Create
         [HttpPost]
-        public IActionResult Create([Bind("Title", "Availabe", "Price", "AuthorId", "PublisherId")] Book bookItem) // Bind with product model
+        public IActionResult Create([Bind("Title", "Availabe", "Price", "AuthorId", "PublisherId", "UserId")] Book bookItem) // Bind with product model
         {
+            
             if (ModelState.IsValid)// check the state of the model
             {
                 _db.Books.Add(bookItem);

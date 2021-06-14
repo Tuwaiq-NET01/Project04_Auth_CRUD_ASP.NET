@@ -22,9 +22,9 @@ namespace MVC_Final.Controllers
         public IActionResult Publisher()
         {
             var publisher = _db.Publishers.ToList();
-            //var books = _db.Books.Include(book => book.PIdNavigation).ThenInclude(p => p.Name).Include(book => book.Title).ToList();
+            var books = _db.Books.ToList();
 
-            //ViewData["books"] = books;
+            ViewData["books"] = books;
             ViewData["publishers"] = publisher;
             return View();
         }

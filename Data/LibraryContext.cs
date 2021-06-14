@@ -19,6 +19,7 @@ namespace MVC_Final.Data
         public DbSet<Author> Authors { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Publisher> Publishers { get; set; }
+        public DbSet<User> users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -32,6 +33,11 @@ namespace MVC_Final.Data
                 .HasMany(p => p.Books)
                 .WithOne(b => b.Publisher)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<User>()
+                .HasMany(b => b.Books)
+                .WithOne(u => u.User)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

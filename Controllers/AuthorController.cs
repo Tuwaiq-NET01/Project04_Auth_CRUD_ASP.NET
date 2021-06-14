@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using MVC_Final.Data;
 using MVC_Final.Models;
 using System;
@@ -25,8 +26,9 @@ namespace MVC_Final.Controllers
         public IActionResult Author()
         {
             var Authors = _db.Authors.ToList();
-
+            var Books = _db.Books.ToList();
             ViewData["authors"] = Authors;
+            ViewData["books"]= Books;
             return View();
         }
 

@@ -29,7 +29,18 @@
 
                 <td> @publisher.Address</td>
 
-                <td> @publisher.Books</td>
+                <td>
+                    <ul>
+                        @foreach (var b in books)
+                        {
+                            if (publisher.Id == b.PublisherId)
+                            {
+                                <li>@b.Title</li>
+                            }
+
+                        }
+                    </ul>
+                </td>
 
                 <td> <a asp-controller="Publisher" asp-action="Details" asp-route-id="@publisher.Id" class="btn btn-primary">Show</a></td>
 

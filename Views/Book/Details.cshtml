@@ -1,5 +1,8 @@
 ﻿@{
     var book = (Book)ViewData["books"];
+    var author = (List<Author>)ViewData["author"];
+    var publisher = (List<Publisher>)ViewData["publisher"];
+    var user = (List<User>)ViewData["user"];
 }
 
 <div class=" text-center">
@@ -8,6 +11,33 @@
         <p class="card-text"><span>Book Id: </span> @book.Id</p>
         <p class="card-text"><span>Price: </span> @book.Price</p>
         <p class="card-text"><span>Available: </span> @book.Availabe</p>
+        @foreach (var a in author)
+        {
+            if (a.Id == book.AuthorId)
+            {
+                <p class="card-text"><span>Author: </span> @a.Name</p>
+
+            }
+        }
+
+        @foreach (var p in publisher)
+        {
+            if (p.Id == book.PublisherId)
+            {
+                <p class="card-text"><span>Publisher: </span> @p.Name</p>
+
+            }
+        }
+
+        @foreach (var u in user)
+        {
+            if (u.Id == book.UserId)
+            {
+                <p class="card-text"><span>Used By: </span> @u.Name</p>
+
+            }
+        }
+
         <a asp-controller="Book" asp-action="Edit" asp-route-id="@book.Id" class="btn btn-primary">Edit</a>
     </div>
     <div class="card-footer text-muted">

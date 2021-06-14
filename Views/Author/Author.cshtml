@@ -1,5 +1,7 @@
-﻿@{
+﻿@model List<Book>
+@{
     var author = (List<Author>)ViewData["authors"];
+    var books = (List<Book>)ViewData["books"];
 }
 
 
@@ -9,32 +11,46 @@
         <tr>
             <th scope="col">Author Id</th>
             <th scope="col">Name</th>
+            <th scope="col">Books List</th>
             <th scope="col"></th>
             <th scope="col"></th>
         </tr>
     </thead>
     <tbody>
-        
-            @foreach (var auth in author)
-            {
-        <tr>
 
-            <td> @auth.Id</td>
+        @foreach (var auth in author)
+        {
+            <tr>
 
-            <td> @auth.Name</td>
+                <td> @auth.Id</td>
 
-            <td> <a asp-controller="Author" asp-action="Details" asp-route-id="@auth.Id" class="btn btn-primary">Show</a></td>
+                <td> @auth.Name</td>
 
-            <td> <a asp-controller="Author" asp-action="Edit" asp-route-id="@auth.Id" class="btn btn-danger">Edit</a></td>
+                <td>
+                    <ul>
+                        @foreach (var b in books)
+                        {
+                            if (auth.Id == b.AuthorId)
+                            {
+                                <li>@b.Title</li>
+                            }
 
-            <td>
-                <form asp-controller="Author" asp-route-id="@auth.Id" asp-action="Delete">
-                    <input type="submit" value="Delete" class="btn btn-danger" />
-                </form>
-            </td>
-        </tr>
-                
-            }
+                        }
+                    </ul>
+                </td>
+
+                <td> <a asp-controller="Author" asp-action="Details" asp-route-id="@auth.Id" class="btn btn-primary">Show</a></td>
+
+                <td> <a asp-controller="Author" asp-action="Edit" asp-route-id="@auth.Id" class="btn btn-danger">Edit</a></td>
+
+                <td>
+                    <form asp-controller="Author" asp-route-id="@auth.Id" asp-action="Delete">
+                        <input type="submit" value="Delete" class="btn btn-danger" />
+                    </form>
+                </td>
+            </tr>
+
+        }
 
     </tbody>
 </table>
