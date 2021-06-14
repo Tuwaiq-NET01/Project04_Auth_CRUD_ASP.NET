@@ -1,0 +1,66 @@
+﻿@model ProductModel
+@{
+    string bgImage = "/pexels-lumn.jpg";
+    var product = (ProductModel) ViewBag.Product;
+}
+<div class="" style="background: url(@bgImage) no-repeat center center; background-size: cover; height: 800px">
+    <div class="text-center" style="height: 800px; background-color: rgba(0,0,0,0.5); ">
+        @await Html.PartialAsync("_PartialNavbar")
+        <div style=" height:100%; display:flex; flex-direction:column;justify-content: center">
+            <h1 class="display-4" style="color: white; font-size: 120px; font-weight: bold; font-family: Pattaya,serif;">Add Product</h1>
+            
+        </div>
+    </div>
+</div>
+
+<div class="Homebody container ">
+
+
+    <form asp-action="Edit" method="post">
+        
+      <div class="form-group">
+              <div>
+                      <input type="hidden" asp-for="Id" value="@product.Id">
+                  </div>
+              </div>
+    
+    
+        <div class="form-group">
+            <label asp-for="Name">Name</label>
+            <div>
+                <input asp-for="Name" value="@product.Name">
+            </div>
+                    <span asp-validation-for="Name" style="color: red"></span>
+    
+        </div>
+    
+    
+        <div class="form-group">
+            <label asp-for="img">image URL</label>
+            <div>
+                <input asp-for="img" value="@product.img">
+            </div>
+            <span asp-validation-for="img" style="color: red"></span>
+        </div>
+        
+        <div class="form-group">
+            <label asp-for="CategoryId">Category Id</label>
+            <div>
+                <input asp-for="CategoryId" value="@product.CategoryId">
+            </div>
+            <span asp-validation-for="CategoryId" style="color: red"></span>
+        </div>
+    
+        <div class="form-group">
+            <label asp-for="Price">Price</label>
+            <div>
+                <input asp-for="Price" value="@product.Price">
+            </div>
+            <span asp-validation-for="Price" style="color: red"></span>
+        </div>
+    
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary" value="submit">
+        </div>
+    </form>
+</div>

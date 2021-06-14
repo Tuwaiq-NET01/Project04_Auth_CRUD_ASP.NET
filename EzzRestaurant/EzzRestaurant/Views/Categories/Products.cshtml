@@ -1,0 +1,48 @@
+﻿@{
+
+    string bgImage = "/pexels-lumn.jpg";
+    var products = (List<ProductModel>) ViewData["Products"];
+    var category = (CategoryModel) ViewData["Category"];
+    ViewData["Title"] = category.Name;
+}
+
+<div class="" style="background: url(@category.Img) no-repeat center center; background-size: cover; height: 800px">
+    <div class="text-center" style="height: 800px; background-color: rgba(0,0,0,0.5); ">
+       @await Html.PartialAsync("_PartialNavbar")
+        <div style=" height:100%; display:flex; flex-direction:column;justify-content: center">
+            <h1 class="display-4" style="color: white; font-size: 120px; font-weight: bold; font-family: Pattaya,serif;">@category.Name</h1>
+            
+        </div>
+    </div>
+</div>
+
+<div class="Homebody container ">
+    
+    @if (products.Count != 0)
+    {
+        <div class="row">
+            @foreach (var product in products)
+            {
+                <div class="col-4 ">
+
+                    <div class="category-card box-shadow" style="background-image: url(@product.img);">
+                        <div class="category-body" style="display: flex ; flex-direction: column">
+
+                            <h4 style="color: white; font-weight: bold">@product.Name</h4>
+                            <h5 style="color: white; font-weight: bold">@product.Price$</h5>
+                        </div>
+                    </div>
+
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="text-center" style="margin-top: 50px">
+            <h1 style="font-size: 120px; font-weight: bold; font-family: Pattaya,serif;">404</h1>
+            <h4 style="font-size: 60px; font-family: Pattaya,serif;">Nothing here</h4>
+        </div>
+    }
+</div>
+

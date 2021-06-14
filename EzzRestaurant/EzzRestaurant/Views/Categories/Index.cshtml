@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Categories";
+    string bgImage = "/pexels-lumn.jpg";
+    var catiegories = (List<CategoryModel>) ViewData["Categories"];
+}
+
+<div class="" style="background: url(@bgImage) no-repeat center center; background-size: cover; height: 800px">
+    <div class="text-center" style="height: 800px; background-color: rgba(0,0,0,0.5); ">
+       @await Html.PartialAsync("_PartialNavbar")
+        <div style=" height:100%; display:flex; flex-direction:column;justify-content: center">
+            <h1 class="display-4" style="color: white; font-size: 120px; font-weight: bold; font-family: Pattaya,serif;">Categories</h1>
+            
+        </div>
+    </div>
+</div>
+
+<div class="Homebody container ">
+    <div class="row">
+    @foreach (var categorie in catiegories)
+    {
+        <div class="col-4 ">
+            <a href="/Categories/Products/@categorie.Id">
+            <div class="category-card box-shadow" style="background-image: url(@categorie.Img)">
+                <div class="category-body">
+                    <h4 style="color: white; font-weight: bold">@categorie.Name</h4>
+                </div>
+            </div>
+            </a>
+        </div>
+    }
+    </div>
+</div>
+
