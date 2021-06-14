@@ -1,0 +1,30 @@
+﻿
+@model Game
+@{
+
+}
+
+<h1>create a new game view</h1>
+
+
+
+<form asp-action="create" method="post" class="form-horizontal" autocomplete="off">
+    <div class="form-group">
+        <label asp-for="GameName">Name: </label>
+        <div>
+            <input asp-for="GameName" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="GameImage">Image: </label>
+        <div>
+            <input asp-for="GameImage" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="SUBMIT" />
+    </div>
+</form>
+

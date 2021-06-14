@@ -1,0 +1,14 @@
+﻿
+@{
+
+    var games = (List<Game>)ViewData["games"];
+}
+
+
+<h1>GAMES VIEW!</h1>
+<a asp-action="create" asp-controller="games" >Create new Game</a>
+
+@foreach(var game in games)
+            {
+                <h3>@game.GameName</h3> <a class="btn btn-primary" asp-action="details" asp-controller="games" asp-route-id="@game.Id"> CLICK </a>
+            }
