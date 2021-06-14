@@ -26,15 +26,63 @@ namespace FinalProject.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Content")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("UserId")
+                    b.Property<string>("Content")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ApplicationUserId");
+
                     b.ToTable("Drops");
+                });
+
+            modelBuilder.Entity("FinalProject.Models.DropTags", b =>
+                {
+                    b.Property<int>("DropId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TagId")
+                        .HasColumnType("int");
+
+                    b.HasKey("DropId", "TagId");
+
+                    b.HasIndex("TagId");
+
+                    b.ToTable("DropTags");
+                });
+
+            modelBuilder.Entity("FinalProject.Models.FavoriteDrop", b =>
+                {
+                    b.Property<int>("DropId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("DropId", "ApplicationUserId");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.ToTable("FavoriteDrops");
+                });
+
+            modelBuilder.Entity("FinalProject.Models.Tag", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Tags");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -100,6 +148,10 @@ namespace FinalProject.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Email")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -151,6 +203,8 @@ namespace FinalProject.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -233,6 +287,60 @@ namespace FinalProject.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("FinalProject.Models.ApplicationUser", b =>
+                {
+                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+
+                    b.HasDiscriminator().HasValue("ApplicationUser");
+                });
+
+            modelBuilder.Entity("FinalProject.Models.Drop", b =>
+                {
+                    b.HasOne("FinalProject.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("ApplicationUserId");
+
+                    b.Navigation("ApplicationUser");
+                });
+
+            modelBuilder.Entity("FinalProject.Models.DropTags", b =>
+                {
+                    b.HasOne("FinalProject.Models.Drop", "Drop")
+                        .WithMany("DropTags")
+                        .HasForeignKey("DropId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("FinalProject.Models.Tag", "Tag")
+                        .WithMany("DropTags")
+                        .HasForeignKey("TagId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Drop");
+
+                    b.Navigation("Tag");
+                });
+
+            modelBuilder.Entity("FinalProject.Models.FavoriteDrop", b =>
+                {
+                    b.HasOne("FinalProject.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany("FavoriteDrops")
+                        .HasForeignKey("ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("FinalProject.Models.Drop", "Drop")
+                        .WithMany("FavoriteDrops")
+                        .HasForeignKey("DropId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ApplicationUser");
+
+                    b.Navigation("Drop");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -282,6 +390,23 @@ namespace FinalProject.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("FinalProject.Models.Drop", b =>
+                {
+                    b.Navigation("DropTags");
+
+                    b.Navigation("FavoriteDrops");
+                });
+
+            modelBuilder.Entity("FinalProject.Models.Tag", b =>
+                {
+                    b.Navigation("DropTags");
+                });
+
+            modelBuilder.Entity("FinalProject.Models.ApplicationUser", b =>
+                {
+                    b.Navigation("FavoriteDrops");
                 });
 #pragma warning restore 612, 618
         }

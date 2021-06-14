@@ -1,6 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Identity
 
-@inject SignInManager<IdentityUser> SignInManager
+@inject SignInManager<ApplicationUser> SignInManager
 
 
 @{
@@ -30,16 +30,23 @@
         {
         <tr>
             <td>@row.Id</td>
-            <td>@row.UserId</td>
+            <td>@row.ApplicationUser.Email</td>
             <td>@(row.Content.Length > 50 ? (row.Content.Substring(0, 50)+"...") : row.Content)</td>
             @if (signedin)
             {
-                <td>
-                    <a asp-action="Edit" asp-route-id="@row.Id" class="btn btn-warning">Edit</a>
-                    <form method="post" class="form-inline" asp-controller="Drops" asp-action="Delete" asp-route-id="@row.Id">
-                        <button class="btn btn-danger" type="submit">Delete</button>
-                    </form>
-                </td>
+        <td>
+            <a asp-action="Edit" asp-route-id="@row.Id" class="btn btn-warning">Edit</a>
+            <a asp-action="View" asp-route-id="@row.Id" class="btn btn-primary">View</a>
+            <form method="post" class="form-inline" asp-controller="Favorites" asp-action="MarkAsFavorite">
+                <input type="hidden" name="userid" value="@row.ApplicationUserId"/>
+                <input type="hidden" name="dropid" value="@row.Id"/>
+
+                <button class="btn btn-primary" type="submit">Add To Favorite</button>
+            </form>
+            <form method="post" class="form-inline" asp-controller="Drops" asp-action="Delete" asp-route-id="@row.Id">
+                <button class="btn btn-danger" type="submit">Delete</button>
+            </form>
+        </td>
             }
         </tr>
         }

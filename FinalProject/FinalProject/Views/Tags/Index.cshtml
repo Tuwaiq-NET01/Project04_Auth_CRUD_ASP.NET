@@ -1,0 +1,32 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<ApplicationUser> SignInManager
+
+
+@{
+    var records = (List<Tag>)ViewData["Records"];
+    var signedin = SignInManager.IsSignedIn(User);
+}
+
+@if (signedin)
+{
+    <a class="btn btn-primary" asp-controller="Tags" asp-action="Create">Add New</a>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>Title</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var row in records)
+        {
+            <tr>
+                <td>@row.Id</td>
+                <td>@row.Title</td>
+            </tr>
+        }
+    </tbody>
+</table>

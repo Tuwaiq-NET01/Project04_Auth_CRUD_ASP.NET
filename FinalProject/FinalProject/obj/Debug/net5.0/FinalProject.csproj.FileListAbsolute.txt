@@ -391,3 +391,17 @@ C:\Users\user\Desktop\final-project\Project04_Auth_CRUD_ASP.NET\FinalProject\Fin
 C:\Users\user\Desktop\final-project\Project04_Auth_CRUD_ASP.NET\FinalProject\FinalProject\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
 C:\Users\user\Desktop\final-project\Project04_Auth_CRUD_ASP.NET\FinalProject\FinalProject\obj\Debug\net5.0\Razor\Views\Drops\Create.cshtml.g.cs
 C:\Users\user\Desktop\final-project\Project04_Auth_CRUD_ASP.NET\FinalProject\FinalProject\obj\Debug\net5.0\Razor\Views\Drops\Index.cshtml.g.cs
+C:\Users\user\Desktop\final-project\Project04_Auth_CRUD_ASP.NET\FinalProject\FinalProject\bin\Debug\net5.0\EntityFramework.SqlServer.dll
+C:\Users\user\Desktop\final-project\Project04_Auth_CRUD_ASP.NET\FinalProject\FinalProject\bin\Debug\net5.0\EntityFramework.dll
+C:\Users\user\Desktop\final-project\Project04_Auth_CRUD_ASP.NET\FinalProject\FinalProject\bin\Debug\net5.0\System.CodeDom.dll
+C:\Users\user\Desktop\final-project\Project04_Auth_CRUD_ASP.NET\FinalProject\FinalProject\bin\Debug\net5.0\System.Data.SqlClient.dll
+C:\Users\user\Desktop\final-project\Project04_Auth_CRUD_ASP.NET\FinalProject\FinalProject\bin\Debug\net5.0\runtimes\win-arm64\native\sni.dll
+C:\Users\user\Desktop\final-project\Project04_Auth_CRUD_ASP.NET\FinalProject\FinalProject\bin\Debug\net5.0\runtimes\win-x64\native\sni.dll
+C:\Users\user\Desktop\final-project\Project04_Auth_CRUD_ASP.NET\FinalProject\FinalProject\bin\Debug\net5.0\runtimes\win-x86\native\sni.dll
+C:\Users\user\Desktop\final-project\Project04_Auth_CRUD_ASP.NET\FinalProject\FinalProject\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\user\Desktop\final-project\Project04_Auth_CRUD_ASP.NET\FinalProject\FinalProject\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\user\Desktop\final-project\Project04_Auth_CRUD_ASP.NET\FinalProject\FinalProject\obj\Debug\net5.0\Razor\Views\Drops\Edit.cshtml.g.cs
+C:\Users\user\Desktop\final-project\Project04_Auth_CRUD_ASP.NET\FinalProject\FinalProject\obj\Debug\net5.0\Razor\Views\Drops\View.cshtml.g.cs
+C:\Users\user\Desktop\final-project\Project04_Auth_CRUD_ASP.NET\FinalProject\FinalProject\obj\Debug\net5.0\Razor\Views\Tags\Index.cshtml.g.cs
+C:\Users\user\Desktop\final-project\Project04_Auth_CRUD_ASP.NET\FinalProject\FinalProject\obj\Debug\net5.0\Razor\Views\Tags\Create.cshtml.g.cs
+C:\Users\user\Desktop\final-project\Project04_Auth_CRUD_ASP.NET\FinalProject\FinalProject\obj\Debug\net5.0\Razor\Views\Favorites\Index.cshtml.g.cs

@@ -12,5 +12,7 @@ namespace FinalProject.Models
 
         [Required]
         public string Content { get; set; }
+
+        public ApplicationUser User { get; set; }
     }
 }

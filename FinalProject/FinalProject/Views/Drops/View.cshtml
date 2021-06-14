@@ -1,0 +1,20 @@
+﻿@model DropViewModel
+
+<h1 class="text-info">View Drop</h1>
+<form role="form">
+    <h4>View Drop</h4>
+    <hr />
+    <div class="form-group">
+        <label asp-for="Content" class="col-md-2"></label>
+        <div class="col-md-10">
+            @*<input asp-for="Content" class="form-control" />*@
+            <textarea asp-for="Content" class="form-control" disabled></textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-2">
+            <button asp-controller="Drops" asp-action="Index" class="btn btn-success form-control">Back</button>
+        </div>
+    </div>
+</form>

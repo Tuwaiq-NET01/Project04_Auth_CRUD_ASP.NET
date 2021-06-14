@@ -1,0 +1,28 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<ApplicationUser> SignInManager
+
+
+@{
+    var records = (List<FavoriteDrop>)ViewData["Records"];
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Drop Id</td>
+            <td>User Id</td>
+            @*<td>User Email</td>*@
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var row in records)
+        {
+            <tr>
+                <td>@row.DropId</td>
+                <td>@row.ApplicationUserId</td>
+                @*<td>@row.ApplicationUser.Email</td>*@
+            </tr>
+        }
+    </tbody>
+</table>
