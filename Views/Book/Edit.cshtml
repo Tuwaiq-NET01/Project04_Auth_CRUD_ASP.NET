@@ -16,6 +16,10 @@
     <div class="form-group">
         @Html.CheckBoxFor(m => m.Availabe)
     </div>
+    <label asp-for="AuthorId">Author Id: </label>
+    <div class="form-group">
+        <input asp-for="AuthorId" />
+    </div>
     <div class="form-group">
         <input type="submit" class="btn btn-primary" />
     </div>

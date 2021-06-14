@@ -25,10 +25,18 @@ namespace MVC_Final.Controllers
 
         public IActionResult Book()
         {
-           // var books = _db.Books.Include(b => b.Author).ToList();
-            var books = _db.Books.Include(b => b.Author).ThenInclude(a => a.Name).ToList();
+            var books = _db.Books.ToList();
+            var authors = new List<Author>();
+            var publishers = new List<Publisher>();
+            foreach(var book in books)
+            {
+                authors.Add(_db.Authors.Find(book.AuthorId));
+                publishers.Add(_db.Publishers.Find(book.PublisherId));
+            }
 
             ViewData["books"] = books;
+            ViewData["authors"] = authors;
+            ViewData["publishers"] = publishers;
             return View();
         }
 
@@ -53,7 +61,7 @@ namespace MVC_Final.Controllers
 
         //Post - path: Book/Create
         [HttpPost]
-        public IActionResult Create([Bind("Title", "Availabe", "Price")] Book bookItem) // Bind with product model
+        public IActionResult Create([Bind("Title", "Availabe", "Price", "AuthorId", "PublisherId")] Book bookItem) // Bind with product model
         {
             if (ModelState.IsValid)// check the state of the model
             {
@@ -76,7 +84,7 @@ namespace MVC_Final.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(int id, [Bind("Title", "Availabe", "Price")] Book bookItem)
+        public IActionResult Edit(int id, [Bind("Title", "Availabe", "Price", "AuthorId")] Book bookItem)
         {
             var Book = _db.Books.ToList().Find(p => p.Id == id);
             Book.Title = bookItem.Title;

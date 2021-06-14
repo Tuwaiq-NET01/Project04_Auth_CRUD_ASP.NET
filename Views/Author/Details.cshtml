@@ -1,0 +1,14 @@
+﻿@{
+    var author = (Author)ViewData["authors"];
+}
+
+<div class=" text-center">
+    <div class="card-body">
+        <p class="card-text"><span>Author Id: </span> @author.Id</p>
+        <p class="card-text"><span>Author Name: </span> @author.Name</p>
+        <a asp-controller="Author" asp-action="Edit" asp-route-id="@author.Id" class="btn btn-primary">Edit</a>
+    </div>
+    <div class="card-footer text-muted">
+        2 days ago
+    </div>
+</div>

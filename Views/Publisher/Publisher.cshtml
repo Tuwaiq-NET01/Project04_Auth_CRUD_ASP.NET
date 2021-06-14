@@ -1,0 +1,50 @@
+﻿@{
+    var publishers = (List<Publisher>)ViewData["publishers"];
+    var books = (List<Book>)ViewData["books"];
+}
+
+
+
+<h1 class="text-center">Publisher List</h1>
+<table class="table text-white">
+    <thead>
+        <tr>
+            <th scope="col">Publisher Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">Books List</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var publisher in publishers)
+        {
+            <tr>
+
+                <td> @publisher.Id</td>
+
+                <td> @publisher.Name</td>
+
+                <td> @publisher.Address</td>
+
+                <td> @publisher.Books</td>
+
+                <td> <a asp-controller="Publisher" asp-action="Details" asp-route-id="@publisher.Id" class="btn btn-primary">Show</a></td>
+
+                <td> <a asp-controller="Publisher" asp-action="Edit" asp-route-id="@publisher.Id" class="btn btn-danger">Edit</a></td>
+
+                <td>
+                    <form asp-controller="Publisher" asp-route-id="@publisher.Id" asp-action="Delete">
+                        <input type="submit" value="Delete" class="btn btn-danger" />
+                    </form>
+                </td>
+            </tr>
+
+        }
+
+    </tbody>
+</table>
+<a asp-controller="Publisher" asp-action="Create" class="btn btn-success">Add Publisher</a>
+

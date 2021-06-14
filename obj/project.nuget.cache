@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "LN2r2pccgn5jWh1TTZcHZF/h2pn/ZeZx7nRnexTOf+xWlde1lRsI7P+4/HeKSd5ZBDfEDUKSp+8rVvs8YMAwkA==",
+  "dgSpecHash": "1vXlfzgpH06+Hzg3q62dYHUoqbE/XQlruur0lqawqV56nvoJMQ6/vSv+EsvLTRWjfxt3y9a1Q9dvF31bqfcz/w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Rawabe\\source\\repos\\MVC-Final\\MVC-Final.csproj",
+  "projectFilePath": "C:\\Users\\Rawabe\\source\\repos\\MVC-Final\\Project04_Auth_CRUD_ASP.NET\\MVC-Final.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Rawabe\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Rawabe\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

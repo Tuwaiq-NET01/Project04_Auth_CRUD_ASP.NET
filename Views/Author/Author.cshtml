@@ -1,0 +1,43 @@
+﻿@{
+    var author = (List<Author>)ViewData["authors"];
+}
+
+
+<h1 class="text-center">Authors List</h1>
+<table class="table text-white">
+    <thead>
+        <tr>
+            <th scope="col">Author Id</th>
+            <th scope="col">Name</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        
+            @foreach (var auth in author)
+            {
+        <tr>
+
+            <td> @auth.Id</td>
+
+            <td> @auth.Name</td>
+
+            <td> <a asp-controller="Author" asp-action="Details" asp-route-id="@auth.Id" class="btn btn-primary">Show</a></td>
+
+            <td> <a asp-controller="Author" asp-action="Edit" asp-route-id="@auth.Id" class="btn btn-danger">Edit</a></td>
+
+            <td>
+                <form asp-controller="Author" asp-route-id="@auth.Id" asp-action="Delete">
+                    <input type="submit" value="Delete" class="btn btn-danger" />
+                </form>
+            </td>
+        </tr>
+                
+            }
+
+    </tbody>
+</table>
+
+<a asp-controller="Author" asp-action="Create" class="btn btn-success">Add Author</a>
+

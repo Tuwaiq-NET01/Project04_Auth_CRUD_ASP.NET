@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVC_Final.Migrations
 {
     [DbContext(typeof(LibraryContext))]
-    [Migration("20210613153803_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20210614085837_AddPublisher")]
+    partial class AddPublisher
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -43,26 +43,46 @@ namespace MVC_Final.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("AuthorId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("AuthorId1")
+                    b.Property<int>("AuthorId")
                         .HasColumnType("int");
 
                     b.Property<bool>("Availabe")
                         .HasColumnType("bit");
 
                     b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(5,3)");
+
+                    b.Property<int?>("PublisherId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AuthorId1");
+                    b.HasIndex("AuthorId");
+
+                    b.HasIndex("PublisherId");
 
                     b.ToTable("Books");
+                });
+
+            modelBuilder.Entity("MVC_Final.Models.Publisher", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Publishers");
                 });
 
             modelBuilder.Entity("MVC_Final.Models.User", b =>
@@ -87,12 +107,23 @@ namespace MVC_Final.Migrations
                 {
                     b.HasOne("MVC_Final.Models.Author", "Author")
                         .WithMany("Books")
-                        .HasForeignKey("AuthorId1");
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MVC_Final.Models.Publisher", null)
+                        .WithMany("Books")
+                        .HasForeignKey("PublisherId");
 
                     b.Navigation("Author");
                 });
 
             modelBuilder.Entity("MVC_Final.Models.Author", b =>
+                {
+                    b.Navigation("Books");
+                });
+
+            modelBuilder.Entity("MVC_Final.Models.Publisher", b =>
                 {
                     b.Navigation("Books");
                 });

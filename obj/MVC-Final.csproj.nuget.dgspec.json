@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Rawabe\\source\\repos\\MVC-Final\\MVC-Final.csproj": {}
+    "C:\\Users\\Rawabe\\source\\repos\\MVC-Final\\Project04_Auth_CRUD_ASP.NET\\MVC-Final.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Rawabe\\source\\repos\\MVC-Final\\MVC-Final.csproj": {
+    "C:\\Users\\Rawabe\\source\\repos\\MVC-Final\\Project04_Auth_CRUD_ASP.NET\\MVC-Final.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Rawabe\\source\\repos\\MVC-Final\\MVC-Final.csproj",
+        "projectUniqueName": "C:\\Users\\Rawabe\\source\\repos\\MVC-Final\\Project04_Auth_CRUD_ASP.NET\\MVC-Final.csproj",
         "projectName": "MVC-Final",
-        "projectPath": "C:\\Users\\Rawabe\\source\\repos\\MVC-Final\\MVC-Final.csproj",
+        "projectPath": "C:\\Users\\Rawabe\\source\\repos\\MVC-Final\\Project04_Auth_CRUD_ASP.NET\\MVC-Final.csproj",
         "packagesPath": "C:\\Users\\Rawabe\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Rawabe\\source\\repos\\MVC-Final\\obj\\",
+        "outputPath": "C:\\Users\\Rawabe\\source\\repos\\MVC-Final\\Project04_Auth_CRUD_ASP.NET\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Rawabe\\AppData\\Roaming\\NuGet\\NuGet.Config",
