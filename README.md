@@ -30,7 +30,9 @@
         - علاقة one-to-many
         - علاقة many-to-many
 - تطبيق Authentication 
-- قم بتطبيق Unit Testing على مشروعك
+- قم بتطبيق (اختبار على الاقل One Action Methods لكل Controller
+
+) Unit Testing على مشروعك
     
 
 
