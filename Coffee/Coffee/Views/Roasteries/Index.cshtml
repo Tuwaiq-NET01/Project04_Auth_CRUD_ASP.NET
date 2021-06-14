@@ -1,0 +1,29 @@
+﻿
+@{
+    var Roasteries = (List<Roastery>)ViewData["Roasteries"];
+
+}
+<h1 style="color:gray;margin-top:200px; margin-left:400px">Coffee Roasteries</h1>
+
+
+@foreach (var roaster in Roasteries)
+{
+
+    <div class="list-inline-item mr-3 ml-5 mb-5 mt-2" style="margin-top:80px">
+        <div class="card" style="width: 18rem;">
+            <img src="@roaster.Image" class="card-img-top" height="150" width="30" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">
+                    @roaster.Name
+                </h5>
+                <h5 class="card-title">
+                    @roaster.Location
+                </h5>
+                <h5 class="card-title">
+
+                    @roaster.Rate
+                </h5>
+            </div>
+        </div>
+    </div>
+}

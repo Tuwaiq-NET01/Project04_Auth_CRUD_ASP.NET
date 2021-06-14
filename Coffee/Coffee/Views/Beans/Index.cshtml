@@ -1,0 +1,29 @@
+﻿
+@{
+    var Beans = (List<Bean>)ViewData["Beans"];
+
+}
+<h1 style="color:gray;margin-top:200px; margin-left:400px">Coffee Beans</h1>
+
+
+@foreach (var bean in Beans)
+{
+
+    <div class="list-inline-item mr-3 ml-5 mb-5 mt-2" style="margin-top:80px">
+        <div class="card" style="width: 18rem;">
+           <img src="@bean.Image" class="card-img-top" height="200" width="40" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">
+                   @bean.Name
+                </h5>
+                <h5 class="card-title">
+                     @bean.Type
+                </h5>
+                <h5 class="card-title">
+
+                    @bean.Country
+                </h5>
+            </div>
+        </div>
+    </div>
+}
