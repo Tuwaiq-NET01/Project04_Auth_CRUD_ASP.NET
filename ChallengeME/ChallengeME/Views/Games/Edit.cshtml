@@ -1,0 +1,31 @@
+﻿@model Game 
+
+@{
+    var game = (Game)ViewData["game"];
+}
+
+
+
+<h1>EDIT VIEW!! </h1>
+
+
+
+<form asp-action="edit" asp-route-id="@game.Id" method="post" class="form-horizontal">
+    <div class="form-group">
+        <label asp-for="GameName">Name: </label>
+        <div>
+            <input asp-for="GameName" value="@game.GameName" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="GameImage">Description: </label>
+        <div>
+            <input asp-for="GameImage" value="@game.GameImage" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" class="btn btn-warning" value="UPDATE" />
+    </div>
+</form>

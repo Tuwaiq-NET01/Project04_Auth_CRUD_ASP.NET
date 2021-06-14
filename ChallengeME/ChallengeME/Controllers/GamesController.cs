@@ -30,8 +30,23 @@ namespace ChallengeME.Controllers
 
 
         // GET: games/details/5
+        [AllowAnonymous]
         public IActionResult Details(int? id)
         {
+            try
+            {
+            string userid = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var user = _context.Users.FirstOrDefault(user => user.Id == userid);
+                ViewData["id"] = user.Id;
+
+
+            }
+            catch (NullReferenceException e)
+            {
+                ViewData["id"] = null;
+            }
+
+
             if (id == null)
             {
                 return NotFound();
@@ -44,6 +59,7 @@ namespace ChallengeME.Controllers
             {
                 return NotFound();
             }
+
             ViewData["game"] = game;
             return View();
         }
@@ -65,7 +81,7 @@ namespace ChallengeME.Controllers
 
             if (user == null)
             {
-                return View("fof");
+                return Content("NOT FOUND!");
             }
 
             game.User_Id = user.Id;
@@ -79,6 +95,71 @@ namespace ChallengeME.Controllers
             return View(game);
 
         }
+
+
+
+
+
+
+
+
+        //GET: /games/edit/5
+        [Authorize]
+        public IActionResult Edit(int? id)
+        {
+            var game = _context.Games.ToList().Find(p => p.Id== id);
+            if (id == null || game == null)
+            {
+                return NotFound();
+            }
+
+            ViewData["game"] = game;
+
+            return View();
+        }
+
+        [Authorize]
+        [HttpPost]
+        public IActionResult Edit(int id, [Bind("GameName", "GameImage")] Game game)
+        {
+
+            var dbgame = _context.Games.ToList().Find(p => p.Id == id);
+            dbgame.GameName = game.GameName;
+            dbgame.GameImage= game.GameImage;
+
+            _context.Games.Update(dbgame);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+
+
+
+
+
+
+
+
+        //POST: /products/delete/id  
+        [Authorize]
+        [HttpPost]
+        public IActionResult Delete(int? id)
+        {
+            var game = _context.Games.ToList().FirstOrDefault(p => p.Id== id);
+
+            if (id == null || game == null)
+            {
+                return NotFound();
+            }
+
+
+            _context.Games.Remove(game);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+
 
 
 

@@ -87,3 +87,4 @@ D:\Tuwaiq\dotNET\projects\Project04_Auth_CRUD_ASP.NET\ChallengeME\ChallengeME\ob
 D:\Tuwaiq\dotNET\projects\Project04_Auth_CRUD_ASP.NET\ChallengeME\ChallengeME\obj\Debug\net5.0\Razor\Views\Games\Details.cshtml.g.cs
 D:\Tuwaiq\dotNET\projects\Project04_Auth_CRUD_ASP.NET\ChallengeME\ChallengeME\obj\Debug\net5.0\Razor\Views\Games\Create.cshtml.g.cs
 D:\Tuwaiq\dotNET\projects\Project04_Auth_CRUD_ASP.NET\ChallengeME\ChallengeME\obj\Debug\net5.0\Razor\Views\Shared\fof.cshtml.g.cs
+D:\Tuwaiq\dotNET\projects\Project04_Auth_CRUD_ASP.NET\ChallengeME\ChallengeME\obj\Debug\net5.0\Razor\Views\Games\Edit.cshtml.g.cs
