@@ -166,3 +166,7 @@ C:\Users\SAFCSP\Desktop\dotNetBootcamp\AspDotNet\Proj\Project04_Auth_CRUD_ASP.NE
 C:\Users\SAFCSP\Desktop\dotNetBootcamp\AspDotNet\Proj\Project04_Auth_CRUD_ASP.NET\Keraa\Keraa\obj\Debug\net5.0\ref\Keraa.dll
 C:\Users\SAFCSP\Desktop\dotNetBootcamp\AspDotNet\Proj\Project04_Auth_CRUD_ASP.NET\Keraa\Keraa\obj\Debug\net5.0\Keraa.pdb
 C:\Users\SAFCSP\Desktop\dotNetBootcamp\AspDotNet\Proj\Project04_Auth_CRUD_ASP.NET\Keraa\Keraa\obj\Debug\net5.0\Keraa.genruntimeconfig.cache
+C:\Users\SAFCSP\Desktop\dotNetBootcamp\AspDotNet\Proj\Project04_Auth_CRUD_ASP.NET\Keraa\Keraa\obj\Debug\net5.0\Keraa.csproj.AssemblyReference.cache
+C:\Users\SAFCSP\Desktop\dotNetBootcamp\AspDotNet\Proj\Project04_Auth_CRUD_ASP.NET\Keraa\Keraa\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Manage\DeletePersonalData.cshtml.g.cs
+C:\Users\SAFCSP\Desktop\dotNetBootcamp\AspDotNet\Proj\Project04_Auth_CRUD_ASP.NET\Keraa\Keraa\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Manage\_ManageNav.cshtml.g.cs
+C:\Users\SAFCSP\Desktop\dotNetBootcamp\AspDotNet\Proj\Project04_Auth_CRUD_ASP.NET\Keraa\Keraa\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Manage\_ViewImports.cshtml.g.cs
