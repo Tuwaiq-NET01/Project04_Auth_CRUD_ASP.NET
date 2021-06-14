@@ -13,24 +13,25 @@
     }
 }
 
+<h1 class="display-4 mb-3"> @game.GameName </h1>
 
-<h1>DETAILS </h1>
-
-@game.GameName
-
-<br />
 @if (isUser)
 {
+    <div class="d-flex flex-row-reverse">
+
 
     <form method="post" asp-controller="games" asp-action="delete" asp-route-id="@game.Id">
 
-        <button type="submit" class="btn btn-danger">DELETE</button>
+        <button type="submit" class="btn btn-outline-danger ml-3 ">DELETE</button>
 
     </form>
 
-    <a role="button" class="btn btn-primary" asp-controller="games" asp-action="edit" asp-route-id="@game.Id">EDIT</a>
+    <a role="button" class="btn btn-outline-warning" asp-controller="games" asp-action="edit" asp-route-id="@game.Id">EDIT</a>
 
+    </div>
 }
+
+<hr />
 
 
 <h2>CHALLENGES:</h2>

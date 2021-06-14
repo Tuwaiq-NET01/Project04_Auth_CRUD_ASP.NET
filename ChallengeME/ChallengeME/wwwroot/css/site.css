@@ -92,6 +92,18 @@ hr {
     }
 
 
+.card-img-top {
+    filter: brightness(75%);
+}
+.myImg:hover {
+    filter: brightness(100%);
+}
+
+.card-title {
+    background-color: rgb(0 0 0 / 0.66);
+    border-radius: 15px
+}
+
 
 .card-body {
     box-shadow: 0 0 20px 7px rgba(0,0,0,0.1);
