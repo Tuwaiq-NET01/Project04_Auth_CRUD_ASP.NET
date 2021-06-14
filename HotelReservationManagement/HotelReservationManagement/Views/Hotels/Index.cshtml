@@ -1,0 +1,63 @@
+﻿@{
+    var Hotels = (List<HotelModel>)ViewData["Hotels"];
+
+}
+
+
+@*@foreach (var h in Hotels)
+    {
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="@h.HotelImage" alt="@h.HotelName">
+        <div class="card-title">@h.HotelName</div>
+        <div class="card-body">
+            <p class="card-text">City: @h.City | State: @h.State | ZipCode: @h.ZipCode  </p>
+            <p class="card-text">Phone Number : @h.PhoneNumber</p>
+        </div>
+        <button class="btn btn-primary"><a asp-controller="hotels" asp-action="Details" asp-route-id="@h.HotelId"/>Details</button>
+    </div>
+    }*@
+
+<h1>All Hotels</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            
+            <th scope="col">City</th>
+         
+            <th scope="col">Phone Number</th>
+
+            <th scope="col">Details</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var hotel in Hotels)
+        {
+            <tr>
+                <td scope="row">@hotel.HotelId</td>
+                <td scope="row">@hotel.HotelName</td>
+                <td scope="row">@hotel.City</td>
+              
+                <td scope="row">@hotel.PhoneNumber</td>
+
+                <td><button type="button" class="btn btn-dark"><a style="color:white" href="/Hotels/details/@hotel.HotelId">SHOW</a></button></td>
+                <td><a class="btn btn-primary" asp-controller="Hotels" asp-action="Edit" asp-route-id=@hotel.HotelId>Edit</a></td>
+                <td>
+                    <form method="post" asp-controller="Hotels" asp-action="Delete" asp-route-id="@hotel.HotelId">
+                        <input type="submit" value="Delete" class="btn btn-danger" />
+                    </form>
+
+                </td>
+
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a class="btn btn-primary" asp-controller="Hotels" asp-action="Create"> Add New Hotel</a>
