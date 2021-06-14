@@ -1,6 +1,8 @@
 ﻿
 @{
     var game = (Game)ViewData["game"];
+    var challenges = (List<Challenge>)ViewData["challenges"];
+
     var user = (string)ViewData["id"];
     bool isUser = false;
     if (game.User_Id == user)
@@ -12,7 +14,7 @@
 
 <h1>DETAILS </h1>
 
-@game.GameName 
+@game.GameName
 
 <br />
 @if (isUser)
@@ -26,6 +28,21 @@
 
     <a role="button" class="btn btn-primary" asp-controller="games" asp-action="edit" asp-route-id="@game.Id">EDIT</a>
 
+}
+
+
+<h2>CHALLENGES:</h2>
+
+@if (isUser)
+{
+    <a asp-action="create" asp-controller="challenges" asp-route-id="@game.Id">Create new challenge</a>
+}
+
+
+
+@foreach (var chlng in challenges)
+{
+    <a asp-controller="challenges" asp-action="details" asp-route-id="@chlng.Id">@chlng.Title</a>
 }
 
 

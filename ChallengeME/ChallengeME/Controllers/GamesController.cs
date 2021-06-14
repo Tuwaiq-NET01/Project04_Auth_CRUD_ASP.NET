@@ -39,13 +39,11 @@ namespace ChallengeME.Controllers
             var user = _context.Users.FirstOrDefault(user => user.Id == userid);
                 ViewData["id"] = user.Id;
 
-
             }
-            catch (NullReferenceException e)
+            catch (NullReferenceException)
             {
                 ViewData["id"] = null;
             }
-
 
             if (id == null)
             {
@@ -53,7 +51,10 @@ namespace ChallengeME.Controllers
             }
 
 
+
+
             var game = _context.Games.ToList().Find(m => m.Id == id);
+            var challenges = _context.Challenges.Where(i => i.GameId == game.Id).ToList();
 
             if (game == null)
             {
@@ -61,6 +62,7 @@ namespace ChallengeME.Controllers
             }
 
             ViewData["game"] = game;
+            ViewData["challenges"] = challenges;
             return View();
         }
 
