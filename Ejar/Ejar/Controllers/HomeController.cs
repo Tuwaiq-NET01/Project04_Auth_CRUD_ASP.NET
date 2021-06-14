@@ -1,4 +1,5 @@
-﻿using Ejar.Models;
+﻿using Ejar.Data;
+using Ejar.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -12,15 +13,29 @@ namespace Ejar.Controllers
 {
 	public class HomeController : Controller
 	{
-		private readonly ILogger<HomeController> _logger;
-
-		public HomeController(ILogger<HomeController> logger)
+		private readonly ApplicationDbContext _db;
+		public HomeController(ApplicationDbContext context)
 		{
-			_logger = logger;
+			_db = context;
+
 		}
 
+	
 		public IActionResult Index()
 		{
+			var Cars = _db.Car.ToList();
+			var Images = _db.Image.ToList();
+			foreach (var car in Cars)
+			{
+				foreach (var img in Images)
+				{
+					car.Images.Add(img);
+				}
+				//car.Images = (ICollection<ImageModel>)_db.Image.ToList().Find(c => c.CarId == car.Id);
+
+			}
+			ViewBag.Cars = Cars;
+			
 			return View();
 		}
 		[Authorize]

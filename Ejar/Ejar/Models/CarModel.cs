@@ -17,8 +17,9 @@ namespace Ejar.Models
 		public decimal DayPrice { get; set; }
 		public decimal HourPrice { get; set; }
 		public string Available { get; set; }
+		public Location Location { get; set; }
 
-		
+
 		[ForeignKey("ApplicationUser")]
 		public int UserId { get; set; }
 		public ApplicationUser ApplicationUser { get; set; }

@@ -4,14 +4,16 @@ using Ejar.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Ejar.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210614110003_CarTableRef")]
+    partial class CarTableRef
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -52,7 +54,7 @@ namespace Ejar.Migrations
                     b.HasIndex("UserId")
                         .IsUnique();
 
-                    b.ToTable("Account");
+                    b.ToTable("AccountModel");
                 });
 
             modelBuilder.Entity("Ejar.Models.ApplicationUser", b =>
@@ -185,7 +187,7 @@ namespace Ejar.Migrations
 
                     b.HasIndex("CarId");
 
-                    b.ToTable("Image");
+                    b.ToTable("ImageModel");
                 });
 
             modelBuilder.Entity("Ejar.Models.LicenseModel", b =>
@@ -215,7 +217,7 @@ namespace Ejar.Migrations
                     b.HasIndex("UserId")
                         .IsUnique();
 
-                    b.ToTable("License");
+                    b.ToTable("LicenseModel");
                 });
 
             modelBuilder.Entity("Ejar.Models.Location", b =>
@@ -270,7 +272,7 @@ namespace Ejar.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Trip");
+                    b.ToTable("TripModel");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<int>", b =>

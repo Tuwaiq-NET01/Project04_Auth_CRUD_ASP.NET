@@ -166,3 +166,4 @@ C:\Users\Turki\Desktop\Tuwaiq\Dotnet\Project04_Auth_CRUD_ASP.NET\Ejar\Ejar\obj\D
 C:\Users\Turki\Desktop\Tuwaiq\Dotnet\Project04_Auth_CRUD_ASP.NET\Ejar\Ejar\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\Turki\Desktop\Tuwaiq\Dotnet\Project04_Auth_CRUD_ASP.NET\Ejar\Ejar\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
 C:\Users\Turki\Desktop\Tuwaiq\Dotnet\Project04_Auth_CRUD_ASP.NET\Ejar\Ejar\obj\Debug\net5.0\Ejar.csproj.AssemblyReference.cache
+C:\Users\Turki\Desktop\Tuwaiq\Dotnet\Project04_Auth_CRUD_ASP.NET\Ejar\Ejar\obj\Debug\net5.0\Razor\Views\Car\Index.cshtml.g.cs

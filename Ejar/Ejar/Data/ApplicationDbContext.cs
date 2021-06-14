@@ -14,5 +14,15 @@ namespace Ejar.Data
 			: base(options)
 		{
 		}
+
+		//db references
+		public DbSet<CarModel> Car { get; set; }
+		public DbSet<ImageModel> Image { get; set; }
+		public DbSet<AccountModel> Account { get; set; }
+		public DbSet<ApplicationUser> User { get; set; }
+		public DbSet<LicenseModel> License { get; set; }
+		public DbSet<Location> Location { get; set; }
+		public DbSet<TripModel> Trip { get; set; }
+
 	}
 }

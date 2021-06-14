@@ -13,8 +13,8 @@ namespace Ejar.Models
 		public LicenseModel License { get; set; }
 		public ICollection<CarModel> Cars { get; set; }
 		public ICollection<TripModel> Trips { get; set; }
+		public Location Location { get; set; }
 
-	
 
 	}
 }
