@@ -1,0 +1,15 @@
+﻿@model TicketModel
+@{ 
+    var ticket = (TicketModel)ViewData["ticket"];
+}
+<h2>Edit ticket</h2>
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="ShowId" value="@ticket.ShowId" />
+    <input type="hidden" asp-for="Id" value="@ticket.Id" />
+    <input type="hidden" asp-for="UserId" value="@ticket.UserId" />
+    <div>
+        <label asp-for="Quantity">Quantity</label>
+        <input type="number" asp-for="Quantity" />
+    </div>
+    <input type="submit" value="Edit" />
+</form>

@@ -4,17 +4,24 @@
     var tickets = (List<TicketModel>)ViewData["tickets"];
     var shows = (List<ShowModel>)ViewData["shows"];
 }
-@{/*UserManager.GetUserId(User)*/}
 <div>
     <h3>Tickets</h3>
     <h5>@User.Identity.Name</h5>
-    
+
 </div>
-@foreach(var t in tickets)
-            {
-<div>
-    Day: <b>@shows.Find(x => x.Id == t.ShowId).Date.Day</b>
-    Performer:  <b>@shows.Find(x => x.Id == t.ShowId).PerformerId</b>
-    Quantity: <b>@t.Quantity</b>
-</div>
-            }
+@foreach (var t in tickets)
+{
+    if (t.UserId == UserManager.GetUserId(User))
+    {
+        <div>
+            Day: <b>@shows.Find(x => x.Id == t.ShowId).Date.Day</b>
+            Performer:  <b>@shows.Find(x => x.Id == t.ShowId).PerformerId</b>
+            Quantity: <b>@t.Quantity</b>
+            <a href="~/tickets/edit/@t.Id">Change Quantity</a>
+            <form asp-action="Delete" method="post" asp-route-id="@t.Id">
+                <input type="submit" value="Delete" />
+            </form>
+        </div>
+    }
+
+}

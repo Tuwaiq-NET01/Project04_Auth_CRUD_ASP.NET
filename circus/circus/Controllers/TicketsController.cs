@@ -49,5 +49,40 @@ namespace circus.Controllers
             }
             return Redirect("~/shows/");
         }
+        //GET - edit
+        public IActionResult Edit(int? id)
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                ViewData["ticket"] = _db.Tickets.ToList().Find(x => x.Id == id);
+                return View();
+            }
+            return Redirect("~/Identity/Account/Login");
+        }
+        //POST - edit
+        [HttpPost]
+        public IActionResult Edit([Bind("Id","ShowId","UserId","Quantity")]TicketModel ticket)
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                _db.Update(ticket);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return Redirect("~/Identity/Account/Login");
+        }
+        //POST - Delete
+        [HttpPost]
+        public IActionResult Delete(int? id)
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                var ticket = _db.Tickets.ToList().Find(x => x.Id == id);
+                _db.Remove(ticket);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return Redirect("~/Identity/Account/Login");
+        }
     }
 }

@@ -1,0 +1,13 @@
+﻿@{
+    var performers = (List<PerformerModel>)ViewData["performers"];
+    var venues = (List<VenueModel>)ViewData["venues"];
+}
+<h2>Gallery</h2>
+@foreach (var p in performers)
+{
+    <img src="@p.Image" />
+}
+@foreach (var v in venues)
+{
+    <img src="@v.Image" />
+}
