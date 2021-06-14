@@ -1,5 +1,10 @@
 # Project04_Auth_CRUD_ASP.NET
-
+_____________________________________________________________________________
+- ( -V :1 )
+- Ux ( https://xd.adobe.com/view/88423782-2f9b-4790-abca-513f8e8e7a4f-dd11/ )
+- ERD : 
+- ![Blank diagram (1)](https://user-images.githubusercontent.com/82523761/121971490-7e65ad00-cd81-11eb-9d60-0ab9e1a9311b.png)
+_____________________________________________________________________________
 <div dir="rtl" align="right">
 
 فكرة المشروع
@@ -14,18 +19,18 @@
 متطلبات المشروع
 
 
-- استخدام نمط MVC 
+- (Done) استخدام نمط MVC  
 - إنشاء على الأقل 4 من Controllers
-- إنشاء على الأقل 4 Model 
+-(Done)  إنشاء على الأقل 4 Model  
 - إنشاء على الأقل 6 Views
     - استخدام مكتبة Bootstrap مع Razor 
     - استخدام partial view للعناصر المتكررة في الواجهات
 - استخدام وظائف CRUD مع ASP.NET 
-- استخدام إطار عمل Entity Framework Core
-- استخدام CodeFirst Approach لإنشاء قاعدة البيانات
-- استخدام قاعدة بيانات MSSQL 
-    - ان تكون قاعدة البيانات متعددة الجداول
-    - يجب ان تتضمن قاعدة البيانات على الاقل احد العلاقات التالية:
+- (Done) استخدام إطار عمل Entity Framework Core (Done)
+- (Done) use CodeFirst Approach  لإنشاء قاعدة البيانات
+- (Done) استخدام قاعدة بيانات MSSQL 
+    - (Done) ان تكون قاعدة البيانات متعددة الجداول
+    - (Done)يجب ان تتضمن قاعدة البيانات على الاقل احد العلاقات التالية:
         - علاقة one-to-one
         - علاقة one-to-many
         - علاقة many-to-many
@@ -49,3 +54,4 @@
         -  AWS: https://aws.amazon.com/s3/?nc2=h_ql_prod_st_s3
     - حفظها  بالـLocal server 
 </div>
+
