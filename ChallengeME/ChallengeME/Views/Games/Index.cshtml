@@ -1,14 +1,45 @@
 ﻿
 @{
+    Layout = "_myLayout";
 
     var games = (List<Game>)ViewData["games"];
 }
 
 
-<h1>GAMES VIEW!</h1>
-<a asp-action="create" asp-controller="games" >Create new Game</a>
 
-@foreach(var game in games)
-            {
-                <h3>@game.GameName</h3> <a class="btn btn-primary" asp-action="details" asp-controller="games" asp-route-id="@game.Id"> CLICK </a>
-            }
+
+<h3 class="display-4 my-2">All Games</h3>
+
+<a asp-action="create" asp-controller="games">Create new Game</a>
+<hr />
+
+<div class="row">
+
+    @foreach (var game in games)
+    {
+
+        <div class="col-md-3 mb-5">
+
+            <div class="card bg-dark text-white ">
+
+                <img src=@game.GameImage
+                     class="card-img-top p-1"
+                     alt="game image"
+                     width="200px"
+                     height="250px" />
+
+                <div class="card-body">
+                    <h5 class="card-title">@game.GameName</h5>
+                    <b>
+
+                    </b>
+                    <div class="text-center mt-2">
+                        <a class="btn btn-primary" asp-action="details" asp-controller="games" asp-route-id="@game.Id"> CLICK </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    }
+</div>

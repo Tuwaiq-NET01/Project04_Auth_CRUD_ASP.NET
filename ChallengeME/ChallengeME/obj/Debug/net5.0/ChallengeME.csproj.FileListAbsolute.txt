@@ -91,5 +91,7 @@ D:\Tuwaiq\dotNET\projects\Project04_Auth_CRUD_ASP.NET\ChallengeME\ChallengeME\ob
 D:\Tuwaiq\dotNET\projects\Project04_Auth_CRUD_ASP.NET\ChallengeME\ChallengeME\obj\Debug\net5.0\Razor\Views\Challenges\Index.cshtml.g.cs
 D:\Tuwaiq\dotNET\projects\Project04_Auth_CRUD_ASP.NET\ChallengeME\ChallengeME\obj\Debug\net5.0\Razor\Views\Challenges\Create.cshtml.g.cs
 D:\Tuwaiq\dotNET\projects\Project04_Auth_CRUD_ASP.NET\ChallengeME\ChallengeME\obj\Debug\net5.0\Razor\Views\Challenges\Details.cshtml.g.cs
-D:\Tuwaiq\dotNET\projects\Project04_Auth_CRUD_ASP.NET\ChallengeME\ChallengeME\obj\Debug\net5.0\Razor\Views\Comments\Index.cshtml.g.cs
 D:\Tuwaiq\dotNET\projects\Project04_Auth_CRUD_ASP.NET\ChallengeME\ChallengeME\obj\Debug\net5.0\Razor\Views\Challenges\_CommentsPartial.cshtml.g.cs
+D:\Tuwaiq\dotNET\projects\Project04_Auth_CRUD_ASP.NET\ChallengeME\ChallengeME\obj\Debug\net5.0\Razor\Views\Home\About.cshtml.g.cs
+D:\Tuwaiq\dotNET\projects\Project04_Auth_CRUD_ASP.NET\ChallengeME\ChallengeME\obj\Debug\net5.0\Razor\Views\Shared\_myLayout.cshtml.g.cs
+D:\Tuwaiq\dotNET\projects\Project04_Auth_CRUD_ASP.NET\ChallengeME\ChallengeME\bin\Debug\net5.0\libman.json

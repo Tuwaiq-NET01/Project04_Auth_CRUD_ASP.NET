@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
+
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #4F424C; font-family: 'Russo One', cursive; font-size: 20px">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">ChallengeME</a>
+            <div class="collapse navbar-collapse ml-5" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link mr-2" aria-current="page" href="/"><i class="fas fa-home mr-1"></i>Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mr-2" aria-current="page" href="/games"><i class="fas fa-gamepad mr-1"></i> Games </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mr-2" href="/home/about"> <i class="fas fa-address-card mr-1"></i>About</a>
+                    </li>
+                </ul>
+
+
+
+            </div>
+            <form class="d-flex" asp-controller="games" asp-action="search">
+                <input class="form-control me-2" typeof="seach" name="txt" placeholder="e.g. Need For Speed" />
+                <button class="btn btn-info ml-2" typeof="submit">Search</button>
+            </form>
+
+            <partial name="_LoginPartial" />
+
+        </div>
+    </nav>
+
+    <br />
+
+    <div class="container">
+
+        @RenderBody()
+
+    </div>
+
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <footer class="footer mt-auto text-light py-3" style="background-color: #241e23">
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-10">
+
+                    <span>&copy; 2021 ChallengeME | Follow us on our social Media! </span>
+
+                </div>
+
+                <div class="col-2">
+                    <a class="soc-med" href="#">
+                        <i class="fab fa-twitter fa-2x pl-3"></i>
+                        <i class="fab fa-youtube fa-2x pl-3"></i>
+                        <i class="fab fa-instagram fa-2x pl-3"></i>
+                    </a>
+
+                </div>
+
+
+
+            </div>
+
+
+        </div>
+    </footer>
+
+
+</body>
+</html>
