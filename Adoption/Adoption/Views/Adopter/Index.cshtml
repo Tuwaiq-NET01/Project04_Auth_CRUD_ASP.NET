@@ -1,0 +1,26 @@
+﻿@{
+    var a = (List<AdopterModel>)ViewData["Adopters"];
+}
+@await Html.PartialAsync("_NavPartial")
+<div class="col-sm-6">
+    @foreach (var ad in a)
+    {
+
+        <div id="card" class="card bg-light box-shadow mr-5 mt-2" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Adopter: @ad.name</h5>
+                <h5 class="font-weight-bold">Details:</h5>
+                <p class="card-text"> phone: @ad.phone</p>
+                <p class="card-text align-content-center">  age: @ad.age</p>
+                <p class="card-text">  gender: @ad.gender</p>
+                <p class="card-text">  email: @ad.email</p>
+                <div>
+                    <a style="white-space: nowrap;" asp-controller="Adopter" asp-action="Edit" asp-route-id="@ad.id">Edit</a> |
+                    <form asp-controller="Adopter" asp-action="Delete" asp-route-id="@ad.id">
+                        <input type="submit" class="" value="Delete">
+                    </form>
+                </div>
+            </div>
+        </div>}
+</div>
+

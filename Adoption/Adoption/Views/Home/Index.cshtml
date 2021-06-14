@@ -1,0 +1,26 @@
+﻿@{ ViewData["Title"] = "Home Page"; }
+
+<div style="background: url(https://images.pexels.com/photos/3635550/pexels-photo-3635550.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260) no-repeat center center;
+       background-size : cover; height: 900px
+">
+    <div style="height:100%; background-color:rgba(0,0,0,0.4)">
+    @await Html.PartialAsync("_NavPartial")
+        <div class=" ">
+            <div class="text-center p-5 d-flex align-items-center justify-content-center" style="height:100%; width:100%">
+                @*<div style="margin: 0 auto !important;" class="">
+                <img src="https://www.fonts4free.net/includes/preview.php?fid=13857&fname=Rick%20and%20Morty&fsize=58&fcolor=ff99cc&text=kitty%20cat&fcase=Abc" class="img-fluid" />
+            </div>*@
+                @*<img class="img-fluid d-sm-block" src="http://www.arizonapetvet.com/blog/wp-content/uploads/2019/06/shutterstock_602702633-1024x351.jpg" alt="Card image cap">*@
+                <div class="p-5 text-center h-100 justify-content-center">
+                    <h1 style="color:white;">Kitty Cat</h1>
+                    <p style="color:white;" class="text-center">
+                        Planning to adopt a cat?
+                    </p>
+                    <a href="/Home/details"><button type="button" class="btn btn-info">Checklist </button></a>
+                    <a href="/Home/details"><button type="button" class="btn btn-info">FAQ </button></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

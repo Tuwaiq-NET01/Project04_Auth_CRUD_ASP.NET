@@ -1,0 +1,67 @@
+﻿
+<h1 style="font-family:'Times New Roman', Times, serif; margin-left:100px">Edit</h1>
+@{
+    var Owner = (OwnerModel)ViewData["owner"];
+}
+@model OwnerModel
+<div style="background: rgb(18 17 17 / 0.72); color: white;padding: 70px; font-family: 'Times New Roman', Times, serif">
+    <form asp-action="Edit" method="post" asp-route-id="@Owner.id" class="form-horizontal">
+
+        <div class=" form-group">
+            <label asp-for="id">Name</label>
+            <div>
+                <input asp-for="id" value="@Owner.id" disabled />
+            </div>
+        </div>
+
+        <div class=" form-group">
+            <label asp-for="name">Name</label>
+            <div>
+                <input asp-for="name" value="@Owner.name" />
+            </div>
+        </div>
+
+        <div class=" form-group">
+            <label asp-for="age">age</label>
+            <div>
+                <input asp-for="age" value="@Owner.age" />
+            </div>
+        </div>
+
+        <div class=" form-group">
+            <label asp-for="gender">gender</label>
+            <div>
+                <input asp-for="gender" value="@Owner.gender" />
+            </div>
+        </div>
+
+        <div class=" form-group">
+            <label asp-for="reason">Reason</label>
+            <div>
+                <input asp-for="reason" value="@Owner.reason" />
+            </div>
+        </div>
+
+        <div class=" form-group">
+            <label asp-for="image">Image</label>
+            <div>
+                <input asp-for="image" value="@Owner.image" />
+            </div>
+        </div>
+        <div class=" form-group">
+            <label asp-for="email">email</label>
+            <div>
+                <input asp-for="email" value="@Owner.email" />
+            </div>
+        </div>
+
+        <div class=" form-group">
+            <label asp-for="phone">phone</label>
+            <div>
+                <input asp-for="phone" value="@Owner.phone" />
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary" value="Submit" />
+        </div>
+    </form>
