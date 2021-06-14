@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Branches";
+    var Branches = (List<BranchModel>)ViewData["Branches"];
+
+}
+
+<h3>Branches</h3>
+<table class="table table-dark table-hover">
+    <thead>
+        <tr>
+            <td>Id </td>
+            <td> Name</td>
+            <td> Address</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var branch in Branches)
+        {
+            <tr>
+                <td>@branch.BranchId</td>
+                <td>@branch.Name</td>
+                <td>@branch.Address</td>
+
+
+            </tr>
+
+        }
+    </tbody>
+
+</table>
