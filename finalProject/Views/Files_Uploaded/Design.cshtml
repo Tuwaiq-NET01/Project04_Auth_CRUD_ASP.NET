@@ -1,0 +1,19 @@
+﻿@{ 
+    var Design = (CoursesModel)ViewData["Design"];
+}
+<div class="container">
+    <div class="row ">
+        <h1>Design Pattrens :</h1>
+    </div>
+    <div class="row">
+        @foreach (var DesignFile in Design.Files)
+        {
+            <div class="clo">
+                <div>
+                    <h3>@DesignFile.name</h3>
+                    <h3>@DesignFile.date</h3>
+                </div>
+            </div>
+        }
+    </div>
+</div>

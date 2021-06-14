@@ -1,0 +1,21 @@
+﻿@{
+    var Dotnet = (CoursesModel)ViewData["Dotnet"];
+    //Layout = "WebLayout";
+}
+<div class="container">
+
+    <div class="row ">
+        <h1>Dot Net :</h1>
+    </div>
+    <div class="row">
+        @foreach (var DotnetFile in Dotnet.Files)
+        {
+            <div class="clo">
+                <div>
+                    <h3>@DotnetFile.name</h3>
+                    <h3>@DotnetFile.date</h3>
+                </div>
+            </div>
+        }
+    </div>
+</div>

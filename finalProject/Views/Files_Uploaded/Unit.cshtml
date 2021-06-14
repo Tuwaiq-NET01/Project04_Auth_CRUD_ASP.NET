@@ -1,0 +1,22 @@
+﻿@{
+    var Unit = (CoursesModel)ViewData["Unit"];
+
+    //Layout = "WebLayout";
+}
+<div class="container">
+
+    <div class="row ">
+        <h1>Unit testing :</h1>
+    </div>
+    <div class="row">
+        @foreach (var UnitFile in Unit.Files)
+        {
+            <div class="clo">
+                <div>
+                    <h3>@UnitFile.name</h3>
+                    <h3>@UnitFile.date</h3>
+                </div>
+            </div>
+        }
+    </div>
+</div>
