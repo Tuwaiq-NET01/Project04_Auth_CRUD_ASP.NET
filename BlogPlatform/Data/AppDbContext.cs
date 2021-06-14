@@ -1,9 +1,10 @@
 using BlogPlatform.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace BlogPlatform.Data
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext<Person>
     {
 
         public AppDbContext(DbContextOptions<AppDbContext> options)
@@ -12,12 +13,12 @@ namespace BlogPlatform.Data
         }
 
         public DbSet<Article> Articles { get; set; }
-        public DbSet<User> Users { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<ArticleTag> ArticleTags { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<ArticleTag>()
                 .HasKey(at => new {at.ArticleId, at.TagId});
             
@@ -25,7 +26,7 @@ namespace BlogPlatform.Data
                 .HasOne(at => at.Article)
                 .WithMany(a => a.ArticleTags)
                 .HasForeignKey(at => at.ArticleId);
-            
+
             modelBuilder.Entity<ArticleTag>()
                 .HasOne(at => at.Tag)
                 .WithMany(t => t.ArticleTags)

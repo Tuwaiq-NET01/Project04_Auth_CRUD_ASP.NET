@@ -14,7 +14,7 @@ namespace BlogPlatform.Models
         [Required]
         public string Body { get; set; }
         
-        public User Author { get; set; }
+        public Person Author { get; set; }
 
         public List<ArticleTag> ArticleTags { get; set; }
         
