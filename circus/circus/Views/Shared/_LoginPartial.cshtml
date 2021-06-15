@@ -3,13 +3,16 @@
 @inject UserManager<IdentityUser> UserManager
     @if (SignInManager.IsSignedIn(User))
     {
-            <a class="mr-6 text-black" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Profile</a>
-     
-            <a class="mr-6 text-black" asp-controller="Tickets" asp-action="Index">Shows</a>
-     
-            <form class="mr-6 text-black" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                <button type="submit">Logout</button>
-            </form>
+<div class="flex">
+    <a class="mr-6 text-black" asp-area="Identity" asp-page="/Account/Manage/Index">Profile</a>
+
+    <a class="mr-6 text-black" asp-controller="Tickets" asp-action="Index">Shows</a>
+
+    <form class="mr-6 text-black" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+        <button type="submit">Logout</button>
+    </form>
+</div>
+
    
     }
     else

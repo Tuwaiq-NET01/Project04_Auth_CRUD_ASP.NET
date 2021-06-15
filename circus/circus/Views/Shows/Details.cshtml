@@ -5,11 +5,31 @@
     string[] month = new string[] { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
 
 }
-<h1>Show details</h1>
-<div>
-    <h3>@performers.Find(x => x.Id == show.PerformerId).Name</h3>
-    <h4>with their amazing @performers.Find(x => x.Id == show.PerformerId).Profession performance at  @venues.Find(x => x.Id == show.VenueId).Name  @venues.Find(x => x.Id == show.VenueId).Type</h4>
-    <h5>@show.Date.Year @month[show.Date.Month-1], @show.Date.Day</h5>
-    <img src="@performers.Find(x => x.Id == show.PerformerId).Image" alt="performers img"/>
-    <a href="~/tickets/create/@show.Id">Attend show!</a>
-</div>
+<section class="h-96 w-3/4 m-auto pt-12">
+    <div>
+        <h1 class="text-7xl font-bold hero text-center">Show Details</h1>
+    </div>
+</section>
+<section class="mb-12">
+    <div class="grid grid-cols-2 w-3/4 m-auto bg-gradient-to-b from-gray-100 shadow-lg rounded-lg mt-6 overflow-hidden">
+        <div class="p-8">
+            <h3 class="text-4xl font-bold text-center mb-6 hero">@performers.Find(x => x.Id == show.PerformerId).Name</h3>
+            <h5 class="ttext-lg font-bold text-gray-500 italic">@show.Date.Year @month[show.Date.Month - 1], @show.Date.Day</h5>
+
+            <div class=" w-3/4 text-lg leading-relaxed mb-4">
+                <h4>
+                    With their amazing @performers.Find(x => x.Id == show.PerformerId).Profession team performance at
+                    @venues.Find(x => x.Id == show.VenueId).Name  @venues.Find(x => x.Id == show.VenueId).Type
+                    on @show.Date.Year @month[show.Date.Month - 1], @show.Date.Day
+                </h4>
+
+            </div>
+            <div class="text-center">
+                <a class="rounded-full px-6 py-2 uppercase font-bold bg-yellow-400" href="~/tickets/create/@show.Id">Attend show!</a>
+            </div>
+        </div>
+        <div>
+            <img src="@performers.Find(x => x.Id == show.PerformerId).Image" alt="performers img" />
+        </div>
+    </div>
+</section>

@@ -1,15 +1,28 @@
 ﻿@model TicketModel
-@{ 
+@{
     var ticket = (TicketModel)ViewData["ticket"];
 }
-<h2>Edit ticket</h2>
-<form asp-action="Edit" method="post">
-    <input type="hidden" asp-for="ShowId" value="@ticket.ShowId" />
-    <input type="hidden" asp-for="Id" value="@ticket.Id" />
-    <input type="hidden" asp-for="UserId" value="@ticket.UserId" />
+<section class="h-72 w-3/4 m-auto pt-12">
     <div>
-        <label asp-for="Quantity">Quantity</label>
-        <input type="number" asp-for="Quantity" />
+        <h1 class="text-7xl font-bold hero text-center">
+            Edit Ticket
+        </h1>
     </div>
-    <input type="submit" value="Edit" />
-</form>
+</section>
+
+<section class="mb-12">
+    <div class=" w-3/4 m-auto bg-gradient-to-b from-gray-100 shadow-lg rounded-lg mt-6 overflow-hidden">
+        <div class="p-12 text-lg m-auto text-center">
+            <form asp-action="Edit" method="post">
+                <input type="hidden" asp-for="ShowId" value="@ticket.ShowId" />
+                <input type="hidden" asp-for="Id" value="@ticket.Id" />
+                <input type="hidden" asp-for="UserId" value="@ticket.UserId" />
+                <div class="mb-8">
+                    <label class="font-semibold" asp-for="Quantity">Quantity: </label>
+                    <input class="px-3 font-bold border-b-2 focus:outline-none focus:ring focus:border-yellow-300 rounded-md border-yellow-400" min="1" type="number" asp-for="Quantity" />
+                </div>
+                <input class="rounded-full px-4 uppercase font-bold bg-yellow-400" type="submit" value="Edit" />
+            </form>
+        </div>
+    </div>
+</section>

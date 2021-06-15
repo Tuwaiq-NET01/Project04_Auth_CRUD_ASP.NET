@@ -15,19 +15,24 @@
     </section>
    
     <section class="w-3/4 m-auto">
-        @foreach (var s in shows)
-        {
-            <div>
-                <h3>
-                    @performers.Find(x => x.Id == s.PerformerId).Name
+        <div class="grid grid-cols-3 gap-10 mb-12">
+            @foreach (var s in shows)
+            {
+                <div class="p-4 px-4 bg-gradient-to-b from-gray-100 rounded-lg">
+                    <h3 class="text-center font-bold text-2xl mb-2">
+                        @performers.Find(x => x.Id == s.PerformerId).Name
 
-                </h3>
-                <h5>
-                    @venues.Find(x => x.Id == s.VenueId).Name,  @venues.Find(x => x.Id == s.VenueId).Address
-                </h5>
-                <p>@s.Date.Year @month[s.Date.Month - 1], @s.Date.Day</p>
-                <a href="shows/details/@s.Id">Learn more >></a>
-            </div>
-        }
+                    </h3>
+                    <h5 class="font-bold text-lg text-gray-500">
+                        @venues.Find(x => x.Id == s.VenueId).Name,  @venues.Find(x => x.Id == s.VenueId).Address
+                    </h5>
+                    <p class="italic mb-6">@s.Date.Year @month[s.Date.Month - 1], @s.Date.Day</p>
+                    <div class="text-center">
+                        <a class="rounded-full px-4 py-2 uppercase font-bold bg-yellow-400" href="~/shows/details/@s.Id">Book tickets</a>
+
+                    </div>
+                </div>
+            }
+        </div>
     </section>
    

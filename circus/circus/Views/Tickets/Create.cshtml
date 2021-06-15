@@ -5,18 +5,32 @@
     var show = (ShowModel)ViewData["show"];
     var performers = (List<PerformerModel>)ViewData["performers"];
 }
+<section class="h-72 w-3/4 m-auto pt-12">
+    <div>
+        <h1 class="text-4xl font-bold hero text-center">Confirm Attendance for<br />
+        <span class="text-7xl"> @performers.Find(x => x.Id == show.PerformerId).Name</span></h1>
+    </div>
+</section>
+<section class="mb-12">
+    <div class=" w-3/4 m-auto bg-gradient-to-b from-gray-100 shadow-lg rounded-lg mt-6 overflow-hidden">
+        <div class="p-12 text-lg m-auto text-center">
+            <form asp-action="Create" method="post">
+                <div class="font-bold text-lg text-gray-500 italic mb-4">
+                    Time: @show.Date
+                </div>
+                <div class="mb-4">
+                    <label class="font-semibold" asp-for="Quantity"> Number of tickets: </label>
+                    <input class="px-2 font-bold border-b-2 focus:outline-none focus:ring focus:border-yellow-300 rounded-md border-yellow-400" type="number" min="1" asp-for="Quantity" />
+                </div>
+                <input asp-for="UserId" type="hidden" value="@UserManager.GetUserId(User)" />
+                <input asp-for="ShowId" type="hidden" value="@show.Id" />
 
-<h3>Confirm attendance for @performers.Find(x => x.Id == show.PerformerId).Name</h3>
+                <input class="rounded-full px-4 py-1 uppercase font-bold bg-yellow-400" type="submit" value="Add tickets!" />
+            </form>
+        </div>
+        <div>
 
-    <form asp-action="Create" method="post">
-           <div>
-               @show.Date
-           </div>
-           <div>
-               <label asp-for="Quantity"> Number of tickets</label>
-               <input type="number" asp-for="Quantity" />
-           </div>
-        <input asp-for="UserId" type="hidden" value="@UserManager.GetUserId(User)"/>
-        <input asp-for="ShowId" type="hidden" value="@show.Id"/>
-           <input type="submit" value="Add tickets!" />
-        </form>
+        </div>
+    </div>
+</section>
+    

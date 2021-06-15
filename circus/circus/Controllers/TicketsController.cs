@@ -21,6 +21,7 @@ namespace circus.Controllers
             {
                 ViewData["tickets"] = _db.Tickets.ToList();
                 ViewData["shows"] = _db.Shows.ToList();
+                ViewData["performers"] = _db.Performers.ToList();
                 return View();
             }
             else

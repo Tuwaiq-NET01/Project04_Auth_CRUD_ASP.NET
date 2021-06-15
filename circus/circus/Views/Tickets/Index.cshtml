@@ -3,25 +3,49 @@
 @{
     var tickets = (List<TicketModel>)ViewData["tickets"];
     var shows = (List<ShowModel>)ViewData["shows"];
+    var performers = (List<PerformerModel>)ViewData["performers"];
 }
+<section class="h-72 w-3/4 m-auto pt-12">
+    <div>
+        <h1 class="text-7xl font-bold hero text-center">
+            My Shows<br />
+            <span class="text-lg font-sans text-gray-600">@User.Identity.Name</span>
+        </h1>
+    </div>
+</section>
 <div>
-    <h3>Tickets</h3>
-    <h5>@User.Identity.Name</h5>
+    <section class="mb-12">
+        <div class="p-4 py-8 w-3/4 m-auto bg-gradient-to-b from-gray-100 shadow-lg rounded-lg mt-6 overflow-hidden">
+            <div class="grid grid-cols-7 font-bold text-xl text-center mb-8">
+                <div>Ticket Id</div>
+                <div class="col-span-4">Ticket Information</div>
+                <div class="col-span-2">Operations</div>
+            </div>
+            @foreach (var t in tickets)
+            {
+                if (t.UserId == UserManager.GetUserId(User))
+                {
+        <div class="grid grid-cols-7 text-lg border-t border-gray-200 py-3">
+            <div class="text-center text-xl font-bold"> @t.Id</div>
+            <div class="col-span-3">
+               @performers.Find(x => x.Id == (shows.Find(x => x.Id == t.ShowId).PerformerId)).Name,
+                @shows.Find(x => x.Id == t.ShowId).Date.Year-@shows.Find(x => x.Id == t.ShowId).Date.Month-@shows.Find(x => x.Id == t.ShowId).Date.Day
+            </div>
+            <div>
+                Quantity: <b>@t.Quantity</b>
+            </div>
+            <div class="col-span-2 flex justify-around ">
+                <a class="rounded-full px-4 bg-yellow-400" href="~/shows/details/@t.ShowId">Details</a>
 
-</div>
-@foreach (var t in tickets)
-{
-    if (t.UserId == UserManager.GetUserId(User))
-    {
-        <div>
-            Day: <b>@shows.Find(x => x.Id == t.ShowId).Date.Day</b>
-            Performer:  <b>@shows.Find(x => x.Id == t.ShowId).PerformerId</b>
-            Quantity: <b>@t.Quantity</b>
-            <a href="~/tickets/edit/@t.Id">Change Quantity</a>
-            <form asp-action="Delete" method="post" asp-route-id="@t.Id">
-                <input type="submit" value="Delete" />
-            </form>
+                <a class="rounded-full px-4 bg-yellow-400" href="~/tickets/edit/@t.Id">Edit</a>
+                <form asp-action="Delete" method="post" asp-route-id="@t.Id">
+                    <input class="rounded-full px-4 bg-red-500" type="submit" value="Delete" />
+                </form>
+            </div>
         </div>
-    }
+                }
+            }
+        </div>
 
-}
+    </section>
+</div>
