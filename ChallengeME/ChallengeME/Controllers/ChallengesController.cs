@@ -92,6 +92,31 @@ namespace ChallengeME.Controllers
 
         }
 
+
+
+
+        [Authorize]
+        [HttpPost]
+        public IActionResult Delete(int? id)
+        {
+
+            var challenge = _context.Challenges.ToList().FirstOrDefault(p => p.Id == id);
+
+            if (id == null || challenge == null)
+            {
+                return NotFound();
+            }
+
+
+            _context.Challenges.Remove(challenge);
+            _context.SaveChanges();
+            return RedirectToAction("details", "games", new { id = challenge.GameId });
+        }
+
+
+
+
+
         public List<string> getDiff()
         {
             return new List<string>() { "Easy", "Normal", "Hard" };

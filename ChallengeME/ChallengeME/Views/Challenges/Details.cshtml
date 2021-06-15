@@ -1,4 +1,6 @@
-﻿
+﻿@using Microsoft.AspNetCore.Identity
+@inject UserManager<IdentityUser> UserManager
+
 @model Challenge
 @{
     Layout = "_myLayout";
@@ -11,9 +13,24 @@
 
 
 <h1 class="display-4">@challenge.Title </h1>
+<div class="d-flex">
 
-<div>From: @challenge.User.UserName</div>
+    <div class="mr-auto">From: @challenge.User.UserName</div>
+    @if (challenge.UserId == @UserManager.GetUserId(User))
+    {
 
+        <form class="ml-auto" method="post" asp-controller="challenges" asp-action="edit" asp-route-id="@challenge.Id">
+            <button type="submit" class="btn btn-link edit"><i class="fas fa-pen fa-2x"></i></button>
+        </form>
+        
+
+
+        <form method="post" asp-controller="challenges" asp-action="delete" asp-route-id="@challenge.Id">
+            <button type="submit" class="btn btn-link trash"><i class="fas fa-trash fa-2x"></i></button>
+        </form>
+    }
+
+</div>
 <div class="d-inline">
     <h6>
         Difficulty:

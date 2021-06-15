@@ -1,4 +1,5 @@
-﻿
+﻿@model Game
+
 @{
     Layout = "_myLayout";
 
@@ -10,34 +11,52 @@
 
 <h3 class="display-4 my-2">All Games</h3>
 
-<a asp-action="create" asp-controller="games">Create new Game</a>
+
+<button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#createModel">
+    Create New Game!
+</button>
+
 <hr />
 
-@*<div class="row">
 
-        @foreach (var game in games)
-        {
+<div class="modal fade" id="createModel" tabindex="-1" aria-labelledby="createModelLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <form asp-action="create" method="post" class="form-horizontal" autocomplete="off">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="createModelLabel">Create New Game</h5>
+                </div>
+                <div class="modal-body">
 
-        <div class="col-md-3 mb-5">
 
-            <a class="myImg" asp-action="details" asp-controller="games" asp-route-id="@game.Id">
 
-                <div class="card bg-dark text-white">
-                    <img src=@game.GameImage
-                         class="card-img-top"
-                         alt="game image"
-                         width="200px"
-                         height="250px" />
-                    <div class="card-img-overlay">
-                        <h5 class="card-title text-center">@game.GameName</h5>
+                    <div class="form-group">
+                        <label asp-for="GameName">Name: </label>
+                        <div>
+                            <input asp-for="GameName" />
+                        </div>
+                    </div>
 
+                    <div class="form-group">
+                        <label asp-for="GameImage">Image: </label>
+                        <div>
+                            <input asp-for="GameImage" />
+                        </div>
                     </div>
 
                 </div>
-            </a>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <input type="submit" class="btn btn-primary" value="Submit" />
+                </div>
+            </form>
         </div>
-        }
-    </div>*@
+    </div>
+</div>
 
+
+@* duped card code removed  *@
 
 <partial name="_CardsPartial" />
+
+

@@ -105,7 +105,7 @@ hr {
         background-color: rgba(134, 105, 107, 0.50);
     }
 .card-img-top {
-    filter: brightness(75%);
+    filter: brightness(70%);
 }
 .myImg:hover {
     filter: brightness(100%);
@@ -143,4 +143,23 @@ hr {
 
 .trash:hover{
     color:red;
+}
+
+
+.edit {
+    color: #494700
+}
+
+    .edit:hover {
+        color: yellow;
+    }
+
+
+.modal-content {
+    background-color: #200000 !important;
+}
+
+
+.game-title {
+    text-shadow: 2px 1px 9px #CE5937;
 }
