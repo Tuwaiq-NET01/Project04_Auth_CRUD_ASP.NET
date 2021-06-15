@@ -1,4 +1,5 @@
 ﻿using HjtProject.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace HjtProject.Controllers
 {
+    [Authorize]
     public class OrganizationsController : Controller
     {
         private readonly ApplicationDbContext _db;

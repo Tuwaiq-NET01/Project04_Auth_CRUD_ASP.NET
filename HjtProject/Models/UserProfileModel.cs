@@ -7,9 +7,10 @@ namespace HjtProject.Models
 {
     public class UserProfileModel
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string name { get; set; }
         public string email { get; set; }
+        public string? pic { get; set; }
         public CourseModel Course { get; set; }
         public int? CourseId { get; set; }
 
@@ -19,3 +20,5 @@ namespace HjtProject.Models
 
     }
 }
+
+

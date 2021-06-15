@@ -174,3 +174,4 @@ C:\Users\aashq\source\repos\HjtProject\HjtProject\obj\Debug\net5.0\Razor\Views\I
 C:\Users\aashq\source\repos\HjtProject\HjtProject\obj\Debug\net5.0\Razor\Views\Shared\InstructorLayout.cshtml.g.cs
 C:\Users\aashq\source\repos\HjtProject\HjtProject\obj\Debug\net5.0\Razor\Views\Organizations\Details.cshtml.g.cs
 C:\Users\aashq\source\repos\HjtProject\HjtProject\obj\Debug\net5.0\Razor\Views\Organizations\Index.cshtml.g.cs
+C:\Users\aashq\source\repos\HjtProject\HjtProject\obj\Debug\net5.0\Razor\Views\UserProfiles\Index.cshtml.g.cs

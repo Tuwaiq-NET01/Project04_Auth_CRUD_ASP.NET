@@ -1,0 +1,27 @@
+﻿@{var userProfile = (UserProfileModel)ViewData["Profile"];
+}
+
+
+<h2 style="color: #30475e"> Profile</h2>
+<body>
+
+    <div class=" d-flex flex-wrap">
+
+        <div class="card .text-black " style="width: 30rem; margin-inline:auto">
+            <img src="@userProfile.pic" class="card-img-top" alt="pic" width="300" height="300 ">
+            <div class="card-body" style="color: #30475e ;background-color:#e7e7de ">
+                <h5 class="card-title">@userProfile.name</h5>
+              
+                <p class="card-text">user Email : <b>@userProfile.email </b></p>
+                <p class="card-text">Instructor : <b>@userProfile.InstructorId </b></p>
+                <p class="card-text">Course : <b>@userProfile.CourseId </b></p>
+                
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+

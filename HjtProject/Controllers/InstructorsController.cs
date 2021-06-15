@@ -1,5 +1,6 @@
 ﻿using HjtProject.Data;
 using HjtProject.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace HjtProject.Controllers
 {
+    [Authorize]
     public class InstructorsController : Controller
     {
         /*List<IdentityUser> emails = RegisterModel.allUsers; // users*/

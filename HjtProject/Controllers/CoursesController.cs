@@ -8,9 +8,11 @@ using Microsoft.AspNetCore.Identity;
 using HjtProject.Data;
 using HjtProject.Models;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HjtProject.Controllers
 {
+    [Authorize]
     public class CoursesController : Controller
     {
         /*List<IdentityUser> emails = RegisterModel.allUsers; // users*/
@@ -31,6 +33,7 @@ namespace HjtProject.Controllers
         // GET: /courses
         public IActionResult Index()
         {
+            
             var Courses = _db.Courses.ToList();
             ViewData["courses"] = Courses;
             return View();
@@ -85,7 +88,7 @@ namespace HjtProject.Controllers
 
         // POST - /courses/edit/id
         [HttpPost]
-        public IActionResult Edit([Bind("Id", "name", "description", "price","pic")] CourseModel course)
+        public IActionResult Edit([Bind( "name", "description", "price","pic")] CourseModel course)
         {
             EntityEntry<CourseModel> entry = _db.Entry(course);
             entry.Property(e => e.name).IsModified = true;

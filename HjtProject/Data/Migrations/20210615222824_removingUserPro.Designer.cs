@@ -4,14 +4,16 @@ using HjtProject.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HjtProject.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210615222824_removingUserPro")]
+    partial class removingUserPro
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -95,35 +97,6 @@ namespace HjtProject.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Organizations");
-                });
-
-            modelBuilder.Entity("HjtProject.Models.UserProfileModel", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int?>("CourseId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("InstructorId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("pic")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CourseId");
-
-                    b.HasIndex("InstructorId");
-
-                    b.ToTable("UserProfiles");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -344,21 +317,6 @@ namespace HjtProject.Data.Migrations
                     b.Navigation("Organization");
                 });
 
-            modelBuilder.Entity("HjtProject.Models.UserProfileModel", b =>
-                {
-                    b.HasOne("HjtProject.Models.CourseModel", "Course")
-                        .WithMany("UserProfiles")
-                        .HasForeignKey("CourseId");
-
-                    b.HasOne("HjtProject.Models.InstructorModel", "Instructor")
-                        .WithMany("UserProfiles")
-                        .HasForeignKey("InstructorId");
-
-                    b.Navigation("Course");
-
-                    b.Navigation("Instructor");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -410,16 +368,9 @@ namespace HjtProject.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("HjtProject.Models.CourseModel", b =>
-                {
-                    b.Navigation("UserProfiles");
-                });
-
             modelBuilder.Entity("HjtProject.Models.InstructorModel", b =>
                 {
                     b.Navigation("Course");
-
-                    b.Navigation("UserProfiles");
                 });
 
             modelBuilder.Entity("HjtProject.Models.OrganizationModel", b =>

@@ -4,14 +4,16 @@ using HjtProject.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HjtProject.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210615223429_UserProfileTable2")]
+    partial class UserProfileTable2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -347,11 +349,11 @@ namespace HjtProject.Data.Migrations
             modelBuilder.Entity("HjtProject.Models.UserProfileModel", b =>
                 {
                     b.HasOne("HjtProject.Models.CourseModel", "Course")
-                        .WithMany("UserProfiles")
+                        .WithMany()
                         .HasForeignKey("CourseId");
 
                     b.HasOne("HjtProject.Models.InstructorModel", "Instructor")
-                        .WithMany("UserProfiles")
+                        .WithMany()
                         .HasForeignKey("InstructorId");
 
                     b.Navigation("Course");
@@ -410,16 +412,9 @@ namespace HjtProject.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("HjtProject.Models.CourseModel", b =>
-                {
-                    b.Navigation("UserProfiles");
-                });
-
             modelBuilder.Entity("HjtProject.Models.InstructorModel", b =>
                 {
                     b.Navigation("Course");
-
-                    b.Navigation("UserProfiles");
                 });
 
             modelBuilder.Entity("HjtProject.Models.OrganizationModel", b =>

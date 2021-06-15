@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
+using HjtProject.Data;
+using HjtProject.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -23,23 +25,25 @@ namespace HjtProject.Areas.Identity.Pages.Account
         private readonly UserManager<IdentityUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly ApplicationDbContext _db;
+
+        /* public static List<IdentityUser> allUsers = new List<IdentityUser> (); */
 
 
-       /* public static List<IdentityUser> allUsers = new List<IdentityUser> (); // WATCH OUT*/
 
-
-        
 
         public RegisterModel(
             UserManager<IdentityUser> userManager,
             SignInManager<IdentityUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender, 
+            ApplicationDbContext  db)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _db = db;
         }
 
         [BindProperty]
@@ -66,6 +70,8 @@ namespace HjtProject.Areas.Identity.Pages.Account
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
+            public string Name { get; set; }
+            public string? pic { get; set; }
         }
 
         public async Task OnGetAsync(string returnUrl = null)
@@ -76,10 +82,15 @@ namespace HjtProject.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
+            ///////////////////////////////////////
+            Input.pic = "https://i.stack.imgur.com/l60Hf.png";
+            ///////////////////////////////////////////
+
             returnUrl ??= Url.Content("~/");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
+               
                 var user = new IdentityUser { UserName = Input.Email, Email = Input.Email };
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
@@ -88,7 +99,7 @@ namespace HjtProject.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                
-               /* allUsers.Add(user); // WATCH OUTTtttttttttttttttttttttttttttttTT*/
+               
                     _logger.LogInformation("User created a new account with password.");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
@@ -98,6 +109,17 @@ namespace HjtProject.Areas.Identity.Pages.Account
                         pageHandler: null,
                         values: new { area = "Identity", userId = user.Id, code = code, returnUrl = returnUrl },
                         protocol: Request.Scheme);
+                    //////////////////////////////////////////////////////////////////////
+                    /* allUsers.Add(user);*/
+                    UserProfileModel p = new UserProfileModel();
+                    
+                    p.Id = user.Id;
+                    p.name = Input.Name;
+                    p.email = Input.Email;
+                    p.pic = Input.pic;
+                   _db.UserProfiles.Add(p);
+                    await _db.SaveChangesAsync();
+                    /////////////////////////////////////////////////////////////////////
 
                     await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
                         $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
