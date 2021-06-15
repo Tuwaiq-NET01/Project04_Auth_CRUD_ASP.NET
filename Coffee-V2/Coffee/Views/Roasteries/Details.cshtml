@@ -1,0 +1,51 @@
+﻿
+@{
+    var Roastery = (Roastery)ViewData["Roastery"];
+
+    var Bean = (List<Bean>)ViewData["Bean"];
+
+
+}
+<h1 style="color:gray;margin-top:120px; text-align:center">@Roastery.Name Beans</h1>
+
+<div class="ml-3 mr-3 mt-5" style="display: inline-table; text-align:center">
+    <div class="card" style="width: 15rem; text-align:center;">
+      <img src="@Roastery.Image" class="card-img-top" height="200" width="20" alt="...">
+        <div class="card-body ">
+            <h5 class="card-title">
+                @Roastery.Name
+            </h5>
+            <h6 class="card-title">
+                <i class="material-icons" style="color:darkblue">
+                    location_on
+                </i>
+                @Roastery.Location
+            </h6>
+            <h6 class="card-title">
+                <i class="material-icons" style="color:sandybrown">star_border</i>
+                @Roastery.Rate
+            </h6>
+        </div>
+    </div>
+</div>
+
+@foreach (var item in Bean)
+{
+    <div class="ml-3 mr-3 mt-5" style="display: inline-table; text-align:center">
+        <div class="card" style="width: 15rem; text-align:center;">
+            <img src="@item.Image" class="card-img-top" height="200" width="20" alt="...">
+            <div class="card-body">
+                <h5 class="card-title" style="text-align:center; color:darkblue">
+                    @item.Name
+                </h5>
+                <h5 class="card-title">
+                    @item.Type
+                </h5>
+                <h5 class="card-title">
+                    <i class="small material-icons">flag</i>
+                    @item.Country
+                </h5>
+            </div>
+        </div>
+    </div>
+}

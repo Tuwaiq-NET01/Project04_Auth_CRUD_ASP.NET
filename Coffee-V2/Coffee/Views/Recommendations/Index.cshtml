@@ -1,0 +1,60 @@
+﻿
+@{
+    var Recommendations = (List<Recommendation>)ViewData["Recommendations"];
+}
+
+<h5 style="color:gray;margin-top:120px; text-align:center">Coffee Recommendations & Community </h5>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet" href="~/css/materialize.min.css" media="screen,projection" />
+<script type="text/javascript" src="~/js/materialize.min.js"></script>
+
+<a href="/Recommendations/Create">
+    <h6 style="margin-top:20px">
+        <i class="small material-icons">add</i>
+    </h6>
+</a>
+@foreach (var Recom in Recommendations)
+{
+
+<div class="card mr-5 mb-2" style="width:20rem; display:inline-table; margin-bottom:150px">
+    <div class="card-image waves-effect waves-block waves-light">
+        <img class="activator" src="@Recom.Image" height="290" width="400">
+    </div>
+    <div class="card-content">
+        <span class="card-title activator grey-text text-darken-4">@Recom.ItemName<i class="material-icons right">more_vert</i></span>
+        <p><a href="" @Recom.AvailabilityLoc>This is a link</a></p>
+    </div>
+    <div class="card-reveal">
+        <span class="card-title grey-text text-darken-4">@Recom.ItemName<i class="material-icons right">close</i></span>
+        <p>@Recom.Description</p>
+
+
+        @using Microsoft.AspNetCore.Identity
+        @inject UserManager<IdentityUser> UserManager
+        @inject SignInManager<IdentityUser> SignInManager
+        @{
+            var user = (UserManager.FindByNameAsync(User.Identity.Name)).Id;
+            //var userID = await GetCurrentUserAsync();
+        }
+
+        @if (@UserManager.GetUserId(User) == Recom.UserId)
+        {
+            <div style="display:inline-table; margin-right:4px; margin-bottom:4px">
+                <a asp-controller="Recommendations" class="btn btn-warning" style="color:white" asp-action="Edit" asp-route-id="@Recom.ID" role="link">
+                    <i class="material-icons">edit</i>
+                </a>
+                <form method="post" asp-controller="Recommendations" asp-action="Delete" asp-route-id="@Recom.ID">
+                    <button type="submit" class="btn btn-danger" style="color:white">
+                        <i class="material-icons">highlight_off</i>
+                    </button>
+
+                </form>
+            </div>
+        }
+
+
+
+    </div>
+</div>
+}

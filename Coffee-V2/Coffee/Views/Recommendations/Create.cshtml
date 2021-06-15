@@ -1,0 +1,55 @@
+﻿
+<h1 style="color:gray; font-family:'Comic Sans MS';margin-top:120px; text-align:center">Add Your Recommendations</h1>
+@model Recommendation
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+
+    <div style="text-align:center; margin-left:420px;margin-bottom:50px; display: inline-block">
+
+        <form asp-action="Create" method="post">
+
+            <div style="  color: dimgrey;
+        font-family: 'Comic Sans MS';
+        text-shadow: 2px 2px 4px #000000">
+
+                <div class="form-outline mb-4">
+                    <input asp-for="UserId" value="@UserManager.GetUserId(User)" hidden class="form-control" />
+                </div>
+
+                <label class="form-label" asp-for="ItemName"> Name</label>
+                <div class="form-outline mb-4">
+                    <input asp-for="ItemName" required class="form-control" />
+                </div>
+
+                <label class="form-label" asp-for="Image">Image</label>
+                <div class="form-outline mb-4">
+                    <input asp-for="Image" class="form-control" />
+                    <span asp-validation-for="Image" class="text-danger"> </span>
+                </div>
+
+                <label class="form-label" asp-for="Description">Description</label>
+                <div class="form-outline mb-4">
+                    <input asp-for="Description" class="form-control" />
+                </div>
+
+                <label class="form-label" asp-for="Color">Color</label>
+                <div class="form-outline mb-4">
+                    <input asp-for="Color" class="form-control" />
+                </div>
+
+                <label class="form-label" asp-for="AvailabilityLoc">Availability Location</label>
+                <div class="form-outline mb-4">
+                    <input asp-for="AvailabilityLoc" class="form-control" />
+                </div>
+
+                <br />
+                <div class="form-group mb-4">
+                    <input type="submit" class="btn btn-info" value="Submit" />
+                </div>
+
+            </div>
+        </form>
+    </div>
