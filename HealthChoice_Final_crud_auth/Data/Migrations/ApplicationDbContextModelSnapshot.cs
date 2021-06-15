@@ -56,6 +56,9 @@ namespace HealthChoice_Final_crud_auth.Data.Migrations
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Location")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -68,20 +71,42 @@ namespace HealthChoice_Final_crud_auth.Data.Migrations
                     b.ToTable("Events");
                 });
 
-            modelBuilder.Entity("HealthChoice_Final_crud_auth.Models.MembershipsModel", b =>
+            modelBuilder.Entity("HealthChoice_Final_crud_auth.Models.FavoriteModel", b =>
                 {
-                    b.Property<int>("memId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("memBenefits")
+                    b.Property<int>("EventId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EventId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Favorites");
+                });
+
+            modelBuilder.Entity("HealthChoice_Final_crud_auth.Models.MembershipsModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Benefits")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("memName")
+                    b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("memId");
+                    b.HasKey("Id");
 
                     b.ToTable("MembberShips");
                 });
@@ -179,6 +204,10 @@ namespace HealthChoice_Final_crud_auth.Data.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Email")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -230,6 +259,8 @@ namespace HealthChoice_Final_crud_auth.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -316,6 +347,16 @@ namespace HealthChoice_Final_crud_auth.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("HealthChoice_Final_crud_auth.Data.ApplicationUser", b =>
+                {
+                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+
+                    b.Property<string>("FullName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasDiscriminator().HasValue("ApplicationUser");
+                });
+
             modelBuilder.Entity("HealthChoice_Final_crud_auth.Models.CommentsModel", b =>
                 {
                     b.HasOne("HealthChoice_Final_crud_auth.Models.ServicesModel", "Service")
@@ -325,6 +366,23 @@ namespace HealthChoice_Final_crud_auth.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("Service");
+                });
+
+            modelBuilder.Entity("HealthChoice_Final_crud_auth.Models.FavoriteModel", b =>
+                {
+                    b.HasOne("HealthChoice_Final_crud_auth.Models.EventsModel", "Events")
+                        .WithMany("Favorites")
+                        .HasForeignKey("EventId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("HealthChoice_Final_crud_auth.Data.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("Events");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -376,6 +434,11 @@ namespace HealthChoice_Final_crud_auth.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("HealthChoice_Final_crud_auth.Models.EventsModel", b =>
+                {
+                    b.Navigation("Favorites");
                 });
 
             modelBuilder.Entity("HealthChoice_Final_crud_auth.Models.ServicesModel", b =>

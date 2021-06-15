@@ -130,10 +130,11 @@ namespace HealthChoice_Final_crud_auth.Controllers
 
         //Search
         public IActionResult Search(string txt) {
-            var item = _db.Services.Where(r => r.servName.Contains(txt)).ToList();
-            ViewBag.Branches = item; 
-            
-            return View("Index"); 
+            var ser = _db.Services.Where(r => r.servName.Contains(txt)).ToList();
+            ViewData["ser"] = ser;
+
+
+            return View(); 
         }
 
       

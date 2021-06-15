@@ -24,6 +24,8 @@ namespace HealthChoice_Final_crud_auth.Models
         //Relationship One-to-Many
         public List<CommentsModel>Comments { get; set; }
 
+
+
     }
 }
 

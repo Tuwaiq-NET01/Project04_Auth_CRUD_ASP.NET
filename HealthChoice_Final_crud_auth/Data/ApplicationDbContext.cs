@@ -22,5 +22,7 @@ namespace HealthChoice_Final_crud_auth.Data
         public DbSet<CommentsModel> Comments { get; set; }
         public DbSet<EventsModel> Events { get; set; }
 
+        public DbSet<FavoriteModel> Favorites { get; set; }
+
     }
 }

@@ -75,3 +75,11 @@
  - User can add any comments for any services (apply the relation)
  - add _NotFound View 
  - Create Events table(Just for reading & see the detils for each event) 
+
+ ### v4 
+ - Add Scaffolded to reach UserID 
+ - Delete Commnets' Views to connect with their services.
+ - Add Search on Services Name 
+ - Create Favorit table as a M2M relationship between Users & Events
+
+ 

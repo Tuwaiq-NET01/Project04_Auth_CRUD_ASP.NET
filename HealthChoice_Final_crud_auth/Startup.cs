@@ -33,8 +33,12 @@ namespace HealthChoice_Final_crud_auth
             services.AddDatabaseDeveloperPageExceptionFilter();
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+               // .AddUserManager<ApplicationUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
+            services.AddRazorPages();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -69,3 +73,6 @@ namespace HealthChoice_Final_crud_auth
         }
     }
 }
+
+
+

@@ -16,5 +16,13 @@ namespace HealthChoice_Final_crud_auth.Models
 
         public string Overview { get; set; }
         public string Image { get; set; }
+
+        public string Location { get; set; }
+
+        //Relationship Many-to-Many
+
+        public ICollection<FavoriteModel> Favorites { get; set; }
+
+
     }
 }

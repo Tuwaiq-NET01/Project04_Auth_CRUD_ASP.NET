@@ -68,6 +68,10 @@
               "target": "Package",
               "version": "[5.0.6, )"
             },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[5.0.2, )"
+            },
             "PusherServer": {
               "target": "Package",
               "version": "[4.6.1, )"

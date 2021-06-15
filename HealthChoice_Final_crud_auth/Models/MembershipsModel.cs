@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.DataProtection.KeyManagement;
+﻿using HealthChoice_Final_crud_auth.Data;
+using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
@@ -11,9 +12,12 @@ namespace HealthChoice_Final_crud_auth.Models
     public class MembershipsModel
     {
         [Key]
-        public int memId { get; set; }
-        public string memName { get; set; }
-        public string memBenefits { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Benefits { get; set; }
+
+
+     
 
     
     }
