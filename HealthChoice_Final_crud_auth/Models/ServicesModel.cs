@@ -25,6 +25,12 @@ namespace HealthChoice_Final_crud_auth.Models
         public List<CommentsModel>Comments { get; set; }
 
 
+      
+        //Relationship : One-To-Many: (Membership-to-Services)
+        public MembershipsModel Membership { get; set; }
+
+        //FK
+        public int MemId { get; set; }
 
     }
 }

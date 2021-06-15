@@ -16,9 +16,10 @@ namespace HealthChoice_Final_crud_auth.Models
         public string Name { get; set; }
         public string Benefits { get; set; }
 
+        //Relationship One-to-Many
+        public List<ServicesModel> Services { get; set; }
 
-     
 
-    
+
     }
 }

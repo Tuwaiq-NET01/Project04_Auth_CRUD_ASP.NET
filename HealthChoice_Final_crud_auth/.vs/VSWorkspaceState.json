@@ -1,6 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Controllers",
+    "\\Data",
+    "\\Models"
   ],
+  "SelectedNode": "\\HealthChoice_Final_crud_auth.sln",
   "PreviewInSolutionExplorer": false
 }

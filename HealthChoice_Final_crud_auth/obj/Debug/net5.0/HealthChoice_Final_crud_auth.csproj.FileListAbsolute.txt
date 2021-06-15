@@ -884,3 +884,4 @@ C:\Users\HP\Desktop\Tuwaiq_Bootcamp\ASP_NET_MVC\Project04_Auth_CRUD_ASP.NET\Heal
 C:\Users\HP\Desktop\Tuwaiq_Bootcamp\ASP_NET_MVC\Project04_Auth_CRUD_ASP.NET\HealthChoice_Final_crud_auth\obj\Debug\net5.0\Razor\Views\Services\Search.cshtml.g.cs
 C:\Users\HP\Desktop\Tuwaiq_Bootcamp\ASP_NET_MVC\Project04_Auth_CRUD_ASP.NET\HealthChoice_Final_crud_auth\obj\Debug\net5.0\HealthChoice_Final_crud_auth.csproj.AssemblyReference.cache
 C:\Users\HP\Desktop\Tuwaiq_Bootcamp\ASP_NET_MVC\Project04_Auth_CRUD_ASP.NET\HealthChoice_Final_crud_auth\obj\Debug\net5.0\Razor\Views\Favourite\Index.cshtml.g.cs
+C:\Users\HP\Desktop\Tuwaiq_Bootcamp\ASP_NET_MVC\Project04_Auth_CRUD_ASP.NET\HealthChoice_Final_crud_auth\obj\Debug\net5.0\Razor\Views\Shared\_NavbarPartial.cshtml.g.cs
