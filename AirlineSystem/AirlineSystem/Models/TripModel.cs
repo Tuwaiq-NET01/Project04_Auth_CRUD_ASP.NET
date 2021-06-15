@@ -27,6 +27,6 @@ namespace AirlineSystem.Models
         public PlaneModel Plane { get; set; }
 
          //Relation Trip ---<- Passengers
-         // public ICollection<PassengerModel> Passangers { get; set; }
+         public ICollection<PassengerModel> Passangers { get; set; }
     }
 }

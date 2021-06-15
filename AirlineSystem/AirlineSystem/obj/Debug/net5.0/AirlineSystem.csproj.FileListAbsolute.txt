@@ -57,7 +57,6 @@ C:\Users\F-LOW\OneDrive\Desktop\Project Bootcamp\.NET\FPN\AirlineSystem\AirlineS
 C:\Users\F-LOW\OneDrive\Desktop\Project Bootcamp\.NET\FPN\AirlineSystem\AirlineSystem\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\F-LOW\OneDrive\Desktop\Project Bootcamp\.NET\FPN\AirlineSystem\AirlineSystem\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\F-LOW\OneDrive\Desktop\Project Bootcamp\.NET\FPN\AirlineSystem\AirlineSystem\obj\Debug\net5.0\Razor\Views\Passenger\Create.cshtml.g.cs
-C:\Users\F-LOW\OneDrive\Desktop\Project Bootcamp\.NET\FPN\AirlineSystem\AirlineSystem\obj\Debug\net5.0\Razor\Views\Passenger\Details.cshtml.g.cs
 C:\Users\F-LOW\OneDrive\Desktop\Project Bootcamp\.NET\FPN\AirlineSystem\AirlineSystem\obj\Debug\net5.0\Razor\Views\Passenger\Edit.cshtml.g.cs
 C:\Users\F-LOW\OneDrive\Desktop\Project Bootcamp\.NET\FPN\AirlineSystem\AirlineSystem\obj\Debug\net5.0\Razor\Views\Passenger\Index.cshtml.g.cs
 C:\Users\F-LOW\OneDrive\Desktop\Project Bootcamp\.NET\FPN\AirlineSystem\AirlineSystem\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
@@ -160,3 +159,4 @@ C:\Users\F-LOW\OneDrive\Desktop\Project Bootcamp\.NET\FPN\AirlineSystem\AirlineS
 C:\Users\F-LOW\OneDrive\Desktop\Project Bootcamp\.NET\FPN\AirlineSystem\AirlineSystem\obj\Debug\net5.0\Razor\Views\Airport\Edit.cshtml.g.cs
 C:\Users\F-LOW\OneDrive\Desktop\Project Bootcamp\.NET\FPN\AirlineSystem\AirlineSystem\obj\Debug\net5.0\Razor\Views\Trip\Details.cshtml.g.cs
 C:\Users\F-LOW\OneDrive\Desktop\Project Bootcamp\.NET\FPN\AirlineSystem\AirlineSystem\obj\Debug\net5.0\Razor\Views\Trip\Edit.cshtml.g.cs
+C:\Users\F-LOW\OneDrive\Desktop\Project Bootcamp\.NET\FPN\AirlineSystem\AirlineSystem\obj\Debug\net5.0\Razor\Views\Passenger\Details.cshtml.g.cs

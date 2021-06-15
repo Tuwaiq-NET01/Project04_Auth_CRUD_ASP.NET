@@ -40,8 +40,8 @@
                         <td>@passenger.LastName</td>
                         <td>@passenger.DateOfBirth</td>
                         <td>@passenger.Gender</td>
-@*                        <td>@passenger.TripNo</td>
-*@                        <td><button type="button" class="btn btn-dark"><a style="color:white" href="/Passenger/details/@passenger.PassengerID"> SHOW </a></button></td>
+                        <td>@passenger.TripNo</td>
+                        <td><button type="button" class="btn btn-dark"><a style="color:white" href="/Passenger/details/@passenger.PassengerID"> SHOW </a></button></td>
                         <td><button type="button" class="btn btn-dark"><a style="color:white" href="/Passenger/Edit/@passenger.PassengerID"> EDIT </a></button></td>
                         <td>
                             <form asp-action="Delete" asp-route-id="@passenger.PassengerID" method="post">

@@ -22,9 +22,9 @@ namespace AirlineSystem.Models
         [Required]
         public string Nationality { get; set; }
 
-      /*  //Relation Trip ---<- Passengers
+       //Relation Trip ---<- Passengers
        public int TripNo { get; set; }
-       public TripModel Trip { get; set; }*/
+       public TripModel Trip { get; set; }
 
     }
 }

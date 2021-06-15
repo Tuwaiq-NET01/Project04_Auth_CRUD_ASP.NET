@@ -20,7 +20,9 @@ namespace AirlineSystem.Controllers
         public IActionResult Index()
         {
             var Passengers = _db.Passengers.ToList();
+            var Trips = _db.Trips.ToList();
             ViewData["Passenger"] = Passengers;
+            ViewData["Trips"] = Trips;
             return View();
         }
         [HttpGet]
@@ -29,7 +31,7 @@ namespace AirlineSystem.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Create([Bind("PassengerID", "PassportNo", "FirstName", "LastName", "DateOfBirth", "Gender", "Nationality"/*,"TripNo"*/)]PassengerModel passenger)
+        public IActionResult Create([Bind("PassengerID", "PassportNo", "FirstName", "LastName", "DateOfBirth", "Gender", "Nationality","TripNo")]PassengerModel passenger)
         {
             if (ModelState.IsValid)
             {
@@ -45,7 +47,7 @@ namespace AirlineSystem.Controllers
         {
             var Passenger = _db.Passengers.ToList().Find(passenger => passenger.PassengerID == id);
             ViewData["Passenger"] = Passenger;
-            return View();
+            return View(Passenger);
         }
         [HttpGet]
         public IActionResult Edit(int id)
@@ -56,7 +58,7 @@ namespace AirlineSystem.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Edit([Bind("PassengerID", "PassportNo", "FirstName", "LastName", "DateOfBirth", "Gender", "Nationality"/*,"TripNo"*/)] PassengerModel passenger)
+        public IActionResult Edit([Bind("PassengerID", "PassportNo", "FirstName", "LastName", "DateOfBirth", "Gender", "Nationality","TripNo")] PassengerModel passenger)
         {
             _db.Passengers.Update(passenger);
             _db.SaveChanges();
