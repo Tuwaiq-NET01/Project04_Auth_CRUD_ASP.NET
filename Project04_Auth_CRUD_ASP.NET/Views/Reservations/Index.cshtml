@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Project04_Auth_CRUD_ASP.NET.Models.PriceModel>
+﻿@model IEnumerable<Project04_Auth_CRUD_ASP.NET.Models.ReservationJoin>
 
 @{
     ViewData["Title"] = "Index";
@@ -13,10 +13,10 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Value)
+                @Html.DisplayNameFor(model => model.Barber)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Barber)
+                @Html.DisplayNameFor(model => model.Day)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Time)
@@ -28,13 +28,13 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Value)
+                @Html.DisplayFor(modelItem => item.Barber)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Barber.Name)
+                @Html.DisplayFor(modelItem => item.Day)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Time.Value)
+                @Html.DisplayFor(modelItem => item.Time)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

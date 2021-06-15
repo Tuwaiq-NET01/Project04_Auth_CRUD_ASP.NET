@@ -1,4 +1,4 @@
-﻿@model Project04_Auth_CRUD_ASP.NET.Models.PriceModel
+﻿@model Project04_Auth_CRUD_ASP.NET.Models.ReservationModel
 
 @{
     ViewData["Title"] = "Details";
@@ -7,26 +7,26 @@
 <h1>Details</h1>
 
 <div>
-    <h4>PriceModel</h4>
+    <h4>ReservationModel</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Value)
+            @Html.DisplayNameFor(model => model.Day)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Value)
+            @Html.DisplayFor(model => model.Day)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Barber)
+            @Html.DisplayNameFor(model => model.Price)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Barber.Name)
+            @Html.DisplayFor(model => model.Price.Id)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Time)
+            @Html.DisplayNameFor(model => model.UserId)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Time.Value)
+            @Html.DisplayFor(model => model.UserId)
         </dd>
     </dl>
 </div>

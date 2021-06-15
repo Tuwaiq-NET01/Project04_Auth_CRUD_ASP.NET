@@ -167,3 +167,8 @@ D:\New folder (2)\Project04_Auth_CRUD_ASP.NET\Project04_Auth_CRUD_ASP.NET\obj\De
 D:\New folder (2)\Project04_Auth_CRUD_ASP.NET\Project04_Auth_CRUD_ASP.NET\obj\Debug\net5.0\Razor\Views\Prices\Details.cshtml.g.cs
 D:\New folder (2)\Project04_Auth_CRUD_ASP.NET\Project04_Auth_CRUD_ASP.NET\obj\Debug\net5.0\Razor\Views\Prices\Edit.cshtml.g.cs
 D:\New folder (2)\Project04_Auth_CRUD_ASP.NET\Project04_Auth_CRUD_ASP.NET\obj\Debug\net5.0\Razor\Views\Prices\Index.cshtml.g.cs
+D:\New folder (2)\Project04_Auth_CRUD_ASP.NET\Project04_Auth_CRUD_ASP.NET\obj\Debug\net5.0\Razor\Views\Reservations\Create.cshtml.g.cs
+D:\New folder (2)\Project04_Auth_CRUD_ASP.NET\Project04_Auth_CRUD_ASP.NET\obj\Debug\net5.0\Razor\Views\Reservations\Delete.cshtml.g.cs
+D:\New folder (2)\Project04_Auth_CRUD_ASP.NET\Project04_Auth_CRUD_ASP.NET\obj\Debug\net5.0\Razor\Views\Reservations\Details.cshtml.g.cs
+D:\New folder (2)\Project04_Auth_CRUD_ASP.NET\Project04_Auth_CRUD_ASP.NET\obj\Debug\net5.0\Razor\Views\Reservations\Edit.cshtml.g.cs
+D:\New folder (2)\Project04_Auth_CRUD_ASP.NET\Project04_Auth_CRUD_ASP.NET\obj\Debug\net5.0\Razor\Views\Reservations\Index.cshtml.g.cs

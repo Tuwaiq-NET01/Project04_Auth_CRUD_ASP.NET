@@ -3,17 +3,15 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Project04_Auth_CRUD_ASP.NET.Data;
 
 namespace Project04_Auth_CRUD_ASP.NET.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210614125827_v2-migrations-barber-price-relaations")]
-    partial class v2migrationsbarberpricerelaations
+    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -245,9 +243,8 @@ namespace Project04_Auth_CRUD_ASP.NET.Data.Migrations
                     b.Property<Guid>("BarberId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Time")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<Guid>("TimeId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<decimal>("Value")
                         .HasColumnType("decimal(18,2)");
@@ -256,7 +253,73 @@ namespace Project04_Auth_CRUD_ASP.NET.Data.Migrations
 
                     b.HasIndex("BarberId");
 
+                    b.HasIndex("TimeId");
+
                     b.ToTable("Prices");
+                });
+
+            modelBuilder.Entity("Project04_Auth_CRUD_ASP.NET.Models.ReservationModel", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("Day")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("PriceId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("UserId1")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PriceId");
+
+                    b.HasIndex("UserId1");
+
+                    b.ToTable("ReservationModel");
+                });
+
+            modelBuilder.Entity("Project04_Auth_CRUD_ASP.NET.Models.TimeModel", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Value")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Times");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("d54ee885-7e7d-4241-996d-b46ca2c86e17"),
+                            Value = "Morning"
+                        },
+                        new
+                        {
+                            Id = new Guid("3b7036c4-6996-4a26-b3e8-730b64913b4d"),
+                            Value = "Afternoon"
+                        },
+                        new
+                        {
+                            Id = new Guid("826c7869-e68a-41f7-a6b5-c1b86fc00ea4"),
+                            Value = "Evening"
+                        },
+                        new
+                        {
+                            Id = new Guid("90c93261-d00d-4404-988b-b19475f6caae"),
+                            Value = "Midnight"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -313,12 +376,47 @@ namespace Project04_Auth_CRUD_ASP.NET.Data.Migrations
             modelBuilder.Entity("Project04_Auth_CRUD_ASP.NET.Models.PriceModel", b =>
                 {
                     b.HasOne("Project04_Auth_CRUD_ASP.NET.Models.BarberModel", "Barber")
-                        .WithMany()
+                        .WithMany("Prices")
                         .HasForeignKey("BarberId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Project04_Auth_CRUD_ASP.NET.Models.TimeModel", "Time")
+                        .WithMany("Prices")
+                        .HasForeignKey("TimeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Barber");
+
+                    b.Navigation("Time");
+                });
+
+            modelBuilder.Entity("Project04_Auth_CRUD_ASP.NET.Models.ReservationModel", b =>
+                {
+                    b.HasOne("Project04_Auth_CRUD_ASP.NET.Models.PriceModel", "Price")
+                        .WithMany()
+                        .HasForeignKey("PriceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId1");
+
+                    b.Navigation("Price");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Project04_Auth_CRUD_ASP.NET.Models.BarberModel", b =>
+                {
+                    b.Navigation("Prices");
+                });
+
+            modelBuilder.Entity("Project04_Auth_CRUD_ASP.NET.Models.TimeModel", b =>
+                {
+                    b.Navigation("Prices");
                 });
 #pragma warning restore 612, 618
         }

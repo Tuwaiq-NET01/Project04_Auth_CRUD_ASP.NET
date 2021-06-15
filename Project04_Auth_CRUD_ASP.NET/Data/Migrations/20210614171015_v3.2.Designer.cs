@@ -10,15 +10,15 @@ using Project04_Auth_CRUD_ASP.NET.Data;
 namespace Project04_Auth_CRUD_ASP.NET.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210614112912_v1-migrations-barber-price")]
-    partial class v1migrationsbarberprice
+    [Migration("20210614171015_v3.2")]
+    partial class v32
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.4")
+                .HasAnnotation("ProductVersion", "5.0.6")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -242,16 +242,59 @@ namespace Project04_Auth_CRUD_ASP.NET.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Time")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<Guid>("BarberId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("TimeId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<decimal>("Value")
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("BarberId");
+
+                    b.HasIndex("TimeId");
+
                     b.ToTable("Prices");
+                });
+
+            modelBuilder.Entity("Project04_Auth_CRUD_ASP.NET.Models.TimeModel", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Value")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Times");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("606a470b-e8f7-4e4c-afb4-2a6ff646148a"),
+                            Value = "Morning"
+                        },
+                        new
+                        {
+                            Id = new Guid("102f54ee-893d-4b81-afb8-5889a83efcab"),
+                            Value = "Afternoon"
+                        },
+                        new
+                        {
+                            Id = new Guid("8108f512-1a1f-4493-bc6d-5e6ca3053eba"),
+                            Value = "Evening"
+                        },
+                        new
+                        {
+                            Id = new Guid("69a9995c-1ff5-4e22-8aad-ff684c14ba07"),
+                            Value = "Midnight"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -303,6 +346,35 @@ namespace Project04_Auth_CRUD_ASP.NET.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Project04_Auth_CRUD_ASP.NET.Models.PriceModel", b =>
+                {
+                    b.HasOne("Project04_Auth_CRUD_ASP.NET.Models.BarberModel", "Barber")
+                        .WithMany("Prices")
+                        .HasForeignKey("BarberId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Project04_Auth_CRUD_ASP.NET.Models.TimeModel", "Time")
+                        .WithMany("Prices")
+                        .HasForeignKey("TimeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Barber");
+
+                    b.Navigation("Time");
+                });
+
+            modelBuilder.Entity("Project04_Auth_CRUD_ASP.NET.Models.BarberModel", b =>
+                {
+                    b.Navigation("Prices");
+                });
+
+            modelBuilder.Entity("Project04_Auth_CRUD_ASP.NET.Models.TimeModel", b =>
+                {
+                    b.Navigation("Prices");
                 });
 #pragma warning restore 612, 618
         }

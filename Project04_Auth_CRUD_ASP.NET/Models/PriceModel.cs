@@ -13,10 +13,12 @@ namespace Project04_Auth_CRUD_ASP.NET.Models
         [Required]
         public decimal Value { get; set; }
 
-        [Required]
-        public string Time { get; set; }
-
         public BarberModel Barber { get; set; }
         public Guid BarberId { get; set; }
+
+        public TimeModel Time { get; set; }
+        public Guid TimeId { get; set; }
+        public List<ReservationModel> Reservation { get; set; }
+
     }
 }

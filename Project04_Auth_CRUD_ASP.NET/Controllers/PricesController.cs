@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -11,7 +10,6 @@ using Project04_Auth_CRUD_ASP.NET.Models;
 
 namespace Project04_Auth_CRUD_ASP.NET.Controllers
 {
-    [Authorize]
     public class PricesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -24,7 +22,7 @@ namespace Project04_Auth_CRUD_ASP.NET.Controllers
         // GET: PriceModels
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Prices.Include(p => p.Barber);
+            var applicationDbContext = _context.Prices.Include(p => p.Barber).Include(p => p.Time);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -38,6 +36,7 @@ namespace Project04_Auth_CRUD_ASP.NET.Controllers
 
             var priceModel = await _context.Prices
                 .Include(p => p.Barber)
+                .Include(p => p.Time)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (priceModel == null)
             {
@@ -51,6 +50,7 @@ namespace Project04_Auth_CRUD_ASP.NET.Controllers
         public IActionResult Create()
         {
             ViewData["BarberId"] = new SelectList(_context.Barbers, "Id", "Name");
+            ViewData["TimeId"] = new SelectList(_context.Times, "Id", "Value");
             return View();
         }
 
@@ -59,7 +59,7 @@ namespace Project04_Auth_CRUD_ASP.NET.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Value,Time,BarberId")] PriceModel priceModel)
+        public async Task<IActionResult> Create([Bind("Id,Value,BarberId,TimeId")] PriceModel priceModel)
         {
             if (ModelState.IsValid)
             {
@@ -69,6 +69,7 @@ namespace Project04_Auth_CRUD_ASP.NET.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["BarberId"] = new SelectList(_context.Barbers, "Id", "Name", priceModel.BarberId);
+            ViewData["TimeId"] = new SelectList(_context.Times, "Id", "Value", priceModel.TimeId);
             return View(priceModel);
         }
 
@@ -86,6 +87,7 @@ namespace Project04_Auth_CRUD_ASP.NET.Controllers
                 return NotFound();
             }
             ViewData["BarberId"] = new SelectList(_context.Barbers, "Id", "Name", priceModel.BarberId);
+            ViewData["TimeId"] = new SelectList(_context.Times, "Id", "Value", priceModel.TimeId);
             return View(priceModel);
         }
 
@@ -94,7 +96,7 @@ namespace Project04_Auth_CRUD_ASP.NET.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Value,Time,BarberId")] PriceModel priceModel)
+        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Value,BarberId,TimeId")] PriceModel priceModel)
         {
             if (id != priceModel.Id)
             {
@@ -122,6 +124,7 @@ namespace Project04_Auth_CRUD_ASP.NET.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["BarberId"] = new SelectList(_context.Barbers, "Id", "Name", priceModel.BarberId);
+            ViewData["TimeId"] = new SelectList(_context.Times, "Id", "Value", priceModel.TimeId);
             return View(priceModel);
         }
 
@@ -135,6 +138,7 @@ namespace Project04_Auth_CRUD_ASP.NET.Controllers
 
             var priceModel = await _context.Prices
                 .Include(p => p.Barber)
+                .Include(p => p.Time)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (priceModel == null)
             {
