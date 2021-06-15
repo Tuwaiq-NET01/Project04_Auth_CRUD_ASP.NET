@@ -15,5 +15,7 @@ namespace GreenLifeStore.Models
         public float Price { get; set; }
         public string Image { get; set; }
 
+
+
     }
 }

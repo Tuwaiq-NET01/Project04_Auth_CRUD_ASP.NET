@@ -390,7 +390,6 @@ C:\Users\Norah\source\repos\GreenLifeStore\GreenLifeStore\obj\Debug\net5.0\ref\G
 C:\Users\Norah\source\repos\GreenLifeStore\GreenLifeStore\obj\Debug\net5.0\GreenLifeStore.pdb
 C:\Users\Norah\source\repos\GreenLifeStore\GreenLifeStore\obj\Debug\net5.0\GreenLifeStore.genruntimeconfig.cache
 C:\Users\Norah\source\repos\GreenLifeStore\GreenLifeStore\obj\Debug\net5.0\Razor\Views\Home\About.cshtml.g.cs
-C:\Users\Norah\source\repos\GreenLifeStore\GreenLifeStore\obj\Debug\net5.0\Razor\Views\Home\Branches.cshtml.g.cs
 C:\Users\Norah\source\repos\GreenLifeStore\GreenLifeStore\obj\Debug\net5.0\Razor\Views\Products\Create.cshtml.g.cs
 C:\Users\Norah\source\repos\GreenLifeStore\GreenLifeStore\obj\Debug\net5.0\Razor\Views\Products\Details.cshtml.g.cs
 C:\Users\Norah\source\repos\GreenLifeStore\GreenLifeStore\obj\Debug\net5.0\Razor\Views\Products\Edit.cshtml.g.cs
@@ -398,3 +397,5 @@ C:\Users\Norah\source\repos\GreenLifeStore\GreenLifeStore\obj\Debug\net5.0\Razor
 C:\Users\Norah\source\repos\GreenLifeStore\GreenLifeStore\obj\Debug\net5.0\Razor\Views\Products\_NotFound.cshtml.g.cs
 C:\Users\Norah\source\repos\GreenLifeStore\GreenLifeStore\bin\Debug\net5.0\Humanizer.dll
 C:\Users\Norah\source\repos\GreenLifeStore\GreenLifeStore\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Norah\source\repos\GreenLifeStore\GreenLifeStore\obj\Debug\net5.0\Razor\Views\Branches\Index.cshtml.g.cs
+C:\Users\Norah\source\repos\GreenLifeStore\GreenLifeStore\obj\Debug\net5.0\Razor\Views\Privacy\Index.cshtml.g.cs

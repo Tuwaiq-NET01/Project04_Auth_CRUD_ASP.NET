@@ -33,17 +33,6 @@ namespace GreenLifeStore.Controllers
             return View();
         }
 
-        [AllowAnonymous]
-        public IActionResult Branches()
-        {
-
-            var Branches = _db.Branches.ToList();
-
-            ViewData["Branches"] = Branches;
-            return View();
-        }
-
-
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

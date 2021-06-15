@@ -30,12 +30,10 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Products" asp-action="Index">Products</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Branches">Branches</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Branches" asp-action="Index">Branches</a>
                         </li>
 
                     </ul>
-
-
 
                 </div>
                 <partial name="_LoginPartial" />
@@ -45,6 +43,8 @@
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
+
+            <br /><br />
         </main>
     </div>
 
