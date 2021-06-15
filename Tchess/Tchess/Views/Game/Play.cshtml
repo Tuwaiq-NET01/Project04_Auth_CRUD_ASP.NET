@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "title";
+    var profile = ViewData["profile"] as Profile;
+}
+<link rel="stylesheet" href="~/css/chessboard-1.0.0.min.css">
+
+<div style=" width: 60% ; margin: auto">
+    <h1>Play Chess</h1>
+    <div id="enemyinfo" style="display: none">
+        <div style="display: inline-block">
+            <h3 id="enemyname" style="display: inline">Player: @profile.Name </h3>
+            <h3 id="enemyrating" style="display: inline ; margin-left: 13em">Rating: @profile.Rating </h3>
+        </div>
+    </div>
+        <div class="animate__animated animate__slow animate__infinite	infinite animate__flash" style="margin-left: 10em" id="waiting">
+            <h3 >Waiting for another player</h3>
+        </div>
+
+    <div id="myBoard" style="width: 650px"></div>
+
+    <div style="display: inline-block">
+        <h3 id="username" style="display: inline">Player: @profile.Name </h3>
+        <h3 id="rating" style="display: inline ; margin-left: 13em">Rating: @profile.Rating </h3>
+    </div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="~/js/chessboard-1.0.0.js"></script>
+<script src="~/js/chess.js"></script>
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/play1.js"></script>

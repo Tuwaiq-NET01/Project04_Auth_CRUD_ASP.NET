@@ -1,0 +1,59 @@
+﻿@model Game
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="card-group">
+    <div class="col-md-6">
+
+        <a asp-controller="Game" asp-action="Play">
+
+            <div style="width: 20em ;float: right;">
+                <div style="width: 50px; margin: auto;">
+                    <h1 style="z-index: 0 ; position: fixed ; margin-top: 3em"> Play</h1>
+                </div>
+                <img id="cardone" class="card-img-top card animate__animated" style="z-index: 10" src="https://media.istockphoto.com/vectors/neon-icon-of-chess-king-on-dark-gradient-background-board-game-10-vector-id1223368874?b=1&k=6&m=1223368874&s=170667a&w=0&h=4lFXXVNNrquAF_vE38Et0XB_Hwt-4toolYpLC6pMrhE=" width="200em" alt="Card image cap">
+            </div>
+        </a>
+
+    </div>
+    <div class="col-md-6">
+        <a asp-controller="Game" asp-action="UserGames">
+
+            <div style="width: 20em">
+                <div style="width: 120px; margin: auto;">
+                    <h1 style="z-index: 0 ; position: fixed ; margin-top: 3em"> My Games</h1>
+                </div>
+                <img id="cardtwo" class=" card-img-top card animate__animated" src="https://media.istockphoto.com/vectors/neon-icon-of-chess-queen-on-dark-gradient-background-board-game-vector-id1221647365?k=6&m=1221647365&s=170667a&w=0&h=1uNk4lajQ3mQMpvjjn6lXH4ZGe3mJr9xPEVzfHE8B2k=" width="200em" alt="Card image cap">
+            </div>
+        </a>
+
+    </div>
+    <div class="col-md-6">
+        <a asp-controller="Game" asp-action="Index">
+
+            <div style="width: 20em ;float: right">
+                <div style="width: 120px; margin: auto;">
+                    <h1 style="z-index: 0 ; position: fixed ; margin-top: 3em"> All Games</h1>
+                </div>
+                <img id="cardthree" class="card-img-top card animate__animated" src="https://media.istockphoto.com/vectors/neon-icon-of-chess-rook-on-dark-gradient-background-board-game-10-vector-id1223126744?b=1&k=6&m=1223126744&s=170667a&w=0&h=8NB2l0mNm4SGpaiy6VDxOMN75fF3hXAXhhONqBZOcuQ=" width="200em" alt="Card image cap">
+            </div>
+        </a>
+
+    </div>
+    <div class="col-md-6">
+        <a asp-controller="Profile" asp-action="Index">
+
+            <div style="width: 20em">
+                <div style="width: 90px; margin: auto;">
+                    <h1 style="z-index: 0 ; position: fixed ; margin-top: 3em"> Profile</h1>
+                </div>
+                <img id="cardfour" class="card-img-top card animate__animated" src="https://media.istockphoto.com/vectors/neon-icon-of-chess-pawn-on-dark-gradient-background-board-game-10-vector-id1206058934?b=1&k=6&m=1206058934&s=170667a&w=0&h=HQZFryCnbuxIokhMkv-fPdiNDkc6yeru9eCLlYQlTb8=" alt="Card image cap">
+            </div>
+        </a>
+
+    </div>
+</div>
+
+<script src="~/js/home.js"></script>

@@ -1,0 +1,39 @@
+﻿@using Tchess.Data
+@{
+    Layout = "_Layout";
+    Profile profile = ViewData["profile"] as Profile;
+    var games = ViewData["games"] as List<Game>;
+    var db = ViewData["db"] as ApplicationDbContext;
+
+}
+
+<h1>Hello @profile.Name</h1>
+
+<h4>Rating : @profile.Rating</h4>
+<h4>Number of games: @profile.NumGames</h4>
+<h4>Won @profile.Win Games </h4>
+<h4>Lost  @profile.Lost Games </h4>
+
+<h2 style="margin-top: 5em">Favorite Games:</h2>
+
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Number of moves</th>
+        <th scope="col">Winner</th>
+    </tr>
+    </thead>
+        
+    @foreach (var game in games)
+    {
+        <tbody>
+        <tr class="table-primary">
+            <th scope="row">@db.Profiles.FirstOrDefault(profile =>profile.Id == game.ProfileId).Name</th>
+            <td>@game.NumMoves</td>
+            <td>@game.Winner</td>
+        </tr>
+        </tbody>
+    }
+</table>

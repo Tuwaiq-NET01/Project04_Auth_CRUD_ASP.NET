@@ -1,0 +1,93 @@
+﻿@using Tchess.Data
+@model Game
+@{
+    Layout = "_Layout";
+    var games = ViewData["games"] as List<Game>;
+    var db = ViewData["db"] as ApplicationDbContext;
+
+}
+<script src="~/js/Game.js"></script>
+
+<div class="text-center">
+
+    <button type="button" onclick="emptyModel()" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Add Game</button>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Game</h5>
+                    <button type="button" class="btn-dark" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="form_id" asp-controller="Game" asp-action="Create" method="post">
+                        <div style="display: none" class="form-group">
+                            <input id="id" type="text" class="form-control" asp-for="Id"/>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Moves" class="col-form-label">Moves:</label>
+                            <input id="Moves" type="text" class="form-control" asp-for="Moves">
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Winner" class="col-form-label">Winner:</label>
+                            <input id="Winner" type="text" class="form-control" asp-for="Winner">
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="NumMoves" class="col-form-label">NumMoves:</label>
+                            <input id="NumMoves" type="text" class="form-control" asp-for="NumMoves">
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="ProfileId" class="col-form-label">Player:</label>
+                            <input id="Player" type="text" class="form-control" asp-for="ProfileId">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <input id="submit" type="submit" class="btn btn-primary" value="Add Game"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Number of moves</th>
+            <th scope="col">Winner</th>
+        </tr>
+        </thead>
+
+        @foreach (var game in games)
+        {
+            <tbody>
+            <tr class="table-primary">
+                <th scope="row">@db.Profiles.FirstOrDefault((profile => profile.Id == game.ProfileId)).Name </th>
+                <td>@game.NumMoves</td>
+                <td>@game.Winner</td>
+                <td style="width: 10%">
+                    <button type="button" onclick="modalhandling(@game.Id)" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">Edit</button>
+                </td>
+                <form method="post" asp-action="Delete" asp-route-id="@game.Id">
+                    <td style="width: 10%">
+                        <input type="submit" class="btn btn-danger" value="Delete"/>
+                    </td>
+                </form>
+                <td style="width: 10%">
+                    <button onclick="addfav(@game.Id)" type="button" class="btn btn-success">Favorite</button>
+                </td>
+            </tr>
+            </tbody>
+        }
+    </table>
+
+
+</div>
+
+<div style=" position: absolute; bottom:0;right:0; display: none" id="alertt" class="alert alert-dismissible alert-success">
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <strong>Well done!</strong> <p>this Game has been added to your Faviorte.</p>
+</div>
