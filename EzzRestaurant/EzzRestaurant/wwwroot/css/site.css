@@ -113,6 +113,7 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  font-family: Pattaya,serif;
 }
 
 .category-card :hover{
@@ -132,3 +133,40 @@ input{
   border-radius: 8px;
   box-shadow: 1px 3px 8px rgba(0,0,0,0.2);
 }
+
+.center-form{
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 3px 20px rgba(0,0,0,0.2);
+  padding: 50px;
+  margin: 50px;
+  border-radius: 10px;
+}
+/*
+.center-form input{
+  padding: 8px;
+  border-top-width: 1px;
+  border-color: #cccccc;
+  border-right-width: 1px;
+  border-left-width: 1px;
+  border-bottom-width: 1px;
+  border-radius: 8px;
+  box-shadow: 0 0;
+}*/
+.form-group{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.order-body{
+  margin-top: 50px;
+}
+.order-card{
+  border-radius: 8px;
+  box-shadow: 1px 2px 20px rgba(0,0,0,0.2);
+  padding: 15px;
+  margin: 10px;
+}
+

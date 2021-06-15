@@ -10,9 +10,9 @@ namespace EzzRestaurant.Controllers
     {
       
 
-        private AppDbContext _db;
+        private ApplicationDbContext _db;
 
-        public ProductsController(AppDbContext ctx)
+        public ProductsController(ApplicationDbContext ctx)
         {
             _db = ctx;
         }

@@ -1,4 +1,8 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@{
     string bgImage = "/pexels-lumn.jpg";
     var product = (ProductModel) ViewBag.Product;
     var category = (CategoryModel) ViewBag.Category;
@@ -18,10 +22,14 @@
     <h1 style=" font-weight: bold; font-family: Pattaya,serif;">@product.Name</h1>
     <h4 style=" font-weight: bold; font-family: Pattaya,serif;">@category.Name</h4>
     <h5 style=" font-weight: bold; font-family: Pattaya,serif;">@product.Price$</h5>
-    <div><a style="white-space: nowrap;" asp-controller="Products" asp-action="Edit" asp-route-id="@product.Id">Edit</a> 
-        <form asp-controller="Products" asp-action="Delete" asp-route-id="@product.Id">
-            <input type="submit" class="" value="Delete" style="display: inline-block; background-color: rgba(0,0,0,0); border: 0; color: red">
-        </form></div>
+    
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <div><a style="white-space: nowrap;" asp-controller="Products" asp-action="Edit" asp-route-id="@product.Id">Edit</a>
+            <form asp-controller="Products" asp-action="Delete" asp-route-id="@product.Id">
+                <input type="submit" class="" value="Delete" style="display: inline-block; background-color: rgba(0,0,0,0); border: 0; color: red">
+            </form></div>
+    }
 </div>
 
        

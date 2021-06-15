@@ -1,12 +1,14 @@
-﻿namespace EzzRestaurant.Models
+﻿using Microsoft.AspNetCore.Identity;
+
+namespace EzzRestaurant.Models
 {
     public class OrderModel
     {
         public int Id { get; set; }
         public double TotalPrice { get; set; }
         
-        public UserModel User { get; set; }
-        public int UserId { get; set; }
+        public IdentityUser User { get; set; }
+        public string UserId { get; set; }
         
     }
 }
