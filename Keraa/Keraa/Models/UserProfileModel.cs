@@ -20,5 +20,11 @@ namespace Keraa.Models
         [ForeignKey("ApplicationUser")]
         public string UserId { get; set; }
         public ApplicationUser User { get; set; }
+
+        [InverseProperty("Owner")]
+        public List<ProductModel> OwnerProducts { get; set; }
+
+        [InverseProperty("Tenant")]
+        public List<ProductModel> TenantProducts { get; set; }
     }
 }
