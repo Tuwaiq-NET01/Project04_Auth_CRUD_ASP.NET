@@ -60,10 +60,16 @@ namespace backend.Controllers
 
                 return Ok(new
                 {
-                    message = "JWT token has been generated.",
                     token = new JwtSecurityTokenHandler().WriteToken(token),
                     expiration = token.ValidTo,
-                    userId = user.Id
+                    id = user.Id,
+                    email = user.Email,
+                    username = user.UserName,
+                    name = user.Name,
+                    joinDate = user.CreationDate,
+                    type = user.AccountType,
+                    currentQuota = user.CurrentQuota,
+                    totalQuota = user.TotalQuota
                 });
             }
             return Unauthorized();
