@@ -1,31 +1,60 @@
-﻿@model Comment
+﻿@using Microsoft.AspNetCore.Identity
+@inject UserManager<IdentityUser> UserManager
+@model Comment
 @{
     var comments = (List<Comment>)ViewData["comments"];
     var challenge = (Challenge)ViewData["challenge"];
+
+    //bool isUser = false;
+    //if ( == user)
+    //{
+    //    isUser = true;
+    //}
+
+
 }
 
 <hr />
-<h1 class="display-6">Comments</h1>
+<div class="container-fluid">
+    <h1 class="display-6">Comments:</h1>
 
-<div class="form-floating mb-3">
-    <form asp-controller="comments" asp-action="create" asp-route-id="@challenge.Id" method="post" class="form-horizontal" autocomplete="off">
-        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" asp-for="Title"></textarea>
-        <input class="btn btn-outline-secondary mt-2 d-flex justify-content-end" type="submit"  />
-    </form>
+    <div class="form-floating mb-3">
+        <form asp-controller="comments" asp-action="create" asp-route-id="@challenge.Id" method="post" class="form-horizontal" autocomplete="off">
+            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" asp-for="Title"></textarea>
+            <input class="btn btn-outline-secondary mt-2 d-flex justify-content-end" type="submit" />
+        </form>
+    </div>
+
+
+
+
+
+    <div class="container">
+
+
+        @foreach (var cmt in comments)
+        {
+            <div class="comment mb-3">
+                <div class="d-flex justify-content-between">
+
+                    <h5>@cmt.Title </h5>
+
+                    @if (cmt.UserId == @UserManager.GetUserId(User))
+                    {
+
+                        <form method="post" asp-controller="comments" asp-action="delete" asp-route-id="@cmt.Id">
+                                <button type="submit" class="btn btn-link trash"><i class="fas fa-trash fa-2x"></i></button>
+                        </form>
+                    }
+
+
+                </div>
+                <p class="text-muted">@cmt.User.UserName</p>
+
+            </div>
+
+        }
+
+    </div>
 </div>
-
-
-
-
-
-
-
-
-
-@foreach (var cmt in comments)
-{
-
-    <h5>@cmt.Title </h5>
-    <p class="text-muted">@cmt.User.UserName</p>
-}
 

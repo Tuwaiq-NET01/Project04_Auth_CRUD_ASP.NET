@@ -5,7 +5,7 @@
     var game = (Game)ViewData["game"];
     var challenges = (List<Challenge>)ViewData["challenges"];
 
-    var user = (string)ViewData["id"];
+    var user = (string)ViewData["id"]; //diff way discovered => @User.GETID method
     bool isUser = false;
     if (game.User_Id == user)
     {

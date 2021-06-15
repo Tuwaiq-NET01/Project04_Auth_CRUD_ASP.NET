@@ -1,6 +1,7 @@
 ﻿using ChallengeME.Data;
 using ChallengeME.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace ChallengeME.Controllers
     {
 
 
+        
         private readonly ApplicationDbContext _context;
 
         public CommentsController(ApplicationDbContext context)
@@ -53,10 +55,30 @@ namespace ChallengeME.Controllers
             {
                 _context.Comments.Add(comment);
                 _context.SaveChanges();
-                return RedirectToAction("Details", "challenges", new { id = id });
+                return RedirectToAction("details", "challenges", new { id = id });
             }
 
             return View();
+        }
+
+
+        [Authorize]
+        [HttpPost]
+        public IActionResult Delete(int? id)
+        {
+
+
+            var comment = _context.Comments.ToList().FirstOrDefault(p => p.Id == id);
+
+            if (id == null || comment == null)
+            {
+                return NotFound();
+            }
+
+
+            _context.Comments.Remove(comment);
+            _context.SaveChanges();
+            return RedirectToAction("details", "challenges", new { id = comment.ChallengeId });
         }
 
 

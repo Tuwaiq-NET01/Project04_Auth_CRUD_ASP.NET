@@ -32,7 +32,7 @@ namespace ChallengeME.Controllers
         public IActionResult Details(int? id)
         {
             var challenge = _context.Challenges.ToList().Find(m => m.Id == id);
-            var comments = _context.Comments.Where(x => x.ChallengeId == challenge.Id).ToList();
+            var comments = _context.Comments.Where(x => x.ChallengeId == challenge.Id).OrderByDescending(x => x.Id).ToList();
             var user = _context.Users.ToList();
             var games = _context.Games.ToList();
 

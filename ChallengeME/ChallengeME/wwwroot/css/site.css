@@ -131,3 +131,16 @@ hr {
         text-decoration: none;
     }
 
+.comment {
+    background-color: rgb(40 23 23 / 0.60);
+    border-radius: 15px;
+    padding: 10px 0px 3px 20px
+}
+
+.trash{
+    color: #4c0000
+}
+
+.trash:hover{
+    color:red;
+}
