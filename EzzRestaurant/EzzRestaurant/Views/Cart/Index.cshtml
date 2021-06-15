@@ -1,7 +1,7 @@
 ﻿@{
 
     string bgImage = "/pexels-lumn.jpg";
-    var orders = (List<OrderModel>) ViewBag.Orders;
+    var products = (List<ProductModel>) ViewBag.Products;
 }
 
 <div class="" style="background: url(@bgImage) no-repeat center center; background-size: cover; height: 800px">
@@ -18,15 +18,18 @@
     
     <h1 style="font-family: Pattaya,serif;">Orders here</h1>
     <div class="row order-body">
-        @foreach (var order in orders)
+        @foreach (var product in products)
         {
-            <div class="col-4 order-card-container" style="font-family: Pattaya,serif;">
-                <a asp-action="Details" asp-route-id="@order.Id">
-                    <div class="order-card">
-                        <h3>#@order.Id</h3>
-                        <h4>@order.TotalPrice$</h4>
+            <div class="col-4 ">
+           
+                <div class="category-card box-shadow" style="background-image: url(@product.img);">
+                    <div class="category-body" style="display: flex ; flex-direction: column">
+                    
+                        <h4 style="color: white; font-weight: bold"><a style="color: white;" asp-controller="Products" asp-action="Details" asp-route-id="@product.Id">@product.Name</a></h4>
+                        <h5 style="color: white; font-weight: bold">@product.Price$</h5>
+                    
                     </div>
-                </a>
+                </div>
             </div>
         }
     </div>

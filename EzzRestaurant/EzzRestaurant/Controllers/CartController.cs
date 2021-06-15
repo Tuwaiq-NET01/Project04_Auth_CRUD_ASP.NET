@@ -5,37 +5,25 @@ using EzzRestaurant.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace EzzRestaurant.Controllers
 {
-    public class OrdersController : Controller
+    public class CartController : Controller
     {
         private ApplicationDbContext _db;
-        UserManager<IdentityUser> userManager;
+        private UserManager<IdentityUser> _userManager;
 
-        public OrdersController(ApplicationDbContext ctx)
+        public CartController(ApplicationDbContext ctx , UserManager<IdentityUser> userManager)
         {
             _db = ctx;
-            var userStore = new UserStore<IdentityUser>(_db);
+            _userManager = userManager;
         }
-
-        public IActionResult Index(string id)
+        // GET
+        public IActionResult Index()
         {
-            var orders = _db.Orders.Where(o => o.UserId == id).ToList();
-            if (id == null )
-            {
-                return View("_NotFound");
-            }
-            ViewBag.Orders = orders;
-            return View();
-        }
-        
-        public IActionResult Details(int id)
-        {
-            var order = _db.Orders.First(o => o.Id == id);
-            var ordprd = _db.OrderProduct.Where(p => p.OrderId == id).ToList();
+            /*
+            var userId = _userManager.GetUserId(User);
+            var ordprd = _db.Car.Where(p => p.OrderId == userId).ToList();
             var AllProducts = _db.Products.ToList();
             if (id == null || order == null || AllProducts.Count == 0)
             {
@@ -53,9 +41,7 @@ namespace EzzRestaurant.Controllers
                         break;
                     }
                 }
-            }
-            ViewBag.Order = order;
-            ViewBag.Products = Products;
+            }*/
             return View();
         }
     }

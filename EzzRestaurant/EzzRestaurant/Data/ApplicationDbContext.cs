@@ -18,6 +18,8 @@ namespace EzzRestaurant.Data
         public DbSet<ProductModel> Products { get; set; }
         public DbSet<OrderModel> Orders { get; set; }
         public DbSet<OrderProductsModel> OrderProduct { get; set; }
+        public DbSet<CartModal> Cart { get; set; }
+        public DbSet<CartProductsModel> CartProcucts { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

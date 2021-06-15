@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace EzzRestaurant.Models
@@ -21,5 +22,8 @@ namespace EzzRestaurant.Models
         
         [Required]
         public int CategoryId { get; set; }
+        
+        public Collection<CartModal> Products { get; set; }
+
     }
 }
