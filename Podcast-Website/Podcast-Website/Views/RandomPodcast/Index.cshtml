@@ -1,0 +1,66 @@
+﻿@{ 
+    var dataString = (string)ViewData["dataString"];
+}
+
+<script>
+    function type3(){
+        console.log("cdjndjskn");
+        var p = document.getElementById("dataString");
+        var data = document.getElementById("dataString").innerHTML;
+
+        let jsonData = JSON.parse(data);
+        console.log(jsonData);
+
+
+        
+
+        var randomIndex = Math.floor(Math.random() * jsonData.items.length)
+
+        document.getElementById("imgR").src = jsonData.items[randomIndex].feedImage
+
+        document.getElementById("headerR").innerHTML = jsonData.items[randomIndex].title
+
+        document.getElementById("aud").src = jsonData.items[randomIndex].enclosureUrl
+        console.log(document.getElementById("aud").src)
+        
+
+        document.getElementById("pR").innerHTML = jsonData.items[randomIndex].description
+
+
+    }
+</script>
+<input type="checkbox"  onclick="type3()">
+<p id="dataString" onclick="aaa()" style="display:none">@dataString</p>
+
+
+<div class="container overflow-hidden">
+    <div class="row gx-5">
+        <div class="col">
+            <div class="p-3  ">
+                <img src="" style="max-width:450px" id="imgR"/>
+            </div>
+        </div>
+        <div class="col">
+            <div class="p-3 " style="margin-top:50px">
+                <h1 style="color: #78a09c" id="headerR"></h1>
+
+
+                <audio controls style=" width: 450px;margin-top:20px" id="aud">
+
+                    @*<source src="" type="audio/mpeg" id="audioR11">
+                    Your browser does not support the audio element.*@
+                </audio>
+                <br /><br />
+
+                <br />
+                <h5>Description : </h5>
+                <p id="pR"></p>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

@@ -1,0 +1,135 @@
+﻿@{
+
+    var id = (int)ViewData["id"];
+
+    var Podcasts = (List<PodcastModel>)ViewData["Podcasts"];
+    var Prodcast_Tags = (List<Prodcast_TagModel>)ViewData["Prodcast_Tag"];
+    var tags = (List<TagModel>)ViewData["tags"];
+
+
+}
+
+<script>
+    function type1() {
+        // Get the checkbox
+        var checkBox = document.getElementById("vehicle1");
+
+        // Get the output text
+        var text = document.getElementById("vehicle1Text");
+
+        // If the checkbox is checked, display the output text
+        if (checkBox.checked == true) {
+            console.log(text.innerHTML)
+            document.getElementById("tag").value += text.innerHTML + " ,"
+
+        } else {
+            document.getElementById("tag").value = document.getElementById("tag").innerHTML.replace('Tech', '')
+
+        }
+
+    }
+    function type2() {
+        var checkBox2 = document.getElementById("vehicle2");
+        var text2 = document.getElementById("vehicle2Text");
+
+        if (checkBox2.checked == true) {
+            console.log(text2.innerHTML)
+            document.getElementById("tag").value += text2.innerHTML + " ,"
+        } else {
+            console.log(document.getElementById("tag").innerHTML)
+            document.getElementById("tag").value = document.getElementById("tag").innerHTML.replace('Sport', '')
+        }
+    }
+
+    function type3() {
+        var checkBox3 = document.getElementById("vehicle3");
+        var text3 = document.getElementById("vehicle3Text");
+
+        if (checkBox3.checked == true) {
+            console.log(text3.innerHTML)
+            document.getElementById("tag").value += text3.innerHTML + " ,"
+        } else {
+            document.getElementById("tag").value = document.getElementById("tag").innerHTML.replace('Interview', '')
+
+        }
+    }
+
+  
+</script>
+
+
+<div class="mb-3">
+
+    <label class="form-label">Choose Your Podcast types</label><br />
+    <input type="checkbox"  id="vehicle1" name="vehicle1" value="Bike" onclick="type1()">
+    <label for="vehicle1" id="vehicle1Text">Tech</label><br>
+    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car" onclick="type2()">
+    <label for="vehicle2" id="vehicle2Text">Sport </label><br>
+    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat" onclick="type3()">
+    <label for="vehicle3" id="vehicle3Text">Interview</label><br>
+
+
+</div>
+
+<form asp-controller="Podcast" asp-action="filter"  >
+    <p>
+        <input type="hidden"  name="SearchString" id="tag" />
+        <input type="submit" value="Select" class="btn btn-outline-dark" />
+    </p>
+</form>
+
+
+
+
+
+
+
+
+
+@foreach (var Podcast in Podcasts)
+{
+    @foreach (var tag in tags)
+    {
+        
+
+            foreach (var Prodcast_Tag in Prodcast_Tags)
+            {
+                if (Prodcast_Tag.TagId == tag.Id && Prodcast_Tag.Podcast__Id == Podcast.Id)
+                {
+                <div class="container text-center card1" style="height:260px;margin-top:40px">
+
+                    <div class="row">
+
+                        <div class="col-4">
+                            <img src=@Podcast.Podcast_image class="container_img" />
+                        </div>
+                        <div class="col-8" style="text-align:left;margin-top:50px">
+                            <a class="link1" href="/podcast/Details/@Podcast.Id">
+                                <h1 style="color: #78a09c">@Podcast.Title</h1>
+                            </a>
+                            @if (tag.Tag_Name != null)
+                            {
+                            <p style="opacity:0.6">#@tag.Tag_Name.Remove(tag.Tag_Name.Length - 2)</p>
+                            }
+
+                            <audio controls style=" width: 655px;margin-top:20px">
+
+                                <source src=@Podcast.Audio type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+
+
+                        </div>
+                    </div>
+                </div>
+                    }
+                }
+            
+        }
+    }
+
+
+
+
+
+

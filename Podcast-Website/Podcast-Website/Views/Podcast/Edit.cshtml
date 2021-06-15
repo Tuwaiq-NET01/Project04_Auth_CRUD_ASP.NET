@@ -1,0 +1,63 @@
+﻿@model PodcastModel
+@{
+    var Podcast = (PodcastModel)ViewData["Podcasts"];
+}
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <img src="https://media2.giphy.com/media/9P8T1ItfCI3UpIht9T/giphy.gif" width="550px" height="550px" />
+        </div>
+        <div class="col">
+            <form asp-action="Edit" method="post" class="form-horizontal">
+
+                <div class="form-group">
+                    <input type="hidden" asp-for="Id" value="@Podcast.Id" />
+                </div>
+
+
+                <div class="mb-3">
+                    <label asp-for="Title" class="form-label">Title</label>
+                    <input asp-for="Title" value="@Podcast.Title" class="form-control" placeholder="title">
+                </div>
+
+
+                <div class="mb-3">
+                    <label asp-for="Audio" class="form-label">Audio</label>
+                    <input asp-for="Audio" value="@Podcast.Audio" class="form-control" placeholder="Audio">
+                </div>
+
+
+                <div class="mb-3">
+                    <label asp-for="Podcast_image" class="form-label">Image</label>
+                    <input asp-for="Podcast_image" value="@Podcast.Podcast_image" class="form-control" placeholder="Music Image">
+                </div>
+
+
+                <div class="mb-3">
+                    <label asp-for="Description" class="form-label">Description</label>
+                    <textarea asp-for="Description" class="form-control" placeholder="@Podcast.Description" rows="3"></textarea>
+
+                </div>
+
+
+                <div class="form-group">
+                    <input type="hidden" asp-for="ProfileId" value="@Podcast.ProfileId" />
+                </div>
+
+
+
+
+
+                <div class="from-group">
+                    <input type="submit" class="btn btn-primary" value="Update" />
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>

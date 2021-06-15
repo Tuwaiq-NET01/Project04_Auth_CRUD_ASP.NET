@@ -1,0 +1,68 @@
+﻿
+
+
+@{
+
+
+
+    var Podcasts = (List<PodcastModel>)ViewData["Podcasts"];
+    var Prodcast_Tags = (List<Prodcast_TagModel>)ViewData["Prodcast_Tag"];
+    var tags = (List<TagModel>)ViewData["tags"];
+    
+    string[] names = (string[])ViewData["tagstring"];
+
+
+
+
+}
+
+
+
+<h6>
+</h6>
+
+@foreach (var Podcast in Podcasts)
+{
+    @foreach (var tag in tags)
+    {
+        if (tag.Tag_Name != null)
+        {
+
+            if (names.All(x => tag.Tag_Name.Contains(x)))
+            {
+                foreach (var Prodcast_Tag in Prodcast_Tags)
+                {
+                    if (Prodcast_Tag.TagId == tag.Id && Prodcast_Tag.Podcast__Id == Podcast.Id)
+                    {
+                    <div class="container text-center card1" style="height:260px;margin-top:40px">
+
+                        <div class="row">
+
+                            <div class="col-4">
+                                <img src=@Podcast.Podcast_image class="container_img" />
+                            </div>
+                            <div class="col-8" style="text-align:left;margin-top:50px">
+                                <a class="link1" href="/podcast/Details/@Podcast.Id">
+                                    <h1 style="color: #78a09c">@Podcast.Title</h1>
+                                </a>
+
+                                <p style="opacity:0.6">#@tag.Tag_Name.Remove(tag.Tag_Name.Length - 2)</p>
+
+
+                                <audio controls style=" width: 655px;margin-top:20px">
+
+                                    <source src=@Podcast.Audio type="audio/mpeg">
+                                    Your browser does not support the audio element.
+                                </audio>
+
+
+                            </div>
+                        </div>
+                    </div>
+                        }
+                    }
+                }
+            }
+
+        }
+    }

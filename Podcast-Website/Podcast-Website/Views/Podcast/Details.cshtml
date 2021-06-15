@@ -1,0 +1,123 @@
+﻿@{
+
+    var Podcast = (PodcastModel)ViewData["Podcast"];
+    var id = (int)ViewData["id"];
+
+    var Prodcast_Tags = (List<Prodcast_TagModel>)ViewData["Prodcast_Tag"];
+    var tags = (List<TagModel>)ViewData["tags"];
+
+    var Profiles = (List<ProfileModel>)ViewData["Profiles"];
+    var id1 = (string)ViewData["userid"];
+    var currentUser = 0;
+
+}
+@foreach (var Profile in Profiles)
+{
+    if (Profile.UserId == id1)
+    {
+         currentUser = Profile.Id;
+    }
+}
+
+
+<script>
+    function star5() {
+        document.getElementById("ratingtext").value = 5
+        document.getElementById('ratingform').submit();
+    }
+    function star4() {
+        document.getElementById("ratingtext").value = 4
+        document.getElementById('ratingform').submit();
+    }
+    function star3() {
+        document.getElementById("ratingtext").value = 3
+        document.getElementById('ratingform').submit();
+    }
+    function star2() {
+        document.getElementById("ratingtext").value = 2
+        document.getElementById('ratingform').submit();
+    }
+    function star1() {
+        document.getElementById("ratingtext").value = 1
+        document.getElementById('ratingform').submit();
+    }
+    function star0() {
+        document.getElementById("ratingtext").value = 0
+        document.getElementById('ratingform').submit();
+    }
+
+
+</script>
+
+
+<div class="container overflow-hidden">
+    <div class="row gx-5">
+        <div class="col">
+            <div class="p-3  ">
+                <img src=@Podcast.Podcast_image style="max-width:450px" />
+            </div>
+        </div>
+        <div class="col">
+            <div class="p-3 " style="margin-top:50px">
+                <h1 style="color: #78a09c">@Podcast.Title</h1>
+
+
+                <form asp-controller="Rating" asp-action="Create" method="post" class="form-horizontal" id="ratingform">
+                    <div class="star-rating">
+                        <input id="star-5" type="radio" name="rating" value="star-5" onclick="star5()" />
+                        <label for="star-5" title="5 stars">
+                            <i class="active fa fa-star" aria-hidden="true"></i>
+                        </label>
+                        <input id="star-4" type="radio" name="rating" value="star-4" onclick="star4()" />
+                        <label for="star-4" title="4 stars">
+                            <i class="active fa fa-star" aria-hidden="true"></i>
+                        </label>
+                        <input id="star-3" type="radio" name="rating" value="star-3" onclick="star3()" />
+                        <label for="star-3" title="3 stars">
+                            <i class="active fa fa-star" aria-hidden="true"></i>
+                        </label>
+                        <input id="star-2" type="radio" name="rating" value="star-2" onclick="star2()" />
+                        <label for="star-2" title="2 stars">
+                            <i class="active fa fa-star" aria-hidden="true"></i>
+                        </label>
+                        <input id="star-1" type="radio" name="rating" value="star-1" onclick="star1()" />
+                        <label for="star-1" title="1 star">
+                            <i class="active fa fa-star" aria-hidden="true"></i>
+                        </label>
+                        <input type="hidden" name="rating123" id="ratingtext" />
+                        <input type="hidden" name="podcastid" value="@Podcast.Id" />
+                        <input type="hidden" name="currentUser1" value="@currentUser"
+                    </div>
+                </form>
+
+
+                <audio controls style=" width: 450px;margin-top:20px">
+
+                    <source src=@Podcast.Audio type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <br /><br />
+                @foreach (var tag in tags)
+                {
+
+
+                    foreach (var Prodcast_Tag in Prodcast_Tags)
+                    {
+                        if (Prodcast_Tag.TagId == tag.Id && Prodcast_Tag.Podcast__Id == Podcast.Id)
+                        {
+                            @if (tag.Tag_Name != null)
+                            {
+                                <h6 style="opacity:0.6"># @tag.Tag_Name.Remove(tag.Tag_Name.Length - 2)</h6>
+                            }
+                        }
+                    }
+                }
+                <br />
+                <h5>Description : </h5>
+                <p>@Podcast.Description</p>
+
+
+            </div>
+        </div>
+    </div>
+</div>

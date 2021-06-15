@@ -1,0 +1,68 @@
+﻿
+.MyprofileMain {
+    margin-top: 50px;
+}
+
+.profile {
+    transform: translateY(5rem);
+}
+
+
+.card1 {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    transition: all 0.9s cubic-bezier(0.165, 0.84, 0.44, 1);
+    margin-bottom: 30px;
+}
+
+
+
+    .card1:hover {
+        transform: scale(1.07);
+    }
+
+.container_img {
+    min-width: 100%;
+    height: 260px;
+    object-fit: cover;
+    margin-left: -30px
+}
+
+.container_img_onecard {
+    min-width: 100%;
+    height: 400px;
+    object-fit: cover;
+    margin-left: -35px
+}
+
+.link1:hover {
+    text-decoration: none;
+}
+
+.checked {
+    color: orange;
+}
+
+.star-rating {
+    direction: rtl;
+    display: inline-block;
+    padding: 20px
+}
+
+    .star-rating input[type=radio] {
+        display: none
+    }
+
+    .star-rating label {
+        color: #bbb;
+        font-size: 18px;
+        padding: 0;
+        cursor: pointer;
+        -webkit-transition: all .3s ease-in-out;
+        transition: all .3s ease-in-out
+    }
+
+        .star-rating label:hover,
+        .star-rating label:hover ~ label,
+        .star-rating input[type=radio]:checked ~ label {
+            color: #f2b600
+        }

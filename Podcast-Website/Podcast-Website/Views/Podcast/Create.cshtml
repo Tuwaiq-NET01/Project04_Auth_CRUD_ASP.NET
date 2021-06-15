@@ -1,0 +1,130 @@
+﻿@model Podcast_Website.ViewModel.TagAndPocast
+
+
+
+
+@{ 
+    var id = (int)ViewData["id"];
+    
+}
+
+<script>
+    function type1() {
+        // Get the checkbox
+        var checkBox = document.getElementById("vehicle1");
+       
+        // Get the output text
+        var text = document.getElementById("vehicle1Text");
+
+        // If the checkbox is checked, display the output text
+        if (checkBox.checked == true) {
+            console.log(text.innerHTML)
+            document.getElementById("tag").value += text.innerHTML + " ,"
+
+        } else {
+            document.getElementById("tag").value = document.getElementById("tag").innerHTML.replace('Tech', '')
+
+        }
+         
+    }
+    function type2() {
+        var checkBox2 = document.getElementById("vehicle2");
+        var text2 = document.getElementById("vehicle2Text");
+
+        if (checkBox2.checked == true) {
+            console.log(text2.innerHTML)
+            document.getElementById("tag").value += text2.innerHTML + " ,"
+        } else {
+            console.log(document.getElementById("tag").innerHTML)
+            document.getElementById("tag").value = document.getElementById("tag").innerHTML.replace('Sport', '')
+        }
+    }
+
+    function type3() {
+        var checkBox3 = document.getElementById("vehicle3");
+        var text3 = document.getElementById("vehicle3Text");
+
+        if (checkBox3.checked == true) {
+            console.log(text3.innerHTML)
+            document.getElementById("tag").value += text3.innerHTML + " ,"
+        } else {
+            document.getElementById("tag").value = document.getElementById("tag").innerHTML.replace('Interview', '')
+
+        }
+    }
+</script>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <img src="https://cdn130.picsart.com/316021549506201.gif" width="500px" height="550px" />
+        </div>
+        <div class="col">
+            <form asp-action="Create" method="post" class="form-horizontal">
+
+
+
+                <div class="mb-3">
+                    <label asp-for="Title" class="form-label">Title</label>
+                    <input asp-for="Title" class="form-control" placeholder="Title">
+                </div>
+
+
+                <div class="mb-3">
+                    <label asp-for="Audio" class="form-label">Audio</label>
+                    <input asp-for="Audio" class="form-control" placeholder="Audio">
+                </div>
+
+
+                <div class="mb-3">
+                    <label asp-for="Podcast_image" class="form-label">Podcast Image</label>
+                    <input asp-for="Podcast_image" class="form-control" placeholder="Podcast Image">
+                </div>
+
+                <div class="mb-3">
+                    <label  class="form-label">Choose Your Podcast types</label><br/>
+                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" onclick="type1()">
+                    <label for="vehicle1" id="vehicle1Text"> Tech</label><br>
+                    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car" onclick="type2()">
+                    <label for="vehicle2" id="vehicle2Text"> Sport </label><br>
+                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat" onclick="type3()">
+                    <label for="vehicle3" id="vehicle3Text"> Interview </label><br>
+
+
+
+                    <label asp-for="Tag_Name" class="form-label">Your Choice</label>
+                    <input asp-for="Tag_Name" class="form-control" id="tag" placeholder="Podcast type" readonly>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Description" class="form-label">Description</label>
+                    <textarea asp-for="Description" class="form-control" placeholder="Description" rows="3"></textarea>
+                </div>
+
+
+
+
+
+
+
+
+                <div class="form-group">
+                    <input type="hidden" asp-for="ProfileId" value="@id" />
+                </div>
+
+
+
+
+
+                <div class="from-group">
+                    <input type="submit" class="btn btn-primary" value="Submit" />
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
