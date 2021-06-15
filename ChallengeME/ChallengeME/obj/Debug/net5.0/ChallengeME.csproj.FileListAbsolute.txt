@@ -95,3 +95,5 @@ D:\Tuwaiq\dotNET\projects\Project04_Auth_CRUD_ASP.NET\ChallengeME\ChallengeME\ob
 D:\Tuwaiq\dotNET\projects\Project04_Auth_CRUD_ASP.NET\ChallengeME\ChallengeME\obj\Debug\net5.0\Razor\Views\Home\About.cshtml.g.cs
 D:\Tuwaiq\dotNET\projects\Project04_Auth_CRUD_ASP.NET\ChallengeME\ChallengeME\obj\Debug\net5.0\Razor\Views\Shared\_myLayout.cshtml.g.cs
 D:\Tuwaiq\dotNET\projects\Project04_Auth_CRUD_ASP.NET\ChallengeME\ChallengeME\bin\Debug\net5.0\libman.json
+D:\Tuwaiq\dotNET\projects\Project04_Auth_CRUD_ASP.NET\ChallengeME\ChallengeME\obj\Debug\net5.0\Razor\Views\Games\Search.cshtml.g.cs
+D:\Tuwaiq\dotNET\projects\Project04_Auth_CRUD_ASP.NET\ChallengeME\ChallengeME\obj\Debug\net5.0\Razor\Views\Games\_CardsPartial.cshtml.g.cs

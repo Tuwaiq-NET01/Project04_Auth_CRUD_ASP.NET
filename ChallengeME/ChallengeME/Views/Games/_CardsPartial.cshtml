@@ -1,22 +1,14 @@
 ﻿
 @{
-    Layout = "_myLayout";
 
-    //var games = (List<Game>)ViewData["games"];
+    var games = (List<Game>)ViewData["games"];
+
 }
 
+<div class="row">
 
-
-
-<h3 class="display-4 my-2">All Games</h3>
-
-<a asp-action="create" asp-controller="games">Create new Game</a>
-<hr />
-
-@*<div class="row">
-
-        @foreach (var game in games)
-        {
+    @foreach (var game in games)
+    {
 
         <div class="col-md-3 mb-5">
 
@@ -36,8 +28,5 @@
                 </div>
             </a>
         </div>
-        }
-    </div>*@
-
-
-<partial name="_CardsPartial" />
+    }
+</div>

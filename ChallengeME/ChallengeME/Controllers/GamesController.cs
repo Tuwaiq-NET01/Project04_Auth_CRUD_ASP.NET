@@ -162,7 +162,14 @@ namespace ChallengeME.Controllers
         }
 
 
-
+        public IActionResult Search(string txt)
+        {
+            var target = txt;
+            var searchRes = _context.Games.Where(a => a.GameName.Contains(target)).ToList();
+            ViewData["target"] = target;
+            ViewData["games"] = searchRes;
+            return View();
+        }
 
 
 
