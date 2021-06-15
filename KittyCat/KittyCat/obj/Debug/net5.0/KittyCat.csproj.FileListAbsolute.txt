@@ -93,3 +93,4 @@ C:\Users\Batool Alghamdi\Desktop\Tuwaiq\.Net\Projects\Project04_Auth_CRUD_ASP.NE
 C:\Users\Batool Alghamdi\Desktop\Tuwaiq\.Net\Projects\Project04_Auth_CRUD_ASP.NET\KittyCat\KittyCat\obj\Debug\net5.0\ref\KittyCat.dll
 C:\Users\Batool Alghamdi\Desktop\Tuwaiq\.Net\Projects\Project04_Auth_CRUD_ASP.NET\KittyCat\KittyCat\obj\Debug\net5.0\KittyCat.pdb
 C:\Users\Batool Alghamdi\Desktop\Tuwaiq\.Net\Projects\Project04_Auth_CRUD_ASP.NET\KittyCat\KittyCat\obj\Debug\net5.0\KittyCat.genruntimeconfig.cache
+C:\Users\Batool Alghamdi\Desktop\Tuwaiq\.Net\Projects\Project04_Auth_CRUD_ASP.NET\KittyCat\KittyCat\obj\Debug\net5.0\Razor\Views\Adopter\UploadImage.cshtml.g.cs

@@ -1,0 +1,138 @@
+body {
+  background-color: rgb(221, 221, 221);
+}
+.container01 {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+.wrapp {
+  width: 850px;
+  height: 550px;
+  background-color: white;
+  border-radius: 30px;
+  overflow: hidden;
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.left-side {
+  background-color: #feffba;
+  color: black;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.img01 {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+.title01 {
+  align-items: center;
+  font-weight: 400;
+  font-size: smaller;
+  text-align: center;
+  color: #2f2f2f;
+  
+}
+h3 {
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.right-side {
+  
+  color: #2f2f2f;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 50px;
+}
+input[type="text"],
+input[type="date"] {
+  border: 0;
+  background-color: #e4e9eb;
+  height: 40px;
+  border-radius: 10px;
+  padding: 10px;
+  width: 250px;
+}
+input[type="text"]:focus,
+input[type="date"]:focus {
+  border: 2px solid;
+  border-color: #a6d0e0;
+}
+.block {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: start;
+}
+.rad {
+  position: relative;
+  right: 75px;
+}
+input[type="radio"] {
+  -webkit-appearance: none;
+}
+label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: smaller;
+}
+.imgRad {
+  width: 20px;
+}
+
+.fa {
+  border-radius: 50px;
+  background-color: #e4e9eb;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5px;
+}
+
+input[type="radio"]:checked + label > .fa {
+  background-color: #707070;
+}
+
+.btns {
+  display: flex;
+  justify-content: center;
+}
+button {
+  margin: 5px;
+  width: 100px;
+  border: 0;
+}
+.btn-primary {
+  background-color: rgb(175, 91, 214);
+  border: 0;
+  font-size: smaller;
+}
+.btn-secondary {
+  background-color: #e4e9eb;
+  border: 0;
+  color: #2f2f2f;
+  font-size: smaller;
+}
+.btn-primary:hover {
+  background-color: rgb(153, 0, 224);
+}
