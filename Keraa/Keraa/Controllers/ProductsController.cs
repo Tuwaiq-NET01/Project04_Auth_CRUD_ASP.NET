@@ -1,5 +1,6 @@
 ﻿using Keraa.Data;
 using Keraa.Models;
+using Microsoft.AspNetCore.Identity; // for:_userManager
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -12,10 +13,13 @@ namespace Keraa.Controllers
     {
 
         private readonly ApplicationDbContext _db;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public ProductsController(ApplicationDbContext context)
+
+        public ProductsController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _db = context;
+            _userManager = userManager;
         }
         public IActionResult Index()
         {
@@ -48,9 +52,12 @@ namespace Keraa.Controllers
         {
             if (ModelState.IsValid) //check the state of model
             {
+                var user = await _userManager.GetUserAsync(User);
                 List<string> Coordinate = await Utilities.GetCurrentCoordinates();
+
                 product.LocationLat = Coordinate[0];
                 product.LocationLng = Coordinate[1];
+               product.OwnerId = user.Id;
                 _db.Products.Add(product);
                 _db.SaveChanges();
                 return RedirectToAction("Index");

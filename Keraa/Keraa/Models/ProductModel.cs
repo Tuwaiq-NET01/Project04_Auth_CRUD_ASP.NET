@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -18,10 +19,13 @@ namespace Keraa.Models
         public string LocationLat { get; set; } // Latitude
         public string LocationLng { get; set; } //Longitude
 
-        //public string OwnerUserProfileId { get; set; }
+        [ForeignKey("OwnerId")]
+        public string OwnerId { get; set; }
         public UserProfileModel Owner { get; set; }
 
-        //public string TenantUserProfileId { get; set; }
+
+        [ForeignKey("TenantId")]
+        public string TenantId { get; set; }
         public UserProfileModel Tenant { get; set; }
 
     }
