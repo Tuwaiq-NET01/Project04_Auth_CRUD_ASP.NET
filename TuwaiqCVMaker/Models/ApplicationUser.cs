@@ -8,5 +8,7 @@ namespace TuwaiqCVMaker.Models
 {
     public class ApplicationUser : IdentityUser
     {
+        public ICollection<Resume> Resumes { get; set; }
+        public ICollection<Bill> Bills { get; set; }
     }
 }

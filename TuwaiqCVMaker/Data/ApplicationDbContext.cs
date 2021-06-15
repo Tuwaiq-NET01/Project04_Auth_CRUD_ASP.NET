@@ -17,5 +17,9 @@ namespace TuwaiqCVMaker.Data
             IOptions<OperationalStoreOptions> operationalStoreOptions) : base(options, operationalStoreOptions)
         {
         }
+
+        public DbSet<Bill> Bills { get; set; }
+        public DbSet<Resume> Resumes { get; set; }
+        public DbSet<Skill> Skills { get; set; }
     }
 }
