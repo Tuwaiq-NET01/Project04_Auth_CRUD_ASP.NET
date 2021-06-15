@@ -14,6 +14,7 @@
 }
 
 <h1 class="display-4 mb-3"> @game.GameName </h1>
+<div>@challenges.Count Challenges.</div>
 
 @if (isUser)
 {
@@ -43,13 +44,21 @@
 
 <div class="list-group ">
 
-
-    @foreach (var chlng in challenges)
+    @if (challenges.Count > 0)
     {
-        <a class="list-group-item list-group-item-action text-light mb-3" asp-controller="challenges" asp-action="details" asp-route-id="@chlng.Id">
-            @chlng.Title
-        </a>
+
+        @foreach (var chlng in challenges)
+        {
+            <a class="list-group-item list-group-item-action text-light mb-3" asp-controller="challenges" asp-action="details" asp-route-id="@chlng.Id">
+                @chlng.Title
+            </a>
+        }
+
     }
+            else
+            {
+                <h4 class="text-danger text-center"> There are no challenges for this game <i class="far fa-frown"></i> </h4>
+            }
 
 
 

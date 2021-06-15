@@ -1,19 +1,24 @@
-﻿@model Challenge
+﻿@using Microsoft.AspNetCore.Identity
+@inject UserManager<IdentityUser> UserManager
+@model Challenge
 @{
     Layout = "_myLayout";
 
+    var game = (Game)ViewData["game"];
+    var list = (List<string>)ViewData["diff"];
 }
 
 
-<h1> CREATE CHALLENGE VIEW </h1>
+<h1> Create New Challenge for: @game.GameName</h1>
 
+<hr />
 
-
-<form asp-action="create" method="post" class="form-horizontal" autocomplete="off" asp-route-id="">
+<form asp-action="create" method="post" class="form-horizontal" autocomplete="off" asp-route-id="@game.Id" asp-route-uid="@UserManager.GetUserId(User)">
     <div class="form-group">
         <label asp-for="Title">Title: </label>
         <div>
             <input asp-for="Title" />
+            <span asp-validation-for="Title" class="text-danger"></span>
         </div>
     </div>
 
@@ -26,9 +31,12 @@
 
     <div class="form-group">
         <label asp-for="Difficulty">Difficulty: </label>
-        <div>
-            <input asp-for="Difficulty" />
-        </div>
+
+        <select class="form-select" asp-for="Difficulty"
+                asp-items="@(new SelectList(list))">
+        </select>
+
+
     </div>
 
 
@@ -36,5 +44,4 @@
         <input type="submit" class="btn btn-primary" value="SUBMIT" />
     </div>
 </form>
-
 

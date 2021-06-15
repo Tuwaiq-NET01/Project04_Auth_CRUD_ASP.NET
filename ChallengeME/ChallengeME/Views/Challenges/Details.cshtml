@@ -12,20 +12,20 @@
 
 <h1 class="display-4">@challenge.Title </h1>
 
-
+<div>From: @challenge.User.UserName</div>
 
 <div class="d-inline">
     <h6>
         Difficulty:
         <b style="font-size: 25px">
-            @if (challenge.Difficulty == "easy")
+            @if (challenge.Difficulty == "Easy")
             {
                 <span class="text-success">
                     @diff
                 </span>
 
             }
-            else if (challenge.Difficulty == "medium")
+            else if (challenge.Difficulty == "Normal")
             {
 
 

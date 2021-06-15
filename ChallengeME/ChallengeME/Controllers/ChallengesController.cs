@@ -62,27 +62,39 @@ namespace ChallengeME.Controllers
 
 
         [Authorize]
-        public IActionResult Create()
+        public IActionResult Create(int? id)
         {
+            ViewData["game"] = _context.Games.ToList().Find(x => x.Id == id);
+            ViewData["diff"] = getDiff();
+
             return View();
         }
 
         //POST: /games/create
         [Authorize]
         [HttpPost]
-        public IActionResult Create(int id , [Bind("Title", "Description", "Difficulty")] Challenge challenge)
+        public IActionResult Create(int id , string uid,[Bind("Title", "Description", "Difficulty")] Challenge challenge)
         {
-
+            ViewData["game"] = _context.Games.ToList().Find(x => x.Id == id);
+            ViewData["diff"] = getDiff();
             challenge.GameId = id;
+            challenge.UserId = uid;
             if (ModelState.IsValid)
             {
                 _context.Challenges.Add(challenge);
                 _context.SaveChanges();
-                return RedirectToAction("Details", "games", new { id = "same as the above if you figured it out..." });
+                return RedirectToAction("Details", "games", new { id = id });
+            }
+            else
+            {
+                return View();
             }
 
-            return View();
+        }
 
+        public List<string> getDiff()
+        {
+            return new List<string>() { "Easy", "Normal", "Hard" };
         }
 
 
