@@ -39,7 +39,7 @@
 <div class="d-grid gap-2">
     <a href="/Adopter/Create/@c.id"><button type="button" class="btn btn-info">Adopt Me</button></a>
 </div>-->
-<div class="" style="background-color: darkturquoise">
+<div class="" style="background-color: #71d3d1 ">
     @await Html.PartialAsync("_NavPartial")
 </div>
 <div class="container01">
@@ -53,6 +53,10 @@
                 <h3>@c.name</h3>
                 <p>
                     @c.age * @c.gender * @c.health *@c.breed
+                </p>
+                <h3>Meet @c.name</h3>
+                <p>
+                    @c.description
                 </p>
                 <img src="img/continue.png" alt="" />
             </div>
@@ -84,8 +88,7 @@
                 
             </form>
             <div class="btns">
-                <button class="btn btn-secondary">Cancel</button>
-                <button class="btn btn-primary">SAVE</button>
+                <a href="/Adopter/Create/@c.id"><button type="button" class="btn btn-primary">Adopt Me</button></a>
             </div>
         </div>
     </div>
