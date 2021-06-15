@@ -13,11 +13,15 @@ namespace Keraa.Models
         public string ShortDesc { get; set; }
         public string CoverImage { get; set; }
         public bool IsRented { get; set; }
+        //public List<ImegeModel> ProductImeges { get; set; }
+
+
 
         //public string OwnerUserProfileId { get; set; }
         public UserProfileModel Owner { get; set; }
 
         //public string TenantUserProfileId { get; set; }
         public UserProfileModel Tenant { get; set; }
+
     }
 }
