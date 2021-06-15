@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+
+
 namespace HealthChoice_Final_crud_auth.Controllers
 {
    
@@ -23,16 +25,17 @@ namespace HealthChoice_Final_crud_auth.Controllers
         //Get: /Services
         public IActionResult Index()
         {
-            if (true)
-            {
-
-            }
-            var Services = _db.Services.ToList();
-            ViewData["Services"] = Services;
+            var Resturents = _db.Services.Where(r => r.servType== "Resturent").ToList();
+            var Gyms = _db.Services.Where(g => g.servType == "Gym").ToList();
+            var Stores = _db.Services.Where(r => r.servType == "Store").ToList();
+            ViewData["Resturents"] = Resturents;
+            ViewData["Gyms"] = Gyms;
+            ViewData["Stores"] = Stores;
+           
             return View();
         }
 
-        //Get: /Artists/details/id
+        //Get: /Services/details/id
 
 
         public IActionResult Details(int? id)
@@ -43,7 +46,7 @@ namespace HealthChoice_Final_crud_auth.Controllers
                 return View("_NotFound");
             }
             ViewData["Services"] = Services;
-
+            ViewData["comments"] = _db.Comments.Where(c => c.ServiceId == id).ToList();
             return View();
         }
 
@@ -124,8 +127,19 @@ namespace HealthChoice_Final_crud_auth.Controllers
         }
 
 
+
+        //Search
+        public IActionResult Search(string txt) {
+            var item = _db.Services.Where(r => r.servName.Contains(txt)).ToList();
+            ViewBag.Branches = item; 
+            
+            return View("Index"); 
+        }
+
+      
     }
 }
 
+   
 
 

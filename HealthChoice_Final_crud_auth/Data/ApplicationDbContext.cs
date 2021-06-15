@@ -20,7 +20,7 @@ namespace HealthChoice_Final_crud_auth.Data
         public DbSet<MembershipsModel> MembberShips { get; set; }
 
         public DbSet<CommentsModel> Comments { get; set; }
-
+        public DbSet<EventsModel> Events { get; set; }
 
     }
 }

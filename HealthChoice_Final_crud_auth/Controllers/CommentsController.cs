@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+
+/*
 namespace HealthChoice_Final_crud_auth.Controllers
 {
     public class CommentsController : Controller
@@ -102,5 +104,52 @@ namespace HealthChoice_Final_crud_auth.Controllers
 
 
 
+    }
+}
+*/
+
+
+using HealthChoice_Final_crud_auth.Data;
+using HealthChoice_Final_crud_auth.Models;
+
+namespace HealthChoice_Final_crud_auth.Controllers
+{
+    public class CommentsController : Controller
+    {
+        private readonly ApplicationDbContext _db;
+
+        public CommentsController(ApplicationDbContext context)
+        {
+            _db = context;
+        }
+        public IActionResult Index()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Create([Bind("ServiceId", "Content", "Date")] CommentsModel comment, int id)
+        {
+            if (ModelState.IsValid)
+            {
+                comment.Date = DateTime.Now;
+                comment.ServiceId = id;
+                _db.Add(comment);
+                _db.SaveChanges();
+                return Redirect("~/Services/details/" + id);
+            }
+            return View();
+        }
+        public IActionResult Delete(int? id)
+        {
+            var comment = _db.Comments.ToList().Find(x => x.Id == id);
+            if (id == null || comment == null)
+            {
+                return Redirect("~/Services/");
+            }
+            int servId = comment.ServiceId;
+            _db.Remove(comment);
+            _db.SaveChanges();
+            return Redirect("~/Services/details/" + servId);
+        }
     }
 }

@@ -10,9 +10,10 @@ namespace HealthChoice_Final_crud_auth.Models
     public class CommentsModel
     {
         [Key]
-        
         public int Id { get; set; }
-        public string message { get; set; }
+        [Required]
+        public string Content { get; set; }
+        public DateTime Date { get; set; }
 
 
         //Relationship : One-To-Many: (Service-to-Comments)
@@ -25,3 +26,7 @@ namespace HealthChoice_Final_crud_auth.Models
 
     }
 }
+
+
+
+

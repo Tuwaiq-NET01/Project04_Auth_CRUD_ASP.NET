@@ -1,5 +1,8 @@
-﻿@{
+﻿@model CommentsModel
+
+@{
     var Services = (ServicesModel)ViewData["Services"];
+    var comments = (List<CommentsModel>)ViewData["comments"];
 }
 
 
@@ -24,14 +27,44 @@
                 <a href="/Services" class="btn btn-dark">Back</a>
             </div>
 
+            <div class="card-body">
+
+                <div>
+                    <h1 class="text-2xl mt-4">Comments</h1>
+                    <hr />
+                    <div>
+                        @foreach (var c in comments)
+                        {
+                            <div class="p-2 bg-gray-200 rounded-lg mt-4">
+                                <div class="flex justify-between">
+                                    <span class="text-gray-800 text-sm italic">@c.Date</span>
+                                    <form asp-controller="Comments" asp-action="Delete" asp-route-id="@c.Id">
+                                        <input style="background-color: #f0ec2b " class="font-sans font-bold px-1 rounded-full" type="submit" value="X" />
+                                    </form>
+                                </div>
+                                <p class="text-2xl">
+                                    @c.Content
+                                </p>
+
+                            </div>
+                        }
+                    </div>
+                    <div class=" p-4 bg-gray-100 mt-4 rounded">
+                        <form asp-controller="Comments" asp-action="Create" asp-route-id="@Services.Id">
+                            <label asp-for="Content">Add comment</label>
+                            <br />
+                            <textarea class="border border-black rounded-md p-2" asp-for="Content" cols="35" rows="3"></textarea>
+                            <input style="background-color: #f0ec2b " class="py-1 px-8 font-sans uppercase hover:font-semibold" type="submit" value="Add comment" />
+                        </form>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
         </div>
-    </div>
+
 </div>
-
-
-
-
-
-
-
 

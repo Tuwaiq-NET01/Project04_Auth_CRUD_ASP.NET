@@ -67,6 +67,10 @@
             "Microsoft.EntityFrameworkCore.Tools": {
               "target": "Package",
               "version": "[5.0.6, )"
+            },
+            "PusherServer": {
+              "target": "Package",
+              "version": "[4.6.1, )"
             }
           },
           "imports": [

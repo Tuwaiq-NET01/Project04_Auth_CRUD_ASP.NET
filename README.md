@@ -70,6 +70,8 @@
 
  ### v2:
  - create Comments table with CRUD & relation (one-to-many) with Services table
-
- 
-    
+- Devided Services depending on the rype
+ ### v3:
+ - User can add any comments for any services (apply the relation)
+ - add _NotFound View 
+ - Create Events table(Just for reading & see the detils for each event) 

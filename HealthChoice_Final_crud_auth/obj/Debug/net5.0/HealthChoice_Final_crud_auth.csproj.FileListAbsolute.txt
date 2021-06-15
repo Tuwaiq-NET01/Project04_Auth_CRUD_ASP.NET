@@ -796,4 +796,9 @@ C:\Users\HP\Desktop\Tuwaiq_Bootcamp\ASP_NET_MVC\Project04_Auth_CRUD_ASP.NET\Heal
 C:\Users\HP\Desktop\Tuwaiq_Bootcamp\ASP_NET_MVC\Project04_Auth_CRUD_ASP.NET\HealthChoice_Final_crud_auth\obj\Debug\net5.0\Razor\Views\Comments\Index.cshtml.g.cs
 C:\Users\HP\Desktop\Tuwaiq_Bootcamp\ASP_NET_MVC\Project04_Auth_CRUD_ASP.NET\HealthChoice_Final_crud_auth\obj\Debug\net5.0\Razor\Views\Comments\Create.cshtml.g.cs
 C:\Users\HP\Desktop\Tuwaiq_Bootcamp\ASP_NET_MVC\Project04_Auth_CRUD_ASP.NET\HealthChoice_Final_crud_auth\obj\Debug\net5.0\Razor\Views\Comments\Edit.cshtml.g.cs
+C:\Users\HP\Desktop\Tuwaiq_Bootcamp\ASP_NET_MVC\Project04_Auth_CRUD_ASP.NET\HealthChoice_Final_crud_auth\obj\Debug\net5.0\Razor\Views\Shared\_NotFound.cshtml.g.cs
+C:\Users\HP\Desktop\Tuwaiq_Bootcamp\ASP_NET_MVC\Project04_Auth_CRUD_ASP.NET\HealthChoice_Final_crud_auth\bin\Debug\net5.0\NaCl.dll
+C:\Users\HP\Desktop\Tuwaiq_Bootcamp\ASP_NET_MVC\Project04_Auth_CRUD_ASP.NET\HealthChoice_Final_crud_auth\bin\Debug\net5.0\PusherServer.dll
 C:\Users\HP\Desktop\Tuwaiq_Bootcamp\ASP_NET_MVC\Project04_Auth_CRUD_ASP.NET\HealthChoice_Final_crud_auth\obj\Debug\net5.0\HealthChoice_Final_crud_auth.csproj.AssemblyReference.cache
+C:\Users\HP\Desktop\Tuwaiq_Bootcamp\ASP_NET_MVC\Project04_Auth_CRUD_ASP.NET\HealthChoice_Final_crud_auth\obj\Debug\net5.0\Razor\Views\Events\Index.cshtml.g.cs
+C:\Users\HP\Desktop\Tuwaiq_Bootcamp\ASP_NET_MVC\Project04_Auth_CRUD_ASP.NET\HealthChoice_Final_crud_auth\obj\Debug\net5.0\Razor\Views\Events\Details.cshtml.g.cs

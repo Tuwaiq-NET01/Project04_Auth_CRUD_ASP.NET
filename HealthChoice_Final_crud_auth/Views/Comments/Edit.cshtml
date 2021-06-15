@@ -7,9 +7,9 @@
 <form asp-action="Edit" method="post" asp-route-id="@Comment.Id" class="form-horizontal">
 
     <div class="form-group">
-        <label asp-for="@Comment.message">Comment</label>
+        <label asp-for="@Comment.Content">Comment</label>
         <div>
-            <input asp-for="message" value="@Comment.message" />
+            <input asp-for="Content" value="@Comment.Content" />
         </div>
     </div>
 
