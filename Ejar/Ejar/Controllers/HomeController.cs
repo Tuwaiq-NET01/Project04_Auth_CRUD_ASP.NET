@@ -31,15 +31,12 @@ namespace Ejar.Controllers
 				{
 					car.Images.Add(img);
 				}
-				//car.Images = (ICollection<ImageModel>)_db.Image.ToList().Find(c => c.CarId == car.Id);
-
 			}
 			ViewBag.Cars = Cars;
-			
 			return View();
 		}
 		[Authorize]
-		public IActionResult Privacy()
+		public IActionResult Profile()
 		{
 			return View();
 		}

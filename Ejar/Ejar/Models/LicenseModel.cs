@@ -10,13 +10,13 @@ namespace Ejar.Models
 	{
 		public int Id { get; set; }
 		public int LicenseNumber { get; set; }
-		public DateTime IssuingDate { get; set; }
-		public DateTime ExpirationDate { get; set; }
+		public string IssuingDate { get; set; }
+		public string ExpirationDate { get; set; }
 		public string LicensePhoto { get; set; }
 
-		[ForeignKey("ApplicationUser")]
-		public int UserId { get; set; }
-		public ApplicationUser ApplicationUser { get; set; }
+		[ForeignKey("AccountModel")]
+		public int AccountId { get; set; }
+		public AccountModel Account { get; set; }
 
 	}
 }

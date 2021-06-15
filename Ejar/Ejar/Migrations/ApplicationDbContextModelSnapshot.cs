@@ -195,11 +195,14 @@ namespace Ejar.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("ExpirationDate")
-                        .HasColumnType("datetime2");
+                    b.Property<int>("AccountId")
+                        .HasColumnType("int");
 
-                    b.Property<DateTime>("IssuingDate")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("ExpirationDate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("IssuingDate")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("LicenseNumber")
                         .HasColumnType("int");
@@ -207,12 +210,9 @@ namespace Ejar.Migrations
                     b.Property<string>("LicensePhoto")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId")
+                    b.HasIndex("AccountId")
                         .IsUnique();
 
                     b.ToTable("License");
@@ -448,13 +448,13 @@ namespace Ejar.Migrations
 
             modelBuilder.Entity("Ejar.Models.LicenseModel", b =>
                 {
-                    b.HasOne("Ejar.Models.ApplicationUser", "ApplicationUser")
+                    b.HasOne("Ejar.Models.AccountModel", "Account")
                         .WithOne("License")
-                        .HasForeignKey("Ejar.Models.LicenseModel", "UserId")
+                        .HasForeignKey("Ejar.Models.LicenseModel", "AccountId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("ApplicationUser");
+                    b.Navigation("Account");
                 });
 
             modelBuilder.Entity("Ejar.Models.Location", b =>
@@ -536,13 +536,16 @@ namespace Ejar.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Ejar.Models.AccountModel", b =>
+                {
+                    b.Navigation("License");
+                });
+
             modelBuilder.Entity("Ejar.Models.ApplicationUser", b =>
                 {
                     b.Navigation("Account");
 
                     b.Navigation("Cars");
-
-                    b.Navigation("License");
 
                     b.Navigation("Location");
 

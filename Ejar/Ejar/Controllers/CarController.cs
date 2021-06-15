@@ -16,7 +16,6 @@ namespace Ejar.Controllers
 		public CarController(ApplicationDbContext context)
 		{
 			_db = context;
-
 		}
 
 		public IActionResult Index(int? id)

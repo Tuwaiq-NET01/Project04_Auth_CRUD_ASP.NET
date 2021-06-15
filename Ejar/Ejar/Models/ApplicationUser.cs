@@ -10,7 +10,7 @@ namespace Ejar.Models
 	{
 		
 		public AccountModel Account { get; set; }
-		public LicenseModel License { get; set; }
+		//public LicenseModel License { get; set; }
 		public ICollection<CarModel> Cars { get; set; }
 		public ICollection<TripModel> Trips { get; set; }
 		public Location Location { get; set; }

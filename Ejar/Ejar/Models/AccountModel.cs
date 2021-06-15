@@ -16,6 +16,8 @@ namespace Ejar.Models
 		public string Address { get; set; }
 		public decimal balance { get; set; }
 
+		public LicenseModel License { get; set; }
+
 		
 		[ForeignKey("ApplicationUser")]
 		public int UserId { get; set; }

@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-light navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Ejar</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -21,12 +21,25 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        <li>
+                            <div class="input-group" style="margin-left:100px">
+                                <input type="search" class="form-control rounded" placeholder="إبحث عن سيارة في منطقتك" aria-label="Search"
+                                       aria-describedby="search-addon" />
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Search" asp-action="Index">
+                                    <button type="button" class="btn btn-outline-primary">إبحث</button>
+                                </a>
+                            </div>
                         </li>
                     </ul>
-                    <partial name="_LoginPartial" />
-                </div>
+                    
+
+                        <partial name="_LoginPartial" />
+                        <div class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Manage" asp-action="Index">
+                                <img src="https://img.flaticon.com/icons/png/512/61/61205.png?size=1200x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF" height="20" />
+                            </a>
+                        </div>
+</div>
             </div>
         </nav>
     </header>
