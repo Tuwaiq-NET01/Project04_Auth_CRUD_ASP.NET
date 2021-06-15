@@ -1,15 +1,17 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
 body {
     font-family: 'Roboto Condensed', sans-serif;
 }
 .shdw {
+    font-family: 'Roboto Condensed', sans-serif;
     box-shadow: 0px 3px 7px -3px #EF9E9E, 0px 1px 4px 0px rgba(239,80,80,0);
 }
 .shdw:hover {
     box-shadow: 1px 10px 13px -7px #EF5050, 0px 3px 8px -1px rgba(239,80,80,0);
 }
-#hero {
+.hero {
     font-family: 'Merriweather', serif;
 }
 .wheel{

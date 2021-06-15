@@ -7,7 +7,7 @@
     <link href="https://unpkg.com/tailwindcss@@^2/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
-<body>
+<body style="overflow-x:hidden">
     <header class="mb-2">
         <div class="bg-gradient-to-b from-yellow-100 w-screen static h-16"></div>
         <div class="-mt-4 w-screen">
@@ -30,8 +30,10 @@
         </main>
     </div>
 
-    <footer class="bottom-0">
-            &copy; 2021 - circus
+    <footer class="">
+
+        <div class="bg-gradient-to-t from-yellow-100 w-screen static h-16 text-center"> &copy; 2021 - circus</div>
+
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
