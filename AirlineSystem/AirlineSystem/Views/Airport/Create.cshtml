@@ -1,0 +1,48 @@
+﻿@model AirlineSystem.Models.AirportModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>AirportModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="AirportShort" class="control-label"></label>
+                <input asp-for="AirportShort" class="form-control" />
+                <span asp-validation-for="AirportShort" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AirportName" class="control-label"></label>
+                <input asp-for="AirportName" class="form-control" />
+                <span asp-validation-for="AirportName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CountryCity" class="control-label"></label>
+                <input asp-for="CountryCity" class="form-control" />
+                <span asp-validation-for="CountryCity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gate" class="control-label"></label>
+                <input asp-for="Gate" class="form-control" />
+                <span asp-validation-for="Gate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

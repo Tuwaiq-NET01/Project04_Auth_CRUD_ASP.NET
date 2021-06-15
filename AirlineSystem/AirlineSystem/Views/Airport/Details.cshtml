@@ -1,0 +1,42 @@
+﻿@model AirlineSystem.Models.AirportModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>AirportModel</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AirportShort)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AirportShort)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AirportName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AirportName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CountryCity)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CountryCity)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Gate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Gate)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.AirportID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

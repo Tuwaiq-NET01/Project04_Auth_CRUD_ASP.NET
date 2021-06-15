@@ -1,0 +1,56 @@
+﻿@{
+    var Passengers = (List<PassengerModel>)ViewData["Passenger"];
+
+}
+
+@{ if (Passengers == null)
+    {
+        <center>
+            <h1>
+                There is no Data in this table
+            </h1>
+            <button type="button" class="btn btn-dark"><a style="color:white" href="/Passenger/Create"> Add </a></button>
+        </center>
+
+    }
+    else
+    {<center>
+            <button type="button" class="btn btn-dark"><a style="color:white" href="/Passenger/Create"> Add </a></button>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">PassengerID</th>
+                        <th scope="col">PassportNo</th>
+                        <th scope="col">FirstName</th>
+                        <th scope="col">LastName</th>
+                        <th scope="col">DateOfBirth</th>
+                        <th scope="col">Gender</th>
+                        <th scope="col">TripNo</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var passenger in Passengers)
+                    {
+                    <tr>
+                        <th scope="row">@passenger.PassengerID</th>
+                        <td>@passenger.PassportNo</td>
+                        <td>@passenger.FirstName</td>
+                        <td>@passenger.LastName</td>
+                        <td>@passenger.DateOfBirth</td>
+                        <td>@passenger.Gender</td>
+@*                        <td>@passenger.TripNo</td>
+*@                        <td><button type="button" class="btn btn-dark"><a style="color:white" href="/Passenger/details/@passenger.PassengerID"> SHOW </a></button></td>
+                        <td><button type="button" class="btn btn-dark"><a style="color:white" href="/Passenger/Edit/@passenger.PassengerID"> EDIT </a></button></td>
+                        <td>
+                            <form asp-action="Delete" asp-route-id="@passenger.PassengerID" method="post">
+                                <input type="submit" value="Destroy" class="btn btn-danger" />
+                            </form>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </center>
+    } }

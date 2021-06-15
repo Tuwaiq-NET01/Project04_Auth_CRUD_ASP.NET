@@ -1,0 +1,49 @@
+﻿@model IEnumerable<AirlineSystem.Models.PlaneModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Capacity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlaneName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlaneType)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Capacity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlaneName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlaneType)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PlaneID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PlaneID">Details</a> |
+                <form asp-action="Delete" asp-route-id="@item.PlaneID" method="post">
+                    <input type="submit" value="Destroy" class="btn btn-danger" />
+                </form>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

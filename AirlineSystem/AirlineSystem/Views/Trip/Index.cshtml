@@ -1,0 +1,72 @@
+﻿@{
+    var Trips = (List<TripModel>)ViewData["Trips"];
+@*    var Passangers = (List<PassengerModel>)ViewData["Passangers"];
+*@    
+}
+
+@{ if (Trips == null)
+    {
+        <center>
+            <h1>
+                There is no Data in this table
+            </h1>
+            <button type="button" class="btn btn-dark"><a style="color:white" href="/Trip/Create"> Add </a></button>
+        </center>
+
+    }
+    else
+    {<center>
+            <button type="button" class="btn btn-dark"><a style="color:white" href="/Trip/Create"> Add </a></button>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">TripNo</th>
+                        <th scope="col">TripType</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">CabinClass</th>
+                        <th scope="col">TakeOffDateTime</th>
+                        <th scope="col">Weight</th>
+                        <th scope="col">Destination</th>
+                       @* <th scope="col">Passangers</th>*@
+
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var Trip in Trips)
+                    {
+                    <tr>
+                        <th scope="row">@Trip.TripNo</th>
+                        <td>@Trip.TripType</td>
+                        <td>@Trip.Price</td>
+                        <td>@Trip.CabinClass</td>
+                        <td>@Trip.TakeOffDateTime</td>
+                        <td>@Trip.Weight</td>
+                        <td>@Trip.Destination</td>
+                   @*   <td>  @foreach (var p in Passangers)
+                        {
+                        if (Trip.TripNo == p.TripNo)
+                        {
+                             @p.LastName
+                        }
+
+                        }</td>*@
+
+
+
+
+                        <td><button type="button" class="btn btn-dark"><a style="color:white" href="/Trip/details/@Trip.TripNo"> SHOW </a></button></td>
+                        <td><button type="button" class="btn btn-dark"><a style="color:white" href="/Trip/Edit/@Trip.TripNo"> EDIT </a></button></td>
+                        <td>
+                            <form asp-action="Delete" asp-route-id="@Trip.TripNo" method="post">
+                                <input type="submit" value="Destroy" class="btn btn-danger" />
+                            </form>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </center>
+    } }

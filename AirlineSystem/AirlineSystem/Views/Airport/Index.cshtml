@@ -1,0 +1,55 @@
+﻿@model IEnumerable<AirlineSystem.Models.AirportModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AirportShort)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AirportName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CountryCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AirportShort)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AirportName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CountryCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gate)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.AirportID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.AirportID">Details</a> |
+                <form asp-action="Delete" asp-route-id="@item.AirportID" method="post">
+                    <input type="submit" value="Destroy" class="btn btn-danger" />
+                </form>           
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

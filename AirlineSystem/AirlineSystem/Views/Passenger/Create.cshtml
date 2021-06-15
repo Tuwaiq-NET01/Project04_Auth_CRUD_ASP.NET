@@ -1,0 +1,44 @@
+﻿@model PassengerModel
+
+<center>
+    <form asp-action="Create" method="Post" class="form-horizontal">
+        <div class=" form-group">
+            <label asp-for="PassengerID">Id</label>
+            <input type="text" asp-for="PassengerID" disabled />
+        </div>
+        <div class=" form-group">
+            <label asp-for="PassportNo">PassportNo</label>
+            <input type="text" asp-for="PassportNo" />
+        </div>
+        <div class=" form-group">
+            <label asp-for="FirstName">FirstName</label>
+            <input type="text" asp-for="FirstName" />
+        </div>
+        <div class=" form-group">
+            <label asp-for="LastName">LastName</label>
+            <input type="text" asp-for="LastName" />
+
+        </div>
+        <div class=" form-group">
+            <label asp-for="Nationality">Nationality</label>
+            <input type="text" asp-for="Nationality" />
+        </div>
+        <div class=" form-group">
+            <label asp-for="Gender">Gender</label>
+            <input type="text" asp-for="Gender" />
+        </div>
+        <div class=" form-group">
+            <label asp-for="DateOfBirth">DateOfBirth</label>
+            <input type="text" asp-for="DateOfBirth" />
+        </div>
+       @* <div class=" form-group">
+            <label asp-for="TripNo">TripNo</label>
+            <input type="text" asp-for="TripNo" />
+        </div>*@
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary" value="SUBMIT" />
+
+        </div>
+    </form>
+
+</center>

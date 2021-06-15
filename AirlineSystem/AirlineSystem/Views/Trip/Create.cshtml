@@ -1,0 +1,44 @@
+﻿@model TripModel
+
+<center>
+    <form asp-action="Create" method="Post" class="form-horizontal">
+        <div class=" form-group">
+            <label asp-for="TripNo">TripNo</label>
+            <input type="text" asp-for="TripNo" disabled />
+        </div>
+        <div class=" form-group">
+            <label asp-for="TripType">TripType</label>
+            <input type="text" asp-for="TripType" />
+        </div>
+        <div class=" form-group">
+            <label asp-for="Price">Price</label>
+            <input asp-for="Price" />
+        </div>
+        <div class=" form-group">
+            <label asp-for="TakeOffDateTime">TakeOffDate</label>
+            <input type="text" asp-for="TakeOffDateTime" />
+        </div>
+        <div class=" form-group">
+            <label asp-for="CabinClass">CabinClass</label>
+            <input type="text" asp-for="CabinClass" />
+        </div>
+        <div class=" form-group">
+            <label asp-for="RoadType">RoadType</label>
+            <input type="text" asp-for="RoadType" />
+        </div>
+        <div class=" form-group">
+            <label asp-for="Destination">Destination</label>
+            <input type="text" asp-for="Destination" />
+        </div>
+        <div class=" form-group">
+            <label asp-for="Weight">Weight</label>
+            <input type="text" asp-for="Weight" />
+        </div>
+        
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary" value="SUBMIT" />
+
+        </div>
+    </form>
+
+</center>
