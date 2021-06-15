@@ -28,10 +28,10 @@
                     </div>
 
                     <div class="card-body">
-                        <a href="/Services/Delete/@item.servId" class="btn btn-dark">Read More</a>
+                        <a href="/Services/Delete/@item.Id" class="btn btn-dark">Read More</a>
                     </div>
-                    <a asp-controller="Services" asp-action="Edit" asp-route-id="@item.servId"><i class="large material-icons">create</i></a>
-                    <form asp-controller="Services" asp-action="Delete" asp-route-id="@item.servId">
+                    <a asp-controller="Services" asp-action="Edit" asp-route-id="@item.Id"><i class="large material-icons">create</i></a>
+                    <form asp-controller="Services" asp-action="Delete" asp-route-id="@item.Id">
                         <input type="submit" class="" value="Delete" style="display: inline-block; background-color: rgba(0,0,0,0); border: 0; color: red">
                     </form>
 

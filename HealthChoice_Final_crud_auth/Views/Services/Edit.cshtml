@@ -4,7 +4,7 @@
     var Service = (ServicesModel)ViewData["Service"];
 }
 <h1>Edit Services Form</h1>
-<form asp-action="Edit" method="post" asp-route-id="@Service.servId" class="form-horizontal">
+<form asp-action="Edit" method="post" asp-route-id="@Service.Id" class="form-horizontal">
 
     <div class="form-group">
         <label asp-for="@Service.servName">Name</label>

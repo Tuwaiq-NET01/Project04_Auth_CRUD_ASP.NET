@@ -66,5 +66,10 @@
  ### V1:
 - Authentication
 - 2 tables(users , Services) with CRUD
-    
+ - ERD, Wireframes   
+
+ ### v2:
+ - create Comments table with CRUD & relation (one-to-many) with Services table
+
+ 
     

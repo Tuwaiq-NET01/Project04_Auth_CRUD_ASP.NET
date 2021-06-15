@@ -9,7 +9,7 @@ namespace HealthChoice_Final_crud_auth.Models
     public class ServicesModel
     {
         [Key]
-        public int servId { get; set; }
+        public int Id { get; set; }
         public string servName { get; set; }
         public string servOverview { get; set; }
         public string servLogo { get; set; }
@@ -20,6 +20,9 @@ namespace HealthChoice_Final_crud_auth.Models
         public string servType { get; set; }
 
    
+
+        //Relationship One-to-Many
+        public List<CommentsModel>Comments { get; set; }
 
     }
 }

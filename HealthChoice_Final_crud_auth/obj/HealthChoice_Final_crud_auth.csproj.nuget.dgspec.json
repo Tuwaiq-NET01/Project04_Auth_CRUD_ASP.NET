@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\HP\\Desktop\\Tuwaiq_Bootcamp\\ASP_NET_MVC\\HealthChoice_Final_crud_auth\\HealthChoice_Final_crud_auth.csproj": {}
+    "C:\\Users\\HP\\Desktop\\Tuwaiq_Bootcamp\\ASP_NET_MVC\\Project04_Auth_CRUD_ASP.NET\\HealthChoice_Final_crud_auth\\HealthChoice_Final_crud_auth.csproj": {}
   },
   "projects": {
-    "C:\\Users\\HP\\Desktop\\Tuwaiq_Bootcamp\\ASP_NET_MVC\\HealthChoice_Final_crud_auth\\HealthChoice_Final_crud_auth.csproj": {
+    "C:\\Users\\HP\\Desktop\\Tuwaiq_Bootcamp\\ASP_NET_MVC\\Project04_Auth_CRUD_ASP.NET\\HealthChoice_Final_crud_auth\\HealthChoice_Final_crud_auth.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\Desktop\\Tuwaiq_Bootcamp\\ASP_NET_MVC\\HealthChoice_Final_crud_auth\\HealthChoice_Final_crud_auth.csproj",
+        "projectUniqueName": "C:\\Users\\HP\\Desktop\\Tuwaiq_Bootcamp\\ASP_NET_MVC\\Project04_Auth_CRUD_ASP.NET\\HealthChoice_Final_crud_auth\\HealthChoice_Final_crud_auth.csproj",
         "projectName": "HealthChoice_Final_crud_auth",
-        "projectPath": "C:\\Users\\HP\\Desktop\\Tuwaiq_Bootcamp\\ASP_NET_MVC\\HealthChoice_Final_crud_auth\\HealthChoice_Final_crud_auth.csproj",
+        "projectPath": "C:\\Users\\HP\\Desktop\\Tuwaiq_Bootcamp\\ASP_NET_MVC\\Project04_Auth_CRUD_ASP.NET\\HealthChoice_Final_crud_auth\\HealthChoice_Final_crud_auth.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\Desktop\\Tuwaiq_Bootcamp\\ASP_NET_MVC\\HealthChoice_Final_crud_auth\\obj\\",
+        "outputPath": "C:\\Users\\HP\\Desktop\\Tuwaiq_Bootcamp\\ASP_NET_MVC\\Project04_Auth_CRUD_ASP.NET\\HealthChoice_Final_crud_auth\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"

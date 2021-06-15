@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "St4+qjDZ/FQZoCnJwKcMxU5B/Na/gXyqYwx8OC+U/kGDgUlII3WeyNK/zGKUHRSDpDuqx1OXXB03VFLu2751gQ==",
+  "dgSpecHash": "qw55IVEH85HhClgc0qSICmFIGsdISZ7Qsf3bDX8T5xtV10JHoCR9Pa4QyAGyVunrqLpfMJM3p1SQ0rS3E4janw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\HP\\Desktop\\Tuwaiq_Bootcamp\\ASP_NET_MVC\\HealthChoice_Final_crud_auth\\HealthChoice_Final_crud_auth.csproj",
+  "projectFilePath": "C:\\Users\\HP\\Desktop\\Tuwaiq_Bootcamp\\ASP_NET_MVC\\Project04_Auth_CRUD_ASP.NET\\HealthChoice_Final_crud_auth\\HealthChoice_Final_crud_auth.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\HP\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.6\\microsoft.aspnetcore.cryptography.internal.5.0.6.nupkg.sha512",
