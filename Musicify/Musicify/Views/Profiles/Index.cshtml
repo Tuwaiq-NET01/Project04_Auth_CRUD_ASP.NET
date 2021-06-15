@@ -1,0 +1,45 @@
+﻿@{
+    var Profiles = (List<ProfileModel>)ViewData["Profiles"];
+    var count = 0;
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Bio</th>
+            <th scope="col">Photo</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Profile in Profiles)
+        {
+            <tr>
+                @{count++;}
+                <th scope="row">@count</th>
+                <td>@Profile.Name</td>
+                <td>@Profile.Bio</td>
+                <td><img src="@Profile.Photo"width="150px" height="210px" /></td>
+
+                <td><button type="button" class="btn btn-dark"><a style="color:white" href="/Profiles/details/@Profile.Id"> SHOW </a></button></td>
+                <td><button type="button" class="btn btn-dark"><a style="color:white" href="/Profiles/edit/@Profile.Id"> Edit </a></button></td>
+               @* <td>
+                    <form asp-action="Delete" asp-route-id="@Profile.Id" method="post">
+                        <input type="submit" value="Destroy" class="btn btn-danger" />
+                    </form>
+                </td>*@
+
+
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+@*@foreach (var song in Songs)
+    {
+        <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src=@song.URL>
+        </iframe>
+    }*@

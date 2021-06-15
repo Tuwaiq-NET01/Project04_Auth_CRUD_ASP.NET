@@ -1,0 +1,35 @@
+﻿@model ProfileModel
+@{ 
+ var Profiles = (ProfileModel)ViewData["Profiles"];
+}
+<form asp-action="Edit" method="post" class="from-horizontal">
+
+    @*<div class="from-group">
+        <label asp-for="Id">Id</label>
+        <input type="hidden" asp-for="Id" value="@Profiles.Id" disabled />
+    </div>*@
+
+    <div class="from-group">
+        <label asp-for="Name">Name</label>
+        <input asp-for="Name" value="@Profiles.Name" />
+    </div>
+
+    <div class="from-group">
+        <label asp-for="Photo">Photo</label>
+        <input asp-for="Photo" value="@Profiles.Photo" />
+    </div>
+
+    <div class="from-group">
+        <label asp-for="Bio">Info</label>
+        <input asp-for="Bio" value="@Profiles.Bio" />
+    </div>
+
+
+    <div class="from-group">
+
+        <input type="submit" class="btn-btn-primary" value="Update" />
+    </div>
+
+
+
+</form>

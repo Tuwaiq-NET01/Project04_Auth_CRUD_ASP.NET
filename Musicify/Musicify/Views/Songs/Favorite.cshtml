@@ -1,0 +1,52 @@
+﻿@{
+    var Songs = (List<SongModel>)ViewData["Songs"];
+    var count = 0;
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Type</th>
+            <th scope="col">URL</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Song in Songs)
+        {
+            <tr>
+                @{count++;}
+                <th scope="row">@count</th>
+                <td>@Song.Name</td>
+                <td>@Song.Type</td>
+                <td>
+                    <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src=@Song.URL> </iframe>
+                </td>
+
+                <td><button type="button" class="btn btn-dark"><a style="color:white" href="/Songs/details/@Song.Id"> SHOW </a></button></td>
+                <td><button type="button" class="btn btn-dark"><a style="color:white" href="/Songs/edit/@Song.Id"> Edit </a></button></td>
+                <td>
+                    <form asp-action="Delete" asp-route-id="@Song.Id" method="post">
+                        <input type="submit" value="Destroy" class="btn btn-danger" />
+                    </form>
+                </td>
+                <td>
+                    <form asp-action="Like" asp-route-id="@Song.Id" method="post">
+                        <input type="submit" value="Like" class="btn btn-danger" />
+                    </form>
+                </td>
+
+
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+@*@foreach (var song in Songs)
+    {
+        <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src=@song.URL>
+        </iframe>
+    }*@

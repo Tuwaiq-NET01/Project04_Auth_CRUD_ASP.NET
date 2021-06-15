@@ -7498,11 +7498,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\hussa\\source\\repos\\Musicify\\Musicify\\Musicify.csproj",
+      "projectUniqueName": "C:\\Users\\hussa\\Desktop\\Project04_Auth_CRUD_ASP.NET\\Musicify\\Musicify\\Musicify.csproj",
       "projectName": "Musicify",
-      "projectPath": "C:\\Users\\hussa\\source\\repos\\Musicify\\Musicify\\Musicify.csproj",
+      "projectPath": "C:\\Users\\hussa\\Desktop\\Project04_Auth_CRUD_ASP.NET\\Musicify\\Musicify\\Musicify.csproj",
       "packagesPath": "C:\\Users\\hussa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\hussa\\source\\repos\\Musicify\\Musicify\\obj\\",
+      "outputPath": "C:\\Users\\hussa\\Desktop\\Project04_Auth_CRUD_ASP.NET\\Musicify\\Musicify\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\hussa\\AppData\\Roaming\\NuGet\\NuGet.Config",

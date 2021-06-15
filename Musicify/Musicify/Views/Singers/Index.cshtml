@@ -3,7 +3,7 @@
     var count = 0;
 }
 
-<table class="table">
+<table class="table table-light">
     <thead>
         <tr>
             <th scope="col">Id</th>
@@ -19,7 +19,7 @@
                 @{count++;}
                 <th scope="row">@count</th>
                 <td>@Singer.Name</td>
-                <td><img src="@Singer.Photo"/></td>
+                <td><img src="@Singer.Photo" width="150px" height="210px"/></td>
                 <td>@Singer.Info </td>
                 <td><button type="button" class="btn btn-dark"><a style="color:white" href="/Singers/details/@Singer.Id"> SHOW </a></button></td>
                 <td><button type="button" class="btn btn-dark"><a style="color:white" href="/Singers/edit/@Singer.Id"> Edit </a></button></td>

@@ -82,6 +82,10 @@ namespace Musicify.Data.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Email")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -133,6 +137,8 @@ namespace Musicify.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -219,6 +225,54 @@ namespace Musicify.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("Musicify.Models.FavoriteModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("SongId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SongId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Favorites");
+                });
+
+            modelBuilder.Entity("Musicify.Models.ProfileModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Bio")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Photo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Profiles");
+                });
+
             modelBuilder.Entity("Musicify.Models.SingerModel", b =>
                 {
                     b.Property<int>("Id")
@@ -238,15 +292,6 @@ namespace Musicify.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Singers");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Info = "Talal Maddah, Saudi singer and composer. He has a tremendous impact on Arab culture in the 20th century, and he is the pioneer of modernity in Saudi song, and he is considered the most prominent Saudi artist. He was one of the first who contributed to the spread of the Saudi song outside the Kingdom, as he sang in many cities around the world such as Paris and London.",
-                            Name = "Talal",
-                            Photo = "https://pbs.twimg.com/profile_images/1366678263997865987/Hc9pCnMa.jpg"
-                        });
                 });
 
             modelBuilder.Entity("Musicify.Models.SongModel", b =>
@@ -259,6 +304,9 @@ namespace Musicify.Data.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("SingerId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Type")
                         .HasColumnType("nvarchar(max)");
 
@@ -267,6 +315,8 @@ namespace Musicify.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("SingerId");
+
                     b.ToTable("Songs");
 
                     b.HasData(
@@ -274,16 +324,17 @@ namespace Musicify.Data.Migrations
                         {
                             Id = 1,
                             Name = "Sw3at alaseel",
+                            SingerId = 2,
                             Type = "Classic",
                             URL = "https://soundcloud.com/talal_maddah/w2bhodwmmfxr"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "shift abha",
-                            Type = "Classic",
-                            URL = "https://soundcloud.com/talal_maddah/zfpybtqymc2d"
                         });
+                });
+
+            modelBuilder.Entity("Musicify.Data.ApplicationUser", b =>
+                {
+                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+
+                    b.HasDiscriminator().HasValue("ApplicationUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -335,6 +386,56 @@ namespace Musicify.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Musicify.Models.FavoriteModel", b =>
+                {
+                    b.HasOne("Musicify.Models.SongModel", "Song")
+                        .WithMany("Favorites")
+                        .HasForeignKey("SongId");
+
+                    b.HasOne("Musicify.Data.ApplicationUser", "User")
+                        .WithMany("Favorites")
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("Song");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Musicify.Models.ProfileModel", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Musicify.Models.SongModel", b =>
+                {
+                    b.HasOne("Musicify.Models.SingerModel", "Singer")
+                        .WithMany("Song")
+                        .HasForeignKey("SingerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Singer");
+                });
+
+            modelBuilder.Entity("Musicify.Models.SingerModel", b =>
+                {
+                    b.Navigation("Song");
+                });
+
+            modelBuilder.Entity("Musicify.Models.SongModel", b =>
+                {
+                    b.Navigation("Favorites");
+                });
+
+            modelBuilder.Entity("Musicify.Data.ApplicationUser", b =>
+                {
+                    b.Navigation("Favorites");
                 });
 #pragma warning restore 612, 618
         }

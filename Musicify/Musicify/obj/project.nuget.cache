@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "afBbvbqJUMB9A9Hf5x1o5oHOA9e/woIJMo5ndMKG9BCEFoj7W1Sr2wvbJdOf5J5ly9wfbS71MnRL67n9QtJWOA==",
+  "dgSpecHash": "EqFydcBecIOARMl0rivhtl47amDzNWIhuR0+DRQ3Dv7cCTSABm1QUiuTLNJiqOI9alWmmItRs7TQ9NHLC96dTg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\hussa\\source\\repos\\Musicify\\Musicify\\Musicify.csproj",
+  "projectFilePath": "C:\\Users\\hussa\\Desktop\\Project04_Auth_CRUD_ASP.NET\\Musicify\\Musicify\\Musicify.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hussa\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\hussa\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.6\\microsoft.aspnetcore.cryptography.internal.5.0.6.nupkg.sha512",

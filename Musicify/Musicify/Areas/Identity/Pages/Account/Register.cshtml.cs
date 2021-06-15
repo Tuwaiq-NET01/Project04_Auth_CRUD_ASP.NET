@@ -13,6 +13,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using Musicify.Data;
+using Musicify.Models;
 
 namespace Musicify.Areas.Identity.Pages.Account
 {
@@ -24,16 +26,21 @@ namespace Musicify.Areas.Identity.Pages.Account
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
 
+        
+        // link with app Db
+        private readonly ApplicationDbContext _db;
+
         public RegisterModel(
             UserManager<IdentityUser> userManager,
             SignInManager<IdentityUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender, ApplicationDbContext Context) // here
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _db = Context;
         }
 
         [BindProperty]
@@ -60,6 +67,9 @@ namespace Musicify.Areas.Identity.Pages.Account
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
+
+            public string Name { get; set; }
+
         }
 
         public async Task OnGetAsync(string returnUrl = null)
@@ -87,7 +97,15 @@ namespace Musicify.Areas.Identity.Pages.Account
                         pageHandler: null,
                         values: new { area = "Identity", userId = user.Id, code = code, returnUrl = returnUrl },
                         protocol: Request.Scheme);
+                    // here
+                    ProfileModel p = new ProfileModel();
 
+                    p.UserId = user.Id;
+                    p.Name = Input.Name;
+
+                    _db.Profiles.Add(p);
+                    await _db.SaveChangesAsync();
+                    //her
                     await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
                         $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 

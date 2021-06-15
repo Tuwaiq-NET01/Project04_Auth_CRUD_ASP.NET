@@ -1,0 +1,17 @@
+﻿@{
+    var Profiles = (ProfileModel)ViewData["Profiles"];
+}
+
+
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">Id: @Profiles.Id</h5>
+        <h5 class="card-title">Name: @Profiles.Name</h5>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Photo:<img src="@Profiles.Photo"/> </li>
+        <li class="list-group-item">Bio: @Profiles.Bio</li>
+    </ul>
+</div>
+
+<a asp-controller="Profiles" asp-action="Index">Back to Profiles</a>

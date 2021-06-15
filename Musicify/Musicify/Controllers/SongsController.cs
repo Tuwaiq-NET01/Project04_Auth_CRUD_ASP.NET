@@ -6,6 +6,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Musicify.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace Musicify.Controllers
 {
@@ -14,21 +17,18 @@ namespace Musicify.Controllers
         private static string baseUrl = "https://w.soundcloud.com/player/?url=";
 
         private readonly ApplicationDbContext _db;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public SongsController(ApplicationDbContext db)
+        public SongsController(ApplicationDbContext db, UserManager<IdentityUser> userManager)
         {
             _db = db;
+            _userManager = userManager;
         }
 
         // GET: /Songs
         public IActionResult Index()
         {
-            //var Url = baseUrl + Url;
             var Songs = _db.Songs.ToList();
-            foreach (var song in Songs) 
-            {
-                song.URL = baseUrl + song.URL;
-            }
             ViewData["Songs"] = Songs;
             return View();
         }
@@ -58,17 +58,18 @@ namespace Musicify.Controllers
 
         // Post: /Songs/create
         [HttpPost]
-        public IActionResult Create([Bind("Id", "Name", "Type", "URL")] SongModel Songs)
+        public IActionResult Create([Bind("Id", "Name", "Type", "URL","SingerId")] SongModel song)
         {
             // if for validations
             if (ModelState.IsValid)
             {
-                _db.Songs.Add(Songs);
+                song.URL = baseUrl + song.URL;
+                _db.Songs.Add(song);
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(Songs);
+            return View(song);
         }
 
         // Updte
@@ -99,13 +100,35 @@ namespace Musicify.Controllers
         public IActionResult Delete(int? id)
         {
             var Songs = _db.Songs.ToList().Find(p => p.Id == id);
+            var favs = _db.Favorites.Where(f => f.SongId == id).ToList();
             if (id == null || Songs == null)
             {
                 return View("_NotFound");
             }
+            favs.ForEach(f => _db.Favorites.Remove(f));
             _db.Songs.Remove(Songs);
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        [Authorize]
+        [HttpPost]
+        public async Task<IActionResult> Like(int id)
+        {
+            var userId = _userManager.GetUserId(User);
+            var Songs = _db.Songs.ToList().First(p => p.Id == id);
+
+            if (id == null || Songs == null || userId == null)
+            {
+                return View("_NotFound");
+            }
+
+            var fav = new FavoriteModel() { UserId = userId, SongId = Songs.Id };
+            _db.Favorites.Add(fav);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        
     }
 }

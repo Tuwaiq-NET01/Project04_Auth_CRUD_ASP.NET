@@ -2,10 +2,10 @@
 
 <form asp-action="create" method="post" class="from-horizontal">
 
-   @* <div class="from-group">
-        <label asp-for="Id">Id</label>
-        <input asp-for="Id" />
-    </div>*@
+    @* <div class="from-group">
+            <label asp-for="Id">Id</label>
+            <input asp-for="Id" />
+        </div>*@
 
     <div class="from-group">
         <label asp-for="Name">Name</label>
@@ -22,6 +22,12 @@
         <label asp-for="URL">URL</label>
         <input asp-for="URL" />
         <span asp-validation-for="URL"></span>
+    </div>
+
+    <div class="from-group">
+        <label asp-for="SingerId">Singer</label>
+        <input asp-for="SingerId" />
+        <span asp-validation-for="SingerId"></span>
     </div>
 
     <div class="from-group">

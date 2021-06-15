@@ -12,5 +12,7 @@ namespace Musicify.Models
         public string Photo { get; set; }
         public string Info { get; set; }
 
+
+        public List<SongModel> Song { get; set; }
     }
 }
