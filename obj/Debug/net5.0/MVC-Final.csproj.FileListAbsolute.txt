@@ -164,3 +164,5 @@ C:\Users\Rawabe\source\repos\MVC-Final\Project04_Auth_CRUD_ASP.NET\obj\Debug\net
 C:\Users\Rawabe\source\repos\MVC-Final\Project04_Auth_CRUD_ASP.NET\obj\Debug\net5.0\Razor\Views\Publisher\Details.cshtml.g.cs
 C:\Users\Rawabe\source\repos\MVC-Final\Project04_Auth_CRUD_ASP.NET\obj\Debug\net5.0\Razor\Views\Publisher\Edit.cshtml.g.cs
 C:\Users\Rawabe\source\repos\MVC-Final\Project04_Auth_CRUD_ASP.NET\obj\Debug\net5.0\Razor\Views\Publisher\Publisher.cshtml.g.cs
+C:\Users\Rawabe\source\repos\MVC-Final\Project04_Auth_CRUD_ASP.NET\obj\Debug\net5.0\Razor\Views\User\User.cshtml.g.cs
+C:\Users\Rawabe\source\repos\MVC-Final\Project04_Auth_CRUD_ASP.NET\obj\Debug\net5.0\Razor\Views\User\Create.cshtml.g.cs

@@ -14,7 +14,7 @@ namespace MVC_Final.Models
         public string Role { get; set; }
         public string Address { get; set; }
         public DateTime ExpiryDate { get; set; }
-
+        public bool Admin { get; set; }
         public virtual ICollection<Book> Books { get; set; }
 
 

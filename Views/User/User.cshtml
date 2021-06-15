@@ -1,0 +1,60 @@
+﻿@{
+    var users = (List<User>)ViewData["users"];
+    var books = (List<Book>)ViewData["books"];
+}
+
+
+<h1 class="text-center">Users List</h1>
+<table class="table text-white">
+    <thead>
+        <tr>
+            <th >User Id</th>
+            <th >User Name</th>
+            <th >User Login Name</th>
+            <th >MemberShip Expiry Date</th>
+            <th >Address</th>
+            <th >Books</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var user in users)
+        {
+            <tr>
+                <td> @user.Id</td>
+                <td> @user.Name</td>
+                <td>@user.UserName</td>
+                <td>@user.ExpiryDate</td>
+                <td>@user.Address</td>
+
+                <td>
+                    <ul>
+                        @foreach (var b in books)
+                        {
+                            if (user.Id == b.UserId)
+                            {
+                                <li>@b.Title</li>
+                            }
+
+                        }
+                    </ul>
+                </td>
+
+                <td> <a asp-controller="User" asp-action="Edit" asp-route-id="@user.Id" class="btn btn-danger">Edit</a></td>
+
+                <td>
+                    <form asp-controller="User" asp-route-id="@user.Id" asp-action="Delete">
+                        <input type="submit" value="Delete" class="btn btn-danger" />
+                    </form>
+                </td>
+            </tr>
+
+        }
+
+    </tbody>
+</table>
+
+<a asp-controller="User" asp-action="Create" class="btn btn-success">Add User</a>
+

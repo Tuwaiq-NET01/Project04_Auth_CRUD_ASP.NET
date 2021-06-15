@@ -1,0 +1,25 @@
+﻿@model User
+@{
+}
+
+<form asp-action="Create" method="post" class="form-group">
+    <label asp-for="Name">Name: </label>
+    <div class="form-group">
+        <input asp-for="Name" />
+    </div>
+    <label asp-for="UserName">UserName: </label>
+    <div class="form-group">
+        <input asp-for="UserName" />
+    </div>
+    <label asp-for="ExpiryDate">Expiry Date: </label>
+    <div class="form-group">
+        <input asp-for="ExpiryDate" />
+    </div>
+    <label asp-for="Address">Address: </label>
+    <div class="form-group">
+        <input asp-for="Address" />
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary" />
+    </div>
+</form>
