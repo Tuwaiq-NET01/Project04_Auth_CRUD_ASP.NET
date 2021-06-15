@@ -2,12 +2,27 @@
     var performers = (List<PerformerModel>)ViewData["performers"];
     var venues = (List<VenueModel>)ViewData["venues"];
 }
-<h2>Gallery</h2>
-@foreach (var p in performers)
-{
-    <img src="@p.Image" />
-}
-@foreach (var v in venues)
-{
-    <img src="@v.Image" />
-}
+<section class="h-72 w-3/4 m-auto pt-12">
+    <div>
+        <h1 class="text-7xl font-bold hero text-center">
+            Gallery
+        </h1>
+    </div>
+</section>
+<section class="mb-12">
+    <div class="w-1/2 m-auto bg-gradient-to-b from-gray-100 shadow-lg rounded-lg mt-6 overflow-hidden">
+        @foreach (var p in performers)
+        {
+        <div class="w-full">
+            <img class="" src="@p.Image" />
+
+        </div>
+        }
+        @foreach (var v in venues)
+        {
+    <div>
+        <img class="w-full" src="@v.Image" />
+    </div>
+        }
+    </div>
+</section>
