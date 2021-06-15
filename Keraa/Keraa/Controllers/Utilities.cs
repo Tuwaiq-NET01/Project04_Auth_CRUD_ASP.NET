@@ -14,7 +14,8 @@ namespace Keraa.Controllers
 
         public static async Task<List<string>> GetCurrentCoordinates()
         {
-            string url = "https://www.googleapis.com/geolocation/v1/geolocate?key=";
+            string token = ""; //needs to be store in .env
+            string url = "https://www.googleapis.com/geolocation/v1/geolocate?key="+token;
 
             using (var httpClient = new HttpClient())
             {

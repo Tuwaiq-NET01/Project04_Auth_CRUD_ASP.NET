@@ -15,7 +15,8 @@ namespace Keraa.Models
         public bool IsRented { get; set; }
         //public List<ImegeModel> ProductImeges { get; set; }
 
-
+        public string LocationLat { get; set; } // Latitude
+        public string LocationLng { get; set; } //Longitude
 
         //public string OwnerUserProfileId { get; set; }
         public UserProfileModel Owner { get; set; }

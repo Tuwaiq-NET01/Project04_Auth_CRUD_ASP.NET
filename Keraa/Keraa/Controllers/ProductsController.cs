@@ -19,7 +19,6 @@ namespace Keraa.Controllers
         }
         public IActionResult Index()
         {
-          
             ViewData["products"] = _db.Products.ToList();
             return View();
         }
@@ -45,10 +44,13 @@ namespace Keraa.Controllers
 
         //POST - /proudcts/create
         [HttpPost]
-        public IActionResult Create([Bind("Name", "ShortDesc", "CoverImage", "Catagory")] ProductModel product)
+        public async Task<IActionResult> Create([Bind("Name", "ShortDesc", "CoverImage", "Catagory")] ProductModel product)
         {
             if (ModelState.IsValid) //check the state of model
             {
+                List<string> Coordinate = await Utilities.GetCurrentCoordinates();
+                product.LocationLat = Coordinate[0];
+                product.LocationLng = Coordinate[1];
                 _db.Products.Add(product);
                 _db.SaveChanges();
                 return RedirectToAction("Index");
