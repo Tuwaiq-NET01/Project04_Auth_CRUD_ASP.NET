@@ -1,15 +1,31 @@
-﻿@{
+﻿@model Comment
+@{
     var comments = (List<Comment>)ViewData["comments"];
+    var challenge = (Challenge)ViewData["challenge"];
 }
 
 <hr />
 <h1 class="display-6">Comments</h1>
 
+<div class="form-floating mb-3">
+    <form asp-controller="comments" asp-action="create" asp-route-id="@challenge.Id" method="post" class="form-horizontal" autocomplete="off">
+        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" asp-for="Title"></textarea>
+        <input class="btn btn-outline-secondary mt-2 d-flex justify-content-end" type="submit"  />
+    </form>
+</div>
+
+
+
+
+
+
+
+
 
 @foreach (var cmt in comments)
 {
 
-    <h4>@cmt.Title </h4>
+    <h5>@cmt.Title </h5>
     <p class="text-muted">@cmt.User.UserName</p>
 }
 

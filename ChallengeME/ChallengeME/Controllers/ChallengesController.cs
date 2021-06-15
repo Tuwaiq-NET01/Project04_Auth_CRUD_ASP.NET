@@ -55,6 +55,7 @@ namespace ChallengeME.Controllers
             }
 
             ViewData["challenge"] = challenge;
+            ViewData["games"] = games;
             ViewData["comments"] = comments;
             return View();
         }

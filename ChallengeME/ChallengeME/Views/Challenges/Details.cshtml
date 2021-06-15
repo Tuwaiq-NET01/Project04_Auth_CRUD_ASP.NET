@@ -4,12 +4,52 @@
     Layout = "_myLayout";
 
     var challenge = (Challenge)ViewData["challenge"];
+    var diff = challenge.Difficulty;
+
     //var comments = (List<Comment>)ViewData["comments"];
 }
 
 
 <h1 class="display-4">@challenge.Title </h1>
+
+
+
+<div class="d-inline">
+    <h6>
+        Difficulty:
+        <b style="font-size: 25px">
+            @if (challenge.Difficulty == "easy")
+            {
+                <span class="text-success">
+                    @diff
+                </span>
+
+            }
+            else if (challenge.Difficulty == "medium")
+            {
+
+
+                <span class="text-warning">
+                    @diff
+                </span>
+            }
+            else
+            {
+                <span class="text-danger">
+                    @diff
+                </span>
+            }
+        </b>
+    </h6>
+
+</div>
+
+
+
 <h3 class="text-muted">@challenge.Game.GameName</h3>
+
+
+
 
 <p>@challenge.Description</p>
 
