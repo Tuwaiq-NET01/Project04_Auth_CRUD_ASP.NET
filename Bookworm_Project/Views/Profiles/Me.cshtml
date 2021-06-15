@@ -1,0 +1,90 @@
+﻿@model Bookworm_Project.Data.ApplicationUser
+@{
+    var user = (Bookworm_Project.Data.ApplicationUser)ViewBag.User;
+}
+
+
+<div class="ui center aligned container" style="margin-bottom:30px">
+    <div class="ui cards" style="margin-left:85px; margin-bottom:20px">
+
+        <div class="card">
+            <div class="image">
+                <img src=@user.Avatar>
+            </div>
+            <div class="content">
+                <div class="header">@user.FirstName @user.LastName</div>
+            </div>
+            <div class="extra content">
+                <span>
+                    <i class="pencil alternate icon"></i>
+                    @if(user.Reviews != null && user.Reviews.Count > 0)
+                    {
+                        <span>@user.Reviews.Count Reviews</span>
+                    }
+                    else
+                    {
+                        <span>0 Reviews</span>
+                    }
+                </span>
+            </div>
+        </div>
+        <div class="card" style="width:650px;">
+
+            <div class="content">
+                <div class="header">@user.FirstName @user.LastName</div>
+                <div style="text-align:left; margin-left:20px; font-size:larger; color:#808080">
+                    <br />
+                    <br />
+                    @user.Bio
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<div class="ui container" style="padding-bottom:85px">
+    <div class="ui comments " style="margin-left:90px; margin-top:30px; background-color:white; padding:25px; border: solid 1px #dbdbdb;border-radius:5px;">
+        <h3 class="ui dividing header">All Reviews</h3>
+        @if (user.Reviews != null && user.Reviews.Count > 0)
+        {
+            @foreach (var review in @user.Reviews)
+            {
+
+                <div class="comment">
+                    <a class="avatar">
+                        <img src=@review.User.Avatar>
+                    </a>
+                    <div class="content">
+                        <a class="author">@user.FirstName @user.LastName</a>
+                        <div class="metadata">
+                            <a class="date" style="color:#808080" asp-controller="Books" asp-action="Details" asp-route-id=@review.Book.Id>@review.Book.Title</a>
+                        </div>
+                        <div class="text">
+                            @review.Content
+                        </div>
+                        <div class="actions">
+                            <form asp-controller="Reviews" asp-action="delete" asp-route-BookId=@review.Book.Id asp-route-id=@review.Id method="post">
+
+                                <input type="Submit" id="click" value="Delete">
+
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <p>
+                ... Share the first review
+            </p>
+        }
+
+
+
+
+    </div>
+</div>

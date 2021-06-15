@@ -1,0 +1,49 @@
+﻿@page
+@model Bookworm_Project.Views.Authors.IndexModel
+@{
+    var authors = (List<AuthorModel>)ViewBag.Authors;
+    var currentUser = ViewBag.CurrentUser;
+}
+
+<div class="ui center aligned container">
+    @if (currentUser == "3a1bcb12-f334-42fa-83c0-e0ac0153868c")
+    {
+        <button class="huge ui black button">
+            <a style="color:white" asp-controller="Authors" asp-action="Create">Add a New Author</a>
+        </button>
+    }
+
+    <div class="ui link cards" style="margin-left:85px">
+        @foreach (var author in authors)
+        {
+            <div class="card">
+                <div class="image">
+                    <img src=@author.Avatar>
+                </div>
+                <div class="content">
+                    <div class="header">@author.FirstName @author.LastName</div>
+
+                </div>
+                <div class="extra content">
+                    <span>
+                        <i class="pencil alternate icon"></i>
+                        @author.Books.Count Books
+                    </span>
+                    <div style="margin-top:5px">
+
+                        <a class="mini ui blue button" style="color:white" asp-controller="Authors" asp-action="Details" asp-route-id=@author.Id>Read</a>
+                        @if (currentUser == "3a1bcb12-f334-42fa-83c0-e0ac0153868c")
+                        {
+                            <a class="mini ui olive button" style="color:white;width: 25px" asp-controller="Authors" asp-action="Edit" asp-route-id=@author.Id><i class="icon edit"></i></a>
+
+                            <form asp-action="delete" asp-route-id=@author.Id method="post" style="display:inline; margin-left:2px">
+                                <button type="submit" class="mini ui red button" style="width: 25px"><i class="trash alternate outline icon"></i></button>
+                            </form>
+                        }
+                        </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>

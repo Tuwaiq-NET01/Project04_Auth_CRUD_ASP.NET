@@ -1,0 +1,47 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+}
+
+<div class="ui center aligned container" style=" margin-top:40px;">
+    <div class="ui inverted segment">
+        <form class="ui inverted form" id="account" method="post">
+            <h4>Login with local account.</h4>
+            <hr />
+
+            <div class="field">
+                <label asp-for="Input.Email"></label>
+                <input asp-for="Input.Email" />
+                <span asp-validation-for="Input.Email"></span>
+
+            </div>
+
+            <div class="field">
+                <label asp-for="Input.Password"></label>
+                <input asp-for="Input.Password" />
+                <span asp-validation-for="Input.Password"></span>
+            </div>
+            <div class="field">
+                <div class="ui checkbox">
+                    <label asp-for="Input.RememberMe">
+                        <input asp-for="Input.RememberMe" />
+                        @Html.DisplayNameFor(m => m.Input.RememberMe)
+                    </label>
+                </div>
+            </div>
+            <div class="field">
+                <p>
+                    <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                </p>
+            </div>
+
+            <button class="ui submit button" type="submit">Login</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

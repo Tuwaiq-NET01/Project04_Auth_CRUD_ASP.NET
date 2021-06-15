@@ -1,0 +1,33 @@
+﻿@model AuthorModel
+
+<div class="ui center aligned container" style=" margin-top:40px;">
+    <div class="ui inverted segment">
+        <form class="ui inverted form" asp-action="Create" method="post">
+
+            <div class="two fields">
+                <div class="field">
+                    <label asp-for="FirstName"></label>
+                    <input asp-for="FirstName" placeholder="First Name">
+                </div>
+                <div class="field">
+                    <label asp-for="LastName"></label>
+                    <input asp-for="LastName" placeholder="Last Name">
+                </div>
+            </div>
+            <div class="two fields">
+                <div class="field">
+                    <label asp-for="Avatar"></label>
+                    <input asp-for="Avatar" placeholder="Image URL">
+                </div>
+                <div class="field">
+                    <label asp-for="Biography"></label>
+                    <input asp-for="Biography" placeholder="Biography">
+                </div>
+            </div>
+
+
+
+            <button class="ui submit button" type="submit">ADD</button>
+        </form>
+    </div>
+</div>
