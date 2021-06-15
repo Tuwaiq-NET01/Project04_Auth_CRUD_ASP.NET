@@ -1,7 +1,7 @@
 ﻿@{
     var Trips = (List<TripModel>)ViewData["Trips"];
-@*    var Passangers = (List<PassengerModel>)ViewData["Passangers"];
-*@    
+    @*    var Passangers = (List<PassengerModel>)ViewData["Passangers"];
+    *@
 }
 
 @{ if (Trips == null)
@@ -28,7 +28,9 @@
                         <th scope="col">TakeOffDateTime</th>
                         <th scope="col">Weight</th>
                         <th scope="col">Destination</th>
-                       @* <th scope="col">Passangers</th>*@
+                        <th scope="col">PlaneNo</th>
+
+                        @* <th scope="col">Passangers</th>*@
 
 
 
@@ -37,34 +39,33 @@
                 <tbody>
                     @foreach (var Trip in Trips)
                     {
-                    <tr>
-                        <th scope="row">@Trip.TripNo</th>
-                        <td>@Trip.TripType</td>
-                        <td>@Trip.Price</td>
-                        <td>@Trip.CabinClass</td>
-                        <td>@Trip.TakeOffDateTime</td>
-                        <td>@Trip.Weight</td>
-                        <td>@Trip.Destination</td>
-                   @*   <td>  @foreach (var p in Passangers)
-                        {
-                        if (Trip.TripNo == p.TripNo)
-                        {
-                             @p.LastName
-                        }
+                        <tr>
+                            <th scope="row">@Trip.TripNo</th>
+                            <td>@Trip.TripType</td>
+                            <td>@Trip.Price</td>
+                            <td>@Trip.CabinClass</td>
+                            <td>@Trip.TakeOffDateTime</td>
+                            <td>@Trip.Weight</td>
+                            <td>@Trip.Destination</td>
+                            <td>@Trip.PlaneNo</td>
 
-                        }</td>*@
+                            @*   <td>  @foreach (var p in Passangers)
+                                {
+                                if (Trip.TripNo == p.TripNo)
+                                {
+                                     @p.LastName
+                                }
 
+                                }</td>*@
 
-
-
-                        <td><button type="button" class="btn btn-dark"><a style="color:white" href="/Trip/details/@Trip.TripNo"> SHOW </a></button></td>
-                        <td><button type="button" class="btn btn-dark"><a style="color:white" href="/Trip/Edit/@Trip.TripNo"> EDIT </a></button></td>
-                        <td>
-                            <form asp-action="Delete" asp-route-id="@Trip.TripNo" method="post">
-                                <input type="submit" value="Destroy" class="btn btn-danger" />
-                            </form>
-                        </td>
-                    </tr>
+                            <td><button type="button" class="btn btn-dark"><a style="color:white" href="/Trip/details/@Trip.TripNo"> SHOW </a></button></td>
+                            <td><button type="button" class="btn btn-dark"><a style="color:white" href="/Trip/Edit/@Trip.TripNo"> EDIT </a></button></td>
+                            <td>
+                                <form asp-action="Delete" asp-route-id="@Trip.TripNo" method="post">
+                                    <input type="submit" value="Destroy" class="btn btn-danger" />
+                                </form>
+                            </td>
+                        </tr>
                     }
                 </tbody>
             </table>

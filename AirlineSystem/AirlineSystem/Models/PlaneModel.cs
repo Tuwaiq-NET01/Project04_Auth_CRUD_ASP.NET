@@ -23,7 +23,7 @@ namespace AirlineSystem.Models
 
 
         //Relationship:One-To-Many Plane -----<-Trip
-        /// public ICollection<TripModel> Trip { get; set; }
+         public ICollection<TripModel> Trip { get; set; }
 
 
 

@@ -33,7 +33,7 @@ namespace AirlineSystem.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Create([Bind("TripNo","Price","TripType", "TakeOffDateTime", "CabinClass", "RoadType", "Weight", "Destination")] TripModel Trip)
+        public IActionResult Create([Bind("TripNo","Price","TripType", "TakeOffDateTime", "CabinClass", "RoadType", "Weight", "Destination", "PlaneNo")] TripModel Trip)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +65,7 @@ namespace AirlineSystem.Controllers
             return View(Trip);
         }
         [HttpPost]
-        public IActionResult Edit(int id, [Bind( "Price", "TripType", "TakeOffDateTime", "CabinClass", "RoadType", "Weight", "Destination")] TripModel TripUpdate)
+        public IActionResult Edit(int id, [Bind( "Price", "TripType", "TakeOffDateTime", "CabinClass", "RoadType", "Weight", "Destination", "PlaneNo")] TripModel TripUpdate)
         {
            // var passenger = _db.Passengers.ToList().Find(pa=>pa.TripNo == id);
             var Trip = _db.Trips.ToList().Find(trip => trip.TripNo == id);
@@ -75,7 +75,7 @@ namespace AirlineSystem.Controllers
             Trip.CabinClass = TripUpdate.CabinClass;
             Trip.RoadType = TripUpdate.RoadType;
             Trip.Destination = TripUpdate.Destination;
-            
+            Trip.PlaneNo = TripUpdate.PlaneNo;
             Debug.WriteLine(TripUpdate.Price);
            _db.Trips.Update(Trip);
             _db.SaveChanges();

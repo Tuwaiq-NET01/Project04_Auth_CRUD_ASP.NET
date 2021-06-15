@@ -23,10 +23,10 @@ namespace AirlineSystem.Models
 
 
         //Relation Plane----<-Trips
-        /*public int PlaneNo { get; set; }
-        public PlaneModel Plane { get; set; }*/
+        public int PlaneNo { get; set; }
+        public PlaneModel Plane { get; set; }
 
-        /*  //Relation Trip ---<- Passengers
-          public ICollection<PassengerModel> Passangers { get; set; }*/
+         //Relation Trip ---<- Passengers
+         // public ICollection<PassengerModel> Passangers { get; set; }
     }
 }
