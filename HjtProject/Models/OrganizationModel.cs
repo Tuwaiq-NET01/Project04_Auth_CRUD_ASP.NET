@@ -12,6 +12,7 @@ namespace HjtProject.Models
         public string summary { get; set; }
         public string pic { get; set; }
         public List<InstructorModel> Instructors { get; set; }
+        
      
 
     }

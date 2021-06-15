@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HjtProject.Controllers
 {
-    public class StudentProfilesController : Controller
+    public class UserProfilesController : Controller
     {
         public IActionResult Index()
         {

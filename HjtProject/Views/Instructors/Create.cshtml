@@ -1,0 +1,34 @@
+﻿@model InstructorModel;
+@{Layout = "InstructorLayout"; }
+
+<form asp-action="create" method="post" class="form-horizontal">
+
+   
+
+    <div class="form-group">
+        <label asp-for="name">name</label>
+        <input asp-for="name" />
+        <span asp-validation-for="name"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="summary">Summary</label>
+        <input asp-for="summary" />
+        <span asp-validation-for="summary"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="pic">picture's URL</label>
+        <input asp-for="pic" />
+        <span asp-validation-for="pic"></span>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="OrganizationId">Organization's Id</label>
+        <input asp-for="OrganizationId" />
+        <span asp-validation-for="OrganizationId"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="submit" class="btn btn-dark" />
+
+    </div>
+</form>

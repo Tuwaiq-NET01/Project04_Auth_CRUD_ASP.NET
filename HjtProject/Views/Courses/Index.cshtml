@@ -1,27 +1,78 @@
-﻿@*@using Microsoft.AspNetCore.Identity
-@{
+﻿@{var courses = (List<CourseModel>)ViewData["courses"];
+    Layout = "CourseLayout";
 
-    var emails = (List<IdentityUser>)ViewData["users"];
+    foreach (var course in courses)
+    {
+
+        <section class="wrapper">
+                <div class="container">
+
+                    <div class="row">
+                        <div class="col-sm-4" style="background-image:url(@course.pic); background-size:cover;width:60px;height:300px">
+                            <div class="card text-dark card-has-bg click-col">
+                                <img class="card-img d-none" src="@course.pic" alt="default" style="background-size:cover">
+                                <div class="card-img-overlay d-flex flex-column">
+                                    <div class="card-body">
+                                        <small class="card-meta mb-2">Tuwaiq Course</small>
+                                        <h4 class="card-title mt-0 "><a class="text-dark" asp-controller="Courses" asp-action="Details" asp-route-Id="@course.Id">@course.name</a></h4>
+                                        <p class="card-text"><small class="text-muted">available only for : @course.price $</small></p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="media">
+                                            <img class="mr-3 rounded-circle" src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/male-512.png" alt="Generic placeholder image" style="max-width:50px">
+                                            <div class="media-body">
+                                                <a asp-controller="Courses" asp-action="Edit" asp-route-Id="@course.Id"><button class="btn btn-danger">Edit</button></a>
+
+                                                <small>
+                                                    <form asp-action="Delete" asp-route-id="@course.Id" method="post">
+                                                        <input type="submit" value="Delete" class="btn btn-danger" />
+                                                    </form>
+                                                </small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+
+    }
+
 }
 
-@{
-    if (emails == null)
-    {
-        <h3> You have no users </h3>
+@*<p class="card-text"><small class="text-muted">available only for : @course.price $</small></p>*@
+
+
+
+
+@*@using Microsoft.AspNetCore.Identity
+    @{
+
+        var emails = (List<IdentityUser>)ViewData["users"];
     }
-    else
-    {
-        foreach (var item in emails)
+
+    @{
+        if (emails == null)
         {
-            <p>
-                @item.Email <br />
-                @item.Id
-            </p>
-
+            <h3> You have no users </h3>
         }
-    }
+        else
+        {
+            foreach (var item in emails)
+            {
+                <p>
+                    @item.Email <br />
+                    @item.Id
+                </p>
 
-}
+            }
+        }
+
+    }
 
 
 *@

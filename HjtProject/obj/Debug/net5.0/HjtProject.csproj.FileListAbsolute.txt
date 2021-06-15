@@ -162,3 +162,15 @@ C:\Users\aashq\source\repos\HjtProject\HjtProject\obj\Debug\net5.0\Razor\Areas\I
 C:\Users\aashq\source\repos\HjtProject\HjtProject\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\aashq\source\repos\HjtProject\HjtProject\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
 C:\Users\aashq\source\repos\HjtProject\HjtProject\obj\Debug\net5.0\Razor\Views\Courses\Index.cshtml.g.cs
+C:\Users\aashq\source\repos\HjtProject\HjtProject\obj\Debug\net5.0\Razor\Views\Shared\_NotFound.cshtml.g.cs
+C:\Users\aashq\source\repos\HjtProject\HjtProject\obj\Debug\net5.0\Razor\Views\Courses\Create.cshtml.g.cs
+C:\Users\aashq\source\repos\HjtProject\HjtProject\obj\Debug\net5.0\Razor\Views\Courses\Details.cshtml.g.cs
+C:\Users\aashq\source\repos\HjtProject\HjtProject\obj\Debug\net5.0\Razor\Views\Courses\Edit.cshtml.g.cs
+C:\Users\aashq\source\repos\HjtProject\HjtProject\obj\Debug\net5.0\Razor\Views\Shared\CourseLayout.cshtml.g.cs
+C:\Users\aashq\source\repos\HjtProject\HjtProject\obj\Debug\net5.0\Razor\Views\Instructors\Create.cshtml.g.cs
+C:\Users\aashq\source\repos\HjtProject\HjtProject\obj\Debug\net5.0\Razor\Views\Instructors\Details.cshtml.g.cs
+C:\Users\aashq\source\repos\HjtProject\HjtProject\obj\Debug\net5.0\Razor\Views\Instructors\Edit.cshtml.g.cs
+C:\Users\aashq\source\repos\HjtProject\HjtProject\obj\Debug\net5.0\Razor\Views\Instructors\Index.cshtml.g.cs
+C:\Users\aashq\source\repos\HjtProject\HjtProject\obj\Debug\net5.0\Razor\Views\Shared\InstructorLayout.cshtml.g.cs
+C:\Users\aashq\source\repos\HjtProject\HjtProject\obj\Debug\net5.0\Razor\Views\Organizations\Details.cshtml.g.cs
+C:\Users\aashq\source\repos\HjtProject\HjtProject\obj\Debug\net5.0\Razor\Views\Organizations\Index.cshtml.g.cs

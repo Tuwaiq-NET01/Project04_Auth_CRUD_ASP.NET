@@ -1,0 +1,21 @@
+﻿@{
+    var org = (OrganizationModel)ViewData["organization"];
+
+    <h2 style="color: #30475e"> Organization : @org.name </h2>
+    <body>
+
+        <div class=" d-flex flex-wrap">
+
+            <div class="card .text-black " style="width: 30rem; margin-inline:auto">
+                <img src="@org.pic" class="card-img-top" alt="Tea Coal" width="300" height="300 ">
+                <div class="card-body" style="color: #30475e ;background-color:#e7e7de ">
+                    <h5 class="card-title">@org.name</h5>
+                    <p class="card-text"> <b>INFO : @org.summary </b></p>
+
+                </div>
+            </div>
+
+        </div>
+
+    </body>
+}

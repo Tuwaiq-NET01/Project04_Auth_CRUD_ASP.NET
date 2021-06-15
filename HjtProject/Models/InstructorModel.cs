@@ -12,9 +12,10 @@ namespace HjtProject.Models
         public string summary { get; set; }
         public string pic { get; set; }
         public OrganizationModel Organization {get; set; } 
-        public int OrganizationId { get; set; }
+        public int? OrganizationId { get; set; }
         public CourseModel Course { get; set; }
-       
+        public List<UserProfileModel> UserProfiles { get; set; }
+
 
 
     }

@@ -1,0 +1,38 @@
+﻿@model CourseModel;
+    @{Layout = "CourseLayout"; }
+
+    <form asp-action="create" method="post" class="form-horizontal">
+
+        
+
+        <div class="form-group">
+            <label asp-for="name">name</label>
+            <input asp-for="name" />
+            <span asp-validation-for="name"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="description">Description</label>
+            <input asp-for="description" />
+            <span asp-validation-for="description"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="price">Price</label>
+            <input asp-for="price" />
+            <span asp-validation-for="price"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="pic">URL picture</label>
+            <input asp-for="pic" />
+            <span asp-validation-for="pic"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="InstructorId">InstructorId</label>
+            <input asp-for="InstructorId" />
+            <span asp-validation-for="InstructorId"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="submit" class="btn btn-dark" />
+
+        </div>
+    </form>

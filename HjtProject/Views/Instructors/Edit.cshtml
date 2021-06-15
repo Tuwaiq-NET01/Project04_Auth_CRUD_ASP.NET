@@ -1,0 +1,40 @@
+﻿@model InstructorModel;
+@{
+    var instructor = (InstructorModel)ViewData["instructor"];
+    Layout = "InstructorLayout";
+}
+
+<form asp-action="Edit" method="post" class="form-horizontal">
+
+    <div class="form-group">
+        <label asp-for="name">Name</label>
+        <input asp-for="name" value=@instructor.name />
+        <span asp-validation-for="name"></span>
+    </div>
+
+    <div class="form-group">
+
+        <input type="hidden" asp-for="Id" value=@instructor.Id />
+    </div>
+    <div class="form-group">
+        <label asp-for="summary">Summary</label>
+        <input asp-for="summary" value=@instructor.summary />
+        <span asp-validation-for="summary"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="pic">Picture's URL</label>
+        <input asp-for="pic" value=@instructor.pic />
+        <span asp-validation-for="pic"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="OrganizationId">OrganizationId</label>
+        <input asp-for="OrganizationId" value=@instructor.OrganizationId />
+        <span asp-validation-for="OrganizationId"></span>
+    </div>
+
+
+    <div class="form-group">
+        <input type="submit" value="submit" class="btn btn-dark" />
+
+    </div>
+</form>

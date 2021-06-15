@@ -17,5 +17,6 @@ namespace HjtProject.Data
         public DbSet<CourseModel> Courses { get; set; }
         public DbSet<InstructorModel> Instructors { get; set; }
         public DbSet<OrganizationModel> Organizations { get; set; }
+        public DbSet<UserProfileModel> UserProfiles { get; set; }
     }
 }

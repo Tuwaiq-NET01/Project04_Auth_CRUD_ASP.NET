@@ -26,7 +26,7 @@ namespace HjtProject.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("InstructorId")
+                    b.Property<int?>("InstructorId")
                         .HasColumnType("int");
 
                     b.Property<string>("description")
@@ -44,9 +44,10 @@ namespace HjtProject.Data.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("InstructorId")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[InstructorId] IS NOT NULL");
 
-                    b.ToTable("Course");
+                    b.ToTable("Courses");
                 });
 
             modelBuilder.Entity("HjtProject.Models.InstructorModel", b =>
@@ -56,7 +57,7 @@ namespace HjtProject.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("OrganizationId")
+                    b.Property<int?>("OrganizationId")
                         .HasColumnType("int");
 
                     b.Property<string>("name")
@@ -72,7 +73,7 @@ namespace HjtProject.Data.Migrations
 
                     b.HasIndex("OrganizationId");
 
-                    b.ToTable("Instructor");
+                    b.ToTable("Instructors");
                 });
 
             modelBuilder.Entity("HjtProject.Models.OrganizationModel", b =>
@@ -93,7 +94,35 @@ namespace HjtProject.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Organization");
+                    b.ToTable("Organizations");
+                });
+
+            modelBuilder.Entity("HjtProject.Models.UserProfileModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("CourseId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("InstructorId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CourseId");
+
+                    b.HasIndex("InstructorId");
+
+                    b.ToTable("UserProfiles");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -300,9 +329,7 @@ namespace HjtProject.Data.Migrations
                 {
                     b.HasOne("HjtProject.Models.InstructorModel", "Instructor")
                         .WithOne("Course")
-                        .HasForeignKey("HjtProject.Models.CourseModel", "InstructorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("HjtProject.Models.CourseModel", "InstructorId");
 
                     b.Navigation("Instructor");
                 });
@@ -311,11 +338,24 @@ namespace HjtProject.Data.Migrations
                 {
                     b.HasOne("HjtProject.Models.OrganizationModel", "Organization")
                         .WithMany("Instructors")
-                        .HasForeignKey("OrganizationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("OrganizationId");
 
                     b.Navigation("Organization");
+                });
+
+            modelBuilder.Entity("HjtProject.Models.UserProfileModel", b =>
+                {
+                    b.HasOne("HjtProject.Models.CourseModel", "Course")
+                        .WithMany("UserProfiles")
+                        .HasForeignKey("CourseId");
+
+                    b.HasOne("HjtProject.Models.InstructorModel", "Instructor")
+                        .WithMany("UserProfiles")
+                        .HasForeignKey("InstructorId");
+
+                    b.Navigation("Course");
+
+                    b.Navigation("Instructor");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -369,9 +409,16 @@ namespace HjtProject.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("HjtProject.Models.CourseModel", b =>
+                {
+                    b.Navigation("UserProfiles");
+                });
+
             modelBuilder.Entity("HjtProject.Models.InstructorModel", b =>
                 {
                     b.Navigation("Course");
+
+                    b.Navigation("UserProfiles");
                 });
 
             modelBuilder.Entity("HjtProject.Models.OrganizationModel", b =>

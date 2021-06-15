@@ -15,7 +15,8 @@ namespace HjtProject.Models
         public string description { get; set; }
         public string pic { get; set; }
         public string price { get; set; }
-        public InstructorModel Instructor { get; set; }
-        public int InstructorId { get; set; }
+        public InstructorModel? Instructor { get; set; }
+        public int? InstructorId { get; set; }
+        public List<UserProfileModel> UserProfiles { get; set; }
     }
 }

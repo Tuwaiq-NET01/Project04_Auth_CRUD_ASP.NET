@@ -1,0 +1,28 @@
+﻿@{
+    var course = (CourseModel)ViewData["course"];
+    Layout = "CourseLayout";
+}
+
+
+<h2 style="color: #30475e"> Learn from the BEST in Tuwaiq Camp </h2>
+<body>
+
+    <div class=" d-flex flex-wrap">
+
+        <div class="card .text-black " style="width: 30rem; margin-inline:auto">
+            <img src="@course.pic" class="card-img-top" alt="pic" width="300" height="300 ">
+            <div class="card-body" style="color: #30475e ;background-color:#e7e7de ">
+                <h5 class="card-title">@course.name</h5>
+                <p class="card-text">This course is tought by the lecturer : <b>@course.InstructorId</b></p>
+                <p class="card-text">Buy this course for : <b>@course.price $</b></p>
+                <p class="card-text">By the end of this course : <b>@course.description </b></p>
+                <a asp-controller="Courses" asp-action="Index">Back to Courses</a>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+

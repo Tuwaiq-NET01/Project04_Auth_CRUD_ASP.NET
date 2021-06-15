@@ -25,7 +25,7 @@ namespace HjtProject.Areas.Identity.Pages.Account
         private readonly IEmailSender _emailSender;
 
 
-       /* public static List<IdentityUser> allUsers = new List<IdentityUser> (); // WHATCH OUT*/
+       /* public static List<IdentityUser> allUsers = new List<IdentityUser> (); // WATCH OUT*/
 
 
         
@@ -88,7 +88,7 @@ namespace HjtProject.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                
-               /* allUsers.Add(user); // WHATCH OUTTtttttttttttttttttttttttttttttTT*/
+               /* allUsers.Add(user); // WATCH OUTTtttttttttttttttttttttttttttttTT*/
                     _logger.LogInformation("User created a new account with password.");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);

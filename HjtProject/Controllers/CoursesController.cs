@@ -7,6 +7,7 @@ using HjtProject.Areas.Identity.Pages.Account; // using this sh to transfer
 using Microsoft.AspNetCore.Identity;
 using HjtProject.Data;
 using HjtProject.Models;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace HjtProject.Controllers
 {
@@ -31,7 +32,7 @@ namespace HjtProject.Controllers
         public IActionResult Index()
         {
             var Courses = _db.Courses.ToList();
-            ViewData["Courses"] = Courses;
+            ViewData["courses"] = Courses;
             return View();
         }
 
@@ -43,7 +44,7 @@ namespace HjtProject.Controllers
             {
                 return View("_NotFound");
             }
-            ViewData["Course"] = Course;
+            ViewData["course"] = Course;
             return View(Course);
 
         }
@@ -57,11 +58,12 @@ namespace HjtProject.Controllers
 
         // Post - /courses/create
         [HttpPost]
-        public IActionResult Create([Bind("Id", "name", "description", "price","pic")] CourseModel course) // هذي تختلف عن اللي فوقها لان الطلب من الهتتمل مختلف عن بعض 
+        public IActionResult Create([Bind( "name", "description", "price","pic","instructorId")] CourseModel course)
         {
             if (ModelState.IsValid) 
             {
-                _db.Courses.Add(course); 
+
+                _db.Courses.Add(course);
                 _db.SaveChanges();
                 return RedirectToAction("Index"); 
 
@@ -77,7 +79,7 @@ namespace HjtProject.Controllers
             {
                 return View("_NotFound");
             }
-            ViewData["Course"] = course;
+            ViewData["course"] = course;
             return View(); 
         }
 
@@ -85,7 +87,12 @@ namespace HjtProject.Controllers
         [HttpPost]
         public IActionResult Edit([Bind("Id", "name", "description", "price","pic")] CourseModel course)
         {
-            _db.Courses.Update(course);
+            EntityEntry<CourseModel> entry = _db.Entry(course);
+            entry.Property(e => e.name).IsModified = true;
+            entry.Property(e => e.description).IsModified = true;
+            entry.Property(e => e.price).IsModified = true;
+            entry.Property(e => e.pic).IsModified = true;
+            // _db.Courses.Update(course);
             _db.SaveChanges();
 
             return RedirectToAction("Index");
