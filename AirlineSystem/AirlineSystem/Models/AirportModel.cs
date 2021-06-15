@@ -15,8 +15,13 @@ namespace AirlineSystem.Models
         public string AirportName { get; set; }
         public string CountryCity { get; set; }
         public string Gate { get; set; }
-        //Relationship:One-To-Many Airports -----<-Planes
-        // Navigation Propoerties
-/*        public List<PlaneModel> Planes { get; set; }
-*/    }
+
+
+        //Relationship:One-To-Many Airport -----<-Planes
+        //Navigation Propoerties
+        public List<PlaneModel> Planes { get; set; }
+
+
+
+    }
 }

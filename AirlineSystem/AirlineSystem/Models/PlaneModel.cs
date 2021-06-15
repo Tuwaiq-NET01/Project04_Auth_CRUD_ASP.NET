@@ -13,13 +13,17 @@ namespace AirlineSystem.Models
         public int Capacity { get; set; }
         public string PlaneName { get; set; }
         public string PlaneType { get; set; }
-       /* //Relationship:One-To-Many Airports -----<-Planes
-        //FK
-        public int Airport_ID { get; set; }
+
+
+        //Relationship:One-To-Many Airport -----<-Planes
+       
         public AirportModel Airports { get; set; }
+        //FK
+        public int AirportID { get; set; }
+
 
         //Relationship:One-To-Many Plane -----<-Trip
-        public List<TripModel> Trip { get; set; }*/
+        /// public ICollection<TripModel> Trip { get; set; }
 
 
 

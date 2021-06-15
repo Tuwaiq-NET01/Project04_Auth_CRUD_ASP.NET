@@ -24,7 +24,7 @@ namespace AirlineSystem.Models
 
       /*  //Relation Trip ---<- Passengers
        public int TripNo { get; set; }
-       public virtual TripModel Trip { get; set; }*/
+       public TripModel Trip { get; set; }*/
 
     }
 }

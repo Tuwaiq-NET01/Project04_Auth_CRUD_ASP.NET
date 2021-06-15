@@ -4,14 +4,16 @@ using AirlineSystem.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AirlineSystem.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210615074416_AllTables")]
+    partial class AllTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -83,12 +85,6 @@ namespace AirlineSystem.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("AirportID")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("AirportsAirportID")
-                        .HasColumnType("int");
-
                     b.Property<int>("Capacity")
                         .HasColumnType("int");
 
@@ -99,8 +95,6 @@ namespace AirlineSystem.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("PlaneID");
-
-                    b.HasIndex("AirportsAirportID");
 
                     b.ToTable("Planes");
                 });
@@ -137,20 +131,6 @@ namespace AirlineSystem.Migrations
                     b.HasKey("TripNo");
 
                     b.ToTable("Trips");
-                });
-
-            modelBuilder.Entity("AirlineSystem.Models.PlaneModel", b =>
-                {
-                    b.HasOne("AirlineSystem.Models.AirportModel", "Airports")
-                        .WithMany("Planes")
-                        .HasForeignKey("AirportsAirportID");
-
-                    b.Navigation("Airports");
-                });
-
-            modelBuilder.Entity("AirlineSystem.Models.AirportModel", b =>
-                {
-                    b.Navigation("Planes");
                 });
 #pragma warning restore 612, 618
         }

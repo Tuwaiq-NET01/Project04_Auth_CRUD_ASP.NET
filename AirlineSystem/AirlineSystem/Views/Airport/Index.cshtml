@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Index";
+    var Planes = (List<PlaneModel>)ViewData["Planes"];
 }
 
 <h1>Index</h1>
@@ -24,32 +25,45 @@
             <th>
                 @Html.DisplayNameFor(model => model.Gate)
             </th>
+            <th>
+                Planes
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.AirportShort)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AirportName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CountryCity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Gate)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.AirportID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.AirportID">Details</a> |
-                <form asp-action="Delete" asp-route-id="@item.AirportID" method="post">
-                    <input type="submit" value="Destroy" class="btn btn-danger" />
-                </form>           
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AirportShort)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AirportName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CountryCity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gate)
+                </td>
+                <td>
+                   @foreach(var plane in Planes)
+                {
+                    @if(plane.AirportID == item.AirportID)
+                    {
+                    <p>@plane.PlaneName </p>
+                    }
+                }
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.AirportID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.AirportID">Details</a> |
+                    <form asp-action="Delete" asp-route-id="@item.AirportID" method="post">
+                        <input type="submit" value="Destroy" class="btn btn-danger" />
+                    </form>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

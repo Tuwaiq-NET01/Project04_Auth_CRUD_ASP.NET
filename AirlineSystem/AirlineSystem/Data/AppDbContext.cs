@@ -17,8 +17,10 @@ namespace AirlineSystem.Data
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //odelBuilder.Entity<TripModel>().HasMany(p=>p.Passangers).WithOne(t=>t.Trip).OnDelete(DeleteBehavior.Cascade);
-        }
+            // modelBuilder.Entity<TripModel>().HasMany(p=>p.Passangers).WithOne(t=>t.Trip).OnDelete(DeleteBehavior.Cascade);
+           //  modelBuilder.Entity<TripModel>().HasMany(p => p.Passangers).WithOne(t => t.Trip).OnDelete(DeleteBehavior.Cascade);
 
         }
+
+    }
 }

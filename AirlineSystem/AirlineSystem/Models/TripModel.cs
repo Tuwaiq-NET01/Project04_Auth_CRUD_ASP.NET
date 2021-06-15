@@ -20,10 +20,13 @@ namespace AirlineSystem.Models
         public string RoadType { get; set; }
         public int Weight { get; set; }
         public string Destination { get; set; }
-      /*  //Relation Plane----<-Trips
-        //public int PlaneNo { get; set; }
 
-        //Relation Trip ---<- Passengers
-        public ICollection<PassengerModel> Passangers { get; set; }*/
+
+        //Relation Plane----<-Trips
+        /*public int PlaneNo { get; set; }
+        public PlaneModel Plane { get; set; }*/
+
+        /*  //Relation Trip ---<- Passengers
+          public ICollection<PassengerModel> Passangers { get; set; }*/
     }
-    }
+}

@@ -19,7 +19,8 @@ namespace AirlineSystem.Controllers
         public IActionResult Index()
         {
             var Airports = _db.Airports.ToList();
-
+            var Planes = _db.Planes.ToList();
+            ViewData["Planes"] = Planes;
             return View(Airports);
         }
         [HttpGet]
@@ -32,7 +33,6 @@ namespace AirlineSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-
                 _db.Airports.Add(airport);
                 _db.SaveChanges();
                 return RedirectToAction("Index");
@@ -44,8 +44,10 @@ namespace AirlineSystem.Controllers
         [HttpGet]
         public IActionResult Details(int? id)
         {
+            var Planes = _db.Planes.ToList();
             var Airport = _db.Airports.ToList().Find(airport => airport.AirportID == id);
             ViewData["Airport"] = Airport;
+            ViewData["Planes"] = Planes;
             return View(Airport);
         }
         [HttpGet]

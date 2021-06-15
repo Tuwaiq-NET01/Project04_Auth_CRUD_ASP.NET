@@ -2,6 +2,8 @@
 
 @{
     ViewData["Title"] = "Details";
+    var Planes = (List<PlaneModel>)ViewData["Planes"];
+    var Airport = (AirportModel) ViewData["Airport"] ;
 }
 
 <h1>Details</h1>
@@ -10,29 +12,41 @@
     <h4>AirportModel</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.AirportShort)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.AirportShort)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.AirportName)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.AirportName)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.CountryCity)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.CountryCity)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Gate)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Gate)
+        </dd>
+        <dt class="col-sm-2">
+           Planes
+        </dt>
+        <dd class="col-sm-10">
+            @foreach (var plane in Planes)
+            {
+                @if (plane.AirportID == Airport.AirportID)
+                {
+                    <p>@plane.PlaneName </p>
+                }
+            }
         </dd>
     </dl>
 </div>
