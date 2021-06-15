@@ -21,13 +21,14 @@
     <div class="d-flex flex-row-reverse">
 
 
-    <form method="post" asp-controller="games" asp-action="delete" asp-route-id="@game.Id">
 
-        <button type="submit" class="btn btn-outline-danger ml-3 ">DELETE</button>
+        
+<button type="button" class="btn btn-outline-danger ml-2" data-bs-toggle="modal" data-bs-target="#delModel">
+    DELETE
+</button>
 
-    </form>
 
-    <a role="button" class="btn btn-outline-warning" asp-controller="games" asp-action="edit" asp-route-id="@game.Id">EDIT</a>
+        <a role="button" class="btn btn-outline-warning" asp-controller="games" asp-action="edit" asp-route-id="@game.Id">EDIT</a>
 
     </div>
 }
@@ -55,11 +56,35 @@
         }
 
     }
-            else
-            {
-                <h4 class="text-danger text-center"> There are no challenges for this game <i class="far fa-frown"></i> </h4>
-            }
+    else
+    {
+        <h4 class="text-danger text-center"> There are no challenges for this game <i class="far fa-frown"></i> </h4>
+    }
 
 
 
+</div>
+
+
+
+
+<div class="modal fade" id="delModel" tabindex="-1" aria-labelledby="delModelLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <form method="post" asp-controller="games" asp-action="delete" asp-route-id="@game.Id">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="delModelLabel">DELETE</h5>
+                </div>
+                <div class="modal-body">
+                    are you sure you want to delete the game?
+                    <h4>@game.GameName</h4>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <input type="submit" class="btn btn-danger" value="Yes, delete" />
+                </div>
+            </form>
+        </div>
+    </div>
 </div>

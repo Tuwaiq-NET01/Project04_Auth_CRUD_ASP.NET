@@ -107,7 +107,8 @@ hr {
 .card-img-top {
     filter: brightness(70%);
 }
-.myImg:hover {
+.card:hover {
+    /*background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));*/
     filter: brightness(100%);
 }
 
