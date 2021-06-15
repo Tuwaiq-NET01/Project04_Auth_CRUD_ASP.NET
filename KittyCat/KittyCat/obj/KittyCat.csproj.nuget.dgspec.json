@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Batool Alghamdi\\source\\repos\\KittyCat\\KittyCat\\KittyCat.csproj": {}
+    "C:\\Users\\Batool Alghamdi\\Desktop\\Tuwaiq\\.Net\\Projects\\Project04_Auth_CRUD_ASP.NET\\KittyCat\\KittyCat\\KittyCat.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Batool Alghamdi\\source\\repos\\KittyCat\\KittyCat\\KittyCat.csproj": {
+    "C:\\Users\\Batool Alghamdi\\Desktop\\Tuwaiq\\.Net\\Projects\\Project04_Auth_CRUD_ASP.NET\\KittyCat\\KittyCat\\KittyCat.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Batool Alghamdi\\source\\repos\\KittyCat\\KittyCat\\KittyCat.csproj",
+        "projectUniqueName": "C:\\Users\\Batool Alghamdi\\Desktop\\Tuwaiq\\.Net\\Projects\\Project04_Auth_CRUD_ASP.NET\\KittyCat\\KittyCat\\KittyCat.csproj",
         "projectName": "KittyCat",
-        "projectPath": "C:\\Users\\Batool Alghamdi\\source\\repos\\KittyCat\\KittyCat\\KittyCat.csproj",
+        "projectPath": "C:\\Users\\Batool Alghamdi\\Desktop\\Tuwaiq\\.Net\\Projects\\Project04_Auth_CRUD_ASP.NET\\KittyCat\\KittyCat\\KittyCat.csproj",
         "packagesPath": "C:\\Users\\Batool Alghamdi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Batool Alghamdi\\source\\repos\\KittyCat\\KittyCat\\obj\\",
+        "outputPath": "C:\\Users\\Batool Alghamdi\\Desktop\\Tuwaiq\\.Net\\Projects\\Project04_Auth_CRUD_ASP.NET\\KittyCat\\KittyCat\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Batool Alghamdi\\AppData\\Roaming\\NuGet\\NuGet.Config",

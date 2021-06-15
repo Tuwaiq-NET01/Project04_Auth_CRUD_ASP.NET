@@ -29,9 +29,5 @@ namespace KittyCat.Models
         public int AdopterId { get; set; }
 
         // navigation properties
-        public LocationModel Location { get; set; }
-
-        //FK
-        public int LocationId { get; set; }
     }
 }
