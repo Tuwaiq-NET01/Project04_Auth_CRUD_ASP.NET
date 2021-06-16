@@ -51,6 +51,7 @@ namespace ChallengeME.Controllers
             }
             comment.ChallengeId = id;
             comment.UserId = user.Id;
+            comment.Time = DateTime.Now;
             if (ModelState.IsValid)       //to chech the state of the model is correct.
             {
                 _context.Comments.Add(comment);

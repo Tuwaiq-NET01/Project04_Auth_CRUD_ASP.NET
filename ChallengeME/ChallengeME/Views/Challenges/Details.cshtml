@@ -7,6 +7,7 @@
 
     var challenge = (Challenge)ViewData["challenge"];
     var diff = challenge.Difficulty;
+    var list = (List<string>)ViewData["diff"];
 
     //var comments = (List<Comment>)ViewData["comments"];
 }
@@ -19,10 +20,7 @@
     @if (challenge.UserId == @UserManager.GetUserId(User))
     {
 
-        <form class="ml-auto" method="post" asp-controller="challenges" asp-action="edit" asp-route-id="@challenge.Id">
-            <button type="submit" class="btn btn-link edit"><i class="fas fa-pen fa-2x"></i></button>
-        </form>
-        
+            <button type="submit" class="btn btn-link edit" data-bs-toggle="modal" data-bs-target="#createModel"><i class="fas fa-pen fa-2x"></i></button>
 
 
         <form method="post" asp-controller="challenges" asp-action="delete" asp-route-id="@challenge.Id">
@@ -69,6 +67,51 @@
 
 
 <p>@challenge.Description</p>
+
+
+
+
+
+<div class="modal fade" id="createModel" tabindex="-1" aria-labelledby="createModelLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <form method="post" asp-controller="challenges" asp-action="edit" asp-route-id="@challenge.Id" class="form-horizontal" autocomplete="off">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="createModelLabel">Create New Game</h5>
+                </div>
+                <div class="modal-body">
+
+
+
+                    <div class="form-group">
+                        <label asp-for="Title">Title: </label>
+                        <div>
+                            <input asp-for="Title" value="@challenge.Title"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Description">Description: </label>
+                        <div>
+                            <input asp-for="Description" value="@challenge.Description" />
+                        </div>
+                    </div>
+
+                    <select class="form-select" asp-for="Difficulty"
+                            asp-items="@(new SelectList(list))">
+                    </select>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <input type="submit" class="btn btn-warning" value="Edit" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 
 
 

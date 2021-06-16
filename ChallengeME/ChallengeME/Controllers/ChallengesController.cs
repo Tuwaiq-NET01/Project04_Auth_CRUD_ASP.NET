@@ -54,6 +54,7 @@ namespace ChallengeME.Controllers
                 return NotFound();
             }
 
+            ViewData["diff"] = getDiff();
             ViewData["challenge"] = challenge;
             ViewData["games"] = games;
             ViewData["comments"] = comments;
@@ -83,7 +84,7 @@ namespace ChallengeME.Controllers
             {
                 _context.Challenges.Add(challenge);
                 _context.SaveChanges();
-                return RedirectToAction("Details", "games", new { id = id });
+                return RedirectToAction("details", "games", new { id = id });
             }
             else
             {
@@ -95,33 +96,20 @@ namespace ChallengeME.Controllers
 
 
 
-        [Authorize]
-        public IActionResult Edit(int? id)
-        {
-            var game = _context.Games.ToList().Find(p => p.Id == id);
-            if (id == null || game == null)
-            {
-                return NotFound();
-            }
-
-            ViewData["game"] = game;
-
-            return View();
-        }
 
         [Authorize]
         [HttpPost]
-        public IActionResult Edit(int id, [Bind("GameName", "GameImage")] Game game)
+        public IActionResult Edit(int id, [Bind("Title", "Description", "Difficulty")] Challenge challenge)
         {
+            var dbchallenge = _context.Challenges.ToList().Find(p => p.Id == id);
+            dbchallenge.Title = challenge.Title;
+            dbchallenge.Difficulty = challenge.Description;
+            dbchallenge.Difficulty = challenge.Difficulty;
 
-            var dbgame = _context.Games.ToList().Find(p => p.Id == id);
-            dbgame.GameName = game.GameName;
-            dbgame.GameImage = game.GameImage;
-
-            _context.Games.Update(dbgame);
+            _context.Challenges.Update(dbchallenge);
             _context.SaveChanges();
 
-            return RedirectToAction("Index");
+            return RedirectToAction("details", new { id = id});
         }
 
 
