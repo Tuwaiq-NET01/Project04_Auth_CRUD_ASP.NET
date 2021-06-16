@@ -1,0 +1,21 @@
+﻿@{
+    var room = (RoomModel)ViewData["Room"];
+
+}
+
+<h3>Room Details:</h3>
+
+<div class="card mb-3">
+    <h3 class="card-title">@room.RoomType</h3>
+    <img class="card-img-top" src="@room.RoomImage" alt="Card image cap">
+    <div class="card-body">
+
+        <p class="card-text"><strong>Room Price :</strong>@room.RoomPrice</p>
+        <p class="card-text"><strong>Description :</strong>@room.RoomDescribtion</p>
+        <p class="card-text"><strong>Status :</strong>@room.RoomStatus</p>
+
+    </div>
+</div>
+
+
+<a class="btn btn-dark" asp-controller="Rooms" asp-action="Index"> Back to Rooms </a>

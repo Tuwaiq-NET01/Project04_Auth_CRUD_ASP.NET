@@ -1,0 +1,44 @@
+﻿
+@{
+    var Rooms = (List<RoomModel>)ViewData["Rooms"];
+}
+
+<h1>All Rooms</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Room Id</th>
+            <th scope="col">Type</th>
+            <th scope="col">Price</th>
+
+            <th>Details</th>
+            <th>Edit</th>
+            <th>Delete</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var room in Rooms)
+        {
+            <tr>
+                <td scope="row">@room.RoomId</td>
+                <td scope="row">@room.RoomType</td>
+                <td scope="row">@room.RoomPrice</td>
+
+                <td><button type="button" class="btn btn-dark"><a style="color:white" href="/Rooms/details/@room.RoomId">SHOW</a></button></td>
+                <td><a class="btn btn-primary" asp-controller="Rooms" asp-action="Edit" asp-route-id=@room.RoomId>Edit</a></td>
+                <td>
+                    <form method="post" asp-controller="Rooms" asp-action="Delete" asp-route-id="@room.RoomId">
+                        <input type="submit" value="Delete" class="btn btn-danger" />
+                    </form>
+
+                </td>
+
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+@*<a class="btn btn-primary" asp-controller="s" asp-action="Create"> Add New Hotel</a>*@

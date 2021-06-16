@@ -1,21 +1,56 @@
-﻿@{
+﻿@model RoomModel;
+@{
     var hotel = (HotelModel)ViewData["Hotel"];
+
+    var roomList = (List<RoomModel>)ViewData["Rooms"];
 
 }
 
-<h3>Hotel Details:</h3>>
+<h3>Hotel Details:</h3>
 
 <div class="card mb-3">
+    <h3 class="card-title text-center">@hotel.HotelName</h3>
     <img class="card-img-top" src="@hotel.HotelImage" alt="Card image cap">
     <div class="card-body">
-        <h5 class="card-title">@hotel.HotelName</h5>
-        <p class="card-text">Phone Number :@hotel.PhoneNumber</p>
-        <p class="card-text">City :@hotel.City</p>
-        <p class="card-text">State :@hotel.State</p>
-        <p class="card-text">ZipCode :@hotel.ZipCode</p>
-      
+
+        <p class="card-text"><strong>Phone Number :</strong>@hotel.PhoneNumber</p>
+        <p class="card-text"><strong>City :</strong>@hotel.City</p>
+        <p class="card-text"><strong>State :</strong>@hotel.State</p>
+        <p class="card-text"><strong>ZipCode :</strong>@hotel.ZipCode</p>
+
     </div>
+
 </div>
 
+@foreach (var r in roomList)
+{
+    if (r.HotelId == hotel.HotelId)
+    {
+        <div class="card mb-3">
 
-<a asp-controller="Hotels" asp-action="Index"> Back to Hotels </a>
+        <h3 class="card-title">Room @r.RoomNumber</h3>
+
+        <img src="@r.RoomImage" style="width:200px; height:300px" />
+
+        <p class="card-text"><strong>Room Type :</strong>@r.RoomType</p>
+        <p class="card-text"><strong>Room Price :</strong>@r.RoomPrice</p>
+        <p class="card-text"><strong>Room Status :</strong>@r.RoomStatus</p>
+        <p class="card-text"><strong>Room Description:</strong>@r.RoomDescribtion</p>
+        </div>
+
+    }
+    else
+    {
+         <a asp-action="_NotFound" />
+    }
+
+ }
+
+
+      
+
+        <a class="btn btn-primary" asp-action="create" asp-controller="rooms" asp-route-id="@hotel.HotelId">Add New Room</a>
+
+        @*@Html.ActionLink("Create", "Create", "Rooms", new { HotelId= hotel.HotelId }, null)*@
+
+        <a class="btn btn-dark" asp-controller="Hotels" asp-action="Index"> Back to Hotels </a>

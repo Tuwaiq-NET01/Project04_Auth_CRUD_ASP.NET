@@ -1,4 +1,5 @@
 using HotelReservationManagement.Data;
+using HotelReservationManagement.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,10 +33,47 @@ namespace HotelReservationManagement
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
 
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddIdentity<AdvanceUser,IdentityRole>(options =>{
+                options.Password.RequireDigit=true;
+                options.Password.RequireUppercase =true;
+                 options.User.AllowedUserNameCharacters=
+                "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
+                
+            }).AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders()
+                    .AddDefaultUI();
+
+            services.AddMvc().AddRazorPagesOptions(options =>
+            {
+                options.Conventions.AddPageRoute( "/Account/Login", "");
+            });
+            /*services.AddMvc().AddRazorPagesOptions(options =>
+            {
+                //Registering 'Page','route-name'
+                options.Conventions.AddAreaPageRoute("Identity","/Account/Login", "");
+            });*/
+
+
+
+            services.AddRazorPages();
+
             services.AddControllersWithViews();
+
+           
+
+            services.ConfigureApplicationCookie(options =>
+            {
+                // Cookie settings
+                options.Cookie.HttpOnly = true;
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
+
+                options.LoginPath = "/Identity/Account/Login";
+                options.AccessDeniedPath = "/Identity/Account/AccessDenied";
+                options.SlidingExpiration = true;
+            });
         }
+        
+        
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -62,10 +100,25 @@ namespace HotelReservationManagement
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                   name: "default",
+                   pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
-            });
+
+
+
+                endpoints.MapControllerRoute(
+                name: "log",
+                pattern: "{controller=Identity}/{action=Ccount}/{Login}");
+                endpoints.MapRazorPages().RequireAuthorization();
+            }); 
+
+            /*app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{areas=Manager}/{controller=Identity}/{action=Ccount}/{Login}");
+                endpoints.MapRazorPages().RequireAuthorization();
+            });*/
         }
     }
 }

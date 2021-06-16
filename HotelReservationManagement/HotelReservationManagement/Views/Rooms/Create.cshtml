@@ -1,0 +1,67 @@
+﻿@model RoomModel
+
+
+<form asp-action="Create" method="post" class="form-horizontal" asp-route-HotelId="@ViewData["HotelId"]">
+    @*<div class="form-group">
+            <input type="hidden" asp-for="HotelId" value=""/>
+            <label asp-for="HotelId">Hotel Id</label>
+            <div>
+                <input asp-for=" HotelId" />
+            </div>
+        </div>*@
+    @*<div class="form-group">
+        <label asp-for="HotelId">HotelId</label>
+        <div>
+            <input asp-for="HotelId" />
+        </div>
+    </div>*@
+    <div class="form-group">
+        <label asp-for="RoomType">Room Type</label>
+        <div>
+            <input asp-for="RoomType" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="RoomNumber">Room Number</label>
+        <div>
+            <input asp-for="RoomNumber" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="RoomImage">Room Image URL</label>
+        <div>
+            <input asp-for="RoomImage" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="RoomPrice">Room Price</label>
+        <div>
+            <input asp-for="RoomPrice" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="RoomDescribtion">Room Description</label>
+        <div>
+            <input asp-for="RoomDescribtion" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="RoomStatus">Room Status</label>
+        <div>
+            <input asp-for="RoomStatus" />
+        </div>
+    </div>
+
+    <div class="form-group">
+
+
+        <input type="submit" class="btn btn-primary" value="Submit" />
+
+    </div>
+
+</form>
+

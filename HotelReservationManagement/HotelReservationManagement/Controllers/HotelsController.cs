@@ -31,22 +31,27 @@ namespace HotelReservationManagement.Controllers
         public IActionResult Details(int? id)
         {
             var Hotel = _db.Hotels.ToList().Find(p => p.HotelId == id);
+            var Rooms = _db.Rooms.ToList();
             if (id == null || Hotel == null)
             {
                 return View("_NotFound");
             }
+
             ViewData["Hotel"] = Hotel;
+            ViewData["Rooms"] = Rooms;
 
             return View();
         }
-
+        
         //GET - /hotels/create
+        [Authorize]
         public IActionResult Create()
         {
             return View();
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult Create([Bind("HotelId", "HotelImage","HotelName", "City", "State", "ZipCode", "PhoneNumber")] HotelModel hotel)
         {
             if (ModelState.IsValid)//check the state of the model
@@ -60,6 +65,7 @@ namespace HotelReservationManagement.Controllers
         }
 
         //GET: /Hotels/edit/id
+        [Authorize]
         public IActionResult Edit(int? id)
         {
             var Hotel = _db.Hotels.ToList().Find(h => h.HotelId == id);
@@ -73,7 +79,8 @@ namespace HotelReservationManagement.Controllers
 
         //POST: /Hotels/edit/id
         [HttpPost]
-        public IActionResult Edit(int id, [Bind("Name", "City", "State", "Zipcode", "PhoneNumber")] HotelModel h)
+        [Authorize]
+        public IActionResult Edit(int id, [Bind("HotelName","HotelImage" ,"City", "State", "ZipCode", "PhoneNumber")] HotelModel h)
         {
 
             var hotel = _db.Hotels.ToList().Find(p => p.HotelId == id);
@@ -93,6 +100,7 @@ namespace HotelReservationManagement.Controllers
 
         //POST - /Hotels/delete/id
         [HttpPost]
+        [Authorize]
         public IActionResult Delete(int? id)
         {
             var hotel = _db.Hotels.ToList().FirstOrDefault(h => h.HotelId == id);

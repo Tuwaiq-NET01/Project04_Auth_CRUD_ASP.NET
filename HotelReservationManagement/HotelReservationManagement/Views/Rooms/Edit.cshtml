@@ -1,0 +1,58 @@
+﻿@model RoomModel
+@{ 
+    var room = (RoomModel)ViewData["Room"];
+}
+
+<form asp-action="Edit" method="post" class="form-horizontal">
+    <div class="form-group">
+
+        <input type="hidden" asp-for="RoomId" />
+
+    </div>
+
+    <div class="form-group">
+        <label asp-for="RoomType">Room Type</label>
+        <div>
+            <input asp-for="RoomType" value="@room.RoomType" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="RoomImage">Room Image</label>
+        <div>
+            <input asp-for="RoomImage" value="@room.RoomImage" />
+        </div>
+
+    </div>
+
+    <div class="form-group">
+        <label asp-for="RoomPrice">Price</label>
+        <div>
+            <input asp-for="RoomPrice" value="@room.RoomPrice" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="RoomStatus">Status</label>
+        <div>
+            <input asp-for="RoomStatus" value="@room.RoomStatus" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="RoomNumber">Room Number</label>
+        <div>
+            <input asp-for="RoomNumber" value="@room.RoomNumber" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="RoomDescribtion">Descriptin</label>
+        <div>
+            <input asp-for=" RoomDescribtion" value="@room.RoomDescribtion" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="Update" />
+    </div>
+</form>
