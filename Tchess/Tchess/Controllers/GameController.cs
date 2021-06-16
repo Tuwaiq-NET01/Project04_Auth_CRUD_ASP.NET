@@ -44,9 +44,12 @@ namespace Tchess.Controllers
             ViewData["profile"] = profile;
             return View();
         }
+
         [HttpPost]
-        public IActionResult Create([Bind( "Moves","Winner","NumMoves","ProfileId")]Game game)
-        {            Console.WriteLine("im inside add");
+        public IActionResult Create([Bind("Moves", "Winner", "NumMoves", "ProfileId")]
+            Game game)
+        {
+            Console.WriteLine("im inside add");
 
             if (ModelState.IsValid)
             {
@@ -54,30 +57,37 @@ namespace Tchess.Controllers
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
             return View("Index");
         }
-        
+
         [HttpPost]
-        public IActionResult Edit([Bind( "Id","Moves","Winner","NumMoves","ProfileId")]Game game)
+        public IActionResult Edit([Bind("Id", "Moves", "Winner", "NumMoves", "ProfileId")]
+            Game game)
         {
             _db.Games.Update(game);
             _db.SaveChanges();
             return RedirectToAction("Index");
-        }   
+        }
 
-        
+
         [HttpPost]
         public IActionResult Delete(int? id)
         {
             _db.Remove(_db.Games.FirstOrDefault((game => game.Id == id)));
             _db.SaveChanges();
             return RedirectToAction("Index");
-
         }
+
         public IActionResult GetGame(int id)
         {
             return Json(_db.Games.FirstOrDefault((game => game.Id == id)));
         }
 
+        public IActionResult Showgame(int id)
+        {
+            ViewData["game"] = _db.Games.FirstOrDefault(game => game.Id == id);
+            return View();
+        }
     }
 }

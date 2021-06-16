@@ -65,7 +65,9 @@
         {
             <tbody>
             <tr class="table-primary">
-                <th scope="row">@db.Profiles.FirstOrDefault((profile => profile.Id == game.ProfileId)).Name </th>
+                
+                    <th scope="row"><a style="text-decoration: none;color: white" asp-action="Showgame" asp-route-id="@game.Id">@db.Profiles.FirstOrDefault((profile => profile.Id == game.ProfileId)).Name </a></th>
+                
                 <td>@game.NumMoves</td>
                 <td>@game.Winner</td>
                 <td style="width: 10%">
@@ -89,5 +91,6 @@
 
 <div style=" position: absolute; bottom:0;right:0; display: none" id="alertt" class="alert alert-dismissible alert-success">
     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-    <strong>Well done!</strong> <p>this Game has been added to your Faviorte.</p>
+    <strong>Well done!</strong>
+    <p>this Game has been added to your Faviorte.</p>
 </div>

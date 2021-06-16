@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+    var game = ViewData["game"] as Game;
+}
+<link rel="stylesheet" href="~/css/chessboard-1.0.0.min.css">
+<p style="display: none" id="game">@game.Moves</p>
+
+
+<div style=" width: 60% ; margin: auto">
+    <h1>@game.Winner WON !</h1>
+    <div id="myBoard" style="width: 650px"></div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="~/js/chessboard-1.0.0.js"></script>
+<script src="~/js/chess.js"></script>
+<script src="~/js/showGame.js"></script>

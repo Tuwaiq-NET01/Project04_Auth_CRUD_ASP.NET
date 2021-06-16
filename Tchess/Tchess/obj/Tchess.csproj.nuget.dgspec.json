@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Hassan\\Desktop\\.Net projects\\Project01_ASP.NET_MVC\\Tchess\\Tchess\\Tchess.csproj": {}
+    "C:\\Users\\Hassan\\Desktop\\.Net projects\\Project04_Auth_CRUD_ASP.NET\\Tchess\\Tchess\\Tchess.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Hassan\\Desktop\\.Net projects\\Project01_ASP.NET_MVC\\Tchess\\Tchess\\Tchess.csproj": {
+    "C:\\Users\\Hassan\\Desktop\\.Net projects\\Project04_Auth_CRUD_ASP.NET\\Tchess\\Tchess\\Tchess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Hassan\\Desktop\\.Net projects\\Project01_ASP.NET_MVC\\Tchess\\Tchess\\Tchess.csproj",
+        "projectUniqueName": "C:\\Users\\Hassan\\Desktop\\.Net projects\\Project04_Auth_CRUD_ASP.NET\\Tchess\\Tchess\\Tchess.csproj",
         "projectName": "Tchess",
-        "projectPath": "C:\\Users\\Hassan\\Desktop\\.Net projects\\Project01_ASP.NET_MVC\\Tchess\\Tchess\\Tchess.csproj",
+        "projectPath": "C:\\Users\\Hassan\\Desktop\\.Net projects\\Project04_Auth_CRUD_ASP.NET\\Tchess\\Tchess\\Tchess.csproj",
         "packagesPath": "C:\\Users\\Hassan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Hassan\\Desktop\\.Net projects\\Project01_ASP.NET_MVC\\Tchess\\Tchess\\obj\\",
+        "outputPath": "C:\\Users\\Hassan\\Desktop\\.Net projects\\Project04_Auth_CRUD_ASP.NET\\Tchess\\Tchess\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

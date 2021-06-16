@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "b1lBmmmxi4f53YrpEbgrJMyh/0CcO9p+ijGGsNwHb9dFmfq5m7LdlW25M6uotjKm7+8AgB6UFuhdJopQB+pqDQ==",
+  "dgSpecHash": "YG56HMg0+0Uop2LaCPKWO2FoHa2EwfONbZjAK3yS6/X95i0caajr6/CsiF3/CdPHc3Ts52ZDPfa6YwUA1a8kLw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Hassan\\Desktop\\.Net projects\\Project01_ASP.NET_MVC\\Tchess\\Tchess\\Tchess.csproj",
+  "projectFilePath": "C:\\Users\\Hassan\\Desktop\\.Net projects\\Project04_Auth_CRUD_ASP.NET\\Tchess\\Tchess\\Tchess.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Hassan\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Hassan\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.6\\microsoft.aspnetcore.cryptography.internal.5.0.6.nupkg.sha512",
