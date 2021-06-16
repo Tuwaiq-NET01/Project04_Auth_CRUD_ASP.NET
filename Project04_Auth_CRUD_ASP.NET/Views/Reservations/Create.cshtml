@@ -1,16 +1,11 @@
 ﻿@model Project04_Auth_CRUD_ASP.NET.Models.ReservationModel
 
-@{
-    ViewData["Title"] = "Create";
-}
+<h1>@ViewData["BarberName"]</h1>
 
-<h1>Create</h1>
-
-<h4>ReservationModel</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Create" >
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Day" class="control-label"></label>

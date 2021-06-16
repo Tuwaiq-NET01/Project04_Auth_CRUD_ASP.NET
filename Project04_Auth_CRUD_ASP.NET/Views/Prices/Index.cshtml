@@ -1,23 +1,21 @@
 ﻿@model IEnumerable<Project04_Auth_CRUD_ASP.NET.Models.PriceModel>
 
 @{
-    ViewData["Title"] = "Index";
+    Dictionary<string, int> TableHelper = (Dictionary<string, int>)ViewData["TableHelper"];
 }
 
-<h1>Index</h1>
+<h1>Prices</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
+            <th colspan="2" >
+                @Html.DisplayNameFor(model => model.Barber)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Value)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Barber)
-            </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.Time)
             </th>
@@ -25,23 +23,36 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Value)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Barber.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Time.Value)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (KeyValuePair<string, int> item in TableHelper)
+        {
+            var enter = true;
+            foreach (var ele in Model)
+            {
+                if (ele.Barber.Name == item.Key)
+                {
+                    <tr>
+                        @if (enter)
+                        {
+                            enter = false;
+                            <th colspan="2" rowspan="@item.Value">
+                                @item.Key
+                            </th>
+                        }
+                        <td>
+                            @Html.DisplayFor(modelItem => ele.Value)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => ele.Time.Value)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@ele.Id">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@ele.Id">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@ele.Id">Delete</a>
+                        </td>
+                    </tr>
+
+                }
+            }
+        }
     </tbody>
-</table>
+    </table>

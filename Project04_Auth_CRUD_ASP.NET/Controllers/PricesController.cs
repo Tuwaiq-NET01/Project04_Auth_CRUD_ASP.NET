@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ using Project04_Auth_CRUD_ASP.NET.Models;
 
 namespace Project04_Auth_CRUD_ASP.NET.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class PricesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -23,6 +25,19 @@ namespace Project04_Auth_CRUD_ASP.NET.Controllers
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.Prices.Include(p => p.Barber).Include(p => p.Time);
+            Dictionary<string, int> TableHelper = new Dictionary<string, int>();
+            foreach(var price in applicationDbContext)
+            {
+                if(TableHelper.ContainsKey(price.Barber.Name))
+                {
+                    TableHelper[price.Barber.Name]++;
+                }
+                else
+                {
+                    TableHelper.Add(price.Barber.Name, 1);
+                }
+            }
+            ViewData["TableHelper"] = TableHelper;
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -47,10 +62,26 @@ namespace Project04_Auth_CRUD_ASP.NET.Controllers
         }
 
         // GET: PriceModels/Create
-        public IActionResult Create()
+        public IActionResult Create(Guid? id)
         {
-            ViewData["BarberId"] = new SelectList(_context.Barbers, "Id", "Name");
-            ViewData["TimeId"] = new SelectList(_context.Times, "Id", "Value");
+            var barber = _context.Barbers.FirstOrDefault(p => p.Id == id);
+
+            if(barber == null)
+            {
+                return NotFound();
+            }
+
+            ViewData["BarberName"] = barber.Name;
+            ViewData["BarberId"] = barber.Id;
+            var query = from time in _context.Times
+                        let barberTimes = (from price in _context.Prices
+                                           where price.BarberId == barber.Id
+                                           select price.TimeId).ToList()
+                        where barberTimes.Contains(time.Id) == false
+                        select time;
+
+
+           ViewData["TimeId"] = new SelectList(query, "Id", "Value");
             return View();
         }
 
@@ -59,11 +90,17 @@ namespace Project04_Auth_CRUD_ASP.NET.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Value,BarberId,TimeId")] PriceModel priceModel)
+        public async Task<IActionResult> Create(Guid? id, [Bind("Id,Value,TimeId")] PriceModel priceModel)
         {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
             if (ModelState.IsValid)
             {
                 priceModel.Id = Guid.NewGuid();
+                priceModel.BarberId = (Guid) id;
                 _context.Add(priceModel);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -76,18 +113,28 @@ namespace Project04_Auth_CRUD_ASP.NET.Controllers
         // GET: PriceModels/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
         {
-            if (id == null)
+            var _price = _context.Prices.Include(p => p.Time).Include(p => p.Barber).FirstOrDefault(p => p.Id == id);
+
+            if (_price == null)
             {
                 return NotFound();
             }
 
+            var query = (from time in _context.Times
+                        let barberTimes = (from price in _context.Prices
+                                           where price.BarberId == _price.BarberId
+                                           select price.TimeId).ToList()
+                        where barberTimes.Contains(time.Id) == false
+                        select time).ToList();
+
+            query.Add(_price.Time);
             var priceModel = await _context.Prices.FindAsync(id);
             if (priceModel == null)
             {
                 return NotFound();
             }
-            ViewData["BarberId"] = new SelectList(_context.Barbers, "Id", "Name", priceModel.BarberId);
-            ViewData["TimeId"] = new SelectList(_context.Times, "Id", "Value", priceModel.TimeId);
+            ViewData["BarberName"] = _price.Barber.Name;
+            ViewData["TimeId"] = new SelectList(query, "Id", "Value", priceModel.TimeId);
             return View(priceModel);
         }
 
@@ -96,8 +143,9 @@ namespace Project04_Auth_CRUD_ASP.NET.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Value,BarberId,TimeId")] PriceModel priceModel)
+        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Value,TimeId,BarberId")] PriceModel priceModel)
         {
+
             if (id != priceModel.Id)
             {
                 return NotFound();

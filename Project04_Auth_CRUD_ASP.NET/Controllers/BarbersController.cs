@@ -45,6 +45,7 @@ namespace Project04_Auth_CRUD_ASP.NET.Models
         }
 
         // GET: BarberModels/Create
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             return View();
@@ -55,6 +56,7 @@ namespace Project04_Auth_CRUD_ASP.NET.Models
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create([Bind("Id,Name")] BarberModel barberModel)
         {
             if (ModelState.IsValid)
@@ -68,6 +70,7 @@ namespace Project04_Auth_CRUD_ASP.NET.Models
         }
 
         // GET: BarberModels/Edit/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(Guid? id)
         {
             if (id == null)
@@ -88,6 +91,7 @@ namespace Project04_Auth_CRUD_ASP.NET.Models
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(Guid id, [Bind("Id,Name")] BarberModel barberModel)
         {
             if (id != barberModel.Id)
@@ -119,6 +123,7 @@ namespace Project04_Auth_CRUD_ASP.NET.Models
         }
 
         // GET: BarberModels/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(Guid? id)
         {
             if (id == null)
@@ -139,6 +144,7 @@ namespace Project04_Auth_CRUD_ASP.NET.Models
         // POST: BarberModels/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
             var barberModel = await _context.Barbers.FindAsync(id);

@@ -172,3 +172,8 @@ D:\New folder (2)\Project04_Auth_CRUD_ASP.NET\Project04_Auth_CRUD_ASP.NET\obj\De
 D:\New folder (2)\Project04_Auth_CRUD_ASP.NET\Project04_Auth_CRUD_ASP.NET\obj\Debug\net5.0\Razor\Views\Reservations\Details.cshtml.g.cs
 D:\New folder (2)\Project04_Auth_CRUD_ASP.NET\Project04_Auth_CRUD_ASP.NET\obj\Debug\net5.0\Razor\Views\Reservations\Edit.cshtml.g.cs
 D:\New folder (2)\Project04_Auth_CRUD_ASP.NET\Project04_Auth_CRUD_ASP.NET\obj\Debug\net5.0\Razor\Views\Reservations\Index.cshtml.g.cs
+D:\New folder (2)\Project04_Auth_CRUD_ASP.NET\Project04_Auth_CRUD_ASP.NET\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Register.cshtml.g.cs
+D:\New folder (2)\Project04_Auth_CRUD_ASP.NET\Project04_Auth_CRUD_ASP.NET\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\_ViewImports.cshtml.g.cs
+D:\New folder (2)\Project04_Auth_CRUD_ASP.NET\Project04_Auth_CRUD_ASP.NET\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
+D:\New folder (2)\Project04_Auth_CRUD_ASP.NET\Project04_Auth_CRUD_ASP.NET\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
+D:\New folder (2)\Project04_Auth_CRUD_ASP.NET\Project04_Auth_CRUD_ASP.NET\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Login.cshtml.g.cs

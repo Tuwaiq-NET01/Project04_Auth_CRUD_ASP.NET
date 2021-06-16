@@ -302,22 +302,22 @@ namespace Project04_Auth_CRUD_ASP.NET.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("d54ee885-7e7d-4241-996d-b46ca2c86e17"),
+                            Id = new Guid("b93ed6f1-b6e6-4725-b36c-67bc95193cc4"),
                             Value = "Morning"
                         },
                         new
                         {
-                            Id = new Guid("3b7036c4-6996-4a26-b3e8-730b64913b4d"),
+                            Id = new Guid("f44ffdf1-9dd3-4c56-9953-835b1b4c5e52"),
                             Value = "Afternoon"
                         },
                         new
                         {
-                            Id = new Guid("826c7869-e68a-41f7-a6b5-c1b86fc00ea4"),
+                            Id = new Guid("d6e2f604-a087-4efd-8387-c7c57228ecac"),
                             Value = "Evening"
                         },
                         new
                         {
-                            Id = new Guid("90c93261-d00d-4404-988b-b19475f6caae"),
+                            Id = new Guid("ae7003a8-1c36-4276-a68c-a1bddbc71590"),
                             Value = "Midnight"
                         });
                 });
@@ -395,7 +395,7 @@ namespace Project04_Auth_CRUD_ASP.NET.Data.Migrations
             modelBuilder.Entity("Project04_Auth_CRUD_ASP.NET.Models.ReservationModel", b =>
                 {
                     b.HasOne("Project04_Auth_CRUD_ASP.NET.Models.PriceModel", "Price")
-                        .WithMany()
+                        .WithMany("Reservation")
                         .HasForeignKey("PriceId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -412,6 +412,11 @@ namespace Project04_Auth_CRUD_ASP.NET.Data.Migrations
             modelBuilder.Entity("Project04_Auth_CRUD_ASP.NET.Models.BarberModel", b =>
                 {
                     b.Navigation("Prices");
+                });
+
+            modelBuilder.Entity("Project04_Auth_CRUD_ASP.NET.Models.PriceModel", b =>
+                {
+                    b.Navigation("Reservation");
                 });
 
             modelBuilder.Entity("Project04_Auth_CRUD_ASP.NET.Models.TimeModel", b =>

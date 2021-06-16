@@ -25,11 +25,13 @@ namespace Project04_Auth_CRUD_ASP.NET.Controllers
         // GET: ReservationModels
         public async Task<IActionResult> Index()
         {
+            // could have used Include instead
             var query = from reservation in _context.Reservations join price in _context.Prices
-                        on reservation.PriceId equals price.Id join barber in _context.Barbers on 
+                        on reservation.PriceId equals price.Id join barber in _context.Barbers on
                         price.BarberId equals barber.Id join time in _context.Times on price.TimeId equals time.Id
+                        where reservation.UserId == new Guid(User.FindFirst(ClaimTypes.NameIdentifier).Value)
                         select new ReservationJoin(){ Id = reservation.Id, Day = reservation.Day, Time = time.Value, Barber = barber.Name};
-            // var applicationDbContext = _context.Reservations.Include(r => r.Price);
+
             return View(await query.ToListAsync());
         }
 
@@ -53,12 +55,20 @@ namespace Project04_Auth_CRUD_ASP.NET.Controllers
         }
 
         // GET: ReservationModels/Create
-        public IActionResult Create()
+        public IActionResult Create(Guid? id)
         {
+            var barber = _context.Barbers.FirstOrDefault(p => p.Id == id);
+            if(barber == null)
+            {
+                return NotFound();
+            }
+
             var query = from price in _context.Prices 
-                        join barber in _context.Barbers on price.BarberId equals barber.Id
+                        where price.BarberId == barber.Id
                         join time in _context.Times on price.TimeId equals time.Id
-                        select new { Id = price.Id, Text = barber.Name + " - " +time.Value+ " $"+price.Value };
+                        select new { Id = price.Id, Text = time.Value+ " $ "+price.Value };
+
+            ViewData["BarberName"] = barber.Name;
             ViewData["PriceId"] = new SelectList(query, "Id", "Text");
             return View();
         }
