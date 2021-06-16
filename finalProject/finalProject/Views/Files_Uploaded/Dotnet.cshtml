@@ -1,0 +1,27 @@
+﻿@{
+    var Dotnet = (CoursesModel)ViewData["Dotnet"];
+    //Layout = "WebLayout";
+}
+<div class="container">
+
+    <div class="row ">
+        <h1>Dot Net :</h1>
+    </div>
+    <div class="row">
+        @foreach (var DotnetFile in Dotnet.Files)
+        {
+            <div class="clo">
+                <div>
+                    <ul>
+                        <li>
+                            @DotnetFile.name  @DotnetFile.date
+                            <form method="post" asp-action="Delete" asp-route-id=@DotnetFile.id asp-controller="Files_Uploaded">
+                                <button type="submit" class="btn btn-danger" value="Delete">Delete</button>
+                                </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        }
+    </div>
+</div>
