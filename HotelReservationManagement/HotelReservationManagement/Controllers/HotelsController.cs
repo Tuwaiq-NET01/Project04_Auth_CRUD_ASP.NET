@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using HotelReservationManagement.Models;
 using HotelReservationManagement.Data;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace HotelReservationManagement.Controllers
 {
@@ -13,15 +14,32 @@ namespace HotelReservationManagement.Controllers
     public class HotelsController : Controller
     {
         private readonly ApplicationDbContext _db;
-        public HotelsController(ApplicationDbContext context)
+        
+        private readonly UserManager<AdvanceUser> _userManager;
+
+        public HotelsController(UserManager<AdvanceUser> userManager, ApplicationDbContext context)
         {
+            _userManager = userManager;
             _db = context;
         }
+
+      /*  public HotelsController(ApplicationDbContext context)
+        {
+            _db = context;
+        }*/
 
         //GET:/Hotels
 
         public IActionResult Index()
         {
+            var userid = _userManager.GetUserId(HttpContext.User);
+
+            if (userid != null)
+            {
+                AdvanceUser user = _userManager.FindByIdAsync(userid).Result;
+                ViewData["user"] = user; 
+            }
+      
             var Hotels = _db.Hotels.ToList();
             ViewData["Hotels"] = Hotels;
             return View();
