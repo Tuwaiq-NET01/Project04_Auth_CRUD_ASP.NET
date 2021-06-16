@@ -4,14 +4,16 @@ using GreenLifeStore.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GreenLifeStore.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210616173423_CreateRelationProductBranch")]
+    partial class CreateRelationProductBranch
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -50,12 +52,7 @@ namespace GreenLifeStore.Data.Migrations
                     b.Property<int>("TotalPrice")
                         .HasColumnType("int");
 
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.HasKey("OrderId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Orders");
                 });
@@ -76,9 +73,6 @@ namespace GreenLifeStore.Data.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("OrderId")
-                        .HasColumnType("int");
-
                     b.Property<float>("Price")
                         .HasColumnType("real");
 
@@ -88,8 +82,6 @@ namespace GreenLifeStore.Data.Migrations
                     b.HasKey("ProductId");
 
                     b.HasIndex("BranchId");
-
-                    b.HasIndex("OrderId");
 
                     b.ToTable("Products");
                 });
@@ -294,15 +286,6 @@ namespace GreenLifeStore.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("GreenLifeStore.Models.OrderModel", b =>
-                {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "Users")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-
-                    b.Navigation("Users");
-                });
-
             modelBuilder.Entity("GreenLifeStore.Models.ProductModel", b =>
                 {
                     b.HasOne("GreenLifeStore.Models.BranchModel", "Branch")
@@ -311,15 +294,7 @@ namespace GreenLifeStore.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("GreenLifeStore.Models.OrderModel", "Order")
-                        .WithMany("Products")
-                        .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Branch");
-
-                    b.Navigation("Order");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -374,11 +349,6 @@ namespace GreenLifeStore.Data.Migrations
                 });
 
             modelBuilder.Entity("GreenLifeStore.Models.BranchModel", b =>
-                {
-                    b.Navigation("Products");
-                });
-
-            modelBuilder.Entity("GreenLifeStore.Models.OrderModel", b =>
                 {
                     b.Navigation("Products");
                 });
