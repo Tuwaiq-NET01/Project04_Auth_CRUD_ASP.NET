@@ -21,11 +21,12 @@ namespace EzzRestaurant.Controllers
         // GET
         public IActionResult Index()
         {
-            /*
             var userId = _userManager.GetUserId(User);
-            var ordprd = _db.Car.Where(p => p.OrderId == userId).ToList();
+            var cart = _db.Cart.First(c => c.UserId == userId);
+            var cartProduct = _db.CartProcucts.Where(p => p.Cart.Id == cart.Id).ToList();
+            
             var AllProducts = _db.Products.ToList();
-            if (id == null || order == null || AllProducts.Count == 0)
+            if (userId == null || cart == null || AllProducts.Count == 0)
             {
                 return View("_NotFound");
             }
@@ -33,15 +34,15 @@ namespace EzzRestaurant.Controllers
             List<ProductModel> Products = new List<ProductModel>();
             foreach (var prd in AllProducts)
             {
-                foreach (var op in ordprd)
+                foreach (var cp in cartProduct)
                 {
-                    if(prd.Id == op.ProductId)
+                    if(prd.Id == cp.Product.Id)
                     {
                         Products.Add(prd);
                         break;
                     }
                 }
-            }*/
+            }
             return View();
         }
     }
