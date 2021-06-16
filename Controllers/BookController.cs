@@ -6,24 +6,30 @@ using System.Linq;
 using System.Threading.Tasks;
 using MVC_Final.Data;
 using Microsoft.EntityFrameworkCore;
+using System.Data.Entity;
 
 namespace MVC_Final.Controllers
 {
     public class BookController : Controller
     {
+
+        //
         private readonly LibraryContext _db;
 
         public BookController(LibraryContext context)
         {
             _db = context;
+
         }
+
 
         public IActionResult Book()
         {
+
             var books = _db.Books.ToList();
             var authors = new List<Author>();
             var publishers = new List<Publisher>();
-            foreach(var book in books)
+            foreach (var book in books)
             {
                 authors.Add(_db.Authors.Find(book.AuthorId));
                 publishers.Add(_db.Publishers.Find(book.PublisherId));
@@ -40,14 +46,14 @@ namespace MVC_Final.Controllers
             var book = _db.Books.ToList().Find(B => B.Id == id);
             var author = _db.Authors.ToList();
             var publisher = _db.Publishers.ToList();
-            var user = _db.Users.ToList();
+
 
             if (book == null)
             {
                 return Content("ii");
             }
 
-            ViewData["user"] = user;
+
             ViewData["publisher"] = publisher;
             ViewData["author"] = author;
             ViewData["books"] = book;
@@ -64,9 +70,9 @@ namespace MVC_Final.Controllers
 
         //Post - path: Book/Create
         [HttpPost]
-        public IActionResult Create([Bind("Title", "Availabe", "Price", "AuthorId", "PublisherId", "UserId")] Book bookItem) // Bind with product model
+        public IActionResult Create([Bind("Title", "Availabe", "Price", "AuthorId", "PublisherId")] Book bookItem) // Bind with product model
         {
-            
+
             if (ModelState.IsValid)// check the state of the model
             {
                 _db.Books.Add(bookItem);
@@ -75,6 +81,7 @@ namespace MVC_Final.Controllers
             }
             return View(bookItem);
         }
+
 
         public IActionResult Edit(int id)
         {

@@ -33,7 +33,7 @@ namespace MVC_Final.Controllers
 
         //User login 
         //[HttpPost]
-        public IActionResult Login(User user)
+/*        public IActionResult Login(User user)
         {
             using (_dbModel)
             {
@@ -49,7 +49,7 @@ namespace MVC_Final.Controllers
                     return View("Index");
                 }
             }
-        }
+        }*/
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

@@ -2,7 +2,6 @@
     var book = (Book)ViewData["books"];
     var author = (List<Author>)ViewData["author"];
     var publisher = (List<Publisher>)ViewData["publisher"];
-    var user = (List<User>)ViewData["user"];
 }
 
 <div class=" text-center">
@@ -25,15 +24,6 @@
             if (p.Id == book.PublisherId)
             {
                 <p class="card-text"><span>Publisher: </span> @p.Name</p>
-
-            }
-        }
-
-        @foreach (var u in user)
-        {
-            if (u.Id == book.UserId)
-            {
-                <p class="card-text"><span>Used By: </span> @u.Name</p>
 
             }
         }

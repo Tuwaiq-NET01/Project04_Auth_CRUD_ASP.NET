@@ -5,10 +5,11 @@ using System.Threading.Tasks;
 using MVC_Final.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Configuration;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace MVC_Final.Data
 {
-    public class LibraryContext : DbContext
+    public class LibraryContext : IdentityDbContext
     {
         public LibraryContext(DbContextOptions<LibraryContext> options) : base(options)
         {
@@ -17,9 +18,7 @@ namespace MVC_Final.Data
 
         public DbSet<Book> Books { get; set; }
         public DbSet<Author> Authors { get; set; }
-        public DbSet<User> Users { get; set; }
         public DbSet<Publisher> Publishers { get; set; }
-        public DbSet<User> users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -34,10 +33,7 @@ namespace MVC_Final.Data
                 .WithOne(b => b.Publisher)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<User>()
-                .HasMany(b => b.Books)
-                .WithOne(u => u.User)
-                .OnDelete(DeleteBehavior.Restrict);
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

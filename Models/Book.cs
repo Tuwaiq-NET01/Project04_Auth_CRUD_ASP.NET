@@ -18,7 +18,5 @@ namespace MVC_Final.Models
         public int PublisherId { get; set; }
         public virtual Publisher Publisher { get; set; }
 
-        public int UserId { get; set; }
-        public virtual User User { get; set; }
     }
 }
