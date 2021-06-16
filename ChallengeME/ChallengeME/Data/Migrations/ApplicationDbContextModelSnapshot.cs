@@ -74,6 +74,9 @@ namespace ChallengeME.Data.Migrations
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<bool>("isWinner")
+                        .HasColumnType("bit");
+
                     b.HasKey("Id");
 
                     b.HasIndex("ChallengeId");
@@ -103,6 +106,31 @@ namespace ChallengeME.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Games");
+                });
+
+            modelBuilder.Entity("ChallengeME.Models.Winner", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("ChallengeId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("CommentId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ChallengeId");
+
+                    b.HasIndex("CommentId");
+
+                    b.ToTable("Winners");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -337,6 +365,21 @@ namespace ChallengeME.Data.Migrations
                     b.Navigation("challenge");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ChallengeME.Models.Winner", b =>
+                {
+                    b.HasOne("ChallengeME.Models.Challenge", "Challenge")
+                        .WithMany()
+                        .HasForeignKey("ChallengeId");
+
+                    b.HasOne("ChallengeME.Models.Comment", "Comment")
+                        .WithMany()
+                        .HasForeignKey("CommentId");
+
+                    b.Navigation("Challenge");
+
+                    b.Navigation("Comment");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

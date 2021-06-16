@@ -9,6 +9,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
+
 namespace ChallengeME.Controllers
 {
     public class CommentsController : Controller
@@ -25,13 +26,16 @@ namespace ChallengeME.Controllers
         }
 
 
+        public JsonResult getComments()
+        {
+            var comments = _context.Comments.ToList();
+
+            return Json(comments);
+        }
 
         public IActionResult Index()
         {
-
-            //var comments = _context.Comments.ToList();
-            //ViewData["comments"] = comments;
-
+            
             return View();
         }
 

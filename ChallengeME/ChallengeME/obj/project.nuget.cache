@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "79p5rKD4YWeVBrliBqAS1DI2fxb4zawzXwyIqNfdBljpvi64RuqBrhNom2vtntSpW2pkWoD5KmZRURvvIN3qxA==",
+  "dgSpecHash": "mgdeWG9SXAcsf5nuwpEz4BxmSs/W815DwXckeCwMP+VveaoLQp/2fcif/HdyvVb8nZlJ3Qdm91BR+RkpSXypHw==",
   "success": true,
   "projectFilePath": "D:\\Tuwaiq\\dotNET\\projects\\Project04_Auth_CRUD_ASP.NET\\ChallengeME\\ChallengeME\\ChallengeME.csproj",
   "expectedPackageFiles": [
@@ -62,7 +62,7 @@
     "C:\\Users\\moham\\.nuget\\packages\\microsoft.visualstudio.web.codegenerators.mvc\\5.0.2\\microsoft.visualstudio.web.codegenerators.mvc.5.0.2.nupkg.sha512",
     "C:\\Users\\moham\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\moham\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
-    "C:\\Users\\moham\\.nuget\\packages\\newtonsoft.json\\11.0.2\\newtonsoft.json.11.0.2.nupkg.sha512",
+    "C:\\Users\\moham\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\moham\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Users\\moham\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
     "C:\\Users\\moham\\.nuget\\packages\\system.collections.concurrent\\4.3.0\\system.collections.concurrent.4.3.0.nupkg.sha512",

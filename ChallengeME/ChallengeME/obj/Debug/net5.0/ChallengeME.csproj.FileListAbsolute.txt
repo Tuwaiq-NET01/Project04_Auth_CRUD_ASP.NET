@@ -171,3 +171,5 @@ D:\Tuwaiq\dotNET\projects\Project04_Auth_CRUD_ASP.NET\ChallengeME\ChallengeME\bi
 D:\Tuwaiq\dotNET\projects\Project04_Auth_CRUD_ASP.NET\ChallengeME\ChallengeME\bin\Debug\net5.0\runtimes\win-arm\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
 D:\Tuwaiq\dotNET\projects\Project04_Auth_CRUD_ASP.NET\ChallengeME\ChallengeME\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
 D:\Tuwaiq\dotNET\projects\Project04_Auth_CRUD_ASP.NET\ChallengeME\ChallengeME\obj\Debug\net5.0\Razor\Views\Challenges\_CommentsPartial.cshtml.g.cs
+D:\Tuwaiq\dotNET\projects\Project04_Auth_CRUD_ASP.NET\ChallengeME\ChallengeME\obj\Debug\net5.0\Razor\Views\Comments\Index.cshtml.g.cs
+D:\Tuwaiq\dotNET\projects\Project04_Auth_CRUD_ASP.NET\ChallengeME\ChallengeME\obj\Debug\net5.0\Razor\Views\Winners\Index.cshtml.g.cs

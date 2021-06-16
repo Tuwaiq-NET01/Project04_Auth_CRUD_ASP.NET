@@ -138,6 +138,12 @@ hr {
     padding: 10px 0px 3px 20px
 }
 
+.winner {
+    background-color: rgb(80 137 79 / 0.60);
+    border-radius: 15px;
+    padding: 10px 0px 3px 20px
+}
+
 .trash{
     color: #4c0000
 }
@@ -145,6 +151,18 @@ hr {
 .trash:hover{
     color:red;
 }
+
+
+
+.check {
+    color:#003f0b
+}
+
+    .check:hover {
+        color: green;
+    }
+
+
 
 
 .edit {

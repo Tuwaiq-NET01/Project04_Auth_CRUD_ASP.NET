@@ -19,6 +19,8 @@ namespace ChallengeME.Models
         //[DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime Time { get; set; }
 
+        public bool isWinner { get; set; }
+
         public Challenge challenge{ get; set; }
         public int ChallengeId { get; set; }
 

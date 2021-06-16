@@ -103,9 +103,9 @@ namespace ChallengeME.Controllers
         {
             var dbchallenge = _context.Challenges.ToList().Find(p => p.Id == id);
             dbchallenge.Title = challenge.Title;
-            dbchallenge.Difficulty = challenge.Description;
+            dbchallenge.Description = challenge.Description;
             dbchallenge.Difficulty = challenge.Difficulty;
-
+            
             _context.Challenges.Update(dbchallenge);
             _context.SaveChanges();
 
