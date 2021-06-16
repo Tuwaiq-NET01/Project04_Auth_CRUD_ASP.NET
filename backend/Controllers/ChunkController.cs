@@ -141,11 +141,6 @@ namespace backend.Controllers
         {
             try {
                 string filePath = Path.Combine(_tempFolder, RefFile);
-                if (encryptionKeyDTO.RefPassword != null)
-                {
-                    _client.DecryptRef(filePath, encryptionKeyDTO.RefPassword);
-                    filePath = filePath.Split('.')[0] + ".ref";
-                }
 
                 
                 _client.ParseRef(filePath);

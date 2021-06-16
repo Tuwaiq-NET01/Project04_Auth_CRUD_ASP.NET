@@ -86,11 +86,18 @@ const AlertError = (msg) => {
 }
 
 export default function Profile() {
+  document.title = 'Profile'
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('UserData')))
+  const config = {
+    headers: {
+      Authorization: `Bearer ${user && user.token}`,
+      'Content-Type': 'application/json',
+    },
+  }
   const history = useHistory()
   const [grow, setGrow] = useState(() => false)
   const [buttonLoading, setButtonLoading] = useState(() => false)
   const classes = useStyles()
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem('UserData')))
   const [password, setPassword] = useState(() => '')
   const [newPassword, setNewPassword] = useState(() => '')
 
@@ -108,13 +115,17 @@ export default function Profile() {
       return
     }
     axios
-      .put(`/api/User/${user.id}`, {
-        id: user.id,
-        email: user.email,
-        name: user.name,
-        currentPassword: password,
-        newPassword: newPassword,
-      })
+      .put(
+        `/api/User/${user.id}`,
+        {
+          id: user.id,
+          email: user.email,
+          name: user.name,
+          currentPassword: password,
+          newPassword: newPassword,
+        },
+        config
+      )
       .then((res) => {
         if (res.status === 200) {
           localStorage.setItem('UserData', JSON.stringify(user))
@@ -136,9 +147,8 @@ export default function Profile() {
   }
 
   useEffect(() => {
-    document.title = 'Profile'
+    if (!user) history.push('/')
     setGrow(true)
-    if (!user) history.push('/icon')
     const listener = (event) => {
       if (event.code === 'Enter' || event.code === 'NumpadEnter') {
         event.preventDefault()
@@ -149,7 +159,7 @@ export default function Profile() {
     return () => {
       document.removeEventListener('keydown', listener)
     }
-  })
+  }, [user])
   return (
     <Grow direction="up" in={grow}>
       <Container className={classes.root}>
@@ -224,7 +234,7 @@ export default function Profile() {
                   <Button
                     fullWidth
                     variant="contained"
-                    color="secondary"
+                    color="primary"
                     className={classes.btn}
                     onClick={() => updateUser()}
                   >
@@ -241,7 +251,9 @@ export default function Profile() {
                   <Button
                     fullWidth
                     variant="contained"
-                    color="primary"
+                    style={{
+                      backgroundColor: '#FF3131',
+                    }}
                     className={classes.btn}
                     onClick={() => {
                       history.push('/')

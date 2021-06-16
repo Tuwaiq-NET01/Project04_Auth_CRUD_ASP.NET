@@ -116,9 +116,10 @@ const AlertInfo = (msg) => {
 }
 
 export default function Auth({ setAuth }) {
+  document.title = 'Login'
   const history = useHistory()
-  const classes = useStyles()
   const [grow, setGrow] = useState(() => false)
+  const classes = useStyles()
   const [buttonLoading, setButtonLoading] = useState(() => false)
   const [loginForm, setLoginForm] = useState(() => true)
   const [user, setUser] = useState({
@@ -141,10 +142,9 @@ export default function Auth({ setAuth }) {
             .then((res) => {
               if (res.status === 200) {
                 localStorage.setItem('UserData', JSON.stringify(res.data))
-                const name = res.data.name
                 setTimeout(() => {
-                  history.push('/')
                   setAuth(true)
+                  history.push('/')
                   setNewUser(emptyNewUser)
                   AlertSuccess('Your account has been created.')
                   setButtonLoading(false)
@@ -180,8 +180,8 @@ export default function Auth({ setAuth }) {
           localStorage.setItem('UserData', JSON.stringify(res.data))
           const name = res.data.name
           setTimeout(() => {
-            history.push('/')
             setAuth(true)
+            history.push('/')
             setButtonLoading(false)
             AlertInfo(`Howdy ${name.split(' ')[0]}.`)
           }, 1000)
@@ -200,7 +200,6 @@ export default function Auth({ setAuth }) {
   }
 
   useEffect(() => {
-    document.title = 'Login'
     setGrow(true)
     const listener = (event) => {
       if (event.code === 'Enter' || event.code === 'NumpadEnter') {
@@ -213,10 +212,10 @@ export default function Auth({ setAuth }) {
     return () => {
       document.removeEventListener('keydown', listener)
     }
-  })
+  }, [user, newUser])
 
   return (
-    <Grow in={grow}>
+    <Grow direction="up" in={grow}>
       <Container className={classes.root}>
         <Grid justify="center" container spacing={3}>
           <Grid item xs={12} lg={6} md={6}>

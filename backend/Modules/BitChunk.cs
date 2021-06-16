@@ -128,7 +128,7 @@ namespace backend.Modules
         public void ReassembleFile(string password)
         {
             // Assemble the file using the meta data and right access to chunks
-            string ressebledFileName = "./temp/bitchunk-" + OriginalFileName;
+            string ressebledFileName = "./temp/" + OriginalFileName;
             ReassembledFileName = ressebledFileName;
             using (BinaryWriter writer = new BinaryWriter(File.Open(ressebledFileName, FileMode.Create)))
             {

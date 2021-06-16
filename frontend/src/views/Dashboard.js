@@ -84,6 +84,14 @@ const AlertError = (msg) => {
 }
 
 export default function Dashboard() {
+  document.title = 'Dashboard'
+  const user = JSON.parse(localStorage.getItem('UserData'))
+  const config = {
+    headers: {
+      Authorization: `Bearer ${user && user.token}`,
+      'Content-Type': 'application/json',
+    },
+  }
   const history = useHistory()
   const classes = useStyles()
   const [grow, setGrow] = useState(() => false)
@@ -94,23 +102,21 @@ export default function Dashboard() {
     const formData = new FormData()
     formData.append('file', file)
     axios
-      .post('/api/upload', formData)
+      .post('/api/upload', formData, config)
       .then((res) => {
         if (res.status === 200) {
-          localStorage.setItem('file', file.name)
+          localStorage.setItem('FileName', JSON.stringify(file.name))
           if (isRefFile) history.push('/assemble')
           else history.push('/shred')
-          AlertSuccess('The file is uploaded.')
+          AlertSuccess('Your file is uploaded.')
         }
       })
       .catch((error) => AlertError(`${error.response.status} error occured.`))
   }
 
   useEffect(() => {
-    document.title = 'Dashboard'
-    setGrow(true)
-    const user = JSON.parse(localStorage.getItem('UserData'))
     if (!user) history.push('/login')
+    setGrow(true)
   }, [])
 
   return (

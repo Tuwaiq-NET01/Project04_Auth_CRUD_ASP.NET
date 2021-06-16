@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
@@ -7,12 +7,13 @@ import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton'
 import Avatar from '@material-ui/core/Avatar'
+import { toast } from 'react-toastify'
 import LogoImg from '../assets/img/logo.png'
 import HomeIcon from '@material-ui/icons/Home'
 import MenuItem from '@material-ui/core/MenuItem'
 import Menu from '@material-ui/core/Menu'
 import SettingsIcon from '@material-ui/icons/Settings'
-import SubtitlesIcon from '@material-ui/icons/Subtitles'
+import HowToRegIcon from '@material-ui/icons/HowToReg'
 import HelpIcon from '@material-ui/icons/Help'
 import ExitToAppIcon from '@material-ui/icons/ExitToApp'
 import { Link } from 'react-router-dom'
@@ -39,9 +40,21 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
+const AlertInfo = (msg) => {
+  toast.info(`✌ ${msg}`, {
+    position: 'top-right',
+    autoClose: 1500,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  })
+}
+
 export default function NavBar({ auth, setAuth }) {
-  const classes = useStyles()
   const user = JSON.parse(localStorage.getItem('UserData'))
+  const classes = useStyles()
   const [anchorEl, setAnchorEl] = useState(() => null)
   const open = Boolean(anchorEl)
 
@@ -53,6 +66,8 @@ export default function NavBar({ auth, setAuth }) {
     setAnchorEl(null)
   }
 
+  useEffect(() => {}, [auth])
+
   return (
     <div className={classes.root}>
       <AppBar position="fixed">
@@ -62,7 +77,7 @@ export default function NavBar({ auth, setAuth }) {
             className={classes.menuButton}
             color="inherit"
             component={Link}
-            to={'/'}
+            to={'/assemble'}
           >
             <HomeIcon />
           </IconButton>
@@ -102,7 +117,7 @@ export default function NavBar({ auth, setAuth }) {
                     to={'/profile'}
                     onClick={handleClose}
                   >
-                    <AccountCircle color="secondary" className={classes.icon} />{' '}
+                    <HowToRegIcon color="secondary" className={classes.icon} />{' '}
                     {user.name.split(' ')[0]}
                   </MenuItem>
                   <MenuItem
@@ -110,7 +125,7 @@ export default function NavBar({ auth, setAuth }) {
                     to={'/account'}
                     onClick={handleClose}
                   >
-                    <SubtitlesIcon color="secondary" className={classes.icon} />
+                    <AccountCircle color="secondary" className={classes.icon} />
                     Account
                   </MenuItem>
                   <MenuItem component={Link} to={'/how'} onClick={handleClose}>
@@ -123,6 +138,7 @@ export default function NavBar({ auth, setAuth }) {
                     onClick={() => {
                       setAuth(false)
                       localStorage.setItem('UserData', null)
+                      AlertInfo(`Goodbye.`)
                       handleClose()
                     }}
                   >
