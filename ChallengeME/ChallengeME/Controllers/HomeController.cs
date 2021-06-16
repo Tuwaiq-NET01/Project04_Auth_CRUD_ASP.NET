@@ -18,9 +18,10 @@ namespace ChallengeME.Controllers
             _logger = logger;
         }
 
+
         public IActionResult Index()
         {
-            return View();
+            return View("Index");
         }
 
         public IActionResult Privacy()

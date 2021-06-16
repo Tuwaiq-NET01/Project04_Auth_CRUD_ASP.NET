@@ -27,7 +27,7 @@ namespace ChallengeME.Controllers
             ViewData["winners"] = _context.Winners.ToList();
             ViewData["comments"] = _context.Comments.ToList();
 
-            return View();
+            return View("Index");
         }
 
 

@@ -25,7 +25,7 @@ namespace ChallengeME.Controllers
             var games = _context.Games.ToList();
             ViewData["games"] = games;
 
-            return View();
+            return View("Index");
         }
 
 
@@ -54,12 +54,16 @@ namespace ChallengeME.Controllers
 
 
             var game = _context.Games.ToList().Find(m => m.Id == id);
-            var challenges = _context.Challenges.Where(i => i.GameId == game.Id).ToList();
+
 
             if (game == null)
             {
-                return NotFound();
+                return View("fof");
             }
+
+
+            var challenges = _context.Challenges.Where(i => i.GameId == game.Id).ToList();
+
 
             ViewData["game"] = game;
             ViewData["challenges"] = challenges;
@@ -171,6 +175,33 @@ namespace ChallengeME.Controllers
             return View();
         }
 
+
+
+
+        //////////////////////////////////////////
+        /////////////////////////////////////tests
+        //////////////////////////////////////////
+
+        //same funtions as the original (above), except removed/tweaked anything related to users
+        //because how complex it is to create one inside the in memory database.
+
+        public IActionResult CreateTest(Game game, string userid)
+        {
+            if (userid == null)
+            {
+                return Content("NOT FOUND!");
+            }
+            game.User_Id = userid; 
+            if (ModelState.IsValid)
+            {
+                _context.Games.Add(game);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(game);
+
+        }
 
 
     }
