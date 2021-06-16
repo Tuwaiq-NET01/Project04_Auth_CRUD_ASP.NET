@@ -37,7 +37,7 @@ namespace FinalProject.Controllers
         {
             return View();
         }
-        public IActionResult Create()
+        /*public IActionResult Create()
         {
             return View();
         }
@@ -48,13 +48,13 @@ namespace FinalProject.Controllers
             //{
                 await _db.Chats.AddAsync(chat);
                 await _db.SaveChangesAsync();
-                /*_db.Chats.Add(chat);
-                _db.SaveChanges();*/
+                *//*_db.Chats.Add(chat);
+                _db.SaveChanges();*//*
                 //return RedirectToAction("Index");
             //}
             return Ok(chat);
 
-        }
+        }*/
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

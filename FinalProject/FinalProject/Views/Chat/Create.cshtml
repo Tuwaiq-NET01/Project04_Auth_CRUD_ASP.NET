@@ -1,0 +1,43 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@model ChatModel
+
+@{
+    var user = UserManager.FindByNameAsync(User.Identity.Name);
+    var ii = (List<string>)ViewBag.all;
+    var iNames = (List<string>)ViewBag.allNames;
+}
+<div style="width: 70%;
+        align-content: center;">
+
+    <form asp-action="CreateChat" method="post" class="form-horizontal">
+
+        @*<div class="form-group">
+                <label  asp-for="Id">Id</label>
+                <div>
+                    <input class="form-control" asp-for="Id"  />
+                </div>
+            </div>*@
+
+        <div class="form-group">
+            <label asp-for="To" style="color: black">Select a number</label>
+            <select asp-for="To" class="form-select" aria-label="Default select example">
+                @for (int i = 0; i < ii.Count(); i++)
+                {
+                    
+                    <option asp-for="To" value="@ii[i]">@ii[i] - @iNames[i]</option>
+                }
+            </select>
+        </div>
+        <div class="form-group" hidden>
+            <label asp-for="UserId" style="color: black">UserId</label>
+            <div>
+                <input class="form-control" asp-for="UserId" value="@UserManager.GetUserId(User)" />
+            </div>
+        </div>
+        <div>
+            <input type="submit" class="btn btn-success" value="Submit">
+        </div>
+    </form>
+</div>

@@ -1,0 +1,72 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@model MessageModel
+
+@{
+    var ii = (List<ChatModel>)ViewBag.all;
+    var idd = (int)ViewBag.idd;
+    var msgs = (List<string>)ViewBag.msgs;
+    var user = UserManager.FindByNameAsync(User.Identity.Name);
+
+}
+<div style="width: 100%;
+        align-content: center;">
+
+    <div style="border:solid 1px;" class="row">
+        <div class="col-2">
+            @foreach (var item in ii)
+            {
+                @*var i = 
+                <img src=@item. />*@
+                if (item.To == @UserManager.GetUserId(User))
+                {
+                    <a class="btn btn-warning" asp-controller="Chat" asp-action="Two" asp-route-id="@item.Id">@item.UserId</a>
+                }
+                else
+                {
+                    <a class="btn btn-warning" asp-controller="Chat" asp-action="Two" asp-route-id="@item.Id">@item.To</a>
+                }
+            }
+            <button onclick="@("window.location.href='" + @Url.Action("Create", "Chat") + "'");" asp-controller="Chat" asp-action="Create" type="button" class="btn btn-dark">New Chat</button>
+        </div>
+        <div class="col-10">
+            gg
+            @foreach (var item in msgs)
+            {
+                <h1>@item</h1>
+            }
+
+            <form asp-controller="Message" asp-action="CreateMsg" method="post" class="form-horizontal">
+                <div class="form-group" hidden>
+                    <label asp-for="ChatId" style="color: black">ChatId</label>
+                    <div>
+                        <input class="form-control" asp-for="ChatId" value="@idd" />
+                    </div>
+                </div>
+                <div class="form-group" hidden>
+                    <label asp-for="Type" style="color: black">Type</label>
+                    <div>
+                        <input class="form-control" asp-for="Type" value="Text" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Data" style="color: black">Data</label>
+                    <div>
+                        <input class="form-control" asp-for="Data" />
+                    </div>
+                </div>
+                <div class="form-group" hidden>
+                    <label asp-for="UserId" style="color: black">UserId</label>
+                    <div>
+                        <input class="form-control" asp-for="UserId" value="@UserManager.GetUserId(User)" />
+                    </div>
+                </div>
+
+                <div>
+                    <input type="submit" class="btn btn-success" value="Submit">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

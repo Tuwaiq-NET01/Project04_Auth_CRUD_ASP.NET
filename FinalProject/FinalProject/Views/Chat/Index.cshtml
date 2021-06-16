@@ -1,0 +1,43 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@model ChatModel
+
+@{ 
+    var ii = (List<ChatModel>)ViewBag.From;
+    var user = UserManager.FindByNameAsync(User.Identity.Name);
+
+}
+<div style="width: 70%;
+        align-content: center;">
+
+    <div style="border:solid 1px;" class="row">
+        <div class="col-2">
+            @foreach (var item in ii)
+            {
+                <a class="btn btn-warning" asp-controller="Chat" asp-action="Two" asp-route-id="@item.Id">@item.To</a>
+            }
+            <button onclick="@("window.location.href='" + @Url.Action("Create", "Chat") + "'");" asp-controller="Chat" asp-action="Create" type="button" class="btn btn-dark">New Chat</button>
+        </div>
+        <div class="col-10">
+            gg
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+        @foreach (var item in ii)
+        {
+            <a class="btn btn-warning" asp-controller="Message" asp-action="Get" asp-route-id="@item.Id">@item.To</a>
+        }
+        @*<ul class="list-group list-group-flush">
+                @foreach (var item in ii)
+                {
+                    <li onclick="@("window.location.href='" + @Url.Action("Get/"+@item.UserId, "Chat") + "'");" class="list-group-item">@item.UserId</li>
+                }
+
+
+            </ul>*@
+        <div class="card-footer">
+            Card footer
+        </div>
+    </div>
+</div>

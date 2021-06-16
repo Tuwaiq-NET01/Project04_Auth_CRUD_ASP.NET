@@ -1,0 +1,55 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@model MessageModel
+
+@{
+    var user = UserManager.FindByNameAsync(User.Identity.Name);
+
+}
+<div style="width: 70%;
+        align-content: center;">
+
+    <form asp-action="CreateMsg" method="post" class="form-horizontal">
+
+        @*<div class="form-group">
+                <label  asp-for="Id">Id</label>
+                <div>
+                    <input class="form-control" asp-for="Id"  />
+                </div>
+            </div>*@
+        <div class="form-group">
+            <label asp-for="ChatId" style="color: black">ChatId</label>
+            <div>
+                <input class="form-control" asp-for="ChatId" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Timestamp" style="color: black">Timestamp</label>
+            <div>
+                <input class="form-control" asp-for="Timestamp" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Type" style="color: black">Type</label>
+            <div>
+                <input class="form-control" asp-for="Type" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Data" style="color: black">Data</label>
+                <div>
+                    <input class="form-control" asp-for="Data" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserId" style="color: black">UserId</label>
+                <div>
+                    <input class="form-control" asp-for="UserId" value="@UserManager.GetUserId(User)" />
+                </div>
+            </div>
+        </div>
+        <div>
+            <input type="submit" class="btn btn-success" value="Submit">
+        </div>
+    </form>
+</div>

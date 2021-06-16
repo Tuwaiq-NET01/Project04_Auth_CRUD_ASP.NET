@@ -11,7 +11,7 @@ namespace FinalProject.Models
         public int Id { get; set; }
         public int ChatId { get; set; }
         public ChatModel Chat { get; set; }
-        public DateTime Timestamp { get; set; }
+        public DateTime Timestamp { get; set; } = DateTime.Now;
         public string Type { get; set; }
         public string Data { get; set; }
         public string UserId { get; set; }

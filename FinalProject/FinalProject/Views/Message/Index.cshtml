@@ -1,0 +1,34 @@
+﻿@{
+    var ii = (List<MessageModel>)ViewBag.all;
+
+}
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<div class="card" style="width: 18rem;">
+    @foreach (var item in ii)
+    {
+        if (item.UserId == UserManager.GetUserId(User))
+        {
+            <a class="btn btn-danger" asp-controller="Message" asp-action="Get" asp-route-id="@item.Id">@item.Data</a>
+
+        }
+        else
+        {
+            <a class="btn btn-warning" asp-controller="Message" asp-action="Get" asp-route-id="@item.Id">@item.Data</a>
+
+        }
+    }
+    @*<ul class="list-group list-group-flush">
+            @foreach (var item in ii)
+            {
+                <li onclick="@("window.location.href='" + @Url.Action("Get/"+@item.UserId, "Chat") + "'");" class="list-group-item">@item.UserId</li>
+            }
+
+
+        </ul>*@
+    <div class="card-footer">
+        Card footer
+    </div>
+</div>
