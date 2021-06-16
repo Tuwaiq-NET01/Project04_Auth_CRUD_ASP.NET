@@ -1,0 +1,51 @@
+﻿@model Doctor
+
+@{
+    var Doc = (Doctor)ViewBag.Doctors;
+}
+<h1>Update Doctor Profile</h1>
+
+<form asp-action="Edit" method="post" asp-route-id="Id" class="form-horizontal">
+    <div class="form-group">
+        <div>
+            <input type="hidden" asp-for="Id" value="@Doc.Id" />
+        </div>
+        <label asp-for="Name">Doctor's Name</label>
+        <div>
+            <input asp-for="Name" value="@Doc.Name" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Gender">Doctor's Gender</label>
+        <div>
+            <input asp-for="Gender" value="@Doc.Gender" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Speciality">Doctor's Speciality</label>
+        <div>
+            <input asp-for="Speciality" value="@Doc.Speciality" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Phone">Doctor's Phone Number</label>
+        <div>
+            <input asp-for="Phone" type="number" value="@Doc.Phone" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Email">Doctor's Email</label>
+        <div>
+            <input asp-for="Email" type="email" value="@Doc.Email" />
+        </div>
+    </div>
+
+    <div>
+        <input type="submit" class="btn btn-primary" />
+    </div>
+</form>
+

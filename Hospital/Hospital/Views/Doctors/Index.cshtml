@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Hospital.Models.Doctor>
+@{
+    ViewBag.Title = "Doctors";
+    var Doc = (Doctor)ViewBag.Appointment;
+}
+<h2>Doctors</h2>
+<div class="main-content">
+    <table class="table">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Speciality</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            
+            <tr>
+                <td>
+                    @Html.DisplayFor(m => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item.Gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item.Speciality)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item.Phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item.Email)
+                </td>
+                <td>
+                    <a class="btn btn-outline-primary" asp-controller="Doctors" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                </td>
+                <td>
+                    <form method="post" asp-controller="Doctors" asp-action="Delete" asp-route-id="@item.Id">
+                        <input type="submit" value="Delete" class="btn btn-outline-danger" />
+                    </form>
+                </td>
+            </tr>
+        }
+    </table>
+    <a asp-controller="Doctors" asp-action="Create"><button class="btn btn-outline-primary">Create Profile</button></a>
+</div>
