@@ -6,20 +6,16 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
-using CloudinaryDotNet;
-using CloudinaryDotNet.Actions;
 
 
 namespace Keraa.Controllers
 {
     public class Utilities
     {
-
-        public static async Task<List<string>> GetCurrentCoordinates()
+        public async static Task<List<string>> GetCurrentCoordinates()
         {
             string token = ""; //needs to be store in .env
-            string url = "https://www.googleapis.com/geolocation/v1/geolocate?key="+token;
-
+            string url = "https://www.googleapis.com/geolocation/v1/geolocate?key="+ token;
             using (var httpClient = new HttpClient())
             {
                 using (var request = new HttpRequestMessage(new HttpMethod("POST"), url))
@@ -38,9 +34,6 @@ namespace Keraa.Controllers
                 }
             }
         }
-
-
-
 
 
     }

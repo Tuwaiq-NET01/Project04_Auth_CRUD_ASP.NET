@@ -16,7 +16,6 @@ namespace Keraa.Controllers
         private readonly ApplicationDbContext _db;
         private readonly UserManager<ApplicationUser> _userManager;
 
-
         public ProductsController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _db = context;
@@ -51,13 +50,13 @@ namespace Keraa.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([Bind("Name", "ShortDesc", "CoverImage", "Catagory")] ProductModel product)
         {
+            //Utilities u = new Utilities(Configuration);
             if (ModelState.IsValid) //check the state of model
             {
                 var user = await _userManager.GetUserAsync(User);
-                List<string> Coordinate = await Utilities.GetCurrentCoordinates();
-
+               /* List<string> Coordinate = await Utilities.GetCurrentCoordinates();
                 product.LocationLat = Coordinate[0];
-                product.LocationLng = Coordinate[1];
+                product.LocationLng = Coordinate[1];*/
                product.OwnerId = user.Id;
                 _db.Products.Add(product);
                 _db.SaveChanges();

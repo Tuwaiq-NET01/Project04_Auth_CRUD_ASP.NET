@@ -2,6 +2,7 @@
 @using CloudinaryDotNet.Actions
 @model ProductModel
 
+<button  id="upload_widget" class="cloudinary-button">Upload Image</button>
 <form asp-action="Create" method="post" class="form-horizontal">
     <div class="form-group">
         <label asp-for="Id">Id</label>
@@ -20,8 +21,10 @@
     <div class="form-group">
         <label asp-for="CoverImage">CoverImage</label>
         <div>
-            <input asp-for="CoverImage" />
+            <h3  ></h3>
+            <input id= "imageInput" asp-for="CoverImage" />
             <span asp-validation-for="CoverImage" class="text-danger"></span>
+            
         </div>
     </div>
 
@@ -43,3 +46,29 @@
         <input type="submit" class="btn btn-primary" value="Submit" />
     </div>
 </form>
+
+
+<script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>
+<script type="text/javascript">
+        var ig;
+    var myWidget = cloudinary.createUploadWidget({
+        cloudName: 'riodan',
+        uploadPreset: 'ImgeCover',
+        maxFiles:1
+    }, (error, result) => {
+        if (!error && result && result.event === "success") {
+            console.log('Done! Here is the image info: ', result.info);
+            ig = result.info.secure_url;
+            console.log(ig);
+            df.value = ig;
+            console.log(ig);
+        }
+    }
+    )
+        document.getElementById("upload_widget").addEventListener("click", function () {
+            myWidget.open();
+        }, false);
+    console.log(ig);
+    var df = document.getElementById("imageInput");
+    console.log(ig);
+</script>
