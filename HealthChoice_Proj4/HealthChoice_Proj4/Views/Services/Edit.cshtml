@@ -1,0 +1,52 @@
+﻿@model ServicesModel
+
+@{
+    var Service = (ServicesModel)ViewData["Service"];
+}
+<h1>Edit Services Form</h1>
+<form asp-action="Edit" method="post" asp-route-id="@Service.Id" class="form-horizontal">
+
+    <div class="form-group">
+        <label asp-for="@Service.servName">Name</label>
+        <div>
+            <input asp-for="servName" value="@Service.servName" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="servLogo">Logo</label>
+        <div>
+            <input asp-for="servLogo" value="@Service.servLogo" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="servOverview">Overview</label>
+        <div>
+            <input asp-for="servOverview" value="@Service.servOverview" />
+        </div>
+
+
+        <div class="form-group">
+            <label asp-for="servLocation">Location</label>
+            <div>
+                <input asp-for="servLocation" value="@Service.servLocation" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="servWebsite">Link</label>
+                <div>
+                    <input asp-for="servWebsite" value="@Service.servWebsite" />
+                </div>
+
+
+
+                <div class="form-group">
+                    <label asp-for="servType">Link</label>
+                    <div>
+                        <input asp-for="servType" value="@Service.servType" />
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-dark" value="Edit" style="margin-top:10px" />
+
+                    </div>
+                </div>
+</form>
