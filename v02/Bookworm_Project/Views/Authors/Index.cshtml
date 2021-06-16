@@ -1,0 +1,61 @@
+﻿@{
+    var authors = (List<AuthorModel>)ViewBag.Authors;
+    var currentUser = ViewBag.CurrentUser;
+    ViewData["Title"] = "Browse Authors";
+    
+}
+
+<div class="ui center aligned container">
+    @if (currentUser == "df074b15-7214-48d3-aa51-90c485252bfb")
+    {
+        <button class="huge ui black button">
+            <a style="color:white" asp-controller="Authors" asp-action="Create">Add a New Author</a>
+        </button>
+    }
+    <div style="margin-top:10px;">
+        <form asp-action="Search" asp-controller="Authors">
+            <partial name="_SearchInput" />
+        </form>
+    </div>
+    @if (authors.Count > 0)
+    {
+        <div class="ui link cards" style="margin-left:85px; margin-top:10px;">
+            @foreach (var author in authors)
+            {
+                <div class="card" style="cursor:default">
+                    <a class="image" asp-controller="authors" asp-action="details" asp-route-id=@author.Id>
+                        <img src=@author.Avatar>
+                    </a>
+                    <div class="content">
+                        <div class="header">@author.FirstName @author.LastName</div>
+
+                    </div>
+                    @if (currentUser == "df074b15-7214-48d3-aa51-90c485252bfb")
+                    {
+                        <div class="extra content">
+
+
+                            <a class="mini ui olive button" style="color:white;width: 25px" asp-controller="Authors" asp-action="Edit" asp-route-id=@author.Id><i class="icon edit"></i></a>
+
+                            <form asp-action="delete" asp-route-id=@author.Id method="post" style="display:inline; margin-left:2px">
+                                <button type="submit" class="mini ui red button" style="width: 25px"><i class="trash alternate outline icon"></i></button>
+                            </form>
+
+                        </div>
+                    }
+                </div>
+            }
+
+        </div>
+    }
+    else
+    {
+        <br />
+        <p style="font-size:larger">
+            Your search did not match any author.
+        </p>
+        <br />
+        <img src="https://media0.giphy.com/media/67urFpVn7qwcd2gWIl/200.gif" />
+
+    }
+</div>

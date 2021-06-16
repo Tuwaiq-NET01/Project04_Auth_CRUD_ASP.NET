@@ -1,9 +1,0 @@
-﻿@model ReviewModel
-
-<form class="ui form" asp-controller="Reviews" asp-action="Add" asp-route-id=@(ViewContext.RouteData.Values["Id"]) method="post" style="display:inline">
-    <div class="field" style="max-width:950px; margin:auto; margin-bottom:10px">
-        <label>Share your thoughts</label>
-        <textarea asp-for="Content"></textarea>
-    </div>
-    <button class="ui submit olive button" type="submit"><i class="icon edit"></i> Add Review</button>
-</form>

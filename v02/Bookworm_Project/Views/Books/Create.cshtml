@@ -1,0 +1,35 @@
+﻿@model BookModel
+@{ 
+    ViewData["Title"] = "Create Book";
+}
+<div class="ui center aligned container" style=" margin-top:40px;">
+    <div class="ui inverted segment">
+        <form class="ui inverted form" asp-action="Create" method="post">
+
+            <div class="two fields">
+                <div class="field">
+                    <label asp-for="Title"></label>
+                    <input asp-for="Title" placeholder="Book Title">
+                </div>
+                <div class="field">
+                    <label asp-for="Cover"></label>
+                    <input asp-for="Cover" placeholder="Image URL">
+                </div>
+            </div>
+            <div class="two fields">
+                <div class="field">
+                    <label asp-for="AuthorId">Author</label>
+                    <input asp-for="AuthorId" placeholder="Author ID">
+                </div>
+                <div class="field">
+                    <label asp-for="Description"></label>
+                    <input asp-for="Description" placeholder="Book Description">
+                </div>
+            </div>
+
+
+
+            <button class="ui submit button" type="submit">ADD</button>
+        </form>
+    </div>
+</div>

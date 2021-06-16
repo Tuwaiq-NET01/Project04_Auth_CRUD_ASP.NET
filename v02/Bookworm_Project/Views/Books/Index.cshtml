@@ -1,0 +1,66 @@
+﻿@{
+    var books = (List<BookModel>)ViewBag.Books;
+    var currentUser = ViewBag.CurrentUser;
+    ViewData["Title"] = "Browse Books";
+}
+
+
+<div class="ui center aligned container">
+    @if (currentUser == "df074b15-7214-48d3-aa51-90c485252bfb")
+    {
+    <button class="huge ui black button">
+        <a style="color:white" asp-controller="Books" asp-action="Create">Add a New Book</a>
+    </button>
+    }
+    <div style="margin-top:10px;">
+        <form asp-action="Search" asp-controller="Books">
+            <partial name="_SearchInput" />
+        </form>
+    </div>
+    @if (books.Count > 0)
+    {
+    <div class="ui link cards" style="margin-left:85px; margin-top:10px;">
+        @foreach (var book in books)
+            {
+        <div class="card" style="cursor:default">
+            <a class="image" asp-controller="books" asp-action="details" asp-route-id=@book.Id>
+                <img src=@book.Cover style="max-height:437px">
+            </a>
+            <div class="content">
+                <div class="header">@book.Title</div>
+                <div class="meta">
+                    @book.Author.FirstName @book.Author.LastName
+                </div>
+            </div>
+            @if (currentUser == "df074b15-7214-48d3-aa51-90c485252bfb")
+                    {
+            <div class="extra content">
+
+                `
+                <a class="mini ui olive button" style="color:white; width:25px" asp-controller="Books" asp-action="Edit" asp-route-id=@book.Id><i class="icon edit"></i></a>
+
+
+                <form asp-action="delete" asp-route-id=@book.Id method="post" style="display:inline; ">
+                    <button type="submit" class="mini ui red button" style="width: 25px"><i class="trash alternate outline icon"></i></button>
+                </form>
+
+
+            </div>
+                    }
+        </div>
+            }
+
+    </div>
+    }
+    else
+    {
+
+    <br />
+    <p style="font-size:larger">
+        Your search did not match any book.
+    </p>
+    <br />
+    <img src="https://media0.giphy.com/media/67urFpVn7qwcd2gWIl/200.gif" />
+
+    }
+</div>

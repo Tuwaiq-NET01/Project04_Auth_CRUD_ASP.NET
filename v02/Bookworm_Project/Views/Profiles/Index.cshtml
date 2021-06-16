@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Browse Profiles";
+    var users = (List<Bookworm_Project.Data.ApplicationUser>)ViewBag.Users;
+}
+
+<div class="ui center aligned container">
+    <div style="margin-top:10px;">
+        <form asp-action="search" asp-controller="profiles">
+            <partial name="_SearchInput" />
+        </form>
+    </div>
+    @if (users.Count > 0)
+    {
+        <div class="ui link cards" style="margin-left:85px; margin-top:10px;">
+            @foreach (var user in users)
+            {
+                <div class="card" style="cursor:default">
+                    <a class="image" asp-controller="profiles" asp-action="show" asp-route-id=@user.Id>
+                        <img src=@user.Avatar>
+                    </a>
+                    <div class="content">
+                        <div class="header">@user.FirstName @user.LastName</div>
+
+                    </div>
+
+                </div>
+            }
+
+        </div>
+    }
+    else
+    {
+        <br />
+        <p style="font-size:larger">
+            Your search did not match any account.
+        </p>
+        <br />
+        <img src="https://media0.giphy.com/media/67urFpVn7qwcd2gWIl/200.gif" />
+
+    }
+</div>
