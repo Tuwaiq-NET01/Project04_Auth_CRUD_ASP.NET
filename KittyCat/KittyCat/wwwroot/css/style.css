@@ -63,8 +63,7 @@ h3 {
     justify-content: space-between;
     padding: 50px;
 }
-input[type="text"],
-input[type="date"] {
+input {
   border: 0;
   background-color: #e4e9eb;
   height: 40px;
@@ -139,4 +138,10 @@ button {
 }
 .btn-primary:hover {
     background-color: #71d3d1;
+}
+
+.card-bg{
+    background-color: rgba(255 , 255 , 255 , 0.5);
+    padding:20px;
+    box-shadow : 2px 3px 20px rgba(0,0,0,0.2)
 }

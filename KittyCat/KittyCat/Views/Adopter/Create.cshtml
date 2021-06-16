@@ -2,69 +2,60 @@
 @model AdopterModel
 <div class="" style="background-color: darkturquoise">
     @await Html.PartialAsync("_NavPartial")
-</div>
-<h1 style="font-family:'Times New Roman', Times, serif; margin-left:100px">Adoption Form</h1>
-<div class=" text-center d-flex justify-content-center align-items-center" style="background: rgb(18 17 17 / 0.72); color:black; padding: 20px; font-family: 'Times New Roman', Times, serif">
-    <div class="card bg-light box-shadow mr-5 mt-2" style="width: 18rem; border:0">
+</div>s
+<div class="row">
+    <div class="col-6" style="background: url(https://images.pexels.com/photos/2113368/pexels-photo-2113368.jpeg?cs=srgb&dl=pexels-tranmautritam-2113368.jpg&fm=jpg) center center; background-size: cover; ">
 
+    </div>
 
-        <form asp-action="Create" method="post" class="form-horizontal">
-            <div class=" form-group">
-                <label asp-for="name">Name</label>
-                <div>
-                    <input asp-for="name" />
-                </div>
-            </div>
-
-            <div class=" form-group">
-                <label asp-for="age">Age</label>
-                <div>
-                    <input asp-for="age" />
-                </div>
-            </div>
-
-            <div class=" form-group">
-                <label asp-for="gender">Gender</label>
-                <div>
-                    <input asp-for="gender" />
-                </div>
-            </div>
-
-            <div class=" form-group">
-                <label asp-for="occupation">Occupation</label>
-                <div>
-                    <input asp-for="occupation" />
-                </div>
-            </div>
-            <div class=" form-group">
-                <label asp-for="email">Email</label>
-                <div>
-                    <input asp-for="email" />
-                </div>
-            </div>
-            <div class=" form-group">
-                <label asp-for="phone">Phone</label>
-                <div>
-                    <input asp-for="phone" />
-                </div>
-            </div>
-            <div class="frame">
-                <div class="center">
-                    <div class="title">
-                        <label>Drop image to upload</label>
+    <div class="bg-light text-center d-flex justify-content-center align-items-center col-6" style="background: rgb(18 17 17 / 0.72); color:black; padding: 20px; font-family: 'Times New Roman', Times, serif">
+        <div class="card card-bg" style="width: 18rem; border:0">
+            <form asp-action="Create" method="post" class="form-horizontal">
+                <div class=" form-group">
+                    <label asp-for="name">Name</label>
+                    <div>
+                        <input asp-for="name" />
                     </div>
-                    <div class="dropzone">
-                        <input type="file" class="upload-input" />
-                    </div>
-
-                    <button type="button" class="btn" name="uploadbutton">Upload file</button>
-
                 </div>
-            </div>
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="submit" />
-            </div>
 
-        </form>
+                <div class=" form-group">
+                    <label asp-for="age">Age</label>
+                    <div>
+                        <input asp-for="age" />
+                    </div>
+                </div>
+
+                <div class=" form-group">
+                    <label asp-for="gender">Gender</label>
+                    <div>
+                        <input asp-for="gender" />
+                    </div>
+                </div>
+
+                <div class=" form-group">
+                    <label asp-for="occupation">Occupation</label>
+                    <div>
+                        <input asp-for="occupation" />
+                    </div>
+                </div>
+                <div class=" form-group">
+                    <label asp-for="email">Email</label>
+                    <div>
+                        <input asp-for="email" />
+                    </div>
+                </div>
+                <div class=" form-group">
+                    <label asp-for="phone">Phone</label>
+                    <div>
+                        <input asp-for="phone" />
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary" value="submit" />
+                </div>
+
+            </form>
+        </div>
     </div>
 </div>
