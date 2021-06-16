@@ -1,13 +1,13 @@
 ﻿@{
     var Profiles = (List<ProfileModel>)ViewData["Profiles"];
     var Podcasts = (List<PodcastModel>)ViewData["Podcasts"];
-    var id = (string)ViewData["userid"];
+    var id = (int)ViewData["id"];
 
 }
 
 @foreach (var Profile in Profiles)
 {
-    if (Profile.UserId == id)
+    if (Profile.Id == id)
     {
         <div>
             <div class="MyprofileMain">
@@ -15,7 +15,7 @@
                 <div class="bg-white shadow rounded overflow-hidden">
                     <div class="px-4 pt-0 pb-4 cover" style="background-image: url( @Profile.Background_Image );background-size: cover;background-repeat: no-repeat">
                         <div class="media align-items-end profile-head">
-                            <div class="profile mr-3" style="transform: translateY(5rem)"><img src=@Profile.Image alt="..." width="150" class="rounded mb-2 img-thumbnail"><a href="/Podcast/Create/@Profile.Id" class="btn btn-outline-dark btn-sm btn-block">Add New Podcast <i class="fas fa-plus-square"></i></a></div>
+                            <div class="profile mr-3" style="transform: translateY(5rem)"><img src=@Profile.Image alt="..." width="150" class="rounded mb-2 img-thumbnail"></div>
                             <div class="media-body mb-5 text-white">
                                 <h4 class="mt-0 mb-0">@Profile.Name</h4>
 
@@ -38,7 +38,7 @@
 
                     <div class="py-4 px-4">
                         <div class="d-flex align-items-center justify-content-between mb-3">
-                            <h5 class="mb-0">Podcast</h5><a href="/podcast/" class="btn btn-link text-muted">See All Podcast</a>
+                           
                         </div>
                         <div class="row">
                             @foreach (var Podcast in Podcasts)
@@ -58,22 +58,7 @@
                                                 </a>
 
                                                 <br />
-                                                <div class="container">
-                                                    <div class="row">
-                                                        <div class="col">
-                                                            <a asp-controller="Podcast" asp-action="Edit" asp-route-id="@Podcast.Id"><i class="fas fa-edit" style="font-size:25px"></i></a>
-
-                                                        </div>
-                                                        <div class="col">
-                                                            <form asp-controller="Podcast" asp-action="Delete" asp-route-id="@Podcast.Id" method="post">
-
-                                                                <input style="margin-left:-300px;margin-top:-2px;color:red" type="image" src="https://cdn4.iconfinder.com/data/icons/social-messaging-ui-coloricon-1/21/52-512.png" alt="Submit" width="27" height="27" />
-
-
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                
 
 
                                                 <audio controls style=" width: 655px;margin-top:20px">

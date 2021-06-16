@@ -172,3 +172,5 @@ C:\Users\abdul\OneDrive\سطح المكتب\.net\Project04_Auth_CRUD_ASP.NET\Pod
 C:\Users\abdul\OneDrive\سطح المكتب\.net\Project04_Auth_CRUD_ASP.NET\Podcast-Website\Podcast-Website\bin\Debug\net5.0\Microsoft.Graph.dll
 C:\Users\abdul\OneDrive\سطح المكتب\.net\Project04_Auth_CRUD_ASP.NET\Podcast-Website\Podcast-Website\bin\Debug\net5.0\Microsoft.Graph.Core.dll
 C:\Users\abdul\OneDrive\سطح المكتب\.net\Project04_Auth_CRUD_ASP.NET\Podcast-Website\Podcast-Website\obj\Debug\net5.0\Razor\Views\RandomPodcast\Index.cshtml.g.cs
+C:\Users\abdul\OneDrive\سطح المكتب\.net\Project04_Auth_CRUD_ASP.NET\Podcast-Website\Podcast-Website\obj\Debug\net5.0\Razor\Views\Channels\Index.cshtml.g.cs
+C:\Users\abdul\OneDrive\سطح المكتب\.net\Project04_Auth_CRUD_ASP.NET\Podcast-Website\Podcast-Website\obj\Debug\net5.0\Razor\Views\Channels\Details.cshtml.g.cs

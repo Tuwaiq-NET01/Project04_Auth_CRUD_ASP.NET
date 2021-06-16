@@ -28,6 +28,10 @@ namespace Podcast_Website.Controllers
         [HttpPost]
         public IActionResult Create(int rating123, int podcastid,int currentUser1)
         {
+            if(rating123 == 0 || podcastid == 0 || currentUser1 == 0)
+            {
+                return View("Error");
+            }
             PodcastProfileModel pp = new PodcastProfileModel();
             pp.Score = rating123;
             pp.Profile_Id = currentUser1;

@@ -5,6 +5,7 @@
     var Podcasts = (List<PodcastModel>)ViewData["Podcasts"];
     var Prodcast_Tags = (List<Prodcast_TagModel>)ViewData["Prodcast_Tag"];
     var tags = (List<TagModel>)ViewData["tags"];
+    var rating = (List<PodcastProfileModel>)ViewData["rating"];
 
 
 }
@@ -54,14 +55,24 @@
         }
     }
 
-  
+
+    function empty() {
+        var x;
+        x = document.getElementById("tag").value;
+        if (x == "") {
+            alert("can't send empty");
+            return false;
+        };
+    }
+
+
 </script>
 
 
 <div class="mb-3">
 
     <label class="form-label">Choose Your Podcast types</label><br />
-    <input type="checkbox"  id="vehicle1" name="vehicle1" value="Bike" onclick="type1()">
+    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" onclick="type1()">
     <label for="vehicle1" id="vehicle1Text">Tech</label><br>
     <input type="checkbox" id="vehicle2" name="vehicle2" value="Car" onclick="type2()">
     <label for="vehicle2" id="vehicle2Text">Sport </label><br>
@@ -71,12 +82,17 @@
 
 </div>
 
-<form asp-controller="Podcast" asp-action="filter"  >
+<form asp-controller="Podcast" asp-action="filter">
     <p>
-        <input type="hidden"  name="SearchString" id="tag" />
-        <input type="submit" value="Select" class="btn btn-outline-dark" />
+        <input type="hidden" name="SearchString" id="tag" />
+        <input type="submit" value="Select" class="btn btn-outline-dark" onClick="return empty()"/>
     </p>
 </form>
+
+@{
+    double totle = 0;
+    var count = 0;
+}
 
 
 
@@ -88,14 +104,30 @@
 
 @foreach (var Podcast in Podcasts)
 {
+    totle = 0;
+    count = 0;
+    double avg = 0;
+
+    @foreach (var r in rating)
+    {
+        if (r.PodcastId == Podcast.Id)
+        {
+            totle += r.Score;
+            count++;
+        }
+    }
+    avg = totle / count;
+
+
+
     @foreach (var tag in tags)
     {
-        
 
-            foreach (var Prodcast_Tag in Prodcast_Tags)
+
+        foreach (var Prodcast_Tag in Prodcast_Tags)
+        {
+            if (Prodcast_Tag.TagId == tag.Id && Prodcast_Tag.Podcast__Id == Podcast.Id)
             {
-                if (Prodcast_Tag.TagId == tag.Id && Prodcast_Tag.Podcast__Id == Podcast.Id)
-                {
                 <div class="container text-center card1" style="height:260px;margin-top:40px">
 
                     <div class="row">
@@ -107,9 +139,26 @@
                             <a class="link1" href="/podcast/Details/@Podcast.Id">
                                 <h1 style="color: #78a09c">@Podcast.Title</h1>
                             </a>
+
+
+                            @for (var i = 0; i < 5; i++)
+                            {
+                                if (i < avg)
+                                {
+                                    <i class="fas fa-star" style="color:orange"></i>
+                                }
+                                else
+                                {
+                                    <i class="far fa-star" style="color:orange"></i>
+                                }
+                            }
+
+
+
+
                             @if (tag.Tag_Name != null)
                             {
-                            <p style="opacity:0.6">#@tag.Tag_Name.Remove(tag.Tag_Name.Length - 2)</p>
+                                <p style="opacity:0.6">#@tag.Tag_Name.Remove(tag.Tag_Name.Length - 2)</p>
                             }
 
                             <audio controls style=" width: 655px;margin-top:20px">
@@ -122,11 +171,12 @@
                         </div>
                     </div>
                 </div>
-                    }
-                }
-            
+
+            }
         }
+
     }
+}
 
 
 

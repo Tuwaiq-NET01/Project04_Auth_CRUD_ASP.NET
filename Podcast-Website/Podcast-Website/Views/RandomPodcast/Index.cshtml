@@ -11,56 +11,82 @@
         let jsonData = JSON.parse(data);
         console.log(jsonData);
 
-
-        
+        document.getElementById("mainRandomPodcasr").removeAttribute("hidden");
+        document.getElementById("mainpageRandom").style.display = "none";
+        document.getElementById("buttonRandom").innerHTML = "Another Random Podcast <i class=\"fas fa - random\"></i>";
+        document.getElementById("buttondiv").style.left = "6px";
+        document.getElementById("buttondiv").style.top = "100px";
 
         var randomIndex = Math.floor(Math.random() * jsonData.items.length)
 
-        document.getElementById("imgR").src = jsonData.items[randomIndex].feedImage
+        document.getElementById("imgRandom").src = jsonData.items[randomIndex].image
 
         document.getElementById("headerR").innerHTML = jsonData.items[randomIndex].title
 
         document.getElementById("aud").src = jsonData.items[randomIndex].enclosureUrl
-        console.log(document.getElementById("aud").src)
+        console.log(document.getElementById("imgRandom").src)
         
 
-        document.getElementById("pR").innerHTML = jsonData.items[randomIndex].description
+        
 
+        function htmlDecode(input) {
+            var e = document.createElement('div');
+            e.innerHTML = input;
+            return e.childNodes[0].nodeValue;
+        }
+
+        document.getElementById("pR").innerHTML = htmlDecode(jsonData.items[randomIndex].description)
 
     }
 </script>
-<input type="checkbox"  onclick="type3()">
+
 <p id="dataString" onclick="aaa()" style="display:none">@dataString</p>
 
 
-<div class="container overflow-hidden">
-    <div class="row gx-5">
-        <div class="col">
-            <div class="p-3  ">
-                <img src="" style="max-width:450px" id="imgR"/>
-            </div>
+
+<div class="container" id="mainpageRandom">
+    <div class="row">
+        <div class="col" >
+            <img src="https://pcfeatures.wpengine.com/wp-content/uploads/2021/02/app@2x.png" width="550" id="imgR" alt="Not Found" />
         </div>
         <div class="col">
-            <div class="p-3 " style="margin-top:50px">
-                <h1 style="color: #78a09c" id="headerR"></h1>
+            <h1 style="margin-top:100px">Random <span style="color: #ff0065">Podcast</span>  Generator</h1>
+            <h6 style=" opacity: 0.7; color: #93939f; margin-top: 50px;">To get a random podcast simply click the red generate button </h6>
+            
+        </div>
+    </div>
+ </div>
+<div id="buttondiv" style="position: fixed;left:63%; top:50%;background: white; ">
+    <button id="buttonRandom" onclick="type3()" type="button" class="btn btn-outline-danger">Generate <i class="fas fa-random"></i></button>
+</div>
+
+    <div id="mainRandomPodcasr" class="container overflow-hidden" hidden>
+        <div class="row gx-5">
+            <div class="col">
+                <div class="p-3  ">
+                    <img src="" style="max-width:500px" id="imgRandom" alt="Not Found" />
+                </div>
+            </div>
+            <div class="col">
+                <div class="p-3 " style="margin-top:50px">
+                    <h2 style="color: #78a09c" id="headerR"></h2>
 
 
-                <audio controls style=" width: 450px;margin-top:20px" id="aud">
+                    <audio controls style=" width: 450px;margin-top:20px" id="aud">
 
-                    @*<source src="" type="audio/mpeg" id="audioR11">
-                    Your browser does not support the audio element.*@
-                </audio>
-                <br /><br />
+                       
+                    </audio>
+                    <br /><br />
 
-                <br />
-                <h5>Description : </h5>
-                <p id="pR"></p>
+                    <br />
+                    <h5>Description : </h5>
+                    <div id="pR"></div>
 
 
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
 

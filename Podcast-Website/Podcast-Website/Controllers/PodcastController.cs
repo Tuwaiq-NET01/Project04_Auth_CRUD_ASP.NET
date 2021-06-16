@@ -27,11 +27,13 @@ namespace Podcast_Website.Controllers
             var Podcasts = _db.Podcasts.ToList();
             var Prodcast_Tag = _db.Prodcast_Tag.ToList();
             var tags = _db.Tags.ToList();
+            var PodcastProfile = _db.PodcastProfile.ToList();
 
 
             ViewData["Podcasts"] = Podcasts;
             ViewData["Prodcast_Tag"] = Prodcast_Tag;
             ViewData["tags"] = tags;
+            ViewData["rating"] = PodcastProfile;
             
             ViewData["id"] = id;
 
@@ -98,7 +100,7 @@ namespace Podcast_Website.Controllers
 
         // Post - /poducts/edit/id
         [HttpPost]
-        public IActionResult Edit([Bind("Title", "Audio", "Podcast_image", "Description", "ProfileId")] PodcastModel Podcast)
+        public IActionResult Edit([Bind("Id","Title", "Audio", "Podcast_image", "Description", "ProfileId")] PodcastModel Podcast)
         {
             _db.Podcasts.Update(Podcast);
             _db.SaveChanges();

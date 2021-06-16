@@ -15,7 +15,7 @@ namespace Podcast_Website.Controllers
 {
     public class RandomPodcastController : Controller
     {
-        public string getaListfromAPI(string url)
+        public string getaListfromAPI()
         {
             //var client = new HttpClient();
             //var RequestUri = new Uri(url);
@@ -50,7 +50,7 @@ namespace Podcast_Website.Controllers
             }
 
             //Create the web request and add the required headers
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api.podcastindex.org/api/1.0/search/byperson?q=adam%20curry&pretty");
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api.podcastindex.org/api/1.0/search/byperson?q=Klaus+Schwab&pretty");
           /*  not working in mono: request.Headers.Add("User-Agent", "SuperPodcastPlayer/1.8");*/
             request.UserAgent = "SuperPodcastPlayer/1.8";
             request.Headers.Add("X-Auth-Date", apiHeaderTime.ToString());
@@ -79,12 +79,11 @@ namespace Podcast_Website.Controllers
 
 
 
-        const string BASE_URL = "https://api.podcastindex.org/api/1.0/search/byperson?q=adam%20curry&pretty";
         public IActionResult Index()
         {
             Console.WriteLine("Hi");
             // Console.WriteLine(getaListfromAPI(BASE_URL).items[2].title);
-            var dataString = getaListfromAPI(BASE_URL);
+            var dataString = getaListfromAPI();
             ViewData["dataString"] = dataString;
             return View();
         }

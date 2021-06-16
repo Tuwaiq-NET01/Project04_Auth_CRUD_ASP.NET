@@ -1,0 +1,30 @@
+﻿@{
+    var Profiles = (List<ProfileModel>)ViewData["Profiles"];
+
+
+}
+<div class="container ">
+    <div class="row">
+        @foreach (var Profile in Profiles)
+        {
+
+
+            <div class="col-md-4 Main-author">
+                <a href="/channels/Details/@Profile.Id">
+                    <div class="card profile-card-1">
+                        <img src=@Profile.Background_Image alt="profile-sample1" class="background" />
+                        <img src=@Profile.Image alt="profile-image" class="profile" />
+                        <div class="card-content">
+                            <h2> @Profile.Name</h2>
+
+                            
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
+        }
+
+    </div>
+</div>
