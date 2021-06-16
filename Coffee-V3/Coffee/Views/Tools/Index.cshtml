@@ -1,0 +1,26 @@
+﻿
+@{
+    var Tools = (List<Tool>)ViewData["Tools"];
+
+}
+<h1 style="color:gray;margin-top:120px; text-align:center">Barista Tools</h1>
+
+<body style="margin-bottom:80px">
+    @foreach (var tool in Tools)
+    {
+
+        <div class="ml-3 mr-3 mt-5" style="display: inline-table; text-align:center;">
+            <div class="card" style="width: 16rem; text-align:center;">
+                <img src="@tool.Image" class="card-img-top" height="200" width="20" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title" style="text-align:center; color:darkblue">
+                        @tool.Name
+                    </h5>
+                    <h5 class="card-title">
+                        @tool.Description
+                    </h5>
+                </div>
+            </div>
+        </div>
+    }
+</body>

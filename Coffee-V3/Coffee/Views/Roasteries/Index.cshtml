@@ -1,0 +1,33 @@
+﻿
+@{
+    var Roasteries = (List<Roastery>)ViewData["Roasteries"];
+
+}
+<h1 style="color:gray;margin-top:120px; text-align:center">Coffee Roasteries</h1>
+
+<body style="margin-bottom:80px">
+
+    @foreach (var roaster in Roasteries)
+    {
+        <div class="ml-3 mr-3 mt-5" style="display: inline-table">
+            <div class="card" style="width: 15rem; text-align:center;">
+                <a href="/Roasteries/Details/@roaster.ID"> <img src="@roaster.Image" class="card-img-top" height="150" width="30" alt="..."></a>
+                <div class="card-body ">
+                    <h5 class="card-title">
+                        @roaster.Name
+                    </h5>
+                    <h6 class="card-title">
+                        <i class="material-icons" style="color:darkblue">
+                            location_on
+                        </i>
+                        @roaster.Location
+                    </h6>
+                    <h6 class="card-title">
+                        <i class="material-icons" style="color:sandybrown">star_border</i>
+                        @roaster.Rate
+                    </h6>
+                </div>
+            </div>
+        </div>
+    }
+</body>

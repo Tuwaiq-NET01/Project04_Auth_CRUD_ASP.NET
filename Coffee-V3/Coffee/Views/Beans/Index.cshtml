@@ -1,0 +1,31 @@
+﻿
+@{
+    var Beans = (List<Bean>)ViewData["Beans"];
+
+}
+<h1 style="color:gray;margin-top:120px; text-align:center">Coffee Beans</h1>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<body style="margin-bottom:80px">
+    @foreach (var bean in Beans)
+    {
+        <div class="ml-3 mr-3 mt-5" style="display: inline-table">
+            <div class="card" style="width: 15rem; text-align:center;">
+                <img src="@bean.Image" class="card-img-top" height="200" width="20" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title" style="text-align:center; color:darkblue">
+                        @bean.Name
+                    </h5>
+                    <h5 class="card-title">
+                        @bean.Type
+                    </h5>
+                    <h5 class="card-title">
+                        <i class="small material-icons">flag</i>
+                        @bean.Country
+                    </h5>
+                </div>
+            </div>
+        </div>
+
+    }
+</body>

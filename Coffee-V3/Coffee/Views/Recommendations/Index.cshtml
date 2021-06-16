@@ -1,0 +1,59 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject UserManager<IdentityUser> UserManager
+
+@{
+    var Recommendations = (List<Recommendation>)ViewData["Recommendations"];
+}
+<h5 style="color:gray;margin-top:120px; text-align:center">Coffee Recommendations & Community </h5>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<h6 style="margin-top:20px">
+    <a href="/Recommendations/Create" class="btn-floating btn-large pulse"><i class="material-icons">add</i></a>
+</h6>
+<body style="margin-bottom:150px;">
+    @foreach (var Recom in Recommendations)
+    {
+
+        <div class="card mr-5 mb-2" style="width:15rem; display:inline-table; text-align:center">
+            <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="@Recom.Image" height="290" width="500">
+            </div>
+            <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">@Recom.ItemName<i class="material-icons right">more_vert</i></span>
+                <p><a href="@Recom.AvailabilityLoc">Visit</a></p>
+            </div>
+            <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">@Recom.ItemName<i class="material-icons right">close</i></span>
+                <p>@Recom.Description</p>
+                <div class="card-contentr">
+                    <a href="@Recom.Color">@Recom.Color</a>
+                    <br />
+                    <br />
+                </div>
+                @if (@UserManager.GetUserId(User) == Recom.UserId)
+                {
+                    <div style="display:inline-table; margin-right:4px; margin-bottom:4px">
+                        <a class="btn-floating btn-large pulse" asp-controller="Recommendations" style="background-color:#ffce00;
+        color: white" asp-action="Edit" asp-route-id="@Recom.ID" role="link">
+                            <i class="material-icons">edit</i>
+                        </a>
+
+                        <form class="material-icons" id="close" method="post" asp-controller="Recommendations" asp-action="Delete" asp-route-id="@Recom.ID">
+                            
+                                <button type="submit" id="close" class="btn-floating btn-large pulse " style="background-color: #e60020;
+        color: white">
+                                    <i class="material-icons">close</i>    
+                                </button>
+                        </form>
+
+
+
+                    </div>
+                }
+
+
+            </div>
+        </div>
+    }
+</body>

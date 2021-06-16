@@ -1,0 +1,162 @@
+﻿
+@{
+    var Roastery = (Roastery)ViewData["Roastery"];
+
+    var Bean = (List<Bean>)ViewData["Bean"];
+
+
+}
+<style>
+    #map {
+        height: 350px;
+        width: 100%;
+    }
+</style>
+<h1 style="color:gray;margin-top:120px; text-align:center">@Roastery.Name Beans</h1>
+<body style="margin-bottom:80px">
+
+    <div class="ml-3 mr-3 mt-5" style="display: inline-table; text-align:center">
+        <div class="card" style="width: 15rem; text-align:center;">
+            <img src="@Roastery.Image" class="card-img-top" height="200" width="20" alt="...">
+            <div class="card-body ">
+                <h5 class="card-title">
+                    @Roastery.Name
+                </h5>
+                <h6 class="card-title">
+                    <i class="material-icons" style="color:darkblue">
+                        location_on
+                    </i>
+                    @Roastery.Location
+                </h6>
+                <h6 class="card-title">
+                    <i class="material-icons" style="color:sandybrown">star_border</i>
+                    @Roastery.Rate
+                </h6>
+            </div>
+        </div>
+    </div>
+
+    @foreach (var item in Bean)
+    {
+        <div class="ml-3 mr-3 mt-5" style="display: inline-table; text-align:center">
+            <div class="card" style="width: 15rem; text-align:center;">
+                <img src="@item.Image" class="card-img-top" height="200" width="20" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title" style="text-align:center; color:darkblue">
+                        @item.Name
+                    </h5>
+                    <h5 class="card-title">
+                        @item.Type
+                    </h5>
+                    <h5 class="card-title">
+                        <i class="small material-icons">flag</i>
+                        @item.Country
+                    </h5>
+                </div>
+            </div>
+        </div>
+
+    }
+
+    @if (Roastery.ID == 1)
+    {
+        <script>
+
+            function initMap() {
+                const uluru = { lat: 24.483613673571742, lng: 39.65247431163906 };
+                const map = new google.maps.Map(document.getElementById("map"), {
+                    zoom: 12,
+                    center: uluru,
+                });
+                addMarker(uluru, map);
+                function addMarker(location, map) {
+                    new google.maps.Marker({
+                        position: location,
+                        label: {
+                            text: "محمصة كفة",
+                            color: "black",
+                            fontWeight: "bold",
+                        },
+                        map: map,
+                    });
+                }
+            }
+        </script>
+        <div style="margin-top:120px">
+            <h3>Kiffa Location in Google Map</h3>
+            <div id="map"></div>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCo8Q8VE4mzFy7hMCtqlfvVPIlWMu3sAw&callback=initMap&libraries=&v=weekly"
+                    async></script>
+        </div>
+    }
+
+    else if (Roastery.ID == 3)
+    {
+        <script>
+
+            function initMap() {
+                const uluru = { lat: 21.632737440832805, lng: 39.14419281957282 };
+                const map = new google.maps.Map(document.getElementById("map"), {
+                    zoom: 12,
+                    center: uluru,
+                });
+                addMarker(uluru, map);
+                function addMarker(location, map) {
+                    new google.maps.Marker({
+                        position: location,
+                        label: {
+                            text: "محمصة صُواع",
+                            color: "black",
+                            fontWeight: "bold",
+                        },
+                        map: map,
+                    });
+                }
+            }
+        </script>
+        <div style="margin-top:120px">
+            <h3>Suwaa Location in Google Map</h3>
+            <div id="map"></div>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCo8Q8VE4mzFy7hMCtqlfvVPIlWMu3sAw&callback=initMap&libraries=&v=weekly"
+                    async></script>
+        </div>
+    }
+    else if (Roastery.ID == 4)
+    {
+        <script>
+
+            function initMap() {
+                const b1 = { lat: 24.770343076183618, lng: 46.6908926809503 };
+                const b2 = { lat: 26.326522036852477, lng: 50.21345257573235 };
+                const b3 = { lat: 21.618285239925694, lng: 39.131429460489414 };
+
+                const map = new google.maps.Map(document.getElementById("map"), {
+                    zoom: 4,
+                    center: b1,
+                });
+                addMarker(b1, map);
+                addMarker(b2, map);
+                addMarker(b3, map);
+
+                function addMarker(location, map) {
+                    new google.maps.Marker({
+                        position: location,
+                        label: {
+                            text: "محمصة خطوة جمل",
+                            color: "white",
+                            fontWeight: "bold",
+                        },
+                        map: map,
+                    });
+                }
+            }
+        </script>
+        <div style="margin-top:120px">
+            <h3>Camel Step Location in Google Map</h3>
+            <div id="map"></div>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCo8Q8VE4mzFy7hMCtqlfvVPIlWMu3sAw&callback=initMap&libraries=&v=weekly"
+              async></script>
+        </div>
+    }
+
+</body>
