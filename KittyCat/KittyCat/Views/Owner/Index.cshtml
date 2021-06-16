@@ -1,8 +1,7 @@
 ﻿@{
     var owner = (List<OwnerModel>)ViewData["Owners"];
 }
-@await Html.PartialAsync("_NavPartial")
-<div class="col-sm-6">
+@*<div class="col-sm-6">
     @foreach (var ow in owner)
     {
 
@@ -24,4 +23,65 @@
                 </div>
             </div>
         </div>}
+</div>*@
+
+
+<div class="" style="background-color: #71d3d1 ">
+    @await Html.PartialAsync("_NavPartial")
 </div>
+<div class="col-sm-6">
+    @foreach (var ow in owner)
+    {
+        <div class="container01">
+
+            <div class="row wrapp">
+                <div class="col-5 left-side">
+                    <div class="">
+                        <img src="@ow.image" alt="Car" class="img01 rounded-circle" />
+                    </div>
+                    <div class="title01">
+                        <h3>@ow.name</h3>
+                        <p>
+                            @ow.age * @ow.gender 
+                        </p>
+                        <img src="img/continue.png" alt="" />
+                    </div>
+                </div>
+                <div class="col-7 right-side text-center">
+                    <h3>Owner</h3>
+                    <form action="">
+                        <div class="row">
+                            <label class="col-6">Name</label>
+                            <label class="col-6">@ow.name</label>
+
+                        </div>
+                        <div class="row">
+                            <label class="col-6">Gender</label>
+                            <label class="col-6">@ow.gender</label>
+                        </div>
+                        <div class="row">
+                            <label class="col-6">Age</label>
+                            <label class="col-6">@ow.age</label>
+                        </div>
+                        <div class="row">
+                            <label class="col-6">Email</label>
+                            <label class="col-6">@ow.email</label>
+                        </div>
+                        <div class="row">
+                            <label class="col-6">Mobile</label>
+                            <label class="col-6">@ow.phone</label>
+                        </div>
+
+                    </form>
+                    <div class="btns">
+                        <a style="white-space: nowrap;" asp-controller="Owner" asp-action="Edit" asp-route-id="@ow.id">Edit</a> |
+                        <form asp-controller="Owner" asp-action="Delete" asp-route-id="@ow.id">
+                            <input type="submit" class="" value="Delete">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>}
+    </div>
+
+

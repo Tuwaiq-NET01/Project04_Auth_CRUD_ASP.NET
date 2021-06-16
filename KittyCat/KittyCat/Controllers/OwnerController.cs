@@ -18,7 +18,7 @@ namespace KittyCat.Controllers
         }
         public IActionResult Index(int id)
         {
-            var Owners = _db.adopter.ToList();
+            var Owners = _db.owner.ToList();
             ViewData["Owners"] = Owners;
             return View();
         }

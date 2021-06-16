@@ -2,30 +2,21 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="container">
-    <div class="col-md-4">
-        <form>
-            <h2>  Necessary Items for Cats:</h2>
-            <div class="form-check">
-                <label>
-                    <input type="checkbox" name="check" checked> <span class="label-text">Option 01</span>
-                </label>
-            </div>
-            <div class="form-check">
-                <label>
-                    <input type="checkbox" name="check"> <span class="label-text">Option 02</span>
-                </label>
-            </div>
-            <div class="form-check">
-                <label>
-                    <input type="checkbox" name="check"> <span class="label-text">Option 03</span>
-                </label>
-            </div>
-            <div class="form-check">
-                <label>
-                    <input type="checkbox" name="check" disabled> <span class="label-text">Option 04</span>
-                </label>
-            </div>
-        </form>
+<div class="" style="background-color: #71d3d1 ">
+    @await Html.PartialAsync("_NavPartial")
+</div>
 
+
+<div class="row">
+    <div class="col-6" style="background-color:#aaa;">
+       
+        <img src="https://images.unsplash.com/photo-1543852786-1cf6624b9987?ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8Y2F0fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60 ">
     </div>
+    <div class="col-6" style="background-color:antiquewhite;">
+        <h2>
+            Before Adopt A Cat Consider Food
+        </h2>
+        <p> Suggest before you adopt a cat and bring home. Go ahead and find out what the kitty was eating in the shelter or foster home. Be a good idea to provide the same food and ease the transition. 
+        It may also be a good idea to consider your cat’s size when you shop for supplies to ensure that they will be suitable for your pet.</p>
+    </div>
+</div>
