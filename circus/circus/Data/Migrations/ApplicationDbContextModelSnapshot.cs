@@ -253,6 +253,27 @@ namespace circus.Data.Migrations
                             Image = "https://www.cirquedusoleil.com/-/media/cds/images/shows/mystere/new/highlights/mystere_highlights_06_powertrack_942x570.jpg?h=570&w=942&hash=D3183E25FD15F5DD8B95BBBB6A7C3EB93E131D33",
                             Name = "Mystère",
                             Profession = "Acrobatics and dancers"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Image = "https://www.cirquedusoleil.com/-/media/cds/images/shows/joya/highlights/joya_highlights_03_botanik_480x480_2.jpg?db=web&h=480&la=en&vs=1&w=480&hash=80B381B61B5B00159C5B279A50242E1B59DF5EF7",
+                            Name = "Joyà",
+                            Profession = "Performing arts"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Image = "https://www.cirquedusoleil.com/-/media/cds/images/shows/crystal/hightlights/thumb/crystal_highlights_01_480x480.jpg?db=web&h=480&la=en&vs=1&w=480&hash=9A360571B39D365B743A539F3F902E57C451122C",
+                            Name = "Crystal",
+                            Profession = "Acrobatics on ice"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Image = "https://www.cirquedusoleil.com/-/media/cds/images/shows/kurios/highlights_thumbnail/kurios-show-rola-bola.jpg?db=web&h=480&la=en&vs=1&w=480&hash=4E130ABB3F44E29C31D643003A976D77F4098C6A",
+                            Name = "KURIOS",
+                            Profession = "Act"
                         });
                 });
 
@@ -294,6 +315,27 @@ namespace circus.Data.Migrations
                             Date = new DateTime(2021, 7, 1, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             PerformerId = 2,
                             VenueId = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Date = new DateTime(2021, 8, 4, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            PerformerId = 3,
+                            VenueId = 3
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Date = new DateTime(2021, 9, 26, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            PerformerId = 4,
+                            VenueId = 4
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Date = new DateTime(2022, 4, 24, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            PerformerId = 5,
+                            VenueId = 5
                         });
                 });
 
@@ -361,6 +403,30 @@ namespace circus.Data.Migrations
                             Image = "https://media-cdn.tripadvisor.com/media/photo-s/1c/8a/e0/b9/bellagio-las-vegas.jpg",
                             Name = "Bellagio",
                             Type = "Casino"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Address = "Riviera Maya, Mexico",
+                            Image = "https://i.pinimg.com/originals/c0/dd/f7/c0ddf756d6663523acc138503b23840c.jpg",
+                            Name = "Cirque du Soleil",
+                            Type = "Theater"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Address = "Hanover, Germany",
+                            Image = "https://www.hannover.de/var/storage/images/media/01-data-neu/bilder/redaktion-hannover.de/portale/b%C3%BChnen/tui-arena/7060009-1-ger-DE/TUI-Arena.jpg",
+                            Name = "ZAG",
+                            Type = "Arena"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Address = "Rome, Italy",
+                            Image = "https://www.eventiculturalimagazine.com/wp-content/uploads/2018/12/mio-20.jpg",
+                            Name = "Tor di Quinto",
+                            Type = "Tent"
                         });
                 });
 
