@@ -23,7 +23,7 @@ namespace TuwaiqCVMaker.Models
         [Required]
         [Column(TypeName = "decimal(5, 2)")]
         public decimal Total { get; set; }
-        [Required] public int UserId { get; set; }
+        [Required] public string UserId { get; set; }
         [JsonIgnore] public ApplicationUser User { get; set; }
     }
 }

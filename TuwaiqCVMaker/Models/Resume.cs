@@ -12,7 +12,7 @@ namespace TuwaiqCVMaker.Models
         [Required] public string Phone { get; set; }
         [Required] public string Introduction { get; set; }
         [Required] public string Education { get; set; }
-        [Required] public int UserId { get; set; }
+        [Required] public string UserId { get; set; }
         [JsonIgnore] public ApplicationUser User { get; set; }
         public ICollection<Skill> Skills { get; set; }
     }
