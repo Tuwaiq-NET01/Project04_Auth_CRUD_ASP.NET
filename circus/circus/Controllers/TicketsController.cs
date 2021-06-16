@@ -48,7 +48,7 @@ namespace circus.Controllers
                 _db.Add(ticket);
                 _db.SaveChanges();
             }
-            return Redirect("~/shows/");
+            return RedirectToAction("Index");
         }
         //GET - edit
         public IActionResult Edit(int? id)

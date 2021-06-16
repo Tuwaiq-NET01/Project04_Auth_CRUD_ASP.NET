@@ -5,43 +5,36 @@
     ViewData["Title"] = "Log in";
 }
 
-<h1>@ViewData["Title"]</h1>
-<div>
-    <div>
-        <section>
+    <div class="grid grid-cols-2 p-4 h-screen w-3/4 m-auto bg-gradient-to-b from-gray-100 shadow-lg rounded-lg mt-6 overflow-hidden">
+        <section class="leading-loose font-bold m-auto text-center">
             <form id="account" method="post">
-                <h4>Use a local account to log in.</h4>
-                <hr />
-                <div asp-validation-summary="All" class="text-danger"></div>
-                <div>
+                <h4 class="mb-12 text-center hero text-3xl">Use a local account to log in</h4>
+                <div asp-validation-summary="All" class="text-red-500"></div>
+                <div class="text-left my-4 grid grid-cols-3">
                     <label asp-for="Input.Email"></label>
-                    <input asp-for="Input.Email" class="form-control" />
+                    <input class="col-span-2 px-3 font-bold border-b-2 focus:outline-none focus:ring focus:border-yellow-300 rounded-md border-yellow-400" asp-for="Input.Email" class="form-control" />
                     <span asp-validation-for="Input.Email" class="text-danger"></span>
                 </div>
-                <div>
+                <div class="text-left my-4 grid grid-cols-3">
                     <label asp-for="Input.Password"></label>
-                    <input asp-for="Input.Password" class="form-control" />
+                    <input class="col-span-2 px-3 font-bold border-b-2 focus:outline-none focus:ring focus:border-yellow-300 rounded-md border-yellow-400" asp-for="Input.Password" class="form-control" />
                     <span asp-validation-for="Input.Password" class="text-danger"></span>
                 </div>
                 <div>
-                    <div>
+                    <div class="text-left my-4 grid grid-cols-3">
                         <label asp-for="Input.RememberMe">
-                            <input asp-for="Input.RememberMe" />
+                            <input class="col-span-2 px-3 font-bold border-b-2 focus:outline-none focus:ring focus:border-yellow-300 rounded-md border-yellow-400" asp-for="Input.RememberMe" />
                             @Html.DisplayNameFor(m => m.Input.RememberMe)
                         </label>
                     </div>
                 </div>
-                <div class="form-group">
-                    <button type="submit">Log in</button>
+                <div>
+                    <button class="mt-4 mb-2 rounded-full px-4 uppercase font-bold bg-yellow-400" type="submit">Log in</button>
                 </div>
                 <div>
                     <p>
-                        <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                        <a class="hover:text-yellow-400" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
                     </p>
-                    <p>
-                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
-                    </p>
-
                 </div>
             </form>
         </section>

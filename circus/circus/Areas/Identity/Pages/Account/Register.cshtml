@@ -4,33 +4,34 @@
     ViewData["Title"] = "Register";
 }
 
-<h1>@ViewData["Title"]</h1>
+    <div class="grid grid-cols-2 p-4 h-screen w-3/4 m-auto bg-gradient-to-b from-gray-100 shadow-lg rounded-lg mt-6 overflow-hidden">
+        <div class="leading-loose font-bold m-auto text-center">
+            <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                <h4 class="mb-12 text-center hero text-4xl">Create a new account</h4>
+                <div asp-validation-summary="All" class="text-red-500"></div>@{ /*red text*/}
+                <div class="text-left my-4 grid grid-cols-3">
+                    <label asp-for="Input.Email"></label>
+                    <input class="col-span-2 px-3 font-bold border-b-2 focus:outline-none focus:ring focus:border-yellow-300 rounded-md border-yellow-400" asp-for="Input.Email" class="form-control" />
+                    <span asp-validation-for="Input.Email" class="text-red-500 col-span-3"></span>
+                </div>
+                <div class="text-left my-4 grid grid-cols-3">
+                    <label asp-for="Input.Password"></label>
+                    <input class="col-span-2 px-3 font-bold border-b-2 focus:outline-none focus:ring focus:border-yellow-300 rounded-md border-yellow-400" asp-for="Input.Password" class="form-control" />
+                    <span asp-validation-for="Input.Password" class="text-red-500 col-span-3"></span>
+                </div>
+                <div class="text-left my-4 grid grid-cols-3">
+                    <label asp-for="Input.ConfirmPassword"></label>
+                    <input class="col-span-2 px-3 font-bold border-b-2 focus:outline-none focus:ring focus:border-yellow-300 rounded-md border-yellow-400" asp-for="Input.ConfirmPassword" class="form-control" />
+                    <span asp-validation-for="Input.ConfirmPassword" class="text-red-500 col-span-3"></span>
+                </div>
+                <button class="mt-4 rounded-full px-4 uppercase font-bold bg-yellow-400" type="submit">Register</button>
+            </form>
+            <div>
 
-    <div>
-        <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
-            <h4>Create a new account.</h4>
-            <hr />
-            <div asp-validation-summary="All"></div>@{ /*red text*/}
-            <div>
-                <label asp-for="Input.Email"></label>
-                <input asp-for="Input.Email" class="form-control" />
-                <span asp-validation-for="Input.Email" class="text-danger"></span>
             </div>
-            <div>
-                <label asp-for="Input.Password"></label>
-                <input asp-for="Input.Password" class="form-control" />
-                <span asp-validation-for="Input.Password" class="text-danger"></span>
-            </div>
-            <div>
-                <label asp-for="Input.ConfirmPassword"></label>
-                <input asp-for="Input.ConfirmPassword" class="form-control" />
-                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
-            </div>
-            <button type="submit">Register</button>
-        </form>
+        </div>
+        
     </div>
-
-    
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
