@@ -49,10 +49,10 @@ namespace KittyCat.Controllers
         {
             var cat = _db.catTable.Where(c => c.id == id).ToList().First();
             var owner = _db.owner.Where(o => o.id == cat.OwnerId).ToList().First();
-            /*var location = _db.location.Where(l => l.id == cat.LocationId).ToList().First();*/
+            var location = _db.location.Where(l => l.id == cat.LocationId).ToList().First();
             ViewData["Cat"] = cat;
             ViewData["Owner"] = owner;
-            /*ViewData["Location"] = location;*/
+            ViewData["Location"] = location;
             return View();
         }
     }

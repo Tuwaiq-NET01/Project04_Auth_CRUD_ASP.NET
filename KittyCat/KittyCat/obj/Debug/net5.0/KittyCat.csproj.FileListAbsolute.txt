@@ -173,3 +173,5 @@ C:\Users\Batool Alghamdi\Desktop\Tuwaiq\.Net\Projects\Project04_Auth_CRUD_ASP.NE
 C:\Users\Batool Alghamdi\Desktop\Tuwaiq\.Net\Projects\Project04_Auth_CRUD_ASP.NET\KittyCat\KittyCat\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\_ViewImports.cshtml.g.cs
 C:\Users\Batool Alghamdi\Desktop\Tuwaiq\.Net\Projects\Project04_Auth_CRUD_ASP.NET\KittyCat\KittyCat\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\Batool Alghamdi\Desktop\Tuwaiq\.Net\Projects\Project04_Auth_CRUD_ASP.NET\KittyCat\KittyCat\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
+C:\Users\Batool Alghamdi\Desktop\Tuwaiq\.Net\Projects\Project04_Auth_CRUD_ASP.NET\KittyCat\KittyCat\obj\Debug\net5.0\Razor\Views\Breed\Index.cshtml.g.cs
+C:\Users\Batool Alghamdi\Desktop\Tuwaiq\.Net\Projects\Project04_Auth_CRUD_ASP.NET\KittyCat\KittyCat\obj\Debug\net5.0\Razor\Views\Breed\Details.cshtml.g.cs

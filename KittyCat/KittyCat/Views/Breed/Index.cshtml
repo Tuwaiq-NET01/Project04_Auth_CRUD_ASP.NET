@@ -1,0 +1,18 @@
+﻿@{ var breed = (List<BreedModel>)ViewData["Breeds"]; }
+<div class="" style="background-color: darkturquoise">
+    @await Html.PartialAsync("_NavPartial")
+</div>
+<div class="container ml-5 pl-5">
+    <div class="row">
+        @foreach (var b in breed)
+        {
+<div class="card bg-light box-shadow mr-5 mt-2" style="width: 18rem;">
+    <div class="card-body">
+        <img class="card-img-top " src="@b.image" alt="Card image cap">
+        <h5 class="card-title">@b.name</h5>
+        <p class="card-text"> @b.overview</p>
+        <a href="/Breed/Details/@b.id"><button type="button" class="btn btn-info">More Info</button></a>
+    </div>
+</div>}
+    </div>
+</div>

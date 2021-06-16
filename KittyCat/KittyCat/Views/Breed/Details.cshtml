@@ -1,0 +1,19 @@
+﻿@{ var b = (BreedModel)ViewData["breed"]; }
+<div class="" style="background-color: darkturquoise">
+    @await Html.PartialAsync("_NavPartial")
+</div>
+<div class="col-sm-6">
+    <div class="card" style="width:40em">
+        <div class="card-body">
+            <img class="card-img-top" src="@b.image" alt="Card image cap">
+            <h5 class="card-title">@b.name</h5>
+            <h5 class="font-weight-bold">overview:</h5>
+            <p class="card-text"> @b.overview</p>
+            <h5 class="font-weight-bold">personality:</h5>
+            <p class="card-text align-content-center">  @b.personality</p>
+            <h5 class="font-weight-bold">grooming:</h5>
+            <p class="card-text">  @b.grooming</p>
+
+        </div>
+    </div>
+</div>

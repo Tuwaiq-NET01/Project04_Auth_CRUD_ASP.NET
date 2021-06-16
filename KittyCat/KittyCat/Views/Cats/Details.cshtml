@@ -1,44 +1,7 @@
 ﻿@{ var c = (CatModel)ViewData["Cat"];
     var o = (OwnerModel)ViewData["Owner"];
-    @*var l = (LocationModel)ViewData["Location"];*@
+    var l = (LocationModel)ViewData["Location"];
 }
-
-<!--<div class="" style="background-color: darkturquoise">
-    @await Html.PartialAsync("_NavPartial")
-</div>
-
-<div class="row">
-<div class="col-6">
-    <div class=" text-center d-flex justify-content-center align-items-center" style="background-color:lightcyan; padding:30px">
-        <div class="card-body">
-            <img class="card-img-top" src="@c.image" alt="Card image cap" style="height:300px; width:auto">
-            <h5 class="card-title">@c.name</h5>
-            <p class="card-text"> @c.age * @c.gender * @c.health *@c.breed </p>
-            <h5 class="font-weight-bold">Meet @c.name:</h5>
-            <p class="card-text align-content-center">  @c.description</p>-->
-            @*<h5 class="font-weight-bold">Address:</h5>*@
-            @*<p class="card-text">  @l.address</p>*@
-        <!--</div>
-    </div>
-</div>
-
-<div class="col-6">
-
-    <div class=" text-center d-flex justify-content-center align-items-center" style="background-color:lightcyan; padding:30px">
-        <div class="card-body">
-            <img class="card-img-top" src="@o.image" alt="Card image cap" style="height:300px; width:auto">
-            <h5 class="card-title">Owner: @o.name</h5>
-            <h5 class="font-weight-bold">Details:</h5>
-            <span>@o.phone *  @o.age * @o.gender * @o.email</span>
-   
-
-        </div>
-    </div>
-</div>
-</div>
-<div class="d-grid gap-2">
-    <a href="/Adopter/Create/@c.id"><button type="button" class="btn btn-info">Adopt Me</button></a>
-</div>-->
 
 <div class="" style="background-color: #71d3d1 ">
     @await Html.PartialAsync("_NavPartial")
@@ -59,11 +22,15 @@
                 <p>
                     @c.description
                 </p>
+                <h5>
+                   location:  @c.Location
+                </h5>
+
                 <img src="img/continue.png" alt="" />
             </div>
         </div>
         <div class="col-7 right-side text-center">
-            <h3>Owner</h3>
+            <h3>Owner information</h3>
             <form action="">
                 <div class="row">
                     <label class="col-6">Name</label>
