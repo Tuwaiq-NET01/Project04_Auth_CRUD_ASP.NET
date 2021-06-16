@@ -179,6 +179,7 @@ namespace Project04_Auth_CRUD_ASP.NET.Controllers
         // GET: PriceModels/Delete/5
         public async Task<IActionResult> Delete(Guid? id)
         {
+            // mark for testing ****************************************************************************
             if (id == null)
             {
                 return NotFound();

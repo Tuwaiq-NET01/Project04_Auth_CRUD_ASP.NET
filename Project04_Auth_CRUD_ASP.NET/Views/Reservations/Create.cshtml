@@ -3,13 +3,16 @@
 <h1>@ViewData["BarberName"]</h1>
 
 <hr />
+<div class="text-danger">
+    @ViewData["message"]
+</div>
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create" >
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Day" class="control-label"></label>
-                <input asp-for="Day" class="form-control" />
+                <input asp-for="Day" class="form-control" min="@System.DateTime.Today.ToString("yyyy-MM-dd")" />
                 <span asp-validation-for="Day" class="text-danger"></span>
             </div>
             <div class="form-group">

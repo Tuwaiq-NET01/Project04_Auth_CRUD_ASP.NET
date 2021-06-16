@@ -59,6 +59,7 @@ namespace Project04_Auth_CRUD_ASP.NET.Models
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create([Bind("Id,Name")] BarberModel barberModel)
         {
+            // mark for testing ****************************************************************************
             if (ModelState.IsValid)
             {
                 barberModel.Id = Guid.NewGuid();

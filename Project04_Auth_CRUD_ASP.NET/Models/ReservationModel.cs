@@ -11,6 +11,7 @@ namespace Project04_Auth_CRUD_ASP.NET.Models
     {
         public Guid Id { get; set; }
         [Required]
+        [DataType(DataType.Date)]
         public DateTime Day { get; set; }
         public PriceModel Price { get; set; }
         public Guid PriceId { get; set; }

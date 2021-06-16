@@ -82,6 +82,27 @@ namespace Project04_Auth_CRUD_ASP.NET.Controllers
         {
             if (ModelState.IsValid)
             {
+                var same_res = _context.Reservations.FirstOrDefault(r => r.Day == reservationModel.Day && r.PriceId == reservationModel.PriceId);
+
+                if(same_res != null)
+                {
+                    var barber = _context.Prices.Include(p => p.Barber).FirstOrDefault(p => p.Id == reservationModel.PriceId).Barber;
+                    if (barber == null)
+                    {
+                        return NotFound();
+                    }
+
+                    var query = from price in _context.Prices
+                                where price.BarberId == barber.Id
+                                join time in _context.Times on price.TimeId equals time.Id
+                                select new { Id = price.Id, Text = time.Value + " $ " + price.Value };
+
+                    ViewData["message"] = barber.Name + " is already booked";
+                    ViewData["BarberName"] = barber.Name;
+                    ViewData["PriceId"] = new SelectList(query, "Id", "Text");
+                    return View(reservationModel);
+                }
+
                 reservationModel.Id = Guid.NewGuid();
                 reservationModel.UserId = new Guid(User.FindFirst(ClaimTypes.NameIdentifier).Value);
                 _context.Add(reservationModel);
@@ -105,7 +126,22 @@ namespace Project04_Auth_CRUD_ASP.NET.Controllers
             {
                 return NotFound();
             }
-            ViewData["PriceId"] = new SelectList(_context.Prices, "Id", "Id", reservationModel.PriceId);
+
+            var barberID = _context.Reservations.Include(r => r.Price).FirstOrDefault(p => p.Id == id).Price.BarberId;
+            var barber = _context.Barbers.FirstOrDefault(b => b.Id == barberID);
+
+            if (barber == null)
+            {
+                return NotFound();
+            }
+
+            var query = from price in _context.Prices
+                        where price.BarberId == barber.Id
+                        join time in _context.Times on price.TimeId equals time.Id
+                        select new { Id = price.Id, Text = time.Value + " $ " + price.Value };
+
+            ViewData["BarberName"] = barber.Name;
+            ViewData["PriceId"] = new SelectList(query, "Id", "Text");
             return View(reservationModel);
         }
 
@@ -114,7 +150,7 @@ namespace Project04_Auth_CRUD_ASP.NET.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Day,PriceId,UserId")] ReservationModel reservationModel)
+        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Day,PriceId")] ReservationModel reservationModel)
         {
             if (id != reservationModel.Id)
             {
@@ -123,8 +159,29 @@ namespace Project04_Auth_CRUD_ASP.NET.Controllers
 
             if (ModelState.IsValid)
             {
+                var same_res = _context.Reservations.FirstOrDefault(r => r.Day == reservationModel.Day && r.PriceId == reservationModel.PriceId);
+
+                if (same_res != null)
+                {
+                    var barber = _context.Prices.Include(p => p.Barber).FirstOrDefault(p => p.Id == reservationModel.PriceId).Barber;
+                    if (barber == null)
+                    {
+                        return NotFound();
+                    }
+
+                    var query = from price in _context.Prices
+                                where price.BarberId == barber.Id
+                                join time in _context.Times on price.TimeId equals time.Id
+                                select new { Id = price.Id, Text = time.Value + " $ " + price.Value };
+
+                    ViewData["message"] = barber.Name + " is already booked";
+                    ViewData["BarberName"] = barber.Name;
+                    ViewData["PriceId"] = new SelectList(query, "Id", "Text");
+                    return View(reservationModel);
+                }
                 try
                 {
+                    reservationModel.UserId = new Guid(User.FindFirst(ClaimTypes.NameIdentifier).Value);
                     _context.Update(reservationModel);
                     await _context.SaveChangesAsync();
                 }

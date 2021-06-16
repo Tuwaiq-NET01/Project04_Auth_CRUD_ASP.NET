@@ -20,7 +20,8 @@ namespace Project04_Auth_CRUD_ASP.NET.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            // mark for testing ****************************************************************************
+            return View("Index");
         }
 
         public IActionResult Privacy()
