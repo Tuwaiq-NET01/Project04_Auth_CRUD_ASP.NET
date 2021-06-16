@@ -1,8 +1,33 @@
-﻿@{
+﻿@section Styles{
+    <link href="@Url.Content("~/css/home.css")" rel="stylesheet" type="text/css" />
+
+}
+
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<IdentityUser> UserManager
+
+
+@{
     Layout = "_myLayout";
     ViewData["Title"] = "Home Page";
+
+
+    var username = UserManager.GetUserName(User);
+
+
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome, </h1>
+    @if (!(username == null))
+    {
+        <h1 class="display-4">Welcome, @username</h1>
+        <h3> <a class="btn btn-outline-danger" asp-controller="games" asp-action="index">See the games <i class="fas fa-chevron-circle-right"></i> </a>  </h3>
+    }
+    else
+    {
+        <h1 class="display-4">Welcome!</h1>
+        <h3> <a asp-area="Identity" asp-page="/Account/Login">Login</a> and get CHALLENGED! </h3>
+    }
 </div>
+
+

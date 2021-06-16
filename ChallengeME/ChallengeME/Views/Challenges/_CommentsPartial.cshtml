@@ -1,4 +1,6 @@
-﻿@using Microsoft.AspNetCore.Identity
+﻿
+
+@using Microsoft.AspNetCore.Identity
 @inject UserManager<IdentityUser> UserManager
 @model Comment
 @{
@@ -43,7 +45,7 @@
                     {
 
                         <form method="post" asp-controller="comments" asp-action="delete" asp-route-id="@cmt.Id">
-                                <button type="submit" class="btn btn-link trash"><i class="fas fa-trash fa-2x"></i></button>
+                            <button type="submit" class="btn btn-link trash"><i class="fas fa-trash fa-2x"></i></button>
                         </form>
                     }
 

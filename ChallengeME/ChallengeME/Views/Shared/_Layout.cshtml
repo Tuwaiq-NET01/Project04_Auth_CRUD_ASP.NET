@@ -9,31 +9,33 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ChallengeME</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-
-                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="games" asp-action="index">Games</a>
-                        </li>
+        <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #4e262699; font-family: 'Russo One', cursive; font-size: 20px">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">ChallengeME</a>
+            <div class="collapse navbar-collapse ml-5" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link mr-2" aria-current="page" href="/"><i class="fas fa-home mr-1"></i>Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mr-2" aria-current="page" href="/games"><i class="fas fa-gamepad mr-1"></i> Games </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mr-2" href="/home/about"> <i class="fas fa-address-card mr-1"></i>About</a>
+                    </li>
+                </ul>
 
 
-                    </ul>
-                    <partial name="_LoginPartial" />
-                </div>
+
             </div>
+            <form class="d-flex" asp-controller="games" asp-action="search">
+                <input class="form-control me-2" typeof="seach" name="txt" placeholder="e.g. Need For Speed" />
+                <button class="btn btn-info ml-2" typeof="submit">Search</button>
+            </form>
+
+            <partial name="_LoginPartial" />
+
+        </div>
         </nav>
     </header>
     <div class="container">

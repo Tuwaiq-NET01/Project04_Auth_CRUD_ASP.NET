@@ -96,6 +96,43 @@ namespace ChallengeME.Controllers
 
 
         [Authorize]
+        public IActionResult Edit(int? id)
+        {
+            var game = _context.Games.ToList().Find(p => p.Id == id);
+            if (id == null || game == null)
+            {
+                return NotFound();
+            }
+
+            ViewData["game"] = game;
+
+            return View();
+        }
+
+        [Authorize]
+        [HttpPost]
+        public IActionResult Edit(int id, [Bind("GameName", "GameImage")] Game game)
+        {
+
+            var dbgame = _context.Games.ToList().Find(p => p.Id == id);
+            dbgame.GameName = game.GameName;
+            dbgame.GameImage = game.GameImage;
+
+            _context.Games.Update(dbgame);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+
+
+
+
+
+
+
+
+        [Authorize]
         [HttpPost]
         public IActionResult Delete(int? id)
         {

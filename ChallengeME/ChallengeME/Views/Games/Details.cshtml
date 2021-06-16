@@ -35,13 +35,17 @@
 
 <hr />
 
+<div class="d-flex align-items-center">
+    <h1 class="display-5">Challenges:</h1>
 
-<h1 class="display-5">Challenges:</h1>
+    @if (isUser)
+    {
+        <a class="ml-3" asp-action="create" asp-controller="challenges" asp-route-id="@game.Id"><i class="fas fa-plus-circle fa-2x"></i></a>
 
-@if (isUser)
-{
-    <a asp-action="create" asp-controller="challenges" asp-route-id="@game.Id">Create new challenge</a>
-}
+        
+    }
+
+</div>
 
 <div class="list-group ">
 

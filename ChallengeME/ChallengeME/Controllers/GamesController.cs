@@ -161,7 +161,7 @@ namespace ChallengeME.Controllers
             return RedirectToAction("Index");
         }
 
-
+        [AllowAnonymous]
         public IActionResult Search(string txt)
         {
             var target = txt;
