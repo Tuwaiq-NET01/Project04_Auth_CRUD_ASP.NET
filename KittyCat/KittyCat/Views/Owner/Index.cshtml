@@ -1,4 +1,27 @@
-﻿@page
-@model Adoption.Views.Owner.IndexModel
-@{
+﻿@{
+    var owner = (List<OwnerModel>)ViewData["Owners"];
 }
+@await Html.PartialAsync("_NavPartial")
+<div class="col-sm-6">
+    @foreach (var ow in owner)
+    {
+
+        <div id="card" class="card bg-light box-shadow mr-5 mt-2" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Adopter: @ow.name</h5>
+                <p class="card-text align-content-center">  age: @ow.age</p>
+                <h5 class="font-weight-bold">Details:</h5>
+                <p class="card-text"> phone: @ow.phone</p>
+                <p class="card-text">  email: @ow.email</p>
+                <p class="card-text">  gender: @ow.gender</p>
+                <p class="card-text">  reason: @ow.reason</p>
+                <p class="card-text">  image: @ow.image</p>
+                <div>
+                    <a style="white-space: nowrap;" asp-controller="Owner" asp-action="Edit" asp-route-id="@ow.id">Edit</a> |
+                    <form asp-controller="Owner" asp-action="Delete" asp-route-id="@ow.id">
+                        <input type="submit" class="" value="Delete">
+                    </form>
+                </div>
+            </div>
+        </div>}
+</div>

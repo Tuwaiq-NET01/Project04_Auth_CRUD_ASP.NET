@@ -79,9 +79,14 @@ namespace KittyCat.Data.Migrations
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
+                        .HasAnnotation("SqlServer:IdentityIncrement", 1)
+                        .HasAnnotation("SqlServer:IdentitySeed", 0)
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("AdopterId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("LocationId")
                         .HasColumnType("int");
 
                     b.Property<int>("OwnerId")
@@ -112,6 +117,8 @@ namespace KittyCat.Data.Migrations
 
                     b.HasIndex("AdopterId");
 
+                    b.HasIndex("LocationId");
+
                     b.HasIndex("OwnerId");
 
                     b.ToTable("catTable");
@@ -121,391 +128,615 @@ namespace KittyCat.Data.Migrations
                         {
                             id = 1,
                             AdopterId = 1,
+                            LocationId = 1,
                             OwnerId = 1,
-                            age = "Senior",
-                            breed = "American Shorthair",
-                            description = "* Little bear will be spayed/neutered on June 18, 2021. Then we Will be positive of gender. We are currently...",
+                            age = "Young",
+                            breed = "Domestic Short Hair",
+                            description = "SPICE THEMED MOMMA:  2 years old / small\n\nHi, my name is Anise!  I came to Mostly Mutts from animal...",
                             gender = "Female",
                             health = "spayed_neutered",
-                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51961594/1/?bust=1623774607&width=600",
-                            name = "Little Bear"
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51975818/4/?bust=1623845036&width=600",
+                            name = "Anise"
                         },
                         new
                         {
                             id = 2,
                             AdopterId = 1,
+                            LocationId = 1,
                             OwnerId = 1,
                             age = "Baby",
-                            breed = "Domestic Short Hair",
-                            description = "Mavis loves being held like a baby, she is very cuddly and sweet. She can also be energetic and playful....",
-                            gender = "Female",
+                            breed = "Domestic Long Hair",
+                            description = "Han is a bit shy at first, but he loves to be held and is extremely playful. Han is fixed...",
+                            gender = "Male",
                             health = "spayed_neutered",
-                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51961612/4/?bust=1623774703&width=600",
-                            name = "Mavis"
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51975825/1/?bust=1623844958&width=600",
+                            name = "Han"
                         },
                         new
                         {
                             id = 3,
                             AdopterId = 1,
+                            LocationId = 1,
                             OwnerId = 1,
-                            age = "Adult",
+                            age = "Baby",
                             breed = "Domestic Short Hair",
-                            description = "We are scheduling appointments for potential adopters to call and discuss the kitten or cat of interest with an adoption...",
-                            gender = "Female",
+                            description = "Santos is a sweet little man. He is 12 weeks old, fixed and vaccinated and looking for his forever home.",
+                            gender = "Male",
                             health = "spayed_neutered",
-                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51962160/1/?bust=1623774846&width=600",
-                            name = "Miss Piggy"
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51975823/1/?bust=1623844812&width=600",
+                            name = "Santos"
                         },
                         new
                         {
                             id = 4,
                             AdopterId = 1,
+                            LocationId = 1,
                             OwnerId = 1,
-                            age = "Adult",
+                            age = "Baby",
                             breed = "Domestic Short Hair",
-                            description = "We are scheduling appointments for potential adopters to call and discuss the kitten or cat of interest with an adoption...",
+                            description = "Suki is a sweet and loving lady! She is 12 weeks old and spayed/vaccinated",
                             gender = "Female",
                             health = "spayed_neutered",
-                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51962154/1/?bust=1623774815&width=600",
-                            name = "Rizzo"
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51975822/1/?bust=1623844732&width=600",
+                            name = "Suki"
                         },
                         new
                         {
                             id = 5,
                             AdopterId = 1,
+                            LocationId = 1,
                             OwnerId = 1,
-                            age = "Baby",
-                            breed = "Tuxedo",
-                            description = "Very friendly, sweet, playful",
-                            gender = "Male",
+                            age = "Adult",
+                            breed = "Domestic Short Hair",
+                            description = "“Hi, my name is Sabrina! I belonged to a small colony that resided at a mechanic shop. I gave birth...",
+                            gender = "Female",
                             health = "spayed_neutered",
-                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51961640/1/?bust=1623774783&width=600",
-                            name = "Moo cow"
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51975819/1/?bust=1623844667&width=600",
+                            name = "Sabrina"
                         },
                         new
                         {
                             id = 6,
                             AdopterId = 1,
+                            LocationId = 1,
                             OwnerId = 1,
-                            age = "Adult",
+                            age = "Baby",
                             breed = "Domestic Short Hair",
-                            description = "We are scheduling appointments for potential adopters to call and discuss the kitten or cat of interest with an adoption...",
-                            gender = "Male",
+                            description = "Elena is a sweet little lady. She is playful and outgoing. She loves to be pet and play.\n\nShe is...",
+                            gender = "Female",
                             health = "spayed_neutered",
-                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51961641/1/?bust=1623774733&width=600",
-                            name = "Kermit"
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51975820/1/?bust=1623844640&width=600",
+                            name = "Elena"
                         },
                         new
                         {
                             id = 7,
                             AdopterId = 1,
+                            LocationId = 1,
                             OwnerId = 1,
-                            age = "Senior",
-                            breed = "American Shorthair",
-                            description = "* Little bear will be spayed/neutered on June 18, 2021. Then we Will be positive of gender. We are currently...",
+                            age = "Baby",
+                            breed = "Tabby",
+                            description = "You can fill out an adoption application online on our official website.If interested in any of our animals for adoption,...",
                             gender = "Female",
                             health = "spayed_neutered",
-                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51961594/1/?bust=1623774607&width=600",
-                            name = "Little Bear"
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51975811/1/?bust=1623845035&width=600",
+                            name = "Qd Litter Pecan"
                         },
                         new
                         {
                             id = 8,
                             AdopterId = 1,
+                            LocationId = 1,
                             OwnerId = 1,
                             age = "Baby",
-                            breed = "Domestic Short Hair",
-                            description = "Mavis loves being held like a baby, she is very cuddly and sweet. She can also be energetic and playful....",
-                            gender = "Female",
+                            breed = "Tabby",
+                            description = "You can fill out an adoption application online on our official website.If interested in any of our animals for adoption,...",
+                            gender = "Male",
                             health = "spayed_neutered",
-                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51961612/4/?bust=1623774703&width=600",
-                            name = "Mavis"
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51975809/1/?bust=1623845060&width=600",
+                            name = "Qd Litter Peanutbutter"
                         },
                         new
                         {
                             id = 9,
                             AdopterId = 1,
+                            LocationId = 1,
                             OwnerId = 1,
-                            age = "Adult",
-                            breed = "Domestic Short Hair",
-                            description = "We are scheduling appointments for potential adopters to call and discuss the kitten or cat of interest with an adoption...",
-                            gender = "Female",
+                            age = "Baby",
+                            breed = "Tabby",
+                            description = "You can fill out an adoption application online on our official website.If interested in any of our animals for adoption,...",
+                            gender = "Male",
                             health = "spayed_neutered",
-                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51962160/1/?bust=1623774846&width=600",
-                            name = "Miss Piggy"
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51975810/1/?bust=1623845059&width=600",
+                            name = "Qd Litter Pistashio"
                         },
                         new
                         {
                             id = 10,
                             AdopterId = 1,
+                            LocationId = 1,
                             OwnerId = 1,
-                            age = "Adult",
+                            age = "Young",
                             breed = "Domestic Short Hair",
-                            description = "We are scheduling appointments for potential adopters to call and discuss the kitten or cat of interest with an adoption...",
+                            description = "Madison and her 4 siblings were born outside in March and rescued in May. She is a little reserved but...",
                             gender = "Female",
                             health = "spayed_neutered",
-                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51962154/1/?bust=1623774815&width=600",
-                            name = "Rizzo"
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51969350/1/?bust=1623796232&width=600",
+                            name = "Madison"
                         },
                         new
                         {
                             id = 11,
                             AdopterId = 1,
+                            LocationId = 1,
                             OwnerId = 1,
-                            age = "Baby",
-                            breed = "Tuxedo",
-                            description = "Very friendly, sweet, playful",
+                            age = "Young",
+                            breed = "Domestic Short Hair",
+                            description = "Joey and his siblings were born in March to an outside Mom and thankfully rescued in May. Joey is the...",
                             gender = "Male",
                             health = "spayed_neutered",
-                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51961640/1/?bust=1623774783&width=600",
-                            name = "Moo cow"
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51969376/2/?bust=1623798161&width=600",
+                            name = "Joey"
                         },
                         new
                         {
                             id = 12,
                             AdopterId = 1,
+                            LocationId = 1,
                             OwnerId = 1,
-                            age = "Adult",
+                            age = "Young",
                             breed = "Domestic Short Hair",
-                            description = "We are scheduling appointments for potential adopters to call and discuss the kitten or cat of interest with an adoption...",
+                            description = "Cocoa and his 4 siblings were born in March outside and rescued in May. He is a quiet sweet boy...",
                             gender = "Male",
                             health = "spayed_neutered",
-                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51961641/1/?bust=1623774733&width=600",
-                            name = "Kermit"
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51970085/1/?bust=1623798281&width=600",
+                            name = "Cocoa"
                         },
                         new
                         {
                             id = 13,
                             AdopterId = 1,
+                            LocationId = 1,
                             OwnerId = 1,
-                            age = "Senior",
-                            breed = "American Shorthair",
-                            description = "* Little bear will be spayed/neutered on June 18, 2021. Then we Will be positive of gender. We are currently...",
-                            gender = "Female",
+                            age = "Adult",
+                            breed = "Domestic Long Hair",
+                            gender = "Male",
                             health = "spayed_neutered",
-                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51961594/1/?bust=1623774607&width=600",
-                            name = "Little Bear"
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51975792/1/?bust=1623844537&width=600",
+                            name = "Davey Jones"
                         },
                         new
                         {
                             id = 14,
                             AdopterId = 1,
+                            LocationId = 1,
                             OwnerId = 1,
                             age = "Baby",
-                            breed = "Domestic Short Hair",
-                            description = "Mavis loves being held like a baby, she is very cuddly and sweet. She can also be energetic and playful....",
-                            gender = "Female",
+                            breed = "Tabby",
+                            description = "Elmo was found stray and brought in for adoption.",
+                            gender = "Male",
                             health = "spayed_neutered",
-                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51961612/4/?bust=1623774703&width=600",
-                            name = "Mavis"
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51975790/1/?bust=1623843810&width=600",
+                            name = "Elmo"
                         },
                         new
                         {
                             id = 15,
                             AdopterId = 1,
+                            LocationId = 1,
                             OwnerId = 1,
-                            age = "Adult",
+                            age = "Baby",
                             breed = "Domestic Short Hair",
-                            description = "We are scheduling appointments for potential adopters to call and discuss the kitten or cat of interest with an adoption...",
-                            gender = "Female",
+                            description = "Cookie Monster was found stray and brought in for adoption.",
+                            gender = "Male",
                             health = "spayed_neutered",
-                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51962160/1/?bust=1623774846&width=600",
-                            name = "Miss Piggy"
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51975787/1/?bust=1623843759&width=600",
+                            name = "Cookie Monster"
                         },
                         new
                         {
                             id = 16,
                             AdopterId = 1,
+                            LocationId = 1,
                             OwnerId = 1,
-                            age = "Adult",
+                            age = "Young",
                             breed = "Domestic Short Hair",
-                            description = "We are scheduling appointments for potential adopters to call and discuss the kitten or cat of interest with an adoption...",
+                            description = "GREY THEMED MOMMA:  2 years old / small\n\nHello, I&#039;m Haze!  I found myself at animal control nursing three 4-week-old...",
                             gender = "Female",
                             health = "spayed_neutered",
-                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51962154/1/?bust=1623774815&width=600",
-                            name = "Rizzo"
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51975786/1/?bust=1623843712&width=600",
+                            name = "Haze"
                         },
                         new
                         {
                             id = 17,
                             AdopterId = 1,
+                            LocationId = 1,
                             OwnerId = 1,
                             age = "Baby",
-                            breed = "Tuxedo",
-                            description = "Very friendly, sweet, playful",
+                            breed = "Domestic Short Hair",
+                            description = "Big Bird was found stray and brought in for adoption.",
                             gender = "Male",
                             health = "spayed_neutered",
-                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51961640/1/?bust=1623774783&width=600",
-                            name = "Moo cow"
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51975785/1/?bust=1623843703&width=600",
+                            name = "Big Bird"
                         },
                         new
                         {
                             id = 18,
                             AdopterId = 1,
+                            LocationId = 1,
                             OwnerId = 1,
-                            age = "Adult",
+                            age = "Baby",
                             breed = "Domestic Short Hair",
-                            description = "We are scheduling appointments for potential adopters to call and discuss the kitten or cat of interest with an adoption...",
+                            description = "Archie was found stray and brought in for adoption.",
                             gender = "Male",
                             health = "spayed_neutered",
-                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51961641/1/?bust=1623774733&width=600",
-                            name = "Kermit"
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51975782/1/?bust=1623843648&width=600",
+                            name = "Archie"
                         },
                         new
                         {
                             id = 19,
                             AdopterId = 1,
+                            LocationId = 1,
                             OwnerId = 1,
-                            age = "Senior",
-                            breed = "American Shorthair",
-                            description = "* Little bear will be spayed/neutered on June 18, 2021. Then we Will be positive of gender. We are currently...",
+                            age = "Baby",
+                            breed = "Domestic Short Hair",
+                            description = "Abigail was found stray and brought in for adoption.",
                             gender = "Female",
                             health = "spayed_neutered",
-                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51961594/1/?bust=1623774607&width=600",
-                            name = "Little Bear"
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51975780/1/?bust=1623843593&width=600",
+                            name = "Abigail"
                         },
                         new
                         {
                             id = 20,
                             AdopterId = 1,
+                            LocationId = 1,
                             OwnerId = 1,
                             age = "Baby",
                             breed = "Domestic Short Hair",
-                            description = "Mavis loves being held like a baby, she is very cuddly and sweet. She can also be energetic and playful....",
-                            gender = "Female",
+                            description = "Arlo was found stray and brought in for adoption.",
+                            gender = "Male",
                             health = "spayed_neutered",
-                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51961612/4/?bust=1623774703&width=600",
-                            name = "Mavis"
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51975773/1/?bust=1623843544&width=600",
+                            name = "Arlo"
                         },
                         new
                         {
                             id = 21,
                             AdopterId = 1,
+                            LocationId = 1,
                             OwnerId = 1,
-                            age = "Adult",
-                            breed = "Domestic Short Hair",
-                            description = "We are scheduling appointments for potential adopters to call and discuss the kitten or cat of interest with an adoption...",
+                            age = "Young",
+                            breed = "Domestic Medium Hair",
+                            description = "Beautiful, sweet friendly Samara was living outside and fed by some kind people in Trenton. She gave birth outside and...",
                             gender = "Female",
                             health = "spayed_neutered",
-                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51962160/1/?bust=1623774846&width=600",
-                            name = "Miss Piggy"
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51975778/1/?bust=1623844167&width=600",
+                            name = "Samara"
                         },
                         new
                         {
                             id = 22,
                             AdopterId = 1,
+                            LocationId = 1,
                             OwnerId = 1,
                             age = "Adult",
                             breed = "Domestic Short Hair",
-                            description = "We are scheduling appointments for potential adopters to call and discuss the kitten or cat of interest with an adoption...",
+                            description = "Emma Ruby is a gentle and good nature cat that was taken into rescue by a fellow rescuer when she...",
                             gender = "Female",
                             health = "spayed_neutered",
-                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51962154/1/?bust=1623774815&width=600",
-                            name = "Rizzo"
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51975776/1/?bust=1623844136&width=600",
+                            name = "Emma Ruby"
                         },
                         new
                         {
                             id = 23,
                             AdopterId = 1,
+                            LocationId = 1,
                             OwnerId = 1,
-                            age = "Baby",
-                            breed = "Tuxedo",
-                            description = "Very friendly, sweet, playful",
-                            gender = "Male",
+                            age = "Young",
+                            breed = "Domestic Short Hair",
+                            description = "SPICE THEMED MOMMA:  2 years old / small\n\nHi, my name is Anise!  I came to Mostly Mutts from animal...",
+                            gender = "Female",
                             health = "spayed_neutered",
-                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51961640/1/?bust=1623774783&width=600",
-                            name = "Moo cow"
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51975818/4/?bust=1623845036&width=600",
+                            name = "Anise"
                         },
                         new
                         {
                             id = 24,
                             AdopterId = 1,
+                            LocationId = 1,
                             OwnerId = 1,
-                            age = "Adult",
-                            breed = "Domestic Short Hair",
-                            description = "We are scheduling appointments for potential adopters to call and discuss the kitten or cat of interest with an adoption...",
+                            age = "Baby",
+                            breed = "Domestic Long Hair",
+                            description = "Han is a bit shy at first, but he loves to be held and is extremely playful. Han is fixed...",
                             gender = "Male",
                             health = "spayed_neutered",
-                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51961641/1/?bust=1623774733&width=600",
-                            name = "Kermit"
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51975825/1/?bust=1623844958&width=600",
+                            name = "Han"
                         },
                         new
                         {
                             id = 25,
                             AdopterId = 1,
+                            LocationId = 1,
                             OwnerId = 1,
-                            age = "Senior",
-                            breed = "American Shorthair",
-                            description = "* Little bear will be spayed/neutered on June 18, 2021. Then we Will be positive of gender. We are currently...",
-                            gender = "Female",
+                            age = "Baby",
+                            breed = "Domestic Short Hair",
+                            description = "Santos is a sweet little man. He is 12 weeks old, fixed and vaccinated and looking for his forever home.",
+                            gender = "Male",
                             health = "spayed_neutered",
-                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51961594/1/?bust=1623774607&width=600",
-                            name = "Little Bear"
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51975823/1/?bust=1623844812&width=600",
+                            name = "Santos"
                         },
                         new
                         {
                             id = 26,
                             AdopterId = 1,
+                            LocationId = 1,
                             OwnerId = 1,
                             age = "Baby",
                             breed = "Domestic Short Hair",
-                            description = "Mavis loves being held like a baby, she is very cuddly and sweet. She can also be energetic and playful....",
+                            description = "Suki is a sweet and loving lady! She is 12 weeks old and spayed/vaccinated",
                             gender = "Female",
                             health = "spayed_neutered",
-                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51961612/4/?bust=1623774703&width=600",
-                            name = "Mavis"
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51975822/1/?bust=1623844732&width=600",
+                            name = "Suki"
                         },
                         new
                         {
                             id = 27,
                             AdopterId = 1,
+                            LocationId = 1,
                             OwnerId = 1,
                             age = "Adult",
                             breed = "Domestic Short Hair",
-                            description = "We are scheduling appointments for potential adopters to call and discuss the kitten or cat of interest with an adoption...",
+                            description = "“Hi, my name is Sabrina! I belonged to a small colony that resided at a mechanic shop. I gave birth...",
                             gender = "Female",
                             health = "spayed_neutered",
-                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51962160/1/?bust=1623774846&width=600",
-                            name = "Miss Piggy"
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51975819/1/?bust=1623844667&width=600",
+                            name = "Sabrina"
                         },
                         new
                         {
                             id = 28,
                             AdopterId = 1,
+                            LocationId = 1,
                             OwnerId = 1,
-                            age = "Adult",
+                            age = "Baby",
                             breed = "Domestic Short Hair",
-                            description = "We are scheduling appointments for potential adopters to call and discuss the kitten or cat of interest with an adoption...",
+                            description = "Elena is a sweet little lady. She is playful and outgoing. She loves to be pet and play.\n\nShe is...",
                             gender = "Female",
                             health = "spayed_neutered",
-                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51962154/1/?bust=1623774815&width=600",
-                            name = "Rizzo"
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51975820/1/?bust=1623844640&width=600",
+                            name = "Elena"
                         },
                         new
                         {
                             id = 29,
                             AdopterId = 1,
+                            LocationId = 1,
                             OwnerId = 1,
                             age = "Baby",
-                            breed = "Tuxedo",
-                            description = "Very friendly, sweet, playful",
-                            gender = "Male",
+                            breed = "Tabby",
+                            description = "You can fill out an adoption application online on our official website.If interested in any of our animals for adoption,...",
+                            gender = "Female",
                             health = "spayed_neutered",
-                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51961640/1/?bust=1623774783&width=600",
-                            name = "Moo cow"
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51975811/1/?bust=1623845035&width=600",
+                            name = "Qd Litter Pecan"
                         },
                         new
                         {
                             id = 30,
                             AdopterId = 1,
+                            LocationId = 1,
+                            OwnerId = 1,
+                            age = "Baby",
+                            breed = "Tabby",
+                            description = "You can fill out an adoption application online on our official website.If interested in any of our animals for adoption,...",
+                            gender = "Male",
+                            health = "spayed_neutered",
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51975809/1/?bust=1623845060&width=600",
+                            name = "Qd Litter Peanutbutter"
+                        },
+                        new
+                        {
+                            id = 31,
+                            AdopterId = 1,
+                            LocationId = 1,
+                            OwnerId = 1,
+                            age = "Baby",
+                            breed = "Tabby",
+                            description = "You can fill out an adoption application online on our official website.If interested in any of our animals for adoption,...",
+                            gender = "Male",
+                            health = "spayed_neutered",
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51975810/1/?bust=1623845059&width=600",
+                            name = "Qd Litter Pistashio"
+                        },
+                        new
+                        {
+                            id = 32,
+                            AdopterId = 1,
+                            LocationId = 1,
+                            OwnerId = 1,
+                            age = "Young",
+                            breed = "Domestic Short Hair",
+                            description = "Madison and her 4 siblings were born outside in March and rescued in May. She is a little reserved but...",
+                            gender = "Female",
+                            health = "spayed_neutered",
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51969350/1/?bust=1623796232&width=600",
+                            name = "Madison"
+                        },
+                        new
+                        {
+                            id = 33,
+                            AdopterId = 1,
+                            LocationId = 1,
+                            OwnerId = 1,
+                            age = "Young",
+                            breed = "Domestic Short Hair",
+                            description = "Joey and his siblings were born in March to an outside Mom and thankfully rescued in May. Joey is the...",
+                            gender = "Male",
+                            health = "spayed_neutered",
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51969376/2/?bust=1623798161&width=600",
+                            name = "Joey"
+                        },
+                        new
+                        {
+                            id = 34,
+                            AdopterId = 1,
+                            LocationId = 1,
+                            OwnerId = 1,
+                            age = "Young",
+                            breed = "Domestic Short Hair",
+                            description = "Cocoa and his 4 siblings were born in March outside and rescued in May. He is a quiet sweet boy...",
+                            gender = "Male",
+                            health = "spayed_neutered",
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51970085/1/?bust=1623798281&width=600",
+                            name = "Cocoa"
+                        },
+                        new
+                        {
+                            id = 35,
+                            AdopterId = 1,
+                            LocationId = 1,
+                            OwnerId = 1,
+                            age = "Adult",
+                            breed = "Domestic Long Hair",
+                            gender = "Male",
+                            health = "spayed_neutered",
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51975792/1/?bust=1623844537&width=600",
+                            name = "Davey Jones"
+                        },
+                        new
+                        {
+                            id = 36,
+                            AdopterId = 1,
+                            LocationId = 1,
+                            OwnerId = 1,
+                            age = "Baby",
+                            breed = "Tabby",
+                            description = "Elmo was found stray and brought in for adoption.",
+                            gender = "Male",
+                            health = "spayed_neutered",
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51975790/1/?bust=1623843810&width=600",
+                            name = "Elmo"
+                        },
+                        new
+                        {
+                            id = 37,
+                            AdopterId = 1,
+                            LocationId = 1,
+                            OwnerId = 1,
+                            age = "Baby",
+                            breed = "Domestic Short Hair",
+                            description = "Cookie Monster was found stray and brought in for adoption.",
+                            gender = "Male",
+                            health = "spayed_neutered",
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51975787/1/?bust=1623843759&width=600",
+                            name = "Cookie Monster"
+                        },
+                        new
+                        {
+                            id = 38,
+                            AdopterId = 1,
+                            LocationId = 1,
+                            OwnerId = 1,
+                            age = "Young",
+                            breed = "Domestic Short Hair",
+                            description = "GREY THEMED MOMMA:  2 years old / small\n\nHello, I&#039;m Haze!  I found myself at animal control nursing three 4-week-old...",
+                            gender = "Female",
+                            health = "spayed_neutered",
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51975786/1/?bust=1623843712&width=600",
+                            name = "Haze"
+                        },
+                        new
+                        {
+                            id = 39,
+                            AdopterId = 1,
+                            LocationId = 1,
+                            OwnerId = 1,
+                            age = "Baby",
+                            breed = "Domestic Short Hair",
+                            description = "Big Bird was found stray and brought in for adoption.",
+                            gender = "Male",
+                            health = "spayed_neutered",
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51975785/1/?bust=1623843703&width=600",
+                            name = "Big Bird"
+                        },
+                        new
+                        {
+                            id = 40,
+                            AdopterId = 1,
+                            LocationId = 1,
+                            OwnerId = 1,
+                            age = "Baby",
+                            breed = "Domestic Short Hair",
+                            description = "Archie was found stray and brought in for adoption.",
+                            gender = "Male",
+                            health = "spayed_neutered",
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51975782/1/?bust=1623843648&width=600",
+                            name = "Archie"
+                        },
+                        new
+                        {
+                            id = 41,
+                            AdopterId = 1,
+                            LocationId = 1,
+                            OwnerId = 1,
+                            age = "Baby",
+                            breed = "Domestic Short Hair",
+                            description = "Abigail was found stray and brought in for adoption.",
+                            gender = "Female",
+                            health = "spayed_neutered",
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51975780/1/?bust=1623843593&width=600",
+                            name = "Abigail"
+                        },
+                        new
+                        {
+                            id = 42,
+                            AdopterId = 1,
+                            LocationId = 1,
+                            OwnerId = 1,
+                            age = "Baby",
+                            breed = "Domestic Short Hair",
+                            description = "Arlo was found stray and brought in for adoption.",
+                            gender = "Male",
+                            health = "spayed_neutered",
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51975773/1/?bust=1623843544&width=600",
+                            name = "Arlo"
+                        },
+                        new
+                        {
+                            id = 43,
+                            AdopterId = 1,
+                            LocationId = 1,
+                            OwnerId = 1,
+                            age = "Young",
+                            breed = "Domestic Medium Hair",
+                            description = "Beautiful, sweet friendly Samara was living outside and fed by some kind people in Trenton. She gave birth outside and...",
+                            gender = "Female",
+                            health = "spayed_neutered",
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51975778/1/?bust=1623844167&width=600",
+                            name = "Samara"
+                        },
+                        new
+                        {
+                            id = 44,
+                            AdopterId = 1,
+                            LocationId = 1,
                             OwnerId = 1,
                             age = "Adult",
                             breed = "Domestic Short Hair",
-                            description = "We are scheduling appointments for potential adopters to call and discuss the kitten or cat of interest with an adoption...",
-                            gender = "Male",
+                            description = "Emma Ruby is a gentle and good nature cat that was taken into rescue by a fellow rescuer when she...",
+                            gender = "Female",
                             health = "spayed_neutered",
-                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51961641/1/?bust=1623774733&width=600",
-                            name = "Kermit"
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/51975776/1/?bust=1623844136&width=600",
+                            name = "Emma Ruby"
                         });
                 });
 
@@ -519,9 +750,6 @@ namespace KittyCat.Data.Migrations
                     b.Property<string>("address")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("catid")
-                        .HasColumnType("int");
-
                     b.Property<string>("name")
                         .HasColumnType("nvarchar(max)");
 
@@ -529,8 +757,6 @@ namespace KittyCat.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id");
-
-                    b.HasIndex("catid");
 
                     b.ToTable("location");
 
@@ -823,6 +1049,12 @@ namespace KittyCat.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("KittyCat.Models.LocationModel", "Location")
+                        .WithMany("cats")
+                        .HasForeignKey("LocationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("KittyCat.Models.OwnerModel", "Owner")
                         .WithMany("cats")
                         .HasForeignKey("OwnerId")
@@ -831,16 +1063,9 @@ namespace KittyCat.Data.Migrations
 
                     b.Navigation("Adopter");
 
+                    b.Navigation("Location");
+
                     b.Navigation("Owner");
-                });
-
-            modelBuilder.Entity("KittyCat.Models.LocationModel", b =>
-                {
-                    b.HasOne("KittyCat.Models.CatModel", "cat")
-                        .WithMany()
-                        .HasForeignKey("catid");
-
-                    b.Navigation("cat");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -895,6 +1120,11 @@ namespace KittyCat.Data.Migrations
                 });
 
             modelBuilder.Entity("KittyCat.Models.AdopterModel", b =>
+                {
+                    b.Navigation("cats");
+                });
+
+            modelBuilder.Entity("KittyCat.Models.LocationModel", b =>
                 {
                     b.Navigation("cats");
                 });

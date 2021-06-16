@@ -13,6 +13,6 @@ namespace KittyCat.Models
         public string address { set; get; }
 
         // navigation properties
-        public CatModel cat { get; set; }
+        public List<CatModel> cats { get; set; }
     }
 }

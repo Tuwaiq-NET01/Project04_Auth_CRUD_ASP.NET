@@ -28,6 +28,11 @@ namespace KittyCat.Models
         //FK
         public int AdopterId { get; set; }
 
-        // navigation properties
+        //Relationship : One-To-Many: Adopter => cats
+        public LocationModel Location { get; set; }
+
+        //FK
+        public int LocationId { get; set; }
+
     }
 }

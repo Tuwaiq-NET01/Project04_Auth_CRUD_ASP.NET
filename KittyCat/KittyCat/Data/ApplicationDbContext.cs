@@ -20,7 +20,7 @@ namespace KittyCat.Data
                 if (animal.photos.Count > 0)
                 {
                     //Console.WriteLine(animal.photos[0].large);
-                    modelBuilder.Entity<CatModel>().HasData(new CatModel { id = inc++ , AdopterId = 1, OwnerId = 1, age=animal.age , image = animal.photos[0].large, description = animal.description, breed = animal.breeds.primary, gender = animal.gender, health = "spayed_neutered", name = animal.name }); ;
+                    modelBuilder.Entity<CatModel>().HasData(new CatModel { id = inc++ , AdopterId = 1, OwnerId = 1, LocationId=1, age=animal.age , image = animal.photos[0].large, description = animal.description, breed = animal.breeds.primary, gender = animal.gender, health = "spayed_neutered", name = animal.name }); ;
                     count++;
                 }
             }
@@ -56,8 +56,8 @@ namespace KittyCat.Data
               modelBuilder.Entity<AdopterModel>().HasData(new AdopterModel { id = 1, name = "Ken", phone = " 85454995042 ", age = 42, gender = "male", email = "koko@gmail.com", image = "https://images.unsplash.com/photo-1521119989659-a83eee488004?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=728&q=80" });
               modelBuilder.Entity<AdopterModel>().HasData(new AdopterModel { id = 2, name = "Natasha", phone = " 46736437743 ", age = 30, gender = "female", email = "momo@gmail.com", image = "https://images.unsplash.com/photo-1514448553123-ddc6ee76fd52?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80" });
 
-          /*  modelBuilder.Entity<CatModel>().Property(c => c.id).UseIdentityColumn(seed: 0, increment: 1);*/
-             // getImages(modelBuilder);
+              modelBuilder.Entity<CatModel>().Property(c => c.id).UseIdentityColumn(seed: 0, increment: 1);
+              getImages(modelBuilder);
 
             base.OnModelCreating(modelBuilder);
         }
