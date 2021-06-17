@@ -13,7 +13,9 @@ namespace Ejar.Data
 		public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
 			: base(options)
 		{
+
 		}
+
 
 		//db references
 		public DbSet<CarModel> Car { get; set; }
@@ -23,6 +25,8 @@ namespace Ejar.Data
 		public DbSet<LicenseModel> License { get; set; }
 		public DbSet<Location> Location { get; set; }
 		public DbSet<TripModel> Trip { get; set; }
+
+
 
 	}
 }

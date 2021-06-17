@@ -4,30 +4,36 @@
     List<CarModel> Cars = (List<CarModel>)ViewBag.Cars;
     int count = 0;
     int count2 = 0;
+    int role = 0;
 }
 
 
 <br />
-<div class="row card-group">
+<div class="row">
     @foreach (var car in Cars)
     {
 
         count = 0;
         count2 = 0;
-        <div class="col-md-4">
+
+
+        <div class="row card-group card" style="max-width:300px; margin-left: 30px;">
+
+
+
             <a asp-area="" asp-controller="Car" asp-action="Index" asp-route-id="@car.Id">
-                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <div id="carouselIndicators-@role" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
 
                         @foreach (var img in car.Images)
                         {
                             if (count == 0)
                             {
-                                <li data-target="#carouselExampleIndicators" data-slide-to="@count" class="active"></li>
+                                <li data-target="#carouselIndicators-@role" data-slide-to="@count" class="active"></li>
                             }
                             else
                             {
-                                <li data-target="#carouselExampleIndicators" data-slide-to="@count"></li>
+                                <li data-target="#carouselIndicators-@role" data-slide-to="@count"></li>
                             }
 
                             count++;
@@ -42,7 +48,7 @@
                                 <div class="carousel-item active" style="width: 100%">
                                     <img src="@img.ImageUrl" class="d-block w-100" height="200" style="width: 100%" alt="...">
                                 </div>
-                                count2++;
+
                             }
                             else
                             {
@@ -50,27 +56,31 @@
                                     <img src="@img.ImageUrl" class="d-block w-100" height="200" style="width: 100%" alt="...">
                                 </div>
                             }
+                            count2++;
                         }
                     </div>
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <a class="carousel-control-prev" href="#carouselIndicators-@role" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="sr-only">Previous</span>
                     </a>
-                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <a class="carousel-control-next" href="#carouselIndicators-@role" role="button" data-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
                     </a>
 
 
                 </div>
-                <center>
-                    <div class=" card-body" style="align-items: center; align-self: center; align-content: center ">
+                <div class="card-body" style="align-items: center; align-self: center">
+                    <center>
+
                         <h5 class="card-title">Toyota Camry 2020</h5>
                         <p><strong>@car.DayPrice SAR</strong> /day | <strong>@car.HourPrice SAR</strong> /hour </p>
-                        <button type="button" style="padding-left:5em; padding-right:5em; text-align: center" class="btn btn-info">Book</button>
-                    </div>
-                </center>
+
+                    </center>
+                </div>
             </a>
         </div>
+        role++;
+
     }
 </div>

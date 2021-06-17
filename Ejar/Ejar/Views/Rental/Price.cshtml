@@ -1,0 +1,67 @@
+﻿@model TripModel
+@{
+    CarModel Car = (CarModel)ViewBag.Car;
+    TripModel trip = (TripModel)ViewBag.trip;
+}
+
+<form style="margin-bottom: 0px">
+    <div class="card shadow mb-5 bg-white rounded" style="width:100%; background-image: url('@Car.Images.First().ImageUrl'); background-repeat: no-repeat; background-attachment: fixed;
+  background-size: cover; margin-bottom: 0px">
+      
+        <div class="card-body">
+            <div class="card-deck" style="margin-left: 200px; margin-right: 200px;">
+
+                <div class="card text-center shadow">
+                    <div class="card-header">
+                        <h3>@Car.Manufacturer @Car.CarName @Car.Year</h3>
+                        <h8>Booking Summary</h8>
+                    </div>
+
+                    <div class="card-body" style="align-content:center; align-self:center;">
+                        <div class="form-group form-inline">
+                            <label style="width:70px">From:</label>
+                            <input type="date" class="form-control" value="@trip.DateReservedFrom" disabled>
+                            <input type="time" class="form-control" value="@trip.TimeReservedFrom" disabled>
+                        </div>
+
+                        <div class="form-group form-inline">
+                            <label style="width:70px">To:</label>
+                            <input type="date" class="form-control" value="@trip.DateReservedUntil" disabled>
+                            <input type="time" class="form-control" value="@trip.TimeReservedUntil" disabled>
+                        </div>
+                    </div>
+                    <hr />
+
+                    <div>
+                        <div class="form-inline" style="padding-left: 20px; padding-right: 20px;">
+                            <p class="card-text"> Days </p>
+                            <p class="card-text" style="position: absolute; right: 0; margin-right:20px"> 3x120 SAR</p>
+                        </div>
+                        <hr />
+                        <div class="form-inline" style="padding-left: 20px; padding-right: 20px;">
+                            <p class="card-text"> Hours </p>
+                            <p class="card-text" style="position: absolute; right: 0; margin-right: 20px"> 6x30 SAR</p>
+                        </div>
+                        <hr />
+                        <div class="form-inline" style="padding-left: 20px; padding-right: 20px;">
+                            <p class="card-text"> VAT 15% </p>
+                            <p class="card-text" style="position: absolute; right: 0; margin-right: 20px"> 55 SAR </p>
+                        </div>
+                        <hr />
+                        <div class="form-inline" style="padding-left: 20px; padding-right: 20px;">
+                            <p class="card-text"> Total </p>
+                            <p class="card-text" style="position: absolute; right: 0; margin-right: 20px"> 589 SAR </p>
+                        </div>
+
+
+                    </div>
+                    <div class="row" style="width: 100%; margin-left: 1px">
+                        <button style="width: 40%; margin: 20px; float: left;" type="submit" href="#" class="btn btn-primary float-right mt-5">Back</button>
+                        <button style="width: 40%; margin: 20px; float: right; position: absolute; right: 0; " type="submit" href="#" class="btn btn-primary float-right mt-5">Next</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

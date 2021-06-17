@@ -1,0 +1,151 @@
+﻿@model CarModel
+@{
+    var car = (CarModel)ViewBag.Car;
+
+    ImageModel img = new ImageModel();
+    img.ImageUrl = "url";
+    car.Images = new List<ImageModel>();
+    car.Images.Add(img);
+   
+
+
+}
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link href="~/css/ImageUploader.css" rel="stylesheet" />
+<script src="~/js/ImageUploader.js"></script>
+
+<form asp-action="Create" method="post" style="margin-top: 40px">
+    <div class="form-group row">
+        <label for="Manufacturer" class="col-sm-2 col-form-label">Manufacturer</label>
+        <div class="col-sm-10">
+            <select asp-for="Manufacturer" type="text" class="form-control" value="@car.Manufacturer" name="Manufacturer" required>
+                <option value="0">select</option>
+                <option value="BMW">BMW</option>
+                <option value="Daewoo">Daewoo</option>
+                <option value="Ford">Ford</option>
+                <option value="Holden">Holden</option>
+                <option value="Honda">Honda</option>
+                <option value="Hyundai">Hyundai</option>
+                <option value="Isuzu">Isuzu</option>
+                <option value="Kia">Kia</option>
+                <option value="Lexus">Lexus</option>
+                <option value="Mazda">Mazda</option>
+                <option value="Mitsubishi">Mitsubishi</option>
+                <option value="Nissan">Nissan</option>
+                <option value="Peugeot">Peugeot</option>
+                <option value="Subaru">Subaru</option>
+                <option value="Suzuki">Suzuki</option>
+                <option value="Toyota">Toyota</option>
+                <option value="Volkswagen">Volkswagen</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="CarName" class="col-sm-2 col-form-label">Car Name</label>
+        <div class="col-sm-10">
+            <input asp-for="CarName" type="text" class="form-control" value="@car.CarName" name="CarName" placeholder="ex.. Camry" required>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="Year" class="col-sm-2 col-form-label">Year</label>
+        <div class="col-sm-10">
+            <input placeholder="ex.. 2021" asp-for="Year" type="number" class="form-control" name="Year" value="" required>
+        </div>
+    </div>
+    <fieldset class="form-group">
+        <div class="row">
+            <legend class="col-form-label col-sm-2 pt-0">Type</legend>
+            <div class="col-sm-10">
+                <div class="form-check">
+                    <input class="form-check-input" asp-for="Type" type="radio" name="Type" value="Gas" checked>
+                    <label class="form-check-label" for="Type">
+                        Gas
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" asp-for="Type" type="radio" name="Type" value="Electric">
+                    <label class="form-check-label" for="Type">
+                        Electric
+                    </label>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    <div class="form-group row">
+        <label for="PlateNumber" class="col-sm-2 col-form-label">Plate Number</label>
+        <div class="col-sm-10">
+            <input asp-for="PlateNumber" type="text" class="form-control" value="@car.PlateNumber" name="PlateNumber" placeholder="ex.. ABC123" required>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="DayPrice" class="col-sm-2 col-form-label">Daily Price in SAR</label>
+        <div class="col-sm-10">
+            <input asp-for="DayPrice" type="number" class="form-control" value="@car.DayPrice" name="DayPrice" placeholder="ex.. 90" required>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="HourPrice" class="col-sm-2 col-form-label">Hourly Price in SAR</label>
+        <div class="col-sm-10">
+            <input asp-for="HourPrice" type="number" class="form-control" value="@car.HourPrice" name="HourPrice" placeholder="ex.. 15" required>
+        </div>
+    </div>
+    <fieldset class="form-group">
+        <div class="row">
+            <legend class="col-form-label col-sm-2 pt-0">Available Now</legend>
+            <div class="col-sm-10">
+                <div class="form-check">
+                    <input asp-for="Available" type="radio" name="Available" value="True" class="form-check-input" checked>
+                    <label class="form-check-label">
+                        Yes
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input asp-for="Available" type="radio" name="Available" value="False" class="form-check-input">
+                    <label class="form-check-label" for="Type">
+                        No
+                    </label>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+
+
+
+
+
+    <div class="container">
+        <fieldset class="form-group">
+            <a href="javascript:void(0)" onclick="$('#pro-image').click()">Upload Image</a>
+            <input type="file" id="pro-image" style="display: none;" class="form-control" multiple>
+        </fieldset>
+        <div class="Images" name="Images">
+        </div>
+        <div class="preview-images-zone">
+
+        </div>
+    </div>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <div id="AllTweets">
+        @Html.Partial("AddImage", Model)
+    </div>
+
+    @**
+        <div id="images" class="form-group row">
+            <label class="col-sm-2 col-form-label">Car Images</label>
+            <div class="col-sm-10">
+                <input id="url" name="url" type="text" placeholder="Url">
+                <button></button>
+            </div>
+        </div>*@
+
+    <div class="form-group row">
+        <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary">Add Car</button>
+        </div>
+    </div>
+</form>

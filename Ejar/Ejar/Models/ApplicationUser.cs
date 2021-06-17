@@ -16,5 +16,6 @@ namespace Ejar.Models
 		public Location Location { get; set; }
 
 
+
 	}
 }

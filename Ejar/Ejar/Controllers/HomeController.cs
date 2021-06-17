@@ -24,9 +24,10 @@ namespace Ejar.Controllers
 		public IActionResult Index()
 		{
 			var Cars = _db.Car.ToList();
-			var Images = _db.Image.ToList();
+			
 			foreach (var car in Cars)
 			{
+				var Images = _db.Image.Where(i => i.CarId == car.Id).ToList();
 				foreach (var img in Images)
 				{
 					car.Images.Add(img);

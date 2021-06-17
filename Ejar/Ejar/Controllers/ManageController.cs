@@ -19,12 +19,28 @@ namespace Ejar.Controllers
 			_db = context;
 			
 		}
+
+		
 		public IActionResult Index()
 		{
 			int id = Convert.ToInt32(User.FindFirst(ClaimTypes.NameIdentifier).Value);
 			var user = _db.User.FirstOrDefault(u => u.Id == id);
 			user.Account = _db.Account.Where(a => a.UserId == user.Id).FirstOrDefault<AccountModel>();
 			user.Account.License = _db.License.Where(l => l.AccountId == user.Account.Id).FirstOrDefault<LicenseModel>();
+			user.Cars = _db.Car.Where(c => c.UserId == user.Id).ToList();
+			foreach (var car in user.Cars)
+			{
+				car.Images = _db.Image.Where(i => i.CarId == car.Id).ToList();
+			}
+
+			var trips = _db.Trip.Where(t => t.UserId == user.Id).ToList();
+			foreach (var trip in trips)
+			{
+				trip.Car = _db.Car.Where(c => c.Id == trip.Car.Id).FirstOrDefault<CarModel>();
+				trip.Car.Images = _db.Image.Where(i => i.CarId == trip.Car.Id).ToList();
+				user.Trips.Add(trip);
+			}
+			
 
 			if (user == null)
 			{
@@ -36,6 +52,16 @@ namespace Ejar.Controllers
 			return View();
 		}
 
+		public bool isAccountComplete(AccountModel account)
+		{
+			if (account.FirstName != null && account.LastName != null && account.PhoneNumber.ToString().Length > 7 && account.Address != null )
+			{
+				return true;
+			}
+			return false;
+		}
+
+
 		[HttpPost]
 		public IActionResult Index([Bind("Id, FirstName, LastName, PhoneNumber, Address")] AccountModel account)
 		{
@@ -43,8 +69,24 @@ namespace Ejar.Controllers
 			var user = _db.User.FirstOrDefault(u => u.Id == id);
 			user.Account = _db.Account.Where(a => a.UserId == user.Id).FirstOrDefault<AccountModel>();
 			user.Account.License = _db.License.Where(l => l.AccountId == user.Account.Id).FirstOrDefault<LicenseModel>();
+			user.Cars = _db.Car.Where(c => c.UserId == user.Id).ToList();
+			foreach (var car in user.Cars)
+			{
+				car.Images = _db.Image.Where(i => i.CarId == car.Id).ToList();
+			}
+
+
+			var trips = _db.Trip.Where(t => t.UserId == user.Id).ToList();
+			foreach (var trip in trips)
+			{
+				trip.Car = _db.Car.Where(c => c.Id == trip.Car.Id).FirstOrDefault<CarModel>();
+				trip.Car.Images = _db.Image.Where(i => i.CarId == trip.Car.Id).ToList();
+				user.Trips.Add(trip);
+			}
+
 
 			account.UserId = id;
+			account.AccountComplete = isAccountComplete(account).ToString();
 			_db.Account.Update(account);
 			_db.SaveChanges();
 
@@ -61,16 +103,29 @@ namespace Ejar.Controllers
 			user.Account.License = _db.License.Where(l => l.AccountId == user.Account.Id).FirstOrDefault<LicenseModel>();
 			license.AccountId = user.Account.Id;
 
-		
+			user.Cars = _db.Car.Where(c => c.UserId == user.Id).ToList();
+			foreach (var car in user.Cars)
+			{
+				car.Images = _db.Image.Where(i => i.CarId == car.Id).ToList();
+			}
+
+			var trips = _db.Trip.Where(t => t.UserId == user.Id).ToList();
+			foreach (var trip in trips)
+			{
+				trip.Car = _db.Car.Where(c => c.Id == trip.Car.Id).FirstOrDefault<CarModel>();
+				trip.Car.Images = _db.Image.Where(i => i.CarId == trip.Car.Id).ToList();
+				user.Trips.Add(trip);
+			}
+
+
 			if (user.Account.License == null)
 			{
-				
+
 				_db.License.Add(license);
 				_db.SaveChanges();
 				ViewBag.User = user;
 				RedirectToAction("Added License");
 			}
-
 			
 			_db.License.Update(license);
 			_db.SaveChanges();

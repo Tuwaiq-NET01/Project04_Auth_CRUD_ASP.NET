@@ -16,6 +16,7 @@ namespace Ejar.Models
 		public string Address { get; set; }
 		public decimal balance { get; set; }
 
+		public string AccountComplete { get; set; }
 		public LicenseModel License { get; set; }
 
 		
