@@ -7,6 +7,7 @@
         margin: 0px;
         padding: 0px;
     }
+
     .div-img {
         background: url(https://i.imgur.com/snr0OFV.png) no-repeat center center;
         background-size: cover;
@@ -14,19 +15,41 @@
         width: 1200px;
     }
 </style>
-<div class="div-img">
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<div class="div-img">
 </div>
 <br />
-<br>
+
+
 <h2 style="color:mintcream"><strong>Accelerating potential, inspiring minds</strong></h2>
 <h4 style="color:mintcream">Ithra welcomes you to a new adventure and new experiences that fuel your creativity, inspiration and your passion to learn.</h4>
 <p style="color:mintcream">Ithra is unlike any other. Ithra stands as a beacon of change in the Kingdom of Saudi Arabia and as a window to global experiences. As the world progressively evolves, Saudi Arabia is transforming at an even greater pace. At Ithra, we celebrate human potential as the greatest source of change; we focus on accelerating that potential by encouraging creativity, inspiring minds, and empowering talent.</p>
 <p style="color:mintcream">A project by Saudi Aramco serves as the advancement for the public. Saudi Aramco envisioned Ithra to be an environment for transformative experiences to unlock the power of potential through mastery in arts, science, literature, and innovation. Our facilities include Idea Lab, Library, Ithra Theater, Cinema, Ithra Museum, Children’s Museum, Energy Exhibit, The Great Hall, and the Ithra Tower; all of which are housed to provide engaging and revolutionary experiences.</p>
 <br />
 <a class="btn btn-light" style="height:50px; width:350px; font-size:20px; font-weight:bolder" asp-controller="Events" asp-action="Index">Check out our incoming events</a>
-<hr style="color:white" />
-<div class="text-center">
-    
-</div>
+<br />
+<br />
+
+<h4 style="color:mintcream">Get me to the venue</h4>
+<br />
+<div style="color:mintcream"><p>The Center is open for visitor as follows:</p><p>Weekdays: 9:00AM – 12:00AM</p><p>Weekends(Thursday &amp; Saturday): 9:00AM - 1:00AM</p><p>Friday: 4:00PM – 1:00AM</p><p>Sunday: Closed</p><p></p></div>
+
+
+
+<div id="googleMap" style="height:500px;width:500px; margin-left: 320px"></div>
+<script>
+    function myMap() {
+        var Ithra = new google.maps.LatLng(26.335656950710327, 50.12094856786939);
+        var mapProp = { center: Ithra, zoom: 15, scrollwheel: false, draggable: false, mapTypeId: google.maps.MapTypeId.ROADMAP };
+        var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+        var marker = new google.maps.Marker({ position: Ithra });
+        marker.setMap(map);
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCT5aLhy84i3o1JLbOQO-ClG3a4ZLheIJ0&callback=myMap"></script>
+
+
 
