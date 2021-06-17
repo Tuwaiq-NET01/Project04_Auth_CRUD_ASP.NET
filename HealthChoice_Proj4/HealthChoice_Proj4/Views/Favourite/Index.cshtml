@@ -6,9 +6,10 @@
 <table class="table">
     <thead style="color:green">
         <tr>
+            <th scope="col">Number</th>
             <th scope="col">Name</th>
             <th scope="col">Date</th>
-            <th scope="col">Overvie</th>
+           
             <th scope="col"></th>
 
         </tr>
@@ -16,23 +17,21 @@
     <tbody style="color:white">
         @foreach (var Event in favEvents)
         {
-        <tr>
-            @{count++;}
-            <th scope="row">@count</th>
-            <td>@Event.Name.</td>
-            <td>@Event.Date</td>
-      
+            <tr>
+                @{count++;}
+                <th scope="row">@count</th>
+                <td>@Event.Name.</td>
+                <td>@Event.Date</td>
 
 
-            <td>
-                <form asp-action="Delete" asp-route-id="@Event.Id" method="post">
-                    <input type="submit" value="Unlike" class="btn btn-danger" />
-                </form>
-            </td>
-            <td>
-                <iframe width="100%" height="300" scrolling="no" frameborder="no" src=@Event.Location> </iframe>
-            </td>
-        </tr>
+
+                <td>
+                    <form asp-action="Delete" asp-route-id="@Event.Id" method="post">
+                        <input type="submit" value="Unlike" class="btn btn-danger" />
+                    </form>
+                </td>
+         
+            </tr>
         }
 
     </tbody>

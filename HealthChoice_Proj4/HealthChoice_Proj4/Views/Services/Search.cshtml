@@ -1,10 +1,16 @@
 ﻿@{
     var ser = (List<ServicesModel>)ViewData["ser"];
- 
-}
-<h1 style="text-align: center; color:#807b74 ">Results Search</h1>
 
-<div class="container">
+}
+
+
+<div style="width: 100%; height: 30px; border-bottom: 1px dashed white; text-align: center">
+    <span style="font-size: 40px; background-color: #F3F5F6; padding: 0 10px;">
+        Search Results<!--Padding is optional-->
+    </span>
+</div>
+
+<div class="container mb-5">
     <div class="row">
 
         @foreach (var item in ser)
@@ -12,20 +18,23 @@
 
             <div class="col-4" style="margin-top:10%; text-align:center">
                 <div class="card mb-3">
-                    <h3 class="card-header">@item.servName</h3>
+
                     <div class="card-body">
-                        <img class="card-img-top" src="@item.servLogo" alt="Card image cap" height="200" width="80">
+                        <img class="card-img-top rounded" accesskey="" src="@item.servLogo" alt="Card image cap" height="200" width="80">
 
-
+                        <h3>@item.servName</h3>
                     </div>
 
                     <div class="card-body">
                         <a href="/Services/Details/@item.Id" class="btn btn-dark">Read More</a>
                     </div>
-                    <a asp-controller="Services" asp-action="Edit" asp-route-id="@item.Id"><i class="large material-icons">create</i></a>
-                    <form asp-controller="Services" asp-action="Delete" asp-route-id="@item.Id">
-                        <input type="submit" class="" value="Delete" style="display: inline-block; background-color: rgba(0,0,0,0); border: 0; color: red">
-                    </form>
+                    <div class="d-flex justify-content-center">
+                        <a asp-controller="Services" asp-action="Edit" asp-route-id="@item.Id"><i class="large material-icons">create</i></a>
+                        <form asp-controller="Services" asp-action="Delete" asp-route-id="@item.Id">
+                            @* <input type="submit" class="" value="Delete" style="display: inline-block; background-color: rgba(0,0,0,0); border: 0; color: red">
+                            *@                  <button style="display: inline-block; background-color: rgba(0,0,0,0); border: 0;"><i class="large material-icons" style="color:red">delete_forever</i></button>
+                        </form>
+                    </div>
 
                 </div>
             </div>
@@ -35,3 +44,5 @@
 
     </div>
 </div>
+
+

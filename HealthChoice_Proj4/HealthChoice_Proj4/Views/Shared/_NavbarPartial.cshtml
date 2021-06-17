@@ -42,7 +42,8 @@
 
     <a class="w3-bar-item w3-button text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
     <a class="w3-bar-item w3-button  text-light" asp-area="" asp-controller="Services" asp-action="Index">Services</a>
-    <a class="w3-bar-item w3-button  text-light" asp-area="" asp-controller="Home" asp-action="About">About Us</a>
+    <a class="w3-bar-item w3-button  text-light" asp-area="" asp-controller="Events" asp-action="Index">Events</a>
+    @*<a class="w3-bar-item w3-button  text-light" asp-area="" asp-controller="Home" asp-action="About">About Us</a>*@
     @if (SignInManager.IsSignedIn(User))
     {
         <a class="w3-bar-item w3-button text-light" asp-area="" asp-controller="Favourite" asp-action="Index">My Likes</a>

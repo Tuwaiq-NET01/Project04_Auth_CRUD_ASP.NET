@@ -4,34 +4,39 @@
 
 
 
-<div class="card mb-5" style="margin-bottom:20px; margin-top:20px; text-align:center">
-    <div class="card mb-6">
-        <h3 class="card-header">@Events.Name </h3>
-        <div class="card-body">
-            <p> @Events.Date</p>
-            <p> @Events.Overview</p>
+
+
+    <div class="card rounded mb-3"   style=" text-align:center">
+
+        <div class="card-body row ">
+            <div class="col-6">
+                <h3 class="card-header">@Events.Name </h3>
+                <div class="card-body">
+                    <p> @Events.Date</p>
+                    <p> @Events.Overview</p>
+         
+                </div>
+
+                <div class="card-body">
+                    <div class="card-body" >
+
+                        <form asp-action="Like" method="post" class="form-horizontal" asp-route-id="@Events.Id">
+                            <input type="submit" class="Large material-icons" value="favorite" />
+                            <a href="/Events" class="btn btn-outline-success" style="margin-bottom:13px">Back</a>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
             <div class="row" style="align-content: center">
-                <div class="col d-flex justify-content-center align-items-center">
-                    <img class="img-fluid" src="@Events.Image" alt="Card image cap" height="400" width="200">
+                <div class="col d-flex justify-content-center align-items-center m-5">
+                    <img class="img-fluid" src="@Events.Image" alt="Card image cap" height="600" width="400" style="border-radius:5px">
                 </div>
             </div>
         </div>
 
-        <div class="card-body">
-            <div class="card-body">
-
-                <form asp-action="Like" method="post" class="form-horizontal" asp-route-id="@Events.Id">
-                    <input type="submit" class="Large material-icons" value="favorite" />
-
-                </form>
-                    <a href="/Events" class="btn btn-dark">Back</a>
-</div>
-
         </div>
-    </div>
-</div>
-
-
 
 
 
