@@ -1,8 +1,10 @@
-﻿@model RoomModel;
+﻿
 @{
     var hotel = (HotelModel)ViewData["Hotel"];
 
     var roomList = (List<RoomModel>)ViewData["Rooms"];
+
+    var user = (AdvanceUser)ViewData["user"];
 
 }
 
@@ -26,31 +28,39 @@
 {
     if (r.HotelId == hotel.HotelId)
     {
-        <div class="card mb-3">
-
-        <h3 class="card-title">Room @r.RoomNumber</h3>
-
-        <img src="@r.RoomImage" style="width:200px; height:300px" />
-
-        <p class="card-text"><strong>Room Type :</strong>@r.RoomType</p>
-        <p class="card-text"><strong>Room Price :</strong>@r.RoomPrice</p>
-        <p class="card-text"><strong>Room Status :</strong>@r.RoomStatus</p>
-        <p class="card-text"><strong>Room Description:</strong>@r.RoomDescribtion</p>
+        <div class="card" style="width: 20rem; float: left; margin-left: 10px; margin-right: 10px; margin-bottom: 20px; border-radius: 8px;">
+            <img class="card-img-top" src="@r.RoomImage" alt="Card image cap">
+            <div class="card-body">
+                <h4 class="card-title">Room @r.RoomNumber</h4>
+                <p class="card-text"><strong>Room Description:</strong>@r.RoomDescribtion</p>
+            </div>
+            <ul class="list-group">
+                <li class="list-group-item"><strong>Room Type :</strong>@r.RoomType</li>
+                <li class="list-group-item"><strong>Room Price :</strong>@r.RoomPrice</li>
+                <li class="list-group-item"><strong>Room Status :</strong>@r.RoomStatus</li>
+            </ul>
+            <div class="card-body">
+                <button type="button" class="btn btn-info">Book</button>
+                @*<a href="#" class="card-link">Another link</a>*@
+            </div>
         </div>
-
+        
     }
     else
     {
-         <a asp-action="_NotFound" />
+        <a asp-action="_NotFound" />
     }
 
- }
+}
 
+@if (user != null && user.Admin == true)
+{
+<div>
+    <a class="btn btn-primary" asp-action="create" asp-controller="rooms" asp-route-id="@hotel.HotelId">Add New Room</a>
+</div>
+    
+}
 
-      
-
-        <a class="btn btn-primary" asp-action="create" asp-controller="rooms" asp-route-id="@hotel.HotelId">Add New Room</a>
-
-        @*@Html.ActionLink("Create", "Create", "Rooms", new { HotelId= hotel.HotelId }, null)*@
-
-        <a class="btn btn-dark" asp-controller="Hotels" asp-action="Index"> Back to Hotels </a>
+<div>
+    <a class="btn btn-dark position-absolute" asp-controller="Hotels" asp-action="Index"> Back to Hotels </a>
+</div>

@@ -1,6 +1,7 @@
 ﻿using HotelReservationManagement.Data;
 using HotelReservationManagement.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,23 +10,38 @@ using System.Threading.Tasks;
 
 namespace HotelReservationManagement.Controllers
 {
-    [Authorize]
+    
     public class RoomsController : Controller
     {
         private readonly ApplicationDbContext _db;
-        public RoomsController(ApplicationDbContext context)
+        private readonly UserManager<AdvanceUser> _userManager;
+        
+        public RoomsController(ApplicationDbContext context, UserManager<AdvanceUser> userManager)
         {
             _db = context;
+            _userManager = userManager;
         }
         public IActionResult Index()
         {
-            var Rooms = _db.Rooms.ToList();
-            ViewData["Rooms"] = Rooms;
+            var userid = _userManager.GetUserId(HttpContext.User);
+
+            if (userid != null)
+            {
+                AdvanceUser user = _userManager.FindByIdAsync(userid).Result;
+                ViewData["user"] = user;
+            }
+
+            var rooms = _db.Rooms.ToList();
+            var hotel = _db.Hotels.ToList();
+            ViewData["Rooms"] = rooms;
+            ViewData["hotel"] = hotel;
             return View();
+            
         }
 
         public IActionResult Details( int? id)
         {
+      
             var Room = _db.Rooms.ToList().Find(r =>r.RoomId ==id);
             if(id ==null || Room == null)
             {

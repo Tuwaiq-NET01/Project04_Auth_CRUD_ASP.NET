@@ -23,11 +23,6 @@ namespace HotelReservationManagement.Controllers
             _db = context;
         }
 
-      /*  public HotelsController(ApplicationDbContext context)
-        {
-            _db = context;
-        }*/
-
         //GET:/Hotels
 
         public IActionResult Index()
@@ -37,7 +32,7 @@ namespace HotelReservationManagement.Controllers
             if (userid != null)
             {
                 AdvanceUser user = _userManager.FindByIdAsync(userid).Result;
-                ViewData["user"] = user; 
+                ViewData["user"] = user;  
             }
       
             var Hotels = _db.Hotels.ToList();
@@ -48,6 +43,14 @@ namespace HotelReservationManagement.Controllers
         //Get: /Hotels/id
         public IActionResult Details(int? id)
         {
+            var userid = _userManager.GetUserId(HttpContext.User);
+
+            if (userid != null)
+            {
+                AdvanceUser user = _userManager.FindByIdAsync(userid).Result;
+                ViewData["user"] = user;
+            }
+
             var Hotel = _db.Hotels.ToList().Find(p => p.HotelId == id);
             var Rooms = _db.Rooms.ToList();
             if (id == null || Hotel == null)

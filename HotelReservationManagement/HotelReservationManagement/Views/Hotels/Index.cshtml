@@ -9,7 +9,7 @@
 <h1>All Hotels</h1>
 
 
-@if (user.Admin == true)
+@if (user != null && user.Admin == true)
 {
     <table class="table">
         <thead>
@@ -55,9 +55,9 @@
 
     <a class="btn btn-primary" asp-controller="Hotels" asp-action="Create"> Add New Hotel</a>
 
-}
+} 
 
-else
+else 
 {
     <table class="table">
         <thead>
@@ -91,7 +91,5 @@ else
     </table>
 
     <a class="btn btn-primary" asp-controller="Home" asp-action="Index"> Back Home</a>
-
-
 }
 
