@@ -1,0 +1,19 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@{
+    <head>
+        <link href="~/css/bootstrap.min (2).css" />
+    </head>
+
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <h1 style="margin-top:80px">Welcome</h1>
+        var name = @UserManager.GetUserName(User);
+        var n = name.Substring(0, name.IndexOf('@'));
+        <h3 style="color:cadetblue">@n!</h3>
+
+    }
+}
