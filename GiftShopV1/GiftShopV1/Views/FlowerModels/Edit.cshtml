@@ -1,0 +1,41 @@
+﻿@model GiftShopV1.Models.FlowerModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>FlowerModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="FlowerId" />
+            <div class="form-group">
+                <label asp-for="FlowerImage" class="control-label"></label>
+                <input asp-for="FlowerImage" class="form-control" />
+                <span asp-validation-for="FlowerImage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FlowerName" class="control-label"></label>
+                <input asp-for="FlowerName" class="form-control" />
+                <span asp-validation-for="FlowerName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FlowerPrice" class="control-label"></label>
+                <input asp-for="FlowerPrice" class="form-control" />
+                <span asp-validation-for="FlowerPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

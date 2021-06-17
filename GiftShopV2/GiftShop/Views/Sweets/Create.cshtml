@@ -1,0 +1,47 @@
+﻿@model SweetModel
+@{ Layout = "WebLayout"; }
+
+<center>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
+        <a class="navbar-brand" href="/Home"><img style="height:30px; width:30px;" src="https://cdn0.iconfinder.com/data/icons/flowers-and-leaves/47/flower_9-512.png" /></a>
+
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/Home/Privacy">Privacy</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/Home/ContactUs">Contact Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/Flowers/Index">Flowers</a>
+            </li>
+        </ul>
+    </nav>
+</center>
+<center>
+    <form asp-action="create" method="post" class="form-horizontal">
+        <div class="form-group">
+            <label asp-for="SweetId">Sweet ID:</label>
+            <input asp-for="SweetId" />
+        </div>
+        <div class="form-group">
+            <label asp-for="SweetImage">Sweet Image URL:</label>
+            <input asp-for="SweetImage" />
+        </div>
+        <div class="form-group">
+            <label asp-for="SweetName">Sweet Name:</label>
+            <input asp-for="SweetName" />
+            <span asp-validation-for="SweetName"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="SweetPrice">Sweet Price:</label>
+            <input asp-for="SweetPrice" />
+
+        </div>
+
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary" value="Submit" />
+        </div>
+    </form>
+</center>

@@ -49,7 +49,7 @@
 
 
                 <td><button type="button" class="btn btn-dark"><a style="color:white" href="/flowers/details/@Flower.FlowerId"> SHOW </a></button></td>
-                <td><button type="button" class="btn btn-dark"><a asp-controller="Flower" asp-action="Edit" asp-route-id="@Flower.FlowerId">EDIT</a></button></td>
+                <td><button type="button" class="btn btn-dark"><a asp-controller="Flowers" asp-action="Edit" asp-route-id="@Flower.FlowerId">EDIT</a></button></td>
                 <td>
                     <form asp-action="Delete" asp-route-id="@Flower.FlowerId" method="post">
                         <input type="submit" value="DELETE" class="btn btn-danger" />

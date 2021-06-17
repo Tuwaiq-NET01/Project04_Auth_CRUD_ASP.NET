@@ -41,8 +41,21 @@ namespace GiftShopV1.Controllers
         }
         // POST - /Flowers/create
         [HttpPost] // Binding doesn't have to be in order
-        public IActionResult Create([Bind("FlowerId", "FlowerImage", "FlowerName", "FlowerPrice")] FlowerModel Flower)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(/*[Bind("FlowerId", "FlowerImage", "FlowerName", "FlowerPrice")]*/FlowerModel Flower)
         {
+            FlowerModel fm = new FlowerModel();
+            fm.FlowerId = Flower.FlowerId;
+            fm.FlowerImage = Flower.FlowerImage;
+            fm.FlowerName = Flower.FlowerName;
+            fm.FlowerPrice = Flower.FlowerPrice;
+
+            _db.Flowers.Add(fm);
+            _db.SaveChanges();
+
+            return View();
+
+            /*
             if (ModelState.IsValid)
             {
                 _db.Flowers.Add(Flower);
@@ -53,7 +66,7 @@ namespace GiftShopV1.Controllers
             {
                 return View();
             }
-
+            */
         }
 
         // GET  - /Flowers/edit/id

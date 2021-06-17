@@ -1,0 +1,64 @@
+﻿@{
+    var Sweets = (List<SweetModel>)ViewData["Sweets"];
+    Layout = "WebLayout";
+
+}
+
+<center>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
+        <a class="navbar-brand" href="/Home"><img style="height:30px; width:30px;" src="https://cdn0.iconfinder.com/data/icons/flowers-and-leaves/47/flower_9-512.png" /></a>
+
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/Home/Privacy">Privacy</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/Home/ContactUs">Contact Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/Flowers/Index">Flowers</a>
+            </li>
+        </ul>
+    </nav>
+</center>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Sweet ID:</th>
+            <th scope="col">Sweet Image:</th>
+            <th scope="col">Sweet Name:</th>
+            <th scope="col">Sweet Price:</th>
+            <th scope="col">View:</th>
+            <th scope="col">Edit:</th>
+            <th scope="col">Delete:</th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Sweet in Sweets)
+        {
+            <tr>
+                <th scope="row">@Sweet.SweetId</th>
+                <td><img style="width:200px; height:200px" src="@Sweet.SweetImage" alt="@Sweet.SweetImage" /></td>
+                <td>@Sweet.SweetName</td>
+                <td>@Sweet.SweetPrice</td>
+
+
+                <td><button type="button" class="btn btn-dark"><a style="color:white" href="/Sweets/details/@Sweet.SweetId"> SHOW </a></button></td>
+                <td><button type="button" class="btn btn-dark"><a asp-controller="Sweets" asp-action="Edit" asp-route-id="@Sweet.SweetId">EDIT</a></button></td>
+                <td>
+                    <form asp-action="Delete" asp-route-id="@Sweet.SweetId" method="post">
+                        <input type="submit" value="DELETE" class="btn btn-danger" />
+                    </form>
+                </td>
+
+            </tr>
+        }
+
+
+    </tbody>
+</table>

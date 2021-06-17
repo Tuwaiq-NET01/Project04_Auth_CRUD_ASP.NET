@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Yasmin\\Documents\\.NET\\ASP.NET MVC\\GiftShopV1\\GiftShopV1\\GiftShopV1.csproj": {}
+    "C:\\Users\\Yasmin\\Documents\\.NET\\ASP.NET MVC\\Project04_Auth_CRUD_ASP.NET\\GiftShopV1\\GiftShopV1\\GiftShopV1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Yasmin\\Documents\\.NET\\ASP.NET MVC\\GiftShopV1\\GiftShopV1\\GiftShopV1.csproj": {
+    "C:\\Users\\Yasmin\\Documents\\.NET\\ASP.NET MVC\\Project04_Auth_CRUD_ASP.NET\\GiftShopV1\\GiftShopV1\\GiftShopV1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Yasmin\\Documents\\.NET\\ASP.NET MVC\\GiftShopV1\\GiftShopV1\\GiftShopV1.csproj",
+        "projectUniqueName": "C:\\Users\\Yasmin\\Documents\\.NET\\ASP.NET MVC\\Project04_Auth_CRUD_ASP.NET\\GiftShopV1\\GiftShopV1\\GiftShopV1.csproj",
         "projectName": "GiftShopV1",
-        "projectPath": "C:\\Users\\Yasmin\\Documents\\.NET\\ASP.NET MVC\\GiftShopV1\\GiftShopV1\\GiftShopV1.csproj",
+        "projectPath": "C:\\Users\\Yasmin\\Documents\\.NET\\ASP.NET MVC\\Project04_Auth_CRUD_ASP.NET\\GiftShopV1\\GiftShopV1\\GiftShopV1.csproj",
         "packagesPath": "C:\\Users\\Yasmin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Yasmin\\Documents\\.NET\\ASP.NET MVC\\GiftShopV1\\GiftShopV1\\obj\\",
+        "outputPath": "C:\\Users\\Yasmin\\Documents\\.NET\\ASP.NET MVC\\Project04_Auth_CRUD_ASP.NET\\GiftShopV1\\GiftShopV1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Yasmin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -62,11 +62,13 @@
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[5.0.4, )"
+              "version": "[5.0.6, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.4, )"
+              "version": "[5.0.6, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
