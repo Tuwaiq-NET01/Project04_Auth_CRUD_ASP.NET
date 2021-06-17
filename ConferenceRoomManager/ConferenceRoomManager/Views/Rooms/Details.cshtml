@@ -1,0 +1,58 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    @model BookingModel;
+
+    var room = (RoomModel)ViewData["Room"];
+    ViewData["Title"] = room.Name + " Page";
+    var img = "../" + room.Image;
+    DateTime today = DateTime.Today;
+    DateTime futureDate = today.AddDays(5);
+
+    var available = ViewData["roomAvailable"];
+
+
+
+}
+
+
+
+<img src=@img alt=@room.Name style="width: 980px; height: 582px; margin: 4rem; border-style: outset;" />
+<div style="background-color: #fefae0">
+    <div class="row" style="margin: 1rem">
+        <div class="col-6" style="color: #1a1357">
+            <h3>Room Name: @room.Name</h3>
+            <br />
+            <h3>@room.Description</h3>
+            <br />
+            <h3>The capacity is: @room.Capacity</h3>
+        </div>
+        <div class="col-6">
+            <h3 style="color: #1a1357">Facilities available:</h3>
+            
+            <h3>@room.Facility.Name</h3>
+            <br/>
+            <h3>Located at:</h3>
+           
+            <a asp-area="" asp-controller="Buildings" asp-action="Details" asp-route-id=@room.BuildingId><h4>@room.Building.Name Building</h4></a>
+        </div>
+    </div>
+    <!-- select dates from database to see if its available-->
+    <form class="form-inline" asp-controller="Bookings" asp-action="Book" method="post">
+        <div class="col-6">
+            <p>Please select a date between:</p>
+            <strong>@today.ToString("dd/MM/yyyy")</strong>
+            <p>and</p>
+            <strong>@available</strong>
+
+        </div>
+        <div class="col-6">
+            <input asp-for="Date" type="date" value=@today.ToString("yyyy/MM/dd") min=@today.ToString("yyyy/MM/dd") max=@futureDate.ToString("yyyy/MM/dd") style="margin: 2rem" />
+
+            <button class="btn-outline-primary" style="width: 8rem; height: 4rem; font-size:larger" value="Submit">Book it</button>
+        </div>
+        <input type="hidden" asp-for="RoomId" value=@room.Id />
+        <br />
+    </form>
+</div>

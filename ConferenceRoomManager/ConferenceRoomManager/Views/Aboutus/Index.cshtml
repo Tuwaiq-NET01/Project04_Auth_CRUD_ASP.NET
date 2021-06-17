@@ -1,0 +1,11 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    string url = "https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ2-TlC_xzdEgR6y8bg-qsJgg&key=AIzaSyBWPgMGItsQRc2AQdFXfIgQs_QmV0tiCvk";
+}
+
+<h1>This fictional University is ranked 101.</h1>
+<h2>We welcome students to apply in person.</h2>
+<h3>We are located here:</h3>
+<partial name="_MapsPartial" model="url" />

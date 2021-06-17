@@ -1,0 +1,37 @@
+﻿@model BookingModel;
+@{
+
+    ViewData["Title"] = "Booking Page";
+
+    var bookings = (List<BookingModel>)ViewData["Bookings"];
+    int counter = 1;
+}
+
+<table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Room</th>
+            <th scope="col">Date</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var booking in bookings)
+        {
+            <tr>
+                <th scope="row">@counter</th>
+                <td>@booking.UserName</td>
+                <td><strong>@booking.Room.Name</strong></td>
+                <td><strong>@booking.Date.ToString("dd/MM/yyyy")</strong></td>
+                <td><a class="btn btn-warning" asp-area="" asp-controller="Bookings" asp-action="Edit" asp-route-id=@booking.Id>Edit</a></td>
+                <td><form asp-action="Delete" asp-route-id=@booking.Id method="post"><input type="submit" class="btn btn-danger" value="Delete"></form></td>
+            </tr>
+            counter++;
+       }
+
+    </tbody>
+</table>

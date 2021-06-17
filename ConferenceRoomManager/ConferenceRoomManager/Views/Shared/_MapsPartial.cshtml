@@ -1,0 +1,16 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    @*    var building = (BuildingModel)ViewData["Building"];
+        string mapUrl = "";
+        if (building != null)
+        {
+            mapUrl = building.Location;
+        }*@
+
+    @model string
+}
+<iframe width="530" height="450" style="border:0" loading="lazy" allowfullscreen
+        src=@Model>
+</iframe>
