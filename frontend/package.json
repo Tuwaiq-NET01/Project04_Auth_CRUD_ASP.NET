@@ -1,6 +1,6 @@
 {
   "name": "bitchunk",
-  "homepage": "https://bitchunk.co/",
+  "homepage": "https://bitchunk.co",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -17,7 +17,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "INLINE_RUNTIME_CHUNK=false react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
