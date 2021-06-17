@@ -16,8 +16,10 @@ namespace HotelReservationManagement.Data
         }
         
         public DbSet<HotelModel> Hotels { get; set; }
-       /* public DbSet<UserModel> Users { get; set; }*/
+       
         public DbSet<RoomModel> Rooms { get; set; }
+
+        public DbSet<RoomBookingModel> RoomBookings { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -18,6 +18,8 @@ namespace HotelReservationManagement.Models
         public string RoomType { get; set; }
         public string RoomDescribtion { get; set; }
         public string RoomStatus { get; set; }
+        public string Floor { get; set; }
+        public string PersonCapacity { get; set; }
 
         //one to many with hotel
         public int HotelId { get; set; }

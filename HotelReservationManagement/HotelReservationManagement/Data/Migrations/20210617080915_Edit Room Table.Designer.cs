@@ -4,14 +4,16 @@ using HotelReservationManagement.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HotelReservationManagement.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210617080915_Edit Room Table")]
+    partial class EditRoomTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,9 +35,6 @@ namespace HotelReservationManagement.Data.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("DateOfBirth")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)
@@ -127,27 +126,6 @@ namespace HotelReservationManagement.Data.Migrations
                     b.HasKey("HotelId");
 
                     b.ToTable("Hotels");
-                });
-
-            modelBuilder.Entity("HotelReservationManagement.Models.RoomBookingModel", b =>
-                {
-                    b.Property<int>("RoomBookingId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("BookingDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("fromDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("toDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("RoomBookingId");
-
-                    b.ToTable("RoomBookings");
                 });
 
             modelBuilder.Entity("HotelReservationManagement.Models.RoomModel", b =>

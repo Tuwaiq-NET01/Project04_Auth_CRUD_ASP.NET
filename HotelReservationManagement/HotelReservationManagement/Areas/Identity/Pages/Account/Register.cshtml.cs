@@ -64,6 +64,7 @@ namespace HotelReservationManagement.Areas.Identity.Pages.Account
 
             public string FirstName { get; set; }
             public string LastName { get; set; }
+            public DateTime DateOfBirth { get; set; }
             public int MobileNumber { get; set; }
         }
 
@@ -79,7 +80,7 @@ namespace HotelReservationManagement.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new AdvanceUser { UserName = Input.Email, Email = Input.Email, FirstName=Input.FirstName, LastName=Input.LastName, MobileNumber=Input.MobileNumber };
+                var user = new AdvanceUser { UserName = Input.Email, Email = Input.Email, FirstName=Input.FirstName, LastName=Input.LastName, DateOfBirth=Input.DateOfBirth, MobileNumber=Input.MobileNumber };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {

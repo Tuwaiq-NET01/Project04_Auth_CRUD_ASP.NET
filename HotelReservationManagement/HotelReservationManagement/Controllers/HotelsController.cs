@@ -51,7 +51,7 @@ namespace HotelReservationManagement.Controllers
                 ViewData["user"] = user;
             }
 
-            var Hotel = _db.Hotels.ToList().Find(p => p.HotelId == id);
+            var Hotel = _db.Hotels.ToList().Find(p => p.HotelId == id);//to user the one to many relationship
             var Rooms = _db.Rooms.ToList();
             if (id == null || Hotel == null)
             {

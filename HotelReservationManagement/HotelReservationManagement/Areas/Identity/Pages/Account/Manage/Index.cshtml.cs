@@ -39,6 +39,7 @@ namespace HotelReservationManagement.Areas.Identity.Pages.Account.Manage
 
             public string FirstName { get; set; }
             public string LastName { get; set; }
+            
             public int MobileNumber { get; set; }
         }
 
