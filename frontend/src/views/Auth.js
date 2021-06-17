@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
 import Paper from '@material-ui/core/Paper'
@@ -61,7 +61,7 @@ const emptyNewUser = {
   email: '',
   password: '',
   name: '',
-  creationDate: '2021-06-15T20:25:55.772Z',
+  creationDate: `2021-06-15T20:25:55.772Z`,
   accountType: 'Free',
   currentQuota: 0,
   totalQuota: 50,
@@ -91,18 +91,6 @@ const AlertError = (msg) => {
   })
 }
 
-// const AlertWarning = (msg) => {
-//   toast.warn(`⛔ ${msg}`, {
-//     position: 'top-right',
-//     autoClose: 2000,
-//     hideProgressBar: false,
-//     closeOnClick: true,
-//     pauseOnHover: true,
-//     draggable: true,
-//     progress: undefined,
-//   })
-// }
-
 const AlertInfo = (msg) => {
   toast.info(`✌ ${msg}`, {
     position: 'top-right',
@@ -118,7 +106,6 @@ const AlertInfo = (msg) => {
 export default function Auth({ setAuth }) {
   document.title = 'Login'
   const history = useHistory()
-  const [grow, setGrow] = useState(() => false)
   const classes = useStyles()
   const [buttonLoading, setButtonLoading] = useState(() => false)
   const [loginForm, setLoginForm] = useState(() => true)
@@ -144,22 +131,10 @@ export default function Auth({ setAuth }) {
                 localStorage.setItem('UserData', JSON.stringify(res.data))
                 setTimeout(() => {
                   setAuth(true)
-                  history.push('/')
-                  setNewUser(emptyNewUser)
                   AlertSuccess('Your account has been created.')
-                  setButtonLoading(false)
-                }, 1000)
-              } else {
-                setTimeout(() => {
-                  setButtonLoading(false)
+                  history.push('/')
                 }, 1000)
               }
-            })
-            .catch((error) => {
-              setTimeout(() => {
-                setButtonLoading(false)
-                AlertError(`${error.response.status} error occured.`)
-              }, 1000)
             })
         }
       })
@@ -181,13 +156,8 @@ export default function Auth({ setAuth }) {
           const name = res.data.name
           setTimeout(() => {
             setAuth(true)
-            history.push('/')
-            setButtonLoading(false)
             AlertInfo(`Howdy ${name.split(' ')[0]}.`)
-          }, 1000)
-        } else {
-          setTimeout(() => {
-            setButtonLoading(false)
+            history.push('/')
           }, 1000)
         }
       })
@@ -200,7 +170,6 @@ export default function Auth({ setAuth }) {
   }
 
   useEffect(() => {
-    setGrow(true)
     const listener = (event) => {
       if (event.code === 'Enter' || event.code === 'NumpadEnter') {
         event.preventDefault()
@@ -212,10 +181,11 @@ export default function Auth({ setAuth }) {
     return () => {
       document.removeEventListener('keydown', listener)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user, newUser])
 
   return (
-    <Grow direction="up" in={grow}>
+    <Grow direction="up" in={true}>
       <Container className={classes.root}>
         <Grid justify="center" container spacing={3}>
           <Grid item xs={12} lg={6} md={6}>
@@ -324,6 +294,7 @@ export default function Auth({ setAuth }) {
                   <TextField
                     required
                     label="Password"
+                    helperText="Ex: Pass1325!"
                     value={newUser.password}
                     onChange={(e) =>
                       setNewUser({ ...newUser, password: e.target.value })

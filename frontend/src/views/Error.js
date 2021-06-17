@@ -1,11 +1,14 @@
 import React, { useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
+import { useHistory } from 'react-router-dom'
+import { toast } from 'react-toastify'
 import Container from '@material-ui/core/Container'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
+import Avatar from '@material-ui/core/Avatar'
 import Grow from '@material-ui/core/Grow'
-import ThanosGif from '../assets/img/thanos.gif'
+import ErrorGif from '../assets/img/404.gif'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -47,31 +50,47 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export default function How() {
-  document.title = 'How It Works'
+const AlertWarning = (msg) => {
+  toast.warn(`⛔ ${msg}`, {
+    position: 'top-right',
+    autoClose: 1500,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  })
+}
+
+export default function Error() {
+  document.title = '404'
+  const history = useHistory()
   const classes = useStyles()
 
   useEffect(() => {
+    AlertWarning('Invalid route.')
+    setTimeout(() => {
+      history.push('/')
+    }, 5000)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   return (
     <Grow direction="up" in={true}>
       <Container className={classes.root}>
         <Grid justify="center" container spacing={2}>
-          <Grid item xs={12} lg={10} md={8}>
+          <Grid item xs={8}>
             <Paper className={classes.paper} elevation={20}>
               <Typography color="secondary" variant="h5" nowrap="true">
-                Our Service In a Nutshell
+                No Route Matches
               </Typography>
               <div className={classes.divider} />
               <Grid container justify="center" spacing={2}>
-                <Grid item align="center" xs={12}>
-                  <img alt="404 Error" src={ThanosGif} />
-                </Grid>
-                <Grid item align="center" xs={8}>
-                  <Typography color="primary" variant="h5" nowrap="true">
-                    Your files...
-                  </Typography>
+                <Grid item align="center" xs={10}>
+                  <Avatar
+                    className={classes.gif}
+                    alt="404 Error"
+                    src={ErrorGif}
+                  />
                 </Grid>
               </Grid>
             </Paper>

@@ -195,7 +195,7 @@ export default function Shredder() {
     axios
       .post(
         `/api/chunk/${fileName}`,
-        { chunksPassword: chunksPassword.password },
+        { chunksPassword: chunksPassword.password, userId: user && user.id },
         config
       )
       .then((res) => {
@@ -255,6 +255,7 @@ export default function Shredder() {
           )
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   return (
     <Grow direction="up" in={true}>
@@ -272,7 +273,10 @@ export default function Shredder() {
                 <div className={classes.divider} />
                 <Grid container spacing={2}>
                   <Grid item lg={3} md={3} xs={12}>
-                    <ButtonBase centerRipple={true}>
+                    <ButtonBase
+                      centerRipple={true}
+                      onClick={() => downloadRef()}
+                    >
                       <div className={classes.infoBlock}>
                         <DescriptionIcon fontSize="large" color="primary" />
                         <Typography
@@ -311,7 +315,7 @@ export default function Shredder() {
                           nowrap="true"
                           className={classes.infoText}
                         >
-                          {metaData.chunksCount}
+                          {metaData.chunksCount + ' chunks'}
                         </Typography>
                       </div>
                     </ButtonBase>
@@ -322,6 +326,7 @@ export default function Shredder() {
                         <BlurOnIcon fontSize="large" color="primary" />
                         <Typography
                           color="secondary"
+                          variant="h6"
                           nowrap="true"
                           className={classes.infoText}
                         >
@@ -363,7 +368,20 @@ export default function Shredder() {
                       })}
                     </HScrollGrid>
                   </Grid>
-                  <Grid item xs={12}>
+                  <Grid item xs={6}>
+                    <Button
+                      fullWidth
+                      variant="contained"
+                      color="primary"
+                      className={classes.btn}
+                      onClick={() => {
+                        history.push('/')
+                      }}
+                    >
+                      <CloseIcon className={classes.icon} />
+                    </Button>
+                  </Grid>
+                  <Grid item xs={6}>
                     <Button
                       fullWidth
                       variant="contained"
@@ -383,6 +401,51 @@ export default function Shredder() {
                         <GetAppIcon className={classes.icon} />
                       )}
                     </Button>
+                  </Grid>
+                </Grid>
+              </Paper>
+            ) : (
+              <Paper className={classes.paper} elevation={20}>
+                <Typography color="secondary" variant="h5" nowrap="true">
+                  {'Shred: '}
+                  <span style={{ color: '#000' }}>{fileName}</span>
+                </Typography>
+                <div className={classes.divider} />
+                <Grid container spacing={2}>
+                  <Grid item xs={12}>
+                    <TextField
+                      fullWidth
+                      label="AES-256 Key"
+                      type="password"
+                      variant="filled"
+                      color="secondary"
+                      helperText="Only god can assemble your file if you forget this."
+                      defaultValue={chunksPassword.password}
+                      onChange={(e) =>
+                        setChunksPassword({
+                          ...chunksPassword,
+                          password: e.target.value,
+                        })
+                      }
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                      fullWidth
+                      label="Repeat AES-256 Key"
+                      type="password"
+                      variant="filled"
+                      color="secondary"
+                      defaultValue={chunksPassword.repeat}
+                      onChange={(e) =>
+                        setChunksPassword({
+                          ...chunksPassword,
+                          repeat: e.target.value,
+                        })
+                      }
+                    />
+                  </Grid>
+                  <Grid item xs={6}>
                     <Button
                       fullWidth
                       variant="contained"
@@ -395,55 +458,11 @@ export default function Shredder() {
                       <CloseIcon className={classes.icon} />
                     </Button>
                   </Grid>
-                </Grid>
-              </Paper>
-            ) : (
-              <Paper className={classes.paper} elevation={20}>
-                <Typography color="secondary" variant="h5" nowrap="true">
-                  {'Shred: '}
-                  <span style={{ color: '#000' }}>{fileName}</span>
-                </Typography>
-                <div className={classes.divider} />
-                <Grid container spacing={2}>
-                  <Grid item lg={6} md={6} xs={12}>
-                    <TextField
-                      fullWidth
-                      label="AES-256 Key"
-                      type="password"
-                      variant="filled"
-                      color="secondary"
-                      helperText={chunksPassword.password}
-                      defaultValue={chunksPassword.password}
-                      onChange={(e) =>
-                        setChunksPassword({
-                          ...chunksPassword,
-                          password: e.target.value,
-                        })
-                      }
-                    />
-                  </Grid>
-                  <Grid item lg={6} md={6} xs={12}>
-                    <TextField
-                      fullWidth
-                      label="Repeat AES-256 Key"
-                      type="password"
-                      variant="filled"
-                      color="secondary"
-                      helperText={chunksPassword.repeat}
-                      defaultValue={chunksPassword.repeat}
-                      onChange={(e) =>
-                        setChunksPassword({
-                          ...chunksPassword,
-                          repeat: e.target.value,
-                        })
-                      }
-                    />
-                  </Grid>
-                  <Grid item xs={12}>
+                  <Grid item xs={6}>
                     <Button
                       fullWidth
                       variant="contained"
-                      color="primary"
+                      color="secondary"
                       className={classes.btn}
                       onClick={() => shred()}
                     >
@@ -456,19 +475,6 @@ export default function Shredder() {
                       ) : (
                         <ScatterPlotIcon className={classes.icon} />
                       )}
-                    </Button>
-                    <Button
-                      fullWidth
-                      variant="contained"
-                      style={{
-                        backgroundColor: '#FF3131',
-                      }}
-                      className={classes.btn}
-                      onClick={() => {
-                        history.push('/')
-                      }}
-                    >
-                      <CloseIcon className={classes.icon} />
                     </Button>
                   </Grid>
                 </Grid>

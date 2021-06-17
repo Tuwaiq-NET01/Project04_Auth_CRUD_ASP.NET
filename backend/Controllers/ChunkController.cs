@@ -1,11 +1,14 @@
-﻿using backend.Models;
+﻿using backend.Data;
+using backend.Models;
 using backend.Models.Authentication;
 using backend.Modules;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
@@ -17,19 +20,26 @@ namespace backend.Controllers
     [ApiController]
     public class ChunkController : ControllerBase
     {
+        private readonly ApplicationDbContext _db;
+        private readonly UserManager<ApplicationUser> _userManager;
         private readonly string _tempFolder;
         private readonly BitChunk _client;
 
-        public ChunkController()
+        public ChunkController(ApplicationDbContext db, UserManager<ApplicationUser> userManager)
         {
+            _db = db;
+            _userManager = userManager;
             _tempFolder = Directory.GetCurrentDirectory() + "\\temp";
             _client = new BitChunk();
         }
 
         [HttpPost("{FileName}")]
-        public IActionResult Post(string FileName, EncryptionKeyDTO encryptionKeyDto)
+        public async Task<IActionResult> Post(string FileName, EncryptionKeyDTO encryptionKeyDto)
         {
-            if(encryptionKeyDto.ChunksPassword == null)
+            var stopwatch = new Stopwatch();
+            stopwatch.Start();
+
+            if (encryptionKeyDto.ChunksPassword == null)
                 return BadRequest(new Response { Status = "Error", Message = "You need to supply the chunks encryption key" });
 
             string filePath = Path.Combine(_tempFolder, FileName);
@@ -47,6 +57,31 @@ namespace backend.Controllers
                     {
                         chunksNames.Add(chunks.Split("/")[^1]);
                     }
+
+
+                    stopwatch.Stop();
+                    if(encryptionKeyDto.UserId != null)
+                    {
+                        var model = await _userManager.FindByIdAsync(encryptionKeyDto.UserId);
+                        if (model != null)
+                        {
+                            model.CurrentQuota += (uint)_client.InputFileSize;
+                            await _userManager.UpdateAsync(model);
+                        }
+                        var newLog = new Log()
+                        {
+                            RefFileName = _client.RefFile.Split("\\")[^1],
+                            OriFileName = _client.InputFileName.Split("\\")[^1],
+                            FileSize = _client.InputFileSize,
+                            OperationTimes = stopwatch.ElapsedMilliseconds,
+                            TimeStamp = DateTime.Now,
+                            UserId = encryptionKeyDto.UserId
+                        };
+
+                        await _db.Logs.AddAsync(newLog);
+                        await _db.SaveChangesAsync();
+                    }
+
                     return Ok(new { 
                         Status = "Success", 
                         Message = $"{_client.RefFile.Split("\\")[^1]} has been generated", 

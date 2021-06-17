@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
@@ -66,18 +66,17 @@ export default function NavBar({ auth, setAuth }) {
     setAnchorEl(null)
   }
 
-  useEffect(() => {}, [auth])
-
   return (
     <div className={classes.root}>
       <AppBar position="fixed">
         <Toolbar>
           <IconButton
+            disabled={!auth}
             edge="start"
             className={classes.menuButton}
             color="inherit"
             component={Link}
-            to={'/assemble'}
+            to={'/'}
           >
             <HomeIcon />
           </IconButton>

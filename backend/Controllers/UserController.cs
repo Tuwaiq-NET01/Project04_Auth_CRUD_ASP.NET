@@ -33,6 +33,16 @@ namespace backend.Controllers
             return Ok(new { users });
         }
 
+        [HttpGet("{Id}")]
+        public async Task<IActionResult> Get(string Id)
+        {
+            var user = await _userManager.FindByIdAsync(Id);
+            if(user != null)
+                return Ok(new { Status = "Success", User = user });
+
+            return NotFound(new Response { Status = "Error", Message = "The user was not found!" });
+        }
+
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(string id, UserDTO userDto)
         {

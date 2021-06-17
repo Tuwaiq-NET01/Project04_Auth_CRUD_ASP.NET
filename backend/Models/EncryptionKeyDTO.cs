@@ -9,5 +9,6 @@ namespace backend.Models
     {
         public string ChunksPassword { get; set; }
         public string RefPassword { get; set; }
+        public string UserId { get; set; }
     }
 }

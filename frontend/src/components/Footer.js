@@ -25,9 +25,9 @@ export default function Footer() {
         </Typography>
       </Grid>
       <Grid item lg={4} md={12} xs={12} container justify="center">
-        <Grid item lg={4} md={12} xs={12} align="center">
+        <Grid item lg={5} md={12} xs={12} align="center">
           <ButtonBase className={classes.button} component={Link} to={'/terms'}>
-            <Typography align="center">Terms of Service</Typography>
+            <Typography align="center">Terms and Conditions</Typography>
           </ButtonBase>
         </Grid>
         <Grid item lg={4} md={12} xs={12} align="center">
@@ -39,10 +39,10 @@ export default function Footer() {
             <Typography align="center">Privacy Policy</Typography>
           </ButtonBase>
         </Grid>
-        <Grid item lg={4} md={12} xs={12} align="center">
+        <Grid item lg={3} md={12} xs={12} align="center">
           <ButtonBase
             className={classes.button}
-            href="https://google.com"
+            href="https://bitchunk.azurewebsites.net/swagger/index.html"
             target="_blank"
           >
             <Typography align="center">Bitchunk API</Typography>

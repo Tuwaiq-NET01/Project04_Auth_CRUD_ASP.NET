@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { useHistory } from 'react-router-dom'
 import Container from '@material-ui/core/Container'
@@ -6,7 +6,7 @@ import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
 import { toast } from 'react-toastify'
 import Button from '@material-ui/core/Button'
-import Typography from '@material-ui/core/Typography'
+import CircularProgress from '@material-ui/core/CircularProgress'
 import Grow from '@material-ui/core/Grow'
 import { DropzoneArea } from 'material-ui-dropzone'
 import PublishIcon from '@material-ui/icons/Publish'
@@ -57,6 +57,9 @@ const useStyles = makeStyles((theme) => ({
   btn: {
     marginTop: theme.spacing(2),
   },
+  icon: {
+    padding: 3,
+  },
 }))
 
 const AlertSuccess = (msg) => {
@@ -83,8 +86,21 @@ const AlertError = (msg) => {
   })
 }
 
+const AlertWarning = (msg) => {
+  toast.warn(`⛔ ${msg}`, {
+    position: 'top-right',
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  })
+}
+
 export default function Dashboard() {
   document.title = 'Dashboard'
+  const history = useHistory()
   const user = JSON.parse(localStorage.getItem('UserData'))
   const config = {
     headers: {
@@ -92,35 +108,42 @@ export default function Dashboard() {
       'Content-Type': 'application/json',
     },
   }
-  const history = useHistory()
   const classes = useStyles()
-  const [grow, setGrow] = useState(() => false)
   const [file, setFile] = useState({})
+  const [buttonLoading, setButtonLoading] = useState(() => false)
 
   const uploadFile = () => {
-    const isRefFile = file.name.includes('ref')
-    const formData = new FormData()
-    formData.append('file', file)
-    axios
-      .post('/api/upload', formData, config)
-      .then((res) => {
-        if (res.status === 200) {
-          localStorage.setItem('FileName', JSON.stringify(file.name))
-          if (isRefFile) history.push('/assemble')
-          else history.push('/shred')
-          AlertSuccess('Your file is uploaded.')
-        }
-      })
-      .catch((error) => AlertError(`${error.response.status} error occured.`))
+    setButtonLoading(true)
+    if (file) {
+      const isRefFile = file.name.includes('ref')
+      const formData = new FormData()
+      formData.append('file', file)
+      axios
+        .post('/api/upload', formData, config)
+        .then((res) => {
+          if (res.status === 200) {
+            localStorage.setItem('FileName', JSON.stringify(file.name))
+            AlertSuccess('Your file is uploaded.')
+            if (isRefFile) history.push('/assemble')
+            else history.push('/shred')
+          }
+        })
+        .catch((error) => AlertError(`${error.response.status} error occured.`))
+    } else {
+      setTimeout(() => {
+        setButtonLoading(false)
+        AlertWarning('Upload a file.')
+      }, 1000)
+    }
   }
 
   useEffect(() => {
     if (!user) history.push('/login')
-    setGrow(true)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
-    <Grow direction="up" in={grow}>
+    <Grow direction="up" in={true}>
       <Container className={classes.root}>
         <Grid justify="center" container spacing={2}>
           <Grid item xs={12} lg={10} md={8}>
@@ -129,7 +152,7 @@ export default function Dashboard() {
                 fullWidth={true}
                 showFileNames={true}
                 filesLimit={1}
-                dropzoneText="Drag and drop a file to shred or .ref file to assemble"
+                dropzoneText="Drag and drop a file to shred or ref file to assemble"
                 onChange={(files) => {
                   setFile(files[0])
                 }}
@@ -141,7 +164,15 @@ export default function Dashboard() {
                 className={classes.btn}
                 onClick={() => uploadFile()}
               >
-                <PublishIcon />
+                {buttonLoading ? (
+                  <CircularProgress
+                    className={classes.icon}
+                    size={24}
+                    color="inherit"
+                  />
+                ) : (
+                  <PublishIcon className={classes.icon} />
+                )}
               </Button>
             </Paper>
           </Grid>

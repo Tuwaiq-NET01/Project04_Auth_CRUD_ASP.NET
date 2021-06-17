@@ -1,56 +1,18 @@
 import React, { useEffect, useState } from 'react'
-import { makeStyles, withStyles } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core/styles'
 import { useHistory } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import Container from '@material-ui/core/Container'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
 import CircularProgress from '@material-ui/core/CircularProgress'
-import ViewComfyIcon from '@material-ui/icons/ViewComfy'
-import BlurOnIcon from '@material-ui/icons/BlurOn'
 import VpnKeyIcon from '@material-ui/icons/VpnKey'
-import ButtonBase from '@material-ui/core/ButtonBase'
-import DeleteForeverIcon from '@material-ui/icons/DeleteForever'
-import ScatterPlotIcon from '@material-ui/icons/ScatterPlot'
-import GetAppIcon from '@material-ui/icons/GetApp'
 import CloseIcon from '@material-ui/icons/Close'
 import Button from '@material-ui/core/Button'
-import Badge from '@material-ui/core/Badge'
-import Avatar from '@material-ui/core/Avatar'
 import TextField from '@material-ui/core/TextField'
 import Typography from '@material-ui/core/Typography'
 import Grow from '@material-ui/core/Grow'
 import axios from 'axios'
-import CNKImg from '../assets/img/cnk-icon.png'
-
-const StyledBadge = withStyles((theme) => ({
-  badge: {
-    backgroundColor: '#44b700',
-    color: '#44b700',
-    boxShadow: `0 0 0 2px ${theme.palette.background.paper}`,
-    '&::after': {
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      width: '100%',
-      height: '100%',
-      borderRadius: '50%',
-      animation: '$ripple 1.2s infinite ease-in-out',
-      border: '1px solid currentColor',
-      content: '""',
-    },
-  },
-  '@keyframes ripple': {
-    '0%': {
-      transform: 'scale(.8)',
-      opacity: 1,
-    },
-    '100%': {
-      transform: 'scale(2.4)',
-      opacity: 0,
-    },
-  },
-}))(Badge)
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -92,7 +54,8 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
   },
   icon: {
-    padding: 3,
+    paddingTop: 10,
+    paddingBottom: 10,
   },
   btn: {
     marginTop: theme.spacing(1),
@@ -162,6 +125,18 @@ const AlertInfo = (msg) => {
   })
 }
 
+const AlertWarning = (msg) => {
+  toast.warn(`⛔ ${msg}`, {
+    position: 'top-right',
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  })
+}
+
 export default function Assembler() {
   document.title = 'Assembler'
   const user = JSON.parse(localStorage.getItem('UserData'))
@@ -176,7 +151,6 @@ export default function Assembler() {
   const classes = useStyles()
   const [buttonLoading, setButtonLoading] = useState(() => false)
   const [chunksPassword, setChunksPassword] = useState(() => '')
-  const [metaData, setMetaData] = useState({})
 
   const assemble = () => {
     setButtonLoading(true)
@@ -206,22 +180,28 @@ export default function Assembler() {
         document.body.appendChild(link)
         link.click()
         link.parentNode.removeChild(link)
-        setButtonLoading(false)
-        AlertSuccess(`Ressemble complete.`)
+        AlertSuccess(`Reassembling complete.`)
         history.push('/')
       })
       .catch((error) => {
-        setButtonLoading(false)
-        AlertError(`${error.response.status} error occured.`)
+        history.push('/')
+        AlertWarning(`The file has been assembled.`)
       })
   }
 
   useEffect(() => {
     if (!user) history.push('/login')
-    // else if (!fileName) {
-    //   history.push('/')
-    //   AlertInfo('Upload a .ref to assemble.')
-    // }
+    else if (!fileName) {
+      history.push('/')
+      AlertInfo('Upload a ref file to assemble.')
+    }
+
+    return () => {
+      if (fileName) {
+        localStorage.setItem('FileName', null)
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   return (
     <Grow direction="up" in={true}>
@@ -235,7 +215,7 @@ export default function Assembler() {
               </Typography>
               <div className={classes.divider} />
               <Grid container justify="center" spacing={2}>
-                <Grid item xs={12}>
+                <Grid item xs={10}>
                   <TextField
                     fullWidth
                     label="AES-256 Key"
@@ -246,14 +226,13 @@ export default function Assembler() {
                     onChange={(e) => setChunksPassword(e.target.value)}
                   />
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={2}>
                   <Button
                     fullWidth
                     variant="contained"
                     style={{
                       backgroundColor: '#32CD32',
                     }}
-                    className={classes.btn}
                     onClick={() => assemble()}
                   >
                     {buttonLoading ? (
@@ -267,7 +246,7 @@ export default function Assembler() {
                     )}
                   </Button>
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={12}>
                   <Button
                     fullWidth
                     variant="contained"
@@ -278,17 +257,6 @@ export default function Assembler() {
                     }}
                   >
                     <CloseIcon className={classes.icon} />
-                  </Button>
-                </Grid>
-                <Grid item xs={12}>
-                  <Button
-                    fullWidth
-                    variant="contained"
-                    style={{
-                      backgroundColor: '#FF3131',
-                    }}
-                  >
-                    <DeleteForeverIcon className={classes.icon} />
                   </Button>
                 </Grid>
               </Grid>

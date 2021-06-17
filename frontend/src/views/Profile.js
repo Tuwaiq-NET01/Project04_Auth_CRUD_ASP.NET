@@ -86,16 +86,15 @@ const AlertError = (msg) => {
 }
 
 export default function Profile() {
-  document.title = 'Profile'
+  const history = useHistory()
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('UserData')))
+  document.title = user && user.name.split(' ')[0] + "'s Profile"
   const config = {
     headers: {
       Authorization: `Bearer ${user && user.token}`,
       'Content-Type': 'application/json',
     },
   }
-  const history = useHistory()
-  const [grow, setGrow] = useState(() => false)
   const [buttonLoading, setButtonLoading] = useState(() => false)
   const classes = useStyles()
   const [password, setPassword] = useState(() => '')
@@ -132,7 +131,6 @@ export default function Profile() {
           setTimeout(() => {
             AlertSuccess('Your profile is updated.')
             history.push('/')
-            setButtonLoading(false)
           }, 1000)
         } else {
           setTimeout(() => setButtonLoading(false), 1000)
@@ -147,8 +145,7 @@ export default function Profile() {
   }
 
   useEffect(() => {
-    if (!user) history.push('/')
-    setGrow(true)
+    if (!user) history.push('/login')
     const listener = (event) => {
       if (event.code === 'Enter' || event.code === 'NumpadEnter') {
         event.preventDefault()
@@ -159,9 +156,10 @@ export default function Profile() {
     return () => {
       document.removeEventListener('keydown', listener)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user])
   return (
-    <Grow direction="up" in={grow}>
+    <Grow direction="up" in={true}>
       <Container className={classes.root}>
         <Grid justify="center" container spacing={2}>
           <Grid item xs={12} lg={10} md={8}>
@@ -176,7 +174,8 @@ export default function Profile() {
                     disabled
                     fullWidth
                     label="Id"
-                    defaultValue={user.id}
+                    helperText="Your Id can't be changed."
+                    defaultValue={user && user.id}
                     variant="filled"
                   />
                 </Grid>
@@ -185,15 +184,16 @@ export default function Profile() {
                     disabled
                     fullWidth
                     label="Username"
+                    helperText="Your username can't be changed."
                     variant="filled"
-                    defaultValue={user.username}
+                    defaultValue={user && user.username}
                   />
                 </Grid>
                 <Grid item lg={6} md={6} xs={12}>
                   <TextField
                     fullWidth
                     label="Name"
-                    defaultValue={user.name}
+                    defaultValue={user && user.name}
                     onChange={(e) => setUser({ ...user, name: e.target.value })}
                     variant="filled"
                     autoFocus={true}
@@ -204,7 +204,7 @@ export default function Profile() {
                     fullWidth
                     label="Email"
                     variant="filled"
-                    defaultValue={user.email}
+                    defaultValue={user && user.email}
                     onChange={(e) =>
                       setUser({ ...user, email: e.target.value })
                     }
@@ -230,11 +230,13 @@ export default function Profile() {
                     onChange={(e) => setNewPassword(e.target.value)}
                   />
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={6}>
                   <Button
                     fullWidth
                     variant="contained"
-                    color="primary"
+                    style={{
+                      backgroundColor: '#32CD32',
+                    }}
                     className={classes.btn}
                     onClick={() => updateUser()}
                   >
@@ -248,12 +250,12 @@ export default function Profile() {
                       <EditIcon className={classes.icon} />
                     )}
                   </Button>
+                </Grid>
+                <Grid item xs={6}>
                   <Button
                     fullWidth
                     variant="contained"
-                    style={{
-                      backgroundColor: '#FF3131',
-                    }}
+                    color="primary"
                     className={classes.btn}
                     onClick={() => {
                       history.push('/')
