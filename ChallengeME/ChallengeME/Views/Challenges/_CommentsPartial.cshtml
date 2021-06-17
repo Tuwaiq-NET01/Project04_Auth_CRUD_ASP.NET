@@ -20,13 +20,23 @@
 <div class="container-fluid">
     <h1 class="display-6">Comments:</h1>
 
-    <div class="form-floating mb-3">
-        <form id="commentForm" asp-controller="comments" asp-action="create" asp-route-id="@challenge.Id" method="post" class="form-horizontal" autocomplete="off">
-            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" asp-for="Title"></textarea>
-            <input id="commentSubmit" class="btn btn-outline-secondary mt-2 d-flex justify-content-end" type="submit" value="Submit!"/>
-        </form>
-    </div>
+    @if (@UserManager.GetUserId(User) == null)
+    {
 
+<div class="alert alert-danger" role="alert">
+    <i class="fas fa-sign-in-alt ml-2"></i>  Please <a asp-area="Identity" asp-page="/Account/Login" class="alert-link"> Login </a> to comment on this challenge.
+</div>
+
+    }
+    else
+    {
+        <div class="form-floating mb-3">
+            <form id="commentForm" asp-controller="comments" asp-action="create" asp-route-id="@challenge.Id" method="post" class="form-horizontal" autocomplete="off">
+                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" asp-for="Title"></textarea>
+                <input id="commentSubmit" class="btn btn-outline-secondary mt-2 d-flex justify-content-end" type="submit" value="Submit!" />
+            </form>
+        </div>
+    }
 
     <span id="msg" style="color:red;"> </span>
 
@@ -37,21 +47,21 @@
         {
             <div class="comment @(cmt.isWinner ? "winner" : null ) mb-3">
                 <div class="d-flex">
-                    <h5 class="mr-auto" >@cmt.Title</h5>
+                    <h5 class="mr-auto">@cmt.Title</h5>
                     @if (cmt.UserId == @UserManager.GetUserId(User))
                     {
                         <form method="post" asp-controller="comments" asp-action="delete" asp-route-id="@cmt.Id">
                             <button type="submit" class="btn btn-link trash ml-1"><i class="fas fa-trash fa-2x"></i></button>
                         </form>
                     }
-                    @if(challenge.UserId == @UserManager.GetUserId(User) && !cmt.isWinner )
-                {
-                            <form method="post" asp-controller="winners" asp-action="create" asp-route-coId="@cmt.Id">
-                                <button type="submit" class="btn btn-link check ml-1">
-                                    <i class="fas fa-check fa-2x mr-1"></i>
-                                </button>
-                            </form>
-                }
+                    @if (challenge.UserId == @UserManager.GetUserId(User) && !cmt.isWinner)
+                    {
+                        <form method="post" asp-controller="winners" asp-action="create" asp-route-coId="@cmt.Id">
+                            <button type="submit" class="btn btn-link check ml-1">
+                                <i class="fas fa-check fa-2x mr-1"></i>
+                            </button>
+                        </form>
+                    }
                 </div>
                 <div class="text-muted">@cmt.User.UserName / <span class="ml-1">@cmt.Time</span> </div>
             </div>

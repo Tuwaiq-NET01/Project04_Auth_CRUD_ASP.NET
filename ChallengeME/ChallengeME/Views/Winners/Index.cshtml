@@ -6,8 +6,6 @@
 
     var users = (List<ApplicationUser>)ViewData["users"];
     var winners = (List<Winner>)ViewData["winners"];
-
-    int counter = 0;
 }
 
 <table class="table table-dark table-striped table-hover">
@@ -20,14 +18,6 @@
     <tbody>
         @foreach (var u in users)
         {
-            counter = 0;
-            @foreach (var win in winners)
-            {
-                //if (win.Comment.UserId == u.Id)
-                //{
-                //    counter++;
-                //}
-            }
             <tr>
                 <th scope="row"> @u.UserName </th>
                 <td> @u.Wins </td>

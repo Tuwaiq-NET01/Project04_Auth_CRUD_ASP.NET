@@ -14,17 +14,12 @@ namespace ChallengeME.Controllers
 {
     public class CommentsController : Controller
     {
-
-
-        
         private readonly ApplicationDbContext _context;
 
         public CommentsController(ApplicationDbContext context)
         {
-
             _context = context;
         }
-
 
         public JsonResult getComments()
         {
@@ -35,7 +30,6 @@ namespace ChallengeME.Controllers
 
         public IActionResult Index()
         {
-            
             return View();
         }
 
@@ -43,8 +37,6 @@ namespace ChallengeME.Controllers
         [Authorize]
         public IActionResult Create(int id, [Bind("Title")] Comment comment)
         {
-
-
             string iduser = User.FindFirst(ClaimTypes.NameIdentifier).Value;
             var user = _context.Users.FirstOrDefault(user => user.Id == iduser);
             // this proves that NameIdentifier stored inside User claims is the actual user id
@@ -66,13 +58,10 @@ namespace ChallengeME.Controllers
             return View();
         }
 
-
         [Authorize]
         [HttpPost]
         public IActionResult Delete(int? id)
         {
-
-
             var comment = _context.Comments.ToList().FirstOrDefault(p => p.Id == id);
 
             if (id == null || comment == null)
@@ -80,15 +69,9 @@ namespace ChallengeME.Controllers
                 return NotFound();
             }
 
-
             _context.Comments.Remove(comment);
             _context.SaveChanges();
             return RedirectToAction("details", "challenges", new { id = comment.ChallengeId });
         }
-
-
-
-
-
     }
 }

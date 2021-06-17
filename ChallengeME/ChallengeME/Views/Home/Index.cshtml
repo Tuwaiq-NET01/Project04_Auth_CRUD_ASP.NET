@@ -6,14 +6,11 @@
 @using Microsoft.AspNetCore.Identity
 @inject UserManager<ApplicationUser> UserManager
 
-
 @{
     Layout = "_myLayout";
     ViewData["Title"] = "Home Page";
 
-
     var username = UserManager.GetUserName(User);
-
 
 }
 
@@ -28,6 +25,4 @@
         <h1 class="display-4">Welcome!</h1>
         <h3> <a asp-area="Identity" asp-page="/Account/Login">Login</a> and get CHALLENGED! </h3>
     }
-
-
 </div>

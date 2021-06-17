@@ -1,5 +1,6 @@
 ﻿using ChallengeME.Data;
 using ChallengeME.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -20,10 +21,10 @@ namespace ChallengeME.Controllers
         }
 
 
-
+        [AllowAnonymous]
         public IActionResult Index()
         {
-            ViewData["users"] = _context.Users.ToList();
+            ViewData["users"] = _context.Users.Where(x => x.Wins > 0).ToList();
             ViewData["winners"] = _context.Winners.ToList();
             ViewData["comments"] = _context.Comments.ToList();
 
@@ -31,7 +32,7 @@ namespace ChallengeME.Controllers
         }
 
 
-
+        [HttpPost]
         public IActionResult Create(int coId ,[Bind("Description")] Winner winner)
         {
 

@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     Layout = "_myLayout";
 
     var game = (Game)ViewData["game"];
@@ -20,16 +19,11 @@
 {
     <div class="d-flex flex-row-reverse">
 
-
-
-        
-<button type="button" class="btn btn-outline-danger ml-2" data-bs-toggle="modal" data-bs-target="#delModel">
-    DELETE
-</button>
-
+        <button type="button" class="btn btn-outline-danger ml-2" data-bs-toggle="modal" data-bs-target="#delModel">
+            DELETE
+        </button>
 
         <a role="button" class="btn btn-outline-warning" asp-controller="games" asp-action="edit" asp-route-id="@game.Id">EDIT</a>
-
     </div>
 }
 
@@ -42,9 +36,7 @@
     {
         <a class="ml-3" asp-action="create" asp-controller="challenges" asp-route-id="@game.Id"><i class="fas fa-plus-circle fa-2x"></i></a>
 
-        
     }
-
 </div>
 
 <div class="list-group ">
@@ -64,13 +56,7 @@
     {
         <h4 class="text-danger text-center"> There are no challenges for this game <i class="far fa-frown"></i> </h4>
     }
-
-
-
 </div>
-
-
-
 
 <div class="modal fade" id="delModel" tabindex="-1" aria-labelledby="delModelLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -82,7 +68,6 @@
                 <div class="modal-body">
                     are you sure you want to delete the game?
                     <h4>@game.GameName</h4>
-
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

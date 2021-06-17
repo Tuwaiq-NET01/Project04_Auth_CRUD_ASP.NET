@@ -8,11 +8,11 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
+
 namespace ChallengeME.Controllers
 {
     public class GamesController : Controller
     {
-
         private readonly ApplicationDbContext _context;
 
         public GamesController(ApplicationDbContext context)
@@ -28,17 +28,15 @@ namespace ChallengeME.Controllers
             return View("Index");
         }
 
-
         // GET: games/details/5
         [AllowAnonymous]
         public IActionResult Details(int? id)
         {
             try
             {
-            string userid = User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            var user = _context.Users.FirstOrDefault(user => user.Id == userid);
+                string userid = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+                var user = _context.Users.FirstOrDefault(user => user.Id == userid);
                 ViewData["id"] = user.Id;
-
             }
             catch (NullReferenceException)
             {
@@ -50,25 +48,19 @@ namespace ChallengeME.Controllers
                 return NotFound();
             }
 
-
             var game = _context.Games.ToList().Find(m => m.Id == id);
-
-
             if (game == null)
             {
                 return View("fof");
             }
 
-
             var challenges = _context.Challenges.Where(i => i.GameId == game.Id).ToList();
             ViewData["challenges"] = challenges;
-
-
             ViewData["game"] = game;
             return View();
         }
 
-        //GET: /games/create 
+        //GET: /games/create
         public IActionResult Create()
         {
             return View();
@@ -77,7 +69,7 @@ namespace ChallengeME.Controllers
         //POST: /games/create
         [Authorize]
         [HttpPost]
-        public IActionResult Create([Bind("GameName","GameImage")] Game game)
+        public IActionResult Create([Bind("GameName", "GameImage")] Game game)
         {
             string id = User.FindFirst(ClaimTypes.NameIdentifier).Value;
             var user = _context.Users.FirstOrDefault(user => user.Id == id);
@@ -97,21 +89,13 @@ namespace ChallengeME.Controllers
             }
 
             return View(game);
-
         }
-
-
-
-
-
-
-
 
         //GET: /games/edit/5
         [Authorize]
         public IActionResult Edit(int? id)
         {
-            var game = _context.Games.ToList().Find(p => p.Id== id);
+            var game = _context.Games.ToList().Find(p => p.Id == id);
             if (id == null || game == null)
             {
                 return NotFound();
@@ -126,10 +110,9 @@ namespace ChallengeME.Controllers
         [HttpPost]
         public IActionResult Edit(int id, [Bind("GameName", "GameImage")] Game game)
         {
-
             var dbgame = _context.Games.ToList().Find(p => p.Id == id);
             dbgame.GameName = game.GameName;
-            dbgame.GameImage= game.GameImage;
+            dbgame.GameImage = game.GameImage;
 
             _context.Games.Update(dbgame);
             _context.SaveChanges();
@@ -137,26 +120,17 @@ namespace ChallengeME.Controllers
             return RedirectToAction("Index");
         }
 
-
-
-
-
-
-
-
-
-        //POST: /products/delete/id  
+        //POST: /products/delete/id
         [Authorize]
         [HttpPost]
         public IActionResult Delete(int? id)
         {
-            var game = _context.Games.ToList().FirstOrDefault(p => p.Id== id);
+            var game = _context.Games.ToList().FirstOrDefault(p => p.Id == id);
 
             if (id == null || game == null)
             {
                 return NotFound();
             }
-
 
             _context.Games.Remove(game);
             _context.SaveChanges();
@@ -173,9 +147,6 @@ namespace ChallengeME.Controllers
             return View();
         }
 
-
-
-
         //////////////////////////////////////////
         /////////////////////////////////////tests
         //////////////////////////////////////////
@@ -189,7 +160,7 @@ namespace ChallengeME.Controllers
             {
                 return Content("NOT FOUND!");
             }
-            game.User_Id = userid; 
+            game.User_Id = userid;
             if (ModelState.IsValid)
             {
                 _context.Games.Add(game);
@@ -198,9 +169,6 @@ namespace ChallengeME.Controllers
             }
 
             return View(game);
-
         }
-
-
     }
 }

@@ -1,11 +1,8 @@
 ﻿using ChallengeME.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ChallengeME.Controllers
 {
@@ -18,22 +15,23 @@ namespace ChallengeME.Controllers
             _logger = logger;
         }
 
-
+        [AllowAnonymous]
         public IActionResult Index()
         {
             return View("Index");
         }
 
+        [AllowAnonymous]
         public IActionResult Privacy()
         {
             return View();
         }
 
+        [AllowAnonymous]
         public IActionResult About()
         {
             return View();
         }
-
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
