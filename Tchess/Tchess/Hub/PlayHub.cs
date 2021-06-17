@@ -20,5 +20,10 @@ namespace Tchess.Hub
         {
             await Clients.Client(user).SendAsync("ReceiveId", Context.ConnectionId,message);
         }
+        public async Task SendWin(string user, string message)
+        {
+            await Clients.Client(user).SendAsync("ReceiveWin", Context.ConnectionId,message);
+        }
+
     }
 }

@@ -4,11 +4,13 @@ let moveee
 let enemyId
 let blackplay = false
 let whiteplay = false
-let user={
-    name : document.getElementById("username").innerText,
+let user = {
+    name: document.getElementById("username").innerText,
     rating: document.getElementById("rating").innerText
 }
+
 function onDragStart(source, piece, position, orientation) {
+
     // do not pick up pieces if the game is over
     if (game.game_over()) return false
 
@@ -21,9 +23,17 @@ function makeMove(moveee) {
     var possibleMoves = game.moves()
 
     // game over
-    if (possibleMoves.length === 0) return
+    if (possibleMoves.length === 0) {
+        lost()
+    }
 
     game.move(moveee)
+    var possibleMoves = game.moves()
+
+    // game over
+    if (possibleMoves.length === 0) {
+        lost()
+    }
     board.position(game.fen())
 }
 
@@ -82,8 +92,8 @@ function send() {
 
 
 //networking
-function connect () {
-    connection.invoke("SendNetwork","",JSON.stringify(user)).catch(function (err) {
+function connect() {
+    connection.invoke("SendNetwork", "", JSON.stringify(user)).catch(function (err) {
         return console.error(err.toString());
     });
 }
@@ -98,8 +108,8 @@ connection.on("ReceiveNetwork", function (user, message) {
     connectToUser()
 });
 
-function connectToUser(){
-    connection.invoke("SendToId", enemyId,JSON.stringify(user)).catch(function (err) {
+function connectToUser() {
+    connection.invoke("SendToId", enemyId, JSON.stringify(user)).catch(function (err) {
         return console.error(err.toString());
     });
 }
@@ -108,6 +118,7 @@ connection.on("ReceiveId", function (user, message) {
     if (enemyId == null) {
         enemyId = user
     }
+
     showinfo(message)
     blackplay = true
     var config = {
@@ -122,11 +133,29 @@ connection.on("ReceiveId", function (user, message) {
 
 });
 
-function showinfo(message){
+function showinfo(message) {
     let name = JSON.parse(message).name
     let rating = JSON.parse(message).rating
     document.getElementById("enemyname").innerText = name
     document.getElementById("enemyrating").innerText = rating
     document.getElementById("enemyinfo").style.display = "block"
-    document.getElementById("waiting").style.display ="none"
+    document.getElementById("waiting").style.display = "none"
 }
+
+async function lost() {
+    $("#loseModal").modal("show")
+    connection.invoke("SendWin", enemyId, "").catch(function (err) {
+        return console.error(err.toString());
+    });
+    await fetch("./LoseRating/"+document.getElementById("profileId").innerText)
+}
+
+async function won() {
+    $("#winModal").modal("show")
+    await fetch("./WinRating/"+document.getElementById("profileId").innerText)
+
+}
+
+connection.on("ReceiveWin", function (user, message) {
+    won()
+})

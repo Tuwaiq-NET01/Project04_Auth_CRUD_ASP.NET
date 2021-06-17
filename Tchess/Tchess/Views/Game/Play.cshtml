@@ -4,6 +4,8 @@
 }
 <link rel="stylesheet" href="~/css/chessboard-1.0.0.min.css">
 
+
+<p id="profileId" style="display: none">@profile.Id</p>
 <div style=" width: 60% ; margin: auto">
     <h1>Play Chess</h1>
     <div id="enemyinfo" style="display: none">
@@ -12,9 +14,9 @@
             <h3 id="enemyrating" style="display: inline ; margin-left: 13em">Rating: @profile.Rating </h3>
         </div>
     </div>
-        <div class="animate__animated animate__slow animate__infinite	infinite animate__flash" style="margin-left: 10em" id="waiting">
-            <h3 >Waiting for another player</h3>
-        </div>
+    <div class="animate__animated animate__slow animate__infinite	infinite animate__flash" style="margin-left: 10em" id="waiting">
+        <h3 >Waiting for another player</h3>
+    </div>
 
     <div id="myBoard" style="width: 650px"></div>
 
@@ -25,7 +27,51 @@
 </div>
 
 
+
+<div id="winModal" class="modal fade">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">YOU WON !</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"></span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Your rating is now @(profile.Rating+200)</p>
+            </div>
+            <div class="modal-footer">
+                <a type="button" asp-action="Play" class="btn btn-primary">Play Again</a>
+                <a type="button" asp-controller="Home" asp-action="Index" class="btn btn-secondary" data-bs-dismiss="modal">Home</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="loseModal" class="modal fade">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">YOU LOST !</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"></span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Your rating is now @(profile.Rating-200)</p>
+            </div>
+            <div class="modal-footer">
+                <a type="button" asp-action="Play" class="btn btn-primary">Play Again</a>
+                <a type="button" asp-controller="Home" asp-action="Index" class="btn btn-secondary" data-bs-dismiss="modal">Home</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="~/js/chessboard-1.0.0.js"></script>
 <script src="~/js/chess.js"></script>
 <script src="~/js/signalr/dist/browser/signalr.js"></script>
