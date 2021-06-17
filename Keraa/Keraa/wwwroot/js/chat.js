@@ -1,6 +1,51 @@
 "use strict";
 
 var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
+//eventHub.server.joinGroup("my-awsm-group");
+var room = document.getElementById("roomChat").value;
+
+
+//Disable send button until connection is established
+document.getElementById("sendButton").disabled = true;
+
+connection.on("ReceiveMessage", function (user, message) {
+    var li = document.createElement("li");
+    document.getElementById("messagesList").appendChild(li);
+    // We can assign user-supplied strings to an element's textContent because it
+    // is not interpreted as markup. If you're assigning in any other way, you 
+    // should be aware of possible script injection concerns.
+    li.textContent = `${user} says ${message}`;
+});
+
+
+connection.start().then(function () {
+    document.getElementById("sendButton").disabled = false;
+    connection.invoke("JoinRoom", room).catch(function (err) {
+        return console.error(err.toString());
+    });
+}).catch(function (err) {
+    return console.error(err.toString());
+});
+
+document.getElementById("sendButton").addEventListener("click", function (event) {
+    var user = document.getElementById("userInput").value;
+    var message = document.getElementById("messageInput").value;
+    connection.invoke("SendMessage",room, user, message).catch(function (err) {
+        return console.error(err.toString());
+    });
+    event.preventDefault();
+});
+
+document.getElementById("RoomLeaver").addEventListener("click", function () {
+        connection.invoke("LeaveRoom", room).catch(function (err) {
+            return console.error(err.toString());
+        });
+});
+
+/*
+"use strict";
+
+var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
 
 //Disable send button until connection is established
 document.getElementById("sendButton").disabled = true;
@@ -28,3 +73,4 @@ document.getElementById("sendButton").addEventListener("click", function (event)
     });
     event.preventDefault();
 });
+*/
