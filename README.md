@@ -14,7 +14,7 @@
     
 ### Demo  
  
-    ![Tchess](https://user-images.githubusercontent.com/82477641/122460186-7fcdea00-cfba-11eb-8da4-fe8c8869bab9.gif)
+![Tchess](https://user-images.githubusercontent.com/82477641/122460186-7fcdea00-cfba-11eb-8da4-fe8c8869bab9.gif)
 
     
 ### Wireframe  
