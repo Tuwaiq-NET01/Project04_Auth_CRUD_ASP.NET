@@ -1,55 +1,125 @@
-# Project04_Auth_CRUD_ASP.NET
+<div dir="ltr" align="center">
 
-<div dir="rtl" align="right">
+![Tuwaiq](https://i.ibb.co/SV2BSn5/tuwaiq.png)
 
-فكرة المشروع
+</div>
 
-بناء مشروع متكامل باستخدام ASP.NET MVC  قائم على فكرة من اختيارك وتتضمن المتطلبات الأساسية لبناء تطبيق ASP.NET MVC مع  Entity Framework Core وSql Server.
+<hr />
 
+<div dir="rtl" align="right" >
 
-قبل بداية المشروع 
+# ChallengeME
 
-عمل Wireframes و ERD والتأكيد مع أحد المدربين قبل البدء بتنفيذ المشروع. بداية المشروع بالنسخة رقم  v.1
-
-متطلبات المشروع
-
-
-- استخدام نمط MVC 
-- إنشاء على الأقل 4 من Controllers
-- إنشاء على الأقل 4 Model 
-- إنشاء على الأقل 6 Views
-    - استخدام مكتبة Bootstrap مع Razor 
-    - استخدام partial view للعناصر المتكررة في الواجهات
-- استخدام وظائف CRUD مع ASP.NET 
-- استخدام إطار عمل Entity Framework Core
-- استخدام CodeFirst Approach لإنشاء قاعدة البيانات
-- استخدام قاعدة بيانات MSSQL 
-    - ان تكون قاعدة البيانات متعددة الجداول
-    - يجب ان تتضمن قاعدة البيانات على الاقل احد العلاقات التالية:
-        - علاقة one-to-one
-        - علاقة one-to-many
-        - علاقة many-to-many
-- تطبيق Authentication 
-- قم بتطبيق Unit Testing على مشروعك
-    
+### المقدمــة | Introduction 
+ ......
 
 
 
 
 
-إضافة | Bonus 
-- قم باستخدام أحد مفاهيم Design Patterns في مشروعك لحل مشكلةٍ ما
-- إنشاء APIs 
-- عمل Deploy للمشروع على Azure
-- استخدام React مع ASP.NET أو أي Framework 
-- استخدام WebSockets في ASP.NET core
-- التعامل مع الـThird party APIs  {SMS Message, Google Maps,….} 
-    - مصادر للـAPIs
-    - الاول: Any API over 1400 Public APIs: https://any-api.com/
-    - الثاني: API Search: http://apis.io/
-- رفع صور او ملفات 
-    -  باستخدام الـthird-party:
-        - Cloudinary: https://cloudinary.com/
-        -  AWS: https://aws.amazon.com/s3/?nc2=h_ql_prod_st_s3
-    - حفظها  بالـLocal server 
+
+<br />
+
+### Demo  
+
+ ![demo gif](./images/demo.gif)
+
+
+<br />
+<br />
+
+### Wireframe  
+هذه بعض الWireframes التي تم إنشائها قبل عملية التطوير للموقع.
+ <br />
+
+
+ - ### للصفحة الرئيسية (عرض الالعاب): 
+
+ ![All games page](./images/wfal.png)
+ 
+ <br />
+
+ - ### لصفحة معلومات اللعبة + التحديات الموجودة فيها:
+
+ ![game details page](./images/gd.png)
+
+ <br />
+
+ - ### لصفحة معلومات التحدي: 
+
+ ![challenge details page](./images/wfcd.png)
+
+
+# Technologies Used | التقنيات المستخدمة
+
+### Front-End  
+ - HTML
+ - CSS
+ - JavaScript
+ - Jquery
+ - Bootstrap
+ - Razoe Pages
+ - Google Fonts
+
+### Back-End 
+ - ASP.NET MVC
+ - MSSQL Server
+ - EF Core
+ - ASP.NET Identity
+
+<br />
+
+## Set up  
+
+### Prerequisites
+- NET 5
+- ASP.NET MVC
+- Microsoft SQL Server
+
+## Set up
+ #### Database
+ ``` dotnet ef database update```
+
+
+
+<br />
+<br />
+
+## Unit Testing:
+..........................
+
+
+
+
+<br />
+
+## Future updates and  iterations | التحديثات المستقبلية
+
+- **Homepage:**
+	- Better visuals overall for the hompage to show website's best features.
+	- A section to show our top players that won the most challenges.
+- **Submissions:**
+	- Introduce a seprate section for submission on a challenge apart from comments.
+- **overall better User Interface.**
+
+
+
+<hr />
+
+## Author
+
+### <b> اسم الطالب:</b>  محمد راشد البلوي.
+### <b> المجموعة: </b>  القدية.
+### <b> مشرفة المجموعة:</b>  نورة عبدالله.
+
+
+## License & Resource
+- [ASP.NET Identity](https://docs.microsoft.com/en-us/aspnet/identity/overview/getting-started/introduction-to-aspnet-identity)
+- [FontAwesome](https://fontawesome.com/v5.15/icons?d=gallery&p=2)
+- [LINQ Query Operations](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/basic-linq-query-operations)
+- [Bootstrap](https://getbootstrap.com/)
+- [Bootstrap Cards](https://getbootstrap.com/docs/5.0/components/card/)
+
+
+
 </div>

@@ -1,12 +1,16 @@
-﻿@using Microsoft.AspNetCore.Identity
+﻿@section Styles{
+    <link href="@Url.Content("~/css/home.css")" rel="stylesheet" type="text/css" />
+
+}
+@using Microsoft.AspNetCore.Identity
 @inject UserManager<ApplicationUser> UserManager
 
 @{
     Layout = "_myLayout";
-
     var users = (List<ApplicationUser>)ViewData["users"];
-    var winners = (List<Winner>)ViewData["winners"];
 }
+
+<h1 class="display-4">Top Players: </h1>
 
 <table class="table table-dark table-striped table-hover">
     <thead>

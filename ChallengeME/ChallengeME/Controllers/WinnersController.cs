@@ -24,9 +24,9 @@ namespace ChallengeME.Controllers
         [AllowAnonymous]
         public IActionResult Index()
         {
-            ViewData["users"] = _context.Users.Where(x => x.Wins > 0).ToList();
+            ViewData["users"] = _context.Users.Where(x => x.Wins > 0).OrderByDescending(x => x.Wins).ToList();
             ViewData["winners"] = _context.Winners.ToList();
-            ViewData["comments"] = _context.Comments.ToList();
+            //ViewData["comments"] = _context.Comments.ToList();
 
             return View("Index");
         }
