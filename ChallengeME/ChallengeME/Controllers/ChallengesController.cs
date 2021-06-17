@@ -21,10 +21,10 @@ namespace ChallengeME.Controllers
         }
 
 
-        public IActionResult Index(int? id)
+        public IActionResult Index()
         {
 
-            return View();
+            return View("Index");
         }
 
 
@@ -68,7 +68,7 @@ namespace ChallengeME.Controllers
             ViewData["game"] = _context.Games.ToList().Find(x => x.Id == id);
             ViewData["diff"] = getDiff();
 
-            return View();
+            return View("Create");
         }
 
         //POST: /games/create
@@ -114,12 +114,6 @@ namespace ChallengeME.Controllers
 
 
 
-
-
-
-
-
-
         [Authorize]
         [HttpPost]
         public IActionResult Delete(int? id)
@@ -148,5 +142,22 @@ namespace ChallengeME.Controllers
         }
 
 
+
+        //////////////////////////////////////////
+        /////////////////////////////////////tests
+        //////////////////////////////////////////
+
+
+        public Challenge EditTest(int id, Challenge challenge)
+        {
+            var dbchallenge = _context.Challenges.ToList().Find(p => p.Id == id);
+            dbchallenge.Title = challenge.Title;
+            dbchallenge.Description = challenge.Description;
+
+            _context.Challenges.Update(dbchallenge);
+            _context.SaveChanges();
+
+            return dbchallenge;
+        }
     }
 }

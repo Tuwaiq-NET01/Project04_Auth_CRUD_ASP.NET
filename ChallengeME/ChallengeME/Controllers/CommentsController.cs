@@ -30,7 +30,7 @@ namespace ChallengeME.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return View("Index");
         }
 
         [HttpPost]
@@ -72,6 +72,24 @@ namespace ChallengeME.Controllers
             _context.Comments.Remove(comment);
             _context.SaveChanges();
             return RedirectToAction("details", "challenges", new { id = comment.ChallengeId });
+        }
+
+
+
+
+
+        //////////////////////////////////////////
+        /////////////////////////////////////tests
+        //////////////////////////////////////////
+
+        public Comment DeleteTest(int? id)
+        {
+            var comment = _context.Comments.ToList().FirstOrDefault(p => p.Id == id);
+
+
+            _context.Comments.Remove(comment);
+            _context.SaveChanges();
+            return comment;
         }
     }
 }

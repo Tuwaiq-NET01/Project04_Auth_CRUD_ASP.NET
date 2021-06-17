@@ -80,7 +80,7 @@ namespace ChallengeMETest.Controllers
         public void userNotLoggedIn_SoItWillFail()
         {
             GamesController controller = new GamesController(this.db);
-            //not logged in
+            //normally, a user not logged in will have an id of null. this is a simulation of that.
             string current_user = null; 
             Game new_game = new Game() { Id = 5, GameName = "creatingGame", GameImage = "test", User_Id = current_user };
             var viewObj = (ContentResult)controller.CreateTest(new_game, current_user);

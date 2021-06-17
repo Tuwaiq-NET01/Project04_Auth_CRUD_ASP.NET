@@ -33,6 +33,7 @@ namespace ChallengeME.Controllers
 
 
         [HttpPost]
+        [Authorize]
         public IActionResult Create(int coId ,[Bind("Description")] Winner winner)
         {
 
@@ -50,6 +51,24 @@ namespace ChallengeME.Controllers
                 return RedirectToAction("details", "challenges", new { id = dbcomment.ChallengeId});
             }
             return View();
+        }
+
+
+
+
+        //////////////////////////////////////////
+        /////////////////////////////////////tests
+        //////////////////////////////////////////
+
+
+        public void CreateTest(int coId, Winner winner)
+        {
+
+            if (ModelState.IsValid)
+            {
+                _context.Winners.Add(winner);
+                _context.SaveChanges();
+            }
         }
 
     }

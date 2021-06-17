@@ -1,5 +1,6 @@
 ﻿using ChallengeME.Controllers;
 using ChallengeME.Data;
+using ChallengeME.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
@@ -23,8 +24,12 @@ namespace ChallengeMETest.Controllers
                 .UseInMemoryDatabase(databaseName: "TestDB")
                 .Options;
             db = new ApplicationDbContext(options);
-        }
 
+            db.Winners.Add(new Winner { Id = 1, wins = 2 , CommentId = 5});
+
+            db.SaveChanges();
+
+        }
 
 
         [Test]
@@ -39,6 +44,20 @@ namespace ChallengeMETest.Controllers
             //Assert
             Assert.AreEqual("Index", viewObj.ViewName);
         }
+
+
+        [Test]
+        public void WinnerCreatedSuccessfully()
+        {
+            WinnersController controller = new WinnersController(this.db);
+            var newWinner = new Winner() { Id = 2, wins = 10, CommentId = 6 };
+            controller.CreateTest(6, newWinner);
+
+            Assert.AreEqual(2, db.Winners.ToList().Count);
+        }
+
+
+
 
 
     }
