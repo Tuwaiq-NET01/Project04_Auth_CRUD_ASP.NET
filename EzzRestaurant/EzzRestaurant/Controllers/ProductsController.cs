@@ -2,6 +2,8 @@
 using System.Linq;
 using EzzRestaurant.Data;
 using EzzRestaurant.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EzzRestaurant.Controllers
@@ -11,10 +13,12 @@ namespace EzzRestaurant.Controllers
       
 
         private ApplicationDbContext _db;
+        private UserManager<IdentityUser> _userManager;
 
-        public ProductsController(ApplicationDbContext ctx)
+        public ProductsController(ApplicationDbContext ctx , UserManager<IdentityUser> userManager)
         {
             _db = ctx;
+            _userManager = userManager;
         }
         
         
@@ -97,6 +101,27 @@ namespace EzzRestaurant.Controllers
             }
             
             _db.Products.Remove(product);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        
+        [Authorize]
+        [HttpPost]
+        public IActionResult AddToCart( int? id)
+        {
+            var userId = _userManager.GetUserId(User);
+            var product = _db.Products.First(p => p.Id == id);
+            var cart = _db.Cart.First(c => c.UserId == userId);
+            
+            if (id == null || product == null)
+            {
+                return View("_NotFound");
+            }
+
+            var prdCart = new CartProductsModel() {Cart = cart, Product = product};
+            cart.TotalPrice += product.Price;
+            _db.CartProcucts.Add(prdCart);
+            _db.Cart.Update(cart);
             _db.SaveChanges();
             return RedirectToAction("Index");
         }

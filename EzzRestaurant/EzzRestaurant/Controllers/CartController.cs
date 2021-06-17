@@ -2,6 +2,7 @@
 using System.Linq;
 using EzzRestaurant.Data;
 using EzzRestaurant.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
@@ -23,16 +24,16 @@ namespace EzzRestaurant.Controllers
         {
             var userId = _userManager.GetUserId(User);
             var cart = _db.Cart.First(c => c.UserId == userId);
-            var cartProduct = _db.CartProcucts.Where(p => p.Cart.Id == cart.Id).ToList();
+            var cartProduct = _db.CartProcucts.Where(p => p.Cart == cart).ToList();
             
-            var AllProducts = _db.Products.ToList();
-            if (userId == null || cart == null || AllProducts.Count == 0)
+            var allProducts = _db.Products.ToList();
+            if (userId == null || cart == null || allProducts.Count == 0)
             {
                 return View("_NotFound");
             }
 
             List<ProductModel> Products = new List<ProductModel>();
-            foreach (var prd in AllProducts)
+            foreach (var prd in allProducts)
             {
                 foreach (var cp in cartProduct)
                 {
@@ -43,7 +44,29 @@ namespace EzzRestaurant.Controllers
                     }
                 }
             }
+
+            ViewBag.Products = Products;
+            ViewBag.Cart = cart;
             return View();
+        }
+        
+        [Authorize]
+        [HttpPost]
+        public IActionResult DeleteItem( int? id)
+        {
+            var userId = _userManager.GetUserId(User);
+            var product = _db.Products.First(p => p.Id == id);
+            var cart = _db.Cart.First(c => c.UserId == userId);
+            
+            if (id == null || product == null)
+            {
+                return View("_NotFound");
+            }
+
+            var cartprd = _db.CartProcucts.First(cp => cp.Product == product);
+            _db.CartProcucts.Remove(cartprd);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }

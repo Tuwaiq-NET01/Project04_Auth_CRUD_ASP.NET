@@ -26,8 +26,11 @@
                     <li class="nav-item">
                         <a class="nav-link text-light" asp-area="" asp-controller="Products" asp-action="Create">Add product</a>
                     </li>
-                <li class="nav-item">
-                    <a class="nav-link text-light" asp-area="" asp-controller="Orders" asp-action="Index" asp-route-id="@UserManager.GetUserId(User)">Orders</a>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" asp-area="" asp-controller="Orders" asp-action="Index" asp-route-id="@UserManager.GetUserId(User)">Orders</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link text-light" asp-area="" asp-controller="Cart" asp-action="Index" asp-route-id="@UserManager.GetUserId(User)">Cart</a>
                 </li>
                 }
             </ul>

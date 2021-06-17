@@ -2,13 +2,15 @@
 
     string bgImage = "/pexels-lumn.jpg";
     var products = (List<ProductModel>) ViewBag.Products;
+    var cart = (CartModal) ViewBag.Cart;
+    
 }
 
 <div class="" style="background: url(@bgImage) no-repeat center center; background-size: cover; height: 800px">
     <div class="text-center" style="height: 800px; background-color: rgba(0,0,0,0.5); ">
         @await Html.PartialAsync("_PartialNavbar")
         <div style=" height:100%; display:flex; flex-direction:column;justify-content: center">
-            <h1 class="display-4" style="color: white; font-size: 120px; font-weight: bold; font-family: Pattaya,serif;">Orders</h1>
+            <h1 class="display-4" style="color: white; font-size: 120px; font-weight: bold; font-family: Pattaya,serif;">Cart</h1>
             
         </div>
     </div>
@@ -16,7 +18,7 @@
 
 <div class="Homebody container text-center">
     
-    <h1 style="font-family: Pattaya,serif;">Orders here</h1>
+    <h1 style="font-family: Pattaya,serif;">Your Cart</h1>
     <div class="row order-body">
         @foreach (var product in products)
         {
@@ -27,10 +29,15 @@
                     
                         <h4 style="color: white; font-weight: bold"><a style="color: white;" asp-controller="Products" asp-action="Details" asp-route-id="@product.Id">@product.Name</a></h4>
                         <h5 style="color: white; font-weight: bold">@product.Price$</h5>
-                    
+                        <form asp-action="DeleteItem" method="post" asp-route-id="@product.Id">
+                            <input class="large material-icons" value="delete" type="submit"/>
+                        </form>
                     </div>
                 </div>
             </div>
         }
+        
+        <h3>Total price</h3>
+        <h3>@cart.TotalPrice</h3>
     </div>
 </div>
