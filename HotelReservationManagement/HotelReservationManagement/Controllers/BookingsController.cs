@@ -1,5 +1,6 @@
 ﻿using HotelReservationManagement.Data;
 using HotelReservationManagement.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -55,6 +56,28 @@ namespace HotelReservationManagement.Controllers
             ViewData["Booking"] = Booking;
             return View();
         }
+
+        //GET: /Bookings/Create
+        [Authorize]
+        public IActionResult Create()
+        {
+            return View();
+        }
+        //POST: /Bookings/Create
+        [HttpPost]
+        [Authorize]
+        public IActionResult Create([Bind("BookingDate","fromDate","toDate")] RoomBookingModel roomBooking)
+        {
+            if (ModelState.IsValid)//check the state of the model
+            {
+                _db.RoomBookings.Add(roomBooking);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(roomBooking);
+        }
+
+
 
 
     }

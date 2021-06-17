@@ -73,6 +73,7 @@ namespace HotelReservationManagement.Controllers
 
         [HttpPost]
         [Authorize]
+
         public IActionResult Create([Bind("HotelId", "HotelImage","HotelName", "City", "State", "ZipCode", "PhoneNumber")] HotelModel hotel)
         {
             if (ModelState.IsValid)//check the state of the model
