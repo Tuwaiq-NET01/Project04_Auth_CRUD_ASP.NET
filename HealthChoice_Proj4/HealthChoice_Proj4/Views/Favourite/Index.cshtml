@@ -4,16 +4,16 @@
 }
 
 <table class="table">
-    <thead>
+    <thead style="color:green">
         <tr>
             <th scope="col">Name</th>
             <th scope="col">Date</th>
             <th scope="col">Overvie</th>
-            <th scope="col">Image</th>
+            <th scope="col"></th>
 
         </tr>
     </thead>
-    <tbody>
+    <tbody style="color:white">
         @foreach (var Event in favEvents)
         {
         <tr>
@@ -23,7 +23,6 @@
             <td>@Event.Date</td>
       
 
-            <td><button type="button" class="btn btn-dark"><a style="color:white" href="/Events/details/@Event.Id"> See </a></button></td>
 
             <td>
                 <form asp-action="Delete" asp-route-id="@Event.Id" method="post">

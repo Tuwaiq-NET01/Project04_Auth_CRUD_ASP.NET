@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Samirah Alhusayni\\source\\repos\\HealthChoice_Proj4\\HealthChoice_Proj4\\HealthChoice_Proj4.csproj": {}
+    "C:\\Users\\Samirah Alhusayni\\Documents\\Project04_Auth_CRUD_ASP.NET\\HealthChoice_Proj4\\HealthChoice_Proj4\\HealthChoice_Proj4.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Samirah Alhusayni\\source\\repos\\HealthChoice_Proj4\\HealthChoice_Proj4\\HealthChoice_Proj4.csproj": {
+    "C:\\Users\\Samirah Alhusayni\\Documents\\Project04_Auth_CRUD_ASP.NET\\HealthChoice_Proj4\\HealthChoice_Proj4\\HealthChoice_Proj4.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Samirah Alhusayni\\source\\repos\\HealthChoice_Proj4\\HealthChoice_Proj4\\HealthChoice_Proj4.csproj",
+        "projectUniqueName": "C:\\Users\\Samirah Alhusayni\\Documents\\Project04_Auth_CRUD_ASP.NET\\HealthChoice_Proj4\\HealthChoice_Proj4\\HealthChoice_Proj4.csproj",
         "projectName": "HealthChoice_Proj4",
-        "projectPath": "C:\\Users\\Samirah Alhusayni\\source\\repos\\HealthChoice_Proj4\\HealthChoice_Proj4\\HealthChoice_Proj4.csproj",
+        "projectPath": "C:\\Users\\Samirah Alhusayni\\Documents\\Project04_Auth_CRUD_ASP.NET\\HealthChoice_Proj4\\HealthChoice_Proj4\\HealthChoice_Proj4.csproj",
         "packagesPath": "C:\\Users\\Samirah Alhusayni\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Samirah Alhusayni\\source\\repos\\HealthChoice_Proj4\\HealthChoice_Proj4\\obj\\",
+        "outputPath": "C:\\Users\\Samirah Alhusayni\\Documents\\Project04_Auth_CRUD_ASP.NET\\HealthChoice_Proj4\\HealthChoice_Proj4\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Samirah Alhusayni\\AppData\\Roaming\\NuGet\\NuGet.Config",

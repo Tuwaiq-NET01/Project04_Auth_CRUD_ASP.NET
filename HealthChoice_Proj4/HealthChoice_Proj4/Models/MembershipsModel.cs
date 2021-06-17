@@ -16,6 +16,9 @@ namespace HealthChoice_Proj4.Models
         public string Name { get; set; }
         public string Benefits { get; set; }
 
+       
+        public List<ApplicationUser> Users { get; set; }
+
 
 
 

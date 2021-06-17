@@ -9,5 +9,7 @@ namespace HealthChoice_Proj4.Data
     public class ApplicationUser : IdentityUser
     {
         public string FullName { get; set; }
+
+        public int MembershipID { get; set; }
     }
 }

@@ -1,33 +1,65 @@
-﻿<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
-    <img src="https://i.ibb.co/9qrdQH0/Logo.jpg" alt="Logo" class="rounded-circle" height ="80" width="80">
-    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index" style="margin-left:16px">HealthChoice</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<!-- Navbar (sit on top) -->
+<!--<div class="w3-top">
+
+    <div class="w3-bar  w3-wide w3-padding w3-card">-->
+
+
+
+        <!-- Float links to the right. Hide them on small screens -->
+        <!--<div class="w3-right w3-hide-small">
+            <a asp-area="" asp-controller="Home" asp-action="Index" class="w3-bar-item w3-button">Home</a>
+            <a asp-area="" asp-controller="Services" asp-action="Index" class="w3-bar-item w3-button">Services</a>
+            <a asp-area="" asp-controller="Home" asp-action="About" class="w3-bar-item w3-button">About Us</a>
+            @if (SignInManager.IsSignedIn(User))
+            {
+                <a class="w3-bar-item w3-button" asp-area="" asp-controller="Favourite" asp-action="Index">My Likes</a>
+            }
+            <partial name="_LoginPartial" />
+
+
+        </div>
+    </div>
+</div>
+<form class="form-inline mx-3" asp-action="Search" asp-controller="Services">
+    <input class="form-control mr-sm-2" typeof="search" name="txt" placeholder="Search" aria-label="" />
+    <button class="btn btn-outline-success my-2" type="submit">Search</button>
+</form>-->
+    @*<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
             aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-    </button>
-
-
-    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-        <ul class="navbar-nav flex-grow-1">
-
-            <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="" asp-controller="Services" asp-action="Index">Services</a>
-            </li>
-
-        </ul>
-        <partial name="_LoginPartial" />
-        <div>
-
-            <form class="form-inline mx-3" asp-action="Search" asp-controller="Services">
-                <input class="form-control mr-sm-2" typeof="search" name="txt" placeholder="Search" aria-label="" />
-                <button class="btn btn-outline-success my-2" type="submit">Search</button>
-            </form>
-        </div>
+    </button>*@
 
 
 
+<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between text-right pl-5" style="margin-left:400px; margin-top:65px">
+
+    <a class="w3-bar-item w3-button text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+    <a class="w3-bar-item w3-button  text-light" asp-area="" asp-controller="Services" asp-action="Index">Services</a>
+    <a class="w3-bar-item w3-button  text-light" asp-area="" asp-controller="Home" asp-action="About">About Us</a>
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <a class="w3-bar-item w3-button text-light" asp-area="" asp-controller="Favourite" asp-action="Index">My Likes</a>
+    }
+
+
+    <div>
+
+        <form class="form-inline mx-3" asp-action="Search" asp-controller="Services">
+            <input class="form-control mr-sm-2" typeof="search" name="txt" placeholder="Search" aria-label="" />
+            <button class="btn btn-outline-success my-2" type="submit">Search</button>
+        </form>
     </div>
-</nav>
+
+    <partial name="_LoginPartial" />
+
+
+
+
+</div>
