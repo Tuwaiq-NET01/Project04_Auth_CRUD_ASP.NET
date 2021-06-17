@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using System.Collections;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Identity;
 
 namespace EzzRestaurant.Models
 {
@@ -9,6 +11,8 @@ namespace EzzRestaurant.Models
         
         public IdentityUser User { get; set; }
         public string UserId { get; set; }
+        
+        public ICollection<ProductModel> Products { get; set; }
         
     }
 }

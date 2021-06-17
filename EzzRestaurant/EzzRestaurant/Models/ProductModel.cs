@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 
@@ -23,7 +24,9 @@ namespace EzzRestaurant.Models
         [Required]
         public int CategoryId { get; set; }
         
-        public Collection<CartModal> Products { get; set; }
+        public Collection<CartModal> Products { get; set; } // The name should be [Carts] but the copy and paste is the problem
+        
+        public ICollection<OrderModel> Orders { get; set; }
 
     }
 }

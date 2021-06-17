@@ -27,7 +27,7 @@
                 <div class="category-card box-shadow" style="background-image: url(@product.img);">
                     <div class="category-body" style="display: flex ; flex-direction: column">
                     
-                        <h4 style="color: white; font-weight: bold"><a style="color: white;" asp-controller="Products" asp-action="Details" asp-route-id="@product.Id">@product.Name</a></h4>
+                        <h4 style="color: white; font-weight: bold">@product.Name</h4>
                         <h5 style="color: white; font-weight: bold">@product.Price$</h5>
                         <form asp-action="DeleteItem" method="post" asp-route-id="@product.Id">
                             <input class="large material-icons" value="delete" type="submit"/>
@@ -37,7 +37,13 @@
             </div>
         }
         
-        <h3>Total price</h3>
-        <h3>@cart.TotalPrice</h3>
+        
     </div>
+    <div style="margin-top: 20px">
+        <h3 style="font-family: Pattaya,serif;">Total price</h3>
+        <h3 style="font-family: Pattaya,serif;">@cart.TotalPrice$</h3>
+    </div>
+    <form asp-action="SubmitOrder" method="post">
+        <input type="submit" value="Submit order">
+    </form>
 </div>

@@ -13,12 +13,12 @@ namespace EzzRestaurant.Controllers
     public class OrdersController : Controller
     {
         private ApplicationDbContext _db;
-        UserManager<IdentityUser> userManager;
+        private UserManager<IdentityUser> _userManager;
 
-        public OrdersController(ApplicationDbContext ctx)
+        public OrdersController(ApplicationDbContext ctx , UserManager<IdentityUser> userManager)
         {
             _db = ctx;
-            var userStore = new UserStore<IdentityUser>(_db);
+            var userStore = userManager;
         }
 
         public IActionResult Index(string id)
