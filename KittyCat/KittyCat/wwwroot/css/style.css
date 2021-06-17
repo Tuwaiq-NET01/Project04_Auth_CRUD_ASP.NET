@@ -63,14 +63,7 @@ h3 {
     justify-content: space-between;
     padding: 50px;
 }
-input {
-  border: 0;
-  background-color: #e4e9eb;
-  height: 40px;
-  border-radius: 10px;
-  padding: 10px;
-  width: 250px;
-}
+
 input[type="text"]:focus,
 input[type="date"]:focus {
   border: 2px solid;
@@ -90,12 +83,7 @@ input[type="date"]:focus {
 input[type="radio"] {
   -webkit-appearance: none;
 }
-label {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  font-size: smaller;
-}
+
 .imgRad {
   width: 20px;
 }

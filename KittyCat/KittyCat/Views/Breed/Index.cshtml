@@ -4,15 +4,22 @@
 </div>
 <div class="container ml-5 pl-5">
     <div class="row">
-        @foreach (var b in breed)
+        @foreach (var c in breed)
         {
-<div class="card bg-light box-shadow mr-5 mt-2" style="width: 18rem;">
-    <div class="card-body">
-        <img class="card-img-top " src="@b.image" alt="Card image cap">
-        <h5 class="card-title">@b.name</h5>
-        <p class="card-text"> @b.overview</p>
-        <a href="/Breed/Details/@b.id"><button type="button" class="btn btn-info">More Info</button></a>
-    </div>
-</div>}
+        <a href="/Breed/details/@c.id" class="nav-link">
+            <div class="card bg-light box-shadow mr-5 mt-2 p-0 border-0" style="width: 18rem; padding:0">
+                <div class="">
+                    <img class="card-img-top " src="@c.image" style=" height: 18rem;">
+                    <div class="bg-light" style="width: 100%; height: 20px; border-radius: 50% 50% 50% 50% / 100% 100% 0% 0%; position: absolute; top: 270px; "></div>
+
+                    <div class="pt-2 pb-2 text-center">
+                        <h5 class="card-title" style="color:#333333; z-index:1">@c.name</h5>
+                        @*<p class="card-text"> @c.description''</p>*@
+                        
+                        @* <a href="/cats/details/@c.id"><button type="button" class="btn btn-info">More Info </button></a>*@
+                    </div>
+                </div>
+            </div>
+        </a>}
     </div>
 </div>
