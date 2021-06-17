@@ -1,4 +1,5 @@
 ﻿using Bookworm_Project.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -35,6 +36,7 @@ namespace Bookworm_Project.Controllers
             return View("Index");
         }
 
+        [Authorize]
         public async Task<IActionResult> MeAsync()
         {
             ApplicationUser user = await _userManager.GetUserAsync(User);
@@ -59,7 +61,11 @@ namespace Bookworm_Project.Controllers
             }
             ViewBag.User = user;
             ApplicationUser currentUser = await _userManager.GetUserAsync(User);
-            if(currentUser.Id == user.Id) return View("Me");
+            if (currentUser != null)
+            {
+                if (currentUser.Id == user.Id) return View("Me");
+                return View();
+            }
             return View();
         }
 
