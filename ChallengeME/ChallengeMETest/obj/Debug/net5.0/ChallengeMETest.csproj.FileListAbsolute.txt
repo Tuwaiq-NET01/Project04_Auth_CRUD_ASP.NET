@@ -223,3 +223,4 @@ D:\Tuwaiq\dotNET\projects\Project04_Auth_CRUD_ASP.NET\ChallengeME\ChallengeMETes
 D:\Tuwaiq\dotNET\projects\Project04_Auth_CRUD_ASP.NET\ChallengeME\ChallengeMETest\obj\Debug\net5.0\ChallengeMETest.pdb
 D:\Tuwaiq\dotNET\projects\Project04_Auth_CRUD_ASP.NET\ChallengeME\ChallengeMETest\obj\Debug\net5.0\ChallengeMETest.genruntimeconfig.cache
 D:\Tuwaiq\dotNET\projects\Project04_Auth_CRUD_ASP.NET\ChallengeME\ChallengeMETest\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.InMemory.dll
+D:\Tuwaiq\dotNET\projects\Project04_Auth_CRUD_ASP.NET\ChallengeME\ChallengeMETest\bin\Debug\net5.0\ChallengeME.StaticWebAssets.xml

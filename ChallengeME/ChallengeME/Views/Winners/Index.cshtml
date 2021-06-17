@@ -1,10 +1,10 @@
 ﻿@using Microsoft.AspNetCore.Identity
-@inject UserManager<IdentityUser> UserManager
+@inject UserManager<ApplicationUser> UserManager
 
 @{
     Layout = "_myLayout";
 
-    var users = (List<IdentityUser>)ViewData["users"];
+    var users = (List<ApplicationUser>)ViewData["users"];
     var winners = (List<Winner>)ViewData["winners"];
 
     int counter = 0;
@@ -23,14 +23,14 @@
             counter = 0;
             @foreach (var win in winners)
             {
-                if (win.Comment.UserId == u.Id)
-                {
-                    counter++;
-                }
+                //if (win.Comment.UserId == u.Id)
+                //{
+                //    counter++;
+                //}
             }
             <tr>
                 <th scope="row"> @u.UserName </th>
-                <td>wins: @counter</td>
+                <td> @u.Wins </td>
             </tr>
         }
     </tbody>

@@ -51,8 +51,6 @@ namespace ChallengeME.Controllers
             }
 
 
-
-
             var game = _context.Games.ToList().Find(m => m.Id == id);
 
 
@@ -63,10 +61,10 @@ namespace ChallengeME.Controllers
 
 
             var challenges = _context.Challenges.Where(i => i.GameId == game.Id).ToList();
+            ViewData["challenges"] = challenges;
 
 
             ViewData["game"] = game;
-            ViewData["challenges"] = challenges;
             return View();
         }
 

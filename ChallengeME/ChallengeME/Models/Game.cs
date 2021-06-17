@@ -16,5 +16,7 @@ namespace ChallengeME.Models
 
         public string User_Id { get; set; }
 
+        public List<Challenge> challenges { get; set; }
+
     }
 }

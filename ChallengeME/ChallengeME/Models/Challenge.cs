@@ -11,18 +11,21 @@ namespace ChallengeME.Models
     {
         [Key]
         public int Id { get; set; }
+
         [Required(ErrorMessage = "Please Enter the name of the challenge!")]
         public string Title { get; set; }
         public string Description { get; set; }
         public string Difficulty{ get; set; }
 
+        public List<Comment> comments { get; set; }
 
         public Game Game { get; set; }
         public int GameId{ get; set; }
 
-        public IdentityUser User { get; set; }
+        public ApplicationUser User { get; set; }
         public string UserId { get; set; }
 
+        public List<Winner> Winners{ get; set; }
 
     }
 }

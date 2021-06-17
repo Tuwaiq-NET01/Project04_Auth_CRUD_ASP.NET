@@ -24,7 +24,7 @@ namespace ChallengeME.Models
         public Challenge challenge{ get; set; }
         public int ChallengeId { get; set; }
 
-        public IdentityUser User { get; set; }
+        public ApplicationUser User { get; set; }
         public string UserId { get; set; }
 
     }

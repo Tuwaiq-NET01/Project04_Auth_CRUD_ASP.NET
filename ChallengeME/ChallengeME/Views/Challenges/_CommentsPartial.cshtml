@@ -1,7 +1,7 @@
 ﻿
 
 @using Microsoft.AspNetCore.Identity
-@inject UserManager<IdentityUser> UserManager
+@inject UserManager<ApplicationUser> UserManager
 @model Comment
 @{
     var comments = (List<Comment>)ViewData["comments"];
@@ -46,7 +46,7 @@
                     }
                     @if(challenge.UserId == @UserManager.GetUserId(User) && !cmt.isWinner )
                 {
-                            <form method="post" asp-controller="winners" asp-action="create" asp-route-coid="@cmt.Id" asp-route-chid="@challenge.Id"  >
+                            <form method="post" asp-controller="winners" asp-action="create" asp-route-coId="@cmt.Id">
                                 <button type="submit" class="btn btn-link check ml-1">
                                     <i class="fas fa-check fa-2x mr-1"></i>
                                 </button>

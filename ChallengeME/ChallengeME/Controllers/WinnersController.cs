@@ -32,21 +32,21 @@ namespace ChallengeME.Controllers
 
 
 
-        public IActionResult Create(int coid, int chid ,[Bind("Description")] Winner winner)
+        public IActionResult Create(int coId ,[Bind("Description")] Winner winner)
         {
 
-            winner.CommentId = coid; 
-            winner.ChallengeId = chid;
-
-            var comment = _context.Comments.ToList().Find(x => x.Id == coid);
-            winner.Description = comment.Title;
-            comment.isWinner = true;
-
+            var dbcomment = _context.Comments.ToList().Find(x => x.Id == coId);
+            winner.CommentId = coId;
+            winner.Description = dbcomment.Title;
+            winner.UserId = dbcomment.UserId;
+            var dbuser = _context.Users.ToList().Find(x => x.Id == dbcomment.UserId);
             if (ModelState.IsValid)
             {
+                dbcomment.isWinner = true;
+                dbuser.Wins++;
                 _context.Winners.Add(winner);
                 _context.SaveChanges();
-                return RedirectToAction("details", "challenges", new { id = chid });
+                return RedirectToAction("details", "challenges", new { id = dbcomment.ChallengeId});
             }
             return View();
         }
