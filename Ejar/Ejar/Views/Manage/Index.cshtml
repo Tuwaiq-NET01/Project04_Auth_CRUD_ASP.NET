@@ -1,12 +1,19 @@
 ﻿@model AccountModel
 @{ 
     ApplicationUser user = (ApplicationUser)ViewBag.User;
-    
+
 }
 <div class="container">
     <div id="field" style="display:none;" class="alert alert-success" role="alert">
         Your Profile was updated successfully
     </div>
+    @if (user.Account.AccountComplete == "False" || user.Account.License == null)
+    {
+        <div id="field" class="alert alert-warning" role="alert">
+            Your Profile is incomplete!
+        </div>
+    }
+   
     <div class="main-body">
         <div class="row">
             <div class="col-lg-4">
@@ -33,7 +40,7 @@
                                             </div>
                                             <div class="col-sm-9 text-secondary">
                                                 <input asp-for="License.LicenseNumber" type="text" class="form-control" value="@Html.Raw((user.Account.License != null) ? @user.Account.License.LicenseNumber : null)">
-                                            </div>  
+                                            </div>
                                         </div>
                                         <div class="row mb-3">
                                             <div class="col-sm-3">
@@ -186,11 +193,11 @@
                         {
                             <li class="list-group-item d-flex justify-content-between align-items-center" style="max-height: 120px">
                                 <h6>@trip.Car.Manufacturer @trip.Car.CarName </h6>
-                                <p>@trip.DateReservedFrom - @trip.DateReservedUntil</p>
+                                <p>@trip.DateReservedFrom @trip.TimeReservedFrom - @trip.DateReservedUntil @trip.TimeReservedUntil</p>
                                 <div class="image-parent">
                                     @foreach (var i in trip.Car.Images)
                                     {
-                                        <img src="@i.ImageUrl" class="img-fluid" alt="quixote" style="max-height: 100px">
+                                        <img src="@i.ImageUrl" class="img-fluid" alt="quixote" style="height: 100px; width:150px">
                                         break;
                                     }
 

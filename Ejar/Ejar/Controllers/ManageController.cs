@@ -1,5 +1,6 @@
 ﻿using Ejar.Data;
 using Ejar.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace Ejar.Controllers
 {
+	[Authorize]
 	public class ManageController : Controller
 	{
 		private readonly ApplicationDbContext _db;
@@ -28,18 +30,28 @@ namespace Ejar.Controllers
 			user.Account = _db.Account.Where(a => a.UserId == user.Id).FirstOrDefault<AccountModel>();
 			user.Account.License = _db.License.Where(l => l.AccountId == user.Account.Id).FirstOrDefault<LicenseModel>();
 			user.Cars = _db.Car.Where(c => c.UserId == user.Id).ToList();
-			foreach (var car in user.Cars)
+
+			if (user.Cars != null)
 			{
-				car.Images = _db.Image.Where(i => i.CarId == car.Id).ToList();
+				foreach (var car in user.Cars)
+				{
+					car.Images = _db.Image.Where(i => i.CarId == car.Id).ToList();
+				}
 			}
+			
 
 			var trips = _db.Trip.Where(t => t.UserId == user.Id).ToList();
-			foreach (var trip in trips)
+
+			if (trips != null)
 			{
-				trip.Car = _db.Car.Where(c => c.Id == trip.Car.Id).FirstOrDefault<CarModel>();
-				trip.Car.Images = _db.Image.Where(i => i.CarId == trip.Car.Id).ToList();
-				user.Trips.Add(trip);
+				foreach (var trip in trips)
+				{
+					trip.Car = _db.Car.Where(c => c.Id == trip.Car.Id).FirstOrDefault<CarModel>();
+					trip.Car.Images = _db.Image.Where(i => i.CarId == trip.Car.Id).ToList();
+					user.Trips.Add(trip);
+				}
 			}
+			
 			
 
 			if (user == null)

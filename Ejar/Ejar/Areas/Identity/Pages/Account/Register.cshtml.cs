@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
+using Ejar.Data;
 using Ejar.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
@@ -24,17 +26,20 @@ namespace Ejar.Areas.Identity.Pages.Account
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly ApplicationDbContext _db;
 
         public RegisterModel(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            ApplicationDbContext context)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _db = context;
         }
 
         [BindProperty]
@@ -94,6 +99,18 @@ namespace Ejar.Areas.Identity.Pages.Account
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
+                        //int id = Convert.ToInt32(User.FindFirst(ClaimTypes.NameIdentifier).Value);
+                        //var AppUser = _db.User.FirstOrDefault(u => u.Id == id);
+                        user.Account = new AccountModel( );
+                        user.Account.FirstName = " ";
+                        user.Account.LastName = " ";
+                        user.Account.PhoneNumber = 0;
+                        user.Account.Address = " ";
+                        user.Account.AccountComplete = "False";
+
+                        _db.Account.Add(user.Account);
+                        _db.SaveChanges();
+
                         return RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl = returnUrl });
                     }
                     else

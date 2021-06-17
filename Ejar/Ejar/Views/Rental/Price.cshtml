@@ -2,9 +2,13 @@
 @{
     CarModel Car = (CarModel)ViewBag.Car;
     TripModel trip = (TripModel)ViewBag.trip;
+    int days = ViewBag.Days;
+    int hours = ViewBag.Hours;
+    string Tax = ViewBag.Tax;
+    decimal Total = ViewBag.Total;
 }
 
-<form style="margin-bottom: 0px">
+<form method="post" asp-action="Create" asp-route-id="@Car.Id" style="margin-bottom: 0px">
     <div class="card shadow mb-5 bg-white rounded" style="width:100%; background-image: url('@Car.Images.First().ImageUrl'); background-repeat: no-repeat; background-attachment: fixed;
   background-size: cover; margin-bottom: 0px">
       
@@ -20,14 +24,14 @@
                     <div class="card-body" style="align-content:center; align-self:center;">
                         <div class="form-group form-inline">
                             <label style="width:70px">From:</label>
-                            <input type="date" class="form-control" value="@trip.DateReservedFrom" disabled>
-                            <input type="time" class="form-control" value="@trip.TimeReservedFrom" disabled>
+                            <input asp-for="DateReservedFrom" type="text" class="form-control" value="@trip.DateReservedFrom">
+                            <input asp-for="TimeReservedFrom" type="text" class="form-control" value="@trip.TimeReservedFrom">
                         </div>
 
                         <div class="form-group form-inline">
                             <label style="width:70px">To:</label>
-                            <input type="date" class="form-control" value="@trip.DateReservedUntil" disabled>
-                            <input type="time" class="form-control" value="@trip.TimeReservedUntil" disabled>
+                            <input asp-for="DateReservedUntil" type="text" class="form-control" value="@trip.DateReservedUntil">
+                            <input asp-for="TimeReservedUntil" type="text" class="form-control" value="@trip.TimeReservedUntil">
                         </div>
                     </div>
                     <hr />
@@ -35,29 +39,36 @@
                     <div>
                         <div class="form-inline" style="padding-left: 20px; padding-right: 20px;">
                             <p class="card-text"> Days </p>
-                            <p class="card-text" style="position: absolute; right: 0; margin-right:20px"> 3x120 SAR</p>
+                            <p class="card-text" style="position: absolute; right: 0; margin-right:20px"> @days x @Car.DayPrice SAR</p>
                         </div>
                         <hr />
                         <div class="form-inline" style="padding-left: 20px; padding-right: 20px;">
                             <p class="card-text"> Hours </p>
-                            <p class="card-text" style="position: absolute; right: 0; margin-right: 20px"> 6x30 SAR</p>
+                            <p class="card-text" style="position: absolute; right: 0; margin-right: 20px"> @hours x @Car.HourPrice SAR</p>
                         </div>
                         <hr />
                         <div class="form-inline" style="padding-left: 20px; padding-right: 20px;">
-                            <p class="card-text"> VAT 15% </p>
-                            <p class="card-text" style="position: absolute; right: 0; margin-right: 20px"> 55 SAR </p>
+                            <p class="card-text"> VAT </p>
+                            <p class="card-text" style="position: absolute; right: 0; margin-right: 20px"> @Tax SAR </p>
                         </div>
                         <hr />
                         <div class="form-inline" style="padding-left: 20px; padding-right: 20px;">
                             <p class="card-text"> Total </p>
-                            <p class="card-text" style="position: absolute; right: 0; margin-right: 20px"> 589 SAR </p>
+                            <div class="row" style="position: absolute; right: 0; margin-right: 20px">
+                                <input type="number" asp-for="TripPrice" class="card-text"  value="@Total" style="border: 0; text-align:right;"/>
+                                <p class="card-text"> SAR </p>
+                            </div>
                         </div>
-
-
                     </div>
+
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="Check" style="margin-top:8px" required>
+                        <label class="form-check-label" for="exampleCheck1">I have read and agree to the <a style="color: blue">terms of service</a></label>
+                    </div>
+
                     <div class="row" style="width: 100%; margin-left: 1px">
-                        <button style="width: 40%; margin: 20px; float: left;" type="submit" href="#" class="btn btn-primary float-right mt-5">Back</button>
-                        <button style="width: 40%; margin: 20px; float: right; position: absolute; right: 0; " type="submit" href="#" class="btn btn-primary float-right mt-5">Next</button>
+                        <button onclick="javascript:history.back()" style="width: 40%; margin: 20px; float: left;" type="button" href="#" class="btn btn-primary float-right mt-5">Back</button>
+                        <button style="width: 40%; margin: 20px; float: right; position: absolute; right: 0; " type="submit" href="#" class="btn btn-primary float-right mt-5">Confirm Booking</button>
 
                     </div>
                 </div>
