@@ -7,6 +7,9 @@ Social media application for bookworms (a person devoted to reading and study) o
 <hr/>
 
 ## Demo 
+<img src="./imgs/bookworm-demo.gif" alt="bookworm-demo" width=580>
+<hr/>
+
 
 ## Wireframe 
 You can view application wireframe [here](https://wireframe.cc/pro/pp/1fb6e9ace451288), you can navigate between pages, PNG version also availbe [here](https://github.com/Raneen-z/Project04_Auth_CRUD_ASP.NET/tree/main/Wireframes)
