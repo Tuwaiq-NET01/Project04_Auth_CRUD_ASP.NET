@@ -1,0 +1,37 @@
+﻿@model HallModel
+@{
+    var hall = (HallModel)ViewData["Hall"];
+}
+<div style="width: 70%;">
+
+    <form asp-action="Edit" method="post" asp-route-id="@hall.Id" class="form-horizontal">
+        <div class="form-group">
+            <label asp-for="Id" style="color: azure">ID</label>
+            <div>
+                <input class="form-control" asp-for="Id" value="@hall.Id" readonly />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Name" style="color: azure">Name</label>
+            <div>
+                <input class="form-control" asp-for="Name" value="@hall.Name" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Capacity" style="color: azure">Capacity</label>
+            <div>
+                <input class="form-control" asp-for="Capacity" value="@hall.Capacity" required />
+            </div>
+        </div>
+        <div class="form-group" style="display: inline-block">
+            <label asp-for="Avaliability" style="color: azure">Avaliability</label>
+            <div>
+                <input class="form-control" asp-for="Avaliability" value="@hall.Avaliability" />
+            </div>
+        </div>
+        <div>
+            <br />
+            <input type="submit" class="btn btn-success" value="Submit" style="width:200px; margin-inline-start:58%">
+        </div>
+    </form>
+</div>

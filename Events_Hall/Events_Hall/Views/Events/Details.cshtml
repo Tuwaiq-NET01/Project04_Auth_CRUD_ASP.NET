@@ -1,0 +1,33 @@
+﻿
+@{
+    var dt = (EventModel)ViewData["detail"];
+}
+
+<div style="width: 75%; margin: auto; background-color: mintcream;">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">@dt.Name</h5>
+            <hr />
+            <p class="card-text">@dt.Description</p>
+            <hr />
+            <p class="card-text"><b>Time:</b> @dt.Time</p>
+            <hr />
+            <p class="card-text"><b>Duration:</b> @dt.Duration</p>
+            <hr />
+            <p class="card-text"><b>Hall Number:</b> @dt.HallId</p>
+            <hr />
+            <p class="card-text"><b>Presented by:</b> @dt.PresentorName</p>
+            <hr />
+            <p class="card-text"><b>Make sure to arrive to the designated event hall 10 minutes early.</b></p>
+            <hr />
+            <p class="card-text">
+                Plan your Ithra journey ahead of time with ease and make the most out of your visit. To ensure your visit is a comfortable and enjoyable one, please abide by the social distancing rules during and after the event. <br><br>Entry to this event is free and we welcome you to enjoy the experience. Please note that certain programs and facilities require paid entry tickets, such as the museum and children’s hall. You may buy tickets for those facilities from the reception desk located in the main building.
+            </p>
+        </div>
+        <div class="card-footer">
+            <button type="button" class="btn btn-danger" style="width:200px; margin-inline-start:38%">
+                <a href="/events/register/@dt.Id" style="color:white">Register</a>
+            </button>
+        </div>
+    </div>
+    </div>

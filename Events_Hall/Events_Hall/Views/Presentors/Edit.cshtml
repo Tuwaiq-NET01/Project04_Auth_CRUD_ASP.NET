@@ -1,0 +1,44 @@
+﻿@model PresentorModel
+@{
+    var presentor = (PresentorModel)ViewData["Presentor"];
+}
+<div style="width: 70%;
+        align-content: center;">
+
+    <form asp-action="Edit" method="post" asp-route-id="@presentor.Id" class="form-horizontal">
+        <div class="form-group">
+            <label asp-for="Id" style="color: azure">ID</label>
+            <div>
+                <input class="form-control" asp-for="Id" value="@presentor.Id" readonly />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Name" style="color: azure">Name</label>
+            <div>
+                <input class="form-control" asp-for="Name" value="@presentor.Name" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Email" style="color: azure">Email</label>
+            <div>
+                <input class="form-control" asp-for="Email" value="@presentor.Email" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Phone" style="color: azure">Phone</label>
+            <div>
+                <input class="form-control" asp-for="Phone" value="@presentor.Phone" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Field" style="color: azure">Field</label>
+            <div>
+                <input class="form-control" asp-for="Field" value="@presentor.Field" />
+            </div>
+        </div>
+        <div>
+            <br />
+            <input type="submit" class="btn btn-success" value="Submit" style="width:200px; margin-inline-start:58%">
+        </div>
+    </form>
+</div>

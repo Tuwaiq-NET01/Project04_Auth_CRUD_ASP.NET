@@ -1,0 +1,73 @@
+﻿@{
+    var eventts = (List<EventModel>)ViewBag.Events;
+
+}
+
+<style type="text/css">
+    .btn-circle {
+        width: 40px;
+        height: 40px;
+        padding: 6px 0px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 1.42857;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+    }
+
+    td {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        word-wrap: break-word;
+        max-width: 120px;
+    }
+</style>
+<div>
+    <table class="table table-borderless table-dark" style="width: 100%; margin: 0px;">
+        <thead style="background-color: black; text-align: center;">
+            <tr style="width: 100%; margin: 0px;text-align: center;">
+                <th scope="col">ID </th>
+                <th scope="col">Name </th>
+                <th scope="col" style="word-wrap: break-word; max-width: 150px;">Description </th>
+                <th scope="col">Time </th>
+                <th scope="col">Duration </th>
+                <th scope="col" style="word-wrap: break-word; max-width: 150px;">Image</th>
+                <th scope="col">Hall ID </th>
+                <th scope="col">Presentor ID</th>
+                <th scope="col">Presentor Name </th>
+                <th scope="col">Edit </th>
+                <th scope="col">Delete</th>
+                <th scope="col"><a asp-controller="Events" asp-action="Create" class="btn btn-success btn-circle"><strong>+</strong></a></th>
+            </tr>
+        </thead>
+        @foreach (var item in eventts)
+        {
+
+            <tbody style="background-color: black;">
+                <tr style="width: 100%; margin: 0px; text-align: center; background-color: black;">
+                    <th scope="row">@item.Id</th>
+                    <td>@item.Name</td>
+                    <td>@item.Description</td>
+                    <td>@item.Time</td>
+                    <td>@item.Duration</td>
+                    <td>@item.Image</td>
+                    <td>@item.HallId</td>
+                    <td>@item.PresentorId</td>
+                    <td>@item.PresentorName</td>
+                    <td>
+                        <a class="btn btn-warning" asp-controller="Events" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    </td>
+                    <td>
+                        <form method="post" asp-controller="Events" asp-action="Delete" asp-route-id="@item.Id">
+                            <input type="submit" value="Delete" class="btn btn-danger" />
+                        </form>
+                    </td>
+                    <td></td>
+                </tr>
+            </tbody>
+        }
+    </table>
+</div>
+

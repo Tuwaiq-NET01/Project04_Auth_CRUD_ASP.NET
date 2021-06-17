@@ -1,0 +1,53 @@
+﻿@{
+    var halls = (List<HallModel>)ViewBag.Halls;
+
+}
+
+<style type="text/css">
+    .btn-circle {
+        width: 40px;
+        height: 40px;
+        padding: 6px 0px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 1.42857;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+    }
+</style>
+
+<table class="table table-borderless table-dark" style="width: 100%; margin: 0px;">
+    <thead style="background-color: black; text-align: center;">
+        <tr style="width: 100%; margin: 0px;text-align: center;">
+            <th scope="col">ID </th>
+            <th scope="col">Name </th>
+            <th scope="col">Capacity </th>
+            <th scope="col">Avaliability </th>
+            <th scope="col">Edit </th>
+            <th scope="col">Delete</th>
+            <th scope="col"><a asp-controller="Halls" asp-action="Create" class="btn btn-success btn-circle"><strong>+</strong></a></th>
+        </tr>
+    </thead>
+    @foreach (var item in halls)
+    {
+
+        <tbody style="background-color: black;">
+            <tr style="width: 100%; margin: 0px; text-align: center; background-color: black;">
+                <th scope="row">@item.Id</th>
+                <td>@item.Name</td>
+                <td>@item.Capacity people</td>
+                <td>@item.Avaliability</td>
+                <td>
+                    <a class="btn btn-warning" asp-controller="Halls" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                </td>
+                <td>
+                    <form method="post" asp-controller="Halls" asp-action="Delete" asp-route-id="@item.Id">
+                        <input type="submit" value="Delete" class="btn btn-danger" />
+                    </form>
+                </td>
+                <td></td>
+            </tr>
+        </tbody>
+    }
+</table>

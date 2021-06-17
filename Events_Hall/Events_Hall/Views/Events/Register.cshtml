@@ -1,0 +1,45 @@
+﻿@model AttendeeModel
+@{
+    int eventID = ViewBag.EventId;
+}
+<div style="width: 70%;
+        align-content: center;">
+
+    <form asp-action="Register" method="post" asp-route-id="@eventID" class="form-horizontal">
+
+        <div class="form-group">
+            <label style="color: azure" asp-for="Name">Name</label>
+            <div>
+                <input class="form-control" asp-for="Name" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Email" style="color: azure">Email</label>
+            <div>
+                <input class="form-control" asp-for="Email" required/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Phone" style="color: azure">Phone</label>
+            <div>
+                <input class="form-control" asp-for="Phone" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Field" style="color: azure">Field</label>
+            <div>
+                <input class="form-control" asp-for="Field" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="EventId" style="color: azure">Eventld</label>
+            <div>
+                <input class="form-control" asp-for="EventId" value="@eventID" readonly/>
+            </div>
+        </div>
+        <div>
+            <br />
+            <input type="submit" class="btn btn-success" value="Register" style="width:200px; margin-inline-start:58%">
+        </div>
+    </form>
+</div>

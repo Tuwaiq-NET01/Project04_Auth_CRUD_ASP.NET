@@ -1,0 +1,31 @@
+﻿
+@{
+    var events = (List<EventModel>)ViewBag.Events;
+}
+<div class="card-columns">
+    @foreach (var e in events)
+    {
+    <div class="card">
+        <img class="card-img-top" src="@e.Image" alt="Event Picture">
+        <div class="card-body">
+            <h5 class="card-title">@e.Name</h5>
+            <hr />
+            <p class="card-text">@e.Description</p>
+            <hr />
+            <p class="card-text"><b>Time:</b> @e.Time</p>
+            <hr />
+            <p class="card-text"><b>Presented by:</b> @e.PresentorName</p>
+        </div>
+        <div class="card-footer">
+            <small class="text-muted">
+                <button type="button" class="btn btn-info">
+                    <a href="/events/details/@e.Id" style="color:white">Details</a>
+                </button>
+                <button type="button" class="btn btn-danger" style="margin-left:10px">
+                    <a href="/events/register/@e.Id" style="color:white">Register for this event!</a>
+                </button>
+            </small>
+        </div>
+    </div>
+    }
+</div>

@@ -1,0 +1,61 @@
+﻿@model EventModel
+
+<div style="width: 70%;
+        align-content: center;">
+
+    <form asp-action="Create" method="post" class="form-horizontal">
+
+        <div class="form-group">
+            <label style="color: azure" asp-for="Name">Name</label>
+            <div>
+                <input class="form-control" asp-for="Name" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Description" style="color: azure">Description</label>
+            <div>
+                <input class="form-control" asp-for="Description" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Time" style="color: azure">Time</label>
+            <div>
+                <input class="form-control" asp-for="Time" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Duration" style="color: azure">Duration</label>
+            <div>
+                <input class="form-control" asp-for="Duration" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Image" style="color: azure">Image</label>
+            <div>
+                <input class="form-control" asp-for="Image" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="HallId" style="color: azure">Hall ID</label>
+            <div>
+                <input class="form-control" asp-for="HallId" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PresentorId" style="color: azure">Presentor ID</label>
+            <div>
+                <input class="form-control" asp-for="PresentorId" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PresentorName" style="color: azure">Presentor Name</label>
+            <div>
+                <input class="form-control" asp-for="PresentorName" />
+            </div>
+        </div>
+        <div>
+            <br />
+            <input type="submit" class="btn btn-success" value="Submit" style="width:200px; margin-inline-start:58%">
+        </div>
+    </form>
+</div>

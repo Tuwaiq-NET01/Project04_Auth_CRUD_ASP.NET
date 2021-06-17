@@ -1,0 +1,68 @@
+﻿@model EventModel
+@{
+    var eventt = (EventModel)ViewData["Event"];
+}
+<div style="width: 70%;
+        align-content: center;">
+
+    <form asp-action="Edit" method="post" asp-route-id="@eventt.Id" class="form-horizontal">
+        <div class="form-group">
+            <label asp-for="Id" style="color: azure">ID</label>
+            <div>
+                <input class="form-control" asp-for="Id" value="@eventt.Id" readonly />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Name" style="color: azure">Name</label>
+            <div>
+                <input class="form-control" asp-for="Name" value="@eventt.Name" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Description" style="color: azure">Description</label>
+            <div>
+                <input class="form-control" asp-for="Description" value="@eventt.Description" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Time" style="color: azure">Time</label>
+            <div>
+                <input class="form-control" asp-for="Time" value="@eventt.Time" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Duration" style="color: azure">Duration</label>
+            <div>
+                <input class="form-control" asp-for="Duration" value="@eventt.Duration" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Image" style="color: azure">Image</label>
+            <div>
+                <input class="form-control" asp-for="Image" value="@eventt.Image" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="HallId" style="color: azure">Hall ID</label>
+            <div>
+                <input class="form-control" asp-for="HallId" value="@eventt.HallId" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PresentorId" style="color: azure">Presentor ID</label>
+            <div>
+                <input class="form-control" asp-for="PresentorId" value="@eventt.PresentorId" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PresentorName" style="color: azure">Presentor Name</label>
+            <div>
+                <input class="form-control" asp-for="PresentorName" value="@eventt.PresentorName" />
+            </div>
+        </div>
+        <div>
+            <br />
+            <input type="submit" class="btn btn-success" value="Submit" style="width:200px; margin-inline-start:58%">
+        </div>
+    </form>
+</div>
