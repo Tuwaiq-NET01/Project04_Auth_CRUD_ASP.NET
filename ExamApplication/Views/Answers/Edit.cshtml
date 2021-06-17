@@ -1,0 +1,30 @@
+﻿@model Answers
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+<h2>Edit Answers</h2>
+
+<form asp-action="Edit">
+    <input type="hidden" asp-for="Id" />
+    <label asp-for="AnsText">Text</label>
+    <input asp-for="AnsText" required />
+
+    <label>
+        <input asp-for="isActive" /> @Html.DisplayNameFor(model => model.isActive)
+    </label>
+
+    <br />
+
+    <input type="hidden" asp-for="QuestionsId" value="@ViewBag.QuestionsId" />
+
+    <input type="submit" value="Save" class ="btn btn-info"/>
+</form>
+
+<br />
+<div>
+    <a class ="btn btn-info" asp-controller="Questions" asp-action="Edit" asp-route-id="@ViewBag.QuestionsId">Back to Question</a>
+</div>
+

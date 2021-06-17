@@ -1,0 +1,192 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Fatma's Exam</title>
+    <style>
+
+        body {
+            width: 100%;
+            margin: auto;
+            font-family: Verdana,Geneva,sans-serif;
+            font-weight: 300;
+            color: #181717;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-image: url("https://png.pngtree.com/thumb_back/fw800/back_our/20190625/ourmid/pngtree-beautiful-nice-sky-blue-background-image_260273.jpg");
+        }
+
+
+
+        .header h2 {
+            margin-top: 0%;
+            text-transform: uppercase;
+        }
+
+        .card {
+            position: relative;
+            flex-direction: column;
+            min-width: 0;
+            word-wrap: break-word;
+            background-color: #fff;
+            background-clip: border-box;
+            border: 1px solid rgba(0,0,0,.125);
+            border-radius: .25rem;
+        }
+
+            .card .card-header {
+                padding: .001rem 1rem;
+                margin-bottom: 0;
+                background-color: rgba(0,0,0,.03);
+                border-bottom: 1px solid rgba(0,0,0,.125);
+            }
+
+                .card .card-header:first-child {
+                    border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0;
+                }
+
+            .card .card-body {
+                -webkit-box-flex: 1;
+                -ms-flex: 1 1 auto;
+                flex: 1 1 auto;
+                padding: 1.25rem;
+            }
+
+        .input-group {
+            display: table;
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 1%;
+        }
+
+            .input-group > div {
+                display: table-cell;
+                border: 1px solid #ddd;
+                vertical-align: middle; /* needed for Safari */
+            }
+
+        .input-group-icon {
+            background: #eee;
+            padding: 0 12px;
+        }
+
+        .input-group-area {
+            width: 95%;
+            height: 38px;
+        }
+
+            .input-group-area label {
+                margin-left: 1%;
+                display: inline-block;
+                width: 100%;
+            }
+
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: white;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+        }
+
+        li {
+            float: left;
+        }
+
+            li a {
+                display: block;
+                color: blue;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+        
+            li a:hover {
+                    background-color: #007CC7;
+                }
+
+        .active {
+            background-color: #4CAF50;
+        }
+
+        .table, td, th {
+            border: 1px solid #C0C0C0;
+            text-align: left;
+        }
+
+        .table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+            .table th, td {
+                padding: 15px;
+            }
+
+            .table tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+        input[type=text], select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+
+
+        .summary {
+            width: 80%;
+            background-color: #f3f3f3;
+            padding: 15px;
+            margin: auto;
+        }
+
+            .summary .msg {
+                background-color: #b6cce0;
+                padding: 10px;
+            }
+
+            .summary .question {
+                margin-top: 2%;
+            }
+
+                .summary .question div {
+                    margin-top: 2%;
+                }
+
+    </style>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+</head>
+<nav>
+
+    <ul>
+        <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+        <li><a asp-area="" asp-controller="AuthorizeAdmin" asp-action="Index">Admin LogIn</a></li>
+        <li><a asp-area="" asp-controller="Account" asp-action="loginAsStudents">Student LogIn </a></li>
+
+    </ul>
+</nav>
+
+<body>
+
+    <div class="content">
+        @RenderBody()
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Fatma's Exam</p>
+        </footer>
+
+    </div>
+   
+</body>
+
+</html>
+

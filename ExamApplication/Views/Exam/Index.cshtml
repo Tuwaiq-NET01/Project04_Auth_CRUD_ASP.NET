@@ -1,0 +1,111 @@
+﻿@model Questions
+@Html.Partial("_LayoutPartial2")
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@if (!ViewBag.isStartExam)
+{
+    <h2>Start Exam</h2>
+    <form asp-action="Index" asp-route-id="@ViewBag.Questions[0]">
+        <input type="hidden" name="questions" value="@ViewBag.Questions" />
+        <input type="hidden" name="counter" value="@ViewBag.QuestionCounter" />
+        <input type="hidden" name="rightAnswer" value="@ViewBag.RightAnswer" />
+        <input type="hidden" name="Summary" value="@ViewBag.Summary" />
+        The quiz contains multiple questions. Each question will expire in one minute.  <br /> <br />
+        <input type="submit" class="btn btn-info" value="Start" />
+    </form>
+}
+else if (ViewBag.isSummary)
+{
+    <br />
+    <div class="summary">
+        <div class="msg">
+            Quiz Complete!! Total correct answers are @ViewBag.TotalCorrect out of @ViewBag.TotalQuestions
+        </div>
+
+        @foreach (var summary in ViewBag.Summary)
+        {
+            <div class="question">
+                <div class="question">
+                    <div>Question# @summary.id</div>
+                    <div>@summary.qText</div>
+                    <div>Your Answer: @summary.yourAns</div>
+                    <div>Correct Answer: @summary.rightAnswer</div>
+                    <div>Result: <img src="~/images/@summary.result" /></div>
+                </div>
+            </div>
+            <hr />
+        }
+    </div>
+}
+else
+{
+    <br />
+    <br />
+    <form asp-action="Index">
+        <input type="hidden" name="questions" value="@ViewBag.Questions" />
+        <input type="hidden" name="counter" value="@ViewBag.QuestionCounter" />
+        <input type="hidden" name="rightAnswer" value="@ViewBag.RightAnswer" />
+        <input type="hidden" name="Summary" value="@ViewBag.Summary" />
+        <input type="hidden" name="QuestText" value="@ViewBag.NextQuestion.QuestText" />
+
+        <div class="card">
+            <div class="card-header">
+                <h4>
+                    Question @ViewBag.QuestionCounter
+                    <span style="float:right" id="spRemainingTime">Remaining Time: 01:00</span>
+                </h4>
+            </div>
+            <div class="card-body">
+                <p>@ViewBag.NextQuestion.QuestText</p>
+
+                @foreach (var ans in ViewBag.Answers)
+                {
+                    <div class="input-group">
+                        <div class="input-group-icon">
+                            <input type="radio" id="radio_@ans.Id" value="@ans.Id" name="radioAnswer" />
+                        </div>
+                        <div class="input-group-area">
+                            <label for="radio_@ans.Id">@ans.AnsText</label>
+                        </div>
+                    </div>
+                }
+
+                <input type="submit" id="btnNextQuestion" class="btn btn-info" value="Next Question »" />
+            </div>
+        </div>
+    </form>
+
+    <script>
+        window.onload = function () {
+            var Minute = 60 * 1,
+                display = document.querySelector('#spRemainingTime');
+            startTimer(Minute, display);
+        };
+
+        function startTimer(duration, display) {
+            var timer = duration, minutes, seconds;
+            var interval = setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes; 
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = 'Remaining Time: ' + minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    //timer = duration;
+                    clearInterval(interval);
+                    document.getElementById('btnNextQuestion').click();
+                }
+            }, 1000);
+        }
+    </script>
+}
+
+
+
+

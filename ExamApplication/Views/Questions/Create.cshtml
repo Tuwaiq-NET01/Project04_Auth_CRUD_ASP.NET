@@ -1,0 +1,60 @@
+﻿@model Questions
+
+@{
+    ViewData["Title"] = "Create";
+
+}
+@Html.Partial("_LayoutPartial2")
+<h2>Create Question</h2>
+
+<form asp-action="Create">
+    <label asp-for="QuestText">Question</label>
+    <input asp-for="QuestText" required />
+
+    <label>Answer</label>
+    <input type="text" id="txtAns" />
+
+    <input type="button" onclick="addAnswers()" value="Add Answer" class="btn btn-info" />
+
+    <div id="divAnswers">
+
+    </div>
+
+    <select required id="rightAnswer" name="rightAnswer">
+        <option value="">Select Right Answer</option>
+    </select>
+
+    <input type="hidden" id="answers" name="answers" />
+
+    <hr />
+    <input type="submit" value="Create Question" class="btn btn-info" />
+</form>
+
+<br />
+<div>
+    <a class="btn btn-info" asp-action="Index">Back to List</a>
+</div>
+
+<script>
+    function addAnswers() {
+        if (document.getElementById('QuestText').value == "") {
+            alert('Please enter question first');
+            document.getElementById('QuestText').focus();
+        }
+        else if (document.getElementById('txtAns').value != "") {
+            var x = document.getElementById("rightAnswer");
+            var option = document.createElement("option");
+            option.text = document.getElementById('txtAns').value;
+            option.value = document.getElementById('txtAns').value;
+            x.add(option);
+            document.getElementById("answers").value += document.getElementById('txtAns').value + '!';
+            document.getElementById('txtAns').value = '';
+            document.getElementById('txtAns').focus();
+        }
+        else {
+            alert('Please enter answer text');
+            document.getElementById('txtAns').focus();
+        }
+    }
+</script>
+

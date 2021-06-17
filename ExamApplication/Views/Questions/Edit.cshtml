@@ -1,0 +1,56 @@
+﻿@model Questions
+
+@{
+    ViewData["Title"] = "Edit";
+
+}
+
+<h2>Edit Questions</h2>
+
+<form asp-action="Edit">
+    <input type="hidden" asp-for="Id" />
+    <label asp-for="QuestText">Question</label>
+    <input asp-for="QuestText" required />
+
+    <label>Right Answer</label>
+    <select name="answers" required>
+        @foreach (var ans in ViewBag.answers)
+        {
+            if (ans.Id == Model.RightAnswerId)
+            {
+                <option value="@ans.Id" selected>@ans.AnsText</option>
+            }
+            else
+            {
+                <option value="@ans.Id">@ans.AnsText</option>
+            }
+        }
+    </select>
+    <input type="submit" value="Save" class="btn btnBlue" />
+</form>
+
+<p>
+    <a class ="btn btn-info"  asp-controller="Answers" asp-action="Create" asp-route-id="@Model.Id">Create New Answer</a>
+</p>
+
+<table class="table" style="width:30%;">
+    <tr>
+        <th>Answers</th>
+        <th></th>
+    </tr>
+    @foreach (var ans in ViewBag.answers)
+    {
+        <tr>
+            <td>@ans.AnsText</td>
+            <td>
+                <a  class ="btn btn-info"  asp-controller="Answers" asp-action="Edit" asp-route-qid="@Model.Id" asp-route-id="@ans.Id">Edit</a> |
+                <a class ="btn btn-danger" onclick="return confirm('Are you sure?')" asp-controller="Answers" asp-action="Delete" asp-route-qid="@Model.Id" asp-route-id="@ans.Id">Delete</a>
+            </td>
+        </tr>
+    }
+</table>
+<br />
+<div>
+    <a class ="btn btn-info" asp-action="Index">Back to List</a>
+</div>
+

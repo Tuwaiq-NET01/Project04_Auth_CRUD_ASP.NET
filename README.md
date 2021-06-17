@@ -1,51 +1,57 @@
-# Project04_Auth_CRUD_ASP.NET
+# Project 4 In .Net 
+# (App_Name) | اسم التطبيق
+### Exam App
+# المقدمــة | Introduction 
+### موقع يقوم بعمل اختبار للطلاب وتصحيح الاجابات تلقائيا مع مؤقت زمني
 
-<div dir="rtl" align="right">
-
-فكرة المشروع
-
-بناء مشروع متكامل باستخدام ASP.NET MVC  قائم على فكرة من اختيارك وتتضمن المتطلبات الأساسية لبناء تطبيق ASP.NET MVC مع  Entity Framework Core وSql Server.
-
-
-قبل بداية المشروع 
-
-عمل Wireframes و ERD والتأكيد مع أحد المدربين قبل البدء بتنفيذ المشروع. بداية المشروع بالنسخة رقم  v.1
-
-متطلبات المشروع
+### Set up  
+### Prerequisites
+- NET 5 
+- ASP.NET MVC
+- Microsoft SQL Server 
 
 
-- استخدام نمط MVC 
-- إنشاء على الأقل 4 من Controllers
-- إنشاء على الأقل 4 Model 
-- إنشاء على الأقل 6 Views
-    - استخدام مكتبة Bootstrap مع Razor 
-    - استخدام partial view للعناصر المتكررة في الواجهات
-- استخدام وظائف CRUD مع ASP.NET 
-- استخدام إطار عمل Entity Framework Core
-- استخدام CodeFirst Approach لإنشاء قاعدة البيانات
-- استخدام قاعدة بيانات MSSQL 
-    - ان تكون قاعدة البيانات متعددة الجداول
-    - يجب ان تتضمن قاعدة البيانات على الاقل احد العلاقات التالية:
-        - علاقة one-to-one
-        - علاقة one-to-many
-        - علاقة many-to-many
-- تطبيق Authentication 
-- قم بتطبيق Unit Testing (اختبار على الاقل One Action Method لكل Controller)
+# Wireframes
+<img src="https://k.top4top.io/p_1993xkhq81.png"/>
+<img src="https://a.top4top.io/p_1993sep2y3.png"/>
+<img src="https://l.top4top.io/p_1993wl6eu2.png"/>
+<img src="https://b.top4top.io/p_1993oqlb94.png"/>
 
+# EF Diagram
 
-إضافة | Bonus 
-- قم باستخدام أحد مفاهيم Design Patterns في مشروعك لحل مشكلةٍ ما
-- إنشاء APIs 
-- عمل Deploy للمشروع على Azure
-- استخدام React مع ASP.NET أو أي Framework 
-- استخدام WebSockets في ASP.NET core
-- التعامل مع الـThird party APIs  {SMS Message, Google Maps,….} 
-    - مصادر للـAPIs
-    - الاول: Any API over 1400 Public APIs: https://any-api.com/
-    - الثاني: API Search: http://apis.io/
-- رفع صور او ملفات 
-    -  باستخدام الـthird-party:
-        - Cloudinary: https://cloudinary.com/
-        -  AWS: https://aws.amazon.com/s3/?nc2=h_ql_prod_st_s3
-    - حفظها  بالـLocal server 
-</div>
+<img src="https://f.top4top.io/p_19938ivww1.jpeg"/>
+
+# Project 
+
+- Use MVC style
+- Create controllers
+- Create Model
+- Create views
+- Using the Bootstrap library with Razor
+- Use a partial view 
+- Using CRUD functions with ASP.NET
+- Use a core entity framework for a framework
+- Using CodeFirst Approach 
+- Using an MSSQL database
+- The database have multi-Tables
+- The following database must include the following:
+- one-to-one relationship
+- one-to-many relationship
+- use authorization and authentication
+- Doing unit testing 
+
+# Demo 
+<img src="https://g.top4top.io/p_19934jnf12.gif"/>
+
+### Front-End  
+ - HTML
+ - CSS
+ - JS
+ - Bootstrap 
+### Back-End 
+ - ASP.NET MVC
+ - MSSQL Server
+ - EF Core
+### Author
+
+- Fatimah alqhtany

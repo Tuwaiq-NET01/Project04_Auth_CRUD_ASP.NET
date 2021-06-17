@@ -1,0 +1,23 @@
+﻿@model Answers
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create Answer</h2>
+
+<form asp-action="Create">
+    <label asp-for="AnsText" class="control-label">Text</label>
+    <input asp-for="AnsText" class="form-control" required />
+
+    <input type="hidden" asp-for="QuestionsId" value="@ViewBag.QuestionsId" />
+
+    <input type="submit" value="Create" class ="btn btn-info" />
+</form>
+
+<br />
+<div>
+    <a class ="btn btn-info" asp-controller="Questions" asp-action="Edit" asp-route-id="@ViewBag.QuestionsId">Back to Question</a>
+</div>
+

@@ -1,0 +1,22 @@
+﻿@model Students
+
+@Html.Partial("_LayoutPartial")
+<h1>To start Exam, You have to Login First</h1>
+
+<form asp-action="loginAsStudents">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label>Enter you username</label>
+        <input asp-for="userName" class="form-control" />
+        <span asp-validation-for="userName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Enter your password</label>
+        <input asp-for="password" class="form-control" />
+        <span asp-validation-for="password" class="text-danger"></span>
+    </div>
+    <br />
+    <div class="form-group">
+        <input type="submit" class="btn btn-info" value="Login" />
+    </div>
+</form>
