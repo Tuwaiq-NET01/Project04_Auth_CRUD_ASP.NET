@@ -26,5 +26,12 @@ namespace Keraa.Models
 
         [InverseProperty("Tenant")]
         public List<ProductModel> TenantProducts { get; set; }
+
+
+        [InverseProperty("ProductOwner")]
+        public List<ChatRoomModel> ProductOwnerChatRooms { get; set; }
+
+        [InverseProperty("Other")]
+        public List<ChatRoomModel> OtherChatRooms { get; set; }
     }
 }

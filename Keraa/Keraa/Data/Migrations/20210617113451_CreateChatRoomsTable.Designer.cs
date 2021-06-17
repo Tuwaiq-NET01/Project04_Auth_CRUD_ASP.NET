@@ -4,14 +4,16 @@ using Keraa.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Keraa.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210617113451_CreateChatRoomsTable")]
+    partial class CreateChatRoomsTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -91,20 +93,10 @@ namespace Keraa.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("OtherId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("ProductOwnerId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<string>("RoomId")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("OtherId");
-
-                    b.HasIndex("ProductOwnerId");
 
                     b.ToTable("ChatRooms");
                 });
@@ -316,21 +308,6 @@ namespace Keraa.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("Keraa.Models.ChatRoomModel", b =>
-                {
-                    b.HasOne("Keraa.Models.UserProfileModel", "Other")
-                        .WithMany("OtherChatRooms")
-                        .HasForeignKey("OtherId");
-
-                    b.HasOne("Keraa.Models.UserProfileModel", "ProductOwner")
-                        .WithMany("ProductOwnerChatRooms")
-                        .HasForeignKey("ProductOwnerId");
-
-                    b.Navigation("Other");
-
-                    b.Navigation("ProductOwner");
-                });
-
             modelBuilder.Entity("Keraa.Models.ProductModel", b =>
                 {
                     b.HasOne("Keraa.Models.UserProfileModel", "Owner")
@@ -413,11 +390,7 @@ namespace Keraa.Data.Migrations
 
             modelBuilder.Entity("Keraa.Models.UserProfileModel", b =>
                 {
-                    b.Navigation("OtherChatRooms");
-
                     b.Navigation("OwnerProducts");
-
-                    b.Navigation("ProductOwnerChatRooms");
 
                     b.Navigation("TenantProducts");
                 });
