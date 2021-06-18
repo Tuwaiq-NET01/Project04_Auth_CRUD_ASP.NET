@@ -75,11 +75,8 @@ export default function Privacy() {
                     information that they shared and/or collect in Bitchunk.
                     This policy is not applicable to any information collected
                     offline or via channels other than this website. Our Privacy
-                    Policy was created with the help of the{' '}
-                    <a href="https://www.privacypolicygenerator.info/">
-                      Privacy Policy Generator
-                    </a>
-                    .
+                    Policy was created with the help of the Privacy Policy
+                    Generator.
                   </p>
                   <h2>Consent</h2>
                   <p>
@@ -110,23 +107,23 @@ export default function Privacy() {
                     We use the information we collect in various ways, including
                     to:
                   </p>
-                  <ul>
-                    <li>Provide, operate, and maintain our website</li>
-                    <li>Improve, personalize, and expand our website</li>
-                    <li>Understand and analyze how you use our website</li>
-                    <li>
+                  <div>
+                    <p>Provide, operate, and maintain our website</p>
+                    <p>Improve, personalize, and expand our website</p>
+                    <p>Understand and analyze how you use our website</p>
+                    <p>
                       Develop new products, services, features, and
                       functionality
-                    </li>
-                    <li>
+                    </p>
+                    <p>
                       Communicate with you, either directly or through one of
                       our partners, including for customer service, to provide
                       you with updates and other information relating to the
                       website, and for marketing and promotional purposes
-                    </li>
-                    <li>Send you emails</li>
-                    <li>Find and prevent fraud</li>
-                  </ul>
+                    </p>
+                    <p>Send you emails</p>
+                    <p>Find and prevent fraud</p>
+                  </div>
                   <h2>Log Files</h2>
                   <p>
                     Bitchunk follows a standard procedure of using log files.
@@ -152,7 +149,11 @@ export default function Privacy() {
                   </p>
                   <p>
                     For more general information on cookies, please read{' '}
-                    <a href="https://www.privacypolicyonline.com/what-are-cookies/">
+                    <a
+                      href="https://www.privacypolicyonline.com/what-are-cookies/"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       "What Are Cookies"
                     </a>
                     .

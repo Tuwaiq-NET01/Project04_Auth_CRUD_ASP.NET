@@ -73,8 +73,8 @@ export default function Terms() {
                   </p>
                   <h2>Definitions</h2>
                   <p>For the purposes of these Terms and Conditions:</p>
-                  <ul>
-                    <li>
+                  <div>
+                    <p>
                       <p>
                         <strong>Affiliate</strong> means an entity that
                         controls, is controlled by or is under common control
@@ -83,80 +83,66 @@ export default function Terms() {
                         securities entitled to vote for election of directors or
                         other managing authority.
                       </p>
-                    </li>
-                    <li>
+                    </p>
+                    <p>
                       <p>
                         <strong>Country</strong> refers to: Saudi Arabia
                       </p>
-                    </li>
-                    <li>
+                    </p>
+                    <p>
                       <p>
                         <strong>Company</strong> (referred to as either
                         &quot;the Company&quot;, &quot;We&quot;, &quot;Us&quot;
                         or &quot;Our&quot; in this Agreement) refers to
                         Bitchunk.
                       </p>
-                    </li>
-                    <li>
+                    </p>
+                    <p>
                       <p>
                         <strong>Device</strong> means any device that can access
                         the Service such as a computer, a cellphone or a digital
                         tablet.
                       </p>
-                    </li>
-                    <li>
+                    </p>
+                    <p>
                       <p>
                         <strong>Service</strong> refers to the Website.
                       </p>
-                    </li>
-                    <li>
+                    </p>
+                    <p>
                       <p>
                         <strong>Terms and Conditions</strong> (also referred as
                         &quot;Terms&quot;) mean these Terms and Conditions that
                         form the entire agreement between You and the Company
                         regarding the use of the Service. This Terms and
                         Conditions agreement has been created with the help of
-                        the{' '}
-                        <a
-                          href="https://www.termsfeed.com/terms-conditions-generator/"
-                          rel="noreferrer"
-                          target="_blank"
-                        >
-                          Terms and Conditions Generator
-                        </a>
-                        .
+                        the Terms and Conditions Generator.
                       </p>
-                    </li>
-                    <li>
+                    </p>
+                    <p>
                       <p>
                         <strong>Third-party Social Media Service</strong> means
                         any services or content (including data, information,
                         products or services) provided by a third-party that may
                         be displayed, included or made available by the Service.
                       </p>
-                    </li>
-                    <li>
+                    </p>
+                    <p>
                       <p>
                         <strong>Website</strong> refers to Bitchunk, accessible
                         from{' '}
-                        <a
-                          href="https://bitchunk.co/"
-                          rel="noreferrer"
-                          target="_blank"
-                        >
-                          https://bitchunk.co/
-                        </a>
+                        <a href="https://bitchunk.co/">https://bitchunk.co/</a>
                       </p>
-                    </li>
-                    <li>
+                    </p>
+                    <p>
                       <p>
                         <strong>You</strong> means the individual accessing or
                         using the Service, or the company, or other legal entity
                         on behalf of which such individual is accessing or using
                         the Service, as applicable.
                       </p>
-                    </li>
-                  </ul>
+                    </p>
+                  </div>
                   <h1>Acknowledgment</h1>
                   <p>
                     These are the Terms and Conditions governing the use of this
