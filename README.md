@@ -69,7 +69,7 @@ Note: the service is in its first version, so expect some bugs.
 - .NET Core 5 Web API with 5 Controllers
 - Microsoft SQL Database with 8 Tables
 
-### <a href="https://bitchunk.azurewebsites.net/swagger/index.html" target="_blank">Frontend</a> - الواجهة
+### <a href="https://bitchunk.co/" target="_blank">Frontend</a> - الواجهة
 
 - React.js 17.0.2 with 10 Views
 
