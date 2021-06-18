@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using KittyCat.Data;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace KittyCat.Controllers
 {
@@ -12,7 +13,8 @@ namespace KittyCat.Controllers
     {
        
             private ApplicationDbContext _db;
-            public AdopterController(ApplicationDbContext context)
+        [ActivatorUtilitiesConstructor]
+        public AdopterController(ApplicationDbContext context)
             {
                 _db = context;
             }

@@ -3,6 +3,9 @@
 @{
     var Adopter = (AdopterModel)ViewData["adopter"];
 }
+<div class="" style="background-color: darkturquoise">
+    @await Html.PartialAsync("_NavPartial")
+</div>
 @model AdopterModel
 <div style="background: rgb(18 17 17 / 0.72); color: white;padding: 70px; font-family: 'Times New Roman', Times, serif">
     <form asp-action="Edit" method="post" asp-route-id="@Adopter.id" class="form-horizontal">

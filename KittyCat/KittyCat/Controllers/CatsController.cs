@@ -2,6 +2,7 @@
 using KittyCat.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ namespace KittyCat.Controllers
     public class CatsController : Controller
     {
         private ApplicationDbContext _db;
+        [ActivatorUtilitiesConstructor]
         public CatsController(ApplicationDbContext context)
         {
             _db = context;
