@@ -3,7 +3,7 @@
 <img src="https://raw.githubusercontent.com/YounesAlturkey/bitchunk/main/frontend/public/logo.png" alt="Tuwaiq Logo" width="80"/>
   <br>
 
-<a style="color: #ff5722;" href="https://bitchunk.co/" target="_blank">Bitchunk™: Secure File Sharing</a>
+<a style="color: #ff5722;" href="https://bitchunk.co/" target="_blank">Bitchunk™: <span style="color: black;">Secure File Sharing</span></a>
 
 </h1>
 <h4 align="center">Accurate data sharding random distribution, and encryption service.</h4>
