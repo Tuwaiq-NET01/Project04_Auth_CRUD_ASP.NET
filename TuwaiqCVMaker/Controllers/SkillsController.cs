@@ -69,9 +69,6 @@ namespace TuwaiqCVMaker.Controllers
         [HttpPost]
         public async Task<ActionResult<Skill>> Post([FromRoute] int resumeId, [FromBody] Skill skill)
         {
-            if (!ModelState.IsValid)
-                return BadRequest();
-            
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var resume = await this._db.Resumes.FirstOrDefaultAsync(value => value.Id == resumeId);
 

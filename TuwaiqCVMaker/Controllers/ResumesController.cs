@@ -55,9 +55,6 @@ namespace TuwaiqCVMaker.Controllers
         [HttpPost]
         public async Task<ActionResult<Resume>> Post([FromBody] Resume resume)
         {
-            if (!ModelState.IsValid)
-                return BadRequest();
-            
             var user = await this._userManager.GetUserAsync(User);
             user.Resumes.Add(resume);
             await this._db.SaveChangesAsync();
@@ -68,9 +65,6 @@ namespace TuwaiqCVMaker.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult<Resume>> Put(int id, [FromBody] Resume input)
         {
-            if (!ModelState.IsValid)
-                return BadRequest();
-            
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var resume = await this._db.Resumes.FirstOrDefaultAsync(v => v.Id == id);
 
