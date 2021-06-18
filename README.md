@@ -8,6 +8,8 @@
   Website to display and book upcoming circus shows, users can sign up whenever they need to book a ticket or display their booked tickets.
 ### Demo  
  ![Demo](https://github.com/hanan-tuwaiq/Project04_Auth_CRUD_ASP.NET/blob/main/demo.gif)
+### Deployment
+  [Live link](https://circus.azurewebsites.net/).
 ### Wireframe  
  [wireframes](https://www.figma.com/file/IdZFaHIeGsZfYSpYm65PcT/circus-wireframe).   
 ### Set up  
