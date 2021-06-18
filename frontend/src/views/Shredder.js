@@ -285,7 +285,7 @@ export default function Shredder() {
                           nowrap="true"
                           className={classes.infoText}
                         >
-                          {metaData.referenceFile}
+                          reference file
                         </Typography>
                       </div>
                     </ButtonBase>
