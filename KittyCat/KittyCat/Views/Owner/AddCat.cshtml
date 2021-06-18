@@ -1,23 +1,25 @@
 ﻿
-@model OwnerModel
+@model CatModel
+@{ 
+    var ownerId = (int) ViewBag.OwnerId;
+}
+<style>
+    label {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        font-size: smaller;
+    }
 
-    <style>
-        label {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            font-size: smaller;
-        }
-
-        input {
-            border: 0;
-            background-color: #e4e9eb;
-            height: 40px;
-            border-radius: 10px;
-            padding: 10px;
-            width: 250px;
-        }
-    </style>
+    input {
+        border: 0;
+        background-color: #e4e9eb;
+        height: 40px;
+        border-radius: 10px;
+        padding: 10px;
+        width: 250px;
+    }
+</style>
 <div class="" style="background-color: darkturquoise">
     @await Html.PartialAsync("_NavPartial")
 </div>
@@ -29,44 +31,58 @@
     <div class="bg-light text-center d-flex justify-content-center align-items-center col-6" style="background: rgb(18 17 17 / 0.72); color:black; padding: 20px; font-family: 'Times New Roman', Times, serif">
         <div class="card card-bg" style="width: 18rem; border:0">
             <h3 style="color: #2f2f2f">Re-home your cat </h3>
-            <form asp-action="Create" method="post" class="form-horizontal">
+            <form asp-action="AddCat" method="post" class="form-horizontal">
+
                 <div class=" form-group">
-                    <label asp-for="name">Name of the owner</label>
+                    <div>
+                        <input type="hidden" asp-for="OwnerId" value="@ownerId" />
+                    </div>
+                </div>
+                
+                <div class=" form-group">
+                    <label asp-for="name">Name of Cat</label>
                     <div>
                         <input asp-for="name" />
                     </div>
                 </div>
 
                 <div class=" form-group">
-                    <label asp-for="age">Age of the owner</label>
+                    <label asp-for="age">Age of the Cat</label>
                     <div>
                         <input asp-for="age" />
                     </div>
                 </div>
 
                 <div class=" form-group">
-                    <label asp-for="gender">Gender of the owner</label>
+                    <label asp-for="gender">Gender of the Cat</label>
                     <div>
                         <input asp-for="gender" />
                     </div>
                 </div>
 
                 <div class=" form-group">
-                    <label asp-for="reason">Reason for re-homing your cat</label>
+                    <label asp-for="breed">breed</label>
                     <div>
-                        <input asp-for="reason" />
+                        <input asp-for="breed" />
                     </div>
                 </div>
                 <div class=" form-group">
-                    <label asp-for="email">Email of the owner </label>
+                    <label asp-for="description">Description</label>
                     <div>
-                        <input asp-for="email" />
+                        <input asp-for="description" />
                     </div>
                 </div>
                 <div class=" form-group">
-                    <label asp-for="phone">Phone of the owner</label>
+                    <label asp-for="health">Health</label>
                     <div>
-                        <input asp-for="phone" />
+                        <input asp-for="health" />
+                    </div>
+                </div>
+                
+                <div class=" form-group">
+                
+                    <div>
+                        <input type="hidden" value="1" asp-for="LocationId" />
                     </div>
                 </div>
 

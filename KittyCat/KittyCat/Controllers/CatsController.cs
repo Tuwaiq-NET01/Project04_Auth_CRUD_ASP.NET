@@ -55,5 +55,14 @@ namespace KittyCat.Controllers
             ViewData["Location"] = location;
             return View();
         }
+
+        public IActionResult Delete(int id)
+        {
+            var cat = _db.catTable.Where(c => c.id == id).First();
+
+            _db.catTable.Remove(cat);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

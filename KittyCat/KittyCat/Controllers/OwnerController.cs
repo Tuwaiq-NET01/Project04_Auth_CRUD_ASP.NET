@@ -29,11 +29,20 @@ namespace KittyCat.Controllers
         }
         //POST - /Products/create
         [HttpPost]
-        public IActionResult Create([Bind("id","name", "age", "gender", "image","reason", "email", "phone")] OwnerModel owner)
+        public IActionResult Create([Bind("name", "age", "gender", "image","reason", "email", "phone")] OwnerModel owner)
         {
             _db.owner.Add(owner);
             _db.SaveChanges();
-            return RedirectToAction("Index");
+
+            ViewBag.OwnerId = owner.id;
+            return View("AddCat");
+        }
+        [HttpPost]
+        public IActionResult AddCat([Bind("OwnerId" ,"name", "age", "gender", "image", "breed", "description", "health" , "LocationId")] CatModel Cat)
+        {
+            _db.catTable.Add(Cat);
+            _db.SaveChanges();
+            return RedirectToAction("Index" , "Cats");
         }
         //GET- /Products/edit/id
         public IActionResult Edit(int id)
@@ -67,9 +76,14 @@ namespace KittyCat.Controllers
 
         }
         //POST /products/delete/id
+        [HttpPost]
         public IActionResult Delete(int id)
         {
             var owner = _db.owner.First(owner => owner.id == id);
+            var cats = _db.catTable.Where(c => c.OwnerId == owner.id).ToList();
+
+            foreach (var c in cats) _db.catTable.Remove(c);
+
             _db.owner.Remove(owner);
             _db.SaveChanges();
             return RedirectToAction("Index");

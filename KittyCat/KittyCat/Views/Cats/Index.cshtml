@@ -17,6 +17,9 @@
                         <h5 class="card-title" style="color:#333333; z-index:1">@c.name</h5>
                         @*<p class="card-text"> @c.description''</p>*@
                         <span style="color:#333333">@c.gender ⋆ @c.breed ⋆ @c.health</span>
+                        <form class="mt-2" asp-action="Delete" asp-route-id="@c.id">
+                            <input type="submit" class="btn btn-outline-danger" value="Delete">
+                        </form>
                         @* <a href="/cats/details/@c.id"><button type="button" class="btn btn-info">More Info </button></a>*@
                     </div>
                 </div>

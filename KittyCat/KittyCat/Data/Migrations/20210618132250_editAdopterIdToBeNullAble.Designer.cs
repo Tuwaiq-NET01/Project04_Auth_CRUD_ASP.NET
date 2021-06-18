@@ -4,14 +4,16 @@ using KittyCat.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace KittyCat.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210618132250_editAdopterIdToBeNullAble")]
+    partial class editAdopterIdToBeNullAble
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -131,48 +133,6 @@ namespace KittyCat.Data.Migrations
                             LocationId = 1,
                             OwnerId = 1,
                             age = "Baby",
-                            breed = "Dilute Calico",
-                            description = "Tamera was found stray and brought in for adoption.",
-                            gender = "Female",
-                            health = "spayed_neutered",
-                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52008616/1/?bust=1624022690&width=600",
-                            name = "Tamera"
-                        },
-                        new
-                        {
-                            id = 2,
-                            AdopterId = 1,
-                            LocationId = 1,
-                            OwnerId = 1,
-                            age = "Baby",
-                            breed = "Dilute Calico",
-                            description = "Tia was found stray and brought in for adoption.",
-                            gender = "Female",
-                            health = "spayed_neutered",
-                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52008613/1/?bust=1624022646&width=600",
-                            name = "Tia"
-                        },
-                        new
-                        {
-                            id = 3,
-                            AdopterId = 1,
-                            LocationId = 1,
-                            OwnerId = 1,
-                            age = "Baby",
-                            breed = "Domestic Short Hair",
-                            description = "Shaw was found stray and brought in for adoption.",
-                            gender = "Male",
-                            health = "spayed_neutered",
-                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52008611/1/?bust=1624022589&width=600",
-                            name = "Shaw"
-                        },
-                        new
-                        {
-                            id = 4,
-                            AdopterId = 1,
-                            LocationId = 1,
-                            OwnerId = 1,
-                            age = "Baby",
                             breed = "Domestic Medium Hair",
                             description = "Hobbs was found stray and brought in for adoption.",
                             gender = "Male",
@@ -182,7 +142,7 @@ namespace KittyCat.Data.Migrations
                         },
                         new
                         {
-                            id = 5,
+                            id = 2,
                             AdopterId = 1,
                             LocationId = 1,
                             OwnerId = 1,
@@ -196,7 +156,7 @@ namespace KittyCat.Data.Migrations
                         },
                         new
                         {
-                            id = 6,
+                            id = 3,
                             AdopterId = 1,
                             LocationId = 1,
                             OwnerId = 1,
@@ -210,7 +170,7 @@ namespace KittyCat.Data.Migrations
                         },
                         new
                         {
-                            id = 7,
+                            id = 4,
                             AdopterId = 1,
                             LocationId = 1,
                             OwnerId = 1,
@@ -224,7 +184,7 @@ namespace KittyCat.Data.Migrations
                         },
                         new
                         {
-                            id = 8,
+                            id = 5,
                             AdopterId = 1,
                             LocationId = 1,
                             OwnerId = 1,
@@ -238,7 +198,7 @@ namespace KittyCat.Data.Migrations
                         },
                         new
                         {
-                            id = 9,
+                            id = 6,
                             AdopterId = 1,
                             LocationId = 1,
                             OwnerId = 1,
@@ -252,7 +212,7 @@ namespace KittyCat.Data.Migrations
                         },
                         new
                         {
-                            id = 10,
+                            id = 7,
                             AdopterId = 1,
                             LocationId = 1,
                             OwnerId = 1,
@@ -265,7 +225,7 @@ namespace KittyCat.Data.Migrations
                         },
                         new
                         {
-                            id = 11,
+                            id = 8,
                             AdopterId = 1,
                             LocationId = 1,
                             OwnerId = 1,
@@ -279,7 +239,7 @@ namespace KittyCat.Data.Migrations
                         },
                         new
                         {
-                            id = 12,
+                            id = 9,
                             AdopterId = 1,
                             LocationId = 1,
                             OwnerId = 1,
@@ -293,7 +253,7 @@ namespace KittyCat.Data.Migrations
                         },
                         new
                         {
-                            id = 13,
+                            id = 10,
                             AdopterId = 1,
                             LocationId = 1,
                             OwnerId = 1,
@@ -307,7 +267,7 @@ namespace KittyCat.Data.Migrations
                         },
                         new
                         {
-                            id = 14,
+                            id = 11,
                             AdopterId = 1,
                             LocationId = 1,
                             OwnerId = 1,
@@ -321,7 +281,7 @@ namespace KittyCat.Data.Migrations
                         },
                         new
                         {
-                            id = 15,
+                            id = 12,
                             AdopterId = 1,
                             LocationId = 1,
                             OwnerId = 1,
@@ -335,7 +295,7 @@ namespace KittyCat.Data.Migrations
                         },
                         new
                         {
-                            id = 16,
+                            id = 13,
                             AdopterId = 1,
                             LocationId = 1,
                             OwnerId = 1,
@@ -349,7 +309,7 @@ namespace KittyCat.Data.Migrations
                         },
                         new
                         {
-                            id = 17,
+                            id = 14,
                             AdopterId = 1,
                             LocationId = 1,
                             OwnerId = 1,
@@ -362,7 +322,7 @@ namespace KittyCat.Data.Migrations
                         },
                         new
                         {
-                            id = 18,
+                            id = 15,
                             AdopterId = 1,
                             LocationId = 1,
                             OwnerId = 1,
@@ -375,7 +335,7 @@ namespace KittyCat.Data.Migrations
                         },
                         new
                         {
-                            id = 19,
+                            id = 16,
                             AdopterId = 1,
                             LocationId = 1,
                             OwnerId = 1,
@@ -388,7 +348,7 @@ namespace KittyCat.Data.Migrations
                         },
                         new
                         {
-                            id = 20,
+                            id = 17,
                             AdopterId = 1,
                             LocationId = 1,
                             OwnerId = 1,
@@ -401,7 +361,7 @@ namespace KittyCat.Data.Migrations
                         },
                         new
                         {
-                            id = 21,
+                            id = 18,
                             AdopterId = 1,
                             LocationId = 1,
                             OwnerId = 1,
@@ -414,7 +374,7 @@ namespace KittyCat.Data.Migrations
                         },
                         new
                         {
-                            id = 22,
+                            id = 19,
                             AdopterId = 1,
                             LocationId = 1,
                             OwnerId = 1,
@@ -427,7 +387,7 @@ namespace KittyCat.Data.Migrations
                         },
                         new
                         {
-                            id = 23,
+                            id = 20,
                             AdopterId = 1,
                             LocationId = 1,
                             OwnerId = 1,
@@ -440,112 +400,7 @@ namespace KittyCat.Data.Migrations
                         },
                         new
                         {
-                            id = 24,
-                            AdopterId = 1,
-                            LocationId = 1,
-                            OwnerId = 1,
-                            age = "Baby",
-                            breed = "Domestic Long Hair",
-                            gender = "Male",
-                            health = "spayed_neutered",
-                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52008522/1/?bust=1624022195&width=600",
-                            name = "Emmett"
-                        },
-                        new
-                        {
-                            id = 25,
-                            AdopterId = 1,
-                            LocationId = 1,
-                            OwnerId = 1,
-                            age = "Baby",
-                            breed = "American Shorthair",
-                            gender = "Female",
-                            health = "spayed_neutered",
-                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52008516/1/?bust=1624022195&width=600",
-                            name = "Betina"
-                        },
-                        new
-                        {
-                            id = 26,
-                            AdopterId = 1,
-                            LocationId = 1,
-                            OwnerId = 1,
-                            age = "Baby",
-                            breed = "American Shorthair",
-                            gender = "Male",
-                            health = "spayed_neutered",
-                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52008519/1/?bust=1624022195&width=600",
-                            name = "Benny"
-                        },
-                        new
-                        {
-                            id = 27,
-                            AdopterId = 1,
-                            LocationId = 1,
-                            OwnerId = 1,
-                            age = "Baby",
-                            breed = "Domestic Short Hair",
-                            gender = "Male",
-                            health = "spayed_neutered",
-                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52008528/1/?bust=1624022196&width=600",
-                            name = "Earnest"
-                        },
-                        new
-                        {
-                            id = 28,
-                            AdopterId = 1,
-                            LocationId = 1,
-                            OwnerId = 1,
-                            age = "Baby",
-                            breed = "Domestic Short Hair",
-                            description = "Kerby can talk a big game, but he is not as tough as he acts! He has a secret soft...",
-                            gender = "Male",
-                            health = "spayed_neutered",
-                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52008530/1/?bust=1624022196&width=600",
-                            name = "Kerby"
-                        },
-                        new
-                        {
-                            id = 29,
-                            AdopterId = 1,
-                            LocationId = 1,
-                            OwnerId = 1,
-                            age = "Baby",
-                            breed = "American Shorthair",
-                            gender = "Male",
-                            health = "spayed_neutered",
-                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52008517/1/?bust=1624022196&width=600",
-                            name = "Barney"
-                        },
-                        new
-                        {
-                            id = 30,
-                            AdopterId = 1,
-                            LocationId = 1,
-                            OwnerId = 1,
-                            age = "Baby",
-                            breed = "American Shorthair",
-                            gender = "Male",
-                            health = "spayed_neutered",
-                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52008526/1/?bust=1624022196&width=600",
-                            name = "Baxter"
-                        },
-                        new
-                        {
-                            id = 31,
-                            AdopterId = 1,
-                            LocationId = 1,
-                            OwnerId = 1,
-                            age = "Baby",
-                            breed = "Domestic Short Hair",
-                            gender = "Female",
-                            health = "spayed_neutered",
-                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52008521/1/?bust=1624022198&width=600",
-                            name = "Sophia"
-                        },
-                        new
-                        {
-                            id = 32,
+                            id = 21,
                             AdopterId = 1,
                             LocationId = 1,
                             OwnerId = 1,
@@ -558,7 +413,7 @@ namespace KittyCat.Data.Migrations
                         },
                         new
                         {
-                            id = 33,
+                            id = 22,
                             AdopterId = 1,
                             LocationId = 1,
                             OwnerId = 1,
@@ -572,7 +427,99 @@ namespace KittyCat.Data.Migrations
                         },
                         new
                         {
-                            id = 34,
+                            id = 23,
+                            AdopterId = 1,
+                            LocationId = 1,
+                            OwnerId = 1,
+                            age = "Baby",
+                            breed = "Domestic Long Hair",
+                            gender = "Male",
+                            health = "spayed_neutered",
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52008522/1/?bust=1624022195&width=600",
+                            name = "Emmett"
+                        },
+                        new
+                        {
+                            id = 24,
+                            AdopterId = 1,
+                            LocationId = 1,
+                            OwnerId = 1,
+                            age = "Baby",
+                            breed = "American Shorthair",
+                            gender = "Female",
+                            health = "spayed_neutered",
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52008516/1/?bust=1624022195&width=600",
+                            name = "Betina"
+                        },
+                        new
+                        {
+                            id = 25,
+                            AdopterId = 1,
+                            LocationId = 1,
+                            OwnerId = 1,
+                            age = "Baby",
+                            breed = "American Shorthair",
+                            gender = "Male",
+                            health = "spayed_neutered",
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52008519/1/?bust=1624022195&width=600",
+                            name = "Benny"
+                        },
+                        new
+                        {
+                            id = 26,
+                            AdopterId = 1,
+                            LocationId = 1,
+                            OwnerId = 1,
+                            age = "Baby",
+                            breed = "Domestic Short Hair",
+                            gender = "Male",
+                            health = "spayed_neutered",
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52008528/1/?bust=1624022196&width=600",
+                            name = "Earnest"
+                        },
+                        new
+                        {
+                            id = 27,
+                            AdopterId = 1,
+                            LocationId = 1,
+                            OwnerId = 1,
+                            age = "Baby",
+                            breed = "Domestic Short Hair",
+                            description = "Kerby can talk a big game, but he is not as tough as he acts! He has a secret soft...",
+                            gender = "Male",
+                            health = "spayed_neutered",
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52008530/1/?bust=1624022196&width=600",
+                            name = "Kerby"
+                        },
+                        new
+                        {
+                            id = 28,
+                            AdopterId = 1,
+                            LocationId = 1,
+                            OwnerId = 1,
+                            age = "Baby",
+                            breed = "American Shorthair",
+                            gender = "Male",
+                            health = "spayed_neutered",
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52008517/1/?bust=1624022196&width=600",
+                            name = "Barney"
+                        },
+                        new
+                        {
+                            id = 29,
+                            AdopterId = 1,
+                            LocationId = 1,
+                            OwnerId = 1,
+                            age = "Baby",
+                            breed = "American Shorthair",
+                            gender = "Male",
+                            health = "spayed_neutered",
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52008526/1/?bust=1624022196&width=600",
+                            name = "Baxter"
+                        },
+                        new
+                        {
+                            id = 30,
                             AdopterId = 1,
                             LocationId = 1,
                             OwnerId = 1,
@@ -586,7 +533,7 @@ namespace KittyCat.Data.Migrations
                         },
                         new
                         {
-                            id = 35,
+                            id = 31,
                             AdopterId = 1,
                             LocationId = 1,
                             OwnerId = 1,
@@ -599,7 +546,7 @@ namespace KittyCat.Data.Migrations
                         },
                         new
                         {
-                            id = 36,
+                            id = 32,
                             AdopterId = 1,
                             LocationId = 1,
                             OwnerId = 1,
@@ -612,7 +559,7 @@ namespace KittyCat.Data.Migrations
                         },
                         new
                         {
-                            id = 37,
+                            id = 33,
                             AdopterId = 1,
                             LocationId = 1,
                             OwnerId = 1,
@@ -625,7 +572,7 @@ namespace KittyCat.Data.Migrations
                         },
                         new
                         {
-                            id = 38,
+                            id = 34,
                             AdopterId = 1,
                             LocationId = 1,
                             OwnerId = 1,
@@ -638,7 +585,7 @@ namespace KittyCat.Data.Migrations
                         },
                         new
                         {
-                            id = 39,
+                            id = 35,
                             AdopterId = 1,
                             LocationId = 1,
                             OwnerId = 1,
@@ -652,7 +599,20 @@ namespace KittyCat.Data.Migrations
                         },
                         new
                         {
-                            id = 40,
+                            id = 36,
+                            AdopterId = 1,
+                            LocationId = 1,
+                            OwnerId = 1,
+                            age = "Baby",
+                            breed = "Domestic Short Hair",
+                            gender = "Female",
+                            health = "spayed_neutered",
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52008521/1/?bust=1624022198&width=600",
+                            name = "Sophia"
+                        },
+                        new
+                        {
+                            id = 37,
                             AdopterId = 1,
                             LocationId = 1,
                             OwnerId = 1,
@@ -665,7 +625,7 @@ namespace KittyCat.Data.Migrations
                         },
                         new
                         {
-                            id = 41,
+                            id = 38,
                             AdopterId = 1,
                             LocationId = 1,
                             OwnerId = 1,
@@ -678,7 +638,7 @@ namespace KittyCat.Data.Migrations
                         },
                         new
                         {
-                            id = 42,
+                            id = 39,
                             AdopterId = 1,
                             LocationId = 1,
                             OwnerId = 1,
@@ -691,7 +651,7 @@ namespace KittyCat.Data.Migrations
                         },
                         new
                         {
-                            id = 43,
+                            id = 40,
                             AdopterId = 1,
                             LocationId = 1,
                             OwnerId = 1,
@@ -704,7 +664,7 @@ namespace KittyCat.Data.Migrations
                         },
                         new
                         {
-                            id = 44,
+                            id = 41,
                             AdopterId = 1,
                             LocationId = 1,
                             OwnerId = 1,
@@ -718,7 +678,7 @@ namespace KittyCat.Data.Migrations
                         },
                         new
                         {
-                            id = 45,
+                            id = 42,
                             AdopterId = 1,
                             LocationId = 1,
                             OwnerId = 1,
@@ -732,7 +692,7 @@ namespace KittyCat.Data.Migrations
                         },
                         new
                         {
-                            id = 46,
+                            id = 43,
                             AdopterId = 1,
                             LocationId = 1,
                             OwnerId = 1,
@@ -746,7 +706,7 @@ namespace KittyCat.Data.Migrations
                         },
                         new
                         {
-                            id = 47,
+                            id = 44,
                             AdopterId = 1,
                             LocationId = 1,
                             OwnerId = 1,
@@ -757,6 +717,48 @@ namespace KittyCat.Data.Migrations
                             health = "spayed_neutered",
                             image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52008508/1/?bust=1624022145&width=600",
                             name = "Dalton"
+                        },
+                        new
+                        {
+                            id = 45,
+                            AdopterId = 1,
+                            LocationId = 1,
+                            OwnerId = 1,
+                            age = "Baby",
+                            breed = "Domestic Short Hair",
+                            description = "This is Darwin. Lovable, playful and cuddly! This little guy gets along very well with his brother &amp;amp; sister, as...",
+                            gender = "Male",
+                            health = "spayed_neutered",
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52008505/1/?bust=1624022137&width=600",
+                            name = "Darwin"
+                        },
+                        new
+                        {
+                            id = 46,
+                            AdopterId = 1,
+                            LocationId = 1,
+                            OwnerId = 1,
+                            age = "Baby",
+                            breed = "Domestic Short Hair",
+                            description = "I&amp;#39;m Zazie and when foster mom brought us home and opened the carrier door, I was the first one to...",
+                            gender = "Female",
+                            health = "spayed_neutered",
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52008504/1/?bust=1624022138&width=600",
+                            name = "Zazie"
+                        },
+                        new
+                        {
+                            id = 47,
+                            AdopterId = 1,
+                            LocationId = 1,
+                            OwnerId = 1,
+                            age = "Baby",
+                            breed = "Domestic Short Hair",
+                            description = "Zabbie here! Although I may have been the smallest (&amp;#34;runty girl&amp;#34; was my nickname!) in the litter, I have always...",
+                            gender = "Female",
+                            health = "spayed_neutered",
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52008503/1/?bust=1624022139&width=600",
+                            name = "Zabbie"
                         },
                         new
                         {
@@ -780,48 +782,6 @@ namespace KittyCat.Data.Migrations
                             OwnerId = 1,
                             age = "Baby",
                             breed = "Domestic Short Hair",
-                            description = "This is Darwin. Lovable, playful and cuddly! This little guy gets along very well with his brother &amp;amp; sister, as...",
-                            gender = "Male",
-                            health = "spayed_neutered",
-                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52008505/1/?bust=1624022137&width=600",
-                            name = "Darwin"
-                        },
-                        new
-                        {
-                            id = 50,
-                            AdopterId = 1,
-                            LocationId = 1,
-                            OwnerId = 1,
-                            age = "Baby",
-                            breed = "Domestic Short Hair",
-                            description = "I&amp;#39;m Zazie and when foster mom brought us home and opened the carrier door, I was the first one to...",
-                            gender = "Female",
-                            health = "spayed_neutered",
-                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52008504/1/?bust=1624022138&width=600",
-                            name = "Zazie"
-                        },
-                        new
-                        {
-                            id = 51,
-                            AdopterId = 1,
-                            LocationId = 1,
-                            OwnerId = 1,
-                            age = "Baby",
-                            breed = "Domestic Short Hair",
-                            description = "Zabbie here! Although I may have been the smallest (&amp;#34;runty girl&amp;#34; was my nickname!) in the litter, I have always...",
-                            gender = "Female",
-                            health = "spayed_neutered",
-                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52008503/1/?bust=1624022139&width=600",
-                            name = "Zabbie"
-                        },
-                        new
-                        {
-                            id = 52,
-                            AdopterId = 1,
-                            LocationId = 1,
-                            OwnerId = 1,
-                            age = "Baby",
-                            breed = "Domestic Short Hair",
                             description = "This darling baby girl is Jenni.  She got lost and came to the shelter 6/16.  If not reclaimed she will...",
                             gender = "Female",
                             health = "spayed_neutered",
@@ -830,7 +790,7 @@ namespace KittyCat.Data.Migrations
                         },
                         new
                         {
-                            id = 53,
+                            id = 50,
                             AdopterId = 1,
                             LocationId = 1,
                             OwnerId = 1,
@@ -844,7 +804,7 @@ namespace KittyCat.Data.Migrations
                         },
                         new
                         {
-                            id = 54,
+                            id = 51,
                             AdopterId = 1,
                             LocationId = 1,
                             OwnerId = 1,
@@ -858,7 +818,7 @@ namespace KittyCat.Data.Migrations
                         },
                         new
                         {
-                            id = 55,
+                            id = 52,
                             AdopterId = 1,
                             LocationId = 1,
                             OwnerId = 1,
@@ -872,7 +832,7 @@ namespace KittyCat.Data.Migrations
                         },
                         new
                         {
-                            id = 56,
+                            id = 53,
                             AdopterId = 1,
                             LocationId = 1,
                             OwnerId = 1,
@@ -886,7 +846,7 @@ namespace KittyCat.Data.Migrations
                         },
                         new
                         {
-                            id = 57,
+                            id = 54,
                             AdopterId = 1,
                             LocationId = 1,
                             OwnerId = 1,
@@ -900,7 +860,7 @@ namespace KittyCat.Data.Migrations
                         },
                         new
                         {
-                            id = 58,
+                            id = 55,
                             AdopterId = 1,
                             LocationId = 1,
                             OwnerId = 1,
@@ -914,7 +874,7 @@ namespace KittyCat.Data.Migrations
                         },
                         new
                         {
-                            id = 59,
+                            id = 56,
                             AdopterId = 1,
                             LocationId = 1,
                             OwnerId = 1,
@@ -923,12 +883,12 @@ namespace KittyCat.Data.Migrations
                             description = "Hi, I&amp;#39;m Sienna (FCID 05/27/2021-69)! I&amp;#39;m a friendly grey and white one-year-old girl with the cutest black smudge on my...",
                             gender = "Female",
                             health = "spayed_neutered",
-                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52008478/1/?bust=1624022698&width=600",
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52008478/1/?bust=1624021758&width=600",
                             name = "Sienna (FCID# 05/27/2021- 69 Brookhaven PS) C"
                         },
                         new
                         {
-                            id = 60,
+                            id = 57,
                             AdopterId = 1,
                             LocationId = 1,
                             OwnerId = 1,
@@ -942,7 +902,7 @@ namespace KittyCat.Data.Migrations
                         },
                         new
                         {
-                            id = 61,
+                            id = 58,
                             AdopterId = 1,
                             LocationId = 1,
                             OwnerId = 1,
@@ -956,21 +916,7 @@ namespace KittyCat.Data.Migrations
                         },
                         new
                         {
-                            id = 62,
-                            AdopterId = 1,
-                            LocationId = 1,
-                            OwnerId = 1,
-                            age = "Senior",
-                            breed = "Domestic Short Hair",
-                            description = "DOB: 5-19-13\nFKDS-A-22509\nMicrochip # 981020041671147 Geezer needs a loving home soon! He is a 12 year old boy who...",
-                            gender = "Male",
-                            health = "spayed_neutered",
-                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52008466/1/?bust=1624021519&width=600",
-                            name = "Geezer"
-                        },
-                        new
-                        {
-                            id = 63,
+                            id = 59,
                             AdopterId = 1,
                             LocationId = 1,
                             OwnerId = 1,
@@ -984,7 +930,21 @@ namespace KittyCat.Data.Migrations
                         },
                         new
                         {
-                            id = 64,
+                            id = 60,
+                            AdopterId = 1,
+                            LocationId = 1,
+                            OwnerId = 1,
+                            age = "Senior",
+                            breed = "Domestic Short Hair",
+                            description = "DOB: 5-19-13\nFKDS-A-22509\nMicrochip # 981020041671147 Geezer needs a loving home soon! He is a 12 year old boy who...",
+                            gender = "Male",
+                            health = "spayed_neutered",
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52008466/1/?bust=1624021519&width=600",
+                            name = "Geezer"
+                        },
+                        new
+                        {
+                            id = 61,
                             AdopterId = 1,
                             LocationId = 1,
                             OwnerId = 1,
@@ -997,7 +957,7 @@ namespace KittyCat.Data.Migrations
                         },
                         new
                         {
-                            id = 65,
+                            id = 62,
                             AdopterId = 1,
                             LocationId = 1,
                             OwnerId = 1,
@@ -1011,7 +971,7 @@ namespace KittyCat.Data.Migrations
                         },
                         new
                         {
-                            id = 66,
+                            id = 63,
                             AdopterId = 1,
                             LocationId = 1,
                             OwnerId = 1,
@@ -1025,7 +985,7 @@ namespace KittyCat.Data.Migrations
                         },
                         new
                         {
-                            id = 67,
+                            id = 64,
                             AdopterId = 1,
                             LocationId = 1,
                             OwnerId = 1,
@@ -1039,7 +999,7 @@ namespace KittyCat.Data.Migrations
                         },
                         new
                         {
-                            id = 68,
+                            id = 65,
                             AdopterId = 1,
                             LocationId = 1,
                             OwnerId = 1,
@@ -1050,6 +1010,76 @@ namespace KittyCat.Data.Migrations
                             health = "spayed_neutered",
                             image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52008451/2/?bust=1624020617&width=600",
                             name = "Mercury"
+                        },
+                        new
+                        {
+                            id = 66,
+                            AdopterId = 1,
+                            LocationId = 1,
+                            OwnerId = 1,
+                            age = "Senior",
+                            breed = "Maine Coon",
+                            description = "Meet Blue\nBlue is incredibly handsome and got his name because of his gorgeous blue eyes, which standout against his...",
+                            gender = "Male",
+                            health = "spayed_neutered",
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52008449/1/?bust=1624020551&width=600",
+                            name = "Blue"
+                        },
+                        new
+                        {
+                            id = 67,
+                            AdopterId = 1,
+                            LocationId = 1,
+                            OwnerId = 1,
+                            age = "Baby",
+                            breed = "Domestic Short Hair",
+                            description = "Meet this beautiful gal named Ally! She came into the shelter with her mom Sarah as strays on April 7,...",
+                            gender = "Female",
+                            health = "spayed_neutered",
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52008432/2/?bust=1624020229&width=600",
+                            name = "Ally"
+                        },
+                        new
+                        {
+                            id = 68,
+                            AdopterId = 1,
+                            LocationId = 1,
+                            OwnerId = 1,
+                            age = "Senior",
+                            breed = "Domestic Medium Hair",
+                            description = "Say hello to Scampi. He is a sweet, affectionate 14-year-old male domestic medium hair cat and he is housed in...",
+                            gender = "Male",
+                            health = "spayed_neutered",
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52008400/1/?bust=1624020068&width=600",
+                            name = "Scampi"
+                        },
+                        new
+                        {
+                            id = 69,
+                            AdopterId = 1,
+                            LocationId = 1,
+                            OwnerId = 1,
+                            age = "Adult",
+                            breed = "Domestic Short Hair",
+                            description = "Tippy is approximately 2 years old.  She is friendly, but would probably do best in a home without very young...",
+                            gender = "Female",
+                            health = "spayed_neutered",
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52008443/1/?bust=1624022547&width=600",
+                            name = "Tippy"
+                        },
+                        new
+                        {
+                            id = 70,
+                            AdopterId = 1,
+                            LocationId = 1,
+                            OwnerId = 1,
+                            age = "Young",
+                            breed = "Domestic Short Hair",
+                            description = "Belle was dropped outside of Belle Fourche and the folks who found her can&#039;t keep her, would like to rehome...",
+                            gender = "Female",
+                            health = "spayed_neutered",
+                            image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52008426/1/?bust=1624020298&width=600",
+                            name = "Belle"
                         });
                 });
 
