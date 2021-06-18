@@ -12,7 +12,8 @@
   <a href="#key-features">Key Features</a> •
   <a href="#how-to-use">How To Use</a> •
   <a href="#tech-stack">Tech Stack</a> •
-  <a href="#license">License</a>
+  <a href="#license">License</a> •
+  <a href="https://bitchunk.co/">Live</a>
 </p>
 
 <p align="center">
