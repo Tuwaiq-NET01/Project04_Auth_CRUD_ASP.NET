@@ -29,7 +29,7 @@
     if (r.HotelId == hotel.HotelId)
     {
         <div class="card" style="width: 20rem; float: left; margin-left: 10px; margin-right: 10px; margin-bottom: 20px; border-radius: 8px;">
-            <img class="card-img-top" src="@r.RoomImage" alt="Card image cap">
+            <img class="card-img-top" border-radius="8px;" height="200px" src="@r.RoomImage" alt="Card image cap">
             <div class="card-body">
                 <h4 class="card-title">Room @r.RoomNumber</h4>
                 <p class="card-text"><strong>Room Description:</strong>@r.RoomDescribtion</p>
@@ -41,6 +41,11 @@
             </ul>
             <div class="card-body">
                 <button type="button" class="btn btn-info">Book</button>
+                <form method="post" asp-controller="Rooms" asp-action="Delete" asp-route-id="@r.RoomId">
+                    <input type="submit" value="Remove" class="btn btn-danger" />
+                </form>
+
+                
                 @*<a href="#" class="card-link">Another link</a>*@
             </div>
         </div>
@@ -57,6 +62,7 @@
 {
 <div>
     <a class="btn btn-primary" asp-action="create" asp-controller="rooms" asp-route-id="@hotel.HotelId">Add New Room</a>
+
 </div>
     
 }

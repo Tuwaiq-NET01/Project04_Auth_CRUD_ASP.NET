@@ -1,7 +1,75 @@
 ﻿@model RoomModel
+<p>
+    <a class="btn btn-primary" data-toggle="modal" data-target="#roomModal">Add + </a>
+</p>
 
+<div class="modal fade" id="roomModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Room Information</h2>
+            </div>
+            <div class="modal-body">
+                <form asp-action="Create" method="post" class="form-horizontal" asp-route-HotelId="@ViewData["HotelId"]">
+                    <div class="form-group">
+                        <label asp-for="RoomType">Room Type</label>
+                        <div>
+                            <input asp-for="RoomType" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="RoomNumber">Room Number</label>
+                        <div>
+                            <input asp-for="RoomNumber" />
+                        </div>
+                    </div>
 
-<form asp-action="Create" method="post" class="form-horizontal" asp-route-HotelId="@ViewData["HotelId"]">
+                    <div class="form-group">
+                        <label asp-for="RoomImage">Room Image URL</label>
+                        <div>
+                            <input asp-for="RoomImage" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="RoomPrice">Room Price</label>
+                        <div>
+                            <input asp-for="RoomPrice" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="RoomDescribtion">Room Description</label>
+                        <div>
+                            <input asp-for="RoomDescribtion" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="RoomStatus">Room Status</label>
+                        <div>
+                            <input asp-for="RoomStatus" />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="btn-group">
+                            <button type="submit" class="btn btn-primary mr-3" value="Submit">Submit</button>
+                            <button  type="submit" class="btn btn-danger" value="Cancel">Cancel</button>
+                            @*<a href="#" id="btnSave" class="btn btn-primary mr-2">Save</a>*@
+                        </div>
+                    </div>
+
+                    @*<div class="form-group">
+                        <input type="submit" class="btn btn-primary" value="Submit" />
+                    </div>*@
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!--<form asp-action="Create" method="post" class="form-horizontal" asp-route-HotelId="@ViewData["HotelId"]">-->
     @*<div class="form-group">
             <input type="hidden" asp-for="HotelId" value=""/>
             <label asp-for="HotelId">Hotel Id</label>
@@ -15,7 +83,7 @@
             <input asp-for="HotelId" />
         </div>
     </div>*@
-    <div class="form-group">
+    <!--<div class="form-group">
         <label asp-for="RoomType">Room Type</label>
         <div>
             <input asp-for="RoomType" />
@@ -63,5 +131,5 @@
 
     </div>
 
-</form>
+</form>-->
 

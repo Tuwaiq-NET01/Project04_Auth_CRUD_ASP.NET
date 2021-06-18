@@ -37,7 +37,7 @@
 
                     <td scope="row">@hotel.PhoneNumber</td>
 
-                    <td><button type="button" class="btn btn-dark"><a style="color:white" href="/Hotels/details/@hotel.HotelId">SHOW</a></button></td>
+                    <td><button type="button" class="btn btn-dark"><a style="color:white" href="/Hotels/details/@hotel.HotelId">Show</a></button></td>
 
                     <td><a class="btn btn-primary" asp-controller="Hotels" asp-action="Edit" asp-route-id=@hotel.HotelId>Edit</a></td>
                     <td>
@@ -83,13 +83,13 @@ else
 
                     <td scope="row">@hotel.PhoneNumber</td>
 
-                    <td><button type="button" class="btn btn-dark"><a style="color:white" href="/Hotels/details/@hotel.HotelId">SHOW</a></button></td>
+                    <td><button type="button" class="btn btn-dark mr-3 md-3"><a style="color:white" href="/Hotels/details/@hotel.HotelId">Show</a></button></td>
 
                 </tr>
             }
         </tbody>
     </table>
 
-    <a class="btn btn-primary" asp-controller="Home" asp-action="Index"> Back Home</a>
+    <a class="btn btn-primary mr-4" asp-controller="Home" asp-action="Index"> Back Home</a>
 }
 

@@ -38,13 +38,12 @@
                         }
                     }
 
-                    <td><button type="button" class="btn btn-dark"><a style="color:white" href="/Rooms/details/@room.RoomId">SHOW</a></button></td>
+                    <td><button type="button" class="btn btn-dark"><a style="color:white" href="/Rooms/details/@room.RoomId">Show</a></button></td>
                     <td><a class="btn btn-primary" asp-controller="Rooms" asp-action="Edit" asp-route-id=@room.RoomId>Edit</a></td>
                     <td>
                         <form method="post" asp-controller="Rooms" asp-action="Delete" asp-route-id="@room.RoomId">
                             <input type="submit" value="Delete" class="btn btn-danger" />
                         </form>
-
                     </td>
 
 
