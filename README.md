@@ -15,12 +15,45 @@
 </p>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/YounesAlturkey/paint/main/demo.gif" alt="demo"/>
+  <img src="https://raw.githubusercontent.com/YounesAlturkey/bitchunk/main/frontend/src/assets/img/demo.gif" alt="demo"/>
 </p>
 
-<img width="92" height="92" src="https://raw.githubusercontent.com/YounesAlturkey/bitchunk/main/frontend/public/logo.png"/>
+<br/>
 
-# Bitchunk.co → Secure File Storage Service
+## Key Features - المزايا
+
+- **Simple**, **Modern**, **Easy-To-Use** user interface
+- Original file is immediately deleted after sharding
+- Small and portable reference file that is **easy to share**
+- **Password-locked** assembly point
+- Files may only be assembled once for enhanced security
+- Shard somewhere, **assemble anywhere**
+
+<br/>
+
+## How To Use - طريقة الإستخدام
+
+From your command line:
+
+```bash
+# Clone this repository
+$ git clone https://github.com/YounesAlturkey/bitchunk.git
+
+# Go into the repository
+$ cd bitchunk/frontend || cd bitchunk/backend
+
+# Run the cli
+$ yarn start || npm start
+
+```
+
+Note: the service is in its first version, so expect some bugs.
+
+<br/>
+
+## License
+
+[MIT](https://github.com/YounesAlturkey/bitchunk/blob/main/LICENSE.MD)
 
 <div dir="rtl" align="right" >
 
