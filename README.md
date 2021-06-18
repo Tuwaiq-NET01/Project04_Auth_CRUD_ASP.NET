@@ -1,7 +1,7 @@
-<div dir="rtl" align="right" >
-![Tuwaiq](https://i.ibb.co/SV2BSn5/tuwaiq.png)
-----
-# (Circus shows & tickets) | اسم التطبيق
+<div dir="rtl" align="right">
+
+# (Circus shows & tickets) 
+
 ### المقدمــة | Introduction 
   موقع ويب لعرض عروض السيرك القادمة وحجزها ، يمكن للمستخدمين التسجيل متى احتاجوا إلى حجز تذكرة أو عرض تذاكرهم المحجوزة
   <br>
