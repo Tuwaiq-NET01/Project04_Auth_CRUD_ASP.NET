@@ -20,15 +20,20 @@ This project is all about challenges, users can register and login, and can see 
 
 <br />
 
-### Demo  
+## Demo  
 
- ![demo gif](./images/demo.gif)
+### DEMO 1
 
+ ![demo gif](./images/demo1.gif)
+
+### DEMO 2
+
+ ![demo 2 gif](./images/demo2.gif)
 
 <br />
 <br />
 
-### Wireframe  
+## Wireframe  
 هذه بعض الWireframes التي تم إنشائها قبل عملية التطوير للموقع.
  <br />
 
@@ -48,6 +53,10 @@ This project is all about challenges, users can register and login, and can see 
  - ### لصفحة معلومات التحدي: 
 
  ![challenge details page](./images/wfcd.png)
+
+### ERD 
+
+ ![ERDV1](./images/erdv1.png)
 
 
 # Technologies Used | التقنيات المستخدمة

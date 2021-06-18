@@ -182,3 +182,11 @@ hr {
 .game-title {
     text-shadow: 2px 1px 9px #CE5937;
 }
+
+.sub{
+    color:#00482e
+}
+
+    .sub:hover {
+        color: #008d5a;
+    }

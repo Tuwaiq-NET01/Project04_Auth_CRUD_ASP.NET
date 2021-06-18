@@ -33,6 +33,11 @@
         <div class="form-floating mb-3">
             <form id="commentForm" asp-controller="comments" asp-action="create" asp-route-id="@challenge.Id" method="post" class="form-horizontal" autocomplete="off">
                 <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" asp-for="Title"></textarea>
+                <div class="form-floating mt-1">
+                    <textarea class="form-control" placeholder="Leave your submission here" id="floatingTextarea" asp-for="Body"></textarea>
+                    <label for="floatingTextarea">Comments</label>
+                </div>
+
                 <input id="commentSubmit" class="btn btn-outline-secondary mt-2 d-flex justify-content-end" type="submit" value="Submit!" />
             </form>
         </div>
@@ -48,13 +53,14 @@
             <div class="comment @(cmt.isWinner ? "winner" : null ) mb-3">
                 <div class="d-flex">
                     <h5 class="mr-auto">@cmt.Title</h5>
+                    @if (cmt.Body != null) {<a href="@cmt.Body" target="_blank" class="btn-link ml-1 sub"><i class="fab fa-youtube fa-2x"></i></a>}
                     @if (cmt.UserId == @UserManager.GetUserId(User))
                     {
                         <form method="post" asp-controller="comments" asp-action="delete" asp-route-id="@cmt.Id">
                             <button type="submit" class="btn btn-link trash ml-1"><i class="fas fa-trash fa-2x"></i></button>
                         </form>
                     }
-                    @if (challenge.UserId == @UserManager.GetUserId(User) && !cmt.isWinner)
+                    @if (challenge.UserId == @UserManager.GetUserId(User) && !cmt.isWinner && cmt.Body != null)
                     {
                         <form method="post" asp-controller="winners" asp-action="create" asp-route-coId="@cmt.Id">
                             <button type="submit" class="btn btn-link check ml-1">

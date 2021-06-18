@@ -35,7 +35,7 @@ namespace ChallengeME.Controllers
 
         [HttpPost]
         [Authorize]
-        public IActionResult Create(int id, [Bind("Title")] Comment comment)
+        public IActionResult Create(int id, [Bind("Title", "Body")] Comment comment)
         {
             string iduser = User.FindFirst(ClaimTypes.NameIdentifier).Value;
             var user = _context.Users.FirstOrDefault(user => user.Id == iduser);
