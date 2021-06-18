@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 namespace School.Controllers
 {
     [Authorize]
-    public class TeachersController : Controller
+    public class RoomsController : Controller
     {
         private readonly ApplicationDbContext _db;
 
-        public TeachersController(ApplicationDbContext context)
+        public RoomsController(ApplicationDbContext context)
         {
             _db = context;
         }
@@ -23,23 +23,15 @@ namespace School.Controllers
         {
             ViewData["Added"] = added;
             ViewData["Deleted"] = deleted;
-            var Teachers = _db.Teachers.ToList();
-            ViewData["Teachers"] = Teachers;
+            var Rooms = _db.Rooms.ToList();
+            ViewData["Rooms"] = Rooms;
             return View();
         }
-        public IActionResult Search(string txt)
-        {
-            ViewData["Added"] = false;
-            ViewData["Deleted"] = false;
-            var Teachers = _db.Teachers.Where(t => t.FirstName.Contains(txt) || t.LastName.Contains(txt)).ToList();
-            ViewData["Teachers"] = Teachers;
-            return View("Index");
-        }
-
+        
         public IActionResult Details(int? id)
         {
-            var Teacher = _db.Teachers.FirstOrDefault(t => t.TeacherId == id);
-            ViewBag.Teacher = Teacher;
+            var Room = _db.Rooms.FirstOrDefault(r => r.RoomId == id);
+            ViewBag.Room = Room;
             return View();
         }
 
@@ -49,16 +41,16 @@ namespace School.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create([Bind("FirstName", "LastName", "Email")] Teacher teacher)
+        public IActionResult Create([Bind("RoomSize")] Room room)
         {
             if (ModelState.IsValid)
             {
-                _db.Teachers.Add(teacher);
+                _db.Rooms.Add(room);
                 _db.SaveChanges();
                 return RedirectToAction("Index", new { added = true });
             }
 
-            return View(teacher);
+            return View(room);
         }
 
         public IActionResult Edit(int? id)
@@ -67,20 +59,20 @@ namespace School.Controllers
             {
                 return NotFound();
             }
-            var teacher = _db.Teachers.Find(id);
-            if (teacher == null)
+            var room = _db.Rooms.Find(id);
+            if (room == null)
             {
                 return NotFound();
             }
-            ViewData["Teacher"] = teacher;
-            return View(teacher);
+            ViewData["Room"] = room;
+            return View(room);
         }
 
         [HttpPost]
-        public IActionResult Edit(int id, [Bind("FirstName", "LastName", "Email")] Teacher teacher)
+        public IActionResult Edit(int id, [Bind("RoomSize")] Room room)
         {
-            teacher.TeacherId = id;
-            _db.Teachers.Update(teacher);
+            room.RoomId = id;
+            _db.Rooms.Update(room);
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -92,22 +84,22 @@ namespace School.Controllers
                 return NotFound();
             }
 
-            var teacher = _db.Teachers.FirstOrDefault(t => t.TeacherId == id);
+            var room = _db.Rooms.FirstOrDefault(r => r.RoomId == id);
 
-            if (teacher == null)
+            if (room == null)
             {
                 return NotFound();
             }
-            ViewBag.TeacherId = teacher.TeacherId;
+            ViewBag.RoomId = room.RoomId;
 
-            return View(teacher);
+            return View(room);
         }
 
         [HttpPost]
-        public IActionResult Delete(int id, [Bind("FirstName", "LastName", "Email")] Teacher teacher)
+        public IActionResult Delete(int id, [Bind("RoomSize")] Room room)
         {
-            teacher.TeacherId = id;
-            _db.Teachers.Remove(teacher);
+            room.RoomId = id;
+            _db.Rooms.Remove(room);
             _db.SaveChanges();
             return RedirectToAction("Index", new { deleted = true });
         }

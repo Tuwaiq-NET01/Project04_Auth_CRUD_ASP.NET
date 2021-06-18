@@ -1,0 +1,17 @@
+﻿@{
+    Course course = ViewBag.Course;
+    ViewData["title"] = "Course Details";
+}
+
+@if (course != null)
+{
+    <p>ID: @course.CourseId</p>
+    <p>Course Title: @course.Title</p>
+    <a href="/Courses" class="btn btn-primary">Back</a>
+
+}
+else
+{
+
+    <p>Data not found</p>
+}

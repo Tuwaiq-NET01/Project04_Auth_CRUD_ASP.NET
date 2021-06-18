@@ -1,0 +1,51 @@
+﻿@{
+    ViewData["title"] = "Rooms";
+    List<Room> rooms = (List<Room>)ViewData["Rooms"];
+    bool added = (bool)ViewData["Added"];
+    bool deleted = (bool)ViewData["Deleted"];
+}
+
+<a href="/Rooms/Create" class="btn btn-success">Add New Room</a>
+<br />
+<br />
+@if (added == true)
+{
+
+    <div class="alert alert-success ">Room Added Successfully</div>
+}
+else if (deleted == true)
+{
+    <div class="alert alert-success ">Room Deleted Successfully</div>
+}
+
+@if (rooms.Count > 0)
+{
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Room Size</th>
+
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var room in rooms)
+            {
+                <tr>
+                    <th scope="row">@room.RoomId</th>
+                    <td>@room.RoomSize</td>
+                    <td>
+                        <a href="/Rooms/Details/@room.RoomId" class="btn btn-primary">View</a> |
+                        <a href="/Rooms/Edit/@room.RoomId" class="btn btn-warning">Edit</a> |
+                        <a href="/Rooms/Delete/@room.RoomId" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p> No rooms found</p>
+}

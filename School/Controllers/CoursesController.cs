@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 namespace School.Controllers
 {
     [Authorize]
-    public class TeachersController : Controller
+    public class CoursesController : Controller
     {
         private readonly ApplicationDbContext _db;
 
-        public TeachersController(ApplicationDbContext context)
+        public CoursesController(ApplicationDbContext context)
         {
             _db = context;
         }
@@ -23,23 +23,23 @@ namespace School.Controllers
         {
             ViewData["Added"] = added;
             ViewData["Deleted"] = deleted;
-            var Teachers = _db.Teachers.ToList();
-            ViewData["Teachers"] = Teachers;
+            var Courses = _db.Courses.ToList();
+            ViewData["Courses"] = Courses;
             return View();
         }
         public IActionResult Search(string txt)
         {
             ViewData["Added"] = false;
             ViewData["Deleted"] = false;
-            var Teachers = _db.Teachers.Where(t => t.FirstName.Contains(txt) || t.LastName.Contains(txt)).ToList();
-            ViewData["Teachers"] = Teachers;
+            var Courses = _db.Courses.Where(c => c.Title.Contains(txt)).ToList();
+            ViewData["Courses"] = Courses;
             return View("Index");
         }
 
         public IActionResult Details(int? id)
         {
-            var Teacher = _db.Teachers.FirstOrDefault(t => t.TeacherId == id);
-            ViewBag.Teacher = Teacher;
+            var Course = _db.Courses.FirstOrDefault(c => c.CourseId == id);
+            ViewBag.Course = Course;
             return View();
         }
 
@@ -49,16 +49,16 @@ namespace School.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create([Bind("FirstName", "LastName", "Email")] Teacher teacher)
+        public IActionResult Create([Bind("Title")] Course course)
         {
             if (ModelState.IsValid)
             {
-                _db.Teachers.Add(teacher);
+                _db.Courses.Add(course);
                 _db.SaveChanges();
                 return RedirectToAction("Index", new { added = true });
             }
 
-            return View(teacher);
+            return View(course);
         }
 
         public IActionResult Edit(int? id)
@@ -67,20 +67,20 @@ namespace School.Controllers
             {
                 return NotFound();
             }
-            var teacher = _db.Teachers.Find(id);
-            if (teacher == null)
+            var course = _db.Courses.Find(id);
+            if (course == null)
             {
                 return NotFound();
             }
-            ViewData["Teacher"] = teacher;
-            return View(teacher);
+            ViewData["Course"] = course;
+            return View(course);
         }
 
         [HttpPost]
-        public IActionResult Edit(int id, [Bind("FirstName", "LastName", "Email")] Teacher teacher)
+        public IActionResult Edit(int id, [Bind("Title")] Course course)
         {
-            teacher.TeacherId = id;
-            _db.Teachers.Update(teacher);
+            course.CourseId = id;
+            _db.Courses.Update(course);
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -92,22 +92,22 @@ namespace School.Controllers
                 return NotFound();
             }
 
-            var teacher = _db.Teachers.FirstOrDefault(t => t.TeacherId == id);
+            var course = _db.Courses.FirstOrDefault(c => c.CourseId == id);
 
-            if (teacher == null)
+            if (course == null)
             {
                 return NotFound();
             }
-            ViewBag.TeacherId = teacher.TeacherId;
+            ViewBag.CourseId = course.CourseId;
 
-            return View(teacher);
+            return View(course);
         }
 
         [HttpPost]
-        public IActionResult Delete(int id, [Bind("FirstName", "LastName", "Email")] Teacher teacher)
+        public IActionResult Delete(int id, [Bind("Title")] Course course)
         {
-            teacher.TeacherId = id;
-            _db.Teachers.Remove(teacher);
+            course.CourseId = id;
+            _db.Courses.Remove(course);
             _db.SaveChanges();
             return RedirectToAction("Index", new { deleted = true });
         }
