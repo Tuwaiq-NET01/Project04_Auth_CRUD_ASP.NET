@@ -25,7 +25,6 @@ namespace MVC_Final.Controllers
 
         public IActionResult Book()
         {
-
             var books = _db.Books.ToList();
             var authors = new List<Author>();
             var publishers = new List<Publisher>();
@@ -41,6 +40,12 @@ namespace MVC_Final.Controllers
             return View();
         }
 
+        public List<Book> getAllBooks()
+        {
+            List<Book> book = _db.Books.ToList();
+            return book;
+        }
+
         public IActionResult Details(int id)
         {
             var book = _db.Books.ToList().Find(B => B.Id == id);
@@ -52,8 +57,6 @@ namespace MVC_Final.Controllers
             {
                 return Content("ii");
             }
-
-
             ViewData["publisher"] = publisher;
             ViewData["author"] = author;
             ViewData["books"] = book;
@@ -68,15 +71,22 @@ namespace MVC_Final.Controllers
             return View();
         }
 
+        public void createBook( Book book)
+        {
+            if (ModelState.IsValid)// check the state of the model
+            {
+                _db.Books.Add(book);
+                _db.SaveChanges();
+            } 
+        }
+
         //Post - path: Book/Create
         [HttpPost]
         public IActionResult Create([Bind("Title", "Availabe", "Price", "AuthorId", "PublisherId")] Book bookItem) // Bind with product model
         {
-
-            if (ModelState.IsValid)// check the state of the model
+            if (ModelState.IsValid) // check the state of the model
             {
-                _db.Books.Add(bookItem);
-                _db.SaveChanges();
+                createBook(bookItem);
                 return RedirectToAction("Book");
             }
             return View(bookItem);

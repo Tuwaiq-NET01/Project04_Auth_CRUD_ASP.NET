@@ -15,10 +15,9 @@ namespace MVC_Final.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly LibraryContext _dbModel;
 
-        public HomeController(ILogger<HomeController> logger, LibraryContext context)
+        public HomeController()
         {
-            _logger = logger;
-            _dbModel = context;
+
         }
 
         public IActionResult Index()
@@ -28,28 +27,8 @@ namespace MVC_Final.Controllers
 
         public IActionResult Privacy()
         {
-            return View();
+            return View("Privacy");
         }
-
-        //User login 
-        //[HttpPost]
-/*        public IActionResult Login(User user)
-        {
-            using (_dbModel)
-            {
-                var userDetails = _dbModel.Users.Where(info => info.UserName == user.UserName && info.Password == user.Password ).FirstOrDefault();
-                if (userDetails == null)
-                {
-
-                    return View("Login", user);
-                }
-                else
-                {
-                    ViewData["userDetails"] = userDetails;
-                    return View("Index");
-                }
-            }
-        }*/
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

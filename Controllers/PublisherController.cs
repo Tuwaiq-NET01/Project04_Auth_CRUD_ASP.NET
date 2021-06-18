@@ -29,6 +29,12 @@ namespace MVC_Final.Controllers
             return View();
         }
 
+        public List<Publisher> getAllPublisher()
+        {
+            List<Publisher> publisher = _db.Publishers.ToList();
+            return publisher;
+        }
+
         public IActionResult Details(int id)
         {
             var publisher = _db.Publishers.ToList().Find(P => P.Id == id);
@@ -53,15 +59,23 @@ namespace MVC_Final.Controllers
             return View();
         }
 
+        public void createPublisher(Publisher publisher)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Publishers.Add(publisher);
+                _db.SaveChanges();
+            }
+        }
+
         //Post - path: Publisher/Create
         [HttpPost]
         public IActionResult Create([Bind("Name", "Address")] Publisher publisher) // Bind with Publisher model
         {
-            if (ModelState.IsValid)// check the state of the model
+            if (ModelState.IsValid) // check the state of the model
             {
-                _db.Publishers.Add(publisher);
-                _db.SaveChanges();
-                return RedirectToAction("publisher");
+                createPublisher(publisher);
+                return RedirectToAction("Publisher");
             }
             return View(publisher);
         }

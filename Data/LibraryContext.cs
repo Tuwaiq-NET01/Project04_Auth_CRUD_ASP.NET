@@ -6,6 +6,8 @@ using MVC_Final.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Configuration;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
+using System.Security.Claims;
 
 namespace MVC_Final.Data
 {
@@ -13,7 +15,7 @@ namespace MVC_Final.Data
     {
         public LibraryContext(DbContextOptions<LibraryContext> options) : base(options)
         {
-
+           
         }
 
         public DbSet<Book> Books { get; set; }

@@ -32,6 +32,12 @@ namespace MVC_Final.Controllers
             return View();
         }
 
+        public List<Author> getAllAuthor()
+        {
+            List<Author> author = _db.Authors.ToList();
+            return author;
+        }
+
         public IActionResult Details(int id)
         {
             var author = _db.Authors.ToList().Find(a => a.Id == id);
@@ -51,15 +57,23 @@ namespace MVC_Final.Controllers
             return View();
         }
 
+        public void createAuthor(Author author)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Authors.Add(author);
+                _db.SaveChanges();
+            }
+        }
+
         //Post - path: Book/Create
         [HttpPost]
         public IActionResult Create([Bind("Name")] Author authorI) // Bind with product model
         {
-            if (ModelState.IsValid)// check the state of the model
+            if (ModelState.IsValid) // check the state of the model
             {
-                _db.Authors.Add(authorI);
-                _db.SaveChanges();
-                return RedirectToAction("author");
+                createAuthor(authorI);
+                return RedirectToAction("Author");
             }
             return View(authorI);
         }
