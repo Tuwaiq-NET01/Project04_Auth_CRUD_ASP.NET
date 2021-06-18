@@ -838,7 +838,6 @@ C:\Users\Samirah Alhusayni\Documents\Project04_Auth_CRUD_ASP.NET\HealthChoice_Pr
 C:\Users\Samirah Alhusayni\Documents\Project04_Auth_CRUD_ASP.NET\HealthChoice_Proj4\HealthChoice_Proj4\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Samirah Alhusayni\Documents\Project04_Auth_CRUD_ASP.NET\HealthChoice_Proj4\HealthChoice_Proj4\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Samirah Alhusayni\Documents\Project04_Auth_CRUD_ASP.NET\HealthChoice_Proj4\HealthChoice_Proj4\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\Samirah Alhusayni\Documents\Project04_Auth_CRUD_ASP.NET\HealthChoice_Proj4\HealthChoice_Proj4\obj\Debug\netcoreapp3.1\HealthChoice_Proj4.csproj.AssemblyReference.cache
 C:\Users\Samirah Alhusayni\Documents\Project04_Auth_CRUD_ASP.NET\HealthChoice_Proj4\HealthChoice_Proj4\obj\Debug\netcoreapp3.1\HealthChoice_Proj4.AssemblyInfoInputs.cache
 C:\Users\Samirah Alhusayni\Documents\Project04_Auth_CRUD_ASP.NET\HealthChoice_Proj4\HealthChoice_Proj4\obj\Debug\netcoreapp3.1\HealthChoice_Proj4.AssemblyInfo.cs
 C:\Users\Samirah Alhusayni\Documents\Project04_Auth_CRUD_ASP.NET\HealthChoice_Proj4\HealthChoice_Proj4\obj\Debug\netcoreapp3.1\HealthChoice_Proj4.csproj.CoreCompileInputs.cache
@@ -918,3 +917,4 @@ C:\Users\Samirah Alhusayni\Documents\Project04_Auth_CRUD_ASP.NET\HealthChoice_Pr
 C:\Users\Samirah Alhusayni\Documents\Project04_Auth_CRUD_ASP.NET\HealthChoice_Proj4\HealthChoice_Proj4\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\Samirah Alhusayni\Documents\Project04_Auth_CRUD_ASP.NET\HealthChoice_Proj4\HealthChoice_Proj4\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
 C:\Users\Samirah Alhusayni\Documents\Project04_Auth_CRUD_ASP.NET\HealthChoice_Proj4\HealthChoice_Proj4\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\Users\Samirah Alhusayni\Documents\Project04_Auth_CRUD_ASP.NET\HealthChoice_Proj4\HealthChoice_Proj4\obj\Debug\netcoreapp3.1\HealthChoice_Proj4.csproj.AssemblyReference.cache

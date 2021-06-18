@@ -495,3 +495,4 @@ C:\Users\Samirah Alhusayni\Documents\Project04_Auth_CRUD_ASP.NET\HealthChoice_Pr
 C:\Users\Samirah Alhusayni\Documents\Project04_Auth_CRUD_ASP.NET\HealthChoice_Proj4\HealthChoice_Proj4Test\obj\Debug\netcoreapp3.1\HealthChoice_Proj4Test.dll
 C:\Users\Samirah Alhusayni\Documents\Project04_Auth_CRUD_ASP.NET\HealthChoice_Proj4\HealthChoice_Proj4Test\obj\Debug\netcoreapp3.1\HealthChoice_Proj4Test.pdb
 C:\Users\Samirah Alhusayni\Documents\Project04_Auth_CRUD_ASP.NET\HealthChoice_Proj4\HealthChoice_Proj4Test\obj\Debug\netcoreapp3.1\HealthChoice_Proj4Test.genruntimeconfig.cache
+C:\Users\Samirah Alhusayni\Documents\Project04_Auth_CRUD_ASP.NET\HealthChoice_Proj4\HealthChoice_Proj4Test\bin\Debug\netcoreapp3.1\HealthChoice_Proj4.StaticWebAssets.xml
