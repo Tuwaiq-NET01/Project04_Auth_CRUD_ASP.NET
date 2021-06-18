@@ -175,3 +175,4 @@ C:\Users\SAFCSP\Desktop\hanan\projects\Project04_Auth_CRUD_ASP.NET\circus\circus
 C:\Users\SAFCSP\Desktop\hanan\projects\Project04_Auth_CRUD_ASP.NET\circus\circus\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\ConfirmEmail.cshtml.g.cs
 C:\Users\SAFCSP\Desktop\hanan\projects\Project04_Auth_CRUD_ASP.NET\circus\circus\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\RegisterConfirmation.cshtml.g.cs
 C:\Users\SAFCSP\Desktop\hanan\projects\Project04_Auth_CRUD_ASP.NET\circus\circus\obj\Debug\net5.0\Razor\Views\Shared\_FerryWheelPartial.cshtml.g.cs
+C:\Users\SAFCSP\Desktop\hanan\projects\Project04_Auth_CRUD_ASP.NET\circus\circus\obj\Debug\net5.0\Razor\Views\Shared\_TentPartial.cshtml.g.cs

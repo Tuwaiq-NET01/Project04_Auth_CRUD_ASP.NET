@@ -1,6 +1,4 @@
-﻿using circus.Controllers;
-using circus.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -11,13 +9,14 @@ using System.Threading.Tasks;
 namespace circus.test.Controllers
 {
     [TestFixture]
-    class GalleryControllerTest
+    class ShowsControllerTest
     {
         [Test]
         public void indexTest_NullPageView()
         {
-            GalleryController gallery = new GalleryController(null);
-            ViewResult result = gallery.Index() as ViewResult;
+            circus.Controllers.ShowsController shows = new(null);
+            ViewResult result = shows.Index() as ViewResult;
+
             Assert.IsNull(result.ViewName);
         }
     }
