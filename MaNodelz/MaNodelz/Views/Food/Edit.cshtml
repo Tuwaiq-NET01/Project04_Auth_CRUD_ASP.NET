@@ -1,0 +1,51 @@
+﻿
+@model FoodModel
+@{
+    var food = (FoodModel)ViewData["Edit"];
+}
+
+
+
+
+
+<h1>Edit @food.FoodName</h1>
+
+<form asp-action="Edit" method="post" asp-route-id="@food.Id" class="form-horizantal">
+
+
+
+    <div class="form-group">
+        <label asp-for="FoodName">Name</label>
+        <div>
+            <input asp-for="FoodName" value="@food.FoodName" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="FoodDescription">Description</label>
+        <div>
+            <input asp-for="FoodDescription" value="@food.FoodDescription" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="FoodImage">Image</label>
+        <div>
+            <input asp-for="FoodImage" value="@food.FoodImage" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="FoodTobePrepared">TimeTobeReady</label>
+        <div>
+            <input asp-for="FoodTobePrepared" value="@food.FoodTobePrepared" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="FoodType">TimeTobeReady</label>
+        <div>
+            <input asp-for="FoodType" value="@food.FoodType" />
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn-btn-primary" value="Edit" />
+    </div>
+</form>

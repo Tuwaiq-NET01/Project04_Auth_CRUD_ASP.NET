@@ -1,0 +1,50 @@
+﻿
+@model FoodModel
+
+
+<h1>Add new dish</h1>
+
+<form asp-action="Create" method="post" class="form-horizantal">
+
+
+    <div class="form-group">
+        <label asp-for="FoodName">Name</label>
+        <div>
+            <input asp-for="FoodName" />
+            <span asp-validation-for="FoodName" class="alert-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="FoodDescription">Description</label>
+        <div>
+            <input asp-for="FoodDescription" />
+            <span asp-validation-for="FoodDescription" class="alert-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="FoodImage">An Image for the Food</label>
+        <div>
+            <input asp-for="FoodImage" />
+            <span asp-validation-for="FoodImage" class="alert-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="FoodTobePrepared">Time it take to be prepared</label>
+        <div>
+            <input asp-for="FoodTobePrepared" />
+            <span asp-validation-for="FoodTobePrepared" class="alert-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="FoodType">Type of the Food</label>
+        <div>
+            <input asp-for="FoodType" />
+            <span asp-validation-for="FoodType" class="alert-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn-btn-primary" value="Submit" />
+        
+    </div>
+</form>

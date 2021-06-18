@@ -1,0 +1,39 @@
+﻿   @{ List<FoodModel> food = (List<FoodModel>)ViewData["Food"]; }
+
+<h2>Behold the Yummy dishes</h2>
+
+
+
+<br />
+<br />
+<a class=" btn btn-dark" asp-controller="Food" asp-action="Create" asp-route-id="">Add</a>
+<table style="width:100%; align-content:center" class="table table table-striped ">
+    <thead class="thead-dark " style=" align-content:center">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>The Dish</th>
+            <th>Food Type</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    @foreach (FoodModel prd in food)
+    {
+        <tr>
+            <th scope="row">@prd.Id</th>
+            <td>@prd.FoodName</td>
+            <td><a asp-controller="Food" asp-action="Details" asp-route-id="@prd.Id"><img src="@prd.FoodImage" /> </a></td>
+            <td><a asp-controller="Food" asp-action="Type" asp-route-type="@prd.FoodType">@prd.FoodType</a></td>
+
+            <td><a class="btn btn-dark" asp-controller="Food" asp-action="Edit" asp-route-id="@prd.Id">Edit</a></td>
+            <td>
+                <form method="post" asp-controller="Food" asp-action="Delete" asp-route-id="@prd.Id">
+                    <input type="submit" value="Delete" class="btn btn-outline-warning" />
+                </form>
+            </td>
+        </tr>
+
+    }
+</table>
+

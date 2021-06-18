@@ -1,0 +1,27 @@
+﻿@model FoodModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>@Model.FoodType</h1>
+
+<div>
+    <h4>Merchent</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FoodName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FoodImage)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FoodTobePrepared)
+        </dt>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
