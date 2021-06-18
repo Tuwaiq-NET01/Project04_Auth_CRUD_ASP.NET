@@ -11,7 +11,9 @@
 ### Deployment
   [Live link](https://circus.azurewebsites.net/).
 ### Wireframe  
- [wireframes](https://www.figma.com/file/IdZFaHIeGsZfYSpYm65PcT/circus-wireframe).   
+ [wireframes](https://www.figma.com/file/IdZFaHIeGsZfYSpYm65PcT/circus-wireframe).  
+ ### ERD
+ ![erd](https://github.com/hanan-tuwaiq/Project04_Auth_CRUD_ASP.NET/blob/main/ERD.png) 
 ### Set up  
 ### Prerequisites
 - NET 5 
