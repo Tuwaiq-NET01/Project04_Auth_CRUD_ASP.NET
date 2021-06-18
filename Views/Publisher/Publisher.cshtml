@@ -6,7 +6,7 @@
 
 
 <h1 class="text-center">Publisher List</h1>
-<table class="table text-white">
+<table class="table text-black">
     <thead>
         <tr>
             <th scope="col">Publisher Id</th>
@@ -42,9 +42,9 @@
                     </ul>
                 </td>
 
-                <td> <a asp-controller="Publisher" asp-action="Details" asp-route-id="@publisher.Id" class="btn btn-primary">Show</a></td>
+                <td> <a asp-controller="Publisher" asp-action="Details" asp-route-id="@publisher.Id" class="btn btn-secondary">Show</a></td>
 
-                <td> <a asp-controller="Publisher" asp-action="Edit" asp-route-id="@publisher.Id" class="btn btn-danger">Edit</a></td>
+                <td> <a asp-controller="Publisher" asp-action="Edit" asp-route-id="@publisher.Id" class="btn btn-warning">Edit</a></td>
 
                 <td>
                     <form asp-controller="Publisher" asp-route-id="@publisher.Id" asp-action="Delete">
@@ -57,5 +57,5 @@
 
     </tbody>
 </table>
-<a asp-controller="Publisher" asp-action="Create" class="btn btn-success">Add Publisher</a>
+<a asp-controller="Publisher" asp-action="Create" class="btn btn-info">Add Publisher</a>
 

@@ -30,10 +30,6 @@ namespace MVC_Final.Areas.Identity.Pages.Account
             _logger = logger;
         }
 
-        public LoginModel()
-        {
-        }
-
         [BindProperty]
         public InputModel Input { get; set; }
 

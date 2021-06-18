@@ -8,7 +8,7 @@
 
 
 <h1 class="text-center">Books List</h1>
-<table class="table text-white">
+<table class="table text-black">
     <thead>
         <tr>
             <th scope="col">Book Id</th>
@@ -35,14 +35,14 @@
             <td> @book.Price</td>
 
             <td> @book.Availabe</td>     
-@*            <td>@author[index++].Name</td>
+            <td>@author[index++].Name</td>
 
-            <td>@publisher[indexP++].Name</td>*@
+            <td>@publisher[indexP++].Name</td>
             <td></td>
 
-            <td> <a asp-controller="Book" asp-action="Details" asp-route-id="@book.Id" class="btn btn-primary">Show</a></td>
+            <td> <a asp-controller="Book" asp-action="Details" asp-route-id="@book.Id" class="btn btn-secondary">Show</a></td>
 
-            <td> <a asp-controller="Book" asp-action="Edit" asp-route-id="@book.Id" class="btn btn-danger">Edit</a></td>
+            <td> <a asp-controller="Book" asp-action="Edit" asp-route-id="@book.Id" class="btn btn-warning">Edit</a></td>
 
             <td>
                 <form asp-controller="Book" asp-route-id="@book.Id" asp-action="Delete">
@@ -56,5 +56,5 @@
     </tbody>
 </table>
 
-<a asp-controller="Book" asp-action="Create" class="btn btn-success">Add Book</a>
+<a asp-controller="Book" asp-action="Create" class="btn btn-info">Add Book</a>
 

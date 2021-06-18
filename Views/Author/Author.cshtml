@@ -6,7 +6,7 @@
 
 
 <h1 class="text-center">Authors List</h1>
-<table class="table text-white">
+<table class="table text-black">
     <thead>
         <tr>
             <th scope="col">Author Id</th>
@@ -39,9 +39,9 @@
                     </ul>
                 </td>
 
-                <td> <a asp-controller="Author" asp-action="Details" asp-route-id="@auth.Id" class="btn btn-primary">Show</a></td>
+                <td> <a asp-controller="Author" asp-action="Details" asp-route-id="@auth.Id" class="btn btn-secondary">Show</a></td>
 
-                <td> <a asp-controller="Author" asp-action="Edit" asp-route-id="@auth.Id" class="btn btn-danger">Edit</a></td>
+                <td> <a asp-controller="Author" asp-action="Edit" asp-route-id="@auth.Id" class="btn btn-warning">Edit</a></td>
 
                 <td>
                     <form asp-controller="Author" asp-route-id="@auth.Id" asp-action="Delete">
@@ -55,5 +55,5 @@
     </tbody>
 </table>
 
-<a asp-controller="Author" asp-action="Create" class="btn btn-success">Add Author</a>
+<a asp-controller="Author" asp-action="Create" class="btn btn-info">Add Author</a>
 

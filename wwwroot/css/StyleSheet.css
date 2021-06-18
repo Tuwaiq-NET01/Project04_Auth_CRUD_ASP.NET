@@ -9,6 +9,7 @@ body {
 .homeHeader {
     font-family: 'Libre Barcode 128 Text', cursive;
 }
+
 :focus {
     outline: none;
 }
@@ -16,6 +17,7 @@ body {
 label {
     color: black;
 }
+
 .input-container {
     float: left;
     width: 28%;
@@ -24,7 +26,7 @@ label {
 }
 
 input[type="text"] {
-    font: 15px/24px ;
+    font: 15px/24px;
     color: #1d9af2;
     width: 80%;
     box-sizing: border-box;
@@ -52,4 +54,6 @@ input[type="text"] {
 /******/
 
 
-
+.btn-pink{
+    background-color: deeppink;
+}

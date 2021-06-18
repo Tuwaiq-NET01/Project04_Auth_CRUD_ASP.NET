@@ -36,10 +36,6 @@ namespace MVC_Final.Areas.Identity.Pages.Account
             _emailSender = emailSender;
         }
 
-        public RegisterModel()
-        {
-        }
-
         [BindProperty]
         public InputModel Input { get; set; }
 
