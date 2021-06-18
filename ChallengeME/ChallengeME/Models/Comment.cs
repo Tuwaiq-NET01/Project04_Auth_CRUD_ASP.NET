@@ -12,7 +12,7 @@ namespace ChallengeME.Models
 
         [Key]
         public int Id { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Please type your comment!")]
         public string Title { get; set; }
         public string Body { get; set; }
 

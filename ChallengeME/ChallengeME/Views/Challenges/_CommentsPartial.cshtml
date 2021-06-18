@@ -33,9 +33,9 @@
         <div class="form-floating mb-3">
             <form id="commentForm" asp-controller="comments" asp-action="create" asp-route-id="@challenge.Id" method="post" class="form-horizontal" autocomplete="off">
                 <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" asp-for="Title"></textarea>
+                <span asp-validation-for="Title" class="text-danger"></span>
                 <div class="form-floating mt-1">
                     <textarea class="form-control" placeholder="Leave your submission here" id="floatingTextarea" asp-for="Body"></textarea>
-                    <label for="floatingTextarea">Comments</label>
                 </div>
 
                 <input id="commentSubmit" class="btn btn-outline-secondary mt-2 d-flex justify-content-end" type="submit" value="Submit!" />

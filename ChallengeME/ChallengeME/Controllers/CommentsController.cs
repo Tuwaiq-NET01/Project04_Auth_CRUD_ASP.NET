@@ -33,6 +33,7 @@ namespace ChallengeME.Controllers
             return View("Index");
         }
 
+
         [HttpPost]
         [Authorize]
         public IActionResult Create(int id, [Bind("Title", "Body")] Comment comment)
@@ -52,10 +53,9 @@ namespace ChallengeME.Controllers
             {
                 _context.Comments.Add(comment);
                 _context.SaveChanges();
-                return RedirectToAction("details", "challenges", new { id = id });
             }
+                return RedirectToAction("details", "challenges", new { id = id });
 
-            return View();
         }
 
         [Authorize]
