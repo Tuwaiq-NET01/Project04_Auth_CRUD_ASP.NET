@@ -1,9 +1,9 @@
 <h1 align="center">
   <br>
-<img src="https://raw.githubusercontent.com/YounesAlturkey/bitchunk/main/frontend/public/logo.png" alt="Tuwaiq Logo" width="80"/>
+<a href="https://bitchunk.co/" target="_blank"><img src="https://raw.githubusercontent.com/YounesAlturkey/bitchunk/main/frontend/public/logo.png" alt="Tuwaiq Logo" width="80"/></a>
   <br>
 
-<a style="color: #ff5722;" href="https://bitchunk.co/" target="_blank">Bitchunk™: <span style="color: black;">Secure File Sharing and Storage</span></a>
+<a href="https://bitchunk.co/" target="_blank">Bitchunk™: Secure File Sharing and Storage</a>
 
 </h1>
 <h4 align="center">Accurate data sharding, random distribution, and encryption service.</h4>
@@ -11,6 +11,7 @@
 <p align="center">
   <a href="#key-features">Key Features</a> •
   <a href="#how-to-use">How To Use</a> •
+  <a href="#tech-stack">Tech Stack</a> •
   <a href="#license">License</a>
 </p>
 
@@ -19,6 +20,8 @@
 </p>
 
 <br/>
+
+<div id="key-features">
 
 ## Key Features - المزايا
 
@@ -30,7 +33,10 @@
 - Shard somewhere, **assemble anywhere**
 - AES-256 Encryption
 
+</div>
 <br/>
+
+<div id="how-to-use">
 
 ## How To Use - طريقة الإستخدام
 
@@ -50,7 +56,11 @@ $ yarn start || npm start
 
 Note: the service is in its first version, so expect some bugs.
 
+</div>
+
 <br/>
+
+<div id="tech-stack">
 
 ## Tech Stack - التكنولوجيا المستخدمة
 
@@ -69,6 +79,8 @@ Note: the service is in its first version, so expect some bugs.
 - Database hosted at Azure SQL Database
 - Fronted hosted at Netlify free service
 
+</div>
+
 <br/>
 
 ## Wireframes - التصاميم
@@ -82,14 +94,18 @@ Note: the service is in its first version, so expect some bugs.
 ## Unit Tests - الإختبارات
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/YounesAlturkey/bitchunk/main/backend-tests/tests-results.png" alt="demo"/>
+  <a href="https://bitchunk.co/" target="_blank"><img src="https://raw.githubusercontent.com/YounesAlturkey/bitchunk/main/backend-tests/tests-results.png" alt="demo"/></a>
 </p>
+
+<div id="license">
 
 <br/>
 
 ## License - الرخصة
 
 [Open Source License ➝ MIT](https://github.com/YounesAlturkey/bitchunk/blob/main/LICENSE.MD)
+
+</div>
 
 <br/>
 
