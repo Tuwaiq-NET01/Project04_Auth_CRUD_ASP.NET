@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hiro1\\Desktop\\TechME_Dashboard\\TechME_Dashboard.csproj": {}
+    "C:\\Users\\hiro1\\Desktop\\Project04_Auth_CRUD_ASP.NET\\TechME_Dashboard\\TechME_Dashboard.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hiro1\\Desktop\\TechME_Dashboard\\TechME_Dashboard.csproj": {
+    "C:\\Users\\hiro1\\Desktop\\Project04_Auth_CRUD_ASP.NET\\TechME_Dashboard\\TechME_Dashboard.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hiro1\\Desktop\\TechME_Dashboard\\TechME_Dashboard.csproj",
+        "projectUniqueName": "C:\\Users\\hiro1\\Desktop\\Project04_Auth_CRUD_ASP.NET\\TechME_Dashboard\\TechME_Dashboard.csproj",
         "projectName": "TechME_Dashboard",
-        "projectPath": "C:\\Users\\hiro1\\Desktop\\TechME_Dashboard\\TechME_Dashboard.csproj",
+        "projectPath": "C:\\Users\\hiro1\\Desktop\\Project04_Auth_CRUD_ASP.NET\\TechME_Dashboard\\TechME_Dashboard.csproj",
         "packagesPath": "C:\\Users\\hiro1\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hiro1\\Desktop\\TechME_Dashboard\\obj\\",
+        "outputPath": "C:\\Users\\hiro1\\Desktop\\Project04_Auth_CRUD_ASP.NET\\TechME_Dashboard\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\hiro1\\AppData\\Roaming\\NuGet\\NuGet.Config",

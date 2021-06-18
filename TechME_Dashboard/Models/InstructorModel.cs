@@ -11,10 +11,10 @@ namespace TechME_Dashboard.Models
         [Key]
         public int Instructor_ID { get; set; }
         [Required(ErrorMessage = "Please Enter Instructor's Name")]
-        [StringLength(20, MinimumLength = 5)]
+        [StringLength(20, MinimumLength = 2)]
         public string Instructor_Name { get; set; }
         [Required(ErrorMessage = "Please Enter Instructor's BIO")]
-        [StringLength(20, MinimumLength = 5)]
+        [StringLength(20, MinimumLength = 2)]
         public string Instructor_BIO { get; set; }
 
         public string Instructor_Image { get; set; }

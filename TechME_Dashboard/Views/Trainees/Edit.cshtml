@@ -1,0 +1,35 @@
+﻿@model TraineeModel
+@{
+    var Trainee = (TraineeModel)ViewData["Trainee"];
+}
+<form asp-action="Edit" method="post" class="form-horizontal" role="form">
+    <div class="form-group">
+        <div>
+            <input type="hidden" asp-for="Trainee_ID"  value="@Trainee.Trainee_ID"/>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Trainee_Name">Trainee's Name</label>
+        <div>
+            <input asp-for=" Trainee_Name" value="@Trainee.Trainee_Name" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Trainee_BIO">  Trainee's BIO</label>
+        <div>
+            <input asp-for="Trainee_BIO" value="@Trainee.Trainee_BIO" />
+        </div>
+    </div>
+     <div class="form-group">
+         <label asp-for="Trainee_Image"> Trainee's Image</label>
+        <div>
+            <input asp-for="Trainee_Image" value="@Trainee.Trainee_Image" />
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="Update" />
+    </div>
+</form>
+<a asp-controller="Trainees" asp-action="Index"> Back to Trainee </a>

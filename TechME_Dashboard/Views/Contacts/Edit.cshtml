@@ -1,0 +1,42 @@
+﻿@model ContactModel
+@{
+    var Contact = (ContactModel)ViewData["Contact"];
+}
+<form asp-action="Edit" method="post" class="form-horizontal" role="form">
+    <div class="form-group">
+        <div>
+            <input type="hidden" asp-for="Contact_ID"  value="@Contact.Contact_ID"/>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Sender_Name">Sender's Name</label>
+        <div>
+            <input asp-for=" Sender_Name" value="@Contact.Sender_Name" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Sender_Email">  Sender's Email </label>
+        <div>
+            <input asp-for="Sender_Email" value="@Contact.Sender_Email" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Masssege_Subject"> Massege's Subject </label>
+        <div>
+            <input asp-for="Masssege_Subject" value="@Contact.Masssege_Subject" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Sender_Massege"> The Masseg</label>
+        <div>
+            <input asp-for="Sender_Massege" value="@Contact.Sender_Massege" />
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="Update" />
+    </div>
+</form>
+<a asp-controller="Contacts" asp-action="Index"> Back to Contact Us </a>

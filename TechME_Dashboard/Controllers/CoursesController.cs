@@ -89,10 +89,6 @@ namespace TechME_Dashboard.Controllers
         public IActionResult Delete(int ID)
         {
             var Course = _db.Course.ToList().FirstOrDefault(C => C.Course_ID == ID);
-            /*if (ID == null || Course == null)
-            {
-                return View("_NotFound");
-            }*/
             _db.Course.Remove(Course);
             _db.SaveChanges();
             return RedirectToAction("Index");

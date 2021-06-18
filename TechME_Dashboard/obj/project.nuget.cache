@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zTAvCsq/SbBIH/RBD7wtzBwZbxx0vL5KiQl0mKF23J1heb9TiwUeF3rCm1dULji5M/ffKqvNdzNMR+15aqAfgg==",
+  "dgSpecHash": "W7M1rFNj4P0YTRBAmKnbaTEdUw4pHSav1m6m8hqF1owe0v1e2kceUF9l38szH4Af9+gYxhr1A5TH9vYFCLH+ng==",
   "success": true,
-  "projectFilePath": "C:\\Users\\hiro1\\Desktop\\TechME_Dashboard\\TechME_Dashboard.csproj",
+  "projectFilePath": "C:\\Users\\hiro1\\Desktop\\Project04_Auth_CRUD_ASP.NET\\TechME_Dashboard\\TechME_Dashboard.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hiro1\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\hiro1\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.6\\microsoft.aspnetcore.cryptography.internal.5.0.6.nupkg.sha512",

@@ -1,48 +1,48 @@
 ﻿@model ContactModel
 
-@{
-    var Contact = (ContactModel)ViewData["Contact"];
-}
 
 <form asp-action="Create" method="post" class="form-horizontal">
+    @*    <div class="form-group">
+            <label asp-for="Course_ID">Course's ID </label>
+            <div>
+                <input asp-for="Course_ID" />
+            </div>
+        </div>*@
+
     <div class="form-group">
+        <label asp-for="Sender_Name"> Sender's Name</label>
         <div>
-            <input type="hidden" asp-for="Contact_ID" />
+            <input asp-for="Sender_Name" />
         </div>
     </div>
 
     <div class="form-group">
-        <label asp-for="Sender_Name">Enter Your Name :</label>
-        <div>
-            <input asp-for=" Sender_Name" />
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="Sender_Email"> Enter Your Email: </label>
+        <label asp-for="Sender_Email"> Sender's Email</label>
         <div>
             <input asp-for="Sender_Email" />
+            <span asp-validation-for="Sender_Email" class="text-danger"></span>
         </div>
     </div>
 
     <div class="form-group">
-        <label asp-for="Masssege_Subject">  The Subject :</label>
+        <label asp-for="Masssege_Subject"> Message's Subject </label>
         <div>
             <input asp-for="Masssege_Subject" />
+            <span asp-validation-for="Masssege_Subject" class="text-danger"></span>
+
         </div>
     </div>
+
     <div class="form-group">
-        <label asp-for="Sender_Massege">   The Massegr :</label>
+        <label asp-for="Sender_Massege">THe Maessage : </label>
         <div>
             <input asp-for="Sender_Massege" />
+            <span asp-validation-for="Sender_Massege" class="text-danger"></span>
         </div>
     </div>
     <div class="form-group">
-        <input type="submit" class="btn btn-primary" />
+        <input type="submit" class="btn btn-primary" value="Submit" />
     </div>
-
 </form>
-<form>
 
-    <a asp-controller="Home" asp-action="Create"> Back to Home</a>
-</form>
+<a asp-controller="Contacts" asp-action="Index"> Back to Contact Us</a>

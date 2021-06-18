@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31313.79
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechME_Dashboard", "TechME_Dashboard.csproj", "{3C99848D-FD50-47C1-8CAA-E1D7E145748D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechME_Dashboard", "TechME_Dashboard.csproj", "{3C99848D-FD50-47C1-8CAA-E1D7E145748D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechME_Dashbord.Test", "..\TechME_Dashbord.Test\TechME_Dashbord.Test.csproj", "{5753BCA7-DE87-4505-BC2B-9B37B08F29AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{3C99848D-FD50-47C1-8CAA-E1D7E145748D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C99848D-FD50-47C1-8CAA-E1D7E145748D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C99848D-FD50-47C1-8CAA-E1D7E145748D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5753BCA7-DE87-4505-BC2B-9B37B08F29AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5753BCA7-DE87-4505-BC2B-9B37B08F29AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5753BCA7-DE87-4505-BC2B-9B37B08F29AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5753BCA7-DE87-4505-BC2B-9B37B08F29AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,18 @@
+﻿@{
+    var Trainee = (TraineeModel)ViewData["Trainee"];
+}
+
+
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title"> Trainee's Name: @Trainee.Trainee_Name</h5>
+        <p class="card-text"> Trainee's Description: @Trainee.Trainee_BIO </p>
+
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Trainee's ID: @Trainee.Trainee_ID</li>
+        <li class="list-group-item"> Trainee's Image : @Trainee.Trainee_Image</li>
+    </ul>
+</div>
+
+<a asp-controller="Trainees" asp-action="Index"> Back to Trainee</a>

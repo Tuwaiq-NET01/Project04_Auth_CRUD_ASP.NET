@@ -1,0 +1,49 @@
+﻿
+@{
+    var Trainees = (List<TraineeModel>)ViewData["Trainee"];
+@*    var ID = (int)ViewData["ID"];*@
+
+    Layout = "_Layout";
+}
+
+
+<table class="table" style="width:100%;text-align:center;">
+    <thead>
+        <tr>
+            <th scope="col">Trainee ID</th>
+            <th scope="col">Trainee Name</th>
+            <th scope="col">Detail   </th>
+            <th scope="col"> Edit    </th>
+            <th scope="col"> Delate   </th>
+
+
+        </tr>
+    </thead>
+     <tbody>
+       
+            @foreach (var Trainee in Trainees)
+            
+            {                
+          <tr>
+            <th scope="row">@Trainee.Trainee_ID</th>
+            <td>@Trainee.Trainee_Name</td>
+               <td><button type="button" class="btn btn-dark"><a style="color:white" href="/Trainees/Details/@Trainee.Trainee_ID"> SHOW </a></button></td>
+            <td><button type="button" class="btn btn-dark"><a style="color:white" href="/Trainees/Edit/@Trainee.Trainee_ID"> Edit </a></button></td>
+            <td>
+                 <form method="post" asp-action="Delete" asp-controller="Trainees" asp-route-id="@Trainee.Trainee_ID">
+                  <input type="submit" style="color:white" class="btn btn-dark" value="Delete" />
+                  </form>
+           </td>
+          </tr>
+          }
+   </tbody> 
+ 
+
+ </table>
+<button type="button"  class="btn btn-dark">
+    <a  style="color:white" method="Get" asp-controller="Trainees" asp-action="Create"> Add new Trainee </a>
+</button>
+
+
+
+
