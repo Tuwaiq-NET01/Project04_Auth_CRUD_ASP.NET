@@ -5,25 +5,36 @@
 }
 
 <div class="row">
-
-    @foreach (var game in games)
+    @if (games.Count > 0)
     {
 
-        <div class="col-md-3 mb-5">
+        @foreach (var game in games)
+        {
 
-            <a class="myImg" asp-action="details" asp-controller="games" asp-route-id="@game.Id">
+            <div class="col-md-3 mb-5">
 
-                <div class="card bg-dark text-white">
-                    <img src=@game.GameImage
-                         class="card-img-top"
-                         alt="game image"
-                         width="200px"
-                         height="250px" />
-                    <div class="card-img-overlay">
-                        <h5 class="card-title text-center">@game.GameName</h5>
+                <a class="myImg" asp-action="details" asp-controller="games" asp-route-id="@game.Id">
+
+                    <div class="card bg-dark text-white">
+                        <img src=@game.GameImage
+                             class="card-img-top"
+                             alt="game image"
+                             width="200px"
+                             height="250px" />
+                        <div class="card-img-overlay">
+                            <h5 class="card-title text-center">@game.GameName</h5>
+                        </div>
                     </div>
-                </div>
-            </a>
-        </div>
-    }
+                </a>
+            </div>
+        }
+
+
+
+            }
+            else
+            {
+                <h1 class="text-danger text-center" >Sorry, there are no games. :(</h1>
+            }
+
 </div>

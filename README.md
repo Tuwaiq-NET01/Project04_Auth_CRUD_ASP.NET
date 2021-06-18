@@ -11,9 +11,9 @@
 # ChallengeME
 
 ### المقدمــة | Introduction 
- ......
-
-
+This project is all about challenges, users can register and login, and can see the list of available games. You can use the search bar to search for the game you're interested in to see the list of challenges related to that game. You can then comment on that challenge to share your thoughts or even submit a Youtube Link video of you completing that challenge. There is also a wins count for each user to see how many challenges they've won so far.
+<br />
+يدور هذا المشروع حول التحديات، حيث يمكن للمستخدمين التسجيل او تسجيل الدخول، ويمكنهم رؤية قائمة الألعاب المتاحة. يمكنك استخدام شريط البحث للبحث عن اللعبة التي تهتم بها للاطلاع على قائمة التحديات المتعلقة بتلك اللعبة. يمكنك بعد ذلك التعليق على هذا التحدي لمشاركة أفكارك أو حتى إرسال مقطع فيديو على Youtube Link لك وانت تكمل هذا التحدي. هناك أيضًا عدد مرات الفوز لكل مستخدم لمعرفة عدد التحديات التي فازوا بها حتى الآن..
 
 
 
@@ -88,7 +88,7 @@
 ## Unit Testing:
 Unit testing has been done to this project using NUnit. Also using `inmemorydatabse` to generate a database so we can pass to controllers. the testing was done on 4 different controllers. Here are the results of the tests done:
 
-![unit test result](test.png)
+![unit test result](./images/test.png)
 
 
 
