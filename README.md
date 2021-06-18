@@ -67,6 +67,7 @@ Note: the service is in its first version, so expect some bugs.
 ### <a href="https://bitchunk.azurewebsites.net/swagger/index.html" target="_blank">Backend</a> - الخلفية
 
 - .NET Core 5 Web API with 5 Controllers
+- Entity Framework - Code First Approach
 - Microsoft SQL Database with 8 Tables
 
 ### <a href="https://bitchunk.co/" target="_blank">Frontend</a> - الواجهة
