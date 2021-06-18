@@ -2,6 +2,8 @@
 using Events_Hall.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,10 +15,16 @@ namespace Events_Hall.Controllers
     {
         private readonly ApplicationDbContext _db;
 
+        [ActivatorUtilitiesConstructor]
         public HallsController(ApplicationDbContext context)
         {
             _db = context;
         }
+
+        public HallsController()
+        {
+        }
+
         [Authorize]
         public IActionResult Index()
         {
@@ -24,6 +32,16 @@ namespace Events_Hall.Controllers
             ViewBag.Halls = DbHalls;
             return View();
         }
+
+        public IActionResult Index1()
+        {
+            var options = new DbContextOptionsBuilder<ApplicationDbContext>().UseInMemoryDatabase(databaseName: "TestDB").Options;
+            var db = new ApplicationDbContext(options);
+            var DbHalls = db.Halls.ToList();
+            ViewBag.Halls = DbHalls;
+            return View();
+        }
+
         [Authorize]
         public IActionResult Create()
         {

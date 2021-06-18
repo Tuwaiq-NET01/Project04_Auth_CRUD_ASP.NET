@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAvV5GcBAI60+3eKQ5ukhY5AAAAAACAAAAAAAQZgAAAAEAACAAAAAsGr7SMn+FBHU2i52kFZOVYfB8AU8PZPzFGrK6RxD+AgAAAAAOgAAAAAIAACAAAAAdlYU5QUdKnYzlC+fQ6vmg8wJq6afpU6FwgH8y8OeREoAAAAASA/lbk5p1ae5k0jxi3j3WcSQglx4Bx0sZLCXLo40n5ZoQdjBi6SR+4x65QB9w4ju4dGdOMcMLXZleia/AuQS2rB7k9Um5X3MSj4FmeD1vTsBvVGbSz+3wR2HDAzl1l+OX/tITOA9EzbjOnoIyuSiGzD6RfcK2rwMTk0NjQYvTkEAAAAB8HcFqr4esoiCko3LSGuxhryAiX27qHDfEpUVgRYBRCtLIm8HMpMfpLUJYch6bEKRqFLPb3oayP5XDHoxBAl6e</EncryptedPassword>
+    <History>False|2021-06-18T22:15:17.6953096Z;False|2021-06-19T01:11:31.3204503+03:00;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <EFMigrations Include="Events_Hall.Data.ApplicationDbContext">
+      <Value>Data Source=tcp:events-halldbserver.database.windows.net,1433%3bInitial Catalog=Events_Hall_db%3bUser Id=Reema_Alyousef%40events-halldbserver%3bPassword=Tea%401301</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

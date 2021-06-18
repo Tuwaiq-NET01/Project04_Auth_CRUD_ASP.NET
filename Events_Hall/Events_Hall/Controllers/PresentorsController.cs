@@ -2,6 +2,7 @@
 using Events_Hall.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,10 +14,16 @@ namespace Events_Hall.Controllers
     {
         private readonly ApplicationDbContext _db;
 
+        [ActivatorUtilitiesConstructor]
         public PresentorsController(ApplicationDbContext context)
         {
             _db = context;
         }
+
+        public PresentorsController()
+        {
+        }
+
         [Authorize]
         public IActionResult Index()
         {

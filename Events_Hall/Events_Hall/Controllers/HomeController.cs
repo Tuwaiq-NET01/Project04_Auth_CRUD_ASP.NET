@@ -1,5 +1,6 @@
 ﻿using Events_Hall.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -13,9 +14,14 @@ namespace Events_Hall.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
+        [ActivatorUtilitiesConstructor]
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
+        }
+
+        public HomeController()
+        {
         }
 
         public IActionResult Index()

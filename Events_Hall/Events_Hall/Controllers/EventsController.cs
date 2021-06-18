@@ -2,6 +2,8 @@
 using Events_Hall.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,10 +15,16 @@ namespace Events_Hall.Controllers
     {
         private readonly ApplicationDbContext _db;
 
+        [ActivatorUtilitiesConstructor]
         public EventsController(ApplicationDbContext context)
         {
             _db = context;
         }
+
+        public EventsController()
+        {
+        }
+
         public IActionResult Index()
         {
             var DbEvents = _db.Events.ToList();
@@ -26,6 +34,19 @@ namespace Events_Hall.Controllers
         public IActionResult Details(int? id)
         {
             var detail = _db.Events.ToList().Find(p => p.Id == id);
+            if (detail == null)
+            {
+                return View("_NotFound");
+            }
+            ViewData["detail"] = detail;
+            return View("Details");
+        }
+
+        public IActionResult Details1(int? id)
+        {
+            var options = new DbContextOptionsBuilder<ApplicationDbContext>().UseInMemoryDatabase(databaseName: "TestDB").Options;
+            var db = new ApplicationDbContext(options);
+            var detail = db.Events.ToList().Find(p => p.Id == id);
             if (detail == null)
             {
                 return View("_NotFound");
