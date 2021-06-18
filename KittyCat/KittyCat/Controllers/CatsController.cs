@@ -1,6 +1,7 @@
 ﻿using KittyCat.Data;
 using KittyCat.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,10 @@ namespace KittyCat.Controllers
         public CatsController(ApplicationDbContext context)
         {
             _db = context;
+        }
+
+        public CatsController()
+        {
         }
 
         int count = 0;
@@ -45,6 +50,14 @@ namespace KittyCat.Controllers
 
             return View();
         }
+        public IActionResult Index1()
+        {
+            var options = new DbContextOptionsBuilder<ApplicationDbContext>().UseInMemoryDatabase(databaseName: "TestDB").Options;
+            var db = new ApplicationDbContext(options);
+            ViewData["Cats"] = db.catTable.ToList();
+            return View();
+         }
+    
         public IActionResult Details(int id)
         {
             var cat = _db.catTable.Where(c => c.id == id).ToList().First();

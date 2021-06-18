@@ -16,7 +16,12 @@ namespace KittyCat.Controllers
             {
                 _db = context;
             }
-            public IActionResult Index(int id)
+
+        public AdopterController()
+        {
+        }
+
+        public IActionResult Index(int id)
             {
                 var Adopters = _db.adopter.ToList();
                 ViewData["Adopters"] = Adopters;

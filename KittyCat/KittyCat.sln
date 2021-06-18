@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.31321.278
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KittyCat", "KittyCat\KittyCat.csproj", "{05DADB69-17EA-472E-99C4-486E2402B8D5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KittyCatTest", "KittyCatTest\KittyCatTest.csproj", "{DF64FDD8-DCB7-4915-8C06-302CBAFB42E2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{05DADB69-17EA-472E-99C4-486E2402B8D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05DADB69-17EA-472E-99C4-486E2402B8D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05DADB69-17EA-472E-99C4-486E2402B8D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF64FDD8-DCB7-4915-8C06-302CBAFB42E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF64FDD8-DCB7-4915-8C06-302CBAFB42E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF64FDD8-DCB7-4915-8C06-302CBAFB42E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF64FDD8-DCB7-4915-8C06-302CBAFB42E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

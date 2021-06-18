@@ -1,4 +1,5 @@
-﻿using KittyCat.Models;
+﻿
+using KittyCat.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -43,6 +44,7 @@ namespace KittyCat.Controllers
             ViewData["Breeds"] = breeds;
             return View();
         }
+       
         public IActionResult Details(int Id = 1)
         {
             var breed = breeds.Find(match: model => model.id == Id);
