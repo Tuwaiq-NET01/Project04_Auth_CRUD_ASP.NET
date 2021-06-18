@@ -94,7 +94,7 @@ Note: the service is in its first version, so expect some bugs.
 ## Unit Tests - الإختبارات
 
 <p align="center">
-  <a href="https://bitchunk.co/" target="_blank"><img src="https://raw.githubusercontent.com/YounesAlturkey/bitchunk/main/backend-tests/tests-results.png" alt="demo"/></a>
+<img src="https://raw.githubusercontent.com/YounesAlturkey/bitchunk/main/backend-tests/tests-results.png" alt="demo"/>
 </p>
 
 <div id="license">
