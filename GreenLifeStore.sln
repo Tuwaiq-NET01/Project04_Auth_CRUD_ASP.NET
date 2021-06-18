@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31313.79
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GreenLifeStore", "GreenLifeStore\GreenLifeStore.csproj", "{A24C4F62-581E-4C4D-98B4-2709A72AC8D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GreenLifeStore", "GreenLifeStore\GreenLifeStore.csproj", "{A24C4F62-581E-4C4D-98B4-2709A72AC8D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GreenLifeStoreTests", "GreenLifeStoreTests\GreenLifeStoreTests.csproj", "{AC4518B9-21B9-473F-A3D0-BF0DD21B6BBA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{A24C4F62-581E-4C4D-98B4-2709A72AC8D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A24C4F62-581E-4C4D-98B4-2709A72AC8D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A24C4F62-581E-4C4D-98B4-2709A72AC8D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC4518B9-21B9-473F-A3D0-BF0DD21B6BBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC4518B9-21B9-473F-A3D0-BF0DD21B6BBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC4518B9-21B9-473F-A3D0-BF0DD21B6BBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC4518B9-21B9-473F-A3D0-BF0DD21B6BBA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

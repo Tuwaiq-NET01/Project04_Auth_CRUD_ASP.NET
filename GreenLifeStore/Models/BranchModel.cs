@@ -13,8 +13,8 @@ namespace GreenLifeStore.Models
         public string Name { get; set; }
         public string Address { get; set; }
 
-        //Navigation properties (one to many) , Branch -> products : one branch has many products
-        public List<ProductModel> Products { get; set; }
+        public List<BranchProductModel> BranchProduct { get; set; }
+
 
 
 

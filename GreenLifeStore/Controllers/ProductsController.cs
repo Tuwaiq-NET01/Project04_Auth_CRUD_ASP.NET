@@ -41,7 +41,7 @@ namespace GreenLifeStore.Controllers
         }
 
 
-       
+
         //GET - /products/create
         public IActionResult Create()
         {

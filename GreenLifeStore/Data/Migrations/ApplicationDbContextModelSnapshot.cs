@@ -37,6 +37,26 @@ namespace GreenLifeStore.Data.Migrations
                     b.ToTable("Branches");
                 });
 
+            modelBuilder.Entity("GreenLifeStore.Models.BranchProductModel", b =>
+                {
+                    b.Property<int>("BranchId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("OrderModelOrderId")
+                        .HasColumnType("int");
+
+                    b.HasKey("BranchId", "ProductId");
+
+                    b.HasIndex("OrderModelOrderId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("BranchProduct");
+                });
+
             modelBuilder.Entity("GreenLifeStore.Models.OrderModel", b =>
                 {
                     b.Property<int>("OrderId")
@@ -60,6 +80,21 @@ namespace GreenLifeStore.Data.Migrations
                     b.ToTable("Orders");
                 });
 
+            modelBuilder.Entity("GreenLifeStore.Models.OrderProductModel", b =>
+                {
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.HasKey("OrderId", "ProductId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("OrderProduct");
+                });
+
             modelBuilder.Entity("GreenLifeStore.Models.ProductModel", b =>
                 {
                     b.Property<int>("ProductId")
@@ -67,17 +102,11 @@ namespace GreenLifeStore.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("BranchId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("OrderId")
-                        .HasColumnType("int");
 
                     b.Property<float>("Price")
                         .HasColumnType("real");
@@ -86,10 +115,6 @@ namespace GreenLifeStore.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ProductId");
-
-                    b.HasIndex("BranchId");
-
-                    b.HasIndex("OrderId");
 
                     b.ToTable("Products");
                 });
@@ -294,6 +319,29 @@ namespace GreenLifeStore.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("GreenLifeStore.Models.BranchProductModel", b =>
+                {
+                    b.HasOne("GreenLifeStore.Models.BranchModel", "Branch")
+                        .WithMany("BranchProduct")
+                        .HasForeignKey("BranchId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("GreenLifeStore.Models.OrderModel", null)
+                        .WithMany("BranchProduct")
+                        .HasForeignKey("OrderModelOrderId");
+
+                    b.HasOne("GreenLifeStore.Models.ProductModel", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Branch");
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("GreenLifeStore.Models.OrderModel", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "Users")
@@ -303,23 +351,23 @@ namespace GreenLifeStore.Data.Migrations
                     b.Navigation("Users");
                 });
 
-            modelBuilder.Entity("GreenLifeStore.Models.ProductModel", b =>
+            modelBuilder.Entity("GreenLifeStore.Models.OrderProductModel", b =>
                 {
-                    b.HasOne("GreenLifeStore.Models.BranchModel", "Branch")
-                        .WithMany("Products")
-                        .HasForeignKey("BranchId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("GreenLifeStore.Models.OrderModel", "Order")
-                        .WithMany("Products")
+                        .WithMany("OrderProduct")
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Branch");
+                    b.HasOne("GreenLifeStore.Models.ProductModel", "Product")
+                        .WithMany("OrderProduct")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Order");
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -375,12 +423,19 @@ namespace GreenLifeStore.Data.Migrations
 
             modelBuilder.Entity("GreenLifeStore.Models.BranchModel", b =>
                 {
-                    b.Navigation("Products");
+                    b.Navigation("BranchProduct");
                 });
 
             modelBuilder.Entity("GreenLifeStore.Models.OrderModel", b =>
                 {
-                    b.Navigation("Products");
+                    b.Navigation("BranchProduct");
+
+                    b.Navigation("OrderProduct");
+                });
+
+            modelBuilder.Entity("GreenLifeStore.Models.ProductModel", b =>
+                {
+                    b.Navigation("OrderProduct");
                 });
 #pragma warning restore 612, 618
         }

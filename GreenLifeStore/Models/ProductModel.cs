@@ -15,15 +15,11 @@ namespace GreenLifeStore.Models
         public float Price { get; set; }
         public string Image { get; set; }
 
-        //Navigation properties (one to many) , Product -> Branch : one product is only in one branch
-        public BranchModel Branch { get; set; }
-        //FK
-        public int BranchId { get; set; }
+        public List<OrderProductModel> OrderProduct { get; set; }
 
-        //Navigation properties (one to many) , Order -> Product : one product is only in one order
-        public OrderModel Order { get; set; }
-        //FK
-        public int OrderId { get; set; }
+
+
+
 
     }
 }
