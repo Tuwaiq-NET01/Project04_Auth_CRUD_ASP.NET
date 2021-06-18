@@ -52,7 +52,7 @@ const AlertInfo = (msg) => {
   })
 }
 
-export default function NavBar({ auth, setAuth }) {
+export default function NavBar({ auth, setAuth, history }) {
   const user = JSON.parse(localStorage.getItem('UserData'))
   const classes = useStyles()
   const [anchorEl, setAnchorEl] = useState(() => null)

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
-import { Router, Route, browserHistory } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
 import Dashboard from '../src/views/Dashboard'
 import Auth from '../src/views/Auth'
@@ -60,10 +60,9 @@ function App() {
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
-        <Router history={browserHistory}>
+        <Router>
           <NavBar auth={auth} setAuth={(val) => setAuth(val)} />
           <Switch>
-            <Route exact path="/" component={() => <Dashboard />} />
             <Route
               path="/login"
               component={() => <Auth setAuth={(val) => setAuth(val)} />}
@@ -78,6 +77,7 @@ function App() {
             <Route path="/how" component={() => <How />} />
             <Route path="/shred" component={() => <Shredder />} />
             <Route path="/assemble" component={() => <Assembler />} />
+            <Route path="/" component={() => <Dashboard />} exact />
             <Route component={() => <Error />} />
           </Switch>
           <Footer />
