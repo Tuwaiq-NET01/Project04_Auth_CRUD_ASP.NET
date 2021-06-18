@@ -3,13 +3,25 @@
     var Podcasts = (List<PodcastModel>)ViewData["Podcasts"];
     var id = (int)ViewData["id"];
 
+
+
+    var Prodcast_Tags = (List<Prodcast_TagModel>)ViewData["Prodcast_Tag"];
+    var tags = (List<TagModel>)ViewData["tags"];
+    var rating = (List<PodcastProfileModel>)ViewData["rating"];
+
+
+    
+        double totle = 0;
+        var count = 0;
+    
+
 }
 
 @foreach (var Profile in Profiles)
 {
     if (Profile.Id == id)
     {
-        <div>
+        <div class="container">
             <div class="MyprofileMain">
                 <!-- Profile widget -->
                 <div class="bg-white shadow rounded overflow-hidden">
@@ -38,11 +50,26 @@
 
                     <div class="py-4 px-4">
                         <div class="d-flex align-items-center justify-content-between mb-3">
-                           
+
                         </div>
                         <div class="row">
                             @foreach (var Podcast in Podcasts)
                             {
+
+                                totle = 0;
+                                count = 0;
+                                double avg = 0;
+
+                                @foreach (var r in rating)
+                                {
+                                    if (r.PodcastId == Podcast.Id)
+                                    {
+                                        totle += r.Score;
+                                        count++;
+                                    }
+                                }
+                                avg = totle / count;
+
                                 if (Podcast.ProfileId == Profile.Id)
                                 {
                                     <div class="container text-center card1" style="height:260px;margin-top:40px">
@@ -54,12 +81,22 @@
                                             </div>
                                             <div class="col-8" style="text-align:left;margin-top:50px">
                                                 <a class="link1" href="/podcast/Details/@Podcast.Id">
-                                                    <h1 style="color: #78a09c">@Podcast.Title</h1>
+                                                    <h1 style="color: #3060a4">@Podcast.Title</h1>
                                                 </a>
 
                                                 <br />
-                                                
 
+                                                @for (var i = 0; i < 5; i++)
+                                                {
+                                                    if (i < avg)
+                                                    {
+                                                        <i class="fas fa-star" style="color:orange"></i>
+                                                    }
+                                                    else
+                                                    {
+                                                        <i class="far fa-star" style="color:orange"></i>
+                                                    }
+                                                }
 
                                                 <audio controls style=" width: 655px;margin-top:20px">
 

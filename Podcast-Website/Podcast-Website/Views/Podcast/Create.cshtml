@@ -7,12 +7,12 @@
     var id = (int)ViewData["id"];
     
 }
-
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
     function type1() {
         // Get the checkbox
         var checkBox = document.getElementById("vehicle1");
-       
+
         // Get the output text
         var text = document.getElementById("vehicle1Text");
 
@@ -25,7 +25,7 @@
             document.getElementById("tag").value = document.getElementById("tag").innerHTML.replace('Tech', '')
 
         }
-         
+
     }
     function type2() {
         var checkBox2 = document.getElementById("vehicle2");
@@ -52,13 +52,79 @@
 
         }
     }
+
+    function imageupload() {
+        var complete=  document.getElementById("complete")
+        var fileupload = document.getElementById("fileimage").files[0];
+        var loading = document.getElementById("loading");
+
+
+        var files = fileupload;
+        console.log(files)
+        const data = new FormData()
+        data.append('file', files)
+        console.log('file', files)
+        data.append('upload_preset', 'xvn0ezmv')
+        loading.removeAttribute("hidden")
+        axios.post('https://api.cloudinary.com/v1_1/duuconncq/image/upload', data)
+            .then(res => {
+                console.log("res", res.data.secure_url)
+                const file = res.data.secure_url
+                document.getElementById("inputurlimage").value = file
+                loading.hidden = true
+                complete.hidden = false
+                setTimeout(function () { complete.hidden = true }, 2000);
+
+            }).catch(err => { console.log(err) })
+
+    }
+
+
+    function audioUpload() {
+        var completeaudio = document.getElementById("complete1")
+        var fileupload = document.getElementById("fileaudio").files[0];
+        var loading = document.getElementById("loading1");
+
+
+        const config = {
+            onUploadProgress: function (progressEvent) {
+                var percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total)
+                console.log(percentCompleted)
+                document.getElementById("progressbar1").innerHTML = percentCompleted;
+                document.getElementById("progressbar1").style.width = percentCompleted+"%" ;
+               
+            }
+        }
+
+
+
+        var files = fileupload;
+        console.log(files)
+        const data = new FormData()
+        data.append('file', files)
+        console.log('file', files)
+        data.append('upload_preset', 'exoy1fej')
+        loading.removeAttribute("hidden")
+        axios.post('https://api.cloudinary.com/v1_1/dhuxwxtfm/video/upload', data, config)
+            .then(res => {
+                console.log("res", res.data.secure_url)
+                const file = res.data.secure_url
+                document.getElementById("inputurlaudio").value = file
+                loading.hidden = true
+                completeaudio.hidden = false
+                setTimeout(function () { completeaudio.hidden = true }, 2000);
+
+            }).catch(err => { console.log(err) })
+    }
 </script>
+
+
 
 
 <div class="container">
     <div class="row">
         <div class="col">
-            <img src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/5b9bb561342727.5a6b297b0709a.png" width="500px" height="550px" />
+            <img src="https://res.cloudinary.com/duuconncq/image/upload/v1623945347/ezgif.com-gif-maker_vxjd2j.gif" width="500px" height="600px" />
         </div>
         <div class="col">
             <form asp-action="Create" method="post" class="form-horizontal">
@@ -70,20 +136,51 @@
                     <input asp-for="Title" class="form-control" placeholder="Title">
                 </div>
 
-
                 <div class="mb-3">
+                    <label class="form-label">Upload Your Podcast</label>
+                    <input type="file" class="form-control" id="fileaudio" onchange="audioUpload()">
+                </div>
+                <div class="mb-3" hidden>
                     <label asp-for="Audio" class="form-label">Audio</label>
-                    <input asp-for="Audio" class="form-control" placeholder="Audio">
+                    <input asp-for="Audio" class="form-control" placeholder="Audio" id="inputurlaudio">
+                </div>
+
+                <div id="loading1" hidden>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" id="progressbar1">%</div>
+                    </div>
+                </div>
+                <div id="complete1" style="color:green" hidden>
+                    <i class="fas fa-check-circle"></i>
+                    Upload Complete :)
                 </div>
 
 
+
+
                 <div class="mb-3">
+                    <label class="form-label">Podcast Image</label>
+                    <input type="file" class="form-control" placeholder="Podcast Image" id="fileimage" onchange="imageupload()">
+                </div>
+                <div id="loading" hidden>
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden"></span>
+                    </div>
+                    <span class=" text-primary">  Loading...</span>
+                </div>
+                <div id="complete" style="color:green" hidden>
+                    <i class="fas fa-check-circle"></i>
+                    Upload Complete :)
+                </div>
+
+
+                <div class="mb-3" hidden>
                     <label asp-for="Podcast_image" class="form-label">Podcast Image</label>
-                    <input asp-for="Podcast_image" class="form-control" placeholder="Podcast Image">
+                    <input asp-for="Podcast_image" class="form-control" placeholder="Podcast Image" id="inputurlimage">
                 </div>
 
-                <div class="mb-3">
-                    <label  class="form-label">Choose Your Podcast types</label><br/>
+                <div class="mb-3" style="margin-top:25px">
+                    <label class="form-label">Choose Your Podcast types</label><br />
                     <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" onclick="type1()">
                     <label for="vehicle1" id="vehicle1Text"> Tech</label><br>
                     <input type="checkbox" id="vehicle2" name="vehicle2" value="Car" onclick="type2()">
@@ -117,8 +214,10 @@
 
 
 
+                
+
                 <div class="from-group">
-                    <input type="submit" class="btn btn-primary" value="Submit" />
+                    <input style="width:280px;margin-left:100px" type="submit" class="btn btn-outline-dark btn-lg" value="Create" />
                 </div>
 
             </form>

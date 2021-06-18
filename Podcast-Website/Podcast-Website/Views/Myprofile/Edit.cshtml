@@ -1,0 +1,158 @@
+﻿@model ProfileModel
+@{
+    var Profiles = (ProfileModel)ViewData["Profiles"];
+}
+
+
+
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    function imageupload() {
+        var complete = document.getElementById("complete")
+        var fileupload = document.getElementById("fileimage").files[0];
+        var loading = document.getElementById("loading");
+
+
+        var files = fileupload;
+        console.log(files)
+        const data = new FormData()
+        data.append('file', files)
+        console.log('file', files)
+        data.append('upload_preset', 'xvn0ezmv')
+        loading.removeAttribute("hidden")
+        axios.post('https://api.cloudinary.com/v1_1/duuconncq/image/upload', data)
+            .then(res => {
+                console.log("res", res.data.secure_url)
+                const file = res.data.secure_url
+                document.getElementById("inputurlimage").value = file
+                loading.hidden = true
+                complete.hidden = false
+                setTimeout(function () { complete.hidden = true }, 2000);
+
+            }).catch(err => { console.log(err) })
+
+    }
+
+    function imageupload1() {
+        var complete = document.getElementById("complete1")
+        var fileupload = document.getElementById("fileimage1").files[0];
+        var loading = document.getElementById("loading1");
+
+
+        var files = fileupload;
+        console.log(files)
+        const data = new FormData()
+        data.append('file', files)
+        console.log('file', files)
+        data.append('upload_preset', 'xvn0ezmv')
+        loading.removeAttribute("hidden")
+        axios.post('https://api.cloudinary.com/v1_1/duuconncq/image/upload', data)
+            .then(res => {
+                console.log("res", res.data.secure_url)
+                const file = res.data.secure_url
+                document.getElementById("inputurlimage1").value = file
+                loading.hidden = true
+                complete.hidden = false
+                setTimeout(function () { complete.hidden = true }, 2000);
+
+            }).catch(err => { console.log(err) })
+
+    }
+</script>
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <img src="https://res.cloudinary.com/duuconncq/image/upload/v1623945659/ezgif.com-gif-maker_1_gpsy0m.gif" width="550px" height="550px" />
+        </div>
+        <div class="col">
+            <form asp-action="Edit" method="post" class="form-horizontal">
+
+                <div class="form-group">
+                    <input type="hidden" asp-for="Id" value="@Profiles.Id" />
+                </div>
+
+
+                <div class="mb-3">
+                    <label asp-for="Name" class="form-label">Name</label>
+                    <input asp-for="Name" value="@Profiles.Name" class="form-control" placeholder="Name">
+                </div>
+
+
+
+
+                <div class="mb-3">
+                    <label class="form-label">Upload Your Image</label>
+                    <input type="file" class="form-control" id="fileimage" onchange="imageupload()">
+                </div>
+                <div class="mb-3" hidden>
+
+                    <input asp-for="Image" value="@Profiles.Image" class="form-control" placeholder="Audio" id="inputurlimage">
+                </div>
+
+                <div id="loading" hidden>
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden"></span>
+                    </div>
+                    <span class=" text-primary">  Loading...</span>
+                </div>
+                <div id="complete" style="color:green" hidden>
+                    <i class="fas fa-check-circle"></i>
+                    Upload Complete :)
+                </div>
+
+
+
+
+                <div class="mb-3">
+                    <label class="form-label">Upload Your Background Image</label>
+                    <input type="file" class="form-control" placeholder="Podcast Image" id="fileimage1" onchange="imageupload1()">
+                </div>
+                <div id="loading1" hidden>
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden"></span>
+                    </div>
+                    <span class=" text-primary">  Loading...</span>
+                </div>
+                <div id="complete1" style="color:green" hidden>
+                    <i class="fas fa-check-circle"></i>
+                    Upload Complete :)
+                </div>
+
+
+                <div class="mb-3" hidden>
+                    <input asp-for="Background_Image" value="@Profiles.Background_Image" class="form-control" placeholder="Podcast Image" id="inputurlimage1">
+                </div>
+
+
+
+
+
+
+
+                <div class="form-group">
+                    <input type="hidden" asp-for="UserId" value="@Profiles.UserId" />
+                </div>
+
+
+
+
+
+                <div class="from-group">
+                    <input style="width:280px;margin-left:100px" type="submit" class="btn btn-outline-dark btn-lg" value="Update" />
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

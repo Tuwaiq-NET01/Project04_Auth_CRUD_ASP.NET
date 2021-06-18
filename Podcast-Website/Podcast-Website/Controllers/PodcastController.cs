@@ -87,12 +87,36 @@ namespace Podcast_Website.Controllers
 
         }
 
+
+
+     
+        public void CreatePodcast(PodcastModel obj)
+        {
+            PodcastModel p = new PodcastModel();
+            p.Id = obj.Id;
+            p.Title = obj.Title;
+            p.Audio = obj.Audio;
+            p.Podcast_image = obj.Podcast_image;
+            p.Description = obj.Description;
+            p.ProfileId = obj.ProfileId;
+            _db.Podcasts.Add(p);
+            _db.SaveChanges();
+
+        }
+
+        public List<PodcastModel> Getall()
+        {
+            return _db.Podcasts.ToList();
+          
+
+        }
+
         public IActionResult Edit(int id)
         {
             var Podcasts = _db.Podcasts.ToList().Find(p => p.Id == id);
-            if (id == null || Podcasts == null)
+            if (id == 0 || Podcasts == null)
             {
-                
+                return View("NotFound");
             }
             ViewData["Podcasts"] = Podcasts;
             return View();
@@ -107,13 +131,22 @@ namespace Podcast_Website.Controllers
             return RedirectToAction("Index", "Myprofile", new { area = "" });
         }
 
+
+       
+        public List<PodcastModel> EditPodcast([Bind("Id", "Title", "Audio", "Podcast_image", "Description", "ProfileId")] PodcastModel Podcast)
+        {
+            _db.Podcasts.Update(Podcast);
+            _db.SaveChanges();
+            return _db.Podcasts.ToList();
+        }
+
         [HttpPost]
         public IActionResult Delete(int? id)
         {
             var Music = _db.Podcasts.ToList().Find(p => p.Id == id);
             if (id == null || Music == null)
             {
-                return View("Error");
+                return View("NotFound");
             }
             _db.Podcasts.Remove(Music);
             _db.SaveChanges();
@@ -153,7 +186,7 @@ namespace Podcast_Website.Controllers
 
             if (Podcast == null)
             {
-                return View("Error");
+                return View("NotFound");
             }
             else
             {

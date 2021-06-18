@@ -69,7 +69,7 @@
 </script>
 
 
-<div class="mb-3">
+<div class="mb-3 container" >
 
     <label class="form-label">Choose Your Podcast types</label><br />
     <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" onclick="type1()">
@@ -81,13 +81,17 @@
 
 
 </div>
+<div class="container">
 
-<form asp-controller="Podcast" asp-action="filter">
-    <p>
-        <input type="hidden" name="SearchString" id="tag" />
-        <input type="submit" value="Select" class="btn btn-outline-dark" onClick="return empty()"/>
-    </p>
-</form>
+
+    <form asp-controller="Podcast" asp-action="filter">
+        <p>
+            <input type="hidden" name="SearchString" id="tag" />
+            <input type="submit" value="Select" class="btn btn-outline-dark" onClick="return empty()" />
+        </p>
+    </form>
+
+</div>
 
 @{
     double totle = 0;
@@ -128,16 +132,16 @@
         {
             if (Prodcast_Tag.TagId == tag.Id && Prodcast_Tag.Podcast__Id == Podcast.Id)
             {
-                <div class="container text-center card1" style="height:260px;margin-top:40px">
+                <div  class="container text-center card1" style="height:260px;margin-top:40px">
 
                     <div class="row">
 
                         <div class="col-4">
-                            <img src=@Podcast.Podcast_image class="container_img" />
+                            <img src=@Podcast.Podcast_image class="container_img"  />
                         </div>
                         <div class="col-8" style="text-align:left;margin-top:50px">
                             <a class="link1" href="/podcast/Details/@Podcast.Id">
-                                <h1 style="color: #78a09c">@Podcast.Title</h1>
+                                <h1 style="color: #3060a4">@Podcast.Title</h1>
                             </a>
 
 

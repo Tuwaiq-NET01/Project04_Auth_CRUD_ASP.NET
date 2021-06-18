@@ -2,7 +2,40 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="main2">
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light " id="navbar">
+            <div class="container">
+                <a class="navbar-brand text-uppercase  Home-nav " href="/">Podcast<span style="color: #1248ff;font-size:33px;font-weight:bold">.</span></a>
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto ">
+
+
+
+                        <li class="nav-item">
+                            <a class="nav-link text-nav" href="/podcast"><span class="nav-text1">All Podcast</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-nav" href="/Channels"><span class="nav-text1">Channels</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-nav" href="/randompodcast"><span class="nav-text1">Explore</span></a>
+                        </li>
+                        <partial name="_LoginPartial" />
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <h1 class="h1-main1"><span class="The-Main-page"> Start Your </span> </h1>
+    <h1 class="h1-main2"><span style="color: #3060a4"> Podcast </span>Today</h1>
+    <h1 class="h1-main3"><a href="/podcast"><button style="width:300px;margin-left:20px;margin-top:-25px" type="button" class="btn btn-outline-primary">see all podcast</button></a></i></span></h1>
+    <img class="image-main" src="https://ausit.org/wp-content/uploads/2020/02/c-blue-shape-left-left.svg"/>
+    <img class="image-main2" src="https://res.cloudinary.com/duuconncq/image/upload/v1623956669/images-removebg-preview_2_ibmrbs.png"/>
+
+    
+
 </div>

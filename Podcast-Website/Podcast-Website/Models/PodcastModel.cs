@@ -24,8 +24,9 @@ namespace Podcast_Website.Models
 
         public List<Prodcast_TagModel> Prodcast_Tag { get; set; }
 
-
-
-
+        internal void ToList()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

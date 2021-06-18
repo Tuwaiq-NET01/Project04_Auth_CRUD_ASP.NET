@@ -45,5 +45,26 @@ namespace Podcast_Website.Controllers
 
 
         }
+
+
+        public void CreateRating(PodcastProfileModel obj)
+        {
+            PodcastProfileModel pp = new PodcastProfileModel();
+            pp.Id = obj.Id;
+            pp.Score = obj.Score;
+            pp.Profile_Id = obj.Profile_Id;
+            pp.PodcastId = obj.PodcastId;
+       
+            _db.PodcastProfile.Add(pp);
+            _db.SaveChanges();
+
+        }
+
+        public List<PodcastProfileModel> GetallRaing()
+        {
+            return _db.PodcastProfile.ToList();
+
+
+        }
     }
 }

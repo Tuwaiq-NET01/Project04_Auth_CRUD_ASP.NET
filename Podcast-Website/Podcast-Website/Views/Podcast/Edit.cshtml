@@ -9,7 +9,7 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/9952e569228889.5b79c8c46b22d.gif" width="550px" height="550px" />
+            <img src="https://res.cloudinary.com/duuconncq/image/upload/v1623949482/ezgif.com-gif-maker_3_pdgh92.gif" width="550px" height="550px" />
         </div>
         <div class="col">
             <form asp-action="Edit" method="post" class="form-horizontal">
@@ -25,16 +25,52 @@
                 </div>
 
 
+
+
                 <div class="mb-3">
+                    <label class="form-label">Upload Your Podcast</label>
+                    <input type="file" class="form-control" id="fileaudio" onchange="audioUpload()">
+                </div>
+                <div class="mb-3" hidden>
                     <label asp-for="Audio" class="form-label">Audio</label>
-                    <input asp-for="Audio" value="@Podcast.Audio" class="form-control" placeholder="Audio">
+                    <input asp-for="Audio" value="@Podcast.Audio" class="form-control" placeholder="Audio" id="inputurlaudio">
                 </div>
+
+                <div id="loading1" hidden>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" id="progressbar1">%</div>
+                    </div>
+                </div>
+                <div id="complete1" style="color:green" hidden>
+                    <i class="fas fa-check-circle"></i>
+                    Upload Complete :)
+                </div>
+
+
 
 
                 <div class="mb-3">
-                    <label asp-for="Podcast_image" class="form-label">Image</label>
-                    <input asp-for="Podcast_image" value="@Podcast.Podcast_image" class="form-control" placeholder="Music Image">
+                    <label class="form-label">Podcast Image</label>
+                    <input type="file" class="form-control" placeholder="Podcast Image" id="fileimage" onchange="imageupload()">
                 </div>
+                <div id="loading" hidden>
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden"></span>
+                    </div>
+                    <span class=" text-primary">  Loading...</span>
+                </div>
+                <div id="complete" style="color:green" hidden>
+                    <i class="fas fa-check-circle"></i>
+                    Upload Complete :)
+                </div>
+
+
+                <div class="mb-3" hidden>
+                    <label asp-for="Podcast_image" class="form-label">Podcast Image</label>
+                    <input asp-for="Podcast_image" value="@Podcast.Podcast_image" class="form-control" placeholder="Podcast Image" id="inputurlimage">
+                </div>
+
+
 
 
                 <div class="mb-3">
@@ -61,3 +97,73 @@
         </div>
     </div>
 </div>
+
+
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+
+    function imageupload() {
+        var complete = document.getElementById("complete")
+        var fileupload = document.getElementById("fileimage").files[0];
+        var loading = document.getElementById("loading");
+
+
+        var files = fileupload;
+        console.log(files)
+        const data = new FormData()
+        data.append('file', files)
+        console.log('file', files)
+        data.append('upload_preset', 'xvn0ezmv')
+        loading.removeAttribute("hidden")
+        axios.post('https://api.cloudinary.com/v1_1/duuconncq/image/upload', data)
+            .then(res => {
+                console.log("res", res.data.secure_url)
+                const file = res.data.secure_url
+                document.getElementById("inputurlimage").value = file
+                loading.hidden = true
+                complete.hidden = false
+                setTimeout(function () { complete.hidden = true }, 2000);
+
+            }).catch(err => { console.log(err) })
+
+    }
+
+
+    function audioUpload() {
+        var completeaudio = document.getElementById("complete1")
+        var fileupload = document.getElementById("fileaudio").files[0];
+        var loading = document.getElementById("loading1");
+
+
+        const config = {
+            onUploadProgress: function (progressEvent) {
+                var percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total)
+                console.log(percentCompleted)
+                document.getElementById("progressbar1").innerHTML = percentCompleted;
+                document.getElementById("progressbar1").style.width = percentCompleted + "%";
+
+            }
+        }
+
+
+
+        var files = fileupload;
+        console.log(files)
+        const data = new FormData()
+        data.append('file', files)
+        console.log('file', files)
+        data.append('upload_preset', 'exoy1fej')
+        loading.removeAttribute("hidden")
+        axios.post('https://api.cloudinary.com/v1_1/dhuxwxtfm/video/upload', data, config)
+            .then(res => {
+                console.log("res", res.data.secure_url)
+                const file = res.data.secure_url
+                document.getElementById("inputurlaudio").value = file
+                loading.hidden = true
+                completeaudio.hidden = false
+                setTimeout(function () { completeaudio.hidden = true }, 2000);
+
+            }).catch(err => { console.log(err) })
+    }
+</script>

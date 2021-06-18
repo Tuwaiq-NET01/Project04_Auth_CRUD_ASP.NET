@@ -9,13 +9,15 @@
 {
     if (Profile.UserId == id)
     {
-        <div>
+        <div class="container">
             <div class="MyprofileMain">
                 <!-- Profile widget -->
                 <div class="bg-white shadow rounded overflow-hidden">
                     <div class="px-4 pt-0 pb-4 cover" style="background-image: url( @Profile.Background_Image );background-size: cover;background-repeat: no-repeat">
                         <div class="media align-items-end profile-head">
-                            <div class="profile mr-3" style="transform: translateY(5rem)"><img src=@Profile.Image alt="..." width="150" class="rounded mb-2 img-thumbnail"><a href="/Podcast/Create/@Profile.Id" class="btn btn-outline-dark btn-sm btn-block">Add New Podcast <i class="fas fa-plus-square"></i></a></div>
+                            <div class="profile mr-3" style="transform: translateY(5rem)"><img src=@Profile.Image alt="..." width="150" class="rounded mb-2 img-thumbnail">
+                            <a href="/myprofile/edit/@Profile.Id" class="btn btn-outline-dark btn-sm btn-block">Edit profile <i class="fas fa-user-edit"></i>
+                                </a></div>
                             <div class="media-body mb-5 text-white">
                                 <h4 class="mt-0 mb-0">@Profile.Name</h4>
 
@@ -38,7 +40,7 @@
 
                     <div class="py-4 px-4">
                         <div class="d-flex align-items-center justify-content-between mb-3">
-                            <h5 class="mb-0">Podcast</h5><a href="/podcast/" class="btn btn-link text-muted">See All Podcast</a>
+                            <h5 class="mb-0">Podcast</h5><a href="/Podcast/Create/@Profile.Id" class="btn btn-link text-muted">Add New Podcast <i class="fas fa-plus-square"></i></a>
                         </div>
                         <div class="row">
                             @foreach (var Podcast in Podcasts)
@@ -50,7 +52,7 @@
                                         <div class="row">
 
                                             <div class="col-4">
-                                                <img src=@Podcast.Podcast_image class="container_img" />
+                                                <img src=@Podcast.Podcast_image class="container_img" width="340" />
                                             </div>
                                             <div class="col-8" style="text-align:left;margin-top:50px">
                                                 <a class="link1" href="/podcast/Details/@Podcast.Id">

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Podcast_Website.Data;
+using Podcast_Website.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +29,41 @@ namespace Podcast_Website.Controllers
             ViewData["Profiles"] = Profiles;
             ViewData["Podcasts"] = Podcasts;
             return View();
+        }
+
+        public IActionResult Edit(int id)
+        {
+            var Profiles = _db.Profiles.ToList().Find(p => p.Id == id);
+            if (id == 0 || Profiles == null)
+            {
+                return View("NotFound");
+            }
+            ViewData["Profiles"] = Profiles;
+            return View();
+        }
+
+        // Post - /poducts/edit/id
+        [HttpPost]
+        public IActionResult Edit([Bind("Id", "Name", "Image", "Background_Image", "UserId")] ProfileModel Profiles)
+        {
+            _db.Profiles.Update(Profiles);
+            _db.SaveChanges();
+            return RedirectToAction("Index", "Myprofile", new { area = "" });
+        }
+
+
+        public List<ProfileModel> GetallProfile()
+        {
+            return _db.Profiles.ToList();
+
+
+        }
+
+        public List<ProfileModel> EditProfile([Bind("Id", "Name", "Image", "Background_Image", "UserId")] ProfileModel Profiles)
+        {
+            _db.Profiles.Update(Profiles);
+            _db.SaveChanges();
+            return _db.Profiles.ToList();
         }
     }
 }

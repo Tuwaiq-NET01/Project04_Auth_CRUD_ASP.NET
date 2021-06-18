@@ -14,6 +14,8 @@
         document.getElementById("mainRandomPodcasr").removeAttribute("hidden");
         document.getElementById("mainpageRandom").style.display = "none";
         document.getElementById("buttonRandom").innerHTML = "Another Random Podcast <i class=\"fas fa - random\"></i>";
+        document.getElementById("buttonRandom").style.width = "";
+        document.getElementById("buttonRandom").style.marginLeft = "0";
         document.getElementById("buttondiv").style.left = "6px";
         document.getElementById("buttondiv").style.top = "100px";
 
@@ -47,17 +49,17 @@
 <div class="container" id="mainpageRandom">
     <div class="row">
         <div class="col" >
-            <img src="https://pcfeatures.wpengine.com/wp-content/uploads/2021/02/app@2x.png" width="550" id="imgR" alt="Not Found" />
+            <img src="https://pcfeatures.wpengine.com/wp-content/uploads/2021/02/computer@2x.png" width="550" id="imgR" alt="Not Found" />
         </div>
         <div class="col">
-            <h1 style="margin-top:100px">Random <span style="color: #ff0065">Podcast</span>  Generator</h1>
+            <h1 style="margin-top:100px">Random <span style="color: #ffce61">Podcast</span>  Generator</h1>
             <h6 style=" opacity: 0.7; color: #93939f; margin-top: 50px;">To get a random podcast simply click the red generate button </h6>
             
         </div>
     </div>
  </div>
 <div id="buttondiv" style="position: fixed;left:63%; top:50%;background: white; ">
-    <button id="buttonRandom" onclick="type3()" type="button" class="btn btn-outline-danger">Generate <i class="fas fa-random"></i></button>
+    <button style="width:300px;margin-left:-100px" id="buttonRandom" onclick="type3()" type="button" class="btn btn-outline-warning">Generate <i class="fas fa-random"></i></button>
 </div>
 
     <div id="mainRandomPodcasr" class="container overflow-hidden" hidden>
@@ -69,7 +71,7 @@
             </div>
             <div class="col">
                 <div class="p-3 " style="margin-top:50px">
-                    <h2 style="color: #78a09c" id="headerR"></h2>
+                    <h2 style="color: #ffce61;opacity: 0.85" id="headerR"></h2>
 
 
                     <audio controls style=" width: 450px;margin-top:20px" id="aud">

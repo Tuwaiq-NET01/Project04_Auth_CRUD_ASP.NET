@@ -85,7 +85,7 @@ namespace Podcast_Website.Controllers
             // Console.WriteLine(getaListfromAPI(BASE_URL).items[2].title);
             var dataString = getaListfromAPI();
             ViewData["dataString"] = dataString;
-            return View();
+            return View("Index");
         }
 
 
