@@ -115,7 +115,7 @@ export default function Dashboard() {
   const uploadFile = () => {
     setButtonLoading(true)
     if (file) {
-      const isRefFile = file.name.includes('ref')
+      const isRefFile = file.name.split('.')[1].includes('ref')
       const formData = new FormData()
       formData.append('file', file)
       axios
