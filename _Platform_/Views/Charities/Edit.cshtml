@@ -1,0 +1,49 @@
+﻿@model Charity
+@using Microsoft.AspNetCore.Identity;
+@inject UserManager<IdentityUser> UserManager
+@{
+    var Charity = (Charity)ViewData["Charity"];
+}
+
+<form asp-action="Edit" method="post" class="form-horizontal text-center " style="margin-top:50px !important ;margin-bottom:130px !important">
+    <div class="form-group">
+        <div>
+            <input type="hidden" asp-for="Id" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CharityName">اسم الجمعية</label>
+        <div>
+            <input asp-for="CharityName" value="@Charity.CharityName" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Description">الوصف</label>
+        <div>
+            <input asp-for="Description" value="@Charity.Description" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Image">الصورة</label>
+        <div>
+            <input asp-for="Image" value="@Charity.Image" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Url">رابط الموقع</label>
+        <div>
+            <input asp-for="Url" value="@Charity.Url"  />
+        </div>
+    </div>
+    <div class="form-group">
+ 
+        <div>
+            <input type="hidden" asp-for="UserId" value="@UserManager.GetUserId(User)" />
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary" style="background-color:#948639 !important; border:solid; border-block-width:2;border-color:black; margin-top:20px" value="تحديث" />
+        </div>
+</form>

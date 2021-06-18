@@ -1,0 +1,27 @@
+﻿@{
+    var News = (News)ViewData["News"];
+}
+
+<div dir="rtl">
+    <div class=" container card mb-12" style="margin-bottom:10px; margin-top:50px; font-family: Amiri, sans-serif;;padding-bottom:20px;padding-top:20px;border:solid !important;border-width:medium;border-color:#00000082 !important;">
+        <div class="row g-0">
+            <div class="col-md-7">
+                <div class="card-body" style="text-align:right;">
+                    <h5 class="card-title" style="font-family: Amiri, sans-serif;">@News.Subject</h5>
+                    <p class="card-text" style="margin-top: 20px; ">@News.Description</p>
+
+                    <a href="/News" class="btn btn-primary btn-color" style="margin-top: 20px; ">عودة</a>
+                </div>
+            </div>
+            <div class="col-md-1">
+
+            </div>
+            <div class="col-md-3">
+                <img src="@News.Image" alt="@News.Image" width="210px" height="240px">
+            </div>
+
+        </div>
+    </div>
+
+</div>
+

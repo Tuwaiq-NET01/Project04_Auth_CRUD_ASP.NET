@@ -1,0 +1,51 @@
+﻿@model Charity
+@using Microsoft.AspNetCore.Identity;
+@inject UserManager<IdentityUser> UserManager
+@{
+   
+}
+
+<form asp-action="Create" method="post" class="form-horizontal" style="text-align:center !important">
+    <div class="form-group">
+        <label asp-for="Id">#</label>
+        <div>
+            <input asp-for="Id" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CharityName">اسم الجمعية</label>
+        <div>
+            <input asp-for="CharityName" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Description">الوصف</label>
+        <div>
+            <input asp-for="Description" />
+            @* <span asp-validation-for="Description" class="text-danger"></span>*@
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Image">الصوره</label>
+        <div>
+            <input asp-for="Image" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Url">رابط الموقع</label>
+        <div>
+            <input asp-for="Url" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div>
+            <input type="hidden" asp-for="UserId" value="@UserManager.GetUserId(User)" />
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="submit" style="background-color:#948639 !important; border:solid; border-block-width:2;border-color:black; margin-top:20px" class="btn btn-primary" value="Submit" />
+    </div>
+</form>

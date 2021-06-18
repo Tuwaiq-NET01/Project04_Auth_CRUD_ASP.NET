@@ -1,0 +1,44 @@
+﻿@model News
+@using Microsoft.AspNetCore.Identity;
+@inject UserManager<IdentityUser> UserManager
+@{
+    var News = (News)ViewData["News"];
+}
+<form asp-action="Edit" method="post" class="form-horizontal" style="margin-top:50px !important ;margin-bottom:130px !important">
+    <div class="form-group">
+        <div>
+            <input type="hidden" asp-for="Id" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Subject">Subject</label>
+        <div>
+            <input asp-for="Subject" value="@News.Subject" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Description">Description</label>
+        <div>
+            <input asp-for="Description" value="@News.Description" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Image">Image</label>
+        <div>
+            <input asp-for="Image" value="@News.Image" />
+        </div>
+    </div>
+ 
+    <div  class="form-group">
+        <label   asp-for="CharityId">Charity Id</label>
+        <div>
+            <input asp-for="CharityId"  value="@News.CharityId" />
+        </div>
+        <div class="form-group">
+            <input type="submit"  style="background-color:#948639 !important; border:solid; border-block-width:2;border-color:black; margin-top:20px" class="btn btn-primary" value="Update" />
+        </div>
+    </div>
+</form>

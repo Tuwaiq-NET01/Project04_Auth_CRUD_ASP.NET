@@ -1,0 +1,57 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@{
+    var News = (List<News>)ViewData["News"];
+}
+
+
+
+<table class="table table-striped table-hover" dir="rtl">
+    <div class="container">
+        <div class="row" style="text-align:center;margin-left:-100px;margin-right:100px;">
+
+            @foreach (var item in News)
+            {
+                @if (SignInManager.IsSignedIn(User))
+                {
+            <div class="card col-3" style="width: 18rem; margin-left:5px;margin-bottom:20px;">
+                <img src="@item.Image" class="card-img-top" alt="@item.Image" width="210px" height="240px">
+                <div class="card-body" style="text-align:right">
+                    <h5 class="card-title">@item.Subject</h5>
+                </div>
+                <div style="margin-bottom:20px;text-align:center">
+                    <a href="/News/Details/ @item.Id" class="btn btn-primary btn-color stretched-link">تفاصيل</a>
+                </div>
+                <hr />
+                <div class="row" style="margin-bottom:20px; margin-right:51px; margin-left:50px;text-align:center">
+                    <div class="col">
+                        <a href="/News/edit/@item.Id" class="btn btn-primary btn-color stretched-link"> <i class="fas fa-edit"></i></a>
+                    </div>
+                    <div class="col">
+                        <form method="post" asp-controller="News" asp-action="Delete" asp-route-id="@item.Id">
+                            <button class="btn btn-primary btn-color stretched-link">  <i class="far fa-trash-alt"></i></button>
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+                }
+                else
+                {
+                    <div class="card col-3" style="width: 18rem; margin-left:5px;margin-bottom:20px;">
+                        <img src="@item.Image" class="card-img-top" alt="@item.Image" width="210px" height="240px">
+                        <div class="card-body" style="text-align:right">
+                            <h5 class="card-title">@item.Subject</h5>
+                        </div>
+                        <div style="margin-bottom:20px;text-align:center">
+                            <a href="/News/Details/ @item.Id" class="btn btn-primary btn-color stretched-link">تفاصيل</a>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</table>
+
