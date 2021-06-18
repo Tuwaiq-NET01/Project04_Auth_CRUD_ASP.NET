@@ -3,6 +3,7 @@ using HealthChoice_Proj4.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,14 +13,23 @@ namespace HHealthChoice_Proj4.Controllers
 {
     public class FavouriteController : Controller
     {
+
         private readonly ApplicationDbContext _db;
         private readonly UserManager<IdentityUser> _userManager;
+        private object p;
 
+        [ActivatorUtilitiesConstructor]
         public FavouriteController(ApplicationDbContext db, UserManager<IdentityUser> userManager)
         {
             _db = db;
             _userManager = userManager;
         }
+
+
+        public FavouriteController()
+        {
+        }
+
         public IActionResult Index()
         {
             var userId = _userManager.GetUserId(User);
@@ -51,6 +61,7 @@ namespace HHealthChoice_Proj4.Controllers
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
+       
     }
 }
 

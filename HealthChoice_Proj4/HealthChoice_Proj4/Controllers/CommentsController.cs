@@ -2,6 +2,7 @@
 using HealthChoice_Proj4.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -116,11 +117,16 @@ namespace HealthChoice_Proj4.Controllers
     public class CommentsController : Controller
     {
         private readonly ApplicationDbContext _db;
-
+        [ActivatorUtilitiesConstructor]
         public CommentsController(ApplicationDbContext context)
         {
             _db = context;
         }
+
+        public CommentsController()
+        {
+        }
+
         public IActionResult Index()
         {
             return View();

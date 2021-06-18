@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "uel3e66JG4L7Ih7hRSFH9SKlzjE2VmNdG1ASBSmHf2BEhDK92WhA6fMzMoEqwsW1bcHRHZZQ4nkJj+SyF2umkw==",
+  "dgSpecHash": "94cQVyEtrbBHa62dQyiqpNTY9mv3xhIpiEtSU7t7FrLSRcGohMD6BHlPzwyO6eKcf9ukmIWzfN9t9TJB1teBbw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Samirah Alhusayni\\Documents\\Project04_Auth_CRUD_ASP.NET\\HealthChoice_Proj4\\HealthChoice_Proj4\\HealthChoice_Proj4.csproj",
   "expectedPackageFiles": [
@@ -29,6 +29,7 @@
     "C:\\Users\\Samirah Alhusayni\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\3.1.15\\microsoft.entityframeworkcore.abstractions.3.1.15.nupkg.sha512",
     "C:\\Users\\Samirah Alhusayni\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\3.1.15\\microsoft.entityframeworkcore.analyzers.3.1.15.nupkg.sha512",
     "C:\\Users\\Samirah Alhusayni\\.nuget\\packages\\microsoft.entityframeworkcore.design\\3.1.15\\microsoft.entityframeworkcore.design.3.1.15.nupkg.sha512",
+    "C:\\Users\\Samirah Alhusayni\\.nuget\\packages\\microsoft.entityframeworkcore.inmemory\\3.1.15\\microsoft.entityframeworkcore.inmemory.3.1.15.nupkg.sha512",
     "C:\\Users\\Samirah Alhusayni\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\3.1.15\\microsoft.entityframeworkcore.relational.3.1.15.nupkg.sha512",
     "C:\\Users\\Samirah Alhusayni\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\3.1.15\\microsoft.entityframeworkcore.sqlserver.3.1.15.nupkg.sha512",
     "C:\\Users\\Samirah Alhusayni\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\3.1.15\\microsoft.entityframeworkcore.tools.3.1.15.nupkg.sha512",

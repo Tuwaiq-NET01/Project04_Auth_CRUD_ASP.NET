@@ -2,6 +2,8 @@
 using HealthChoice_Proj4.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,10 +17,14 @@ namespace HealthChoice_Final_crud_auth.Controllers
     public class ServicesController : Controller
     {
         private readonly ApplicationDbContext _db;
-
+        [ActivatorUtilitiesConstructor]
         public ServicesController(ApplicationDbContext context)
         {
             _db = context;
+        }
+
+        public ServicesController()
+        {
         }
 
         //<<Read>>
@@ -35,6 +41,20 @@ namespace HealthChoice_Final_crud_auth.Controllers
             return View();
         }
 
+        public IActionResult Index1()
+        {
+            var options = new DbContextOptionsBuilder<ApplicationDbContext>()
+             .UseInMemoryDatabase(databaseName: "TestDB").Options;
+            var db = new ApplicationDbContext(options);
+            var Resturents = db.Services.Where(r => r.servType == "Resturent").ToList();
+            var Gyms = db.Services.Where(g => g.servType == "Gym").ToList();
+            var Stores = db.Services.Where(r => r.servType == "Store").ToList();
+            ViewData["Resturents"] = Resturents;
+            ViewData["Gyms"] = Gyms;
+            ViewData["Stores"] = Stores;
+
+            return View();
+        }
         //Get: /Services/details/id
 
 

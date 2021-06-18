@@ -1,5 +1,6 @@
 ﻿using HealthChoice_Proj4.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -12,10 +13,14 @@ namespace HealthChoice_Proj4.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
+        [ActivatorUtilitiesConstructor]
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
+        }
+
+        public HomeController()
+        {
         }
 
         public IActionResult Index()

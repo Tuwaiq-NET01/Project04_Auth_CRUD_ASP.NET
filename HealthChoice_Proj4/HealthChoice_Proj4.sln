@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31410.357
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthChoice_Proj4", "HealthChoice_Proj4\HealthChoice_Proj4.csproj", "{AAE14B41-15E3-4D16-9877-F08B8E436887}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HealthChoice_Proj4", "HealthChoice_Proj4\HealthChoice_Proj4.csproj", "{AAE14B41-15E3-4D16-9877-F08B8E436887}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthChoice_Proj4Test", "HealthChoice_Proj4Test\HealthChoice_Proj4Test.csproj", "{3EAD2873-C203-4E79-B013-D4F3CE39C9B5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{AAE14B41-15E3-4D16-9877-F08B8E436887}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AAE14B41-15E3-4D16-9877-F08B8E436887}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AAE14B41-15E3-4D16-9877-F08B8E436887}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EAD2873-C203-4E79-B013-D4F3CE39C9B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EAD2873-C203-4E79-B013-D4F3CE39C9B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EAD2873-C203-4E79-B013-D4F3CE39C9B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EAD2873-C203-4E79-B013-D4F3CE39C9B5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
