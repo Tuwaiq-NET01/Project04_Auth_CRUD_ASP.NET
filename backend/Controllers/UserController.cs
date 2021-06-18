@@ -56,7 +56,7 @@ namespace backend.Controllers
             if (model != null)
             {
                 model.Email = userDto.Email != null ? userDto.Email : model.Email;
-                model.Name = userDto.Name.Length != null ? userDto.Name : model.Name;
+                model.Name = userDto.Name != null ? userDto.Name : model.Name;
                 model.AccountType = userDto.AccountType != null ? userDto.AccountType : model.AccountType;
                 model.CurrentQuota = userDto.CurrentQuota > 0 ? userDto.CurrentQuota : model.CurrentQuota;
                 model.TotalQuota = userDto.TotalQuota > 0 ? userDto.TotalQuota : model.TotalQuota;

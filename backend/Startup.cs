@@ -69,7 +69,7 @@ namespace backend
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Bitchunk API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "bitchunk.co API", Version = "v1" });
             });
         }
 
@@ -80,7 +80,7 @@ namespace backend
 
             app.UseSwagger();
 
-            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Bitchunk API v1"));
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "bitchunk.co API v1"));
 
             app.UseCors("CorsPolicy");
 
