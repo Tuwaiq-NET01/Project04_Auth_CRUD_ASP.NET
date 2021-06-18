@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "HYDHXlOSUdEws+vyNEK65t4lVp9jWYtyQchE/dncxMWJCXTPnhbQ5XWNHMTqibctXEA92aBdS3GG/pnK45ckfQ==",
+  "dgSpecHash": "AZOUpoZgbzuQ8UtLSYz6z216Lj5s+7GLeOinsZKj77dmMc4oJIEbHmnpP3ZsvUtLo0/C5rOp+N0a8KTvPoq4sg==",
   "success": true,
   "projectFilePath": "C:\\Users\\SAFCSP\\Desktop\\hanan\\projects\\Project04_Auth_CRUD_ASP.NET\\circus\\circus.test\\circus.test.csproj",
   "expectedPackageFiles": [
@@ -30,6 +30,7 @@
     "C:\\Users\\SAFCSP\\.nuget\\packages\\microsoft.entityframeworkcore\\5.0.7\\microsoft.entityframeworkcore.5.0.7.nupkg.sha512",
     "C:\\Users\\SAFCSP\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\5.0.7\\microsoft.entityframeworkcore.abstractions.5.0.7.nupkg.sha512",
     "C:\\Users\\SAFCSP\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\5.0.7\\microsoft.entityframeworkcore.analyzers.5.0.7.nupkg.sha512",
+    "C:\\Users\\SAFCSP\\.nuget\\packages\\microsoft.entityframeworkcore.inmemory\\5.0.7\\microsoft.entityframeworkcore.inmemory.5.0.7.nupkg.sha512",
     "C:\\Users\\SAFCSP\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\5.0.7\\microsoft.entityframeworkcore.relational.5.0.7.nupkg.sha512",
     "C:\\Users\\SAFCSP\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\5.0.6\\microsoft.entityframeworkcore.sqlserver.5.0.6.nupkg.sha512",
     "C:\\Users\\SAFCSP\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\5.0.0\\microsoft.extensions.caching.abstractions.5.0.0.nupkg.sha512",
