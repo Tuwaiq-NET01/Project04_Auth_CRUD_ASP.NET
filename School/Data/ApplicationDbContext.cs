@@ -24,7 +24,10 @@ namespace School.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //Call base method for OnModelCreating in identity
             base.OnModelCreating(modelBuilder);
+
+            //Make Composite keys
             modelBuilder.Entity<StudentTeacher>().HasKey(st => new { st.StudentId, st.TeacherId });
             modelBuilder.Entity<TeacherCourse>().HasKey(tc => new { tc.TeacherId, tc.CourseId });
         }

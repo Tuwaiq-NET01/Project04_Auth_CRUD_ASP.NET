@@ -322,3 +322,14 @@ C:\Users\b0c0a\source\repos\Project04_Auth_CRUD_ASP.NET\School\obj\Debug\net5.0\
 C:\Users\b0c0a\source\repos\Project04_Auth_CRUD_ASP.NET\School\obj\Debug\net5.0\ref\School.dll
 C:\Users\b0c0a\source\repos\Project04_Auth_CRUD_ASP.NET\School\obj\Debug\net5.0\School.pdb
 C:\Users\b0c0a\source\repos\Project04_Auth_CRUD_ASP.NET\School\obj\Debug\net5.0\School.genruntimeconfig.cache
+C:\Users\b0c0a\Source\Repos\Project04_Auth_CRUD_ASP.NET\School\obj\Debug\net5.0\Razor\Views\Shared\_SearchPartial.cshtml.g.cs
+C:\Users\b0c0a\Source\Repos\Project04_Auth_CRUD_ASP.NET\School\obj\Debug\net5.0\Razor\Views\Students\Index.cshtml.g.cs
+C:\Users\b0c0a\Source\Repos\Project04_Auth_CRUD_ASP.NET\School\obj\Debug\net5.0\Razor\Views\Students\Create.cshtml.g.cs
+C:\Users\b0c0a\Source\Repos\Project04_Auth_CRUD_ASP.NET\School\obj\Debug\net5.0\Razor\Views\Students\Edit.cshtml.g.cs
+C:\Users\b0c0a\Source\Repos\Project04_Auth_CRUD_ASP.NET\School\obj\Debug\net5.0\Razor\Views\Students\Details.cshtml.g.cs
+C:\Users\b0c0a\Source\Repos\Project04_Auth_CRUD_ASP.NET\School\obj\Debug\net5.0\Razor\Views\Students\Delete.cshtml.g.cs
+C:\Users\b0c0a\Source\Repos\Project04_Auth_CRUD_ASP.NET\School\obj\Debug\net5.0\Razor\Views\Teachers\Create.cshtml.g.cs
+C:\Users\b0c0a\Source\Repos\Project04_Auth_CRUD_ASP.NET\School\obj\Debug\net5.0\Razor\Views\Teachers\Delete.cshtml.g.cs
+C:\Users\b0c0a\Source\Repos\Project04_Auth_CRUD_ASP.NET\School\obj\Debug\net5.0\Razor\Views\Teachers\Details.cshtml.g.cs
+C:\Users\b0c0a\Source\Repos\Project04_Auth_CRUD_ASP.NET\School\obj\Debug\net5.0\Razor\Views\Teachers\Edit.cshtml.g.cs
+C:\Users\b0c0a\Source\Repos\Project04_Auth_CRUD_ASP.NET\School\obj\Debug\net5.0\Razor\Views\Teachers\Index.cshtml.g.cs

@@ -1,0 +1,17 @@
+﻿@{
+    Teacher teacher = ViewBag.Teacher;
+    ViewData["title"] = "Teacher Details";
+}
+
+@if (teacher != null)
+{
+    <p>ID: @teacher.TeacherId</p>
+    <p>Student Name: @teacher.FirstName @teacher.LastName</p>
+    <p>Student Email: @teacher.Email</p>
+    <a href="/Students" class="btn btn-primary">Back</a>
+
+}
+else
+{
+    <p>Data not found</p>
+}

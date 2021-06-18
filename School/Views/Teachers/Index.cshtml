@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["title"] = "Teachers";
+    List<Teacher> teachers = (List<Teacher>)ViewData["Teachers"];
+    bool added = (bool)ViewData["Added"];
+    bool deleted = (bool)ViewData["Deleted"];
+}
+
+<a href="/Teachers/Create" class="btn btn-success">Add New Teacher</a>
+@await Html.PartialAsync("/Views/Shared/_SearchPartial.cshtml")
+<br />
+<br />
+@if (added == true)
+{
+
+    <div class="alert alert-success ">Teacher Added Successfully</div>
+}
+else if (deleted == true)
+{
+    <div class="alert alert-success ">Teacher Deleted Successfully</div>
+}
+
+@if (teachers.Count > 0)
+{
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var teacher in teachers)
+            {
+                <tr>
+                    <th scope="row">@teacher.TeacherId</th>
+                    <td>@teacher.FirstName</td>
+                    <td>@teacher.LastName</td>
+                    <td>@teacher.Email</td>
+                    <td>
+                        <a href="/Teachers/Details/@teacher.TeacherId" class="btn btn-primary">View</a> |
+                        <a href="/Teachers/Edit/@teacher.TeacherId" class="btn btn-warning">Edit</a> |
+                        <a href="/Teachers/Delete/@teacher.TeacherId" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p> No teachers found</p>
+}

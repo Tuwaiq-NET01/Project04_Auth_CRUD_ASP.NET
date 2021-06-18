@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["title"] = "Students";
+    List<Student> students = (List<Student>)ViewData["Students"];
+    bool added = (bool)ViewData["Added"];
+    bool deleted = (bool)ViewData["Deleted"];
+}
+
+<a href="/Students/Create" class="btn btn-success">Add New Student</a>
+@await Html.PartialAsync("/Views/Shared/_SearchPartial.cshtml")
+<br />
+<br />
+@if (added == true)
+{
+
+    <div class="alert alert-success ">Student Added Successfully</div>
+}
+else if (deleted == true)
+{
+    <div class="alert alert-success ">Student Deleted Successfully</div>
+}
+
+@if (students.Count > 0)
+{
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var student in students)
+            {
+                <tr>
+                    <th scope="row">@student.StudentId</th>
+                    <td>@student.FirstName</td>
+                    <td>@student.LastName</td>
+                    <td>@student.Email</td>
+                    <td>
+                        <a href="/Students/Details/@student.StudentId" class="btn btn-primary">View</a> |
+                        <a href="/Students/Edit/@student.StudentId" class="btn btn-warning">Edit</a> |
+                        <a href="/Students/Delete/@student.StudentId" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p> No students found</p>
+}
