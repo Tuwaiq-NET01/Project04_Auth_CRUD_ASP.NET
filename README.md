@@ -16,6 +16,7 @@ This project is all about challenges, users can register and login, and can see 
 يدور هذا المشروع حول التحديات، حيث يمكن للمستخدمين التسجيل او تسجيل الدخول، ويمكنهم رؤية قائمة الألعاب المتاحة. يمكنك استخدام شريط البحث للبحث عن اللعبة التي تهتم بها للاطلاع على قائمة التحديات المتعلقة بتلك اللعبة. يمكنك بعد ذلك التعليق على هذا التحدي لمشاركة أفكارك أو حتى إرسال مقطع فيديو على Youtube Link لك وانت تكمل هذا التحدي. هناك أيضًا عدد مرات الفوز لكل مستخدم لمعرفة عدد التحديات التي فازوا بها حتى الآن..
 
 
+</div>
 
 
 <br />
@@ -112,20 +113,23 @@ Unit testing has been done to this project using NUnit. Also using `inmemorydata
 	- A section to show our top players that won the most challenges.
 - **Submissions:**
 	- Introduce a seprate section for submission on a challenge apart from comments.
-- **overall better User Interface.**
+- **Login/Register:**
+	- A better  UI for loggin in and registering. 
+	- Having the option to choose username and display it in the page. 
+- **Overall better User Interface.**
 
 
 
 <hr />
 
-## Author
+## Author:
 
 ### <b> اسم الطالب:</b>  محمد راشد البلوي.
 ### <b> المجموعة: </b>  القدية.
 ### <b> مشرفة المجموعة:</b>  نورة عبدالله.
 
 
-## License & Resource
+## Resources:
 - [ASP.NET Identity](https://docs.microsoft.com/en-us/aspnet/identity/overview/getting-started/introduction-to-aspnet-identity)
 - [FontAwesome](https://fontawesome.com/v5.15/icons?d=gallery&p=2)
 - [LINQ Query Operations](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/basic-linq-query-operations)
@@ -133,5 +137,3 @@ Unit testing has been done to this project using NUnit. Also using `inmemorydata
 - [Bootstrap Cards](https://getbootstrap.com/docs/5.0/components/card/)
 
 
-
-</div>
