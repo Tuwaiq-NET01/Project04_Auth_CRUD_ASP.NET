@@ -9,8 +9,12 @@
     var img = "../" + booking.Room.Image;
     DateTime today = DateTime.Today;
     DateTime futureDate = today.AddDays(5);
+    string humanToday = today.ToString("dd-MM-yyyy");
+    string machineToday = today.ToString("yyyy-MM-dd");
+    string humanFuture = futureDate.ToString("dd-MM-yyyy");
+    string machineFuture = futureDate.ToString("yyyy-MM-dd");
 
-    var available = ViewData["roomAvailable"];
+
 
 
 
@@ -19,6 +23,7 @@
 
 <h1 style="background-color:black; margin:3rem;"> <center style="color:white">Editing the previously booked room:</center></h1>
 <img src=@img alt=@booking.Room.Name style="width: 980px; height: 582px; margin: 4rem" />
+<h3 id="dateMsg" class="bg-danger">@ViewData["Msg"]</h3>
 <div style="background-color: #fefae0">
     <div class="row" style="margin: 1rem">
         <div class="col-6" style="color: #1a1357">
@@ -30,7 +35,7 @@
         </div>
         <div class="col-6">
             <form class="form-inline" asp-controller="Bookings" asp-action="Edit" method="post">
-                <input asp-for="Date" type="date" value=@today.ToString("yyyy/MM/dd") min="2021/06/17" max=@futureDate.ToString("yyyy/MM/dd") style="margin: 2rem" />
+                <input id="date" asp-for="Date" type="date" value=@machineToday min=@machineToday max=@machineFuture style="margin: 2rem" />
 
                 <button class="btn-outline-primary" style="width: 8rem; height: 4rem; font-size:larger" value="Submit">Book it</button>
                 <input type="hidden" asp-for="Id" value=@booking.Id />

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\rooke\\Desktop\\ConferenceRoomManager\\ConferenceRoomManager\\ConferenceRoomManager.csproj": {}
+    "C:\\Users\\rooke\\Desktop\\Project04_Auth_CRUD_ASP.NET\\ConferenceRoomManager\\ConferenceRoomManager\\ConferenceRoomManager.csproj": {}
   },
   "projects": {
-    "C:\\Users\\rooke\\Desktop\\ConferenceRoomManager\\ConferenceRoomManager\\ConferenceRoomManager.csproj": {
+    "C:\\Users\\rooke\\Desktop\\Project04_Auth_CRUD_ASP.NET\\ConferenceRoomManager\\ConferenceRoomManager\\ConferenceRoomManager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rooke\\Desktop\\ConferenceRoomManager\\ConferenceRoomManager\\ConferenceRoomManager.csproj",
+        "projectUniqueName": "C:\\Users\\rooke\\Desktop\\Project04_Auth_CRUD_ASP.NET\\ConferenceRoomManager\\ConferenceRoomManager\\ConferenceRoomManager.csproj",
         "projectName": "ConferenceRoomManager",
-        "projectPath": "C:\\Users\\rooke\\Desktop\\ConferenceRoomManager\\ConferenceRoomManager\\ConferenceRoomManager.csproj",
+        "projectPath": "C:\\Users\\rooke\\Desktop\\Project04_Auth_CRUD_ASP.NET\\ConferenceRoomManager\\ConferenceRoomManager\\ConferenceRoomManager.csproj",
         "packagesPath": "C:\\Users\\rooke\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rooke\\Desktop\\ConferenceRoomManager\\ConferenceRoomManager\\obj\\",
+        "outputPath": "C:\\Users\\rooke\\Desktop\\Project04_Auth_CRUD_ASP.NET\\ConferenceRoomManager\\ConferenceRoomManager\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\rooke\\AppData\\Roaming\\NuGet\\NuGet.Config",

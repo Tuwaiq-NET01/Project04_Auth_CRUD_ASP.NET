@@ -55,30 +55,44 @@ namespace ConferenceRoomManager.Controllers
             if (user == null)
             {
                 Content("No user is found.");
-                return LocalRedirect("Index");
+                return RedirectToAction("Index");
             }
 
             if (ModelState.IsValid)
             {
-                var userEmail = user.UserName.Split("@")[0];
-                var userNames = userEmail.Split(".");
-                var userName = userNames[0];
-                Booking.UserName = userName;
-                Booking.UserId = user.Id;
-                //Booking.RoomId = 1;
-                _db.Bookings.Add(Booking);
-                _db.SaveChanges();
-                return RedirectToAction("Index");
+                var isBooked = _db.Bookings.FirstOrDefault(d => d.RoomId == Booking.RoomId && (d.Date == Booking.Date));
+                if(isBooked == null)
+                {
+                    var userEmail = user.UserName.Split("@")[0];
+                    var userNames = userEmail.Split(".");
+                    var userName = userNames[0];
+                    Booking.UserName = userName;
+                    Booking.UserId = user.Id;
+                    //Booking.RoomId = 1;
+                    _db.Bookings.Add(Booking);
+                    _db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                else if(isBooked != null)
+                {
+                    ViewData["Msg"] = "Invalid date, or its booked on that date.";
+                    return RedirectToAction("Details", "Rooms", new { id = Booking.RoomId, msg = "Invalid date, or its booked on that date." });
+                }
             }
             return RedirectToAction("Index");
         }
 
-        public IActionResult Edit(int? id)
+        public IActionResult Edit(int? id, string? msg)
         {
             var booking = _db.Bookings.Include("Room").ToList().Find(b => b.Id == id);
+            
             if (id == null || booking == null)
             {
                 return View("_NotFound");
+            }
+            if (msg != "")
+            {
+                ViewData["Msg"] = msg;
             }
             ViewData["booking"] = booking;
             return View();
@@ -86,10 +100,19 @@ namespace ConferenceRoomManager.Controllers
         [HttpPost]
         public IActionResult Edit([Bind("Id", "UserName", "Date", "UserId", "RoomId")] BookingModel booking)
         {
-            _db.Bookings.Update(booking);
-            _db.SaveChanges();
+            var isBooked = _db.Bookings.FirstOrDefault(d => d.RoomId == booking.RoomId && (d.Date == booking.Date));
+            if (isBooked == null)
+            {
+                _db.Bookings.Update(booking);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            else if (isBooked != null)
+            {
+                ViewData["Msg"] = "Invalid date, or its booked on that date.";
+                return RedirectToAction("Edit", new {id = booking.Id, msg = "Invalid date, or its booked on that date." });
+            }
             return RedirectToAction("Index");
-
         }
 
         [HttpPost]

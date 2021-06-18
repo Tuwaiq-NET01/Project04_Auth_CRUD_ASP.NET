@@ -23,7 +23,7 @@ namespace ConferenceRoomManager.Controllers
             return View();
         }
 
-        public IActionResult Details(int? id)
+        public IActionResult Details(int? id, string? msg)
         {
             var room = _db.Rooms.Include("Facility").Include("Building").ToList().Find(room => room.Id == id);
 
@@ -36,9 +36,17 @@ namespace ConferenceRoomManager.Controllers
             DateTime futureDate = today.AddDays(5);
             var todayString = today.ToString("yyyy/MM/dd");
             var futureDateString = futureDate.ToString("yyyy/MM/dd");
-            var roomAvailable = _db.Bookings.FirstOrDefault(r => r.RoomId == id && (r.Date >= today) && (r.Date <= futureDate));
+
+            var roomAvailable = _db.Bookings.Where(a => a.Id == id).ToList();
+            
+            
             ViewData["Room"] = room;
-            ViewData["roomAvailable"] = roomAvailable;
+           
+            
+            if(msg != "")
+            {
+                ViewData["Msg"] = msg;
+            }
 
             return View();
         }

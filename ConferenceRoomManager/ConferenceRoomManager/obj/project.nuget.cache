@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "uDy8V1ltsnww1SH5ryGUxVSmyd5EZzoClU9lRB1Tf7ojBnl0rdYkdTq1vddd4yki8KKh5PC0GcAemNjLEvPJog==",
+  "dgSpecHash": "r1b84j6+HzZZNb1efEcR6cMgWfjeg8bFp3jb0ZgUdL1IdR0jXezHvs4VjKKk33he3IkMJIKqES/0eRuZ9+TS7g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\rooke\\Desktop\\ConferenceRoomManager\\ConferenceRoomManager\\ConferenceRoomManager.csproj",
+  "projectFilePath": "C:\\Users\\rooke\\Desktop\\Project04_Auth_CRUD_ASP.NET\\ConferenceRoomManager\\ConferenceRoomManager\\ConferenceRoomManager.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\rooke\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\rooke\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.6\\microsoft.aspnetcore.cryptography.internal.5.0.6.nupkg.sha512",
