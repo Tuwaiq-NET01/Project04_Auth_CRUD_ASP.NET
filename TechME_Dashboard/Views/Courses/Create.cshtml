@@ -1,0 +1,44 @@
+﻿@model CourseModel
+
+<form asp-action="Create" method="post" class="form-horizontal">
+@*    <div class="form-group">
+        <label asp-for="Course_ID">Course's ID </label>
+        <div>
+            <input asp-for="Course_ID" />
+        </div>
+    </div>*@
+
+    <div class="form-group">
+        <label asp-for="Course_Name"> Course's Name</label>
+        <div>
+            <input asp-for="Course_Name" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Course_Category">Course_Category</label>
+        <div>
+            <input asp-for="Course_Category" />
+            <span asp-validation-for="Course_Category" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Course_Description"> Course's Description</label>
+        <div>
+            <input asp-for="Course_Description" />
+            <span asp-validation-for="Course_Description" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Course_Image">Course's Image </label>
+        <div>
+            <input asp-for="Course_Image" />
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="Submit" />
+    </div>
+</form> 
+
+<a asp-controller="Courses" asp-action="Index"> Back to Courses</a>

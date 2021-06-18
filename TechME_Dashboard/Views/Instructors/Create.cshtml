@@ -1,0 +1,27 @@
+﻿@model InstructorModel
+<form asp-action="Create" method="post" class="form-horizontal">
+     <div class="form-group">
+        <label asp-for="Instructor_Name"> Instructor's Name</label>
+        <div>
+            <input asp-for="Instructor_Name" />
+        </div>
+    </div>
+     <div class="form-group">
+         <label asp-for="Instructor_BIO">Instructor's BIO </label>
+         <div>
+             <input asp-for="Instructor_BIO" />
+         </div>
+     </div>
+
+    <div class="form-group">
+        <label asp-for="Instructor_Image">Instructor's Image </label>
+        <div>
+            <input asp-for="Instructor_Image" />
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="Submit" />
+    </div>
+</form>
+
+<a asp-controller="Instructors" asp-action="Index"> Back to Instructor</a>

@@ -1,0 +1,42 @@
+﻿@model CourseModel
+@{
+    var course = (CourseModel)ViewData["Course"];
+}
+<form asp-action="Edit" method="post" class="form-horizontal" role="form">
+    <div class="form-group">
+        <div>
+            <input type="hidden" asp-for="Course_ID"  value="@course.Course_ID"/>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Course_Name">Course's Name</label>
+        <div>
+            <input asp-for=" Course_Name" value="@course.Course_Name" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Course_Description"> Course Description</label>
+        <div>
+            <input asp-for="Course_Description" value="@course.Course_Description" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Course_Category"> Course Category</label>
+        <div>
+            <input asp-for="Course_Category" value="@course.Course_Category" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Course_Image"> Course Image</label>
+        <div>
+            <input asp-for="Course_Image" value="@course.Course_Image." />
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="Update" />
+    </div>
+</form>
+<a asp-controller="Courses" asp-action="Index"> Back to Courses</a>

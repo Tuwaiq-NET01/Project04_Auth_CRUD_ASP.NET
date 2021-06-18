@@ -1,0 +1,18 @@
+﻿@{
+    var course = (CourseModel)ViewData["Course"];
+}
+
+
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title"> Course's Name: @course.Course_Name.</h5>
+        <p class="card-text"> Course's Description: @course.Course_Description</p>
+        <p class="card-text"> Course's Category : @course.Course_Category</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Course's ID: @course.Course_ID</li>
+        <li class="list-group-item"> Course's Image : @course.Course_Image</li>
+    </ul>
+</div>
+
+<a asp-controller="Courses" asp-action="Index"> Back to Courses</a>

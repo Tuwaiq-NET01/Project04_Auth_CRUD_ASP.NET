@@ -1,0 +1,19 @@
+﻿@{
+    var Instructor = (InstructorModel)ViewData["Instructor"];
+}
+
+
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">Instructor's Name: @Instructor.Instructor_Name</h5>
+        <p class="card-text"> Instructor's BIO: @Instructor.Instructor_BIO</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Instrcutor's ID: @Instructor.Instructor_ID</li>
+        <li class="list-group-item"> Instructor's Image : @Instructor.Instructor_Image</li>
+
+    </ul>
+</div>
+
+
+<a asp-controller="Instructors" asp-action="Index"> Back To Instructor </a>
