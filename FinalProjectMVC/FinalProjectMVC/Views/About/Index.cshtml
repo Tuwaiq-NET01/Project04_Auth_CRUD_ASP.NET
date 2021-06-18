@@ -1,0 +1,90 @@
+﻿<head>
+    <style>
+        .container {
+            position: relative;
+        }
+
+        .image {
+            display: block;
+            width: 300px;
+            height: 300px;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            width: 100%;
+            opacity: 0;
+            transition: .5s ease;
+            background-color: #A7C4BC;
+        }
+
+        .container:hover .overlay {
+            opacity: 1;
+        }
+
+        .text {
+            color: white;
+            font-size: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        h2 {
+            font-family: Garamond;
+            padding-left: 70px;
+        }
+        p {
+            font-family: Garamond;
+        }
+    </style>
+</head>
+<br />
+
+<center><h1 style="font-family:Garamond">About us </h1></center>
+<br />
+<br />
+<div class="row">
+    <div class="col-sm">
+        <h2>Our Story</h2>
+        <p></p>
+
+        <div class="container">
+            <img src="https://images.unsplash.com/photo-1509223197845-458d87318791?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8NHxxUjFuNVk1aTZWUXx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=600&q=60" alt="Avatar" class="image" height="300">
+            <div class="overlay">
+                <div class="text"><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm">
+        <h2>Our services</h2>
+        <p></p>
+
+        <div class="container">
+            <img src="https://images.unsplash.com/photo-1502977249166-824b3a8a4d6d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Avatar" class="image" height="300" width="300">
+            <div class="overlay">
+                <div class="text"><p>We care about plants and sell plants with love . Lorem Ipsum is simply dummy text of the printing and typesetting industry</p></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm">
+        <h2>What we aspire to</h2>
+        <p></p>
+
+        <div class="container">
+            <img src="https://images.unsplash.com/photo-1509937528035-ad76254b0356?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=624&q=80" alt="Avatar" class="image" height="300">
+            <div class="overlay">
+                <div class="text"><p>Sincerity, love, credibility . Lorem Ipsum is simply dummy text of the printing and typesetting industry</p></div>
+            </div>
+        </div>
+    </div>
+</div>

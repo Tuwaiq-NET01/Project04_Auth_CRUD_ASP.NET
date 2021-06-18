@@ -1,51 +1,78 @@
-# Project04_Auth_CRUD_ASP.NET
+<div dir="rtl" align="right" >
 
-<div dir="rtl" align="right">
+ <div dir="ltr" align="center">
 
-فكرة المشروع
+![Tuwaiq](https://i.ibb.co/SV2BSn5/tuwaiq.png)
 
-بناء مشروع متكامل باستخدام ASP.NET MVC  قائم على فكرة من اختيارك وتتضمن المتطلبات الأساسية لبناء تطبيق ASP.NET MVC مع  Entity Framework Core وSql Server.
+</div>
 
+# (Plant Store) | (متجر نباتات )اسم التطبيق
 
-قبل بداية المشروع 
+### المقدمــة | Introduction 
+فكرة المشروع  متجر نباتات حيث يعرض مجموعة من أنواع النباتات المختلفة ، ويمكن تطبيق عمليات  CRUD سواء 
+بالحذف او التعديل او عرض تفاصيل النبتة ، تم إستخدام Create في التواصل مع المتجر من خلال اسم المستخدم وبريد الإلكتروني حيث ينشئ رسالة جديدة وتحفظ في قاعدة البيانات .
 
-عمل Wireframes و ERD والتأكيد مع أحد المدربين قبل البدء بتنفيذ المشروع. بداية المشروع بالنسخة رقم  v.1
+</div>
 
-متطلبات المشروع
+### ERD
+ > ERD 
+![Tuwaiq](./ERD/ERD.png)
 
-
-- استخدام نمط MVC 
-- إنشاء على الأقل 4 من Controllers
-- إنشاء على الأقل 4 Model 
-- إنشاء على الأقل 6 Views
-    - استخدام مكتبة Bootstrap مع Razor 
-    - استخدام partial view للعناصر المتكررة في الواجهات
-- استخدام وظائف CRUD مع ASP.NET 
-- استخدام إطار عمل Entity Framework Core
-- استخدام CodeFirst Approach لإنشاء قاعدة البيانات
-- استخدام قاعدة بيانات MSSQL 
-    - ان تكون قاعدة البيانات متعددة الجداول
-    - يجب ان تتضمن قاعدة البيانات على الاقل احد العلاقات التالية:
-        - علاقة one-to-one
-        - علاقة one-to-many
-        - علاقة many-to-many
-- تطبيق Authentication 
-- قم بتطبيق Unit Testing (اختبار على الاقل One Action Method لكل Controller)
+### Demo  
+ 
 
 
-إضافة | Bonus 
-- قم باستخدام أحد مفاهيم Design Patterns في مشروعك لحل مشكلةٍ ما
-- إنشاء APIs 
-- عمل Deploy للمشروع على Azure
-- استخدام React مع ASP.NET أو أي Framework 
-- استخدام WebSockets في ASP.NET core
-- التعامل مع الـThird party APIs  {SMS Message, Google Maps,….} 
-    - مصادر للـAPIs
-    - الاول: Any API over 1400 Public APIs: https://any-api.com/
-    - الثاني: API Search: http://apis.io/
-- رفع صور او ملفات 
-    -  باستخدام الـthird-party:
-        - Cloudinary: https://cloudinary.com/
-        -  AWS: https://aws.amazon.com/s3/?nc2=h_ql_prod_st_s3
-    - حفظها  بالـLocal server 
+### Wireframe  
+
+ <div dir="ltr" align="center">
+
+
+> Home page 
+![Tuwaiq](./wireframe/homepage.png)
+>Registration page 
+![Tuwaiq](./wireframe/reg.png)
+>login page 
+![Tuwaiq](./wireframe/login.png)
+>Plant page
+![Tuwaiq](./wireframe/plant.png)
+>About page
+![Tuwaiq](./wireframe/about.png)
+>Contact page 
+![Tuwaiq](./wireframe/contact.png)
+>Location page
+![Tuwaiq](./wireframe/location.png)
+
+  </div>
+
+### Set up  
+### Prerequisites
+- NET 5 
+- ASP.NET MVC
+- Microsoft SQL Server 
+### Set up  
+ #### Database
+ ``` dotnet ef database update```
+### Front-End  
+ - HTML
+ - CSS
+ - JS
+ - Bootstrap 
+### Back-End 
+ - ASP.NET MVC
+ - MSSQL Server
+ - EF Core
+
+ ### How to Clone Project 
+ in command line 
+
+```
+git clone https://github.com/TaifBinEid/Project04_Auth_CRUD_ASP.NET
+```
+```
+cd  Project04_Auth_CRUD_ASP.NETProject04_Auth_CRUD_ASP.NET
+```
+### Author
+Taif Bin Eid
+### License & Resource
+All rights reserved to Tuwaiq Programming Bootcamp
 </div>

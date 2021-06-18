@@ -1,0 +1,192 @@
+﻿<style>
+    .flip-box {
+        background-color: transparent;
+        width: 300px;
+        height: 200px;
+        border: 1px solid #f1f1f1;
+        perspective: 1000px; /* Remove this if you don't want the 3D effect */
+    }
+
+    /* This container is needed to position the front and back side */
+    .flip-box-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+    }
+
+    /* Do an horizontal flip when you move the mouse over the flip box container */
+    .flip-box:hover .flip-box-inner {
+        transform: rotateY(180deg);
+    }
+
+    /* Position the front and back side */
+    .flip-box-front, .flip-box-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden; /* Safari */
+        backface-visibility: hidden;
+    }
+
+    /* Style the front side (fallback if image is missing) */
+    .flip-box-front {
+        background-color: #A7C4BC;
+        color: black;
+    }
+
+    /* Style the back side */
+    .flip-box-back {
+        background-color: #A7C4BC;
+        color: white;
+        transform: rotateY(180deg);
+    }
+    h2, p {
+        font-family: Garamond
+    }
+</style>
+<div class="slideshow-container">
+
+    <div class="mySlides fade">
+        <div class="numbertext">1 / 2</div>
+        <img src="https://plnts.com/wp-content/uploads/2020/04/PLNTS-homepagebanner-1920x600.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides fade">
+        <div class="numbertext">2 / 2</div>
+        <img src="https://www.technogym.com/wpress/wp-content/uploads/2019/04/indoor-plants-header.jpg" style="width:100%">
+    </div>
+
+
+
+</div>
+<div style="text-align:center">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <br />
+    <br />
+    <center>
+        <h1 style="font-family:Garamond">Why plants in our life </h1>
+    </center>
+</div>
+<br />
+<div class="right-image-post">
+    <div class="row">
+
+        <div class="col-md-8">
+            <div class="left-text">
+                <h4 style="font-family:Garamond; padding-top:100px;">plants and photosynthesis</h4>
+                <p style="font-family:Garamond" class="p">Plants are important in the process of photosynthesis, as they absorb carbon dioxide and produce the oxygen necessary for the life of all living organisms, thus maintaining their ratios constant. Reducing the movement of strong winds, and the distribution of rain over the land.distribute this on template collection website. You can feature this template on your blog post.</p>
+
+
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="right-image">
+                <img src="https://images.unsplash.com/photo-1584589167171-541ce45f1eea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=600&q=60" alt="Plant1" width="300" height="400" class="ss" />
+            </div>
+        </div>
+
+    </div>
+</div>
+<br />
+<div class="left-image-post">
+    <div class="row">
+
+        <div class="col-md-4">
+            <div class="left-image">
+                <img src="https://images.unsplash.com/photo-1453904300235-0f2f60b15b5d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDd8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=600&q=60" alt="Palnt2" width="300" height="400" class="ss" />
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <div class="right-text">
+                <h4 style="font-family:Garamond; padding-top:100px">Plants are a food source!</h4>
+                <p style="font-family:Garamond" class="p">Plants are an important food source for both humans and animals alike, they keep animals from extinction due to the dependence of many animals on plants for their food, and in the end, humans depend on these animals in several aspects, and plants contain most vitamins and fiber in addition to salts necessary for the human body.</p>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<hr />
+<br />
+
+<center>
+    <h1 style="font-family:Garamond"> A plant needs only 3 things! </h1>
+</center>
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <div class="flip-box">
+                <div class="flip-box-inner">
+                    <div class="flip-box-front">
+                        <img src="https://images.unsplash.com/photo-1530292178889-67a8dc571e85?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8aXJyaWdhdGlvbiUyMHBsYW50fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60" alt="Paris" style="width:300px;height:200px">
+                    </div>
+                    <div class="flip-box-back">
+                        <h2>Watering</h2>
+                        <p>Plants differ in the way they are irrigated, and some prefer to spray their leaves with water spray from time to time, as they are moisture-loving.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm">
+            <div class="flip-box">
+                <div class="flip-box-inner">
+                    <div class="flip-box-front">
+                        <img src="https://images.unsplash.com/photo-1620044533471-78470a9f739a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTQ2fHxzdW4lMjBwbGFudHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60" alt="Paris" style="width:300px;height:200px">
+                    </div>
+                    <div class="flip-box-back">
+                        <h2>Sun lighting</h2>
+                        <p>Usually you need medium to bright filtered light such as window light or artificial lighting in the room.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-sm">
+            <div class="flip-box">
+                <div class="flip-box-inner">
+                    <div class="flip-box-front">
+                        <img src="https://images.unsplash.com/photo-1544860707-c352cc5a92e3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHBsYW50JTIwaG9tZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60" alt="Paris" style="width:300px;height:200px">
+                    </div>
+                    <div class="flip-box-back">
+                        <h2>Temperature</h2>
+                        <p>Usually plants tend to have a temperate climate and are at a normal room temperature.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+</div>
+
+<script>
+    var slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) { slideIndex = 1 }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        setTimeout(showSlides, 2000); // Change image every 2 seconds
+    }
+</script>

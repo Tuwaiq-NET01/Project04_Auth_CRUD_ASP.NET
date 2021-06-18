@@ -1,0 +1,34 @@
+﻿@model PlantModel
+@{
+    var plants = (PlantModel)ViewData["plants"];
+}
+
+<form asp-action="Edit" method="post" class="form-horizontal">
+    <div class="form-group">
+        <input asp-for="PlantId" type="hidden" value="@plants.PlantId" />
+    </div>
+    <div class="form-group">
+        <label asp-for="PlantName">Plant Name</label>
+        <input asp-for="PlantName" value=" @plants.PlantName<" />
+    </div>
+    <div class="form-group">
+        <label asp-for="PlantType">Plant Type</label>
+        <input asp-for="PlantType" value="@plants.PlantType" />
+    </div>
+    <div class="form-group">
+        <label asp-for="PlantColor">Plant Color</label>
+        <input asp-for="PlantColor" value="@plants.PlantColor" />
+    </div>
+    <div class="form-group">
+        <label asp-for="PlantHeight">Plant Height</label>
+        <input asp-for="PlantHeight" value="@plants.PlantHeight" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Price">Price</label>
+        <input asp-for="Price" value="@plants.Price" />
+    </div>
+
+    <div class="form-group">
+        <input type="submit" class="btn btn-success" value="Update" />
+    </div>
+</form>

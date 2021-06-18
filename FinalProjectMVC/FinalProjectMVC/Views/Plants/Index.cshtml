@@ -1,0 +1,32 @@
+﻿@{
+    var plants = (List<PlantModel>)ViewData["plants"];
+    Layout = "_Layout";
+
+
+}
+<div class="container text-center">
+    <h3>Available Plants</h3>
+</div>
+<div class="row">
+    @foreach (var p in plants)
+    {
+        <div class="col-sm-4">
+            <div class="card" style="width:200px; margin:5px">
+                <img class="card-img-top" src="@p.Image" alt="Card image" width=200 height=200>
+                <div class="card-body">
+                    <div class="container text-center">
+                        <h4 class="card-title">@p.PlantName</h4>
+                        <p class="card-text">ID : @p.PlantId</p>
+                        <p class="card-text">Type : @p.PlantType</p>
+                        <p class="card-text">Color : @p.PlantColor</p>
+                        <a href="/Plants/Details/@p.PlantId" class="btn btn-dark">Show</a>
+                        <button type="button" class="btn btn-info" asp-action="Edit" asp-route-id="@p.PlantId"><a style="color:white" href="/Plants/Edit/@p.PlantId"> EDIT </a></button>
+                        <form method="post" asp-controller="Plants" asp-action="Delete" asp-route-id="@p.PlantId">
+                            <input type="submit" value="Drop" class="btn btn-danger" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

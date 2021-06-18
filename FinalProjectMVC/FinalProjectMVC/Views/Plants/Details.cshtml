@@ -1,0 +1,26 @@
+﻿@{
+    var plants = (PlantModel)ViewData["plants"];
+    var plantcare = (PlantCareModel)ViewData["plantcare"];
+}
+
+
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">Plant Name: @plants.PlantName</h5>
+        <p class="card-text">Plant ID:   @plants.PlantId </p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Plant Type: @plants.PlantType</li>
+        <li class="list-group-item">Plant Color: @plants.PlantColor</li>
+        <li class="list-group-item">Plant Height: @plants.PlantHeight</li>
+        <li class="list-group-item">Price: @plants.Price SAR</li>
+        <li class="list-group-item">Light: @plantcare.light</li>
+        <li class="list-group-item">temperature:  @plantcare.temperature</li>
+        <li class="list-group-item">irrigation:  @plantcare.irrigation</li>
+        <li class="list-group-item">Store ID:  @plants.StoreId</li>
+    </ul>
+</div>
+@*Tag Helper*@
+<button type="button" class="btn btn-dark">
+    <a style="color:white" asp-controller="Plants" asp-action="Index">Back to Plants</a>
+</button>
