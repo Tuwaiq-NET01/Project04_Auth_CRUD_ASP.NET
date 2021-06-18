@@ -3,10 +3,10 @@
 <img src="https://raw.githubusercontent.com/YounesAlturkey/bitchunk/main/frontend/public/logo.png" alt="Tuwaiq Logo" width="80"/>
   <br>
 
-<a style="color: #ff5722;" href="https://bitchunk.co/" target="_blank">Bitchunk™: <span style="color: black;">Secure File Sharing</span></a>
+<a style="color: #ff5722;" href="https://bitchunk.co/" target="_blank">Bitchunk™: <span style="color: black;">Secure File Sharing and Storage</span></a>
 
 </h1>
-<h4 align="center">Accurate data sharding random distribution, and encryption service.</h4>
+<h4 align="center">Accurate data sharding, random distribution, and encryption service.</h4>
 
 <p align="center">
   <a href="#key-features">Key Features</a> •
@@ -15,7 +15,7 @@
 </p>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/YounesAlturkey/bitchunk/main/frontend/src/assets/img/demo.gif" alt="demo"/>
+  <a href="https://bitchunk.co/" target="_blank"><img src="https://raw.githubusercontent.com/YounesAlturkey/bitchunk/main/frontend/src/assets/img/demo.gif" alt="demo"/></a>
 </p>
 
 <br/>
@@ -28,6 +28,7 @@
 - **Password-locked** assembly point
 - Files may only be assembled once for enhanced security
 - Shard somewhere, **assemble anywhere**
+- AES-256 Encryption
 
 <br/>
 
@@ -51,48 +52,55 @@ Note: the service is in its first version, so expect some bugs.
 
 <br/>
 
-## License
+## Tech Stack - التكنولوجيا المستخدمة
 
-[MIT](https://github.com/YounesAlturkey/bitchunk/blob/main/LICENSE.MD)
+### <a href="https://bitchunk.azurewebsites.net/swagger/index.html" target="_blank">Backend</a> - الخلفية
 
-<div dir="rtl" align="right" >
+- .NET Core 5 Web API with 5 Controllers
+- Microsoft SQL Database with 8 Tables
 
-### المقدمــة | Introduction
+### <a href="https://bitchunk.azurewebsites.net/swagger/index.html" target="_blank">Frontend</a> - الواجهة
 
-### Demo
+- React.js 17.0.2 with 10 Views
 
-### Wireframe
+### Deployment - السيرفرات
 
-### Set up
+- Backend hosted at Azure App Service S3 Plan
+- Database hosted at Azure SQL Database
+- Fronted hosted at Netlify free service
 
-### Prerequisites
+<br/>
 
-- NET 5
-- ASP.NET MVC
-- Microsoft SQL Server
+## Wireframes - التصاميم
 
-### Set up
+<a href="https://www.figma.com/file/VsHGJZBJGujmnWRzuCRM9G/Bitchunk-Web-App?node-id=0%3A1" target="_blank">Figma link</a>
 
-#### Database
+<a href="https://github.com/YounesAlturkey/bitchunk/blob/main/frontend/bitchunk-wireframes.pdf" target="_blank">Pdf link</a>
 
-` dotnet ef database update`
+<br/>
 
-### Front-End
+## Unit Tests - الإختبارات
 
-- HTML
-- CSS
-- JS
-- Jquery
-- Bootstrap
+<p align="center">
+  <img src="https://raw.githubusercontent.com/YounesAlturkey/bitchunk/main/backend-tests/tests-results.png" alt="demo"/>
+</p>
 
-### Back-End
+<br/>
 
-- ASP.NET MVC
-- MSSQL Server
-- EF Core
+## License - الرخصة
 
-### Author
+[Open Source License ➝ MIT](https://github.com/YounesAlturkey/bitchunk/blob/main/LICENSE.MD)
 
-### License & Resource
+<br/>
+
+## Developer - المطور
+
+> Younes Alturkey - يونس التركي
+
+> Red Sea Group - فريق البحر الأحمر
+
+> GitHub: [@younes-alturkey](https://github.com/younes-alturkey) &nbsp;&middot;&nbsp;
+> Website: [younesalturkey.sa](https://younesalturkey.sa) &nbsp;&middot;&nbsp;
+> LinkedIn: [younes-alturkey](https://www.linkedin.com/in/younes-alturkey/)
 
 </div>
