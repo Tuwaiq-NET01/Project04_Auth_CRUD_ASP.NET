@@ -45,7 +45,7 @@ From your command line:
 
 #### # Clone this repository
   ```bash
-  git clone https://github.com/YounesAlturkey/bitchunk.git
+  git clone https://github.com/YounesAlturkey/bitchunk.co.git
   ```
 
 #### # Go into the frontend directory
