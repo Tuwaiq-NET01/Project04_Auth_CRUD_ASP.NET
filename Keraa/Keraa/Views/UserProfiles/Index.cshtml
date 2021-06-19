@@ -1,0 +1,112 @@
+﻿@model UserProfileModel
+@{
+    ViewData["Title"] = "UserProfileData";
+    ViewData["ActivePage"] = "UserProfiles";
+}
+
+@*<h4>@ViewData["Title"]</h4>*@
+
+<style>
+    #upload_widget {
+        position: relative;
+        top: 50%;
+    }
+    #D-close {
+        position: absolute;
+        top: 0px;
+        left: 95%;
+    }
+    #cvrImage {
+        position: absolute;
+        top: -150px;
+        left: -270px;
+        border: hidden;
+        border-radius: 200px;
+        width: 335px;
+        height: 335px;
+        background-color: #f1ac72;
+    }
+
+</style>
+
+<br />
+<center class="card mb-3" style="max-width: 550px; position: center; margin: 0 auto; border: hidden; background-color: #fd7e14; ">
+    <div class="row g-0" >
+        <div class="card-img-overlay" style="position: relative;" id="ImgC">
+            <a id="upload_widget" class="cloudinary-button"><img id="cvrImage" src=@Model.Image alt="..."></a>
+        </div>
+        <div class="col-md-8">
+            <div class="card-body" style="text-align: center; margin-left: 50px;">
+
+
+                <form asp-action="Update" method="post" class="form-horizontal">
+                    <div class="form-group">
+                        <div>
+                            <input type="hidden" asp-for="Id" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Name">أسم المستخدم</label>
+                        <div>
+                            <input type="text" class="form-control" asp-for="Name" value="@Model.Name" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Bio"> سيرة ذاتية قصيرة</label>
+                        <div>
+                            <input type="text" class="form-control" asp-for="Bio" value="@Model.Bio" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+@*                            <img id="cvrImage" src=@Model.Image alt="...">
+*@                            <input id="imageInput" type="hidden" asp-for="Image" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-outline-success" value="تحديث" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <span id="D-bar">
+        <span id="D-close">
+            <button type="button" onclick="location.href = './Identity/Account/Manage';" class="btn badge-danger close" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </span>
+    </span>
+</center>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+
+<script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>
+<script type="text/javascript">
+    var ig;
+    var myWidget = cloudinary.createUploadWidget({
+        cloudName: 'riodan',
+        uploadPreset: 'EkraaUploader',
+        maxFiles: 1
+    }, (error, result) => {
+        if (!error && result && result.event === "success") {
+            console.log('Done! Here is the image info: ', result.info);
+            ig = result.info.secure_url;
+            df.value = ig;
+            coverImage.childNodes[1].childNodes[0].src = ig;// to fetch the img source for #ImgC
+            var h = coverImage.childNodes[1]
+            console.log(h)
+        }
+    })
+    document.getElementById("upload_widget").addEventListener("click", function () {
+        myWidget.open();
+    }, false);
+    var df = document.getElementById("imageInput");
+    var coverImage = document.getElementById("ImgC")
+</script>

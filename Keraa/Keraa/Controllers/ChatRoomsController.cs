@@ -27,7 +27,6 @@ namespace Keraa.Controllers
             var UserChats = _db.ChatRooms.Include(c => c.ProductOwner).Include(c => c.Other).Where(u => u.ProductOwnerId == user.Id || u.OtherId == user.Id).ToList();
 
             //var UserChats = _db.ChatRooms.Where(u => u.ProductOwnerId == user.Id || u.OtherId == user.Id).ToList();
-            //var OtherUsersInfo = 
             ViewData["UserChats"] = UserChats;
             return View( new { ist= true });
         }

@@ -95,7 +95,7 @@ namespace Keraa.Areas.Identity.Pages.Account
 
                     await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
                         $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
-                    _db.UserProfiles.Add(new Models.UserProfileModel() { Id= user.Id, UserId= user.Id});
+                    _db.UserProfiles.Add(new Models.UserProfileModel() { Id= user.Id, Image= "https://www.pngitem.com/pimgs/m/146-1468843_profile-icon-orange-png-transparent-png.png", UserId= user.Id});
                     _db.SaveChanges();
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
