@@ -191,7 +191,8 @@
                     {
                         @foreach (var trip in user.Trips)
                         {
-                            <li class="list-group-item d-flex justify-content-between align-items-center" style="max-height: 120px">
+                            <div>
+                            <li class="list-group-item d-flex justify-content-between align-items-center shadow" style="max-height: 120px">
                                 <h6>@trip.Car.Manufacturer @trip.Car.CarName </h6>
                                 <p>@trip.DateReservedFrom @trip.TimeReservedFrom - @trip.DateReservedUntil @trip.TimeReservedUntil</p>
                                 <div class="image-parent">
@@ -203,11 +204,23 @@
 
                                 </div>
                             </li>
-                            <br />
-                        }
+
+
+                            @{
+                                if (DateTime.Parse(trip.DateReservedUntil) > DateTime.Now.Date)
+                                {
+                                    <input type="button" class="btn btn-dark" value=" Return" />
+                                }
+                            }
+
+
+
+                        </div>
+                        <br />
+                            }
                     }
-                </ul>
-            </div>
+                    </ul>
+                </div>
         </div>
     </div>
 </div>

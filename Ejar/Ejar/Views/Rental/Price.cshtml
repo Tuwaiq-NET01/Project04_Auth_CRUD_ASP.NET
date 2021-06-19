@@ -8,7 +8,7 @@
     decimal Total = ViewBag.Total;
 }
 
-<form method="post" asp-action="Create" asp-route-id="@Car.Id" style="margin-bottom: 0px">
+<form method="post" asp-controller="Rental" asp-action="Create" asp-route-id="@Car.Id" style="margin-bottom: 0px">
     <div class="card shadow mb-5 bg-white rounded" style="width:100%; background-image: url('@Car.Images.First().ImageUrl'); background-repeat: no-repeat; background-attachment: fixed;
   background-size: cover; margin-bottom: 0px">
       

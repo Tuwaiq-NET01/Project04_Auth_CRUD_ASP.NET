@@ -19,10 +19,10 @@ namespace Ejar.Controllers
 		public ManageController(ApplicationDbContext context)
 		{
 			_db = context;
-			
+
 		}
 
-		
+
 		public IActionResult Index()
 		{
 			int id = Convert.ToInt32(User.FindFirst(ClaimTypes.NameIdentifier).Value);
@@ -38,35 +38,36 @@ namespace Ejar.Controllers
 					car.Images = _db.Image.Where(i => i.CarId == car.Id).ToList();
 				}
 			}
-			
+
 
 			var trips = _db.Trip.Where(t => t.UserId == user.Id).ToList();
 
 			if (trips != null)
 			{
+
 				foreach (var trip in trips)
 				{
-					trip.Car = _db.Car.Where(c => c.Id == trip.Car.Id).FirstOrDefault<CarModel>();
+					trip.CarId = _db.Car.Where(c => c.Id == trip.CarId).FirstOrDefault<CarModel>().Id;
 					trip.Car.Images = _db.Image.Where(i => i.CarId == trip.Car.Id).ToList();
 					user.Trips.Add(trip);
 				}
 			}
-			
-			
+
+
 
 			if (user == null)
 			{
 				return Content("Error");
 			}
 
-			
+
 			ViewBag.User = user;
 			return View();
 		}
 
 		public bool isAccountComplete(AccountModel account)
 		{
-			if (account.FirstName != null && account.LastName != null && account.PhoneNumber.ToString().Length > 7 && account.Address != null )
+			if (account.FirstName != null && account.LastName != null && account.PhoneNumber.ToString().Length > 7 && account.Address != null)
 			{
 				return true;
 			}
@@ -102,7 +103,7 @@ namespace Ejar.Controllers
 			_db.Account.Update(account);
 			_db.SaveChanges();
 
-			
+
 			return RedirectToAction("Index");
 		}
 
@@ -138,13 +139,34 @@ namespace Ejar.Controllers
 				ViewBag.User = user;
 				RedirectToAction("Added License");
 			}
-			
+
 			_db.License.Update(license);
 			_db.SaveChanges();
 			ViewBag.User = user;
 			Console.WriteLine(user.Account.License.IssuingDate);
 			RedirectToAction("Updated License");
-			return View("Index"); 
+			return View("Index");
 		}
+
+
+		[HttpPost]
+		public IActionResult ReturnCar(int id)
+		{
+			var trip = _db.Trip.Where(t => t.Id == id).FirstOrDefault<TripModel>();
+			var car = _db.Car.Where(c => c.Id == trip.CarId).FirstOrDefault<CarModel>();
+
+			trip.DateReservedUntil = DateTime.Now.Date.ToString("yyyy-mm-dd");
+			trip.TimeReservedUntil = DateTime.Now.TimeOfDay.ToString();
+
+			_db.Trip.Update(trip);
+			_db.SaveChanges();
+
+			car.Available = "True";
+			_db.Car.Update(car);
+			_db.SaveChanges();
+
+			return RedirectToAction("Index");
+		}
+
 	}
 }

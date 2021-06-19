@@ -21,7 +21,7 @@ namespace Ejar.Models
 		public int UserId { get; set; }
 		public ApplicationUser ApplicationUser { get; set; }
 
-		//public int CarId { get; set; }
+		public int CarId { get; set; }
 		public CarModel Car { get; set; }
 
 	}

@@ -2,6 +2,7 @@
     ViewData["Title"] = "Home Page";
 
     List<CarModel> Cars = (List<CarModel>)ViewBag.Cars;
+
     int count = 0;
     int count2 = 0;
     int role = 0;
@@ -17,7 +18,7 @@
         count2 = 0;
 
 
-        <div class="row card-group card" style="max-width:300px; margin-left: 30px;">
+        <div class="row card-group card" style="max-width: 300px; margin-left: 70px; margin-bottom: 10px;">
 
 
 
@@ -73,13 +74,14 @@
                 <div class="card-body" style="align-items: center; align-self: center">
                     <center>
 
-                        <h5 class="card-title">Toyota Camry 2020</h5>
+                        <h5 class="card-title">@car.Manufacturer @car.CarName @car.Year</h5>
                         <p><strong>@car.DayPrice SAR</strong> /day | <strong>@car.HourPrice SAR</strong> /hour </p>
 
                     </center>
                 </div>
             </a>
         </div>
+
         role++;
 
     }
