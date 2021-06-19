@@ -2,54 +2,24 @@
 
 <div dir="rtl" align="right">
 
-فكرة المشروع
 
-بناء مشروع متكامل باستخدام ASP.NET MVC  قائم على فكرة من اختيارك وتتضمن المتطلبات الأساسية لبناء تطبيق ASP.NET MVC مع  Entity Framework Core وSql Server.
+منصة عطايا:  
 
-
-قبل بداية المشروع 
-
-عمل Wireframes و ERD والتأكيد مع أحد المدربين قبل البدء بتنفيذ المشروع. بداية المشروع بالنسخة رقم  v.1
-
-متطلبات المشروع
+هي منصه الكترونية تساهم في جمع جميع المنصات والجهات الخيريه في مكان واحد 
 
 
-- استخدام نمط MVC 
-- إنشاء على الأقل 4 من Controllers
-- إنشاء على الأقل 4 Model 
-- إنشاء على الأقل 6 Views
-    - استخدام مكتبة Bootstrap مع Razor 
-    - استخدام partial view للعناصر المتكررة في الواجهات
-- استخدام وظائف CRUD مع ASP.NET 
-- استخدام إطار عمل Entity Framework Core
-- استخدام CodeFirst Approach لإنشاء قاعدة البيانات
-- استخدام قاعدة بيانات MSSQL 
-    - ان تكون قاعدة البيانات متعددة الجداول
-    - يجب ان تتضمن قاعدة البيانات على الاقل احد العلاقات التالية:
-        - علاقة one-to-one
-        - علاقة one-to-many
-        - علاقة many-to-many
-- تطبيق Authentication 
-- قم بتطبيق Unit Testing على مشروعك
+
+<img width="949" alt="Ataya" src="https://user-images.githubusercontent.com/82510846/122653686-ef74de00-d14e-11eb-9aa7-e64f2f691bb4.PNG">
     
 
+________________________________________________________________________________________________________________________________________________________________________________
 
+    
+    
+    
+![Password reset task flow example](https://user-images.githubusercontent.com/82510846/122653697-04517180-d14f-11eb-949b-64997c7afa3e.png)
 
+    
+![ERD with colored entities (UML notation)](https://user-images.githubusercontent.com/82510846/122653708-19c69b80-d14f-11eb-9f10-ac0ecaa9561a.png)
 
-
-إضافة | Bonus 
-- قم باستخدام أحد مفاهيم Design Patterns في مشروعك لحل مشكلةٍ ما
-- إنشاء APIs 
-- عمل Deploy للمشروع على Azure
-- استخدام React مع ASP.NET أو أي Framework 
-- استخدام WebSockets في ASP.NET core
-- التعامل مع الـThird party APIs  {SMS Message, Google Maps,….} 
-    - مصادر للـAPIs
-    - الاول: Any API over 1400 Public APIs: https://any-api.com/
-    - الثاني: API Search: http://apis.io/
-- رفع صور او ملفات 
-    -  باستخدام الـthird-party:
-        - Cloudinary: https://cloudinary.com/
-        -  AWS: https://aws.amazon.com/s3/?nc2=h_ql_prod_st_s3
-    - حفظها  بالـLocal server 
 </div>
