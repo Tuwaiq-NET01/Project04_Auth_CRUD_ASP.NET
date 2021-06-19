@@ -6,16 +6,16 @@
     <title>@ViewData["Title"] - eBookshelf</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
-
+    <script src="https://kit.fontawesome.com/c9796c7375.js" crossorigin="anonymous"></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
 
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">eBookshelf</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">E-Bookshelf</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -29,25 +29,39 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Ebook" asp-action="Index">My books</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Ebook" asp-action="Index">My Books</a>
                         </li>
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>
+        <div class="bg-dark py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">E-Bookshelf</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">Import your books</p>
+                    <p class="lead fw-normal text-white-50 mb-0">Read, and Create an e-book from an existing website</p>
+                </div>
+            </div>
+        </div>
     </header>
     <div class="container">
         <main role="main" class="pb-3">
-            @RenderBody()
+            <div class="p-3 my-3">
+                @RenderBody()   
+            </div>
         </main>
     </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2021 - eBookshelf - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
+    <!-- Footer-->
+    <footer class="border-top footer text-muted py-2 bg-dark">
+        <div class="container"><p class="m-0 text-center text-white"> &copy; 2021 - eBookshelf </p></div>
     </footer>
+    @*<footer class="border-top footer text-muted">
+            <div class="container">
+                &copy; 2021 - eBookshelf - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>
+        </footer>*@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

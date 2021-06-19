@@ -19,9 +19,7 @@ namespace eBookshelf.Data
 
         public DbSet<NotesModel> Notes { get; set; }
 
-        public DbSet<FileModel> Files { get; set; }
-
-
+        public DbSet<eBookshelf.Models.ConverterModel> ConverterModel { get; set; }
 
     }
 }

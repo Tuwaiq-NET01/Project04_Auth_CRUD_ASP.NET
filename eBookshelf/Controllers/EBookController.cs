@@ -86,17 +86,32 @@ namespace eBookshelf.Controllers
         //}
 
         // GET: EBook/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            return View();
-        }
+            //if (TempData.ContainsKey("convFile") && TempData.ContainsKey("convName"))
+            //{
+            //    EbookViewModel ebookViewModel = new EbookViewModel
+            //    {
+            //        Name = TempData["convName"].ToString(),
+            //        Content = (FormFile)TempData["convFile"]
+            //    };
+            //}
+            //if (model != null)
+            //{
+            //    await Create(model, 1);
+            //    RedirectToAction("Index");
+            //}
 
+            return  View();
+           
+        }
  
         //// POST: EBook/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,Content")] EbookViewModel ebookViewModel)
         {
+   
             if (ModelState.IsValid)
             {
                 try

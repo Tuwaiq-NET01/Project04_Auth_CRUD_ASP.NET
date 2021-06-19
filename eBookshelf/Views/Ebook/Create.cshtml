@@ -4,9 +4,9 @@
    // var file = ViewBag.FileForm;
 }
 
-<h1>Create</h1>
 
-<h4>EbookModel</h4>
+<h3>EbookModel</h3>
+
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -17,41 +17,21 @@
                     <input asp-for="Name" class="form-control" />
                     <span asp-validation-for="Name" class="text-danger"></span>
                 </div>
-                @*<div class="form-group">
-                    <label asp-for="Author" class="control-label"></label>
-                    <input asp-for="Author" class="form-control" />
-                    <span asp-validation-for="Author" class="text-danger"></span>
-                </div>
                 <div class="form-group">
-                    <label asp-for="CoverImg" class="control-label"></label>
-                    <input asp-for="CoverImg" class="form-control" />
-                    <span asp-validation-for="CoverImg" class="text-danger"></span>
-                </div>*@
-                <div class="form-group">
-                    @*<label asp-for="Content" class="control-label"></label>
-                    <input class="form-control" id="file" name="file" type="file" />*@
                     <label asp-for="Content" class="control-label"></label>
                     <input asp-for="Content" class="form-control" />
                     <span asp-validation-for="Content" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-
-                    @*<span asp-validation-for="CreationDate" class="text-danger"></span>*@
-                </div>
-                @*<div class="form-group">
-                    <label asp-for="OwnerId" class="control-label"></label>
-                    <select asp-for="OwnerId" class ="form-control" asp-items="ViewBag.OwnerId"></select>
-                </div>*@
-                <div class="form-group">
-                    <input type="submit" value="Create" class="btn btn-primary" />
+                    <input type="submit" value="Create" class="btn btn-outline-dark mt-auto" />
                 </div>
             </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a class="btn btn-outline-dark mt-auto" asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {
