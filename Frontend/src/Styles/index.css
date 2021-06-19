@@ -1,0 +1,35 @@
+html {
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+  font-family: 'Montserrat', sans-serif;
+}
+
+html, body, #root {
+  height: 100%;
+  background-color:  #171717;
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+a{
+  color: white ; 
+  text-decoration:none ;
+  font-family: 'Montserrat', sans-serif;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: white;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: white;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: white;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: white;
+}
