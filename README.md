@@ -48,12 +48,12 @@ From your command line:
   git clone https://github.com/YounesAlturkey/bitchunk.git
   ```
 
-#### # Go into the repository
+#### # Go into the frontend directory
   ```bash
   cd bitchunk.co/frontend
   ```
-#### # Run the application
-    ```bash
+#### # Run the app
+  ```bash
   yarn start
   ```
 
