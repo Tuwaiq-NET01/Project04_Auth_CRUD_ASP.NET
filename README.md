@@ -13,9 +13,11 @@
 
 ### Demo  
  <img src="./Resources/Ejar_Demo.gif" />
- 
+  <br/>
+  <img src="./Resources/Ejar_Demo2.gif" />
+
 ### Wireframe  
-  <img src="./Resources/ASP_Wireframe_Ejar.gif" />
+  <img src="./Resources/ASP_Wireframe_Ejar.png" />
   <br/>
 
 ### Set up  
