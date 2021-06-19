@@ -1,0 +1,15 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=585cf59e_002De09b_002D415e_002D9209_002D0720e21cca48/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Test1" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::9C6C3961-FDC9-4DDA-8CB9-266678CE4051::net5.0::FinalProjectXUnitTest.UnitTest1.Test1&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::8B3993DF-1D22-40CC-9406-4A700FB97EDA::net5.0::FinalProjectTest.Controllers.AuthControllerTest.GetTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::8B3993DF-1D22-40CC-9406-4A700FB97EDA::net5.0::FinalProjectTest.Controllers.AuthControllerTest.RegisterTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::8B3993DF-1D22-40CC-9406-4A700FB97EDA::net5.0::FinalProjectTest.Controllers.MoviesControllerTest.RegisterTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::8B3993DF-1D22-40CC-9406-4A700FB97EDA::net5.0::FinalProjectTest.Controllers.MoviesControllerTest.GetTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::8B3993DF-1D22-40CC-9406-4A700FB97EDA::net5.0::FinalProjectTest.Controllers.TvShowsControllerTest.GetTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::8B3993DF-1D22-40CC-9406-4A700FB97EDA::net5.0::FinalProjectTest.Controllers.MoviesControllerTest.GetFavMovieTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::8B3993DF-1D22-40CC-9406-4A700FB97EDA::net5.0::FinalProjectTest.Controllers.FavoriteMoviesControllerTest.GetFavMovieTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::8B3993DF-1D22-40CC-9406-4A700FB97EDA::net5.0::FinalProjectTest.Controllers.FavoriteTvShowsControllerTest.GetFavMovieTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::8B3993DF-1D22-40CC-9406-4A700FB97EDA::net5.0::FinalProjectTest.Controllers.SearchControllerTest.GetTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
