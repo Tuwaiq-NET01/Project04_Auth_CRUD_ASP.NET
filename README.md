@@ -3,7 +3,7 @@
 ![Tuwaiq](https://i.ibb.co/SV2BSn5/tuwaiq.png)
 ----
 
-# Movies Library | اسم التطبيق
+# Movies Library | مكتبة الأفلام
   
 ### المقدمــة | Introduction 
  في هذا المشروع أقدم جميع ما تعلمته خلال الشهر الشهر الثاني من المعسكر في مشروع واحد.
