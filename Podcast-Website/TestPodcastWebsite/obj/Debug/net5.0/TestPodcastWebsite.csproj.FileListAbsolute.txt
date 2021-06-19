@@ -224,4 +224,3 @@ C:\Users\abdul\OneDrive\سطح المكتب\.net\Project04_Auth_CRUD_ASP.NET\Pod
 C:\Users\abdul\OneDrive\سطح المكتب\.net\Project04_Auth_CRUD_ASP.NET\Podcast-Website\TestPodcastWebsite\obj\Debug\net5.0\ref\TestPodcastWebsite.dll
 C:\Users\abdul\OneDrive\سطح المكتب\.net\Project04_Auth_CRUD_ASP.NET\Podcast-Website\TestPodcastWebsite\obj\Debug\net5.0\TestPodcastWebsite.pdb
 C:\Users\abdul\OneDrive\سطح المكتب\.net\Project04_Auth_CRUD_ASP.NET\Podcast-Website\TestPodcastWebsite\obj\Debug\net5.0\TestPodcastWebsite.genruntimeconfig.cache
-C:\Users\abdul\OneDrive\سطح المكتب\.net\Project04_Auth_CRUD_ASP.NET\Podcast-Website\TestPodcastWebsite\bin\Debug\net5.0\Podcast-Website.StaticWebAssets.xml

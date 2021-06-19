@@ -49,6 +49,13 @@ namespace TestPodcastWebsite.Controllers
             Assert.AreEqual("Abdulrahman", _podcast.Getall()[0].Title);
         }
 
+        [Test]
+        public void Edit_Game_With_Id_Exception()
+        {
+            PodcastModel p = new PodcastModel() { Id = 5000, Title = "test", Audio = "https://res.cloudinary.com/dhuxwxtfm/video/upload/v1613571243/zwz1nov81nhkbnnj6e6i.mp3", Podcast_image = "https://res.cloudinary.com/duuconncq/image/upload/v1622845572/img_4_uhkpiv.jpg", Description = "Lovely life", ProfileId = 1 };
+            Assert.Throws<NullReferenceException>((() => _podcast.EditPodcast(p)));
+        }
+
         public void seed(ApplicationDbContext context)
         {
             var podcast = new[]

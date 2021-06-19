@@ -10,10 +10,11 @@
     var rating = (List<PodcastProfileModel>)ViewData["rating"];
 
 
-    
-        double totle = 0;
-        var count = 0;
-    
+
+    double totle = 0;
+    var count = 0;
+    var count1 = 0;
+
 
 }
 
@@ -37,14 +38,9 @@
                     <div class="bg-light p-4 d-flex justify-content-end text-center">
                         <ul class="list-inline mb-0">
                             <li class="list-inline-item">
-                                <h5 class="font-weight-bold mb-0 d-block">215</h5><small class="text-muted"> <i class="fas fa-image mr-1"></i>Photos</small>
+                                <h5 class="font-weight-bold mb-0 d-block" id="totalOfPodcast"></h5><small class="text-muted"> <i class="fas fa-image mr-1"></i>Podcasts</small>
                             </li>
-                            <li class="list-inline-item">
-                                <h5 class="font-weight-bold mb-0 d-block">745</h5><small class="text-muted"> <i class="fas fa-user mr-1"></i>Followers</small>
-                            </li>
-                            <li class="list-inline-item">
-                                <h5 class="font-weight-bold mb-0 d-block">340</h5><small class="text-muted"> <i class="fas fa-user mr-1"></i>Following</small>
-                            </li>
+
                         </ul>
                     </div>
 
@@ -72,6 +68,7 @@
 
                                 if (Podcast.ProfileId == Profile.Id)
                                 {
+                                    count1++;
                                     <div class="container text-center card1" style="height:260px;margin-top:40px">
 
                                         <div class="row">
@@ -118,8 +115,20 @@
         </div>
     }
 }
+<script>
+    function totlePodcast() {
+        console.log("kdnmlkjs")
+        var totle = document.getElementById("pcount").innerHTML
+        document.getElementById("totalOfPodcast").innerHTML = totle
+    }
 
+</script>
 
+<p hidden id="pcount">@count1</p>
+
+<script type="text/javascript">
+    totlePodcast()
+</script>
 
 
 

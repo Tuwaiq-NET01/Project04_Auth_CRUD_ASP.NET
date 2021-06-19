@@ -2,8 +2,19 @@
     var Profiles = (List<ProfileModel>)ViewData["Profiles"];
     var Podcasts = (List<PodcastModel>)ViewData["Podcasts"];
     var id = (string)ViewData["userid"];
+    var count = 0;
 
 }
+
+
+<script>
+    function totlePodcast() {
+        console.log("kdnmlkjs")
+        var totle = document.getElementById("pcount").innerHTML
+        document.getElementById("totalOfPodcast").innerHTML = totle
+    }
+
+</script>
 
 @foreach (var Profile in Profiles)
 {
@@ -15,9 +26,12 @@
                 <div class="bg-white shadow rounded overflow-hidden">
                     <div class="px-4 pt-0 pb-4 cover" style="background-image: url( @Profile.Background_Image );background-size: cover;background-repeat: no-repeat">
                         <div class="media align-items-end profile-head">
-                            <div class="profile mr-3" style="transform: translateY(5rem)"><img src=@Profile.Image alt="..." width="150" class="rounded mb-2 img-thumbnail">
-                            <a href="/myprofile/edit/@Profile.Id" class="btn btn-outline-dark btn-sm btn-block">Edit profile <i class="fas fa-user-edit"></i>
-                                </a></div>
+                            <div class="profile mr-3" style="transform: translateY(5rem)">
+                                <img src=@Profile.Image alt="..." width="150" class="rounded mb-2 img-thumbnail">
+                                <a href="/myprofile/edit/@Profile.Id" class="btn btn-outline-dark btn-sm btn-block">
+                                    Edit profile <i class="fas fa-user-edit"></i>
+                                </a>
+                            </div>
                             <div class="media-body mb-5 text-white">
                                 <h4 class="mt-0 mb-0">@Profile.Name</h4>
 
@@ -27,14 +41,9 @@
                     <div class="bg-light p-4 d-flex justify-content-end text-center">
                         <ul class="list-inline mb-0">
                             <li class="list-inline-item">
-                                <h5 class="font-weight-bold mb-0 d-block">215</h5><small class="text-muted"> <i class="fas fa-image mr-1"></i>Photos</small>
+                                <h5 class="font-weight-bold mb-0 d-block" id="totalOfPodcast"></h5><small class="text-muted"> <i class="fas fa-image mr-1"></i>Podcasts</small>
                             </li>
-                            <li class="list-inline-item">
-                                <h5 class="font-weight-bold mb-0 d-block">745</h5><small class="text-muted"> <i class="fas fa-user mr-1"></i>Followers</small>
-                            </li>
-                            <li class="list-inline-item">
-                                <h5 class="font-weight-bold mb-0 d-block">340</h5><small class="text-muted"> <i class="fas fa-user mr-1"></i>Following</small>
-                            </li>
+                          
                         </ul>
                     </div>
 
@@ -47,6 +56,9 @@
                             {
                                 if (Podcast.ProfileId == Profile.Id)
                                 {
+                                    count++;
+
+
                                     <div class="container text-center card1" style="height:260px;margin-top:40px">
 
                                         <div class="row">
@@ -87,7 +99,10 @@
 
                                             </div>
                                         </div>
+
                                     </div>
+
+
                                 }
 
                             }
@@ -95,10 +110,16 @@
                     </div>
                 </div>
             </div>
+
         </div>
     }
 }
 
+<p hidden id="pcount">@count</p>
+
+<script type="text/javascript">
+    totlePodcast()
+</script>
 
 
 

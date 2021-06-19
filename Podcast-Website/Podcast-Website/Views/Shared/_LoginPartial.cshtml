@@ -1,7 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
-  
+
 
 <ul class="navbar-nav">
     @if (SignInManager.IsSignedIn(User))
@@ -10,18 +10,27 @@
             <a class="nav-link text-nav" href="/myprofile"><span class="nav-text1">My Profile</span></a>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link text-nav" asp-area="Identity" asp-page="/Account/Manage/Index"><span class="nav-text1">Weclome @User.Identity.Name</span></a>
+       
+        
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fas fa-user-circle"></i>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li class="nav-item">
+                    <a class="nav-link text-nav" asp-area="Identity" asp-page="/Account/Manage/Index"><span class="nav-text1"> @User.Identity.Name</span></a>
+                </li>
+                <li class="nav-item">
+                    <form class="form-inline" id="my_form" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                        <a class="nav-link text-nav" href="javascript:{}" onclick="document.getElementById('my_form').submit();"><span style="color:red">Logout</span></a>
+
+                    </form>
+                </li>
+
+            </ul>
         </li>
-        <li class="nav-item">
-            <form class="form-inline" id="my_form" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                <a class="nav-link text-nav" href="javascript:{}" onclick="document.getElementById('my_form').submit();"><span class="nav-text1">Logout</span></a>
 
-
-            </form>
-
-        </li>
-    
     }
     else
     {
@@ -35,3 +44,6 @@
         </li>
     }
 </ul>
+
+
+

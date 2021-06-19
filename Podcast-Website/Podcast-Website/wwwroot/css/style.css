@@ -22,6 +22,7 @@
     text-align: center;
     height: 368px;
     border: none;
+
 }
 
     .profile-card-1 .background {
@@ -32,6 +33,8 @@
         filter: blur(5px);
         -webkit-transform: scale(1.8);
         transform: scale(2.8);
+
+
     }
 
     .profile-card-1 .card-content {
@@ -182,7 +185,7 @@
     margin-left: 2.9%;
     transition: 0.5s ease;
     font-size: 23px;
-    margin-top:-6px;
+    margin-top:-10px;
     
 }
 

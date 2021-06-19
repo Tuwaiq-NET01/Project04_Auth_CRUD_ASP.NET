@@ -116,7 +116,7 @@ namespace Podcast_Website.Controllers
             var Podcasts = _db.Podcasts.ToList().Find(p => p.Id == id);
             if (id == 0 || Podcasts == null)
             {
-                return View("NotFound");
+                return View("NotFoundPage");
             }
             ViewData["Podcasts"] = Podcasts;
             return View();
@@ -135,6 +135,11 @@ namespace Podcast_Website.Controllers
        
         public List<PodcastModel> EditPodcast([Bind("Id", "Title", "Audio", "Podcast_image", "Description", "ProfileId")] PodcastModel Podcast)
         {
+            var Podcasts = _db.Podcasts.ToList().Find(p => p.Id == Podcast.Id);
+            if (Podcast.Id == 0 || Podcasts == null)
+            {
+                throw new NullReferenceException("Id not found");
+            }
             _db.Podcasts.Update(Podcast);
             _db.SaveChanges();
             return _db.Podcasts.ToList();
@@ -146,7 +151,7 @@ namespace Podcast_Website.Controllers
             var Music = _db.Podcasts.ToList().Find(p => p.Id == id);
             if (id == null || Music == null)
             {
-                return View("NotFound");
+                return View("NotFoundPage");
             }
             _db.Podcasts.Remove(Music);
             _db.SaveChanges();
@@ -186,7 +191,8 @@ namespace Podcast_Website.Controllers
 
             if (Podcast == null)
             {
-                return View("NotFound");
+
+                return View("NotFoundPage");
             }
             else
             {

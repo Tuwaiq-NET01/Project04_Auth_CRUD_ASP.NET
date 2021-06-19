@@ -175,3 +175,4 @@ C:\Users\abdul\OneDrive\سطح المكتب\.net\Project04_Auth_CRUD_ASP.NET\Pod
 C:\Users\abdul\OneDrive\سطح المكتب\.net\Project04_Auth_CRUD_ASP.NET\Podcast-Website\Podcast-Website\obj\Debug\net5.0\Razor\Views\Channels\Index.cshtml.g.cs
 C:\Users\abdul\OneDrive\سطح المكتب\.net\Project04_Auth_CRUD_ASP.NET\Podcast-Website\Podcast-Website\obj\Debug\net5.0\Razor\Views\Channels\Details.cshtml.g.cs
 C:\Users\abdul\OneDrive\سطح المكتب\.net\Project04_Auth_CRUD_ASP.NET\Podcast-Website\Podcast-Website\obj\Debug\net5.0\Razor\Views\Myprofile\Edit.cshtml.g.cs
+C:\Users\abdul\OneDrive\سطح المكتب\.net\Project04_Auth_CRUD_ASP.NET\Podcast-Website\Podcast-Website\obj\Debug\net5.0\Razor\Views\Podcast\NotFoundPage.cshtml.g.cs

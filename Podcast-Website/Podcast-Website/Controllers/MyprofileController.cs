@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Podcast_Website.Data;
 using Podcast_Website.Models;
@@ -20,6 +21,7 @@ namespace Podcast_Website.Controllers
             _db = context;
             _userManager = userManager;
         }
+        [Authorize]
         public IActionResult Index()
         {
             
@@ -30,19 +32,21 @@ namespace Podcast_Website.Controllers
             ViewData["Podcasts"] = Podcasts;
             return View();
         }
-
+        [Authorize]
         public IActionResult Edit(int id)
         {
             var Profiles = _db.Profiles.ToList().Find(p => p.Id == id);
             if (id == 0 || Profiles == null)
             {
-                return View("NotFound");
+                return View("NotFoundPage");
+
             }
             ViewData["Profiles"] = Profiles;
             return View();
         }
 
         // Post - /poducts/edit/id
+        [Authorize]
         [HttpPost]
         public IActionResult Edit([Bind("Id", "Name", "Image", "Background_Image", "UserId")] ProfileModel Profiles)
         {
