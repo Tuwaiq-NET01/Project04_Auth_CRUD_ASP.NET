@@ -22,15 +22,27 @@ namespace AppStore.Controllers
         }
 
         [HttpGet]
-        public IActionResult Create(int? id) // Receive App Id
+        public IActionResult Create(int? id , /*This Parameter Added For Unit Testing :( */string fakeId = "") // Receive App Id
         {
             var App = _db.Apps.ToList().Find(a => a.Id == id);
             if (App == null)
             {
                 return View("_NotFound");
             }
-
-
+            
+            // This Code Added For Unit Test :(
+            if (!String.IsNullOrEmpty(fakeId))
+            {
+                var ratingTest = _db.Ratings.Where(a => a.AppId == id).ToList()
+                    .Find(u => u.UserId == fakeId);
+                if (ratingTest != null)
+                {
+                    return RedirectToAction("Edit", new {ratingTest.Id});
+                }
+                ViewBag.App = App;
+                return View();
+            }
+            
             // Redirect To Edit Review If Already User Reviewed App
             var rating = _db.Ratings.Where(a => a.AppId == id).ToList()
                 .Find(u => u.UserId == _userManager.GetUserId(User));

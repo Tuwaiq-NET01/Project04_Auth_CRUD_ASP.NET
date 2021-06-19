@@ -12,12 +12,12 @@ namespace AppStore.Controllers
     public class AppsController : Controller
     {
         private readonly ApplicationDbContext _db;
-        private readonly UserManager<ApplicationUser> _userManager;
+        // private readonly UserManager<ApplicationUser> _userManager;
 
-        public AppsController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
+        public AppsController(ApplicationDbContext context/*, UserManager<ApplicationUser> userManager*/)
         {
             _db = context;
-            _userManager = userManager;
+            // _userManager = userManager;
         }
 
         // GET

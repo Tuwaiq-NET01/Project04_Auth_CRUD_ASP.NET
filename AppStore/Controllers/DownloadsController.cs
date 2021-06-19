@@ -18,7 +18,6 @@ namespace AppStore.Controllers
             _db = context;
             _userManager = userManager;
         }
-        // GET
         
         [HttpPost("/download/{id}")]
         public IActionResult Download(int id)

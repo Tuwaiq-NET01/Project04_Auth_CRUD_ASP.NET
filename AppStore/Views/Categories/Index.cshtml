@@ -1,1 +1,92 @@
-﻿
+﻿@using Microsoft.AspNetCore.Identity
+@using AppStore.Data
+@inject SignInManager<ApplicationUser> SignInManager
+
+
+@{
+    ViewData["Title"] = "Apps Page";
+    var apps = (List<AppModel>) ViewBag.Apps;
+    var sApps = (List<AppCategoryModel>) ViewBag.sApps;
+
+    var SignedIn = SignInManager.IsSignedIn(User);
+
+}
+
+@functions
+{
+    void stars(double rate)
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            if (i < rate)
+            {
+                <span class="fa fa-star checked"></span>
+            }
+            else
+            {
+                <span class="fa fa-star"></span>
+            }
+        }
+    }
+}
+
+
+<div class="container text-center">
+    <div class="category-title mb-3">
+        @if (apps != null)
+        {
+            <h3>@apps[0].GeneralCategory Apps</h3>
+        }
+        else
+        {
+            <h3>@sApps[0].Category.Name Apps</h3>
+        }
+        <hr>
+    </div>
+    <div class="row app-row">
+        @{
+            if (apps != null)
+            {
+                foreach (var app in apps)
+                {
+                    <a asp-controller="Apps" asp-action="Details" asp-route-id="@app.Id" class="col-md-5 app-card d-flex flex-row">
+                        <div class="app-icon">
+                            <img width="100px" src="@app.Icon" alt="@app.Name">
+                        </div>
+                        <div class="app-details text-left ml-2">
+                            <p class="font-weight-bold">@app.Name</p>
+                            <p>@app.Description</p>
+                            <div id="avg-rating" class="mr-4">
+                                @{
+                                    stars(Math.Round(app.AverageRating));
+                                    @app.Ratings.Count
+                                }
+                            </div>
+                        </div>
+                    </a>
+                }
+            }
+            else
+            {
+                foreach (var app in sApps)
+                {
+                    <a asp-controller="Apps" asp-action="Details" asp-route-id="@app.App.Id" class="col-md-5 app-card d-flex flex-row">
+                        <div class="app-icon">
+                            <img width="100px" src="@app.App.Icon" alt="@app.App.Name">
+                        </div>
+                        <div class="app-details text-left ml-2">
+                            <p class="font-weight-bold">@app.App.Name</p>
+                            <p>@app.App.Description</p>
+                            @{
+                                stars(Math.Round(app.App.AverageRating));
+                                @app.App.Ratings.Count
+                            }
+                        </div>
+                    </a>
+                }
+            }
+
+
+        }
+    </div>
+</div>

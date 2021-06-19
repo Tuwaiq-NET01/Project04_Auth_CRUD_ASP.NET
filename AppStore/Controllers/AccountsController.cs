@@ -22,8 +22,19 @@ namespace AppStore.Controllers
         }
         // GET
 
-        public IActionResult Index()
+        public IActionResult Index(/*This Parameter Added For Unit Testing :( */string fakeId = "")
         {
+            // This Code Added For Unit Test :(
+            if (!String.IsNullOrEmpty(fakeId))
+            {
+                var UserDownloads2 = _db.Apps
+                    .Include(a => a.Downloads.Where(d=>d.UserId == fakeId))
+                    .Include(r=>r.Ratings.Where(d=>d.UserId ==fakeId))
+                    .ToList();
+                ViewBag.UserDownloads = UserDownloads2;
+                return View();
+            }
+            
             var UserDownloads = _db.Apps
                 .Include(a => a.Downloads.Where(d=>d.UserId == _userManager.GetUserId(User)))
                 .Include(r=>r.Ratings.Where(d=>d.UserId == _userManager.GetUserId(User)))
