@@ -10180,11 +10180,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\IBRA\\RiderProjects\\FinalProject\\FinalProjectXUnitTest\\FinalProjectXUnitTest.csproj",
+      "projectUniqueName": "C:\\Users\\IBRA\\RiderProjects\\FinalProject\\Project04_Auth_CRUD_ASP.NET\\FinalProjectXUnitTest\\FinalProjectXUnitTest.csproj",
       "projectName": "FinalProjectXUnitTest",
-      "projectPath": "C:\\Users\\IBRA\\RiderProjects\\FinalProject\\FinalProjectXUnitTest\\FinalProjectXUnitTest.csproj",
+      "projectPath": "C:\\Users\\IBRA\\RiderProjects\\FinalProject\\Project04_Auth_CRUD_ASP.NET\\FinalProjectXUnitTest\\FinalProjectXUnitTest.csproj",
       "packagesPath": "C:\\Users\\IBRA\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\IBRA\\RiderProjects\\FinalProject\\FinalProjectXUnitTest\\obj\\",
+      "outputPath": "C:\\Users\\IBRA\\RiderProjects\\FinalProject\\Project04_Auth_CRUD_ASP.NET\\FinalProjectXUnitTest\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\IBRA\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -10201,8 +10201,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\IBRA\\RiderProjects\\FinalProject\\FinalProject\\FinalProject.csproj": {
-              "projectPath": "C:\\Users\\IBRA\\RiderProjects\\FinalProject\\FinalProject\\FinalProject.csproj"
+            "C:\\Users\\IBRA\\RiderProjects\\FinalProject\\Project04_Auth_CRUD_ASP.NET\\FinalProject\\FinalProject.csproj": {
+              "projectPath": "C:\\Users\\IBRA\\RiderProjects\\FinalProject\\Project04_Auth_CRUD_ASP.NET\\FinalProject\\FinalProject.csproj"
             }
           }
         }

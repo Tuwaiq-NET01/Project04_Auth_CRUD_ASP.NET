@@ -67,7 +67,8 @@ function FavoriteTvShows(props) {
                 </tr>
                 </thead>
                 <tbody>
-                {favTvShowList.map((favTvShow, index) =>
+                {user.profile && user.profile.favoriteTvShow?
+                    favTvShowList.map((favTvShow, index) =>
                     <tr key={index+1}>
                         <td className="align-middle">{index+1}</td>
                         <td className="align-middle">{favTvShow.tvShow.title}</td>
@@ -79,7 +80,7 @@ function FavoriteTvShows(props) {
                             <button onClick={() => deleteFromFav(favTvShow.tvShow.id)} className="btn btn-danger">Delete</button>
                         </td>
                     </tr>
-                )}
+                ) : null}
                 </tbody>
             </table>
         );
@@ -91,6 +92,7 @@ function FavoriteTvShows(props) {
 
     return (
         <div className="fade-me">
+            <h1 id="tabelLabel" style={{textAlign: "center", marginBottom: "60px"}}>Favorite TV Shows List</h1>
             {contents}
         </div>
     );

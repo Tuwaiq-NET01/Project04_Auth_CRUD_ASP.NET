@@ -70,9 +70,10 @@ function NavMenu(props) {
                         className="text-light"
                         to="/profile"
                     >
-                        Profile
+                        {props.user.name}'s Profile
                     </NavLink>
-                </NavItem><NavItem>
+                </NavItem>
+                <NavItem>
                     <NavLink
                         tag={Link}
                         className="text-light"

@@ -114,10 +114,10 @@ namespace FinalProject.Controllers
                 var user = _db.Users.FirstOrDefault(u => u.Id == userId);
 
                 var profile = _db.Profiles.FirstOrDefault(p => p.UserId == userId);
-                var movies = _db.Movies.Where(m => m.ProfileId == userId).ToList();
-                var tvShow = _db.TvShows.Where(t => t.ProfileId == userId).ToList();
-                var favoriteMovies = _db.FavoriteMovies.Where(fav => fav.ProfileId == userId).ToList();
-                var favoriteTvShows = _db.FavoriteTvShows.Where(fav => fav.ProfileId == userId).ToList();
+                var movies = _db.Movies.Where(m => m.ProfileId == profile.Id).ToList();
+                var tvShow = _db.TvShows.Where(t => t.ProfileId == profile.Id).ToList();
+                var favoriteMovies = _db.FavoriteMovies.Where(fav => fav.ProfileId == profile.Id).ToList();
+                var favoriteTvShows = _db.FavoriteTvShows.Where(fav => fav.ProfileId == profile.Id).ToList();
                 
                 return Ok(user);
             }

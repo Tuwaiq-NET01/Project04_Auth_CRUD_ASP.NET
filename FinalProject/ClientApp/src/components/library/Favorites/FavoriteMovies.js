@@ -66,7 +66,8 @@ function FavoriteMovies(props) {
                 </tr>
                 </thead>
                 <tbody>
-                {favMovieList.map((favMovie, index) =>
+                {user.profile && user.profile.favoriteMovie? 
+                favMovieList.map((favMovie, index) =>
                     <tr key={index+1}>
                         <td className="align-middle">{index+1}</td>
                         <td className="align-middle">{favMovie.movie.title}</td>
@@ -78,7 +79,7 @@ function FavoriteMovies(props) {
                             <button onClick={() => deleteFromFav(favMovie.movie.id)} className="btn btn-danger">Delete</button>
                         </td>
                     </tr>
-                )}
+                ) : null }
                 </tbody>
             </table>
         );
@@ -90,6 +91,7 @@ function FavoriteMovies(props) {
 
     return (
         <div className="fade-me">
+            <h1 id="tabelLabel" style={{textAlign: "center", marginBottom: "60px"}}>Favorite Movies List</h1>
             {contents}
         </div>
     );

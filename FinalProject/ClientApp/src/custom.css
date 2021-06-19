@@ -24,12 +24,25 @@ code {
 body{
   background-color: #2b3038;
   color: white;
+  min-height: 100vh;
 }
 
 header{
   background-color: #680000;
   color: white;
 }
+footer{
+  background-color: #2b3038;
+  color: white;
+  text-align: center;
+
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+
 
 .myHome{
   /*margin: 0 auto;*/
@@ -43,6 +56,13 @@ header{
   -moz-animation: fadeIn ease 0.5s;
   -o-animation: fadeIn ease 0.5s;
   -ms-animation: fadeIn ease 0.5s;
+}
+.fade-me-footer {
+  animation: fadeIn ease-out 5s;
+  -webkit-animation: fadeIn ease-out 5s;
+  -moz-animation: fadeIn ease-out 5s;
+  -o-animation: fadeIn ease-out 5s;
+  -ms-animation: fadeIn ease-out 5s;
 }
 @keyframes fadeIn {
   0% {

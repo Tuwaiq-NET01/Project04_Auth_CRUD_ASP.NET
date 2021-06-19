@@ -91,6 +91,7 @@ namespace FinalProject.Controllers
                     ProfileId = profile.Id,
                     MovieId = id
                 };
+                // Console.WriteLine(favMovie.ProfileId);
                 _db.FavoriteMovies.Add(favMovie);
                 _db.SaveChanges();
             }

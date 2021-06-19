@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CtfHwnOrxpzSc+PTMRMHl/YVFTokbSHKVDgMZv9BqliYYPR7jJdStc2yUU4CCx+Mul7Cef/PhU/c+qxp8XTw4A==",
+  "dgSpecHash": "Xml1Mamy6EjRxFbymWIWNdwXp2Rio72B6eo6xKk0cUb9xxnBElZDCxkCdX4P9GE67WGMgnUwJZZixUxMMGURFw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\IBRA\\RiderProjects\\FinalProject\\FinalProjectXUnitTest\\FinalProjectXUnitTest.csproj",
+  "projectFilePath": "C:\\Users\\IBRA\\RiderProjects\\FinalProject\\Project04_Auth_CRUD_ASP.NET\\FinalProjectXUnitTest\\FinalProjectXUnitTest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\IBRA\\.nuget\\packages\\bcrypt.net-next\\4.0.2\\bcrypt.net-next.4.0.2.nupkg.sha512",
     "C:\\Users\\IBRA\\.nuget\\packages\\coverlet.collector\\1.3.0\\coverlet.collector.1.3.0.nupkg.sha512",
