@@ -55,9 +55,13 @@ namespace School.Controllers
         public IActionResult AddRoom(int id, int room)
         {
             var tmpRoom = _db.Rooms.FirstOrDefault(r => r.RoomId == room);
-            tmpRoom.StudentId = id;
-            _db.Rooms.Update(tmpRoom);
-            _db.SaveChanges();
+            if(tmpRoom != null)
+            {
+                tmpRoom.StudentId = id;
+                _db.Rooms.Update(tmpRoom);
+                _db.SaveChanges();
+            }
+            
 
             return RedirectToAction("Details", new { id });
         }
@@ -112,7 +116,7 @@ namespace School.Controllers
             }
 
             var student = _db.Students.FirstOrDefault(s => s.StudentId == id);
-
+            
             if (student == null)
             {
                 return NotFound();
@@ -126,6 +130,12 @@ namespace School.Controllers
         public IActionResult Delete(int id, [Bind("FirstName", "LastName", "Email")] Student student)
         {
             student.StudentId = id;
+            var room = _db.Rooms.FirstOrDefault(r => r.StudentId == id);
+            if(room != null)
+            {
+                room.StudentId = null;
+                _db.Rooms.Update(room);
+            }
             _db.Students.Remove(student);
             _db.SaveChanges();
             return RedirectToAction("Index", new { deleted = true });
