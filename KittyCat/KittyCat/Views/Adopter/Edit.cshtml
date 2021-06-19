@@ -1,57 +1,66 @@
 ﻿
-<h1 style="font-family:'Times New Roman', Times, serif; margin-left:100px">Edit</h1>
 @{
     var Adopter = (AdopterModel)ViewData["adopter"];
 }
+@model AdopterModel
 <div class="" style="background-color: darkturquoise">
     @await Html.PartialAsync("_NavPartial")
 </div>
-@model AdopterModel
-<div style="background: rgb(18 17 17 / 0.72); color: white;padding: 70px; font-family: 'Times New Roman', Times, serif">
-    <form asp-action="Edit" method="post" asp-route-id="@Adopter.id" class="form-horizontal">
+<div class="row">
+    <div class="col-6" style="background: url(https://images.unsplash.com/photo-1606214174585-fe31582dc6ee?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGNhdHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60) center center; background-size: cover; ">
 
-        <div class=" form-group">
-            <label asp-for="id">Name</label>
-            <div>
-                <input asp-for="id" value="@Adopter.id" disabled />
+    </div>
+
+
+
+        <div class="bg-light text-center d-flex justify-content-center align-items-center col-6" style="background: rgb(18 17 17 / 0.72); color:black; padding: 20px; font-family: 'Times New Roman', Times, serif">
+            <div class="card card-bg" style="width: 18rem; border:0">
+                <form asp-action="Edit" method="post" asp-route-id="@Adopter.id" class="form-horizontal">
+                    <div class=" form-group">
+                        <label asp-for="name">Name</label>
+                        <div>
+                            <input asp-for="name" />
+                        </div>
+                    </div>
+
+                    <div class=" form-group">
+                        <label asp-for="age">Age</label>
+                        <div>
+                            <input asp-for="age" />
+                        </div>
+                    </div>
+
+                    <div class=" form-group">
+                        <label asp-for="gender">Gender</label>
+                        <div>
+                            <input asp-for="gender" />
+                        </div>
+                    </div>
+
+                    <div class=" form-group">
+                        <label asp-for="occupation">Occupation</label>
+                        <div>
+                            <input asp-for="occupation" />
+                        </div>
+                    </div>
+                    <div class=" form-group">
+                        <label asp-for="email">Email</label>
+                        <div>
+                            <input asp-for="email" />
+                        </div>
+                    </div>
+                    <div class=" form-group">
+                        <label asp-for="phone">Phone</label>
+                        <div>
+                            <input asp-for="phone" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-primary" value="submit" />
+                    </div>
+
+                </form>
             </div>
         </div>
-
-        <div class=" form-group">
-            <label asp-for="name">Name</label>
-            <div>
-                <input asp-for="name" value="@Adopter.name" />
-            </div>
-        </div>
-
-        <div class=" form-group">
-            <label asp-for="age">age</label>
-            <div>
-                <input asp-for="age" value="@Adopter.age" />
-            </div>
-        </div>
-
-        <div class=" form-group">
-            <label asp-for="gender">gender</label>
-            <div>
-                <input asp-for="gender" value="@Adopter.gender" />
-            </div>
-        </div>
-
-        <div class=" form-group">
-            <label asp-for="email">email</label>
-            <div>
-                <input asp-for="email" value="@Adopter.email" />
-            </div>
-        </div>
-
-        <div class=" form-group">
-            <label asp-for="phone">phone</label>
-            <div>
-                <input asp-for="phone" value="@Adopter.phone" />
-            </div>
-        </div>
-        <div class="form-group">
-            <input type="submit" class="btn btn-primary" value="Submit" />
-        </div>
-    </form>
+    </div>
