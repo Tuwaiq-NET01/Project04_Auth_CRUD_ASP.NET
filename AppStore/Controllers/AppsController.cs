@@ -30,14 +30,14 @@ namespace AppStore.Controllers
             return View();
         }
 
-        public IActionResult Search(string? AppName)
+        public IActionResult Search(string appName)
         {
-            if (!String.IsNullOrEmpty(AppName))
+            if (!String.IsNullOrEmpty(appName))
             {
-                var x = _db.Apps.Where(a => a.Name.ToLower().Contains(AppName.ToLower()))
+                var x = _db.Apps.Where(a => a.Name.ToLower().Contains(appName.ToLower()))
                     .Include(a => a.Ratings)
                     .ToList();
-                @ViewBag.Search = AppName;
+                @ViewBag.Search = appName;
                 @ViewBag.Apps = x;
                 return View("Index");
             }
@@ -64,41 +64,6 @@ namespace AppStore.Controllers
             ViewBag.App = App;
             return View();
         }
-
-        [HttpPost("/details/{id}")]
-        public IActionResult Details(int id)
-        {
-            // Check If App Exist
-            var app = _db.Apps.ToList().Find(a => a.Id == id);
-            var userId = _userManager.GetUserId(User);
-            if (app == null)
-            {
-                return View("_NotFound");
-            }
-
-            // Check If User Already Downloaded The App
-            var appDownloads = _db.Downloads.ToList();
-            var appDownload = appDownloads.Find(a => a.AppId == id);
-            if (appDownload != null)
-            {
-                if (appDownload.UserId == _userManager.GetUserId(User))
-                {
-                    // TODO: App Already Downloaded View
-                    return RedirectToAction("Index");
-                }
-            }
-
-            var download = new DownloadModel()
-            {
-                AppId = id, UserId = userId, DownloadDate = DateTime.Now
-            };
-            // Increase App Downloads Count
-            app.DownloadsCount = appDownloads.Where(a => a.AppId == id).Count() + 1;
-            _db.Apps.Update(app);
-            _db.Downloads.Add(download);
-            _db.SaveChanges();
-
-            return RedirectToAction("Index", "Accounts");
-        }
+        
     }
 }

@@ -80,7 +80,7 @@
     @{
         if (SignedIn)
         {
-            <form asp-controller="Apps" asp-action="Details" method="post" asp-route-id="@App.Id">
+            <form asp-controller="Downloads" asp-action="Download" method="post" asp-route-id="@App.Id">
                 <button type="submit" @((downloaded == true) ? "class=btn\tbtn-dark disabled" : "class=btn\tbtn-success")>Download</button>
             </form>
             <a asp-controller="Ratings" asp-action="Create" asp-route-id="@App.Id">
