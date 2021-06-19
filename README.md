@@ -9,10 +9,10 @@
 
 الفكرة قابلة للتطوير مستقبلا بحيث تضم جوانب تفاعلية بين المستخدمين الذين يشتركون في نفس الأهداف رغبة في الوصول الى مجتمع صحي ..
 نسعد بأي اقتراحات تطويرية.
-
+</div>
 ### Demo
 
-<img src="HealthChoice_Proj4//HealthyChoiceDemo.gif">
+<img src="./HealthChoice_Proj4//HealthyChoiceDemo.gif">
 <br>
 
 ### Deployment
@@ -46,4 +46,3 @@
 
 <b>Samirah Alhusayni
 
-</div>
