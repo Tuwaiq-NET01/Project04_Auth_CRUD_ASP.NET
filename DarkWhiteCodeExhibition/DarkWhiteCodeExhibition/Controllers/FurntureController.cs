@@ -12,12 +12,9 @@ namespace DarkWhiteCodeExhibition.Controllers
     public class FurntureController : Controller
     {
         private readonly ApplicationDbContext _db;
-        // private readonly UserManager<IdentityUser> _UserManager;
         public FurntureController(ApplicationDbContext context)
-        //UserManager<IdentityUser> userManager = null)
         {
             _db = context;
-            //  _UserManager = userManager;
         }
 
         public IActionResult Index()
@@ -27,15 +24,9 @@ namespace DarkWhiteCodeExhibition.Controllers
             ViewData["FurntureModel"] = FurntureModel;
             return View(FurntureModel);
 
-            //   ApplicationDbContext context = new ApplicationDbContext();
-            //  string userid = _UserManager.GetUserId(User);
-            //  IEnumerable<ArtPiecesModel> Art = new List<ArtPiecesModel>();
-            // if (!string.IsNullOrEmpty(userid))
-
-            //    Art = context.ArtPiecesModel.Where(x => x.UserId == userid);
-
+          
         }
-        //    return View(Art); }
+       
 
         // GET: ArtPieces
 
@@ -61,8 +52,7 @@ namespace DarkWhiteCodeExhibition.Controllers
         }
 
         // POST: ArtPieces/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+     
         [HttpPost]
 
 
@@ -93,8 +83,7 @@ namespace DarkWhiteCodeExhibition.Controllers
 
 
         // POST: ArtPieces/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+    
         [HttpPost]
         public IActionResult Edit(int id, [Bind("Id, Type, Name, DesignerName, Price, Image")] FurntureModel FurntureModel)
         {
@@ -129,27 +118,7 @@ namespace DarkWhiteCodeExhibition.Controllers
             return RedirectToAction("Index");
         }
 
-        //   public override bool Equals(object obj)
-        //  {
-        //       return obj is ArtPiecesController controller &&
-        //          EqualityComparer<UserManager<IdentityUser>>.Default.Equals(_UserManager, controller._UserManager);
-        // }
-
-        // public override int GetHashCode()
-        //  {
-        // return HashCode.Combine(_UserManager);
-        //  }
-        // }
-       
-          
-
-            // var FurntureModel = _db.FurntureModel.ToList().Find(product => product.Id == id);
-            //  if (id == null || FurntureModel == null)
-            //  {
-            //    return View("_NotFound");
-            // }
-            // ViewData["FurntureModel"] = FurntureModel;
-            //  return View(FurntureModel);
+      
         }
 
     }
