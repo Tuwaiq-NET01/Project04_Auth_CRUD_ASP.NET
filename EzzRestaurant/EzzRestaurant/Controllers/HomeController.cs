@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace EzzRestaurant.Controllers
 {
@@ -13,11 +14,17 @@ namespace EzzRestaurant.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
+        [ActivatorUtilitiesConstructor]
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
         }
-
+        
+        public HomeController()
+        {
+         
+        }
+        
         public IActionResult Index()
         {
             return View();

@@ -172,3 +172,4 @@ D:\Developing\Tuwaiq\dotNet\Projects\Final Project\Project04_Auth_CRUD_ASP.NET\E
 D:\Developing\Tuwaiq\dotNet\Projects\Final Project\Project04_Auth_CRUD_ASP.NET\EzzRestaurant\EzzRestaurant\obj\Debug\net5.0\Razor\Views\Orders\Index.cshtml.g.cs
 D:\Developing\Tuwaiq\dotNet\Projects\Final Project\Project04_Auth_CRUD_ASP.NET\EzzRestaurant\EzzRestaurant\obj\Debug\net5.0\Razor\Views\Orders\Details.cshtml.g.cs
 D:\Developing\Tuwaiq\dotNet\Projects\Final Project\Project04_Auth_CRUD_ASP.NET\EzzRestaurant\EzzRestaurant\obj\Debug\net5.0\Razor\Views\Cart\Index.cshtml.g.cs
+D:\Developing\Tuwaiq\dotNet\Projects\Final Project\Project04_Auth_CRUD_ASP.NET\EzzRestaurant\EzzRestaurant\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.InMemory.dll

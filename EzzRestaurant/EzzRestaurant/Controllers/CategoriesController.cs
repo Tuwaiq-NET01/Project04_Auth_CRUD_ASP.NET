@@ -4,6 +4,8 @@ using EzzRestaurant.Data;
 using EzzRestaurant.Models;
 using Microsoft.AspNetCore.Mvc;
 using EzzRestaurant.Models;
+using Microsoft.Extensions.DependencyInjection;
+
 namespace EzzRestaurant.Controllers
 {
     public class CategoriesController : Controller
@@ -11,9 +13,14 @@ namespace EzzRestaurant.Controllers
 
         private ApplicationDbContext _db;
 
+        [ActivatorUtilitiesConstructor]
         public CategoriesController(ApplicationDbContext ctx)
         {
             _db = ctx;
+        }
+        public CategoriesController()
+        {
+         
         }
         // GET
         public IActionResult Index()

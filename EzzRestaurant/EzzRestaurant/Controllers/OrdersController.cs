@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace EzzRestaurant.Controllers
 {
@@ -15,11 +16,17 @@ namespace EzzRestaurant.Controllers
         private ApplicationDbContext _db;
         private UserManager<IdentityUser> _userManager;
 
+        [ActivatorUtilitiesConstructor]
         public OrdersController(ApplicationDbContext ctx , UserManager<IdentityUser> userManager)
         {
             _db = ctx;
             var userStore = userManager;
         }
+        public OrdersController()
+        {
+        
+        }
+        
 
         public IActionResult Index(string id)
         {

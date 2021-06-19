@@ -1,0 +1,17 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=8152f73f_002D9c11_002D4006_002D97c4_002D0feb609ae629/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Index_AreEqual" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::4B564DE5-F4D9-46A8-97B0-1CC010802C5C::net5.0::EzzRestaurantTest.Controllers.HomeTest.Index_AreEqual&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::4B564DE5-F4D9-46A8-97B0-1CC010802C5C::net5.0::EzzRestaurantTest.Controllers.CategoriesTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::4B564DE5-F4D9-46A8-97B0-1CC010802C5C::net5.0::EzzRestaurantTest.Controllers.ProductsTest.Index_Exception&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::4B564DE5-F4D9-46A8-97B0-1CC010802C5C::net5.0::EzzRestaurantTest.Controllers.ProductsTest.Index_IsNull&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::4B564DE5-F4D9-46A8-97B0-1CC010802C5C::net5.0::EzzRestaurantTest.Controllers.OrdersTest.Index_IsNull&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::4B564DE5-F4D9-46A8-97B0-1CC010802C5C::net5.0::EzzRestaurantTest.Controllers.OrdersTest.Index_Exception&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::4B564DE5-F4D9-46A8-97B0-1CC010802C5C::net5.0::EzzRestaurantTest.Controllers.CartTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=cb8b8353_002D8ebf_002D46d4_002D9bdb_002Debd9b9699600/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Index_AreEqual #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::4B564DE5-F4D9-46A8-97B0-1CC010802C5C::net5.0::EzzRestaurantTest.Controllers.HomeTest.Index_AreEqual&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace EzzRestaurant.Controllers
 {
@@ -15,10 +16,14 @@ namespace EzzRestaurant.Controllers
         private ApplicationDbContext _db;
         private UserManager<IdentityUser> _userManager;
 
+        [ActivatorUtilitiesConstructor]
         public CartController(ApplicationDbContext ctx , UserManager<IdentityUser> userManager)
         {
             _db = ctx;
             _userManager = userManager;
+        }
+        public CartController()
+        {
         }
         // GET
         public IActionResult Index()

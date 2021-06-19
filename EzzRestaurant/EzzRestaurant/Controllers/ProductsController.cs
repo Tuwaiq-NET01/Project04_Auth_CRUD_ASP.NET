@@ -5,6 +5,7 @@ using EzzRestaurant.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace EzzRestaurant.Controllers
 {
@@ -15,10 +16,16 @@ namespace EzzRestaurant.Controllers
         private ApplicationDbContext _db;
         private UserManager<IdentityUser> _userManager;
 
+        [ActivatorUtilitiesConstructor]
         public ProductsController(ApplicationDbContext ctx , UserManager<IdentityUser> userManager)
         {
             _db = ctx;
             _userManager = userManager;
+        }
+        
+        public ProductsController()
+        {
+
         }
         
         
