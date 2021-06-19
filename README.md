@@ -7,7 +7,7 @@
 
  ![image](https://user-images.githubusercontent.com/82446110/122648770-479de700-d133-11eb-8098-df2a69dcc87e.png)
 
-# (Dark White Code Studio) | اسم التطبيق
+# (Dark White Code Studio)   
 
  
  
