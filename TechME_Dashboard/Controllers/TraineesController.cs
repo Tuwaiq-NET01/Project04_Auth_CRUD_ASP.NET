@@ -8,6 +8,8 @@ using TechME_Dashboard.Models;
 
 namespace TechME_Dashboard.Controllers
 {
+    [Microsoft.AspNetCore.Authorization.Authorize/*(Roles = "User")*/]
+
     public class TraineesController : Controller
     {
         private readonly TechMEDbContext _db;

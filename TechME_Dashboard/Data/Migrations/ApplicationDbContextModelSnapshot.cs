@@ -268,6 +268,9 @@ namespace TechME_Dashboard.Data.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
+                    b.Property<DateTime>("Course_End_Date")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Course_Image")
                         .HasColumnType("nvarchar(max)");
 
@@ -276,7 +279,15 @@ namespace TechME_Dashboard.Data.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
+                    b.Property<DateTime>("Course_Start_Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Instructor_ID")
+                        .HasColumnType("int");
+
                     b.HasKey("Course_ID");
+
+                    b.HasIndex("Instructor_ID");
 
                     b.ToTable("Course");
                 });
@@ -304,6 +315,46 @@ namespace TechME_Dashboard.Data.Migrations
                     b.HasKey("Instructor_ID");
 
                     b.ToTable("Instructor");
+                });
+
+            modelBuilder.Entity("TechME_Dashboard.Models.TraineeCoursesModel", b =>
+                {
+                    b.Property<int>("Course_ID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Trainee_ID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TraineeCourses_ID")
+                        .HasColumnType("int");
+
+                    b.HasKey("Course_ID", "Trainee_ID");
+
+                    b.HasIndex("Trainee_ID");
+
+                    b.ToTable("TraineeCourses");
+                });
+
+            modelBuilder.Entity("TechME_Dashboard.Models.TraineeInstructorModel", b =>
+                {
+                    b.Property<int>("TraineeInstructor_ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Instructor_ID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Trainee_ID")
+                        .HasColumnType("int");
+
+                    b.HasKey("TraineeInstructor_ID");
+
+                    b.HasIndex("Instructor_ID");
+
+                    b.HasIndex("Trainee_ID");
+
+                    b.ToTable("TraineeInstructors");
                 });
 
             modelBuilder.Entity("TechME_Dashboard.Models.TraineeModel", b =>
@@ -380,6 +431,74 @@ namespace TechME_Dashboard.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("TechME_Dashboard.Models.CourseModel", b =>
+                {
+                    b.HasOne("TechME_Dashboard.Models.InstructorModel", "Instructor")
+                        .WithMany("Courses")
+                        .HasForeignKey("Instructor_ID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Instructor");
+                });
+
+            modelBuilder.Entity("TechME_Dashboard.Models.TraineeCoursesModel", b =>
+                {
+                    b.HasOne("TechME_Dashboard.Models.CourseModel", "Course")
+                        .WithMany("TraineeCourses")
+                        .HasForeignKey("Course_ID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TechME_Dashboard.Models.TraineeModel", "Trainee")
+                        .WithMany("TraineeCourses")
+                        .HasForeignKey("Trainee_ID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Course");
+
+                    b.Navigation("Trainee");
+                });
+
+            modelBuilder.Entity("TechME_Dashboard.Models.TraineeInstructorModel", b =>
+                {
+                    b.HasOne("TechME_Dashboard.Models.InstructorModel", "Instructor")
+                        .WithMany("TraineeInstructor")
+                        .HasForeignKey("Instructor_ID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TechME_Dashboard.Models.TraineeModel", "Trainee")
+                        .WithMany("TraineeInstructor")
+                        .HasForeignKey("Trainee_ID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Instructor");
+
+                    b.Navigation("Trainee");
+                });
+
+            modelBuilder.Entity("TechME_Dashboard.Models.CourseModel", b =>
+                {
+                    b.Navigation("TraineeCourses");
+                });
+
+            modelBuilder.Entity("TechME_Dashboard.Models.InstructorModel", b =>
+                {
+                    b.Navigation("Courses");
+
+                    b.Navigation("TraineeInstructor");
+                });
+
+            modelBuilder.Entity("TechME_Dashboard.Models.TraineeModel", b =>
+                {
+                    b.Navigation("TraineeCourses");
+
+                    b.Navigation("TraineeInstructor");
                 });
 #pragma warning restore 612, 618
         }

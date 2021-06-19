@@ -12,7 +12,7 @@
         <tr>
             <th scope="col">Contact's ID</th>
             <th scope="col">Masssege's Subject </th>        
-            <th scope="col">Detail   </th>
+            <th scope="col">Details   </th>
             <th scope="col"> Edit    </th>
             <th scope="col"> Delate   </th>
 
@@ -27,11 +27,11 @@
             <tr>
                 <th scope="row">@Contact.Contact_ID</th>
                 <td>@Contact.Masssege_Subject</td>
-                <td><button type="button" class="btn btn-dark"  value="Details"> <a style="color:white"  href="/Contacts/Details/@Contact.Contact_ID"> SHOW </a></button></td>
-                <td><button type="button" class="btn btn-dark" value="Edit"> <a style="color:white" href="/Contacts/Edit/@Contact.Contact_ID"> Edit </a></button></td>
+                <td><button type="button" class="btn btn-light"  value="Details"> <a style="color:white"  href="/Contacts/Details/@Contact.Contact_ID"> DETAILS </a></button></td>
+                <td><button type="button" class="btn btn-light" value="Edit"> <a style="color:white" href="/Contacts/Edit/@Contact.Contact_ID"> EDIT </a></button></td>
                 <td>
                     <form method="post"  asp-action="Delete" asp-controller="Contacts" asp-route-id="@Contact.Contact_ID">
-                        <input type="submit" class="btn btn-dark" value="Delete" />
+                        <input type="submit" class="btn btn-light" value="Delete" />
                     </form>
                 </td>
             </tr>

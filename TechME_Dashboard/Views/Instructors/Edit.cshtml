@@ -1,6 +1,7 @@
 ﻿@model InstructorModel
 @{
     var Instructor = (InstructorModel)ViewData["Instructor"];
+    var Courses = (CourseModel)ViewData["Course"];
 }
 <form asp-action="Edit" method="post" class="form-horizontal" role="form">
     <div class="form-group">
@@ -29,6 +30,19 @@
             <input asp-for="Instructor_Image" value="@Instructor.Instructor_Image" />
         </div>
     </div>
+@*
+    @foreach (var C in Course)
+    {
+        if (C.Course_ID == Instructor.Instructor_ID)
+        {
+            <div class="form-group">
+                <label asp-for="@C.Course_Name">Course 's Name</label>
+                <div>
+                    <input asp-for="Course_Name" value="@C.Course_Name" />
+                </div>
+            </div>
+        }
+    }*@
     <div class="form-group">
         <input type="submit" class="btn btn-primary" value="Update" />
     </div>

@@ -1,5 +1,0 @@
-C:\Users\hiro1\Desktop\Project04_Auth_CRUD_ASP.NET\TechME_Dashbord.Test\obj\Debug\net5.0\TechME_Dashbord.Test.csprojAssemblyReference.cache
-C:\Users\hiro1\Desktop\Project04_Auth_CRUD_ASP.NET\TechME_Dashbord.Test\obj\Debug\net5.0\TechME_Dashbord.Test.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\hiro1\Desktop\Project04_Auth_CRUD_ASP.NET\TechME_Dashbord.Test\obj\Debug\net5.0\TechME_Dashbord.Test.AssemblyInfoInputs.cache
-C:\Users\hiro1\Desktop\Project04_Auth_CRUD_ASP.NET\TechME_Dashbord.Test\obj\Debug\net5.0\TechME_Dashbord.Test.AssemblyInfo.cs
-C:\Users\hiro1\Desktop\Project04_Auth_CRUD_ASP.NET\TechME_Dashbord.Test\obj\Debug\net5.0\TechME_Dashbord.Test.csproj.CoreCompileInputs.cache

@@ -511,8 +511,9 @@ C:\Users\hiro1\Desktop\Project04_Auth_CRUD_ASP.NET\TechME_Dashboard\obj\Debug\ne
 C:\Users\hiro1\Desktop\Project04_Auth_CRUD_ASP.NET\TechME_Dashboard\obj\Debug\net5.0\Razor\Views\Trainees\Edit.cshtml.g.cs
 C:\Users\hiro1\Desktop\Project04_Auth_CRUD_ASP.NET\TechME_Dashboard\obj\Debug\net5.0\Razor\Views\Trainees\Index.cshtml.g.cs
 C:\Users\hiro1\Desktop\Project04_Auth_CRUD_ASP.NET\TechME_Dashboard\obj\Debug\net5.0\Razor\Views\Trainees\_NotFound.cshtml.g.cs
-C:\Users\hiro1\Desktop\Project04_Auth_CRUD_ASP.NET\TechME_Dashboard\obj\Debug\net5.0\TechME_Dashboard.csprojAssemblyReference.cache
 C:\Users\hiro1\Desktop\Project04_Auth_CRUD_ASP.NET\TechME_Dashboard\obj\Debug\net5.0\Razor\Views\Contacts\Index.cshtml.g.cs
 C:\Users\hiro1\Desktop\Project04_Auth_CRUD_ASP.NET\TechME_Dashboard\obj\Debug\net5.0\Razor\Views\Contacts\Details.cshtml.g.cs
 C:\Users\hiro1\Desktop\Project04_Auth_CRUD_ASP.NET\TechME_Dashboard\obj\Debug\net5.0\Razor\Views\Contacts\Edit.cshtml.g.cs
 C:\Users\hiro1\Desktop\Project04_Auth_CRUD_ASP.NET\TechME_Dashboard\obj\Debug\net5.0\Razor\Views\Contacts\_NotFound.cshtml.g.cs
+C:\Users\hiro1\Desktop\Project04_Auth_CRUD_ASP.NET\TechME_Dashboard\obj\Debug\net5.0\TechME_Dashboard.csprojAssemblyReference.cache
+C:\Users\hiro1\Desktop\Project04_Auth_CRUD_ASP.NET\TechME_Dashboard\obj\Debug\net5.0\Razor\Views\HomePage\Index.cshtml.g.cs

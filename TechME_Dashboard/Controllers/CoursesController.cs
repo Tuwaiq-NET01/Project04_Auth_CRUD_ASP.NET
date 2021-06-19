@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,8 @@ using TechME_Dashboard.Models;
 
 namespace TechME_Dashboard.Controllers
 {
+    [Authorize]
+
     public class CoursesController : Controller
     {
         private readonly TechMEDbContext _db;
@@ -25,6 +28,12 @@ namespace TechME_Dashboard.Controllers
             ViewData["ID"] = ID;
 
             return View();
+        }
+        public List<CourseModel> GetAllCourses()
+        {
+            List<CourseModel> Course = _db.Course.ToList();
+            return Course;
+
         }
 
         // GET: course/ID
@@ -47,6 +56,14 @@ namespace TechME_Dashboard.Controllers
         {
             return View();
         }
+        public void CreateCourse (CourseModel Course)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Course.Add(Course);
+                _db.SaveChanges();         
+            }
+           }
 
         //POST - /Courses/create
         [HttpPost]
@@ -54,8 +71,10 @@ namespace TechME_Dashboard.Controllers
         {
             if (ModelState.IsValid) //check the state of modelSS
             {
-                _db.Course.Add(Courses);
-                _db.SaveChanges();
+                /*_db.Course.Add(Courses);
+                _db.SaveChanges();*/
+                CreateCourse(Courses);
+                return RedirectToAction("Course");
 
             }
             return View(Courses);

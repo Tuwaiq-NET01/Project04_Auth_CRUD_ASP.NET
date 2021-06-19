@@ -1,20 +1,24 @@
 ﻿
 @{
+
     var Instructors = (List<InstructorModel>)ViewData["Instructor"];
+@*    var Course = (List<CourseModel>)ViewBag["Course"];*@
+
     @*    var ID = (int)ViewData["ID"];*@
 
     Layout = "_Layout";
 }
 
-
-<table class="table" style="width:100%;text-align:center;">
+<h1 style="align-items:center">Instructor's Dashbord </h1>
+<br>
+<table class="table  table table-bordered" style="width:100%;text-align:center;">
     <thead>
         <tr>
-            <th scope="col">Instructor ID</th>
-            <th scope="col">Instructor Name</th>
+            <th scope="col">Instructor's ID</th>
+            <th scope="col">Instructor's Name</th>
 @*            <th scope="col">Instructor BIO </th>
             <th scope="col">Instructor Image </th>*@
-            <th scope="col">Detail   </th>
+            <th scope="col"> Detail   </th>
             <th scope="col"> Edit    </th>
             <th scope="col"> Delate   </th>
 
@@ -31,8 +35,8 @@
                 <td>@Instructor.Instructor_Name</td>
                 @*<td>@Instructor.Instructor_BIO</td>
                 <td><img src=@Instructor.Instructor_Image width:"200px" heigh:"200px" /></td>*@
-                <td><button type="button" class="btn btn-dark"  value="Details"> <a style="color:white"  href="/Instructors/Details/@Instructor.Instructor_ID"> SHOW </a></button></td>
-                <td><button type="button" class="btn btn-dark" value="Edit"> <a style="color:white" href="/Instructors/Edit/@Instructor.Instructor_ID"> Edit </a></button></td>
+                <td><button type="button" class="btn btn-primary"  value="Details"> <a style="color:white"  href="/Instructors/Details/@Instructor.Instructor_ID"> SHOW </a></button></td>
+                <td><button type="button" class="btn btn-primary" value="Edit"> <a style="color:white" href="/Instructors/Edit/@Instructor.Instructor_ID"> EDIT </a></button></td>
                 <td>
                     <form method="post"  asp-action="Delete" asp-controller="Instructors" asp-route-id="@Instructor.Instructor_ID">
                         <input type="submit" class="btn btn-dark" value="Delete" />
@@ -44,6 +48,7 @@
 
 
 </table>
-<button type="button" class="btn btn-dark"  value="Create">
+<br/>
+<button type="button" class="btn btn-primary"  value="Create">
     <a   style="color:white"  method="Get"asp-controller="Instructors" asp-action="Create"> Add new Instructor </a>
 </button>

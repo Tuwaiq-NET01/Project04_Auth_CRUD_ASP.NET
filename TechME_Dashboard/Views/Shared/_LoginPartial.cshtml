@@ -7,19 +7,10 @@
 
     {
 
+   
         <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Courses" asp-action="Index">Courses </a>
+            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Welcome @User.Identity.Name!</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Instructors" asp-action="Index"> Instructors </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Trainees" asp-action="Index"> Trainees </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
-        </li>
-
         <li class="nav-item">
             <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
                 <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
@@ -28,14 +19,12 @@
     }
     else
     {
-
         <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Courses" asp-action="Index">Courses </a>
+            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index"> Home </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Instructors" asp-action="Index"> Instructors </a>
+            <a class="nav-link text-dark" asp-area="" asp-controller="Contacts" asp-action="Create">Contact </a>
         </li>
-
 
         <li class="nav-item">
             <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
@@ -43,5 +32,6 @@
         <li class="nav-item">
             <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
         </li>
+
     }
 </ul>

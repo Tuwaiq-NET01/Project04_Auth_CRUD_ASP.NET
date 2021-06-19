@@ -10,6 +10,8 @@ using TechME_Dashboard.Models;
 
 namespace TechME_Dashboard.Controllers
 {
+    [Authorize(Roles = "User")]
+
     public class ContactsController : Controller
     {
          
@@ -20,6 +22,8 @@ namespace TechME_Dashboard.Controllers
             {
                 _db = context;
             }
+        [Authorize]
+
         public IActionResult Index(int ID = 1) // هل لازم  زم يكون فية Id او لا
         {
             var Contact = _db.ContactUs.ToList();
@@ -30,6 +34,8 @@ namespace TechME_Dashboard.Controllers
         }
 
         // GET: course/ID
+        [Authorize]
+
         [HttpGet]
         public IActionResult Details(int? ID)
         {
@@ -44,6 +50,8 @@ namespace TechME_Dashboard.Controllers
         }
         // Create
         //GET - /Contacts/create
+        [AllowAnonymous]
+
         public IActionResult Create()
             {
                 return View();
@@ -51,7 +59,9 @@ namespace TechME_Dashboard.Controllers
 
             //POST - /Contactus/create
             [HttpPost]
-            public IActionResult Create([Bind("Sender_Name", " Sender_Email", "Masssege_Subject", "Sender_Massege")] ContactModel Contact)
+        [AllowAnonymous]
+
+        public IActionResult Create([Bind("Sender_Name", " Sender_Email", "Masssege_Subject", "Sender_Massege")] ContactModel Contact)
             {
                 if (ModelState.IsValid) //check the state of model
                 {
@@ -65,6 +75,8 @@ namespace TechME_Dashboard.Controllers
 
 
         //GEt - /Courses/edit/id
+        [Authorize]
+
         public IActionResult Edit(int? ID)
         {
             var Contact = _db.ContactUs.ToList().Find(E => E.Contact_ID == ID);
@@ -77,6 +89,8 @@ namespace TechME_Dashboard.Controllers
         }
         //POST - /Courses/edit/id
         [HttpPost]
+        [Authorize]
+
         public IActionResult Edit( int ID, [Bind("Contact_ID","Sender_Name", " Sender_Email", "Masssege_Subject", "Sender_Massege")] ContactModel Contact)
         {
             _db.ContactUs.Update(Contact);
@@ -86,6 +100,8 @@ namespace TechME_Dashboard.Controllers
 
         // POST - /Course/delete/id
         [HttpPost]
+        [Authorize]
+
         public IActionResult Delete(int ID)
         {
             var Contact = _db.ContactUs.ToList().FirstOrDefault(C => C.Contact_ID == ID);

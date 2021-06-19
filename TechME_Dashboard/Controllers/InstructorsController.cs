@@ -10,6 +10,8 @@ using TechME_Dashboard.Models;
 
 namespace TechME_Dashboard.Controllers
 {
+    [Microsoft.AspNetCore.Authorization.Authorize/*(Roles = "User")*/]
+
     public class InstructorsController : Controller
     {
         private readonly TechMEDbContext _db;
@@ -32,11 +34,14 @@ namespace TechME_Dashboard.Controllers
         public IActionResult Details(int? ID)
         {
             var Instructor = _db.Instructor.ToList().Find(Instructor => Instructor.Instructor_ID == ID);
+            var Course = _db.Course.ToList();
+
             if (ID == null || Instructor == null)
             {
                 return View("_NotFound");
             }
             ViewData["Instructor"] = Instructor;
+            ViewData["Course"] = Course;
             return View(Instructor);
 
         }
