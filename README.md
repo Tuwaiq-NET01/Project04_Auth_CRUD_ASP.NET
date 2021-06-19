@@ -6,7 +6,8 @@ Podcast website where you can have your own channel and the ability to upload au
 
 ### Demo  
 
-![Uploading Home Page - Podcast_Website - Google Chrome 2021-06-19 23-06-23 (1)-min.gif…]()
+![alt text](https://res.cloudinary.com/duuconncq/image/upload/v1624136251/Home_Page_-_Podcast_Website_-_Google_Chrome_2021-06-19_23-06-23_1_-min_sodpux.gif)
+
 ### ERD
 ![alt text](https://res.cloudinary.com/duuconncq/image/upload/v1624122275/Screenshot_2021-06-19_200419_jxv5tg.png)
 ### Wireframe  
