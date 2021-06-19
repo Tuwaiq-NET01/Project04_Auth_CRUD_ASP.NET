@@ -1,4 +1,4 @@
-<div dir="rtl" align="right" >
+<div dir="rtl" align="Left" >
 
  
 ----
@@ -26,7 +26,7 @@ https://user-images.githubusercontent.com/82446110/122648559-7e273200-d132-11eb-
 
 ### Wireframe  
 https://xd.adobe.com/view/6186d180-8aec-48b1-849c-9e248e99525f-34d5/?fullscreen
-    Done by AdobeXd
+    Done by Adobe Xd
 ### Set up  
 ### Prerequisites
 - NET 5 
@@ -48,6 +48,5 @@ https://xd.adobe.com/view/6186d180-8aec-48b1-849c-9e248e99525f-34d5/?fullscreen
 ### Author
  Nada Majed Al-Otaibi | Tuwaiq group 
     linkedin :https://www.linkedin.com/in/nada-al-otaibi-313739164
-### License & Resource
- .....
+
 </div>
