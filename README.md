@@ -28,7 +28,7 @@ This project is all about challenges, users can register and login, and can see 
 
  ![demo gif](./images/demo1.gif)
 
-### DEMO 2
+### DEMO 2 (CONT.)
 
  ![demo 2 gif](./images/demo2.gif)
 
