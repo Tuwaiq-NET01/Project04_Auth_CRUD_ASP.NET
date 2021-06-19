@@ -49,6 +49,6 @@ https://github.com/Turkiajq/FinalProject.git
 - Icons - Google Fonts
 - ASP.NET Identity - www.c-sharpcorner.com
 - Draw.Io
-Lusid Charts
+- Lusid Charts
 
 </div>
