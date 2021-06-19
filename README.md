@@ -1,51 +1,50 @@
-# Project04_Auth_CRUD_ASP.NET
+<div dir="rtl" align="Right" >
+ 
 
-<div dir="rtl" align="right">
+ 
+ ![tuwaiq](https://user-images.githubusercontent.com/82446110/122648788-5e443e00-d133-11eb-8a66-2249f4183282.png)
 
-فكرة المشروع
+ ![image](https://user-images.githubusercontent.com/82446110/122648770-479de700-d133-11eb-8098-df2a69dcc87e.png)
 
-بناء مشروع متكامل باستخدام ASP.NET MVC  قائم على فكرة من اختيارك وتتضمن المتطلبات الأساسية لبناء تطبيق ASP.NET MVC مع  Entity Framework Core وSql Server.
+# (Dark White Code Studio)   
 
+ 
+ ### المقدمــة | Introduction 
+استديو دارك وايت كود 
 
-قبل بداية المشروع 
+استديو يهتم بالفن و الابداع والتصميم من اثاث وقطع فنيه و معماريه و يسمح للاعضاء بمشاركة اعمالهم و افضل مختاراتهم الفنيه 
 
-عمل Wireframes و ERD والتأكيد مع أحد المدربين قبل البدء بتنفيذ المشروع. بداية المشروع بالنسخة رقم  v.1
+ A studio that cares about art, creativity and design, including furniture, art and architecture, and allows members to share their art works and their best artistic collections.
 
-متطلبات المشروع
-
-
-- استخدام نمط MVC 
-- إنشاء على الأقل 4 من Controllers
-- إنشاء على الأقل 4 Model 
-- إنشاء على الأقل 6 Views
-    - استخدام مكتبة Bootstrap مع Razor 
-    - استخدام partial view للعناصر المتكررة في الواجهات
-- استخدام وظائف CRUD مع ASP.NET 
-- استخدام إطار عمل Entity Framework Core
-- استخدام CodeFirst Approach لإنشاء قاعدة البيانات
-- استخدام قاعدة بيانات MSSQL 
-    - ان تكون قاعدة البيانات متعددة الجداول
-    - يجب ان تتضمن قاعدة البيانات على الاقل احد العلاقات التالية:
-        - علاقة one-to-one
-        - علاقة one-to-many
-        - علاقة many-to-many
-- تطبيق Authentication 
-- قم بتطبيق Unit Testing (اختبار على الاقل One Action Method لكل Controller)
+### Demo  
 
 
-إضافة | Bonus 
-- قم باستخدام أحد مفاهيم Design Patterns في مشروعك لحل مشكلةٍ ما
-- إنشاء APIs 
-- عمل Deploy للمشروع على Azure
-- استخدام React مع ASP.NET أو أي Framework 
-- استخدام WebSockets في ASP.NET core
-- التعامل مع الـThird party APIs  {SMS Message, Google Maps,….} 
-    - مصادر للـAPIs
-    - الاول: Any API over 1400 Public APIs: https://any-api.com/
-    - الثاني: API Search: http://apis.io/
-- رفع صور او ملفات 
-    -  باستخدام الـthird-party:
-        - Cloudinary: https://cloudinary.com/
-        -  AWS: https://aws.amazon.com/s3/?nc2=h_ql_prod_st_s3
-    - حفظها  بالـLocal server 
+https://user-images.githubusercontent.com/82446110/122648559-7e273200-d132-11eb-91af-2f4c713a5daa.mp4
+
+
+### Wireframe  
+https://xd.adobe.com/view/6186d180-8aec-48b1-849c-9e248e99525f-34d5/?fullscreen
+    Done by Adobe Xd
+### Set up  
+### Prerequisites
+- NET 5 
+- ASP.NET MVC
+- Microsoft SQL Server 
+### Set up  
+ #### Database
+ ``` dotnet ef database update```
+### Front-End  
+ - HTML
+ - CSS
+ - JS
+ - Jquery
+ - Bootstrap 
+### Back-End 
+ - ASP.NET MVC
+ - MSSQL Server
+ - EF Core
+### Author
+ Nada Majed Al-Otaibi | Tuwaiq group 
+    linkedin :https://www.linkedin.com/in/nada-al-otaibi-313739164
+
 </div>
