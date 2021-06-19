@@ -6146,11 +6146,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Abdullah\\Desktop\\Tuwaiq\\DotNET\\Final Project\\Hospital\\Hospital\\Hospital.csproj",
+      "projectUniqueName": "C:\\Users\\Abdullah\\Desktop\\Tuwaiq\\DotNET\\Final Project\\Project04_Auth_CRUD_ASP.NET\\Hospital\\Hospital\\Hospital.csproj",
       "projectName": "Hospital",
-      "projectPath": "C:\\Users\\Abdullah\\Desktop\\Tuwaiq\\DotNET\\Final Project\\Hospital\\Hospital\\Hospital.csproj",
+      "projectPath": "C:\\Users\\Abdullah\\Desktop\\Tuwaiq\\DotNET\\Final Project\\Project04_Auth_CRUD_ASP.NET\\Hospital\\Hospital\\Hospital.csproj",
       "packagesPath": "C:\\Users\\Abdullah\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Abdullah\\Desktop\\Tuwaiq\\DotNET\\Final Project\\Hospital\\Hospital\\obj\\",
+      "outputPath": "C:\\Users\\Abdullah\\Desktop\\Tuwaiq\\DotNET\\Final Project\\Project04_Auth_CRUD_ASP.NET\\Hospital\\Hospital\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Abdullah\\AppData\\Roaming\\NuGet\\NuGet.Config",

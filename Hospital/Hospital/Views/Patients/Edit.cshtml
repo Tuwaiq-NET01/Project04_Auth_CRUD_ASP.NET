@@ -1,0 +1,51 @@
+﻿@model Patient
+
+@{
+    var Patient = (Patient)ViewBag.Patients;
+}
+<h1>Update Patient's Profile</h1>
+
+<form asp-action="Edit" method="post" asp-route-id="Id" class="form-group">
+    <div class="form-group">
+        <div>
+            <input type="hidden" asp-for="Id" value="@Patient.Id" />
+        </div>
+        <label asp-for="Name">Patient's Name:</label>
+        <div>
+            <input asp-for="Name" value="@Patient.Name" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Gender">Patient's Gender:</label>
+        <div>
+            <input asp-for="Gender" value="@Patient.Gender" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DOB">Patient's Date of Birth:</label>
+        <div>
+            <input asp-for="DOB" type="date" value="@string.Format("{0:yyyy-MM-dd}",Patient.DOB)"/>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Phone">Patient's Phone Number:</label>
+        <div>
+            <input asp-for="Phone" type="number" value="@Patient.Phone" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Email">Patient's Email</label>
+        <div>
+            <input asp-for="Email" type="email" value="@Patient.Email" />
+        </div>
+    </div>
+
+    <div>
+        <input type="submit" class="btn btn-primary" />
+    </div>
+</form>
+

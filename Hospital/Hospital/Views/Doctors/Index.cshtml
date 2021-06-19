@@ -1,7 +1,5 @@
-﻿@model IEnumerable<Hospital.Models.Doctor>
-@{
-    ViewBag.Title = "Doctors";
-    var Doc = (Doctor)ViewBag.Appointment;
+﻿@{
+    var Docs = (List<Doctor>)ViewData["Doctors"];
 }
 <h2>Doctors</h2>
 <div class="main-content">
@@ -17,27 +15,27 @@
             <th>Delete</th>
         </tr>
 
-        @foreach (var item in Model)
+        @foreach (var item in Docs)
         {
             
             <tr>
                 <td>
-                    @Html.DisplayFor(m => item.Id)
+                    @item.Id
                 </td>
                 <td>
-                    @Html.DisplayFor(m => item.Name)
+                    @item.Name
                 </td>
                 <td>
-                    @Html.DisplayFor(m => item.Gender)
+                    @item.Gender
                 </td>
                 <td>
-                    @Html.DisplayFor(m => item.Speciality)
+                    @item.Speciality
                 </td>
                 <td>
-                    @Html.DisplayFor(m => item.Phone)
+                    @item.Phone
                 </td>
                 <td>
-                    @Html.DisplayFor(m => item.Email)
+                    @item.Email
                 </td>
                 <td>
                     <a class="btn btn-outline-primary" asp-controller="Doctors" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
@@ -50,5 +48,5 @@
             </tr>
         }
     </table>
-    <a asp-controller="Doctors" asp-action="Create"><button class="btn btn-outline-primary">Create Profile</button></a>
+    <a asp-controller="Doctors" asp-action="Create"><button class="btn btn-outline-primary">Create Doctor Profile</button></a>
 </div>

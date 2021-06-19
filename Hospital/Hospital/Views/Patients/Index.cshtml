@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Hospital.Models.Patient>
+@{
+    ViewBag.Title = "Patients";
+    var Patients = (Patient)ViewBag.Patient;
+}
+<h2>Patients</h2>
+<div class="main-content">
+    <table class="table">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Date of Birth</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            var dob = string.Format("{0:dd/MM/yyyy}", item.DOB);
+            <tr>
+                <td>
+                    @Html.DisplayFor(m => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item.Gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => dob)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item.Phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item.Email)
+                </td>
+                <td>
+                    <a class="btn btn-outline-primary" asp-controller="Patients" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                </td>
+                <td>
+                    <form method="post" asp-controller="Patients" asp-action="Delete" asp-route-id="@item.Id">
+                        <input type="submit" value="Delete" class="btn btn-outline-danger" />
+                    </form>
+                </td>
+            </tr>
+        }
+    </table>
+    <a asp-controller="Patients" asp-action="Create"><button class="btn btn-outline-primary">Create Patient Profile</button></a>
+</div>

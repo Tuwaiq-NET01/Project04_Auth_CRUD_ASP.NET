@@ -1,0 +1,21 @@
+﻿
+@{
+    var DocP = (List<DocProfile>)ViewData["DocProfiles"];
+    var Docs = (List<Doctor>)ViewData["Doctors"];
+    //@Html.Partial("~/Views/Doctors/Index.cshtml")
+}
+
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    @foreach (var item in Docs)
+    {
+        <div class="col">
+            <div class="card text-center" style="width: 18rem; align-items: center;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">@item.Name</h5>
+                    <a asp-controller="DocProfiles" asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">Details</a>
+                </div>
+            </div>
+        </div>
+     }
+</div>
