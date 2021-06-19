@@ -22,8 +22,11 @@
 https://user-images.githubusercontent.com/82446110/122648559-7e273200-d132-11eb-91af-2f4c713a5daa.mp4
 
 
-### Wireframe  
+### Wireframe  & ER
 https://xd.adobe.com/view/6186d180-8aec-48b1-849c-9e248e99525f-34d5/?fullscreen
+ 
+ ![ERDarkWhiteCode](https://user-images.githubusercontent.com/82446110/122651422-60ad9480-d141-11eb-9c17-ecc819e4f24f.png)
+
     Done by Adobe Xd
 ### Set up  
 ### Prerequisites
