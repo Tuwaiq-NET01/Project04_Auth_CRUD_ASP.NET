@@ -18,7 +18,7 @@ document.getElementById("sendButton").disabled = true;
     // should be aware of possible script injection concerns.
     if (user == "1f4f9201-dd10-464f-8dff-2426be4d5f27") {*/
 
-connection.on("ReceiveMessage", function (user, message, id) {
+connection.on("ReceiveMessage", function (user, message, id, userImage) {
     var li = document.createElement("div");
     document.getElementById("messagesList").appendChild(li);
     if (userId == id) {
@@ -29,7 +29,7 @@ connection.on("ReceiveMessage", function (user, message, id) {
                     <span class="msg_time_send">${user}</span>
                 </div>
                 <div class="img_cont_msg">
-                    <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img_msg">
+                    <img src=${userImage} class="rounded-circle user_img_msg">
                 </div>
             </div>`;
     } else {
@@ -37,7 +37,7 @@ connection.on("ReceiveMessage", function (user, message, id) {
             `
         <div class="d-flex justify-content-start mb-4">
                 <div class="img_cont_msg">
-                    <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img_msg">
+                    <img src=${userImage} class="rounded-circle user_img_msg">
                 </div>
                     <div class="msg_cotainer">
                 ${message}
@@ -48,10 +48,16 @@ connection.on("ReceiveMessage", function (user, message, id) {
     }
 /*    li.textContent = `${user} says ${message}`;
 */
-
-
 });
-
+connection.on("ReceiveNotify", function (message) {
+    var notify = document.createElement("div");
+    document.getElementById("messagesList").appendChild(notify);
+    notify.innerHTML = ` <center>
+                <div >
+                    ${message}
+                </div>
+            </center>`;
+});
 
 connection.start().then(function () {
     document.getElementById("sendButton").disabled = false;

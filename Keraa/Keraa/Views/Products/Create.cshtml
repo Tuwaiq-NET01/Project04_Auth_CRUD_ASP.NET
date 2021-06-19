@@ -17,6 +17,12 @@
         width: 335px;
         height: 335px;
         background-color: #f1ac72;
+        border: 7px dashed #fd7e14;
+    }
+    #textAdd{
+        position:relative;
+        top:180px;
+        right: 140px;
     }
 </style>
 
@@ -26,7 +32,13 @@
 <div class="card mb-3" style="max-width: 550px; position: center; margin: 0 auto; border: hidden; background-color: #fd7e14;" >
     <div class="row g-0">
         <div class="card-img-overlay" style="position: relative;" id="ImgC">
-            <a id="upload_widget" class="cloudinary-button"><img id="cvrImage"></a>
+            <a id="upload_widget" class="cloudinary-button">
+                <img id="cvrImage">
+            </a>
+            <div id="textAdd" class="container text-center">
+                <div class="row">أضف صورة</div>
+                <div class="row material-icons">library_add</div>
+            </div>
         </div>
         <div class="col-md-8">
             <div class="card-body" style="text-align: center; margin-left: 35px;">
@@ -99,7 +111,9 @@
             console.log('Done! Here is the image info: ', result.info);
             ig = result.info.secure_url;
             df.value = ig;
-            coverImage.childNodes[1].childNodes[0].src = ig;// to fetch the img source for #ImgC
+            document.getElementById("textAdd").remove();
+            coverImage.childNodes[1].childNodes[1].style.border = 0;
+            coverImage.childNodes[1].childNodes[1].src = ig;// to fetch the img source for #ImgC
             var h = coverImage.childNodes[1]
             console.log(h)
         }

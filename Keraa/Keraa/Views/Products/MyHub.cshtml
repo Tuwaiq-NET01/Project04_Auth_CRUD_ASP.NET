@@ -6,12 +6,11 @@
 <style type="text/css">
     #btn-create {
         background: #df8f11;
-        height: 10px;
-        width: 400px;
+        width: 250px;
         color: #fff;
         border: 0px solid #a33;
         padding: 20px 50px;
-        margin: 20px;
+        margin-top: -16px;
         font-size: 20px;
         font-weight: bold;
         box-shadow: 0 3px 5px #aaa;
@@ -20,11 +19,10 @@
 </style>
 
 
-
-<h2 class="text-center"><strong>منتجاتي</strong></h2>
+<h1 class="text-center">منتجاتي</h1>
 <hr>
 <center>
-    <a id="btn-create" asp-controller="Products" asp-action="Create" class=""> أضف منتج </a>
+    <a id="btn-create" asp-controller="Products" asp-action="Create" class="btn"> أضف منتج </a>
 </center>
 <br>
 
@@ -63,16 +61,6 @@
 
 <style>
     /* Title */
-    header h1 {
-        font-weight: 300;
-        font-size: 24px;
-        color: #eee;
-        letter-spacing: 2px;
-        text-align: center;
-        text-transform: uppercase;
-        margin: 0 !important;
-        padding-bottom: 25px;
-    }
 
     h1,
     h2,
@@ -94,7 +82,8 @@
         }
 
     body {
-        background-color: #F1F2F3;
+        background-image: linear-gradient(#fff,#F1F2F3 );
+
     }
 
     .container-fluid,

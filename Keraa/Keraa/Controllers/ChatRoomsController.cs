@@ -25,7 +25,6 @@ namespace Keraa.Controllers
         {
             var user = await _userManager.GetUserAsync(User);
             var UserChats = _db.ChatRooms.Include(c => c.ProductOwner).Include(c => c.Other).Where(u => u.ProductOwnerId == user.Id || u.OtherId == user.Id).ToList();
-
             //var UserChats = _db.ChatRooms.Where(u => u.ProductOwnerId == user.Id || u.OtherId == user.Id).ToList();
             ViewData["UserChats"] = UserChats;
             return View( new { ist= true });
@@ -52,11 +51,13 @@ namespace Keraa.Controllers
         public async Task<IActionResult> Room(string roomId)
         {   
             var user = await _userManager.GetUserAsync(User);
-            var room = _db.ChatRooms.ToList().Find(room => room.RoomId == roomId && (room.ProductOwnerId == user.Id || room.OtherId == user.Id));
+            // var room = _db.ChatRooms.ToList().Find(room => room.RoomId == roomId && (room.ProductOwnerId == user.Id || room.OtherId == user.Id));
+            var room = _db.ChatRooms.Include(c => c.ProductOwner).Include(c => c.Other).ToList().Find(room => room.RoomId == roomId && (room.ProductOwnerId == user.Id || room.OtherId == user.Id));
+
             if (room == null) { return BadRequest(new {Message="You dont have the primisstion to access this room"}); }
-            var userProfile = _db.UserProfiles.ToList().Find(profile => profile.Id == user.Id);
-            ViewBag.roomInfo = room;
+             var userProfile = _db.UserProfiles.ToList().Find(profile => profile.Id == user.Id);
             ViewBag.Profile = userProfile;
+            ViewBag.roomInfo = room;
             return View();
             // var roomInfo = new { RoomId = room.RoomId, UserName = userProfile.Name, UserImage = userProfile.Image};
             //return Ok(roomInfo);

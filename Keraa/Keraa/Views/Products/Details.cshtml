@@ -21,25 +21,25 @@
     #D-close {
         position: absolute;
         top: 0px;
-        left: 95%;
+        left: 100%;
     }
 
     #D-chat {
         position: absolute;
         top: 50px;
-        left: 95%;
+        left: 100%;
     }
 
     #D-edit {
         position: absolute;
         top: 100px;
-        left: 95%;
+        left: 100%;
     }
 
     #D-delete {
         position: absolute;
         top: 150px;
-        left: 95%;
+        left: 100%;
     }
 
     #cvrImage {
@@ -110,25 +110,31 @@
 
     <span id="D-bar">
         <span id="D-close">
-            <button href type="button" onclick="location.href='/Products';" class="close" aria-label="Close">
-                <span aria-hidden="true">&<</span>
+            <button href type="button" onclick="location.href='/Products';" class="btn btn-outline-dark" aria-label="Close">
+                <span aria-hidden="true">
+                    <i class="material-icons">arrow_back</i>
+                </span>
             </button>
         </span>
         <span id="D-chat">
             <a class="btn btn-outline-warning" asp-controller="ChatRooms" asp-action="Chat" asp-route-OwnerId="@Product.OwnerId">
-                <span aria-hidden="true">&times;</span>
+                <span aria-hidden="true">
+                    <i class="material-icons">insert_comment</i>
+                </span>
             </a>
         </span>
         @if (UserManager.GetUserId(User) == Product.OwnerId)
         {
             <span id="D-edit">
                 <a class="btn btn-outline-primary" asp-controller="Products" asp-action="Edit" asp-route-id="@Product.Id">
-                    <span aria-hidden="true">5</span>
+                    <span aria-hidden="true">
+                        <i class="material-icons">edit</i>
+                    </span>
                 </a>
             </span>
             <span id="D-delete">
                 <form method="post" asp-controller="Products" asp-action="Delete" asp-route-id="@Product.Id">
-                    <input type="submit" value=&times; class="btn btn-danger" />
+                    <input type="submit" value=close class="btn btn-outline-danger material-icons" />
 
                 </form>
             </span>

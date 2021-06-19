@@ -1,12 +1,16 @@
-﻿@{
-    var roomInfo = ViewBag.roomInfo;
+﻿@using Microsoft.AspNetCore.Identity
+@using Keraa.Data
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@{
+    var roomInfo = (ChatRoomModel)ViewBag.roomInfo;
     var profile = ViewBag.Profile;
 
 }
 
 @*@page*@
 <div class="container">
-    <div><a class="btn btn-danger" id="RoomLeaver" href="/Home/Index"></a></div>
+
     <div class="row">&nbsp;</div>
     <div class="col-4" hidden><input type="text" id="roomChat" value=@roomInfo.RoomId /> </div>
     <div class="col-4" hidden><input type="text" id="userInput" value=@profile.Name /></div>
@@ -14,20 +18,31 @@
     <div class="col-4" hidden><input type="text" id="userImage" value=@profile.Image /></div>
     <div class="row">&nbsp;</div>
 
-
-    <div class="col-md-8 col-xl-6 chat">
-        <div class="card">
-            <div class="card-header msg_head">
-                <div class="d-flex bd-highlight">
+    <div class="d-flex justify-content-center mb-4 mt-4 chat">
+        <div class="card w-50">
+            <div class="card-header msg_head d-flex justify-content-between align-items-center">
+                <div class="d-flex bd-highlight ">
                     <div class="img_cont">
-                        <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img">
+                        @if (UserManager.GetUserId(User) == roomInfo.ProductOwnerId)
+                        {
+                            <img src=@roomInfo.Other.Image class="rounded-circle user_img">
+                        }
+                        else
+                        {<img src=@roomInfo.ProductOwner.Image class="rounded-circle user_img">}
                         <span class="online_icon"></span>
                     </div>
                     <div class="user_info">
-                        <span>Chat with Khalid</span>
-                        <p>1767 Messages</p>
+                        @if (UserManager.GetUserId(User) == roomInfo.ProductOwnerId)
+                        {
+                            <span>Chat with @roomInfo.Other.Name</span>}
+                        else
+                        {
+                            <span>Chat with @roomInfo.ProductOwner.Name</span>}
+                        <p>Keraa golden user</p>
                     </div>
                 </div>
+                <div><a class="btn btn-outline-danger" id="RoomLeaver" href="/ChatRooms/Index">x</a></div>
+
             </div>
             <div class="card-body msg_card_body" id="messagesList">
             </div>
@@ -65,7 +80,9 @@
         background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
         background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
     }*@
-
+    #RoomLeaver{
+        
+    }
     body {
         height: 100%;
         margin: 0;
