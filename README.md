@@ -47,7 +47,7 @@ https://xd.adobe.com/view/6186d180-8aec-48b1-849c-9e248e99525f-34d5/?fullscreen
  - EF Core
 ### Author
  Nada Majed Al-Otaibi | Tuwaiq group 
-    linkedin : https://www.linkedin.com/in/nada-al-otaibi-313739164/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3B3BnnCKM2T1C%2FlUtcbt48Jw%3D%3D
+    linkedin :https://www.linkedin.com/in/nada-al-otaibi-313739164
 ### License & Resource
  .....
 </div>
