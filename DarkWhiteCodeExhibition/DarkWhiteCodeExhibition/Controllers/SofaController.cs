@@ -13,12 +13,9 @@ namespace DarkWhiteCodeExhibition.Controllers
     {
 
         private readonly ApplicationDbContext _db;
-        // private readonly UserManager<IdentityUser> _UserManager;
         public SofaController(ApplicationDbContext context)
-        //UserManager<IdentityUser> userManager = null)
         {
             _db = context;
-            //  _UserManager = userManager;
         }
 
         public IActionResult Index()
@@ -28,16 +25,10 @@ namespace DarkWhiteCodeExhibition.Controllers
             ViewData["SofaModel"] = SofaModel;
             return View(SofaModel);
 
-            //   ApplicationDbContext context = new ApplicationDbContext();
-            //  string userid = _UserManager.GetUserId(User);
-            //  IEnumerable<ArtPiecesModel> Art = new List<ArtPiecesModel>();
-            // if (!string.IsNullOrEmpty(userid))
-
-            //    Art = context.ArtPiecesModel.Where(x => x.UserId == userid);
+           
 
         }
-        //    return View(Art); }
-
+      
         // GET: ArtPieces
 
         // GET: ArtPieces/Details/5
@@ -62,8 +53,7 @@ namespace DarkWhiteCodeExhibition.Controllers
         }
 
         // POST: ArtPieces/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+     
         [HttpPost]
 
 
@@ -94,8 +84,7 @@ namespace DarkWhiteCodeExhibition.Controllers
 
 
         // POST: ArtPieces/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+     
         [HttpPost]
         public IActionResult Edit(int id, [Bind("Id,Name,DesignerName,Price,Image")] SofaModel SofaModel)
         {
@@ -130,16 +119,6 @@ namespace DarkWhiteCodeExhibition.Controllers
             return RedirectToAction("Index");
         }
 
-        //   public override bool Equals(object obj)
-        //  {
-        //       return obj is ArtPiecesController controller &&
-        //          EqualityComparer<UserManager<IdentityUser>>.Default.Equals(_UserManager, controller._UserManager);
-        // }
-
-        // public override int GetHashCode()
-        //  {
-        // return HashCode.Combine(_UserManager);
-        //  }
-        // }
+      
     }
 }
