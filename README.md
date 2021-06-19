@@ -1,51 +1,47 @@
-# Project04_Auth_CRUD_ASP.NET
-
-<div dir="rtl" align="right">
-
-فكرة المشروع
-
-بناء مشروع متكامل باستخدام ASP.NET MVC  قائم على فكرة من اختيارك وتتضمن المتطلبات الأساسية لبناء تطبيق ASP.NET MVC مع  Entity Framework Core وSql Server.
 
 
-قبل بداية المشروع 
+    
+  # Riyadh Parking 
+  <div align="center">
+    <img src="https://h.top4top.io/p_19967w2q21.png" width=300px/>
+   </div>
+   
+## Introduction (المقدمة)
+    
+ Searching for a parking place in the car parking is a boring activity for many people and wasting time. More problem increases with the population density, buying and using cars will become higher. To overcome from these problems of congestion of traffic and save the fuels from it. I have proposed a Riyadh parking application. The proposed app increases the probability of finding a parking place faster. It prevents the drivers from spending too much time searching for a parking place.
+ <div dir="rtl">
+يعد البحث عن مكان لوقوف السيارات في مواقف السيارات نشاطًا مملًا للكثير من الأشخاص ويضيع الوقت. تزداد المشاكل مع الكثافة السكانية ، وسيزداد شراء واستخدام السيارات. للتغلب على مشاكل الازدحام المروري وحفظ الوقود منه. لقد اقترحت تطبيق مواقف الرياض. يزيد التطبيق المقترح من احتمالية العثور على مكان لركن السيارة بشكل أسرع. يمنع السائقين من قضاء الكثير من الوقت في البحث عن مكان وقوف السيارات.
 
-عمل Wireframes و ERD والتأكيد مع أحد المدربين قبل البدء بتنفيذ المشروع. بداية المشروع بالنسخة رقم  v.1
-
-متطلبات المشروع
-
-
-- استخدام نمط MVC 
-- إنشاء على الأقل 4 من Controllers
-- إنشاء على الأقل 4 Model 
-- إنشاء على الأقل 6 Views
-    - استخدام مكتبة Bootstrap مع Razor 
-    - استخدام partial view للعناصر المتكررة في الواجهات
-- استخدام وظائف CRUD مع ASP.NET 
-- استخدام إطار عمل Entity Framework Core
-- استخدام CodeFirst Approach لإنشاء قاعدة البيانات
-- استخدام قاعدة بيانات MSSQL 
-    - ان تكون قاعدة البيانات متعددة الجداول
-    - يجب ان تتضمن قاعدة البيانات على الاقل احد العلاقات التالية:
-        - علاقة one-to-one
-        - علاقة one-to-many
-        - علاقة many-to-many
-- تطبيق Authentication 
-- قم بتطبيق Unit Testing (اختبار على الاقل One Action Method لكل Controller)
-
-
-إضافة | Bonus 
-- قم باستخدام أحد مفاهيم Design Patterns في مشروعك لحل مشكلةٍ ما
-- إنشاء APIs 
-- عمل Deploy للمشروع على Azure
-- استخدام React مع ASP.NET أو أي Framework 
-- استخدام WebSockets في ASP.NET core
-- التعامل مع الـThird party APIs  {SMS Message, Google Maps,….} 
-    - مصادر للـAPIs
-    - الاول: Any API over 1400 Public APIs: https://any-api.com/
-    - الثاني: API Search: http://apis.io/
-- رفع صور او ملفات 
-    -  باستخدام الـthird-party:
-        - Cloudinary: https://cloudinary.com/
-        -  AWS: https://aws.amazon.com/s3/?nc2=h_ql_prod_st_s3
-    - حفظها  بالـLocal server 
 </div>
+
+## Demo
+<div align="center">
+    <h3> Login as User </h3>
+    <img src="https://j.top4top.io/p_1996kdh0d1.gif"/>
+    <h3>Login as Admin </h3>
+    <img src="https://f.top4top.io/p_1996hp2bd1.gif" />
+    </div>
+    
+## Wireframe & ER diagram
+
+<a href="https://h.top4top.io/p_1995dlzur1.jpeg"> Wireframe</a>
+<br/>
+<a href="https://g.top4top.io/p_19967d55h1.png"> ER Diagram </a>
+
+## Set up
+### Prerequisites
+- NET 5
+- ASP.NET MVC
+- Microsoft SQL Server
+## Built using
+### Front-End
+- HTML
+- CSS
+- JS
+- Bootstrap
+### Back-End 
+- ASP.NET MVC
+- MSSQL Server
+- EF Core 
+### Author 
+#### Shahad Alshehri
