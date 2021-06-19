@@ -11,7 +11,6 @@ using Project04_Auth_CRUD_ASP.NET.Models;
 
 namespace Project04_Auth_CRUD_ASP.NET.Controllers
 {
-    [Authorize(Roles = "Admin")]
     public class PricesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -22,6 +21,7 @@ namespace Project04_Auth_CRUD_ASP.NET.Controllers
         }
 
         // GET: PriceModels
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.Prices.Include(p => p.Barber).Include(p => p.Time);
@@ -42,6 +42,7 @@ namespace Project04_Auth_CRUD_ASP.NET.Controllers
         }
 
         // GET: PriceModels/Details/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Details(Guid? id)
         {
             if (id == null)
@@ -62,6 +63,7 @@ namespace Project04_Auth_CRUD_ASP.NET.Controllers
         }
 
         // GET: PriceModels/Create
+        [Authorize(Roles = "Admin")]
         public IActionResult Create(Guid? id)
         {
             var barber = _context.Barbers.FirstOrDefault(p => p.Id == id);
@@ -90,6 +92,7 @@ namespace Project04_Auth_CRUD_ASP.NET.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create(Guid? id, [Bind("Id,Value,TimeId")] PriceModel priceModel)
         {
             if (id == null)
@@ -111,6 +114,7 @@ namespace Project04_Auth_CRUD_ASP.NET.Controllers
         }
 
         // GET: PriceModels/Edit/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(Guid? id)
         {
             var _price = _context.Prices.Include(p => p.Time).Include(p => p.Barber).FirstOrDefault(p => p.Id == id);
@@ -143,6 +147,7 @@ namespace Project04_Auth_CRUD_ASP.NET.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(Guid id, [Bind("Id,Value,TimeId,BarberId")] PriceModel priceModel)
         {
 
@@ -177,9 +182,9 @@ namespace Project04_Auth_CRUD_ASP.NET.Controllers
         }
 
         // GET: PriceModels/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(Guid? id)
         {
-            // mark for testing ****************************************************************************
             if (id == null)
             {
                 return NotFound();
@@ -189,6 +194,7 @@ namespace Project04_Auth_CRUD_ASP.NET.Controllers
                 .Include(p => p.Barber)
                 .Include(p => p.Time)
                 .FirstOrDefaultAsync(m => m.Id == id);
+
             if (priceModel == null)
             {
                 return NotFound();
@@ -200,6 +206,7 @@ namespace Project04_Auth_CRUD_ASP.NET.Controllers
         // POST: PriceModels/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
             var priceModel = await _context.Prices.FindAsync(id);

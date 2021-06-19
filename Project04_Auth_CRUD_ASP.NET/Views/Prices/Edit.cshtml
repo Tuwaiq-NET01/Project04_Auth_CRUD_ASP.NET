@@ -1,38 +1,44 @@
 ﻿@model Project04_Auth_CRUD_ASP.NET.Models.PriceModel
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Change a price";
 }
 
-<h1>Edit @ViewData["BarberName"]</h1>
-
-<hr />
-
-<div class="row">
-    <div class="col-md-4">
+<div class="row justify-content-center mt-5 pt-5">
+    <div class="col-7 col-md-4 p-3 auth-form main-font">
+        <div>
+            <a asp-action="Index">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+        </div>
         <form asp-action="Edit">
+            <div class="text-center mb-5">
+                <h4 class="text-center">Change @ViewData["BarberName"] Price</h4>
+            </div>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <input type="hidden" asp-for="BarberId" />
             <div class="form-group">
-                <label asp-for="Value" class="control-label">Price</label>
-                <input asp-for="Value" class="form-control" />
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                            $
+                        </span>
+                    </div>
+                    <input asp-for="Value" class="form-control input-text" />
+                </div>
                 <span asp-validation-for="Value" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="TimeId" class="control-label">Time</label>
-                <select asp-for="TimeId" class="form-control" asp-items="ViewBag.TimeId"></select>
+                <select asp-for="TimeId" class="form-control input-text" asp-items="ViewBag.TimeId"></select>
                 <span asp-validation-for="TimeId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn bg-color mt-5" />
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

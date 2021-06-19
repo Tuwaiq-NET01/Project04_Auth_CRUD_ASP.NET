@@ -1,15 +1,82 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
+
+.animation-1 {
+    animation: fadeInAnimation ease 1.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+a {
+    color: #c0c0c0 !important;
+}
+
+.small-font {
+    font-size: small;
+}
 a.navbar-brand {
   white-space: normal;
   text-align: center;
   word-break: break-all;
 }
 
+.logo-text-all, .logo-text {
+    color: #b1361e !important;
+    font-family: 'Courgette', cursive;
+}
+.logo-text {
+    font-size: 22px;
+}
+
+.main-font, .nav-background {
+    font-family: 'Merienda', cursive;
+}
+.nav-background {
+    background-color: #222222 !important;
+}
+
+.custom-color, .main-body, .input-text, .bg-color, .table {
+    color: #e6e6e6 !important;
+}
+
+.Home-gif {
+    width: 290px;
+    border-radius: 250px;
+}
+
+.auth-form, .input-text, .bg-all {
+    background-color: #262729;
+}
+.input-text {
+    font-family: sans-serif;
+}
+.input-text:focus{
+    background-color: #262729;
+}
+
+.bg-color {
+    background-color: #b1361e !important;
+}
+th {
+    color: #b1361e !important;
+    vertical-align: middle !important;
+}
+body {
+    background-color: #303133;
+}
 /* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+    color: #0366d6;
 }
 
 .btn-primary {

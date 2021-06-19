@@ -7,8 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Project04_Auth_CRUD_ASP.NET.Data;
+using Project04_Auth_CRUD_ASP.NET.Models;
 
-namespace Project04_Auth_CRUD_ASP.NET.Models
+namespace Project04_Auth_CRUD_ASP.NET.Controllers
 {
     [Authorize]
     public class BarbersController : Controller
@@ -59,7 +60,6 @@ namespace Project04_Auth_CRUD_ASP.NET.Models
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create([Bind("Id,Name")] BarberModel barberModel)
         {
-            // mark for testing ****************************************************************************
             if (ModelState.IsValid)
             {
                 barberModel.Id = Guid.NewGuid();
@@ -67,6 +67,7 @@ namespace Project04_Auth_CRUD_ASP.NET.Models
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
             return View(barberModel);
         }
 

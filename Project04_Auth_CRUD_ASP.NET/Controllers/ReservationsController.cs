@@ -212,6 +212,8 @@ namespace Project04_Auth_CRUD_ASP.NET.Controllers
 
             var reservationModel = await _context.Reservations
                 .Include(r => r.Price)
+                .Include(r => r.Price.Time)
+                .Include(r => r.Price.Barber)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (reservationModel == null)
             {

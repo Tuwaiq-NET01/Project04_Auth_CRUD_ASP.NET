@@ -1,0 +1,175 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\New folder (2)\\Project04_Auth_CRUD_ASP.NET\\Project04_Auth_CRUD_ASP.NET_Tests\\Project04_Auth_CRUD_ASP.NET_Tests.csproj": {}
+  },
+  "projects": {
+    "D:\\New folder (2)\\Project04_Auth_CRUD_ASP.NET\\Project04_Auth_CRUD_ASP.NET\\Project04_Auth_CRUD_ASP.NET.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\New folder (2)\\Project04_Auth_CRUD_ASP.NET\\Project04_Auth_CRUD_ASP.NET\\Project04_Auth_CRUD_ASP.NET.csproj",
+        "projectName": "Project04_Auth_CRUD_ASP.NET",
+        "projectPath": "D:\\New folder (2)\\Project04_Auth_CRUD_ASP.NET\\Project04_Auth_CRUD_ASP.NET\\Project04_Auth_CRUD_ASP.NET.csproj",
+        "packagesPath": "C:\\Users\\anas\\.nuget\\packages\\",
+        "outputPath": "D:\\New folder (2)\\Project04_Auth_CRUD_ASP.NET\\Project04_Auth_CRUD_ASP.NET\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\anas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.4, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.6, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[5.0.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.6, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[5.0.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\New folder (2)\\Project04_Auth_CRUD_ASP.NET\\Project04_Auth_CRUD_ASP.NET_Tests\\Project04_Auth_CRUD_ASP.NET_Tests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\New folder (2)\\Project04_Auth_CRUD_ASP.NET\\Project04_Auth_CRUD_ASP.NET_Tests\\Project04_Auth_CRUD_ASP.NET_Tests.csproj",
+        "projectName": "Project04_Auth_CRUD_ASP.NET_Tests",
+        "projectPath": "D:\\New folder (2)\\Project04_Auth_CRUD_ASP.NET\\Project04_Auth_CRUD_ASP.NET_Tests\\Project04_Auth_CRUD_ASP.NET_Tests.csproj",
+        "packagesPath": "C:\\Users\\anas\\.nuget\\packages\\",
+        "outputPath": "D:\\New folder (2)\\Project04_Auth_CRUD_ASP.NET\\Project04_Auth_CRUD_ASP.NET_Tests\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\anas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "D:\\New folder (2)\\Project04_Auth_CRUD_ASP.NET\\Project04_Auth_CRUD_ASP.NET\\Project04_Auth_CRUD_ASP.NET.csproj": {
+                "projectPath": "D:\\New folder (2)\\Project04_Auth_CRUD_ASP.NET\\Project04_Auth_CRUD_ASP.NET\\Project04_Auth_CRUD_ASP.NET.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[5.0.7, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.5.0, )"
+            },
+            "NUnit": {
+              "target": "Package",
+              "version": "[3.12.0, )"
+            },
+            "NUnit3TestAdapter": {
+              "target": "Package",
+              "version": "[3.16.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

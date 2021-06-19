@@ -1,31 +1,31 @@
 ﻿@model Project04_Auth_CRUD_ASP.NET.Models.BarberModel
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Add a Barber";
 }
 
-<h1>Create</h1>
-
-<h4>BarberModel</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+<div class="row justify-content-center mt-5 pt-5">
+    <div class="col-7 col-md-4 p-3 auth-form main-font">
+        <div>
+            <a asp-action="Index">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+        </div>
         <form asp-action="Create">
+            <div class="text-center mb-5">
+                <h4 class="text-center">Add a barber</h4>
+            </div>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
+                <input asp-for="Name" class="form-control input-text" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn bg-color mt-5" />
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

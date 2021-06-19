@@ -4,55 +4,67 @@
     Dictionary<string, int> TableHelper = (Dictionary<string, int>)ViewData["TableHelper"];
 }
 
-<h1>Prices</h1>
+@{
+    ViewData["Title"] = "Prices";
+}
 
-<table class="table">
-    <thead>
-        <tr>
-            <th colspan="2" >
-                @Html.DisplayNameFor(model => model.Barber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Value)
-            </th>
+<div class="bg-all p-3 mt-5 main-font custom-color">
+    <h1 class="mb-3">Prices</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th colspan="2">
+                    @Html.DisplayNameFor(model => model.Barber)
+                </th>
+                <th>
+                    Price
+                </th>
 
-            <th>
-                @Html.DisplayNameFor(model => model.Time)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (KeyValuePair<string, int> item in TableHelper)
-        {
-            var enter = true;
-            foreach (var ele in Model)
-            {
-                if (ele.Barber.Name == item.Key)
+                <th>
+                    @Html.DisplayNameFor(model => model.Time)
+                </th>
+                @if (User.IsInRole("Admin"))
                 {
-                    <tr>
-                        @if (enter)
-                        {
-                            enter = false;
-                            <th colspan="2" rowspan="@item.Value">
-                                @item.Key
-                            </th>
-                        }
-                        <td>
-                            @Html.DisplayFor(modelItem => ele.Value)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => ele.Time.Value)
-                        </td>
-                        <td>
-                            <a asp-action="Edit" asp-route-id="@ele.Id">Edit</a> |
-                            <a asp-action="Details" asp-route-id="@ele.Id">Details</a> |
-                            <a asp-action="Delete" asp-route-id="@ele.Id">Delete</a>
-                        </td>
-                    </tr>
+                    <th></th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (KeyValuePair<string, int> item in TableHelper)
+            {
+                var enter = true;
+                foreach (var ele in Model)
+                {
+                    if (ele.Barber.Name == item.Key)
+                    {
+                        <tr>
+                            @if (enter)
+                            {
+                                enter = false;
+                                <th colspan="2" rowspan="@item.Value">
+                                    @item.Key
+                                </th>
+                            }
+                            <td>
+                                @Html.DisplayFor(modelItem => ele.Value)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => ele.Time.Value)
+                            </td>
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@ele.Id">Edit</a> |
+                                    <!-- <a asp-action="Details" asp-route-id="">Details</a> | -->
+                                    <a asp-action="Delete" asp-route-id="@ele.Id">Delete</a>
+                                </td>
+                            }
+                        </tr>
 
+                    }
                 }
             }
-        }
-    </tbody>
+        </tbody>
     </table>
+</div>
+

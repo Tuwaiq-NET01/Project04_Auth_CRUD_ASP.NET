@@ -1,40 +1,48 @@
 ﻿@model IEnumerable<Project04_Auth_CRUD_ASP.NET.Models.BarberModel>
 
-<h1>Barbers</h1>
-@if (User.IsInRole("Admin"))
-{
-    <p>
-        <a asp-action="Create">Create New</a>
-    </p>
+@{
+    ViewData["Title"] = "Barbers";
 }
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
 
-                    <a asp-controller="Reservations" asp-action="Create" asp-route-id="@item.Id">Book</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a>
-                    @if (User.IsInRole("Admin"))
-                    {
-                        @("|") <a asp-controller="Prices" asp-action="Create" asp-route-id="@item.Id">Add Price</a> @("|")
-                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> @("|")
-                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                    }
-                </td>
+<div class="bg-all p-3 mt-5 main-font custom-color">
+    <h1 class="mb-3">Barbers</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th></th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        <a asp-controller="Reservations" asp-action="Create" asp-route-id="@item.Id">Book</a>
+                        <!-- <a asp-action="Details" asp-route-id="">Details</a> -->
+                        @if (User.IsInRole("Admin"))
+                        {
+                            @("|") <a asp-controller="Prices" asp-action="Create" asp-route-id="@item.Id">Add Price</a> @("|")
+                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> @("|")
+                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    @if (User.IsInRole("Admin"))
+    {
+        <button class="btn bg-color">
+            <a asp-action="Create">
+                <i class="fas fa-plus"></i>
+            </a>
+        </button>
+    }
+</div>
