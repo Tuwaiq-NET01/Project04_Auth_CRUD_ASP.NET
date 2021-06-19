@@ -1,3 +1,54 @@
+<div dir="rtl" align="right">
+
+![Tuwaiq](https://i.ibb.co/SV2BSn5/tuwaiq.png)
+----
+# (App_Name) | اسم التطبيق
+GiftShop / متجر الهداية
+### المقدمــة | Introduction 
+ هذا المشروع عباره عن متجر للهدايا يبيع الورد, الحلى, و البالونات. وهو يساعد على توزيع الهدايا وتوثيق علاقاتنا الاجتماعيه لكل من يحيط بنا. لبث السعادة بطريقه احترافيه ومميزه.
+
+This project is about a gift shop that sells flowers, sweets, and balloons. It helps distribute gifts to strengthen our social relationships to the people around us. Spreading happiness in a professional and distinctive way.
+
+### Demo  
+![WeatherApp](https://github.com/Yasmin-AlGhamdi/Project04_Auth_CRUD_ASP.NET/blob/main/GiftShop.gif)
+### Wireframe  
+<img src="https://github.com/Yasmin-AlGhamdi/Project04_Auth_CRUD_ASP.NET/blob/main/WireFrame/HomePage.jpeg"/>
+<img src="https://github.com/Yasmin-AlGhamdi/Project04_Auth_CRUD_ASP.NET/blob/main/WireFrame/SignUpPage.jpeg"/>
+<img src="https://github.com/Yasmin-AlGhamdi/Project04_Auth_CRUD_ASP.NET/blob/main/WireFrame/LoginPage.jpeg"/>
+<img src="https://github.com/Yasmin-AlGhamdi/Project04_Auth_CRUD_ASP.NET/blob/main/WireFrame/PrivacyPage.jpeg"/>
+<img src="https://github.com/Yasmin-AlGhamdi/Project04_Auth_CRUD_ASP.NET/blob/main/WireFrame/ContactUsPage.jpeg"/>
+<img src="https://github.com/Yasmin-AlGhamdi/Project04_Auth_CRUD_ASP.NET/blob/main/WireFrame/ProductsPage.jpeg"/>
+<img src="https://github.com/Yasmin-AlGhamdi/Project04_Auth_CRUD_ASP.NET/blob/main/WireFrame/DetailsPage.jpeg"/>
+<img src="https://github.com/Yasmin-AlGhamdi/Project04_Auth_CRUD_ASP.NET/blob/main/WireFrame/EditPage.jpeg"/>
+<img src="https://github.com/Yasmin-AlGhamdi/Project04_Auth_CRUD_ASP.NET/blob/main/WireFrame/CreatePage.jpeg"/>
+
+### ER Diagram 
+<img src="https://github.com/Yasmin-AlGhamdi/Project04_Auth_CRUD_ASP.NET/blob/main/ERD.jpg"/>
+
+### Set up  
+### Prerequisites
+- NET 5 
+- ASP.NET MVC
+- Microsoft SQL Server 
+### Set up  
+ #### Database
+ ``` dotnet ef database update```
+### Front-End  
+ - HTML
+ - CSS
+ - Bootstrap 
+### Back-End 
+ - ASP.NET MVC
+ - MSSQL Server
+ - EF Core
+### Author
+Yasmin Alghamdi
+ياسمين الغامدي
+### License & Resource
+ .....
+</div>
+
+
 # Project04_Auth_CRUD_ASP.NET
 
 <div dir="rtl" align="right">
