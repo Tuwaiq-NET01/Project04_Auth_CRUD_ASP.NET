@@ -1,4 +1,5 @@
 <div dir="rtl" align="right" >
+
 ![Tuwaiq](https://i.ibb.co/SV2BSn5/tuwaiq.png)
 ----
 # Healthy Choice | الاختيار الصحي
@@ -8,7 +9,9 @@
 
 الفكرة قابلة للتطوير مستقبلا بحيث تضم جوانب تفاعلية بين المستخدمين الذين يشتركون في نفس الأهداف رغبة في الوصول الى مجتمع صحي ..
 نسعد بأي اقتراحات تطويرية.
-### Demo  
+
+### Demo
+
 <img src="HealthyChoiceDemo.gif">
 
 ### Deployment
@@ -19,11 +22,14 @@
 
 ### ERD
 <img src="ERD.png">
+
 ## Set up  
+
 ### Prerequisites
 - NET 5 
 - ASP.NET MVC
 - Microsoft SQL Server 
+
 ## Built With
 
 ### Front-End  
@@ -36,6 +42,7 @@
  - MSSQL Server
  - EF Core
 ### Author
+
 <b>Samirah Alhusayni
 
 </div>
