@@ -1,0 +1,53 @@
+﻿@{
+    var Balloons = (List<BalloonModel>)ViewData["Balloons"];
+    Layout = "WebLayout";
+
+}
+
+<center>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
+        <a class="navbar-brand" href="/Home"><img style="height:30px; width:30px;" src="https://cdn0.iconfinder.com/data/icons/flowers-and-leaves/47/flower_9-512.png" /></a>
+
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/Home/Privacy">Privacy</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/Home/ContactUs"><i class="fa fa-fw fa-envelope"></i>Contact Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/Balloons/create">Add a Product</a>
+            </li>
+        </ul>
+    </nav>
+</center>
+
+<div class="container">
+    <div class="row">
+
+        @foreach (var Balloon in Balloons)
+        {
+            <center>
+                <div class="col-lg-4">
+                    <div class="card" style="width:18rem;">
+                        <center> <img style="min-height:200px; width:200px;" src="@Balloon.BalloonImage" alt="@Balloon.BalloonImage" /></center>
+                        <div class="card-body">
+                            <p class="card-text"><h7>Balloon ID: </h7>@Balloon.BalloonId</p>
+                            <p class="card-text"><h7>Balloon Name: </h7>@Balloon.BalloonName</p>
+                            <p class="card-text"><h7>Balloon Price: </h7>@Balloon.BalloonPrice</p>
+                            <button type="button" class="btn btn-dark"><a style="color:white" href="/Balloons/details/@Balloon.BalloonId"> SHOW </a></button><br /><br />
+                            <button type="button" class="btn btn-dark"><a asp-controller="Balloons" asp-action="Edit" asp-route-id="@Balloon.BalloonId">EDIT</a></button><br /><br />
+                            <form asp-action="Delete" asp-route-id="@Balloon.BalloonId" method="post">
+                                <input type="submit" value="DELETE" class="btn btn-danger" />
+                            </form>
+                        </div>
+
+                    </div>
+
+                </div>
+            </center>
+        }
+
+    </div>
+</div>

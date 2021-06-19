@@ -1,0 +1,55 @@
+﻿@{
+    var Flowers = (List<FlowerModel>)ViewData["Flowers"];
+    Layout = "WebLayout";
+
+}
+
+<center>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
+        <a class="navbar-brand" href="/Home"><img style="height:30px; width:30px;" src="https://cdn0.iconfinder.com/data/icons/flowers-and-leaves/47/flower_9-512.png" /></a>
+
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/Home/Privacy">Privacy</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/Home/ContactUs"><i class="fa fa-fw fa-envelope"></i>Contact Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/Flowers/create">Add a Product</a>
+            </li>
+        </ul>
+    </nav>
+</center>
+
+
+<div class="container">
+    <div class="row">
+
+        @foreach (var Flower in Flowers)
+        {
+            <center>
+                <div class="col-lg-4">
+                    <div class="card" style="width:18rem;">
+                        <center> <img style="min-height:200px; width:200px;" src="@Flower.FlowerImage" alt="@Flower.FlowerImage" /></center>
+                        <div class="card-body">
+                            <p class="card-text"><h7>Flower ID: </h7>@Flower.FlowerId</p>
+                            <p class="card-text"><h7>Flower Name: </h7>@Flower.FlowerName</p>
+                            <p class="card-text"><h7>Flower Price: </h7>@Flower.FlowerPrice</p>
+                            <button type="button" class="btn btn-dark"><a style="color:white" href="/Flowers/details/@Flower.FlowerId"> SHOW </a></button><br /><br />
+                            <button type="button" class="btn btn-dark"><a asp-controller="Flowers" asp-action="Edit" asp-route-id="@Flower.FlowerId">EDIT</a></button><br /><br />
+                            <form asp-action="Delete" asp-route-id="@Flower.FlowerId" method="post">
+                                <input type="submit" value="DELETE" class="btn btn-danger" />
+                            </form>
+                        </div>
+
+                    </div>
+
+                </div>
+            </center>
+        }
+
+    </div>
+</div>
+

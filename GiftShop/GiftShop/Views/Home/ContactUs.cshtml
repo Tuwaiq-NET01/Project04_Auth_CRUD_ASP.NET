@@ -1,0 +1,108 @@
+﻿@{
+    ViewData["Title"] = "Contact Us";
+    Layout = "WebLayout";
+}
+<center>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
+        <a class="navbar-brand" href="/Home"><img style="height:30px; width:30px;" src="https://cdn0.iconfinder.com/data/icons/flowers-and-leaves/47/flower_9-512.png" /></a>
+
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/Home/Privacy">Privacy</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/Home/ContactUs"><i class="fa fa-fw fa-envelope"></i>Contact Us</a>
+            </li>
+        </ul>
+    </nav>
+</center>
+
+<br />
+<center>
+    <h1 style="color: black; font-family: 'Arial Nova'; font-style: italic; font-weight:bold;">
+        @ViewData["Title"]:
+    </h1>
+</center>
+<div class="row">
+    <div class="column">
+        <center>
+            <br /><br /><br /><br /><br /><br /><br /><br />
+
+            <h5 style="color:black; font-family: 'Arial Nova'; font-style: italic;">
+                <b>Address:</b> Karan, Al Fanateer, Jubail Industrial City <br />
+                <b>Phone Number:</b> +966-555699110 <br />
+                <b>Working Hours:</b> 7 days a week from 9:00 am to 7:00 pm <br />
+                <b>Email:</b> ContactUs@GiftShop.com
+            </h5>
+
+        </center>
+    </div>
+    <div class="column">
+        <div class="container">
+            <form action="action_page.php">
+
+                <label for="fname">First Name:</label>
+                <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+                <label for="lname">Last Name:</label>
+                <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+                <label for="country">Your Email:</label>
+                <input type="text" id="email" name="yourEmail" placeholder="Your email..">
+
+
+                <label for="subject">Subject:</label> <br />
+                <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px; width:500px;"></textarea>
+                <br />
+                <input type="submit" value="Submit">
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<style>
+    .row {
+        display: flex;
+    }
+
+    .column {
+        flex: 50%;
+    }
+
+    input[type=text], select, textarea {
+        width: 100%; /* Full width */
+        padding: 12px; /* Some padding */
+        border: 1px solid #ccc; /* Gray border */
+        border-radius: 4px; /* Rounded borders */
+        box-sizing: border-box; /* Make sure that padding and width stays in place */
+        margin-top: 6px; /* Add a top margin */
+        margin-bottom: 16px; /* Bottom margin */
+        resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+    }
+
+    /* Style the submit button with a specific background color etc */
+    input[type=submit] {
+        background-color: #ff8080;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        /* When moving the mouse over the submit button, add a darker green color */
+        input[type=submit]:hover {
+            background-color: #ff8080;
+        }
+
+    /* Add a background color and some padding around the form */
+    .container {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+</style>

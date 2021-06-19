@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31112.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GiftShop", "GiftShop\GiftShop.csproj", "{3F72EB51-D726-4CAB-AC35-D1088FA4B3D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GiftShopTest", "GiftShopTest\GiftShopTest.csproj", "{FAB280F5-01C7-40E3-9EDF-F0522B87FAB4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3F72EB51-D726-4CAB-AC35-D1088FA4B3D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F72EB51-D726-4CAB-AC35-D1088FA4B3D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F72EB51-D726-4CAB-AC35-D1088FA4B3D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F72EB51-D726-4CAB-AC35-D1088FA4B3D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAB280F5-01C7-40E3-9EDF-F0522B87FAB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAB280F5-01C7-40E3-9EDF-F0522B87FAB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAB280F5-01C7-40E3-9EDF-F0522B87FAB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAB280F5-01C7-40E3-9EDF-F0522B87FAB4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {93DECCA1-EB3B-4F12-891E-6CA56235F60D}
+	EndGlobalSection
+EndGlobal
