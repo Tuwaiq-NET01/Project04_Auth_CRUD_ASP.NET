@@ -1,5 +1,7 @@
 ﻿@{
     var instructor = (InstructorModel)ViewData["instructor"];
+    var org = (string)ViewData["org"];
+    var crs = (string)ViewData["crs"];
     Layout = "InstructorLayout";
 }
 
@@ -13,10 +15,26 @@
             <img src="@instructor.pic" class="card-img-top" alt="pic" width="300" height="300 ">
             <div class="card-body" style="color: #30475e ;background-color:#e7e7de ">
                 <h5 class="card-title">@instructor.name</h5>
-              @*  <p class="card-text">This instructor is teaching<b></b></p>*@
-                <p class="card-text">under Organization : <b>@instructor.OrganizationId </b></p>
+                @{if (instructor.Course == null)
+                    {
+                        <p class="card-text">This instructor is teaching: <a asp-controller="Courses" asp-action="Details" asp-route-id="40437293123"><b>@crs</b> </a></p>
+                    }
+                    else
+                    {
+                        <p class="card-text">This instructor is teaching: <a asp-controller="Courses" asp-action="Details" asp-route-id="@instructor.Course.Id"><b>@crs</b> </a></p>
+                    }}
+                @{if (@instructor.OrganizationId == null)
+                    {
+                        <p class="card-text">This instructor is under : <a asp-controller="Courses" asp-action="Details" asp-route-id="40437293123"><b>@org</b> </a></p>
+                    }
+                    else
+                    {
+                        <p class="card-text">This instructor is under : <a asp-controller="Courses" asp-action="Details" asp-route-id="@instructor.OrganizationId"><b>@org</b> </a></p>
+                    }}
+
+
                 <p class="card-text">Info : <b>@instructor.summary </b></p>
-                <a asp-controller="Instructors" asp-action="Index">Back to Instructors</a>
+                <a asp-controller="Instructors" asp-action="Index"> <button class="btn btn-danger">Back to Instructors </button> </a>
 
             </div>
         </div>

@@ -1,6 +1,6 @@
 ﻿@{
     var org = (OrganizationModel)ViewData["organization"];
-
+    var insts = org.Instructors.ToList();
     <h2 style="color: #30475e"> Organization : @org.name </h2>
     <body>
 
@@ -10,9 +10,18 @@
                 <img src="@org.pic" class="card-img-top" alt="Tea Coal" width="300" height="300 ">
                 <div class="card-body" style="color: #30475e ;background-color:#e7e7de ">
                     <h5 class="card-title">@org.name</h5>
-                    <p class="card-text"> <b>INFO : @org.summary </b></p>
+                    <p class="text"> <b>INFO : @org.summary </b></p>
+                    <p>
+                        The instructors which are under this Organization are :
+                        @foreach (var inst in insts)
+                        {
+                            <br />
+                            @inst.name <br/>
 
-                </div>
+                        }
+                    </p>
+
+                    </div>
             </div>
 
         </div>

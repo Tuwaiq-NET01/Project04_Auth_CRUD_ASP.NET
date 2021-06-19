@@ -2,27 +2,42 @@
     Layout = "InstructorLayout";
 
     <h2 style="color: #30475e"> Meet Tuwaiq's ambassadors </h2>
-    <body>
-
-        <div class=" d-flex flex-wrap">
-            @foreach (var inst in instructors)
-            {
-                <div class="card text-center mb-4 " style="width: 12rem; margin-inline:auto">
-                    <img src="@inst.pic" class="card-img-top" alt="Tea Coal" width="100" height="180 ">
-                    <div class="card-body" style="color: #30475e ;background-color:#e7e7de ">
-                        <a class="text-dark" asp-controller="Instructors" asp-action="Details" asp-route-Id="@inst.Id"> <h5 class="card-title">@inst.name</h5></a>
-                        <a class="card-text" asp-controller="Organizations" asp-action="Details" asp-route-id="@inst.OrganizationId">This lecturer is under ' <b>@inst.OrganizationId </b>- </a><br/>
-                        <a asp-controller="Instructors" asp-action="Edit" asp-route-Id="@inst.Id"><button class="btn btn-danger">Edit</button></a>
-
-                        <small style="margin-top:10px">
-                            <form asp-action="Delete" asp-route-id="@inst.Id" method="post">
-                                <input type="submit" value="Delete" class="btn btn-danger" />
-                            </form>
-                        </small>
-                    </div>
-                </div>
-            }
-        </div>
-
-    </body>
+ 
 }
+
+
+<section>
+    <div class="container">
+        <div class="row">
+            @foreach (var inst in instructors)
+                {
+
+                <div class="col-md-3">
+                    <div class="card profile-card-3">
+                        <div class="background-block">
+                            <img src="@inst.pic" alt="profile-sample1" class="background" />
+                        </div>
+                        <div class="profile-thumb-block">
+                            <img src="@inst.pic" alt="profile-image" class="profile" />
+                        </div>
+                        <div class="card-content">
+                            <h3>
+                                <a class="text-dark" asp-controller="Instructors" asp-action="Details" asp-route-Id="@inst.Id"> <h5 class="card-title">@inst.name</h5></a>
+                                <small>Instructor</small></h3>
+                                <div class="icon-block">
+                                    <a asp-controller="Instructors" asp-action="Edit" asp-route-Id="@inst.Id"><i class="fa fa-pencil"></i></a>
+                                    <form asp-action="Delete" asp-route-id="@inst.Id" method="post" style="margin-top:7px;">
+                                        <input type="submit" value="Delete" class="btn btn-outline-danger" style="border-radius:50%;" />
+                                    </form>
+                                </div>
+                        </div>
+                    </div>
+
+                </div>
+                    }
+                
+
+
+            </div>
+    </div>
+</section>

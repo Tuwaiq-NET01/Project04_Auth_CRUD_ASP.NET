@@ -14,9 +14,6 @@ namespace HjtProject.Models
         public CourseModel Course { get; set; }
         public int? CourseId { get; set; }
 
-        public InstructorModel Instructor { get; set; }
-        public int? InstructorId { get; set; }
-
 
     }
 }

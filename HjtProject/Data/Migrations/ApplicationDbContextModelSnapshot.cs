@@ -105,9 +105,6 @@ namespace HjtProject.Data.Migrations
                     b.Property<int?>("CourseId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("InstructorId")
-                        .HasColumnType("int");
-
                     b.Property<string>("email")
                         .HasColumnType("nvarchar(max)");
 
@@ -120,8 +117,6 @@ namespace HjtProject.Data.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CourseId");
-
-                    b.HasIndex("InstructorId");
 
                     b.ToTable("UserProfiles");
                 });
@@ -350,13 +345,7 @@ namespace HjtProject.Data.Migrations
                         .WithMany("UserProfiles")
                         .HasForeignKey("CourseId");
 
-                    b.HasOne("HjtProject.Models.InstructorModel", "Instructor")
-                        .WithMany("UserProfiles")
-                        .HasForeignKey("InstructorId");
-
                     b.Navigation("Course");
-
-                    b.Navigation("Instructor");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -418,8 +407,6 @@ namespace HjtProject.Data.Migrations
             modelBuilder.Entity("HjtProject.Models.InstructorModel", b =>
                 {
                     b.Navigation("Course");
-
-                    b.Navigation("UserProfiles");
                 });
 
             modelBuilder.Entity("HjtProject.Models.OrganizationModel", b =>

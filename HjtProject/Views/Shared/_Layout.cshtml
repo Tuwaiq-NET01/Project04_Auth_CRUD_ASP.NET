@@ -6,12 +6,14 @@
     <title>@ViewData["Title"] - HjtProject</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+
 </head>
-<body>
-    <header>
+<body style="  background-image: url(https://admkh.files.wordpress.com/2019/07/img_4002.jpg?w=1568); 
+ background-size:initial;background-position:center;background-repeat: no-repeat;">
+    <header style="opacity:0.67;">
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">HjtProject</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="https://d33wubrfki0l68.cloudfront.net/b8d40757898dd96b73b4317a79fff600fb8cf060/dc238/institute-images/logo-text-black.png" width="120" height="45" style="opacity:1" /></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -22,7 +24,16 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Courses" asp-action="Index">Courses</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Instructors" asp-action="Index">Instructors</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Organizations" asp-action="Index">Organizations</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="UserProfiles" asp-action="Index">User Profile</a>
                         </li>
                     </ul>
                     <partial name="_LoginPartial" />
@@ -38,7 +49,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2021 - HjtProject - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <partial name="PartialFooter" />
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

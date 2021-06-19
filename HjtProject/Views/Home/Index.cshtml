@@ -1,8 +1,100 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿
+<link href="~/css/org.css" rel="stylesheet" />
+<script src="~/js/site.js"></script>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+
+<html>
+<head>
+    <title>Tuwaiq's Camp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+</head>
+<body>
+ 
+    <!--======Push Menu======-->
+    <div class="container bar-cont">
+        <div class="row">
+            <div class="col-md-4 col-sm-6 push-bar">
+                <div class="creator">
+                    <a href="https://safcsp.org.sa/" target="_blank"><i ><img src="https://d33wubrfki0l68.cloudfront.net/5a00ec65bd83df6c7069731d86c26e69b3799f56/c1e42/assets/images/logo/logo-dark.png" /></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 arrow"></div>
+        </div>
+    </div>
+    <!------------------------->
+    <!--========Cards========-->
+    <div class="container-fluid main-cont">
+        <div class="row news-row">
+            <div class="container-fluid col-md-8 col-sm-4 justify-content-center news-block">
+                <div class="card-group">
+                    <div class="underlay">
+                        <div class="card">
+                            <div class="card-img-top" style="background-image: url('https://images.pexels.com/photos/3779187/pexels-photo-3779187.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');background-size:cover"></div>
+                            <div class="card-block">
+                                <h5 class="card-title" style="font-family: 'Anton', sans-serif">Tuwaiq's Courses<hr></h5>
+                                <p class="card-text"> Under this catagory you will Find the best courses that Tuwaiq's camp have to offer... so strap in you will find what you are looking for "sooner or later "   <a asp-controller="Courses" asp-action="Index" asp-route-Id=""><u>See What's Up ...</u></a></p>
+                                <p class="card-text"><small class="text-muted">Sponsored by: Abu Adeeb</small></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="underlay">
+                        <div class="card">
+                            <div class="card-img-top" style="background-image: url('https://i.ibb.co/MR5DCVH/IMG-20210513-WA0037-20210618053421659.jpg'); background-size:cover"></div>
+                            <div class="card-block">
+                                <h5 class="card-title" style="font-family: 'Anton', sans-serif">Instructors<hr></h5>
+                                <p class="card-text">Under this catagory you will find the best Tuwaiq's instructors Tuwaiq's have to offer EXCEPT FOR Abu Adeeb ,Because only the instructors that make use of their bags are certified in here <a asp-controller="Instructors" asp-action="Index" asp-route-Id=""><u>Check 'em out</u></a></p>
+                                <p class="card-text"><small class="text-muted">Sponsored by : the 2nd best Mishal in camp</small></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="underlay">
+                        <div class="card">
+                            <div class="card-img-top" style="background-image: url('https://previews.123rf.com/images/radiantskies/radiantskies1211/radiantskies121102935/16560426-abstract-word-cloud-for-industrial-organization-with-related-tags-and-terms.jpg');background-size:cover"></div>
+                            <div class="card-block">
+                                <h5 class="card-title" style="font-family: 'Anton', sans-serif">Organizations<hr></h5>
+                                <p class="card-text">Under this catagory, you will find the organizations that sponsor our immensely talented Tuwaiq's ambassadors. Many organizations contributed in that so we had to thank them accordingly  <a asp-controller="Organizations" asp-action="Index" asp-route-Id=""><u>{o_o} ...</u></a></p>
+                                <p class="card-text"><small class="text-muted">Sponsored by : Abu Eissa </small></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="underlay">
+                        <div class="card">
+                            <div class="card-img-top" style="background-image: url('https://images.pexels.com/photos/1370294/pexels-photo-1370294.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260'); background-size:cover"></div>
+                            <div class="card-block">
+                                <h5 class="card-title" style="font-family: 'Anton', sans-serif">Check Your Profile<hr></h5>
+                                <p class="card-text"> Here you can check your profile , After Abu Ahmed already checked it <a asp-controller="UserProfiles" asp-action="Index" asp-route-Id=""><u>Because , Why not ?...</u></a></p>
+                                <p class="card-text"><small class="text-muted">Sponsored by : The Beholded Abu Ahmed .</small></p>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    <!------------------------>
+    <!--=======Scripts======-->
+    <script src="jquery-3.1.1.min.js"></script>
+    <script name="toggle-grid" type="text/javascript">
+$(document).ready(function(){
+  $(document).on("keypress", function(event) {
+    // If 'alt + g' keys are pressed:
+    if (event.which === 169){
+        $('#toggle-grid').toggle();
+     }
+  });
+
+  $('#toggle-grid').on("click"
+  , function() {
+      $('.pixel-grid').toggle();
+      $('#toggle-grid').toggleClass('orange');
+    });
+});
+    </script>
+</body>
+</html>

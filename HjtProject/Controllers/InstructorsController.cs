@@ -40,12 +40,37 @@ namespace HjtProject.Controllers
         public IActionResult Details(int? id)
         {
             var instructor = _db.Instructors.ToList().Find(instructor => instructor.Id == id);
+           
             if (id == null || instructor == null)
             {
                 return View("_NotFound");
             }
+            var org = _db.Organizations.ToList().Find(o => o.Id == instructor.Id);
+            if (org==null || org.name==null )
+            {
+               string noinst= "this instructor has no organizations";
+                ViewData["org"] = noinst;
+
+            }
+            else
+            {
+                ViewData["org"] = org.name;
+            }
+            var crs = _db.Courses.ToList().Find(c => c.InstructorId == id);
+            if (crs == null || crs.name==null)
+            {
+                string nocrs = "this instructor has no courses";
+                ViewData["crs"] = nocrs;
+
+            }
+            else
+            {
+                ViewData["crs"] = crs.name;
+            }
+            
+            
             ViewData["instructor"] = instructor;
-            return View(instructor);
+            return View();
 
         }
 
@@ -110,6 +135,19 @@ namespace HjtProject.Controllers
             _db.Instructors.Remove(instructor);
             _db.SaveChanges();
             return RedirectToAction("Index");
+        }
+        public Boolean Check_if_in_database(int? id)
+        {
+            var instructor = _db.Instructors.FirstOrDefault(p => p.Id == id);
+
+            if (id == null || instructor == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿@{
     var course = (CourseModel)ViewData["course"];
+    var inst = (string)ViewData["inst"];
     Layout = "CourseLayout";
+
 }
 
 
@@ -13,10 +15,15 @@
             <img src="@course.pic" class="card-img-top" alt="pic" width="300" height="300 ">
             <div class="card-body" style="color: #30475e ;background-color:#e7e7de ">
                 <h5 class="card-title">@course.name</h5>
-                <p class="card-text">This course is tought by the lecturer : <b>@course.InstructorId</b></p>
-                <p class="card-text">Buy this course for : <b>@course.price $</b></p>
-                <p class="card-text">By the end of this course : <b>@course.description </b></p>
-                <a asp-controller="Courses" asp-action="Index">Back to Courses</a>
+                <p class="text">This course is tought by the Instructor : <b>@inst</b></p>
+                <p class="text">Buy this course for : <b>@course.price $</b></p>
+                <p class="text">By the end of this course : <b>@course.description </b></p>
+
+                <form asp-controller="UserProfiles" asp-action="Enroll" asp-route-id="@course.Id" method="post">
+                    <input type="submit" value="Enroll" class="btn btn-danger" />
+                </form>
+
+                <a asp-controller="Courses" asp-action="Index"> <button class="btn btn-danger"> Back to Courses</button></a>
 
             </div>
         </div>

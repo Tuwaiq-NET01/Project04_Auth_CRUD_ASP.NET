@@ -1,78 +1,65 @@
-﻿@{var courses = (List<CourseModel>)ViewData["courses"];
+﻿
+<link href="~/css/newcard.css" rel="stylesheet">
+-@{var courses = (List<CourseModel>)ViewData["courses"];
     Layout = "CourseLayout";
 
-    foreach (var course in courses)
-    {
+<section id="team" class="pb-5 oph">
+    <div class="container">
+        <h5 class="section-title h1">Tuwaiq's Best Courses</h5>
+        <div class="row">
+            @{ 
+                foreach (var course in courses)
+                {
 
-        <section class="wrapper">
-                <div class="container">
 
-                    <div class="row">
-                        <div class="col-sm-4" style="background-image:url(@course.pic); background-size:cover;width:60px;height:300px">
-                            <div class="card text-dark card-has-bg click-col">
-                                <img class="card-img d-none" src="@course.pic" alt="default" style="background-size:cover">
-                                <div class="card-img-overlay d-flex flex-column">
-                                    <div class="card-body">
-                                        <small class="card-meta mb-2">Tuwaiq Course</small>
-                                        <h4 class="card-title mt-0 "><a class="text-dark" asp-controller="Courses" asp-action="Details" asp-route-Id="@course.Id">@course.name</a></h4>
-                                        <p class="card-text"><small class="text-muted">available only for : @course.price $</small></p>
-                                    </div>
-                                    <div class="card-footer">
-                                        <div class="media">
-                                            <img class="mr-3 rounded-circle" src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/male-512.png" alt="Generic placeholder image" style="max-width:50px">
-                                            <div class="media-body">
-                                                <a asp-controller="Courses" asp-action="Edit" asp-route-Id="@course.Id"><button class="btn btn-danger">Edit</button></a>
+            <!-- -->
+            <div class="col-xs-12 col-sm-6 col-md-4 opf" >
+                <div class="image-flip">
+                    <div class="mainflip flip-0">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="@course.pic" alt="card image"></p>
+                                    <h4 class="card-title">@course.name</h4>
+                                    <p class="text"><small class="text-muted">available only for : @course.price $</small></p>
+                                    <a asp-controller="Courses" asp-action="Details" asp-route-Id="@course.Id" class="btn btn-primary btn-sm"><i class="fa fa-plus">Details</i></a>
 
-                                                <small>
-                                                    <form asp-action="Delete" asp-route-id="@course.Id" method="post">
-                                                        <input type="submit" value="Delete" class="btn btn-danger" />
-                                                    </form>
-                                                </small>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
-
+                        <div class="backside">
+                            <div class="card">
+                                <div class="card-body text-center mt-4">
+                                    <h4 class="card-title">@course.name</h4>
+                                    <p class="text">@course.description</p>
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" asp-controller="Courses" asp-action="Edit" asp-route-Id="@course.Id">
+                                                <i class="fa fa-pencil">Edit</i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <form asp-action="Delete" asp-route-id="@course.Id" method="post">
+                                                <input type="submit" value="Delete" class="fa btn-danger" />
+                                            </form>
+                                        </li>
+                                        <br />
+                                        <li class="list-inline-item">
+                                            <form asp-controller="UserProfiles" asp-action="Enroll" asp-route-id="@course.Id" method="post">
+                                                <input type="submit" value="Enroll" class="btn btn-danger" style="border: 2px solid ;margin-top:10px;padding:6px;padding-top:4px;padding-bottom:4px;"/>
+                                            </form>
+                                         </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
                 </div>
-            </section>
+            </div>
+                    }
+                }
 
+        </div>
+    </div>
+</section> 
     }
-
-}
-
-@*<p class="card-text"><small class="text-muted">available only for : @course.price $</small></p>*@
-
-
-
-
-@*@using Microsoft.AspNetCore.Identity
-    @{
-
-        var emails = (List<IdentityUser>)ViewData["users"];
-    }
-
-    @{
-        if (emails == null)
-        {
-            <h3> You have no users </h3>
-        }
-        else
-        {
-            foreach (var item in emails)
-            {
-                <p>
-                    @item.Email <br />
-                    @item.Id
-                </p>
-
-            }
-        }
-
-    }
-
-
-*@

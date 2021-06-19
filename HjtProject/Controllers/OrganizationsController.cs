@@ -29,6 +29,8 @@ namespace HjtProject.Controllers
         public IActionResult Details(int? id)
         {
             var organization = _db.Organizations.ToList().Find(organization => organization.Id == id);
+            var instructors = _db.Instructors.ToList();
+
             if (id == null || organization == null)
             {
                 return View("_NotFound");
@@ -36,6 +38,19 @@ namespace HjtProject.Controllers
             ViewData["organization"] = organization;
             return View(organization);
 
+        }
+        public Boolean Check_if_in_database(int? id)
+        {
+            var organization = _db.Organizations.FirstOrDefault(p => p.Id == id);
+
+            if (id == null || organization == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }

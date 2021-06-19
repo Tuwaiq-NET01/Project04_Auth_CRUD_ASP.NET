@@ -14,7 +14,6 @@ namespace HjtProject.Models
         public OrganizationModel Organization {get; set; } 
         public int? OrganizationId { get; set; }
         public CourseModel Course { get; set; }
-        public List<UserProfileModel> UserProfiles { get; set; }
 
 
 

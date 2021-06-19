@@ -1,20 +1,26 @@
 ﻿@{var organizations = (List<OrganizationModel>)ViewData["organizations"];
-
-    <h2 style="color: #30475e"> Our organizations</h2>
-    <body>
-
-        <div class=" d-flex flex-wrap">
-            @foreach (var org in organizations)
-            {
-                <div class="card text-center mb-4 " style="width: 12rem; margin-inline:auto ;">
-                    <img src="@org.pic" class="card-img-top" alt="Tea Coal" width="100" height="180 ">
-                    <div class="card-body" style="color: #30475e ;background-color:#e7e7de ">
-                        <h5 class="card-title">@org.name</h5>
-                        <a class="btn btn-secondary nav-link" asp-area="" asp-controller="organizations" asp-action="Details" asp-route-id="@org.Id">Details</a>
-                    </div>
-                </div>
-            }
-        </div>
-
-    </body>
 }
+<link href="~/css/OrgIndex.css" rel="stylesheet" />
+
+<div class="container bootstrap snippets bootdeys">
+    <div class="row">
+        
+        @foreach (var org in organizations)
+        {
+           
+
+        <div class="col-md-4 col-sm-6 content-card">
+            <div class="card-big-shadow">
+                <div class="card card-just-text" data-background="color" data-color="blue" style="opacity:0.76" data-radius="none">
+                    <div class="content">
+                        <h6 class="category"><img src="@org.pic"  width="200" height="200"/></h6>
+                        <h5 class="title"><a asp-controller="Organizations" asp-action="Details" asp-route-Id="@org.Id">@org.name</a></h5>
+                        <p class="description">@org.summary </p>
+                    </div>
+                </div> 
+            </div>
+        </div>
+        }
+       
+    </div>
+</div>

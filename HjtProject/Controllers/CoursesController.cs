@@ -9,6 +9,7 @@ using HjtProject.Data;
 using HjtProject.Models;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.EntityFrameworkCore;
 
 namespace HjtProject.Controllers
 {
@@ -42,12 +43,15 @@ namespace HjtProject.Controllers
         // GET: /courses/id
         public IActionResult Details(int? id)
         {
-            var Course = _db.Courses.ToList().Find(course => course.Id == id);
+            var Course = _db.Courses.Include(i=>i.Instructor).ToList().Find(course => course.Id == id);
             if (id == null || Course == null)
             {
                 return View("_NotFound");
             }
+            var inst = _db.Instructors.ToList().Find(i => i.Id == id).name;
+
             ViewData["course"] = Course;
+            ViewData["inst"] = inst;
             return View(Course);
 
         }
@@ -88,7 +92,7 @@ namespace HjtProject.Controllers
 
         // POST - /courses/edit/id
         [HttpPost]
-        public IActionResult Edit([Bind( "name", "description", "price","pic")] CourseModel course)
+        public IActionResult Edit([Bind] CourseModel course)
         {
             EntityEntry<CourseModel> entry = _db.Entry(course);
             entry.Property(e => e.name).IsModified = true;
@@ -106,7 +110,7 @@ namespace HjtProject.Controllers
         public IActionResult Delete(int? id)
         {
             var course = _db.Courses.ToList().Find(p => p.Id == id);
-            if (id == null || course == null)
+            if (Check_Minus(id) || course == null)
             {
                 return View("_NotFound");
             }
@@ -114,6 +118,18 @@ namespace HjtProject.Controllers
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
+        public Boolean Check_Minus(int? id)
+        {
+            if (id < 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
 
     }
 }
