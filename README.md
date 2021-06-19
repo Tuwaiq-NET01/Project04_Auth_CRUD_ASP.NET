@@ -5,11 +5,11 @@
 # Tuwaiq Aiport Management System
 
 ### المقدمــة | Introduction 
-الموقع يعمل على تنظيم الرحلات المنطلقة من المطارات  و عرضها وعرض  الرحلات المتوفرة و الرحلات والمسافرين 
+الموقع يعمل على تنظيم الرحلات المنطلقة من المطارات  و عرضها وعرض  الرحلات المتوفرة والمسافرين 
 </div>
-### Demo
 
-<img src="">
+### Demo
+<img src="AirportManagment.gif">
 <br>
 
 
@@ -17,6 +17,7 @@
 <p>You can view application wireframe <a href="https://wireframe.cc/pro/pp/9838c05ef451993" rel="nofollow">here</a></p> 
 
 ### ERD
+<img src="ERD.png">
 
 
 ### Prerequisites
