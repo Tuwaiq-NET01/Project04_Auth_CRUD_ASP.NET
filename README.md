@@ -12,7 +12,8 @@
 
 ### Demo
 
-<img src="HealthyChoiceDemo.gif">
+<img src="HealthChoice_Proj4//HealthyChoiceDemo.gif">
+<br>
 
 ### Deployment
 <p><a href="https://healthchoiceproj420210619005719.azurewebsites.net/" rel="nofollow">HealthyCoice</a>, deployed to Azure</p>
@@ -21,7 +22,7 @@
 <p>You can view application wireframe <a href="https://wireframe.cc/pro/pp/08719377d451892" rel="nofollow">here</a></p> 
 
 ### ERD
-<img src="./HealthChoice_Proj4/ERD.png">
+<img src="HealthChoice_Proj4/ERD.png">
 
 ## Set up  
 
