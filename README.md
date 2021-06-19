@@ -6,7 +6,7 @@ Podcast website where you can have your own channel and the ability to upload au
 
 ### Demo  
 
-[Demo Video] (https://drive.google.com/file/d/1Dqvfu4Odcw-zPqTH80BfRURhBehoIPdq/view?usp=sharing)
+[Demo Video](https://drive.google.com/file/d/1Dqvfu4Odcw-zPqTH80BfRURhBehoIPdq/view?usp=sharing)
 
 ### ERD
 ![alt text](https://res.cloudinary.com/duuconncq/image/upload/v1624122275/Screenshot_2021-06-19_200419_jxv5tg.png)
