@@ -1,55 +1,54 @@
-# Project04_Auth_CRUD_ASP.NET
+<div dir="rtl" align="right" >
+  
+![Tuwaiq](https://i.ibb.co/SV2BSn5/tuwaiq.png)
+  
 
-<div dir="rtl" align="right">
+----
 
-فكرة المشروع
+# (Library) | اسم التطبيق
 
-بناء مشروع متكامل باستخدام ASP.NET MVC  قائم على فكرة من اختيارك وتتضمن المتطلبات الأساسية لبناء تطبيق ASP.NET MVC مع  Entity Framework Core وSql Server.
-
-
-قبل بداية المشروع 
-
-عمل Wireframes و ERD والتأكيد مع أحد المدربين قبل البدء بتنفيذ المشروع. بداية المشروع بالنسخة رقم  v.1
-
-متطلبات المشروع
-
-
-- استخدام نمط MVC 
-- إنشاء على الأقل 4 من Controllers
-- إنشاء على الأقل 4 Model 
-- إنشاء على الأقل 6 Views
-    - استخدام مكتبة Bootstrap مع Razor 
-    - استخدام partial view للعناصر المتكررة في الواجهات
-- استخدام وظائف CRUD مع ASP.NET 
-- استخدام إطار عمل Entity Framework Core
-- استخدام CodeFirst Approach لإنشاء قاعدة البيانات
-- استخدام قاعدة بيانات MSSQL 
-    - ان تكون قاعدة البيانات متعددة الجداول
-    - يجب ان تتضمن قاعدة البيانات على الاقل احد العلاقات التالية:
-        - علاقة one-to-one
-        - علاقة one-to-many
-        - علاقة many-to-many
-- تطبيق Authentication 
-- قم بتطبيق Unit Testing على مشروعك
+<div dir="rtl" align="center"  >
+        
+![library](https://user-images.githubusercontent.com/82483633/122647076-1ae5d180-d12b-11eb-8d87-245951cf40f0.PNG)
+        
+</div>
     
+### المقدمــة | Introduction 
+A Library Management System is a software built to handle the primary housekeeping functions of a library. Libraries rely on library management systems to manage asset collections as well as relationships with their members. Library management systems help libraries keep track of the books and their checkouts, as well as members’ subscriptions and profiles.
+### Demo  
+ .....
+### Wireframe  
+
+![Wireframe](https://user-images.githubusercontent.com/82483633/122646257-e6701680-d126-11eb-9cda-7e458799d876.jpg)
+    
+### ER diagram
+    
+![PNG image-C863506BC7D1-1](https://user-images.githubusercontent.com/82483633/122646949-7e233400-d12a-11eb-847a-d25df9477cfc.png)
 
 
+### Set up  
+### Prerequisites
+- NET 5 
+- ASP.NET MVC
+- Microsoft SQL Server 
+### Set up  
+ #### Database
+ ``` dotnet ef database update```
+### Front-End  
+ - HTML
+ - CSS
+ - JS
+ - Jquery
+ - Bootstrap 
+ - CSSans Pro
+### Back-End 
+ - ASP.NET MVC
+ - MSSQL Server
+ - EF Core
 
 
-
-إضافة | Bonus 
-- قم باستخدام أحد مفاهيم Design Patterns في مشروعك لحل مشكلةٍ ما
-- إنشاء APIs 
-- عمل Deploy للمشروع على Azure
-- استخدام React مع ASP.NET أو أي Framework 
-- استخدام WebSockets في ASP.NET core
-- التعامل مع الـThird party APIs  {SMS Message, Google Maps,….} 
-    - مصادر للـAPIs
-    - الاول: Any API over 1400 Public APIs: https://any-api.com/
-    - الثاني: API Search: http://apis.io/
-- رفع صور او ملفات 
-    -  باستخدام الـthird-party:
-        - Cloudinary: https://cloudinary.com/
-        -  AWS: https://aws.amazon.com/s3/?nc2=h_ql_prod_st_s3
-    - حفظها  بالـLocal server 
+### Author
+ Rawabe Ebrahim
+### License & Resource
+ .....
 </div>
