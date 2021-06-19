@@ -99,10 +99,18 @@ Note: the service is in its first version, so expect some bugs.
 
 <br/>
 
+## Google Lighthouse Report - إختبار الجودة من جوجل
+
+<p align="center">
+<a href="https://googlechrome.github.io/lighthouse/viewer/?psiurl=https%3A%2F%2Fbitchunk.co"><img src="https://raw.githubusercontent.com/YounesAlturkey/bitchunk.co/main/frontend/src/assets/img/lighthouse-report.png" alt="Quality Check"/></a>
+</p>
+
+<br/>
+
 ## Unit Tests - الإختبارات
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/YounesAlturkey/bitchunk/main/backend-tests/tests-results.png" alt="demo"/>
+<img src="https://raw.githubusercontent.com/YounesAlturkey/bitchunk/main/backend-tests/tests-results.png" alt="Unit Tests Screenshot"/>
 </p>
 
 <div id="license">
