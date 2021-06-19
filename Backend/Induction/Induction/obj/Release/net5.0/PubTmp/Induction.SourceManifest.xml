@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sitemanifest>
+  <IisApp path="C:\Users\lenovo1\Desktop\Tuwaiq_Courses\Dotnet\DotNetProject\Project02_EF_ASP.NET_MVC\Induction\Induction\obj\Release\net5.0\PubTmp\Out\" />
+  <dbfullsql path="C:\Users\lenovo1\Desktop\Tuwaiq_Courses\Dotnet\DotNetProject\Project02_EF_ASP.NET_MVC\Induction\Induction\obj\Release\net5.0\PubTmp\EFSQLScripts\Induction.Data.AppDbContext.sql" />
+</sitemanifest>

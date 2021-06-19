@@ -1,0 +1,52 @@
+﻿<Properties StartupConfiguration="{21AB136A-EF89-4784-806D-9C9BAC3CF7BC}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Induction/Startup.cs">
+    <Files>
+      <File FileName="Induction/Data/AppDbContext.cs" Line="1" Column="1" />
+      <File FileName="Induction/Models/UserModel.cs" />
+      <File FileName="Induction/Controllers/FactsController.cs" />
+      <File FileName="Induction/Controllers/ChaptersController.cs" />
+      <File FileName="Induction/Controllers/QuotesController.cs" />
+      <File FileName="Induction/Repositories/IUserRepository.cs" />
+      <File FileName="Induction/Controllers/AuthController.cs" />
+      <File FileName="Induction/Controllers/BooksController.cs" />
+      <File FileName="Induction/Repositories/FlashCardRepository.cs" />
+      <File FileName="Induction/Repositories/FactRepository.cs" />
+      <File FileName="Induction/Repositories/IQuotesRepository.cs" />
+      <File FileName="Induction/Repositories/ChapterRepository.cs" />
+      <File FileName="Induction/appsettings.json" />
+      <File FileName="Induction/Repositories/UserRepository.cs" />
+      <File FileName="Induction/Repositories/IChapterRepository.cs" />
+      <File FileName="Induction/Repositories/MotivationRepository.cs" />
+      <File FileName="Induction/Repositories/QuoteRepository.cs" />
+      <File FileName="Induction/Startup.cs" Line="41" Column="26" />
+      <File FileName="Induction/Dtos/RegisterDto.cs" />
+      <File FileName="Induction/Helpers/JwtService.cs" />
+      <File FileName="Induction/Helpers/IJwtService.cs" />
+      <File FileName="Induction/Repositories/IBookRepository.cs" />
+      <File FileName="Induction/Repositories/BookRepository.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Induction" expanded="True">
+            <Node name="Induction" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Dtos" expanded="True" />
+              <Node name="Helpers" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="Repositories" expanded="True" />
+              <Node name="Startup.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Induction PreferredExecutionTarget="/Applications/Brave Browser.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

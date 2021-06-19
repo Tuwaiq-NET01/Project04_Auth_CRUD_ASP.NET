@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA6zaVdyeQm0uR62X6OHIPHwAAAAACAAAAAAAQZgAAAAEAACAAAADhw4L+An2KrBkFf7TwqWBIbpIlZRe+ZMyiSvshIXwVEgAAAAAOgAAAAAIAACAAAAA9Dm5EkMh/DWIIsG99CyNeptCY8QQcWd93yZExKeQ9HIAAAABmFLff9I+2ZpiEbx+qvJSVLOmvK2j1MeKi/L0ixuvbioLpobfZwlLhLL4b/evbd/qsQOrWuvOGCw1Hmli8t9Wuf80vQwbNFL/S0fz0UGlLriygktF0A2sHWTzbhOL+w9bG+ArMOjYLW2S2SYtRXXsY3TobAZh4P6uzJhx/2I4uoUAAAACOQHB5KodcTnJzA5CSgAykDcQLakXfIvJNIxNnyysYVZJjU56MrGMLvfDmWNyydhUL3JkQ14TbmzkYwRE9FlEs</EncryptedPassword>
+    <History>True|2021-06-19T21:48:25.7485531Z;True|2021-06-20T00:32:14.9511638+03:00;True|2021-06-20T00:07:58.8382241+03:00;False|2021-06-20T00:04:00.4880232+03:00;True|2021-06-19T23:40:03.6276514+03:00;True|2021-06-19T22:21:47.6882444+03:00;True|2021-06-19T21:48:52.5978584+03:00;True|2021-06-19T20:18:36.0283666+03:00;True|2021-06-19T20:12:09.6184300+03:00;False|2021-06-19T19:57:38.4318805+03:00;False|2021-06-19T19:52:02.3021875+03:00;False|2021-06-19T19:49:22.6348991+03:00;False|2021-06-19T19:47:02.6283361+03:00;False|2021-06-19T18:50:26.5103092+03:00;False|2021-06-19T18:45:27.4895898+03:00;False|2021-06-19T18:42:51.9833656+03:00;False|2021-06-19T18:42:04.4043709+03:00;False|2021-06-19T18:35:28.5526954+03:00;False|2021-06-19T18:35:08.3195549+03:00;True|2021-06-19T18:28:55.1256092+03:00;True|2021-06-19T18:02:32.5928757+03:00;True|2021-06-19T17:55:22.7765594+03:00;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <EFMigrations Include="Induction.Data.AppDbContext">
+      <Value>Data Source=tcp:inductiondbserver.database.windows.net,1433%3bInitial Catalog=Induction_db%3bUser Id=mansovic%40inductiondbserver%3bPassword=Mad1995%24&amp;</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

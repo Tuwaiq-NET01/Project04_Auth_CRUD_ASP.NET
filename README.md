@@ -1,51 +1,90 @@
-# Project04_Auth_CRUD_ASP.NET
+<div dir="rtl" align="right" >
 
-<div dir="rtl" align="right">
-
-فكرة المشروع
-
-بناء مشروع متكامل باستخدام ASP.NET MVC  قائم على فكرة من اختيارك وتتضمن المتطلبات الأساسية لبناء تطبيق ASP.NET MVC مع  Entity Framework Core وSql Server.
+![Tuwaiq](https://i.ibb.co/SV2BSn5/tuwaiq.png)
 
 
-قبل بداية المشروع 
+![alt text](https://github.com/aldundur-Mansour/Project04_Auth_CRUD_ASP.NET/blob/main/InductionLogo.svg?raw=true)
 
-عمل Wireframes و ERD والتأكيد مع أحد المدربين قبل البدء بتنفيذ المشروع. بداية المشروع بالنسخة رقم  v.1
+# (INDUCTION) | اسم التطبيق
+  
+### المقدمــة | Introduction 
+ 
+ تطبيق يسمح للمستخدمين بتحفيز بعضهم ومشاركة الحقائق حول اهتمام مشترك وقراءة كتاب بروتين محدد.
 
-متطلبات المشروع
+### Demo  
 
-
-- استخدام نمط MVC 
-- إنشاء على الأقل 4 من Controllers
-- إنشاء على الأقل 4 Model 
-- إنشاء على الأقل 6 Views
-    - استخدام مكتبة Bootstrap مع Razor 
-    - استخدام partial view للعناصر المتكررة في الواجهات
-- استخدام وظائف CRUD مع ASP.NET 
-- استخدام إطار عمل Entity Framework Core
-- استخدام CodeFirst Approach لإنشاء قاعدة البيانات
-- استخدام قاعدة بيانات MSSQL 
-    - ان تكون قاعدة البيانات متعددة الجداول
-    - يجب ان تتضمن قاعدة البيانات على الاقل احد العلاقات التالية:
-        - علاقة one-to-one
-        - علاقة one-to-many
-        - علاقة many-to-many
-- تطبيق Authentication 
-- قم بتطبيق Unit Testing (اختبار على الاقل One Action Method لكل Controller)
+![alt text](https://github.com/aldundur-Mansour/Project04_Auth_CRUD_ASP.NET/blob/main/DemoFinalProject.gif?raw=true)
 
 
-إضافة | Bonus 
-- قم باستخدام أحد مفاهيم Design Patterns في مشروعك لحل مشكلةٍ ما
-- إنشاء APIs 
-- عمل Deploy للمشروع على Azure
-- استخدام React مع ASP.NET أو أي Framework 
-- استخدام WebSockets في ASP.NET core
-- التعامل مع الـThird party APIs  {SMS Message, Google Maps,….} 
-    - مصادر للـAPIs
-    - الاول: Any API over 1400 Public APIs: https://any-api.com/
-    - الثاني: API Search: http://apis.io/
-- رفع صور او ملفات 
-    -  باستخدام الـthird-party:
-        - Cloudinary: https://cloudinary.com/
-        -  AWS: https://aws.amazon.com/s3/?nc2=h_ql_prod_st_s3
-    - حفظها  بالـLocal server 
+---
+
+[LiveDemo => FrontEnd](https://dazzling-lamarr-86f006.netlify.app/)
+
+--- 
+
+[LiveDemo => Backend](https://induction2030.azurewebsites.net/index.html)
+
+---
+
+### Wireframe 
+
+![alt text](https://github.com/aldundur-Mansour/Project04_Auth_CRUD_ASP.NET/blob/main/Wireframe.jpg?raw=true)
+
+---
+
+### DB scheme 
+
+![alt text](https://github.com/aldundur-Mansour/Project04_Auth_CRUD_ASP.NET/blob/main/Relations-Induction.png?raw=true)
+
+---
+### Prerequisites
+- NET 5 
+- ASP.NET MVC
+- Microsoft SQL Server 
+- nodejs
+
+---
+
+### Set up  
+
+ #### Database
+
+ ``` dotnet ef database update```
+
+#### React App 
+
+``` npm i ```
+
+``` yarn start ```
+
+
+### Front-End  
+ - React with TypeScript
+ - Styled Component
+  
+
+### Back-End 
+ - ASP.NET MVC
+ - MSSQL Server
+ - EF Core
+
+--- 
+
+### Author
+
+#### Mansour Aldundur , AlSuda team 
+
+#### Team Leader : Ghada Almutairi
+
+---
+
+### My Requirements Checklist 
+
+[Click to Check My Progress <3 ](https://www.notion.so/Checklist-Final-Project-04c69fb4133f4fb59758992a6dfc790d)
+
+
+
+
+### License & Resource
+
 </div>
