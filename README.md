@@ -1,6 +1,7 @@
 <div dir="rtl" align="right" >
+
 ![Tuwaiq](https://i.ibb.co/SV2BSn5/tuwaiq.png)
-----
+
 # (Tuwaiq School) | مدرسة طويق
   
 ### المقدمــة | Introduction 
