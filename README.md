@@ -1,5 +1,5 @@
 <div dir="rtl" align="right" >
-![Tuwaiq](https://i.ibb.co/SV2BSn5/tuwaiq.png)
+<img src="https://i.ibb.co/SV2BSn5/tuwaiq.png" />
 ----
 # (App_Name) | اسم التطبيق
   Ejar
