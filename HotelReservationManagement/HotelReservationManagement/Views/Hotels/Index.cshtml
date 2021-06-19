@@ -1,7 +1,7 @@
 ﻿@model AdvanceUser
 
 @{
-    var user = (AdvanceUser) ViewData["user"];
+    var user = (AdvanceUser)ViewData["user"];
     var Hotels = (List<HotelModel>)ViewData["Hotels"];
 }
 
@@ -11,84 +11,54 @@
 
 @if (user != null && user.Admin == true)
 {
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Name</th>
 
-                <th scope="col">City</th>
+    @foreach (var hotel in Hotels)
+    {
+        <div class="card flex-row">
+            <img class="card-img-left example-card-img-responsive" src="@hotel.HotelImage" />
+            <div class="card-body">
+                <h4 class="card-title h5 h4-sm">@hotel.HotelName</h4>
+                <p class="card-text"><strong>Hotel Id :</strong> @hotel.HotelName</p>
+                <p class="card-text"><strong>Phone Number:</strong> @hotel.PhoneNumber</p>
+                <p class="card-text"><strong>City: </strong>@hotel.City</p>
 
-                <th scope="col">Phone Number</th>
+                <button type="button" class="btn btn-dark"><a style="color:white" href="/Hotels/details/@hotel.HotelId">Show</a></button>
+                <a class="btn btn-primary" asp-controller="Hotels" asp-action="Edit" asp-route-id=@hotel.HotelId>Edit</a>
+                <form method="post" asp-controller="Hotels" asp-action="Delete" asp-route-id="@hotel.HotelId">
+                    <input type="submit" value="Delete" class="btn btn-danger" />
+                </form>
+            </div>
+            
 
-                <th scope="col">Details</th>
-                <th scope="col">Edit</th>
-                <th scope="col">Delete</th>
+        </div>
 
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var hotel in Hotels)
-            {
-                <tr>
-                    <td scope="row">@hotel.HotelId</td>
-                    <td scope="row">@hotel.HotelName</td>
-                    <td scope="row">@hotel.City</td>
-
-                    <td scope="row">@hotel.PhoneNumber</td>
-
-                    <td><button type="button" class="btn btn-dark"><a style="color:white" href="/Hotels/details/@hotel.HotelId">Show</a></button></td>
-
-                    <td><a class="btn btn-primary" asp-controller="Hotels" asp-action="Edit" asp-route-id=@hotel.HotelId>Edit</a></td>
-                    <td>
-                        <form method="post" asp-controller="Hotels" asp-action="Delete" asp-route-id="@hotel.HotelId">
-                            <input type="submit" value="Delete" class="btn btn-danger" />
-                        </form>
-
-                    </td>
-
-
-                </tr>
-            }
-        </tbody>
-    </table>
+    }
 
     <a class="btn btn-primary" asp-controller="Hotels" asp-action="Create"> Add New Hotel</a>
 
-} 
+}
 
-else 
+else
 {
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Name</th>
+    @foreach (var hotel in Hotels)
+    {
+        <div class="card flex-row">
+            <img class="card-img-left example-card-img-responsive" src="@hotel.HotelImage" />
+            <div class="card-body">
+                <h4 class="card-title h5 h4-sm">@hotel.HotelName</h4>
 
-                <th scope="col">City</th>
+                <p class="card-text"><strong>Phone Number:</strong> @hotel.PhoneNumber</p>
+                <p class="card-text"><strong>City:</strong> @hotel.City</p>
 
-                <th scope="col">Phone Number</th>
+                <button type="button" class="btn btn-dark"><a style="color:white" href="/Hotels/details/@hotel.HotelId">Show</a></button>
+                <a class="btn btn-primary" asp-controller="Hotels" asp-action="Edit" asp-route-id=@hotel.HotelId>Edit</a>
+                <form method="post" asp-controller="Hotels" asp-action="Delete" asp-route-id="@hotel.HotelId">
+                    <input type="submit" value="Delete" class="btn btn-danger" />
+                </form>
+            </div>
+        </div>
 
-                <th scope="col">Details</th>
-
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var hotel in Hotels)
-            {
-                <tr>
-                    <td scope="row">@hotel.HotelId</td>
-                    <td scope="row">@hotel.HotelName</td>
-                    <td scope="row">@hotel.City</td>
-
-                    <td scope="row">@hotel.PhoneNumber</td>
-
-                    <td><button type="button" class="btn btn-dark mr-3 md-3"><a style="color:white" href="/Hotels/details/@hotel.HotelId">Show</a></button></td>
-
-                </tr>
-            }
-        </tbody>
-    </table>
+    }
 
     <a class="btn btn-primary mr-4" asp-controller="Home" asp-action="Index"> Back Home</a>
 }

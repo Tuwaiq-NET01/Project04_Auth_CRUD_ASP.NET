@@ -29,7 +29,7 @@
     if (r.HotelId == hotel.HotelId)
     {
         <div class="card" style="width: 20rem; float: left; margin-left: 10px; margin-right: 10px; margin-bottom: 20px; border-radius: 8px;">
-            <img class="card-img-top" border-radius="8px;" height="200px" src="@r.RoomImage" alt="Card image cap">
+            <img class="card-img-top" border-radius="8px;" height="200px;" src="@r.RoomImage" alt="Card image cap">
             <div class="card-body">
                 <h4 class="card-title">Room @r.RoomNumber</h4>
                 <p class="card-text"><strong>Room Description:</strong>@r.RoomDescribtion</p>
@@ -40,22 +40,27 @@
                 <li class="list-group-item"><strong>Room Status :</strong>@r.RoomStatus</li>
             </ul>
             <div class="card-body">
-                <button type="button" class="btn btn-info">Book</button>
-                <form method="post" asp-controller="Rooms" asp-action="Delete" asp-route-id="@r.RoomId">
-                    <input type="submit" value="Remove" class="btn btn-danger" />
-                </form>
+                <a type="button" class="btn btn-light" asp-controller="rooms" asp-action="details" asp-route-id="@r.RoomId"> Details </a>
+                <a type="button" class="btn btn-light" asp-controller="bookings" asp-action="create" asp-route-id="@r.RoomId"> Book </a>
 
-                
-                @*<a href="#" class="card-link">Another link</a>*@
+                @if (user !=null && user.Admin == true)
+                {
+                    <form method="post" asp-controller="Rooms" asp-action="Delete" asp-route-id="@r.RoomId">
+                        <input type="submit" value="Remove" class="btn btn-danger" />
+                    </form>
+
+                }
+                else
+                {
+                    <a asp-action="_NotFound" />
+                }
+
+
             </div>
         </div>
         
     }
-    else
-    {
-        <a asp-action="_NotFound" />
-    }
-
+   
 }
 
 @if (user != null && user.Admin == true)

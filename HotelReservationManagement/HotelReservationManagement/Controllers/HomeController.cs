@@ -52,7 +52,7 @@ namespace HotelReservationManagement.Controllers
 
         
            
-        public IActionResult Privacy()
+        public IActionResult AboutUS()
         {
             return View();
         }

@@ -12,6 +12,7 @@
         <thead>
             <tr>
                 <th scope="col">Room Id</th>
+                <th scope="col">Image</th>
                 <th scope="col">Type</th>
                 <th scope="col">Price</th>
                 <th scope="col">Hotel Name</th>
@@ -25,29 +26,30 @@
         <tbody>
             @foreach (var room in Rooms)
             {
-                <tr>
-                    <td scope="row">@room.RoomId</td>
-                    <td scope="row">@room.RoomType</td>
-                    <td scope="row">@room.RoomPrice</td>
+            <tr>
+                <td scope="row">@room.RoomId</td>
+                <td scope="row"> <img src="@room.RoomImage" width="50" height="20" /></td>
+                <td scope="row">@room.RoomType</td>
+                <td scope="row">@room.RoomPrice</td>
 
-                    @foreach (var h in hotel)
+                @foreach (var h in hotel)
+                {
+                    if (h.HotelId == room.HotelId)
                     {
-                        if (h.HotelId == room.HotelId)
-                        {
-                            <td>@h.HotelName</td>
-                        }
+                        <td>@h.HotelName</td>
                     }
+                }
 
-                    <td><button type="button" class="btn btn-dark"><a style="color:white" href="/Rooms/details/@room.RoomId">Show</a></button></td>
-                    <td><a class="btn btn-primary" asp-controller="Rooms" asp-action="Edit" asp-route-id=@room.RoomId>Edit</a></td>
-                    <td>
-                        <form method="post" asp-controller="Rooms" asp-action="Delete" asp-route-id="@room.RoomId">
-                            <input type="submit" value="Delete" class="btn btn-danger" />
-                        </form>
-                    </td>
+                <td><button type="button" class="btn btn-dark"><a style="color:white" href="/Rooms/details/@room.RoomId">Show</a></button></td>
+                <td><a class="btn btn-primary" asp-controller="Rooms" asp-action="Edit" asp-route-id=@room.RoomId>Edit</a></td>
+                <td>
+                    <form method="post" asp-controller="Rooms" asp-action="Delete" asp-route-id="@room.RoomId">
+                        <input type="submit" value="Delete" class="btn btn-danger" />
+                    </form>
+                </td>
 
 
-                </tr>
+            </tr>
             }
         </tbody>
     </table>
@@ -58,10 +60,10 @@ else
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">Room Id</th>
+                <th scope="col">Iamge</th>
                 <th scope="col">Type</th>
                 <th scope="col">Price</th>
-                <th scope="col">Hotel Name</th>
+               <th scope="col">Hotel Name</th>
 
                 <th>Details</th>
             </tr>
@@ -70,10 +72,10 @@ else
             @foreach (var room in Rooms)
             {
                 <tr>
-                    <td scope="row">@room.RoomId</td>
+                    <td><img src="@room.RoomImage" width="20px;" height="10px;" /></td>
                     <td scope="row">@room.RoomType</td>
                     <td scope="row">@room.RoomPrice</td>
-
+                    
                     @foreach (var h in hotel)
                     {
                         if (h.HotelId == room.HotelId)

@@ -1,52 +1,62 @@
-﻿@model HotelReservationManagement.Models.RoomBookingModel
+﻿@model RoomBookingModel
 
-@{
-    Layout = null;
-}
 
-<!DOCTYPE html>
+<p>
+    <a class="btn btn-primary" data-toggle="modal" data-target="#bookingModal"> Click to Book </a>
+</p>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Create</title>
-</head>
-<body>
-
-<h4>RoomBookingModel</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
+<div class="modal fade" id="bookingModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
             
-            <div class="form-group">
-                <label asp-for="BookingDate" class="control-label"></label>
-                <input asp-for="BookingDate" class="form-control" />
-                <span asp-validation-for="BookingDate" class="text-danger"></span>
+            <div class="modal-header">
+                <h2 class="modal-title"> Booking Form</h2>
             </div>
-            <div class="form-group">
-                <label asp-for="fromDate" class="control-label"></label>
-                <input asp-for="fromDate" class="form-control" />
-                <span asp-validation-for="fromDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="toDate" class="control-label"></label>
-                <input asp-for="toDate" class="form-control" />
-                <span asp-validation-for="toDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+            
+        <div class="modal-body">
+            <form asp-action="Create" method="post" class="form-horizontal" asp-route-RoomId="@ViewData["RoomId"]">
+
+                <div class="form-group">
+                    <div class="form-group">
+                        <label asp-for="fromDate">From Date</label>
+                        <div>
+                            <input asp-for="fromDate" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="form-group">
+                        <label asp-for="toDate">To Date</label>
+                        <div>
+                            <input asp-for="toDate" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="form-group">
+                        <label asp-for="NumberOfGuests">Number of Guests</label>
+                        <div>
+                            <input asp-for="NumberOfGuests"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <div class="btn-group">
+                        <button type="submit" class="btn btn-primary mr-3" value="Submit">Confirm</button>
+                        <button type="submit" class="btn btn-danger" value="Cancel">Cancel</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+
     </div>
+</div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="UserBookingIndex" asp-route-id="@ViewData["RoomId"]"/>
 </div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
-</body>
-</html>

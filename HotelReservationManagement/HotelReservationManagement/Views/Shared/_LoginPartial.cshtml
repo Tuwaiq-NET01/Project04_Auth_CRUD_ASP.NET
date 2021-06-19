@@ -5,7 +5,21 @@
 <ul class="navbar-nav">
     @if (SignInManager.IsSignedIn(User))
     {
-        
+
+        var userid = UserManager.GetUserId(User);
+        AdvanceUser user = UserManager.FindByIdAsync(userid).Result;
+        if (user.Admin == true)
+        {
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-controller="Booking" asp-action="Index" title="Manage"> Bookings manage</a>
+            </li>
+        }
+        if (user.Admin == false)
+        {
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-controller="Bookings" asp-action="UserBookingIndex" title="Manage">My Bookings</a>
+            </li>
+        }
 
         <li class="nav-item">
             <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
@@ -17,17 +31,15 @@
         </li>
 
 
-
-
     }
     else
     {
 
-       
+
         <li class="nav-item">
-           <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
+            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
         </li>
-       <li class="nav-item">
+        <li class="nav-item">
             <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
         </li>
     }

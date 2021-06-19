@@ -1,45 +1,14 @@
-﻿@model HotelReservationManagement.Models.RoomBookingModel
-
+﻿
 @{
-    Layout = null;
+    var bookings = (List<RoomBookingModel>)ViewData["Booking"];
 }
+@foreach (var booking in bookings)
+
+{
+
+    <h2>@booking.RoomId</h2>
+
+    <h2>@booking.fromDate</h2>
 
 
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
-</head>
-<body>
-
-<div>
-    <h4>RoomBookingModel</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BookingDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BookingDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.fromDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.fromDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.toDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.toDate)
-        </dd>
-    </dl>
-</div>
-<div>
-    @*<a asp-action="Edit" asp-route-id="@Model.RoomBookingId">Edit</a>*@ |
-    <a asp-action="Index">Back to List</a>
-</div>
-</body>
-</html>
+}

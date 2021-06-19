@@ -67,7 +67,6 @@ C:\Users\arwaw\MVC\Project04_Auth_CRUD_ASP.NET\HotelReservationManagement\HotelR
 C:\Users\arwaw\MVC\Project04_Auth_CRUD_ASP.NET\HotelReservationManagement\HotelReservationManagement\obj\Debug\net5.0\HotelReservationManagement.RazorCoreGenerate.cache
 C:\Users\arwaw\MVC\Project04_Auth_CRUD_ASP.NET\HotelReservationManagement\HotelReservationManagement\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
 C:\Users\arwaw\MVC\Project04_Auth_CRUD_ASP.NET\HotelReservationManagement\HotelReservationManagement\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\arwaw\MVC\Project04_Auth_CRUD_ASP.NET\HotelReservationManagement\HotelReservationManagement\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\arwaw\MVC\Project04_Auth_CRUD_ASP.NET\HotelReservationManagement\HotelReservationManagement\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\arwaw\MVC\Project04_Auth_CRUD_ASP.NET\HotelReservationManagement\HotelReservationManagement\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\arwaw\MVC\Project04_Auth_CRUD_ASP.NET\HotelReservationManagement\HotelReservationManagement\obj\Debug\net5.0\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
@@ -209,3 +208,6 @@ C:\Users\arwaw\MVC\Project04_Auth_CRUD_ASP.NET\HotelReservationManagement\HotelR
 C:\Users\arwaw\MVC\Project04_Auth_CRUD_ASP.NET\HotelReservationManagement\HotelReservationManagement\obj\Debug\net5.0\Razor\Views\Bookings\Index.cshtml.g.cs
 C:\Users\arwaw\MVC\Project04_Auth_CRUD_ASP.NET\HotelReservationManagement\HotelReservationManagement\obj\Debug\net5.0\Razor\Views\Bookings\Details.cshtml.g.cs
 C:\Users\arwaw\MVC\Project04_Auth_CRUD_ASP.NET\HotelReservationManagement\HotelReservationManagement\obj\Debug\net5.0\Razor\Views\Bookings\Create.cshtml.g.cs
+C:\Users\arwaw\MVC\Project04_Auth_CRUD_ASP.NET\HotelReservationManagement\HotelReservationManagement\obj\Debug\net5.0\Razor\Views\Bookings\_AdminBookingManage.cshtml.g.cs
+C:\Users\arwaw\MVC\Project04_Auth_CRUD_ASP.NET\HotelReservationManagement\HotelReservationManagement\obj\Debug\net5.0\Razor\Views\Bookings\UserBookingIndex.cshtml.g.cs
+C:\Users\arwaw\MVC\Project04_Auth_CRUD_ASP.NET\HotelReservationManagement\HotelReservationManagement\obj\Debug\net5.0\Razor\Views\Home\AboutUs.cshtml.g.cs

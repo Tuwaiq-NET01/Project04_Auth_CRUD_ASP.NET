@@ -31,6 +31,17 @@ namespace HotelReservationManagement.Data
                 .HasMany<RoomModel>(s => s.Rooms)
                 .WithOne(r => r.Hotel)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            /* modelBuilder.Entity<RoomBookingModel>()
+                 .HasOne<RoomModel>(s => s.Room)
+                 .WithMany(r => r.Bookings)
+                 .HasForeignKey(q => q.RoomBookingId)
+                 .OnDelete(DeleteBehavior.Cascade);*/
+
+            /*modelBuilder.Entity<HotelModel>()
+                .HasMany<>(s => s.Rooms)
+                .WithOne(r => r.Hotel)
+                .OnDelete(DeleteBehavior.Cascade);*/
         }
     }
 }

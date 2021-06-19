@@ -25,5 +25,6 @@ namespace HotelReservationManagement.Models
         public int HotelId { get; set; }
         public virtual HotelModel Hotel { get; set; }
 
+        public virtual ICollection<RoomBookingModel> Bookings { get; set; }
     }
 }

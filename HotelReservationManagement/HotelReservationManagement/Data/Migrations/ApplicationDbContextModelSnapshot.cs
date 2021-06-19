@@ -142,6 +142,15 @@ namespace HotelReservationManagement.Data.Migrations
                     b.Property<bool>("IsLateCheckout")
                         .HasColumnType("bit");
 
+                    b.Property<int>("NumberOfGuests")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RoomId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<DateTime>("fromDate")
                         .HasColumnType("datetime2");
 
@@ -149,6 +158,10 @@ namespace HotelReservationManagement.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("RoomBookingId");
+
+                    b.HasIndex("RoomId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("RoomBookings");
                 });
@@ -325,6 +338,23 @@ namespace HotelReservationManagement.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("HotelReservationManagement.Models.RoomBookingModel", b =>
+                {
+                    b.HasOne("HotelReservationManagement.Models.RoomModel", "Room")
+                        .WithMany("Bookings")
+                        .HasForeignKey("RoomId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("HotelReservationManagement.Models.AdvanceUser", "User")
+                        .WithMany("Bookings")
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("Room");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("HotelReservationManagement.Models.RoomModel", b =>
                 {
                     b.HasOne("HotelReservationManagement.Models.HotelModel", "Hotel")
@@ -387,9 +417,19 @@ namespace HotelReservationManagement.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("HotelReservationManagement.Models.AdvanceUser", b =>
+                {
+                    b.Navigation("Bookings");
+                });
+
             modelBuilder.Entity("HotelReservationManagement.Models.HotelModel", b =>
                 {
                     b.Navigation("Rooms");
+                });
+
+            modelBuilder.Entity("HotelReservationManagement.Models.RoomModel", b =>
+                {
+                    b.Navigation("Bookings");
                 });
 #pragma warning restore 612, 618
         }

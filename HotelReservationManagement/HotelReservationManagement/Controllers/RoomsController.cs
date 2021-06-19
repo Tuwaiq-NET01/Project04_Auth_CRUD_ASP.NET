@@ -63,8 +63,15 @@ namespace HotelReservationManagement.Controllers
         //Post:/Rooms/Create/hotel/id
         [HttpPost]
        
-        public IActionResult Create(int id, [Bind("RoomId","RoomNumber", "RoomImage","RoomPrice","RoomType","RoomDescribtion","RoomStatus")] RoomModel room)
+        public IActionResult Create(int id, [Bind("RoomId","RoomNumber", "RoomImage","RoomPrice","RoomType","RoomDescribtion","RoomStatus", "Floor", "PersonCapacity")] RoomModel room)
         {
+            var userid = _userManager.GetUserId(HttpContext.User);
+
+            if (userid != null)
+            {
+                AdvanceUser user = _userManager.FindByIdAsync(userid).Result;
+                ViewData["user"] = user;
+            }
             room.HotelId = id;
 
             if (ModelState.IsValid)
@@ -73,7 +80,6 @@ namespace HotelReservationManagement.Controllers
                 _db.Rooms.Add(room);
                 _db.SaveChanges();
                 return RedirectToAction("Details","Hotels", new { id = room.HotelId});
-                
 
             }
             return View(room); 
@@ -92,18 +98,19 @@ namespace HotelReservationManagement.Controllers
 
         //POST: /Rooms/edit/id
         [HttpPost]
-        public IActionResult Edit(int id, [Bind("RoomId", "RoomNumber", "RoomImage", "RoomPrice", "RoomType", "RoomDescribtion", "RoomStatus")] RoomModel r)
+        public IActionResult Edit(int id, [Bind("RoomNumber", "RoomImage", "RoomPrice", "RoomType", "RoomDescribtion", "RoomStatus", "Floor", "PersonCapacity")] RoomModel r)
         {
 
             var room = _db.Rooms.ToList().Find(p => p.RoomId == id);
 
-            room.RoomType = r.RoomType;
-            room.RoomPrice = r.RoomPrice;
             room.RoomNumber = r.RoomNumber;
-            room.RoomStatus = r.RoomStatus;
             room.RoomImage = r.RoomImage;
+            room.RoomPrice = r.RoomPrice;
+            room.RoomType = r.RoomType;
             room.RoomDescribtion = r.RoomDescribtion;
-
+            room.RoomStatus = r.RoomStatus;
+            room.Floor = r.Floor;
+            room.PersonCapacity = r.PersonCapacity;
 
             _db.Rooms.Update(room);
             _db.SaveChanges();

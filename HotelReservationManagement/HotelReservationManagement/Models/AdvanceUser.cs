@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 //using System.ComponentModel.DataAnnotations;
 namespace HotelReservationManagement.Models
@@ -16,5 +17,8 @@ namespace HotelReservationManagement.Models
 
         [DefaultValue(true)]
         public bool Admin { get; set; }
+
+        public virtual ICollection<RoomBookingModel> Bookings { get; set; }
+
     }
 }
