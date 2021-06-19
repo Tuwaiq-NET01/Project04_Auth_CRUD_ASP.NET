@@ -52,9 +52,13 @@ From your command line:
   ```bash
   cd bitchunk.co/frontend
   ```
+#### # Install the dependencies
+  ```bash
+  npm install
+  ```
 #### # Run the app
   ```bash
-  yarn start
+  npm start
   ```
 
 Note: the service is in its first version, so expect some bugs.
