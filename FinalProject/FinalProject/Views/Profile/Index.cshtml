@@ -35,13 +35,13 @@
             <div>
                 <input class="form-control" asp-for="Image" />
             </div>
-            <div class="form-group">
+            <div class="form-group" hidden>
                 <label asp-for="LastSeen" style="color: black">LastSeen</label>
                 <div>
                     <input class="form-control" asp-for="LastSeen" />
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group" hidden>
                 <label asp-for="UserId" style="color: black">UserId</label>
                 <div>
                     <input class="form-control" asp-for="UserId" value="@UserManager.GetUserId(User)" />

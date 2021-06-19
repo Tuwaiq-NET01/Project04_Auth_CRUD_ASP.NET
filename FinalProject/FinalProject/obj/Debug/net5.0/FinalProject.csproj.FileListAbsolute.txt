@@ -249,3 +249,5 @@ D:\DotNet\Project04_Auth_CRUD_ASP.NET\FinalProject\FinalProject\obj\Debug\net5.0
 D:\DotNet\Project04_Auth_CRUD_ASP.NET\FinalProject\FinalProject\obj\Debug\net5.0\Razor\Views\Chat\Create.cshtml.g.cs
 D:\DotNet\Project04_Auth_CRUD_ASP.NET\FinalProject\FinalProject\obj\Debug\net5.0\Razor\Views\Message\Create.cshtml.g.cs
 D:\DotNet\Project04_Auth_CRUD_ASP.NET\FinalProject\FinalProject\obj\Debug\net5.0\Razor\Views\Chat\Two.cshtml.g.cs
+D:\DotNet\Project04_Auth_CRUD_ASP.NET\FinalProject\FinalProject\bin\Debug\net5.0\libman.json
+D:\DotNet\Project04_Auth_CRUD_ASP.NET\FinalProject\FinalProject\obj\Debug\net5.0\Razor\Views\Shared\_ChatPartial.cshtml.g.cs

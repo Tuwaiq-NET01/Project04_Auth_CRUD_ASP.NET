@@ -13,6 +13,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using SignalRChat.Hubs;
 
 namespace FinalProject
 {
@@ -37,6 +38,7 @@ namespace FinalProject
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             //services.AddControllersWithViews();
             services.AddControllersWithViews(o => o.Filters.Add(new AuthorizeFilter()));
+            services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -67,6 +69,7 @@ namespace FinalProject
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
+                endpoints.MapHub<ChatHub>("/chatHub");
             });
         }
     }

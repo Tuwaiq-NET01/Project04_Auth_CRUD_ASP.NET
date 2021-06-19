@@ -27,18 +27,32 @@ namespace FinalProject.Controllers
             return View("Index");*/
         }
         [HttpPost]
-        public async Task<ActionResult<MessageModel>> CreateMsg([Bind("Id", "ChatId", "Timestamp", "Type", "Data", "UserId")] MessageModel msg,int idd)
+        public ActionResult<MessageModel> CreateMsg([FromBody] MessageModel msg)
         {
             //if (ModelState.IsValid)
             //{
-            await _db.Messages.AddAsync(msg);
-            await _db.SaveChangesAsync();
+            Console.WriteLine("00000000000000000000000000000000000000000000000000");
+            Console.WriteLine(msg.ChatId);
+            if(msg.Data == "" || msg.Data.Length <=0) return Ok(msg);
+            _db.Messages.Add(msg);
+            _db.SaveChanges();
+            Console.WriteLine("77777777777777777777777777777777777777777777");
             /*_db.Chats.Add(chat);
             _db.SaveChanges();*/
             //return RedirectToAction("Index");
             //}
-            return Redirect("/Chat/Two/"+msg.ChatId);
+            return Ok(msg);
+            //return Redirect("/Chat/Two/"+msg.ChatId);
 
+        }
+        // POST: Products/Delete/5
+        //[HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var msg =_db.Messages.Find(id);
+            _db.Messages.Remove(msg);
+            await _db.SaveChangesAsync();
+            return Redirect("/Chat/Two/" + msg.ChatId);
         }
     }
 }

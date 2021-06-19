@@ -20,9 +20,14 @@ namespace FinalProject.Controllers
         }
         public IActionResult Index()
         {
-            var all = _db.Chats.Where(s => s.UserId == _userManager.GetUserId(User) || s.To == _userManager.GetUserId(User)).ToList();
+            /*var all = _db.Chats.Where(s => s.UserId == _userManager.GetUserId(User) || s.To == _userManager.GetUserId(User)).ToList();
             ViewBag.From = all;
             //ViewBag.From = _db.Chats.Where(s => s.).FirstOrDefault();
+            return View();*/
+            var all = _db.Chats.Where(s => s.UserId == _userManager.GetUserId(User) || s.To == _userManager.GetUserId(User)).ToList();
+            ViewBag.all = all;
+            var allPro = _db.Profiles.ToList();
+            ViewBag.pro = allPro;
             return View();
         }
         public List<ChatModel> Get(string id)
@@ -35,9 +40,16 @@ namespace FinalProject.Controllers
             ViewBag.idd = idd;
             var all = _db.Chats.Where(s => s.UserId == _userManager.GetUserId(User) || s.To == _userManager.GetUserId(User)).ToList();
             ViewBag.all = all;
-            //var allPro = _db.Profiles.Where(s => s.UserId == _userManager.GetUserId(User) || s.To == _userManager.GetUserId(User)).ToList();
+            var allPro = _db.Profiles.ToList();
+            ViewBag.pro = allPro;
+            var img1 = _db.Chats.Where(s => s.UserId == _userManager.GetUserId(User)).Select(s => s.To).FirstOrDefault();
+            var img2 = _db.Chats.Where(s => s.To == _userManager.GetUserId(User)).Select(s => s.UserId).FirstOrDefault();
+            var temp = (_userManager.GetUserId(User) == img1 ? img2 : img1);
+            var toImg = _db.Profiles.Where(s => s.UserId == temp).Select(s => s.Image).FirstOrDefault();
+            ViewBag.img = toImg;
             /* var all = _db.Chats.ToList();*/
-            var allMsgs = _db.Messages.Where(p => p.ChatId == id).Select(p => p.Data).ToList();
+            //var allMsgs = _db.Messages.Where(p => p.ChatId == id).Select(p => p.Data).ToList();
+            var allMsgs = _db.Messages.Where(p => p.ChatId == id).ToList();
             ViewBag.msgs = allMsgs;
             return View();
         }
@@ -47,6 +59,8 @@ namespace FinalProject.Controllers
             ViewBag.all = all;
             var allName = _db.Profiles.Select(s => s.DisplayName).ToList(); ;
             ViewBag.allNames = allName;
+            var img = _db.Profiles.Where(s => s.UserId == _userManager.GetUserId(User)).Select(s => s.Image).FirstOrDefault();
+            ViewBag.img = img;
             return View();
         }
         [HttpPost]
@@ -66,13 +80,11 @@ namespace FinalProject.Controllers
                 await _db.SaveChangesAsync();*/
                 return BadRequest("No Phone Number found");
             }
-            if (_db.Chats.Any(o => o.To == convertToId || o.UserId == convertToId ))
+            if (_db.Chats.Any(o => (o.UserId == _userManager.GetUserId(User) && o.To == convertToId) || (o.To == _userManager.GetUserId(User) && o.UserId == convertToId)))
             {
-                var idd = _db.Chats.Where(o => (o.UserId == chat.UserId && o.To == chat.To) || (o.To == chat.UserId && o.UserId == chat.To)).Select(s => s.Id);
-                /*await _db.Chats.AddAsync(chat);
-                await _db.SaveChangesAsync();*/
-                //return BadRequest("already added");
-                return Redirect("/Chat/Two/"+ idd);
+                var idd = _db.Chats.Where(o => (o.UserId == _userManager.GetUserId(User) && o.To == convertToId) || (o.To == _userManager.GetUserId(User) && o.UserId == convertToId)).Select(s => s.Id);
+                
+                return Redirect("/Chat/Two/"+ idd.FirstOrDefault());
             }
             /*_db.Chats.Add(chat);
             _db.SaveChanges();*/
@@ -82,7 +94,10 @@ namespace FinalProject.Controllers
             chat.To = convertToId;
             await _db.Chats.AddAsync(chat);
             await _db.SaveChangesAsync();
-            return Redirect("/Chat");
+            var idd1 = _db.Chats.Where(o => (o.UserId == _userManager.GetUserId(User) && o.To == convertToId) || (o.To == _userManager.GetUserId(User) && o.UserId == convertToId)).Select(s => s.Id);
+
+            return Redirect("/Chat/Two/" + idd1.FirstOrDefault());
+            //return Redirect("/Chat");
 
         }
     }

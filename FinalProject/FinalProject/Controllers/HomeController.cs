@@ -1,6 +1,7 @@
 ﻿using FinalProject.Data;
 using FinalProject.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -16,8 +17,10 @@ namespace FinalProject.Controllers
     public class HomeController : Controller
     {
         private readonly ApplicationDbContext _db;
-        public HomeController(ApplicationDbContext context)
+        UserManager<IdentityUser> _userManager;
+        public HomeController(ApplicationDbContext context, UserManager<IdentityUser> UserManager)
         {
+            _userManager = UserManager;
             _db = context;
         }
         /*private readonly ILogger<HomeController> _logger;
@@ -30,7 +33,11 @@ namespace FinalProject.Controllers
         [AllowAnonymous]
         public IActionResult Index()
         {
+            if (_db.Profiles.Any(o => o.UserId == _userManager.GetUserId(User)))
+            {
             return View();
+            }
+                return Redirect("/Profile");
         }
 
         public IActionResult Privacy()

@@ -28,12 +28,16 @@ namespace FinalProject.Controllers
         {
             //if (ModelState.IsValid)
             //{
+            if (prof.PhoneNomber.Length != 10 && prof.PhoneNomber[0] != 0 && prof.PhoneNomber[1] != 5)
+            {
+                return BadRequest("Invalid phone number");
+            }
             if (!_db.Profiles.Any(o => o.UserId == prof.UserId))
             {
 
                 await _db.Profiles.AddAsync(prof);
                 await _db.SaveChangesAsync();
-                return Ok("Added");
+                return Redirect("/");
             }
             
             /*_db.Chats.Add(chat);

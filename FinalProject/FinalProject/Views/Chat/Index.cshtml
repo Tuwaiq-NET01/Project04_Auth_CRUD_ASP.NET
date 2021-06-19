@@ -1,43 +1,39 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
-@model ChatModel
+@model MessageModel
 
-@{ 
-    var ii = (List<ChatModel>)ViewBag.From;
+@{
+    var ii = (List<ChatModel>)ViewBag.all;
+    var pro = (List<ProfileModel>)ViewBag.pro;
     var user = UserManager.FindByNameAsync(User.Identity.Name);
-
 }
-<div style="width: 70%;
-        align-content: center;">
-
-    <div style="border:solid 1px;" class="row">
-        <div class="col-2">
-            @foreach (var item in ii)
-            {
-                <a class="btn btn-warning" asp-controller="Chat" asp-action="Two" asp-route-id="@item.Id">@item.To</a>
-            }
-            <button onclick="@("window.location.href='" + @Url.Action("Create", "Chat") + "'");" asp-controller="Chat" asp-action="Create" type="button" class="btn btn-dark">New Chat</button>
-        </div>
-        <div class="col-10">
-            gg
-        </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-        @foreach (var item in ii)
+<div class="card-group">
+    @foreach (var item in ii)
+    {
+        @foreach (var p in pro)
         {
-            <a class="btn btn-warning" asp-controller="Message" asp-action="Get" asp-route-id="@item.Id">@item.To</a>
-        }
-        @*<ul class="list-group list-group-flush">
-                @foreach (var item in ii)
-                {
-                    <li onclick="@("window.location.href='" + @Url.Action("Get/"+@item.UserId, "Chat") + "'");" class="list-group-item">@item.UserId</li>
+            @if ((UserManager.GetUserId(User) == item.To ? item.UserId : item.To) == p.UserId)
+            {
+                <div style="max-width:300px" class="card">
+
+                    <a asp-controller="Chat" asp-action="Two" asp-route-id="@item.Id">
+                        <img class="card-img-top" height="300" width="300" src=@p.Image alt="Card image cap">
+                    </a>
+
+                    <div class="card-body">
+                        <h5 class="card-title">@p.DisplayName</h5>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Last Seen @p.LastSeen</small>
+                    </div>
+                </div>
                 }
 
 
-            </ul>*@
-        <div class="card-footer">
-            Card footer
-        </div>
+            }
+        }
+
+
     </div>
-</div>
+<button onclick="@("window.location.href='" + @Url.Action("Create", "Chat") + "'");" asp-controller="Chat" asp-action="Create" type="button" class="btn btn-dark">New Chat</button>

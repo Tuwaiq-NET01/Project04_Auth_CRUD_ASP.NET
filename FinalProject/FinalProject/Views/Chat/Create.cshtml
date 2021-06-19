@@ -25,7 +25,6 @@
             <select asp-for="To" class="form-select" aria-label="Default select example">
                 @for (int i = 0; i < ii.Count(); i++)
                 {
-                    
                     <option asp-for="To" value="@ii[i]">@ii[i] - @iNames[i]</option>
                 }
             </select>
@@ -37,7 +36,9 @@
             </div>
         </div>
         <div>
-            <input type="submit" class="btn btn-success" value="Submit">
+            <input id="chatAdd" type="submit" class="btn btn-success" value="Submit">
         </div>
     </form>
 </div>
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/chat.js"></script>
