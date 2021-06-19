@@ -1,0 +1,51 @@
+﻿@model PlaceModel
+
+<form asp-action="Edit" method="post" class="form-horizontal">
+
+    <div class="fornm-group input-group mb-3">
+
+        <label asp-for="Title" class="input-group-text">Title </label>
+        <input asp-for="Title" class="form-control" aria-label="Username" aria-describedby="basic-addon1" />
+
+    </div>
+
+    <div class="fornm-group input-group mb-3">
+        <label asp-for="Description" class="input-group-text">Description</label>
+        <input asp-for="Description" class="form-control" aria-label="Username" aria-describedby="basic-addon1" />
+    </div>
+
+    <div class="fornm-group input-group mb-3">
+        <label asp-for="Price" class="input-group-text">Price</label>
+        <input asp-for="Price" class="form-control" aria-label="Username" aria-describedby="basic-addon1" />
+    </div>
+
+    <div class="fornm-group input-group mb-3">
+        <label asp-for="Lat" class="input-group-text">Lat</label>
+        <input asp-for="Lat" class="form-control" aria-label="Username" aria-describedby="basic-addon1" />
+    </div>
+
+    <div class="fornm-group input-group mb-3">
+        <label asp-for="Lng" class="input-group-text">Lng</label>
+        <input asp-for="Lng" class="form-control" aria-label="Username" aria-describedby="basic-addon1" />
+    </div>
+
+    <div class="fornm-group input-group mb-3">
+        <label asp-for="Img" class="input-group-text">Img</label>
+        <input asp-for="Img" class="form-control" aria-label="Username" aria-describedby="basic-addon1" />
+    </div>
+
+    <div class="fornm-group input-group mb-3">
+        <label asp-for="LessorId" class="input-group-text">LessorId</label>
+        <input asp-for="LessorId" class="form-control" aria-label="Username" aria-describedby="basic-addon1" />
+    </div>
+
+    <div class="fornm-group input-group mb-3">
+        <label asp-for="RenterId" class="input-group-text">RenterId</label>
+        <input asp-for="RenterId" class="form-control" aria-label="Username" aria-describedby="basic-addon1" />
+    </div>
+
+    <div class="fornm-group">
+        <input type="submit" class="btn btn-primary" value="Update" />
+    </div>
+
+</form>

@@ -1,0 +1,39 @@
+﻿@{
+    var renters = (List<RenterModel>)ViewData["Renters"];
+}
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<style>
+    .view {
+        color: #03A9F4;
+    }
+
+    .edit {
+        color: #FFC107;
+    }
+
+    .delete {
+        color: #E34724;
+    }
+</style>
+
+
+<div class="d-flex flex-wrap">
+    @{
+        foreach (var Renter in renters)
+        {
+            <div class="card w-50 " style="border: dotted 2px; border-color: #0B7A75; background-color:#D7E6FA  ">
+                <div class="card-body">
+                    <h3 class="card-title">Renter Name : @Renter.Name</h3>
+                    <h5 class="card-text">Email : @Renter.Email </h5>
+                    <h5 class="card-text">Phone Number : @Renter.PhoneNum </h5>
+                    <a asp-controller="Renters" asp-action="Edit" asp-route-id="@Renter.Id" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i> </a>
+                    <form asp-action="Delete" asp-route-id="@Renter.Id" method="post">
+                        <input type="submit" class="btn-danger" value="delete">
+                    </form>
+                </div>
+            </div>
+        }
+    }
+</div>

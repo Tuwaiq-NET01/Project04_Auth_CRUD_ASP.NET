@@ -1,0 +1,55 @@
+﻿@{
+    var desires = (List<DesireModel>)ViewData["Desires"];
+    var renters = (List<RenterModel>)ViewData["Renters"];
+}
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<style>
+    .view {
+        color: #03A9F4;
+    }
+
+    .edit {
+        color: #FFC107;
+    }
+
+    .delete {
+        color: #E34724;
+    }
+
+
+</style>
+
+
+<div class="d-flex flex-wrap">
+    @foreach (var Desire in desires)
+    {
+        <div class="col-md-6 " style="display: inline-block; margin-bottom: 26px;">
+            <div class="card bg-dark text-white">
+                <img class="card-img" src=@Desire.Img alt=@Desire.Title style="height:300px;opacity: 0.50;">
+                <div class="card-img-overlay">
+                    <h5 class="card-title">@Desire.Title</h5>
+                    <p class="card-text">Description : @Desire.Description</p>
+                    
+
+                    @{ foreach (var item in renters)
+                        {
+                            if (item.Id == Desire.RenterId)
+                            {
+                              <p class="card-text">Renter Name : @item.Name</p>
+                            }
+                        }
+                    }
+                    <a asp-controller="Desires" asp-action="Edit" asp-route-id="@Desire.Id" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i> </a>
+
+                    <form asp-action="Delete" asp-route-id="@Desire.Id" method="post">
+                        <input type="submit" class="btn-danger" value="delete">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    }
+</div>

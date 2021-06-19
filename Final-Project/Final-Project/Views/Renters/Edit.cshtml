@@ -1,0 +1,27 @@
+﻿@model RenterModel
+
+<form asp-action="Edit" method="post" class="form-horizontal">
+
+    <div class="fornm-group input-group mb-3">
+
+        <label asp-for="Name" class="input-group-text">Name </label>
+        <input asp-for="Name" class="form-control" aria-label="Username" aria-describedby="basic-addon1" />
+
+    </div>
+
+    <div class="fornm-group input-group mb-3">
+        <label asp-for="Email" class="input-group-text">Email</label>
+        <input asp-for="Email" class="form-control" aria-label="Username" aria-describedby="basic-addon1" />
+    </div>
+
+    <div class="fornm-group input-group mb-3">
+        <label asp-for="PhoneNum" class="input-group-text">PhoneNum</label>
+        <input asp-for="PhoneNum" class="form-control" aria-label="Username" aria-describedby="basic-addon1" />
+    </div>
+
+
+    <div class="fornm-group">
+        <input type="submit" class="btn btn-primary" value="Update" />
+    </div>
+
+</form>

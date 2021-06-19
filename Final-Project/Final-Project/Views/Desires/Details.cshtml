@@ -1,0 +1,28 @@
+﻿@{
+    var desires = (DesireModel)ViewData["Desires"];
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Img</th>
+            <th scope="col">RenterId</th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <th scope="row">@desires.Id</th>
+            <td>@desires.Title</td>
+            <td>@desires.Description</td>
+            <td>@desires.Img</td>
+            <td>@desires.RenterId</td>
+        </tr>
+    </tbody>
+</table>
+
+

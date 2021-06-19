@@ -1,0 +1,37 @@
+﻿@{
+    var lessors = (List<LessorModel>)ViewData["Lessors"];
+}
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<style>
+
+    .edit {
+        color: #FFC107;
+    }
+
+    .delete {
+        color: #E34724;
+    }
+
+</style>
+
+<div class="d-flex flex-wrap">
+    @{
+        foreach (var Lessor in lessors)
+        {
+            <div class="card w-50 " style="border: dotted 2px; border-color: #0B7A75; background-color:#D7E6FA;">
+                <div class="card-body">
+                    <h3 class="card-title">Lessor Name : @Lessor.Name</h3>
+                    <h5 class="card-text">Email : @Lessor.Email </h5>
+                    <h5 class="card-text">Phone Number : @Lessor.PhoneNum </h5>
+                    <a asp-controller="Lessors" asp-action="Edit" asp-route-id="@Lessor.Id" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i> </a>
+                    <form asp-action="Delete" asp-route-id="@Lessor.Id" method="post">
+                        <input type="submit" class="btn-danger" value="delete">
+                    </form>
+                </div>
+            </div>
+
+        }
+    }
+</div>
