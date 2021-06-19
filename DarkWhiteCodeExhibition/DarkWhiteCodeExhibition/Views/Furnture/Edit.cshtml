@@ -1,0 +1,50 @@
+﻿@model FurntureModel
+@{
+    ViewData["Title"] = "Edit";
+    var FurntureModel = (FurntureModel)ViewData["FurntureModel"];
+}
+
+<form asp-action="Edit" method="post" class="form-horizontal">
+    <div class="form-group">
+        <div>
+            <input type="hidden" asp-for="Id" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Type">Type</label>
+        <div>
+
+            <input asp-for="Name" value="@FurntureModel.Name" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DesignerName">Designer Name</label>
+        <div>
+            <input asp-for="DesignerName" value="@FurntureModel.DesignerName" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Price">Price</label>
+        <div>
+            <input asp-for="Price" value="@FurntureModel.Price" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Image">Image</label>
+        <div>
+
+
+            <input asp-for="Image" value="@FurntureModel.Image" />
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="Update" />
+    </div>
+</form>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

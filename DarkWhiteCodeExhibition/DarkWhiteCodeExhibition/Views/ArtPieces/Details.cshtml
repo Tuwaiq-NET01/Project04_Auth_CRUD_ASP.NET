@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Details";
+    var ArtPieces = (ArtPiecesModel)ViewData["ArtPiecesModel"];
+}
+
+
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Art Name: @ArtPieces.ArtName </h5>
+                <p class="card-text">Designer Name: @ArtPieces.DesignerName</p>
+              
+                <p class="card-text">Image:  <img src="@ArtPieces.Image" style="max-width:200px" alt="@ArtPieces.Image"></p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Price: @ArtPieces.Price</li>
+
+            </ul>
+        </div>
+
+
+        <div>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> }
+        <a asp-action="Index">Back to List</a>
+        </div>

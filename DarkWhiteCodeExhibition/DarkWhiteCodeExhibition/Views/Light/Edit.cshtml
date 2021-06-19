@@ -1,0 +1,50 @@
+﻿@model LightModel
+@{
+   ViewData["Title"] = "Edit";
+    var LightModel = (LightModel)ViewData["LightModel"];
+}
+
+        <form asp-action="Edit" method="post" class="form-horizontal">
+            <div class="form-group">
+                <div>
+                    <input type="hidden" asp-for="Id" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Name">Art Name: </label>
+                <div>
+                  
+                    <input asp-for="Name" value="@LightModel.Name" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="DesignerName">Designer Name: </label>
+                <div>
+                    <input asp-for="DesignerName" value="@LightModel.DesignerName" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Price">Price: </label>
+                <div>
+                    <input asp-for="Price" value="@LightModel.Price" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Image">Image: </label>
+                <div>
+                   
+
+                    <input asp-for="Image" value="@LightModel.Image" />
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-dark" value="Update" />
+            </div>
+        </form>
+        <div>
+            <a asp-action="Index">Back to List</a>
+        </div>
+

@@ -1,0 +1,62 @@
+﻿
+@{
+    var ArtPiecesModel = (List<ArtPiecesModel>)ViewData["ArtPiecesModel"];
+
+}
+<div class="bg">
+
+    @if (User.Identity.IsAuthenticated)
+    {<p>
+            <button type="button" class="btn btn-dark"><a style="color:white" asp-action="Create">Create New </a></button>
+        </p>}
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Art Name</th>
+                <th scope="col">Designer Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Image</th>
+
+
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var ArtPiece in ArtPiecesModel)
+            {
+
+                <tr>
+
+
+
+
+
+                    <td>@ArtPiece.ArtName </td>
+                    <td>@ArtPiece.DesignerName </td>
+                    <td>@ArtPiece.Price SAR </td>
+
+                    <td><img src="@ArtPiece.Image" style="max-width:200px" alt="@ArtPiece.ArtName"></td>
+
+                    <td><button type="button" class="btn btn-dark"><a style="color:white" href="/ArtPieces/details/@ArtPiece.Id"> SHOW </a></button></td>
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <td><a class="btn btn-dark" asp-controller="ArtPieces" asp-action="Edit" asp-route-id="@ArtPiece.Id">Edit</a></td>
+                    }
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <td>
+                            <form method="post" asp-controller="ArtPieces" asp-action="Delete" asp-route-id="@ArtPiece.Id">
+
+                                <input type="submit" value="Delete" class="btn btn-dark" />
+                            </form>
+                        </td>
+                    }
+                </tr>
+            }
+
+
+        </tbody>
+    </table>
+</div>

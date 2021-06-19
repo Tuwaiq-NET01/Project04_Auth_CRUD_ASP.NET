@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Details";
+    var ChairModel = (ChairModel)ViewData["ChairModel"];
+}
+
+
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title"> Name: @ChairModel.Name </h5>
+                <p class="card-text">Designer Name: @ChairModel.DesignerName</p>
+              
+                <p class="card-text">Image:  <img src="@ChairModel.Image" style="max-width:200px" alt="@ChairModel.Image"></p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Price: @ChairModel.Price</li>
+
+            </ul>
+        </div>
+
+
+        <div>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> }
+        <a asp-action="Index">Back to List</a>
+        </div>

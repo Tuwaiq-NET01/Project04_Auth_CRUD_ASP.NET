@@ -1,0 +1,50 @@
+﻿@model ArtPiecesModel
+@{
+   ViewData["Title"] = "Edit";
+    var ArtPiecesModel = (ArtPiecesModel)ViewData["ArtPiecesModel"];
+}
+
+        <form asp-action="Edit" method="post" class="form-horizontal">
+            <div class="form-group">
+                <div>
+                    <input type="hidden" asp-for="Id" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ArtName">Art Name: </label>
+                <div>
+                  
+                    <input asp-for="ArtName" value="@ArtPiecesModel.ArtName" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="DesignerName">Designer Name: </label>
+                <div>
+                    <input asp-for="DesignerName" value="@ArtPiecesModel.DesignerName" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Price">Price: </label>
+                <div>
+                    <input asp-for="Price" value="@ArtPiecesModel.Price" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Image">Image: </label>
+                <div>
+                   
+
+                    <input asp-for="Image" value="@ArtPiecesModel.Image" />
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-dark" value="Update" />
+            </div>
+        </form>
+        <div>
+            <a asp-action="Index">Back to List</a>
+        </div>
+

@@ -1,0 +1,62 @@
+﻿@{
+    ViewData["Title"] = "Chair";
+    var Chair = (List<ChairModel>
+    )ViewData["ChairModel"];
+    }
+    <div class="bg">
+
+        @if (User.Identity.IsAuthenticated)
+        {<p>
+            <button type="button" class="btn btn-dark"><a style="color:white" asp-action="Create">Create New </a></button>
+        </p>}
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Type</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Designer name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Image</th>
+
+
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var Furnture in Chair)
+                {
+
+                <tr>
+
+
+                    <td>@Furnture.Name </td>
+                    <td>@Furnture.DesignerName </td>
+                    <td>@Furnture.Price SAR </td>
+
+                    <td><img src="@Furnture.Image" style="max-width:200px" alt="@Furnture.Name"></td>
+
+                    <td><button type="button" class="btn btn-dark"><a style="color:white" href="/Chair/details/@Furnture.Id"> SHOW </a></button></td>
+
+                    @if(User.Identity.IsAuthenticated)
+                    {
+                    <td><a class="btn btn-dark" asp-controller="Chair" asp-action="Edit" asp-route-id="@Furnture.Id">Edit</a></td>
+                    }
+                    @if(User.Identity.IsAuthenticated) {
+                    <td>
+                        <form method="post" asp-controller="Chair" asp-action="Delete" asp-route-id="@Furnture.Id">
+
+                            <input type="submit" value="Delete" class="btn btn-dark" />
+                        </form>
+                    </td>
+                    }
+
+                </tr>
+
+                }
+
+
+            </tbody>
+        </table>
+</div>

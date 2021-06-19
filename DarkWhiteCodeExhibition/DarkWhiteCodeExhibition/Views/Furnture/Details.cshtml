@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Details";
+    var FurntureModel = (FurntureModel)ViewData["FurntureModel"];
+}
+
+
+
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">Type: @FurntureModel.Type </h5>
+        <p class="card-text">Name: @FurntureModel.Name</p>
+        <p class="card-text">Designer Name: @FurntureModel.DesignerName</p>
+
+        <p class="card-text">Image:  <img src="@FurntureModel.Image" style="max-width:200px" alt="@FurntureModel.Image"></p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Id: @FurntureModel.Id</li>
+        <li class="list-group-item">Price: @FurntureModel.Price</li>
+
+    </ul>
+</div>
+
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

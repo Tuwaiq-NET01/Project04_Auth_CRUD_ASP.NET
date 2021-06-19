@@ -1,0 +1,56 @@
+﻿
+@{
+
+    var FurntureModel = (List<FurntureModel>)ViewData["FurntureModel"];
+    ViewData["Title"] = "Furnture";
+    //    Layout = "WebLayout";
+}
+
+ @if (User.Identity.IsAuthenticated){
+
+    <p>
+    <button type="button" class="btn btn-dark"><a style="color:white" asp-action="Create">Add New Furnture  </a></button>
+</p>}
+<center>
+
+    <div>
+        <left>
+            <a asp-controller="Table" asp-action="Index">
+                <img height="110" width="320" src="https://theskunkpot.com/wp-content/uploads/2017/04/unique-yin-yang-coffee-table-midcityeast-com.jpg"
+                     class="img-fluid rounded-pill"
+                     alt="" />
+            </a>
+
+                <a asp-controller="Sofa" asp-action="Index">
+
+                    <img height="110" width="320" src="https://th.bing.com/th/id/R1f48000f79d04299ffe0d6111dfe8377?rik=ARNWOOtDPiv7ig&riu=http%3a%2f%2fmorewithlessdesign.com%2fwp-content%2fuploads%2f2016%2f11%2fplank-sofa-more-with-less-design-magazine-product-01.jpg&ehk=HDJwq%2bXPkQ6FvK2lG3iCQNAFioOVhSMJfKj7ewlXO4I%3d&risl=&pid=ImgRaw"
+                         class="img-fluid rounded-pill"
+                         alt="" />
+                </a>
+</left>
+    </div>
+    <div>
+        <h1>
+        </h1>
+    </div>
+    <div>
+        <Right>
+            <a>  </a>
+            <a asp-controller="Chair" asp-action="Index">
+
+                <img height="180" width="320" src="https://www.yankodesign.com/images/design_news/2019/04/chair-designs-that-will-leave-you-floored/00-DS-40_1-title.jpg"
+                     class="img-fluid rounded-pill"
+                     alt="" />
+            </a>
+                <a asp-controller="Light" asp-action="Index">
+
+                    <img height="110" width="320" src="https://www.revuu.com/wp-content/uploads/2014/09/Omega-Lighting-Design-.jpg"
+                         class="img-fluid rounded-pill"
+                         alt="" />
+                </a>
+</Right>
+
+    </div>
+
+
+</center>

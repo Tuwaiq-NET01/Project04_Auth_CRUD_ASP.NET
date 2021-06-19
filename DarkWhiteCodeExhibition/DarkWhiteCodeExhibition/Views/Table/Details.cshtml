@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Details";
+    var TableModel = (TableModel)ViewData["TableModel"];
+}
+
+
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title"> Name: @TableModel.Name </h5>
+                <p class="card-text">Designer Name: @TableModel.DesignerName</p>
+              
+                <p class="card-text">Image:  <img src="@TableModel.Image" style="max-width:200px" alt="@TableModel.Image"></p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Price: @TableModel.Price</li>
+
+            </ul>
+        </div>
+
+
+        <div>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> }
+        <a asp-action="Index">Back to List</a>
+        </div>
