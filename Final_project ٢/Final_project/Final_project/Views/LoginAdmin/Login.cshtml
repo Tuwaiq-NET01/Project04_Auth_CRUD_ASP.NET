@@ -1,0 +1,35 @@
+﻿@model AdminModel
+@Html.Partial("_NavLoginAndAdminPartial")
+
+@{
+    ViewData["Title"] = "Log in as Admin";
+}
+<center>
+    <h1 style="color: white; text-shadow: 5px 5px 5px #000000; ">@ViewData["Title"]</h1>
+    <br/>
+    <div class="row" style="align-content:center;padding-left:500px; ">
+        <div class="col-md-4">
+
+            <form asp-action="Login">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label style="font-size:25px; color:white"> Email</label>
+                    <input style="text-align: center;" asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label style="font-size: 25px;  color: white"> password</label>
+                    <input style="text-align:center" type="password" asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" class="btn btn-warning"  value="Login" />
+                </div>
+
+            </form>
+        </div>
+    </div>         
+</center>
+

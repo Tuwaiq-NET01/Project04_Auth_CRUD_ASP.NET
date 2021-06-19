@@ -1,0 +1,30 @@
+﻿@model ParkingModel
+@{
+    var Parking = (ReservationsModel)ViewData["Parking"];
+
+}
+@Html.Partial("_NavLoginAndAdminPartial")
+
+<form asp-action="Edit" method="post" class="form-horizontal">
+    <div class="form-group w-75">
+        <label style="font-size:25px" asp-for="Id"><b>Id</b></label>
+         <input type="text" class="form-control" style="text-align:center" placeholder="@Parking.Id" readonly asp-for="Id" />
+    </div>
+
+    <div class="form-group w-75">
+        <label style="font-size:25px" asp-for="@Parking.ParkingId"><b>Parking  Id</b></label>
+            <input asp-for="@Parking.ParkingId" class="form-control" style="text-align:center" value="@Parking.ParkingId" />
+    </div>
+
+    <div class="form-group w-75">
+        <label style="font-size:25px" asp-for="@Parking.Date">Date</label>
+            <input asp-for="@Parking.Date" style="text-align:center" class="form-control" value="@Parking.Date" />
+    </div>
+
+    <div>
+        <input type="submit" class="btn btn-warning" value="Update" asp-controller="Reservations" asp-action="Index" />
+    </div>
+
+</form>
+
+

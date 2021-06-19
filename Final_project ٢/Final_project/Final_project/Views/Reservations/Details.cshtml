@@ -1,0 +1,33 @@
+﻿@{
+    var Reservation = (ReservationsModel)ViewData["reservation"];
+}
+@Html.Partial("_NavParkingPartial")
+<div style="padding-left: 150px; padding-top:50px;">
+    <div style="align-content: center; box-shadow: 5px 5px #000000; text-align: center; padding-top: 20px; background-color: rgb(0,0,0,0.6); width: 1000px ">
+        <h3 style="color:goldenrod">Booking details</h3>
+        <table class="table table-hover" style="background-color: white; box-shadow: 5px 10px 18px #000000;  margin-top:50px">
+            <thead>
+                <tr>
+                    <th scope="col" style="color: black; font-size:20px"> Reservation Id</th>
+                    <th scope="col" style="color: black; font-size:20px">Date and Time</th>
+                    <th scope="col" style="color: black; font-size:20px"> Parking Id </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="color: #064420; font-size: 15px ">@Reservation.Id</td>
+                    <td style="color: #064420; font-size: 15px ">@Reservation.Date</td>
+                    <td style="color: #064420; font-size: 15px ">@Reservation.ParkingId</td>
+
+                </tr>
+                <tr>
+                </tr>
+            </tbody>
+        </table>
+        <a class="portfolio-item" href="/Reservations/Edit/@Reservation.Id">
+            <button type="button"class="btn btn-warning">Edit</button>
+        </a>
+        <a class="portfolio-item" href="/Parking/Index">
+            <button type="button" class="btn btn-warning">Done</button></a>
+</div>
+</div>

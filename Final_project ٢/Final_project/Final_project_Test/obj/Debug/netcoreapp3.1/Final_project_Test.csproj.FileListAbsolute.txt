@@ -1,0 +1,3 @@
+/Users/shahad/Downloads/Final_project/Final_project_Test/obj/Debug/netcoreapp3.1/Final_project_Test.AssemblyInfoInputs.cache
+/Users/shahad/Downloads/Final_project/Final_project_Test/obj/Debug/netcoreapp3.1/Final_project_Test.AssemblyInfo.cs
+/Users/shahad/Downloads/Final_project/Final_project_Test/obj/Debug/netcoreapp3.1/Final_project_Test.csproj.CoreCompileInputs.cache

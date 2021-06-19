@@ -1,0 +1,47 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject UserManager<IdentityUser> UserManager
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Final_project</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <style>
+    .colorBackground {
+        background-image: url("https://i.pinimg.com/564x/12/ba/65/12ba658e9bc0ac4c829ca5891c476794.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 90vw;
+        width: 100vw;
+    }
+
+    .overlay {
+        height:100%;
+        width:100%;
+      background-size:cover;
+        background-color: rgb(0,0,0,0.5);
+    }
+</style>
+</head>
+
+<body class="overlay" >
+        
+ <div class="colorBackground">   
+        <div role="main" class="overlay">
+            @RenderBody()
+        </div>
+    </div>
+
+    <footer class="border-top footer text-muted" style="background-color:white">
+        <div class="container">
+            &copy; 2021 - Final_project - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

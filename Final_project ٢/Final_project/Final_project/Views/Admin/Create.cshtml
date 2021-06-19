@@ -1,0 +1,21 @@
+﻿@model ParkingModel
+@Html.Partial("_NavLoginAndAdminPartial")
+
+<div style="align-content: center;  text-align:center; padding-left:200px;">
+
+    <form asp-action="Create" method="post" class="form-horizontal">
+        <div class="form-group w-75">
+            <label style="font-size:25px; color:white; text-shadow: 5px 5px #000000;" asp-for="Id"><b>Id Parking</b></label>
+              <input style="text-align:center" class="form-control"  asp-for="Id" />
+        </div>
+
+        <div class="form-group w-75">
+            <label style="font-size: 25px; color: white; text-shadow: 5px 5px #000000;" asp-for="Id"><b>Id Admin</b></label>
+             <input style="text-align:center"  class="form-control" asp-for="AdminId" /> 
+        </div>
+
+        <div class="form-group w-75">
+            <input type="submit"  class="btn btn-warning" value="Submit" />
+        </div>
+    </form>
+</div>

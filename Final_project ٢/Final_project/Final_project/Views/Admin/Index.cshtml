@@ -1,0 +1,41 @@
+﻿
+@Html.Partial("_NavLoginAndAdminPartial")
+
+@using Microsoft.AspNetCore.Identity
+
+@{
+    var Parkings = (List<ParkingModel>)ViewData["Parking"];
+}
+<center>
+    <h3 style="color:white"> Creating a new car park </h3>
+    <a class="portfolio-item" href="/Admin/Create">
+        <button type="button" class="btn btn-warning">Create</button>
+    </a>
+</center>
+<div class="container px-4 px-lg-5 " style="margin-top:5%;margin-left:14%; padding-inline-start:60px">
+    
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        @{
+            foreach (var parking in Parkings)
+            {
+                <div class="card" style="width: 18rem;">
+                    <div class="col" style="padding-bottom:30px">
+                        <div class="card"
+                             style="width: 15rem; box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.75); align-items: center;
+                        -webkit-box-shadow :-1px 9px 40px -12px rgba(0,0,0,0.75);
+                         -moz-box-shadow:-1px 9px -12px rgba(0,0,0,0.75); ">
+                            <div class="card-body" style="align-items:center">
+                                <img class="card-img-top" src=" https://image.flaticon.com/icons/png/512/51/51778.png" alt="Card image cap">
+                                <div class="card-body">
+                                    <p class="card-text">parking Id: @parking.Id</p>
+                                    <form method="post" asp-controller="Admin" asp-action="Delete" asp-route-id="@parking.Id">
+                                        <input type="submit" value="Drop" class="btn btn-outline-danger" />
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
