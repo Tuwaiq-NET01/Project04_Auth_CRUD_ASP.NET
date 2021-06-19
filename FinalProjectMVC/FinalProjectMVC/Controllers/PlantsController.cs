@@ -93,6 +93,10 @@ namespace FinalProjectMVC.Controllers
             ViewData["plants"] = plants;
             return View();
         }
+        public IList<PlantModel> Execute()
+        {
+            return _db.Plants.ToList();
+        }
 
     }
 }
