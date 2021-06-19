@@ -1,0 +1,52 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@inject UserManager<IdentityUser> UserManager
+@{
+    var Orders = (List<OrderModel>)ViewData["Orders"];
+    string user = UserManager.GetUserId(User);
+}
+
+<div id="viewport">
+    <div id="sidebar">
+        <partial name="_side" />
+    </div>
+    <div id="content">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                Your Orders :
+            </div>
+        </nav>
+        <br />
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Order Id</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Total Price</th>
+                    <th scope="col">Details</th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var Order in Orders)
+                {
+                    if (Order.UserId == user)
+                    {
+                        <tr>
+                            <td>@Order.Id</td>
+                            <td>@Order.Date_Time</td>
+                            <td>@Order.Address</td>
+                            <td>@Order.TotalPrice</td>
+                            <td>
+                                <form asp-controller="user" asp-action="OrderDetails" asp-route-order="@Order.Id">
+                                    <input type="submit" value="Show" class="btn btn-info" />
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+﻿@model CartModel
+@using Microsoft.AspNetCore.Identity;
+@inject UserManager<IdentityUser> UserManager
+@{
+    var Products = (List<ProductModel>)ViewBag.Products;
+    string user = UserManager.GetUserId(User);
+}
+
+<h3>
+    All
+    <small class="text-muted">Products</small>
+</h3>
+<div class=" grid-container">
+    @foreach (var Product in Products)
+    {
+        <div class="grid-item">
+            <div class="card" style="width: 18rem;">
+                <div class="card-header">
+                    <img src=@Product.Image class="card-img-top" alt="...">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title text-info"> @Product.ProductName</h5>
+                    <p class="card-text alert-info">@Product.Price SR</p>
+                    <p class="card_text"> @Product.Description </p>
+                    <form method="post" asp-controller="Cart" asp-action="Create" asp-route-Pid="@Product.Id" asp-route-u="@user">
+                        <input style="background-color:cadetblue;" type="submit" value="Add To Cart" class="btn" />
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    }
+</div>

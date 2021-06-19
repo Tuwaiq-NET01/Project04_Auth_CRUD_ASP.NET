@@ -1,0 +1,41 @@
+﻿@model PetModel
+@using Microsoft.AspNetCore.Identity;
+@inject UserManager<IdentityUser> UserManager
+@{
+    var Pet = (PetModel)ViewData["Pet"];
+}
+<center>
+    <form asp-action="Edit" method="post" class=" form-horizontal">
+        <div hidden class=" form-group">
+            <label asp-for="Id">Pet Id</label>
+            <input asp-for="Id" value=@Pet.Id />
+        </div>
+        <div hidden class=" form-group">
+            <label asp-for="UserId">User Id</label>
+            <input asp-for="UserId" value="@UserManager.GetUserId(User)" />
+        </div>
+        <div class=" form-group">
+            <label asp-for="Image">Image</label>
+            <input asp-for="Image" value=@Pet.Image />
+        </div>
+        <div class=" form-group">
+            <label asp-for="Type">Type</label>
+            <input asp-for="Type" value=@Pet.Type />
+        </div>
+        <div class=" form-group">
+            <label asp-for="Gender">Gender</label>
+            <input asp-for="Gender" value=@Pet.Gender />
+        </div>
+        <div class=" form-group">
+            <label asp-for="Details">Details</label>
+            <input asp-for="Details" value=@Pet.Details />
+        </div>
+        <div class=" form-group">
+            <label asp-for="ContactNo">ContactNo</label>
+            <input asp-for="ContactNo" value=@Pet.ContactNo />
+        </div>
+        <div class=" form-group">
+            <input type="submit" class=" btn btn-primary" value="Update" />
+        </div>
+    </form>
+</center>

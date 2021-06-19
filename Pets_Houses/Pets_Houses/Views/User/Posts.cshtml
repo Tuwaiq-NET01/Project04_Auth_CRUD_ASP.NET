@@ -1,0 +1,89 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@inject UserManager<IdentityUser> UserManager
+@{
+    var PetsInfo = (List<PetModel>)ViewData["PetsInfo"];
+    string user = UserManager.GetUserId(User);
+}
+<link rel="stylesheet"
+      href="@Url.Content("~/Content/Styles/bootstrap.min.css")">
+<link rel="stylesheet"
+      href="@Url.Content("~/Content/Styles/bootstrap-responsive.min.css")">
+
+<script src="@Url.Content("~/Content/Scripts/jquery-1.8.3.min.js")"
+        type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/bootstrap.min.js")"
+        type="text/javascript"></script>
+
+<div id="viewport">
+    <div id="sidebar">
+        <partial name="_side" />
+    </div>
+    <div id="content">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                Your Posts :
+            </div>
+        </nav>
+        <br />
+        <center>
+            <a href="/pets/create" class="btn btn-outline-success">Add New Post</a>
+        </center>
+        <br />
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Image</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">Details</th>
+                    <th scope="col">Contact Number</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var Pet in PetsInfo)
+                {
+                    if (Pet.UserId == user)
+                    {
+                        <tr>
+                            <td><img style="width:100px;height:100px;" src="@Pet.Image" /></td>
+                            <td>@Pet.Type</td>
+                            <td>@Pet.Gender</td>
+                            <td>@Pet.Details</td>
+                            <td>@Pet.ContactNo</td>
+                            <td>
+                                <a style="color:white" href="/pets/edit/@Pet.Id"><button type="button" class="btn" style="background-color:mediumpurple;"> EDIT </button></a>
+                            </td>
+                            <td>
+                                <a type="button" class="btn btn btn-danger" href="#article-editor" data-toggle="modal">DELETE</a>
+                            </td>
+                        </tr>
+                        <div class="modal" id="article-editor">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Delete Post</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        ARE YOU SURE ?
+                                    </div>
+                                    <div class="modal-footer form-group">
+                                        <form method="post" asp-controller="Pets" asp-action="Delete" asp-route-id="@Pet.Id">
+                                            <input type="submit" value="DELET" class="btn btn-danger" />
+                                        </form>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

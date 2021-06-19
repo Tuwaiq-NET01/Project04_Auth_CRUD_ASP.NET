@@ -1,0 +1,37 @@
+﻿@{
+    var details = (List<Orders_ProductsModel>)ViewData["details"];
+
+}
+
+<div id="viewport">
+    <div id="sidebar">
+        <partial name="_side" />
+    </div>
+    <div id="content">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                Your Orders :
+            </div>
+        </nav>
+        <br />
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Order Id</th>
+                    <th scope="col">Product id</th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var detail in details)
+                {
+                <tr>
+                    <td>@detail.OrderId</td>
+                    <td>@detail.ProductId</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
