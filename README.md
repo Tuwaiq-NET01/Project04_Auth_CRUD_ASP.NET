@@ -43,9 +43,10 @@
 
 From your command line:
 
-```bash
 # Clone this repository
-$ git clone https://github.com/YounesAlturkey/bitchunk.git
+  ```bash
+  git clone https://github.com/YounesAlturkey/bitchunk.git
+  ```
 
 # Go into the repository
 $ cd bitchunk/frontend || cd bitchunk/backend
@@ -53,7 +54,6 @@ $ cd bitchunk/frontend || cd bitchunk/backend
 # Run the cli
 $ yarn start || npm start
 
-```
 
 Note: the service is in its first version, so expect some bugs.
 
