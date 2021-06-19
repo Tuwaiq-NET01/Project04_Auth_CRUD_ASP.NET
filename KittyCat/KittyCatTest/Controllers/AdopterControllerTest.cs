@@ -16,9 +16,9 @@ namespace KittyCatTest.Controllers
         public void Index_AreEqual()
         {
             //Arrange
-            AdopterController homeController = new AdopterController();
+            AdopterController adoptController = new AdopterController();
             //Act
-            ViewResult viewResult = homeController.Create() as ViewResult;
+            ViewResult viewResult = adoptController.Create() as ViewResult;
             //Assert
             Assert.IsNull(viewResult.ViewName);
         }

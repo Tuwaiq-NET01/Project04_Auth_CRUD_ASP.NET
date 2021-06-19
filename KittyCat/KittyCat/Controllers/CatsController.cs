@@ -19,37 +19,15 @@ namespace KittyCat.Controllers
         [ActivatorUtilitiesConstructor]
         public CatsController(ApplicationDbContext context)
         {
-            _db = context;
+            _db = context; 
         }
 
         public CatsController()
         {
         }
-
-        int count = 0;
-        List<CatModel> ss = new List<CatModel>();
-        //public void getImages()
-        //{
-        //    dynamic Animals = JObject.Parse(FetchAPI.httpReq());
-        //    foreach (var animal in Animals.animals)
-        //    {
-        //        if (animal.photos.Count > 0)
-        //        {
-        //            Console.WriteLine(animal.photos[0].large);
-        //            ss.Add(new CatModel { image = animal.photos[0].large, description = animal.description, breed = animal.breeds.primary, gender = animal.gender, health = "spayed_neutered", name = animal.name });
-
-        //            //modelBuilder.Entity<CatModel>().HasData(new CatModel { });
-        //            count++;
-        //        }
-        //    }
-        //    if (count < 30) { getImages(); }
-        //}
-
         public IActionResult Index()
         {
             ViewData["Cats"] = _db.catTable.ToList();
-           // ViewData["Cats"] = ss;
-
             return View();
         }
         public IActionResult Index1()
