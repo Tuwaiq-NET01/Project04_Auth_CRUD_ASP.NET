@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAApVZ920XLRkaAFfw2YqWJwwAAAAACAAAAAAAQZgAAAAEAACAAAABk6+yUqSn0BjH3giGukbtco4EgAwTItFlzXraQRWTF9gAAAAAOgAAAAAIAACAAAADRQJzo/WlwjsG5rXJwyCd1LHiHymv3MzqqI+KBA0cHAIAAAACB2qFjoJQpar5Frd0bYYMMnR8oDylgcd6w6UmHSrjjIsnu8DhjDmWVCWTlsJLAmBfLNc1SBXD5VwruFw9IViJhMjuQjImkUAV9rccI24eVqBrRORH4q9Vj1BpI2Kx5MGYdkLUUCjpFKKx00vfhvEE8PZOOlmBrNDtyziIoRRNfu0AAAAAB6VLkEaGk6XmHlBJZopLDnsa7wFffSjPRcsESjOLUvH1T2IMH/qxPh8jOugb3zBZCdlLIveMkxCRhgf6Budow</EncryptedPassword>
+    <History>True|2021-06-18T22:13:38.6363970Z;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <EFMigrations Include="HealthChoice_Proj4.Data.ApplicationDbContext">
+      <Value>Data Source=tcp:healthchoice-proj4dbserver.database.windows.net,1433%3bInitial Catalog=HealthChoice_Proj4_db%3bUser Id=Samirah_Alhusayni%40healthchoice-proj4dbserver%3bPassword=admin%408090</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

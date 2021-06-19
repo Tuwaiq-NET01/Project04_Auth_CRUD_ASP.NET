@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="HealthChoiceProj420210619005719" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Samirah\ Alhusayni\\Documents\\Project04_Auth_CRUD_ASP\.NET\\HealthChoice_Proj4\\HealthChoice_Proj4\\obj\\Release\\netcoreapp3\.1\\PubTmp\\Out\\$" />
+  </parameter>
+  <parameter name="HealthChoice_Proj4.Data.ApplicationDbContext" description="" value="Data Source=tcp:healthchoice-proj4dbserver.database.windows.net,1433;Initial Catalog=HealthChoice_Proj4_db;User Id=Samirah_Alhusayni@healthchoice-proj4dbserver;Password=admin@8090" tags="dbfullsql">
+    <parameterEntry kind="ProviderPath" scope="dbfullsql" match="^C:\\Users\\Samirah\ Alhusayni\\Documents\\Project04_Auth_CRUD_ASP\.NET\\HealthChoice_Proj4\\HealthChoice_Proj4\\obj\\Release\\netcoreapp3\.1\\PubTmp\\EFSQLScripts\\HealthChoice_Proj4\.Data\.ApplicationDbContext\.sql$" />
+  </parameter>
+</parameters>
