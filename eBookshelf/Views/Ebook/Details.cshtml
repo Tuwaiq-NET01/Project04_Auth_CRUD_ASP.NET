@@ -1,0 +1,69 @@
+@model eBookshelf.Models.EbookModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>EbookModel</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Author)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Author)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ContentUrl)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ContentUrl)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CoverImg)
+        </dt>
+        <dd class="col-sm-10">
+            <img src="@Model.CoverImg" width="170px" height="250px" alt="Book Cover" />
+            @*@Html.DisplayFor(model => model.CoverImg)*@
+        </dd>
+        <dt class="col-sm-2">
+            <span>Download</span>
+        </dt>
+        <dd class="col-sm-10">
+            <a href="@Model.ContentUrl">Download</a>
+            @*@Html.DisplayFor(model => model.Content)*@
+            @*<a asp-action="Download" asp-route-id="@Model.Id">Download</a>*@
+        </dd>
+        <dt class="col-sm-2">
+            <span>Reader</span>
+        </dt>
+        <dd class="col-sm-10">
+            <a asp-controller="Reader" asp-action="Index" asp-route-id="@Model.Id">Read</a>
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CreationDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CreationDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Owner)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Owner.UserName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
