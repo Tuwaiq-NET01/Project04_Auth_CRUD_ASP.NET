@@ -1,8 +1,10 @@
 <div dir="rtl" align="right" >
-![tuwaiq](https://user-images.githubusercontent.com/82446110/122648759-3ead1580-d133-11eb-9523-eb0ff3485eb9.png)
+
  
 ----
  
+ ![tuwaiq](https://user-images.githubusercontent.com/82446110/122648788-5e443e00-d133-11eb-8a66-2249f4183282.png)
+
  ![image](https://user-images.githubusercontent.com/82446110/122648770-479de700-d133-11eb-8098-df2a69dcc87e.png)
 
 # (Dark White Code Studio) | اسم التطبيق
