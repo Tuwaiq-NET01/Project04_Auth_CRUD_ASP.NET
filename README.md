@@ -119,7 +119,7 @@ Note: the service is in its first version, so expect some bugs.
 
 ## License - الرخصة
 
-[Open Source License ➝ MIT](https://github.com/YounesAlturkey/bitchunk/blob/main/LICENSE.MD)
+[Open Source License ➝ MIT](https://github.com/YounesAlturkey/bitchunk.co/blob/main/LICENSE.md)
 
 </div>
 
