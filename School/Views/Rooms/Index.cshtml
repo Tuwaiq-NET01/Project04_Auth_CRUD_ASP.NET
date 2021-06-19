@@ -4,48 +4,50 @@
     bool added = (bool)ViewData["Added"];
     bool deleted = (bool)ViewData["Deleted"];
 }
+<div class="bg-light p-5 rounded rounded-3">
+    <div class="row justify-content-around mb-3">
+    <a href="/Rooms/Create" class="btn btn-success text-center col-2 my-auto">Add New Room</a>
+    </div>
+    
+    @if (added == true)
+    {
 
-<a href="/Rooms/Create" class="btn btn-success">Add New Room</a>
-<br />
-<br />
-@if (added == true)
-{
+        <div class="alert alert-success ">Room Added Successfully</div>
+    }
+    else if (deleted == true)
+    {
+        <div class="alert alert-success ">Room Deleted Successfully</div>
+    }
 
-    <div class="alert alert-success ">Room Added Successfully</div>
-}
-else if (deleted == true)
-{
-    <div class="alert alert-success ">Room Deleted Successfully</div>
-}
-
-@if (rooms.Count > 0)
-{
-    <table class="table table-dark">
-        <thead>
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Room Size</th>
-
-                <th scope="col"></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var room in rooms)
-            {
+    @if (rooms.Count > 0)
+    {
+        <table class="table table-dark w-75 mx-auto">
+            <thead>
                 <tr>
-                    <th scope="row">@room.RoomId</th>
-                    <td>@room.RoomSize</td>
-                    <td>
-                        <a href="/Rooms/Details/@room.RoomId" class="btn btn-primary">View</a> |
-                        <a href="/Rooms/Edit/@room.RoomId" class="btn btn-warning">Edit</a> |
-                        <a href="/Rooms/Delete/@room.RoomId" class="btn btn-danger">Delete</a>
-                    </td>
+                    <th scope="col">ID</th>
+                    <th scope="col">Room Size</th>
+
+                    <th scope="col"></th>
                 </tr>
-            }
-        </tbody>
-    </table>
-}
-else
-{
-    <p> No rooms found</p>
-}
+            </thead>
+            <tbody>
+                @foreach (var room in rooms)
+                {
+                    <tr>
+                        <th scope="row">@room.RoomId</th>
+                        <td>@room.RoomSize</td>
+                        <td>
+                            <a href="/Rooms/Details/@room.RoomId" class="btn btn-primary">View</a> |
+                            <a href="/Rooms/Edit/@room.RoomId" class="btn btn-warning">Edit</a> |
+                            <a href="/Rooms/Delete/@room.RoomId" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p> No rooms found</p>
+    }
+</div>

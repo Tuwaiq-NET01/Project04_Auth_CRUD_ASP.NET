@@ -5,31 +5,29 @@
     int studentId = ViewBag.StudentId;
 }
 
-<h2>Delete Student</h2>
 
 
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Delete" asp-route-id="@studentId">
-            <div class="form-group">
-                <label asp-for="FirstName" class="control-label"></label>
-                @Html.DisplayFor(model => model.FirstName)
-            </div>
-            <div class="form-group">
-                <label asp-for="LastName" class="control-label"></label>
-                @Html.DisplayFor(model => model.LastName)
-            </div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                @Html.DisplayFor(model => model.Email)
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Delete" class="btn btn-danger" />
-            </div>
-        </form>
+
+<div class="bg-light text-center rounded rounded-3 m-auto p-5 col-4">
+    <h2>Delete Student</h2>
+    <form asp-action="Delete" asp-route-id="@studentId">
+        <div class="form-group">
+            <label asp-for="FirstName" class="control-label"></label>: 
+            @Html.DisplayFor(model => model.FirstName)
+        </div>
+        <div class="form-group">
+            <label asp-for="LastName" class="control-label"></label>: 
+            @Html.DisplayFor(model => model.LastName)
+        </div>
+        <div class="form-group">
+            <label asp-for="Email" class="control-label"></label>: 
+            @Html.DisplayFor(model => model.Email)
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Delete" class="btn btn-danger" />
+        </div>
+    </form>
+    <div>
+        <a class="btn btn-primary" asp-action="Index">Back to List</a>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>

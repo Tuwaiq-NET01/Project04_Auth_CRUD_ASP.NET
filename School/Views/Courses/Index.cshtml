@@ -4,49 +4,50 @@
     bool added = (bool)ViewData["Added"];
     bool deleted = (bool)ViewData["Deleted"];
 }
+<div class="bg-light p-5 rounded rounded-3">
+    <div class="row justify-content-around">
+        <a href="/Courses/Create" class="btn btn-success  text-center col-2 my-auto">Add New Course</a>
+        @await Html.PartialAsync("/Views/Shared/_SearchPartial.cshtml")
+    </div>
+    @if (added == true)
+    {
 
-<a href="/Courses/Create" class="btn btn-success">Add New Course</a>
-@await Html.PartialAsync("/Views/Shared/_SearchPartial.cshtml")
-<br />
-<br />
-@if (added == true)
-{
+        <div class="alert alert-success ">Course Added Successfully</div>
+    }
+    else if (deleted == true)
+    {
+        <div class="alert alert-success ">Course Deleted Successfully</div>
+    }
 
-    <div class="alert alert-success ">Course Added Successfully</div>
-}
-else if (deleted == true)
-{
-    <div class="alert alert-success ">Course Deleted Successfully</div>
-}
-
-@if (courses.Count > 0)
-{
-    <table class="table table-dark">
-        <thead>
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Course Title</th>
-
-                <th scope="col"></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var course in courses)
-            {
+    @if (courses.Count > 0)
+    {
+        <table class="table table-dark w-75 mx-auto">
+            <thead>
                 <tr>
-                    <th scope="row">@course.CourseId</th>
-                    <td>@course.Title</td>
-                    <td>
-                        <a href="/Courses/Details/@course.CourseId" class="btn btn-primary">View</a> |
-                        <a href="/Courses/Edit/@course.CourseId" class="btn btn-warning">Edit</a> |
-                        <a href="/Courses/Delete/@course.CourseId" class="btn btn-danger">Delete</a>
-                    </td>
+                    <th scope="col">ID</th>
+                    <th scope="col">Course Title</th>
+
+                    <th scope="col"></th>
                 </tr>
-            }
-        </tbody>
-    </table>
-}
-else
-{
-    <p> No courses found</p>
-}
+            </thead>
+            <tbody>
+                @foreach (var course in courses)
+                {
+                    <tr>
+                        <th scope="row">@course.CourseId</th>
+                        <td>@course.Title</td>
+                        <td>
+                            <a href="/Courses/Details/@course.CourseId" class="btn btn-primary">View</a> |
+                            <a href="/Courses/Edit/@course.CourseId" class="btn btn-warning">Edit</a> |
+                            <a href="/Courses/Delete/@course.CourseId" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p> No courses found</p>
+    }
+</div>

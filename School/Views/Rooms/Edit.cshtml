@@ -5,24 +5,26 @@
     Room room = (Room)ViewData["Room"];
 }
 
-<h2>Edit Room</h2>
 
 
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit" asp-route-id="@room.RoomId">
-            <div class="form-group">
-                <label asp-for="RoomSize" class="control-label"></label>
-                <input asp-for="RoomSize" class="form-control" />
-                <span asp-validation-for="RoomSize" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+
+<div class="bg-light text-center rounded rounded-3 m-auto p-5 col-4">
+    <h2>Edit Room</h2>
+
+    <form asp-action="Edit" asp-route-id="@room.RoomId">
+        <div class="form-group">
+            <label asp-for="RoomSize" class="control-label"></label>
+            <input asp-for="RoomSize" class="form-control" />
+            <span asp-validation-for="RoomSize" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </div>
+    </form>
+
+
+
+    <div>
+        <a class="btn btn-primary" asp-action="Index">Back to List</a>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>

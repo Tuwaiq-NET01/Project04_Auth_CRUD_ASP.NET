@@ -2,16 +2,17 @@
     Room room = ViewBag.Room;
     ViewData["title"] = "Room Details";
 }
+<div class="bg-light text-center rounded rounded-3 m-auto p-5 col-6">
+    @if (room != null)
+    {
+        <p>ID: @room.RoomId</p>
+        <p>Room Size: @room.RoomSize</p>
+        <a href="/Rooms" class="btn btn-primary">Back</a>
 
-@if (room != null)
-{
-    <p>ID: @room.RoomId</p>
-    <p>Room Size: @room.RoomSize</p>
-    <a href="/Rooms" class="btn btn-primary">Back</a>
+    }
+    else
+    {
 
-}
-else
-{
-
-    <p>Data not found</p>
-}
+        <p>Data not found</p>
+    }
+</div>
