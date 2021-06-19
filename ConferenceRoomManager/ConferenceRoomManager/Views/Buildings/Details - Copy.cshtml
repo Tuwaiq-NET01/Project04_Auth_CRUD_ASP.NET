@@ -1,0 +1,32 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+
+    var building = (BuildingModel)ViewData["Building"];
+    ViewData["Title"] = building.Name + " Page";
+    var img = "../" + building.Image;
+}
+
+
+<img src=@img alt=@building.Name style="width: 980px; height: 582px; margin: 4rem; border-style: outset;" />
+<div style="background-color: #fefae0">
+    <div class="row" style="margin: 1rem">
+        <div class="col-6" style="color: #1a1357">
+            <h3>Room Name: @building.Name</h3>
+            <br />
+            <h3>@building.Description</h3>
+            <br />
+            <h3>Available room(s): @building.Rooms.Count</h3>
+        </div>
+        <div class="col-6">
+            <h3 style="color: #1a1357">Room(s):</h3>
+            <br />
+            @foreach (var room in building.Rooms)
+            {
+                <a asp-area="" asp-controller="Rooms" asp-action="Details" asp-route-id=@room.Id><h4>@room.Name Room</h4></a>
+            }
+            <h2>Located at:</h2>
+            <partial name="_MapsPartial" model="building.Location" />
+        </div>
+    </div>

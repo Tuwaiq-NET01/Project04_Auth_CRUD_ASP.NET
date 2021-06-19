@@ -6,46 +6,130 @@
 
 
 
-<h1 class="alert-heading">
-    Welcome to the Conference Room Manager (<strong style="color:red">CRM</strong>) 
-    where you can book a meeting, study or even a lecture room
-</h1>
-    
-<img src="https://i.pinimg.com/originals/a1/49/39/a14939675106c32df6af350412839117.jpg" />
+<section id="hero" class="d-flex justify-content-center align-items-center" style="background: url('@Url.Content("~/images/Library.jpg")')">
 
-<hr />
+    <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
+        <h1>Welcome to the Conference Room Manager (<strong style="color:red">CRM</strong>),</h1>
+        <h2>where you can book a meeting, study or even a lecture room</h2>
+        <a asp-area="" asp-controller="Rooms" asp-action="Index" class="btn-get-started">Check our rooms</a>
 
-<div style="background-color: #d8e2dc">
-<div style="margin: 4rem">
-    <h2> Here is a sample of the available rooms to book:</h2>
-   </div>
-  </div>
-<div class="row">
-    @foreach (var room in rooms)
-    {
-        
-            <div class="col-lg-4">
-                <div class="card border-dark text-center">
-                    <div class="card-header">
-                        <strong> @room.Name </strong>
-                    </div>
-                    <div class="card-img-top">
-                        <img src=@room.Image style="width:340px; height:300px" alt=@room.Name />
+    </div>
 
-                    </div>
-                    <div class="card-footer">
-                        @room.Description
+</section>
+
+
+
+<main id="main">
+    <section id="why-us" class="why-us">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row">
+                <div class="col-lg-4 d-flex align-items-stretch">
+                    <div class="content">
+                        <h3>Why CRM?</h3>
                         <p>
-                            <a class="stretched-link" asp-area="" asp-controller="Rooms" asp-action="Details" asp-route-id=@room.Id>Room details </a>
+                            We stopped manually accepting booking applications and moved it to book them online to facilitate the booking process.
                         </p>
+                        <div class="text-center">
+                            <a asp-area="" asp-controller="Aboutus" asp-action="Index" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        
-    }
+                <div class="col-lg-8 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="icon-boxes d-flex flex-column justify-content-center">
+                        <div class="row">
+                            <div class="col-xl-4 d-flex align-items-stretch">
+                                <div class="icon-box mt-4 mt-xl-0">
+                                    <i class="bx bi-wifi"></i>
+                                    <h4>Booking on the go</h4>
+                                    <p>You can book whenever you are.</p>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 d-flex align-items-stretch">
+                                <div class="icon-box mt-4 mt-xl-0">
+                                    <i class="bx bi-hourglass-split"></i>
+                                    <h4>Waiting in line?</h4>
+                                    <p>No more queues at the registration desk.</p>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 d-flex align-items-stretch">
+                                <div class="icon-box mt-4 mt-xl-0">
+                                    <i class="bx bi-check-lg"></i>
+                                    <h4>Is it available?</h4>
+                                    <p>Check the availability instantly.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- End .content-->
+                </div>
             </div>
 
-<div style="margin:4rem">
-    <p>Please <button class="btn btn-outline-primary box-shadow"><a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">login</a></button> or <button class="btn box-shadow btn-outline-warning"><a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">register</a></button> to book a room</p>
-</div>
+        </div>
+    </section><!-- End Why Us Section -->
 
+    <section id="features" class="features">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row" data-aos="zoom-in" data-aos-delay="100">
+                <div class="col-lg-3 col-md-4">
+                    <div class="icon-box">
+                        <i class="ri-store-line" style="color: #ffbb2c;"></i>
+                        <h3>Choose the perfect place</h3>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
+                    <div class="icon-box">
+                        <i class="ri bi-clock" style="color: #5578ff;"></i>
+                        <h3>Quick booking</h3>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
+                    <div class="icon-box">
+                        <i class="ri-calendar-todo-line" style="color: #e80368;"></i>
+                        <h3>Clear schedule</h3>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
+                    <div class="icon-box">
+                        <i class="ri-paint-brush-line" style="color: #e361ff;"></i>
+                        <h3>Sanitized after every use</h3>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section><!-- End Features Section -->
+
+    <section id="popular-courses" class="courses">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>Rooms</h2>
+                <p>Popular Rooms</p>
+            </div>
+            <div class="row" data-aos="zoom-in" data-aos-delay="100">
+
+                @foreach (var room in rooms)
+                {
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                        <div class="course-item">
+                            <img src=@room.Image class="img-fluid" alt=@room.Name>
+                            <div class="course-content">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h4>@room.Name</h4>
+                                    <p class="price">Found in building: @room.Building.Name</p>
+                                </div>
+                                <h3><a asp-area="" asp-controller="Rooms" asp-action="Details" asp-route-id=@room.Id>Check room details</a></h3>
+                                <p>@room.Description</p>
+                            </div>
+                        </div>
+                    </div> <!-- End Course Item-->
+                }
+            </div>
+            </div>
+        </section>
+
+
+
+</main>

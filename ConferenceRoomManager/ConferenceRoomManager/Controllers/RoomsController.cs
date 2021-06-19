@@ -18,7 +18,7 @@ namespace ConferenceRoomManager.Controllers
         }
         public IActionResult Index()
         {
-            var rooms = _db.Rooms.Include("Facility").ToList();
+            var rooms = _db.Rooms.Include("Facility").Include("Building").ToList();
             ViewData["Rooms"] = rooms;
             return View();
         }

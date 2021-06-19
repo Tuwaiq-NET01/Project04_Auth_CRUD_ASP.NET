@@ -6,36 +6,53 @@
     var rooms = (List<RoomModel>)ViewData["Rooms"];
     int counter = 1;
 }
-<div class="container">
-    <div class="row">
-        @foreach (var room in rooms)
-        {
-            if (counter % 2 == 0)
-            {
-                <div class="row"> </div>
-            }
-            <div class="col">
-                <div class="card border-dark text-center" style="margin-top:1rem; margin-bottom:1rem;">
-                    <div class="card-header" style="background-color:#f8edeb">
-                        <strong> @room.Name </strong>
-                    </div>
-                    <div class="card-img-top">
-                        <img src=@room.Image style="width:520px; height:300px" alt=@room.Name/>
 
-                    </div>
-                    <div class="card-footer" style="background-color: #e8e8e4">
-                        <p> @room.Description</p>
-                        
-                        <hr />
-                        <div style="background-color: #ece4db">
-                            <p>Available facilities:</p>
 
-                            <p style="font-size: large; font-weight:500">@room.Facility.Name</p>
-                            <a class="stretched-link" asp-area="" asp-controller="Rooms" asp-action="Details" asp-route-id=@room.Id >Room details </a>
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs" data-aos="fade-in">
+        <div class="container">
+            <h2>Rooms</h2>
+            <h3>Here are all the available rooms to book. You can book a room directly from the room's detailed page.</h3>
+            </div>
+        </div><!-- End Breadcrumbs -->
+    <!-- ======= Events Section ======= -->
+    <section id="events" class="events">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row">
+
+                @foreach (var room in rooms)
+                {
+                    if (counter % 2 == 0)
+                    {
+                        <div class="row"> </div>
+                    }
+                    <div class="col-md-6 d-flex align-items-stretch">
+                        <div class="card">
+                            <div class="card-img">
+                                <img src=@room.Image  style="width:520px; height:300px" alt=@room.Name >
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title"><a class="stretched-link" asp-area="" asp-controller="Rooms" asp-action="Details" asp-route-id=@room.Id>Room @room.Name</a></h5>
+                                <h5 class="fst-italic text-center">Facility available at the building: 
+                                <br />
+                                <strong>@room.Facility.Name</strong></h5>
+                                <br />
+                                <p class="card-text">
+                                    <h4>@room.Description</h4>
+                                    <br />
+                                    <h4>Located in: @room.Building.Name</h4>
+                                </p>
+                                
+                            </div>
                         </div>
                     </div>
+                }
                 </div>
-            </div>
-        }
-    </div>
-</div>
+
+        </div>
+    </section><!-- End Events Section -->
+
+</main><!-- End #main -->

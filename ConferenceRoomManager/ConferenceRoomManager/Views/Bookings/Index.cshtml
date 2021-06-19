@@ -4,34 +4,72 @@
     ViewData["Title"] = "Booking Page";
 
     var bookings = (List<BookingModel>)ViewData["Bookings"];
-    int counter = 1;
+    int counter = 0;
+
 }
 
-<table class="table table-striped">
-    <thead class="table-dark">
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Name</th>
-            <th scope="col">Room</th>
-            <th scope="col">Date</th>
-            <th scope="col">Edit</th>
-            <th scope="col">Delete</th>
-        </tr>
-    </thead>
-    <tbody>
 
-        @foreach (var booking in bookings)
-        {
-            <tr>
-                <th scope="row">@counter</th>
-                <td>@booking.UserName</td>
-                <td><strong>@booking.Room.Name</strong></td>
-                <td><strong>@booking.Date.ToString("dd/MM/yyyy")</strong></td>
-                <td><a class="btn btn-warning" asp-area="" asp-controller="Bookings" asp-action="Edit" asp-route-id=@booking.Id>Edit</a></td>
-                <td><form asp-action="Delete" asp-route-id=@booking.Id method="post"><input type="submit" class="btn btn-danger" value="Delete"></form></td>
-            </tr>
-            counter++;
-       }
 
-    </tbody>
-</table>
+<main id="main" data-aos="fade-in">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs">
+        <div class="container">
+            <h2>Bookings</h2>
+            <h3>Here you can view your bookings and edit them or delete them. </h3>
+        </div>
+    </div><!-- End Breadcrumbs -->
+    <!-- ======= Courses Section ======= -->
+    <section id="courses" class="courses">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row" data-aos="zoom-in" data-aos-delay="100">
+                @foreach (var book in bookings)
+                {
+                    var img = "../" + book.Room.Image;
+                    if (counter % 2 == 0)
+                    {
+                        <br />
+                        <div class="row"> </div>
+                        <br />
+                    }
+                    counter++;
+                    <div class="col-lg-6 col-md-6 d-flex align-items-stretch">
+                        <div class="course-item">
+                            <img src=@img class="img-fluid" style="width:520px; height:300px" alt=@book.Room.Name>
+                            <div class="course-content">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h4>Booked</h4>
+                                    <p class="price">@book.Date.ToString("dd/MM/yyyy")</p>
+                                </div>
+
+                                <h3>Booking number: @counter</h3>
+                                <h4>@book.Room.Description</h4>
+                                <div class="trainer d-flex justify-content-between align-items-center">
+                                    <div class="trainer-profile d-flex align-items-center">
+
+                                        <span>Booked by: @book.UserName</span>
+                                    </div>
+                                    <div class="trainer-rank d-flex align-items-center">
+                                        <a asp-area="" asp-controller="Bookings" asp-action="Edit" asp-route-id=@book.Id>
+                                            <i class="bx bi-pencil-square">Edit</i>
+                                        </a>
+                                        <form asp-action="Delete" asp-route-id=@book.Id method="post">
+                                            <button type="submit" class="btn btn-danger" style="margin:1rem;">
+                                            <i class="bx bi-trash"> Delete
+                                            </i>
+                                                </button>
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- End Course Item-->
+                    
+               
+                }
+                </div>
+            </div>
+        </section>
+    </main>

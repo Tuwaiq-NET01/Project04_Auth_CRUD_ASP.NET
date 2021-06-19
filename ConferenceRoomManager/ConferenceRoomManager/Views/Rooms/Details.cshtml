@@ -19,44 +19,62 @@
 
 }
 
+<main id="main">
 
-
-<img src=@img alt=@room.Name style="width: 980px; height: 582px; margin: 4rem; border-style: outset;" />
-<h3 id="dateMsg" class="bg-danger">@ViewData["Msg"]</h3>
-<div style="background-color: #fefae0">
-    <div class="row" style="margin: 1rem">
-        <div class="col-6" style="color: #1a1357">
-            <h3>Room Name: @room.Name</h3>
-            <br />
-            <h3>@room.Description</h3>
-            <br />
-            <h3>The capacity is: @room.Capacity</h3>
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs" data-aos="fade-in">
+        <div class="container">
+            <h2>Room Details</h2>
+            <h3>Here you can find all the details about this room. </h3>
         </div>
-        <div class="col-6">
-            <h3 style="color: #1a1357">Facilities available:</h3>
+    </div><!-- End Breadcrumbs -->
+    <br />
+ 
+    <h3 id="dateMsg" class="bg-danger" style="text-align: center;">@ViewData["Msg"]</h3>
+    <!-- ======= Cource Details Section ======= -->
+    <section id="course-details" class="course-details">
+        <div class="container" data-aos="fade-up">
 
-            <h3>@room.Facility.Name</h3>
-            <br />
-            <h3>Located at:</h3>
+            <div class="row">
+                <div class="col-lg-8">
+                    <img src=@img class="img-fluid" alt=@room.Name>
+                    <h3>Room Name: @room.Name</h3>
+                    <h1>
+                        @room.Description
+                    </h1>
+                </div>
+                <div class="col-lg-4">
 
-            <a asp-area="" asp-controller="Buildings" asp-action="Details" asp-route-id=@room.BuildingId><h4>@room.Building.Name Building</h4></a>
+                    <div class="course-info d-flex justify-content-between align-items-center">
+                        <h5>Building name:</h5>
+                        <h4><a asp-area="" asp-controller="Buildings" asp-action="Details" asp-route-id=@room.BuildingId>@room.Building.Name</a></h4>
+                    </div>
+
+                    <div class="course-info d-flex justify-content-between align-items-center">
+                        <h5>The capacity is:</h5>
+                        <p>@room.Capacity</p>
+                    </div>
+
+                    <div class="course-info d-flex justify-content-between align-items-center">
+                        <h5>Facility available:</h5>
+                        <p>@room.Facility.Name</p>
+                    </div>
+                    <form asp-controller="Bookings" asp-action="Book" method="post">
+                        <div class="course-info d-flex justify-content-between align-items-center">
+                            <h5>Select date</h5>
+
+                            <p><input id="date" asp-for="Date" type="date" value=@machineToday min=@machineToday max=@machineFuture style="margin: 2rem" /></p>
+                        </div>
+                        <div class="course-info d-flex justify-content-between align-items-center">
+                            <h5>Confirm</h5>
+                            <button id="submit" class="get-started-btn" value="Submit">Book it</button>
+                        </div>
+                        <input type="hidden" asp-for="RoomId" value=@room.Id />
+                    </form>
+                
+                    </div>
+                </div>
+
         </div>
-    </div>
-    <!-- select dates from database to see if its available-->
-    <form class="form-inline" asp-controller="Bookings" asp-action="Book" method="post">
-        <div class="col-6">
-            <p>Please select a date between:</p>
-            <strong>@humanToday</strong>
-            <p>and</p>
-            <strong>@humanFuture</strong>
-        </div>
-        <div class="col-6">
-
-            <input id="date" asp-for="Date" type="date" value=@machineToday min=@machineToday max=@machineFuture style="margin: 2rem" />
-
-            <button id="submit" class="btn-outline-primary" style="width: 8rem; height: 4rem; font-size:larger" value="Submit">Book it</button>
-        </div>
-        <input type="hidden" asp-for="RoomId" value=@room.Id />
-        <br />
-    </form>
-</div>
+    </section><!-- End Cource Details Section -->
+</main>

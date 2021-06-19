@@ -21,29 +21,60 @@
 }
 
 
-<h1 style="background-color:black; margin:3rem;"> <center style="color:white">Editing the previously booked room:</center></h1>
-<img src=@img alt=@booking.Room.Name style="width: 980px; height: 582px; margin: 4rem" />
-<h3 id="dateMsg" class="bg-danger">@ViewData["Msg"]</h3>
-<div style="background-color: #fefae0">
-    <div class="row" style="margin: 1rem">
-        <div class="col-6" style="color: #1a1357">
-            <h3>Room Name: @booking.Room.Name</h3>
-            <br />
-            <h3>@booking.Room.Description</h3>
-            <br />
-            <h3>The capacity is: @booking.Room.Capacity</h3>
-        </div>
-        <div class="col-6">
-            <form class="form-inline" asp-controller="Bookings" asp-action="Edit" method="post">
-                <input id="date" asp-for="Date" type="date" value=@machineToday min=@machineToday max=@machineFuture style="margin: 2rem" />
+<main id="main">
 
-                <button class="btn-outline-primary" style="width: 8rem; height: 4rem; font-size:larger" value="Submit">Book it</button>
-                <input type="hidden" asp-for="Id" value=@booking.Id />
-                <input type="hidden" asp-for="RoomId" value=@booking.RoomId />
-                <input type="hidden" asp-for="UserId" value=@booking.UserId />
-                <input type="hidden" asp-for="UserName" value=@booking.UserName />
-                <br />
-            </form>
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs" data-aos="fade-in">
+        <div class="container">
+            <h2>Editing previously booked room</h2>
+            <h3>Please save the changes before leaving this page. </h3>
+        </div>
+    </div><!-- End Breadcrumbs -->
+    <br />
+
+    <h3 id="dateMsg" class="bg-danger" style="text-align: center;">@ViewData["Msg"]</h3>
+    <!-- ======= Cource Details Section ======= -->
+    <section id="course-details" class="course-details">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row">
+                <div class="col-lg-8">
+                    <img src=@img class="img-fluid" alt=@booking.Room.Name>
+                    <h3>Room Name: @booking.Room.Name</h3>
+                    <h2>
+                        @booking.Room.Description
+                    </h2>
+                </div>
+                <div class="col-lg-4">
+
+            
+
+                    <div class="course-info d-flex justify-content-between align-items-center">
+                        <h5>The capacity is:</h5>
+                        <p>@booking.Room.Capacity</p>
+                    </div>
+
+           
+                    <form asp-controller="Bookings" asp-action="Edit" method="post">
+                        <div class="course-info d-flex justify-content-between align-items-center">
+                            <h5>Select date</h5>
+
+                            <p><input id="date" asp-for="Date" type="date" value=@machineToday min=@machineToday max=@machineFuture style="margin: 2rem" /></p>
+                        </div>
+                        <div class="course-info d-flex justify-content-between align-items-center">
+                            <h5>Confirm</h5>
+                            <button id="submit" class="get-started-btn" value="Submit">Book it</button>
+                        </div>
+                        <input type="hidden" asp-for="Id" value=@booking.Id />
+                        <input type="hidden" asp-for="RoomId" value=@booking.RoomId />
+                        <input type="hidden" asp-for="UserId" value=@booking.UserId />
+                        <input type="hidden" asp-for="UserName" value=@booking.UserName />
+                    </form>
+
+                </div>
             </div>
-    </div>   
-    </div>
+
+        </div>
+    </section><!-- End Cource Details Section -->
+</main>
+

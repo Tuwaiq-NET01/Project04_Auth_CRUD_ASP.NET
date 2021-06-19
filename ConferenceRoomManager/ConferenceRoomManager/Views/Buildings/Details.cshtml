@@ -9,24 +9,52 @@
 }
 
 
-<img src=@img alt=@building.Name style="width: 980px; height: 582px; margin: 4rem; border-style: outset;" />
-<div style="background-color: #fefae0">
-    <div class="row" style="margin: 1rem">
-        <div class="col-6" style="color: #1a1357">
-            <h3>Room Name: @building.Name</h3>
-            <br />
-            <h3>@building.Description</h3>
-            <br />
-            <h3>Available room(s): @building.Rooms.Count</h3>
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs" data-aos="fade-in">
+        <div class="container">
+            <h2>Building Details</h2>
+            <h3>Here you can find all the details about this building. </h3>
         </div>
-        <div class="col-6">
-            <h3 style="color: #1a1357">Room(s):</h3>
-            <br />
-            @foreach (var room in building.Rooms)
-            {
-                <a asp-area="" asp-controller="Rooms" asp-action="Details" asp-route-id=@room.Id><h4>@room.Name Room</h4></a>
-            }
-            <h2>Located at:</h2>
-            <partial name="_MapsPartial" model="building.Location" />
+    </div><!-- End Breadcrumbs -->
+    <!-- ======= Cource Details Section ======= -->
+    <section id="course-details" class="course-details">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row">
+                <div class="col-lg-8">
+                    <img src=@img class="img-fluid" alt=@building.Name style="width: 980px; height: 582px;">
+                    <h3>Building Name: @building.Name</h3>
+                    <h1>
+                        @building.Description
+                    </h1>
+                </div>
+                <div class="col-lg-4">
+
+                    <div class="course-info d-flex justify-content-between align-items-center">
+                        <h5>Available room(s):</h5>
+                        <h4>@building.Rooms.Count</h4>
+                    </div>
+
+                    <div class="course-info d-flex justify-content-between align-items-center">
+                        <h5>Room(s):</h5>
+                        @foreach (var room in building.Rooms)
+                        {
+                            <p><a asp-area="" asp-controller="Rooms" asp-action="Details" asp-route-id=@room.Id>@room.Name Room</a></p>
+                        }
+
+                    </div>
+                    <div class="course-info d-flex justify-content-between align-items-center">
+                        <h5>Located at:</h5>
+                    </div>
+                    <br />
+                    <partial name="_MapsPartial" model="building.Location" />
+                </div>
+                </div>
         </div>
-    </div>
+    </section><!-- End Cource Details Section -->
+</main>
+
+

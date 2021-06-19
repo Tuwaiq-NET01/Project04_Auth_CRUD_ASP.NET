@@ -2,10 +2,34 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    ViewData["Title"] = "About us";
     string url = "https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ2-TlC_xzdEgR6y8bg-qsJgg&key=AIzaSyBWPgMGItsQRc2AQdFXfIgQs_QmV0tiCvk";
 }
 
-<h1>This fictional University is ranked 101.</h1>
-<h2>We welcome students to apply in person.</h2>
-<h3>We are located here:</h3>
-<partial name="_MapsPartial" model="url" />
+<main id="main">
+
+    <div class="breadcrumbs" data-aos="fade-in">
+        <div class="container">
+            <h2>About Us</h2>
+            <br />
+        </div>
+    </div>
+
+    <section id="about" class="about">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row">
+                <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+                    <partial name="_MapsPartial" model="url" class="img-fluid"/>
+                </div>
+                <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+                    <h3>This fictional University is ranked 101.</h3>
+                    <h4>
+                        We welcome students to apply in person.
+                    </h4>
+                    <h4>And this is our main campus location.</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+</main>

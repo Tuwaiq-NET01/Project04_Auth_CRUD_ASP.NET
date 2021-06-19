@@ -6,36 +6,55 @@
     var buildings = (List<BuildingModel>)ViewData["Buildings"];
     int counter = 1;
 }
-<div class="container">
-    <div class="row">
-        @foreach (var building in buildings)
-        {
-            if (counter % 2 == 0)
-            {
-                <div class="row"> </div>
-            }
-            <div class="col">
-                <div class="card border-dark text-center" style="margin-top:1rem; margin-bottom:1rem;">
-                    <div class="card-header" style="background-color:#f8edeb">
-                        <strong> @building.Name </strong>
-                    </div>
-                    <div class="card-img-top">
-                        <img src=@building.Image style="width:520px; height:300px" alt=@building.Name />
 
-                    </div>
-                    <div class="card-footer" style="background-color: #e8e8e4">
-                        <p> @building.Description</p>
 
-                        <hr />
-                        <div style="background-color: #ece4db">
-                            <p>Available Rooms:</p>
+<main id="main">
 
-                            <p style="font-size: large; font-weight:500">@building.Rooms.Count room(s)</p>
-                            <a class="stretched-link" asp-area="" asp-controller="Buildings" asp-action="Details" asp-route-id=@building.Id>Building details </a>
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs" data-aos="fade-in">
+        <div class="container">
+            <h2>Buildings</h2>
+            <h3>Here are all the available buildings that house study rooms. You can view all the rooms available in a building from the building's detailed page.</h3>
+        </div>
+    </div><!-- End Breadcrumbs -->
+    <!-- ======= Events Section ======= -->
+    <section id="events" class="events">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row">
+
+                @foreach (var building in buildings)
+                {
+                    if (counter % 2 == 0)
+                    {
+                        <div class="row"> </div>
+                    }
+                    <div class="col-md-6 d-flex align-items-stretch">
+                        <div class="card">
+                            <div class="card-img">
+                                <img src=@building.Image style="width:520px; height:300px" alt=@building.Name>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                <a class="stretched-link" asp-area="" asp-controller="Buildings" asp-action="Details" asp-route-id=@building.Id>Building @building.Name</a></h5>
+                                <h5 class="fst-italic text-center">
+                                    Available Rooms:
+                                    <br />
+                                    <strong>@building.Rooms.Count room(s)</strong>
+                                </h5>
+                                <br />
+                                <p class="card-text">
+                                    <h4>@building.Description</h4>
+                                    <br />
+                                </p>
+
+                            </div>
                         </div>
                     </div>
-                </div>
+                }
             </div>
-        }
-    </div>
-</div>
+
+        </div>
+    </section><!-- End Events Section -->
+
+</main><!-- End #main -->
