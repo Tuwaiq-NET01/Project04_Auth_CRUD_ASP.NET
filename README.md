@@ -1,85 +1,48 @@
-# Project04_Auth_CRUD_ASP.NET
+<div dir="rtl" align="right" >
 
-<div dir="rtl" align="right">
+![Tuwaiq](https://i.ibb.co/SV2BSn5/tuwaiq.png)
+----
+# Healthy Choice | الاختيار الصحي
 
-فكرة المشروع
+### المقدمــة | Introduction 
+شهدت الرياضة السعودية في الآونة الأخيرة مرحلة جديدة من صناعة التميز وزيادة الفعاليات وإطلاق المبادرات بما يحقق تنمية شاملة للقطاع الرياضي في المملكة ومن هذا المنطلق انطلقت هذه المنصة التي تضم النوادي والمطاعم الصحية والمتاجر الرياضية لمدينة الرياض مما يسهل على الفرد الوصول لهذه الخدمات بشكل أسرع وأيضا الاطلاع على التقييمات الخاصة بكل خدمة، بحيث توفر المنصة لمستخدميها عضويات تقدم لهم خصومات بالاعتماد على نوع العضوية، بالاضافة الى ميزة متابعة الاحداث والفعاليات الرياضية وإمكانية تفضيلها ليتم الرجوع إليها سواء بالحضور أو المشاركة
 
-بناء مشروع متكامل باستخدام ASP.NET MVC  قائم على فكرة من اختيارك وتتضمن المتطلبات الأساسية لبناء تطبيق ASP.NET MVC مع  Entity Framework Core وSql Server.
+الفكرة قابلة للتطوير مستقبلا بحيث تضم جوانب تفاعلية بين المستخدمين الذين يشتركون في نفس الأهداف رغبة في الوصول الى مجتمع صحي ..
+نسعد بأي اقتراحات تطويرية.
 
+### Demo
 
-قبل بداية المشروع 
+<img src="HealthyChoiceDemo.gif">
 
-عمل Wireframes و ERD والتأكيد مع أحد المدربين قبل البدء بتنفيذ المشروع. بداية المشروع بالنسخة رقم  v.1
+### Deployment
+<p><a href="https://healthchoiceproj420210619005719.azurewebsites.net/" rel="nofollow">HealthyCoice</a>, deployed to Azure</p>
 
-متطلبات المشروع
+### Wireframe  
+<p>You can view application wireframe <a href="https://wireframe.cc/pro/pp/08719377d451892" rel="nofollow">here</a></p> 
 
+### ERD
+<img src="./HealthChoice_Proj4/ERD.png">
 
-- استخدام نمط MVC 
-- إنشاء على الأقل 4 من Controllers
-- إنشاء على الأقل 4 Model 
-- إنشاء على الأقل 6 Views
-    - استخدام مكتبة Bootstrap مع Razor 
-    - استخدام partial view للعناصر المتكررة في الواجهات
-- استخدام وظائف CRUD مع ASP.NET 
-- استخدام إطار عمل Entity Framework Core
-- استخدام CodeFirst Approach لإنشاء قاعدة البيانات
-- استخدام قاعدة بيانات MSSQL 
-    - ان تكون قاعدة البيانات متعددة الجداول
-    - يجب ان تتضمن قاعدة البيانات على الاقل احد العلاقات التالية:
-        - علاقة one-to-one
-        - علاقة one-to-many
-        - علاقة many-to-many
-- تطبيق Authentication 
-- قم بتطبيق Unit Testing على مشروعك
-    
+## Set up  
 
+### Prerequisites
+- NET 5 
+- ASP.NET MVC
+- Microsoft SQL Server 
 
+## Built With
 
+### Front-End  
+ - HTML
+ - CSS
+ - Bootstrap 
+ - Materializecss
+### Back-End 
+ - ASP.NET MVC
+ - MSSQL Server
+ - EF Core
+### Author
 
+<b>Samirah Alhusayni
 
-إضافة | Bonus 
-- قم باستخدام أحد مفاهيم Design Patterns في مشروعك لحل مشكلةٍ ما
-- إنشاء APIs 
-- عمل Deploy للمشروع على Azure
-- استخدام React مع ASP.NET أو أي Framework 
-- استخدام WebSockets في ASP.NET core
-- التعامل مع الـThird party APIs  {SMS Message, Google Maps,….} 
-    - مصادر للـAPIs
-    - الاول: Any API over 1400 Public APIs: https://any-api.com/
-    - الثاني: API Search: http://apis.io/
-- رفع صور او ملفات 
-    -  باستخدام الـthird-party:
-        - Cloudinary: https://cloudinary.com/
-        -  AWS: https://aws.amazon.com/s3/?nc2=h_ql_prod_st_s3
-    - حفظها  بالـLocal server 
 </div>
-
-
-
-
-
-# Project Title:
-## HealthChoice 
-
-
- ## Versions
- ### V1:
-- Authentication
-- 2 tables(users , Services) with CRUD
- - ERD, Wireframes   
-
- ### v2:
- - create Comments table with CRUD & relation (one-to-many) with Services table
-- Devided Services depending on the rype
- ### v3:
- - User can add any comments for any services (apply the relation)
- - add _NotFound View 
- - Create Events table(Just for reading & see the detils for each event) 
-
- ### v4 
- - Add Scaffolded to reach UserID 
- - Delete Commnets' Views to connect with their services.
- - Add Search on Services Name 
- - Create Favorit table as a M2M relationship between Users & Events
-
- 
