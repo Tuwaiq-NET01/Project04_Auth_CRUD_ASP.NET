@@ -2,15 +2,22 @@
 <img src="https://i.ibb.co/SV2BSn5/tuwaiq.png" />
 ----
   <br />
+
 # (App_Name) | اسم التطبيق
   Ejar
+
 ### المقدمــة | Introduction
   <br/>
  تطبيق إيجار يسمح للمستخدم بعرض سيارته الني يرغب في تأجيرها على مستخدمين آخرين بالسعر الذي يقوم بتحديده. التطبيق أيضا يسمح للمستخدم بإستئجار سيارات مستخدمين آخرين بأسعار منافسة للسوق
+ <br/>
+
 ### Demo  
+ <img src="./Resources/Ejar_Demo.gif" />
  
 ### Wireframe  
- .....   
+  <img src="./Resources/ASP_Wireframe_Ejar.gif" />
+  <br/>
+
 ### Set up  
 ### Prerequisites
 - NET 5 
