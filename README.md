@@ -1,55 +1,51 @@
-# Project04_Auth_CRUD_ASP.NET
-
-<div dir="rtl" align="right">
-
-فكرة المشروع
-
-بناء مشروع متكامل باستخدام ASP.NET MVC  قائم على فكرة من اختيارك وتتضمن المتطلبات الأساسية لبناء تطبيق ASP.NET MVC مع  Entity Framework Core وSql Server.
 
 
-قبل بداية المشروع 
 
-عمل Wireframes و ERD والتأكيد مع أحد المدربين قبل البدء بتنفيذ المشروع. بداية المشروع بالنسخة رقم  v.1
-
-متطلبات المشروع
-
-
-- استخدام نمط MVC 
-- إنشاء على الأقل 4 من Controllers
-- إنشاء على الأقل 4 Model 
-- إنشاء على الأقل 6 Views
-    - استخدام مكتبة Bootstrap مع Razor 
-    - استخدام partial view للعناصر المتكررة في الواجهات
-- استخدام وظائف CRUD مع ASP.NET 
-- استخدام إطار عمل Entity Framework Core
-- استخدام CodeFirst Approach لإنشاء قاعدة البيانات
-- استخدام قاعدة بيانات MSSQL 
-    - ان تكون قاعدة البيانات متعددة الجداول
-    - يجب ان تتضمن قاعدة البيانات على الاقل احد العلاقات التالية:
-        - علاقة one-to-one
-        - علاقة one-to-many
-        - علاقة many-to-many
-- تطبيق Authentication 
-- قم بتطبيق Unit Testing على مشروعك
+# Events Hall Management System
+![Tuwaiq](https://i.imgur.com/iAeGBph.png)
+<div dir="rtl" align="right" >
     
+## المقدمــة | Introduction
 
-
-
-
-
-إضافة | Bonus 
-- قم باستخدام أحد مفاهيم Design Patterns في مشروعك لحل مشكلةٍ ما
-- إنشاء APIs 
-- عمل Deploy للمشروع على Azure
-- استخدام React مع ASP.NET أو أي Framework 
-- استخدام WebSockets في ASP.NET core
-- التعامل مع الـThird party APIs  {SMS Message, Google Maps,….} 
-    - مصادر للـAPIs
-    - الاول: Any API over 1400 Public APIs: https://any-api.com/
-    - الثاني: API Search: http://apis.io/
-- رفع صور او ملفات 
-    -  باستخدام الـthird-party:
-        - Cloudinary: https://cloudinary.com/
-        -  AWS: https://aws.amazon.com/s3/?nc2=h_ql_prod_st_s3
-    - حفظها  بالـLocal server 
+تطبيق ويب صٌنع لإعانة مدراء قاعات المعارض والمؤتمرات في تنظيم معلومات الحاضرين، المؤتمرات، المتحدثين، القاعات وغيرها. وكذلك يتيح هذا التطبيق للضيوف إمكانية الإطلاع على المؤتمرات القادمة والتسجيل بها عند الرغبة.  
 </div>
+
+## Demo
+
+![Part1](https://media3.giphy.com/media/IkD3bmqkzD8Gh0uKTR/giphy.gif?cid=790b7611c21917d7857c043de4f435aacfbcfa73ac6888c2&rid=giphy.gif&ct=g)
+![Part2](https://media0.giphy.com/media/mlHi5laUaYpEzskkP0/giphy.gif?cid=790b761151d010d8744292c56268a0238bf58998ba7226fe&rid=giphy.gif&ct=g)
+
+### Deployment
+Deployed via Azure: <a href="https://eventshall20210619031414.azurewebsites.net/" rel="nofollow">Events Hall Management System</a>
+    
+### Wireframe  
+You can view the application's wireframe <a href="https://imgur.com/a/GEeGkqV" rel="nofollow">here</a>    
+
+### ERD
+<a href="https://imgur.com/a/NvVOBWu" rel="nofollow">View Here</a>  
+
+## Set up  
+
+### Prerequisites
+- .NET 5 
+- ASP.NET MVC
+- Microsoft SQL Server 
+
+## Built With
+
+### Front-End  
+ - HTML
+ - Java Script
+ - CSS
+ - Bootstrap 
+ 
+### Back-End 
+ - ASP.NET MVC
+ - Microsoft SQL Server
+ - Google Maps API
+ - EF Core
+ 
+### Author
+Reema Ibrahim Alyousef
+
+
