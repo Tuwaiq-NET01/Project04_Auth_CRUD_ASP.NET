@@ -41,7 +41,7 @@ namespace ConferenceRoomManager.Controllers
         }
         public IActionResult Book()
         {
-            return View();
+            return View("Index");
         }
         [HttpPost]
         public IActionResult Book([Bind("UserName", "Date", "UserId", "RoomId")] BookingModel Booking)

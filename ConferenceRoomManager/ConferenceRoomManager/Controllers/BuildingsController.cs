@@ -21,7 +21,7 @@ namespace ConferenceRoomManager.Controllers
             var buildings = _db.Buildings.Include("Rooms").ToList();
             ViewData["Buildings"] = buildings;
            
-            return View();
+            return View("Index");
         }
 
         public IActionResult Details(int? id)

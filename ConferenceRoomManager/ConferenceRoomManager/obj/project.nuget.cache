@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "r1b84j6+HzZZNb1efEcR6cMgWfjeg8bFp3jb0ZgUdL1IdR0jXezHvs4VjKKk33he3IkMJIKqES/0eRuZ9+TS7g==",
+  "dgSpecHash": "RqWunCIgyX3cPVbYlBncHiZdjIpt3NyF6ARcJM32sXEwDeLNoMl7PIZGujLmur+LzWRp3LxpkodSIww2mRPPDA==",
   "success": true,
   "projectFilePath": "C:\\Users\\rooke\\Desktop\\Project04_Auth_CRUD_ASP.NET\\ConferenceRoomManager\\ConferenceRoomManager\\ConferenceRoomManager.csproj",
   "expectedPackageFiles": [
@@ -28,6 +28,7 @@
     "C:\\Users\\rooke\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\5.0.7\\microsoft.entityframeworkcore.abstractions.5.0.7.nupkg.sha512",
     "C:\\Users\\rooke\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\5.0.7\\microsoft.entityframeworkcore.analyzers.5.0.7.nupkg.sha512",
     "C:\\Users\\rooke\\.nuget\\packages\\microsoft.entityframeworkcore.design\\5.0.6\\microsoft.entityframeworkcore.design.5.0.6.nupkg.sha512",
+    "C:\\Users\\rooke\\.nuget\\packages\\microsoft.entityframeworkcore.inmemory\\5.0.7\\microsoft.entityframeworkcore.inmemory.5.0.7.nupkg.sha512",
     "C:\\Users\\rooke\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\5.0.6\\microsoft.entityframeworkcore.relational.5.0.6.nupkg.sha512",
     "C:\\Users\\rooke\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\5.0.6\\microsoft.entityframeworkcore.sqlserver.5.0.6.nupkg.sha512",
     "C:\\Users\\rooke\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\5.0.6\\microsoft.entityframeworkcore.tools.5.0.6.nupkg.sha512",

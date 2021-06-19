@@ -48,7 +48,7 @@ namespace ConferenceRoomManager.Controllers
                 ViewData["Msg"] = msg;
             }
 
-            return View();
+            return View("Details");
         }
     }
 }

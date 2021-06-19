@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\rooke\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\rooke\\.nuget\\packages"
+    ]
+  }
+}

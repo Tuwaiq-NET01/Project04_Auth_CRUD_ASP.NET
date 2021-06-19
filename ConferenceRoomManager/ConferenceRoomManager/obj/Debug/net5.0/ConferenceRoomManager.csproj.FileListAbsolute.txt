@@ -346,3 +346,4 @@ C:\Users\rooke\Desktop\Project04_Auth_CRUD_ASP.NET\ConferenceRoomManager\Confere
 C:\Users\rooke\Desktop\Project04_Auth_CRUD_ASP.NET\ConferenceRoomManager\ConferenceRoomManager\obj\Debug\net5.0\Razor\Views\Rooms\Details - Copy.cshtml.g.cs
 C:\Users\rooke\Desktop\Project04_Auth_CRUD_ASP.NET\ConferenceRoomManager\ConferenceRoomManager\obj\Debug\net5.0\Razor\Views\Buildings\Details - Copy.cshtml.g.cs
 C:\Users\rooke\Desktop\Project04_Auth_CRUD_ASP.NET\ConferenceRoomManager\ConferenceRoomManager\obj\Debug\net5.0\Razor\Views\Bookings\Edit - Copy.cshtml.g.cs
+C:\Users\rooke\Desktop\Project04_Auth_CRUD_ASP.NET\ConferenceRoomManager\ConferenceRoomManager\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.InMemory.dll
