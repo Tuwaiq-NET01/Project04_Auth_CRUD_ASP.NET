@@ -1,5 +1,4 @@
 <div dir="rtl" align="Left" >
-<center>
  
 ----
  
@@ -48,4 +47,3 @@ https://xd.adobe.com/view/6186d180-8aec-48b1-849c-9e248e99525f-34d5/?fullscreen
     linkedin :https://www.linkedin.com/in/nada-al-otaibi-313739164
 
 </div>
- </center>
