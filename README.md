@@ -5,7 +5,7 @@
 ### المقدمــة | Introduction 
    موقع لإدارة حجوزات الحلاقين في معسكر طويق دوت نيت
   ### Demo  
-   .....
+   ![alt text](https://github.com/anas-alhmoud/Project04_Auth_CRUD_ASP.NET/blob/main/demo.gif?raw=true)
   ### Wireframe  
   - Home Page
    ![alt text](https://github.com/anas-alhmoud/Project04_Auth_CRUD_ASP.NET/blob/main/wirframes/Home.png?raw=true)
