@@ -39,17 +39,6 @@ namespace EzzRestaurant.Controllers
             {
                 Products.Add(cp.Product);
             }
-            /*foreach (var prd in allProducts)
-            {
-                foreach (var cp in cartProduct)
-                {
-                    if(prd.Id == cp.Product.Id)
-                    {
-                        Products.Add(prd);
-                        break;
-                    }
-                }
-            }*/
 
             ViewBag.Products = Products;
             ViewBag.Cart = cart;
@@ -70,7 +59,10 @@ namespace EzzRestaurant.Controllers
             }
 
             var cartprd = _db.CartProcucts.First(cp => cp.Product == product);
+            cart.TotalPrice -= product.Price;
+            
             _db.CartProcucts.Remove(cartprd);
+            _db.Cart.Update(cart);
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -101,6 +93,14 @@ namespace EzzRestaurant.Controllers
                     _db.OrderProduct.Add(op);
    
                 }
+                _db.SaveChanges();
+                foreach (var cp in cartProduct)
+                {
+                    _db.CartProcucts.Remove(cp);
+                }
+
+                cart.TotalPrice = 0;
+                _db.Cart.Update(cart);
                 _db.SaveChanges();
             }
 

@@ -135,24 +135,14 @@ input{
 }
 
 .center-form{
-  display: flex;
-  flex-direction: column;
   box-shadow: 2px 3px 20px rgba(0,0,0,0.2);
-  padding: 50px;
-  margin: 50px;
+  margin: 70px;
   border-radius: 10px;
 }
-/*
-.center-form input{
-  padding: 8px;
-  border-top-width: 1px;
-  border-color: #cccccc;
-  border-right-width: 1px;
-  border-left-width: 1px;
-  border-bottom-width: 1px;
-  border-radius: 8px;
-  box-shadow: 0 0;
-}*/
+.form-des{
+  padding: 30px; 
+}
+
 .form-group{
   display: flex;
   flex-direction: column;
@@ -168,15 +158,55 @@ input{
   box-shadow: 1px 2px 20px rgba(0,0,0,0.2);
   padding: 15px;
   margin: 10px;
+  transition: all .2s ease-in-out;
 }
 .order-card:hover{
   transform: scale(1.1);
   box-shadow: 1px 2px 25px rgba(0,0,0,0.25);
 }
-a:hover {
+/*a:hover {
   transform: scale(1.1);
   box-shadow: 1px 2px 25px rgba(0,0,0,0.25);
-}
+}*/
+ 
 .order-card , a{
   color: #1b1e21;
+}
+
+.btn-primary{
+  background-color: #c69500;
+}
+
+.btn-outline-primary{
+  border-color:#c69500 ;
+  color: #c69500;
+  background-color: transparent;
+}
+
+.btn-outline-primary:hover{
+  background-color: #c69500;
+  color: white;
+  border-color: #c69500;
+}
+
+a:hover{
+  color: #c69500;
+}
+a.text-light{
+  transition: all .2s ease-in-out;
+}
+a.text-light:hover{
+  color: #c69500 !important;
+  transform: scale(1.04);
+}
+.nav-item:hover{
+  color: #c69500;
+}
+
+.home-card{
+  transition: all .2s ease-in-out;
+}
+
+.home-card:hover{
+  transform: scale(1.04);
 }

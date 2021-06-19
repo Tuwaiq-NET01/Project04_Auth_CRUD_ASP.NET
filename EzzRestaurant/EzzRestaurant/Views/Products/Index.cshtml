@@ -20,13 +20,13 @@
     {
         <div class="col-4 ">
            
-            <div class="category-card box-shadow" style="background-image: url(@product.img);">
-                <div class="category-body" style="display: flex ; flex-direction: column">
+            <div class="category-card box-shadow home-card" style="background-image: url(@product.img);">
+                <div class="category-body " style="display: flex ; flex-direction: column">
                     
                     <h4 style="color: white; font-weight: bold"><a style="color: white;" asp-controller="Products" asp-action="Details" asp-route-id="@product.Id">@product.Name</a></h4>
                     <h5 style="color: white; font-weight: bold">@product.Price$</h5>
                     <form asp-action="AddToCart" method="post" asp-route-id="@product.Id">
-                        <input class="large material-icons" value="add" type="submit"/>
+                        <input class="large material-icons btn btn-outline-primary" value="shopping_cart" type="submit"/>
                     </form>
                 </div>
             </div>

@@ -25,10 +25,12 @@
     
     @if (SignInManager.IsSignedIn(User))
     {
-        <div><a style="white-space: nowrap;" asp-controller="Products" asp-action="Edit" asp-route-id="@product.Id">Edit</a>
+        <div class="d-flex justify-content-center">
+            <a class="btn btn-outline-dark mr-2" style="white-space: nowrap;" asp-controller="Products" asp-action="Edit" asp-route-id="@product.Id">Edit</a>
             <form asp-controller="Products" asp-action="Delete" asp-route-id="@product.Id">
-                <input type="submit" class="" value="Delete" style="display: inline-block; background-color: rgba(0,0,0,0); border: 0; color: red">
-            </form></div>
+                 <input type="submit" class="btn btn-outline-danger" value="Delete">
+            </form>
+        </div>
     }
 </div>
 

@@ -10,40 +10,49 @@
     <div class="text-center" style="height: 800px; background-color: rgba(0,0,0,0.5); ">
         @await Html.PartialAsync("_PartialNavbar")
         <div style=" height:100%; display:flex; flex-direction:column;justify-content: center">
-            <h1 class="display-4" style="color: white; font-size: 120px; font-weight: bold; font-family: Pattaya,serif;">Cart</h1>
-            
+            @if (products.Count > 0)
+            {
+                <h1 class="display-4" style="color: white; font-size: 120px; font-weight: bold; font-family: Pattaya,serif;">Cart</h1>
+            }
+            else
+            {
+                <h1 class="display-4" style="color: white; font-size: 120px; font-weight: bold; font-family: Pattaya,serif;">Cart is empty</h1>
+            }
         </div>
     </div>
 </div>
 
-<div class="Homebody container text-center">
-    
-    <h1 style="font-family: Pattaya,serif;">Your Cart</h1>
-    <div class="row order-body">
-        @foreach (var product in products)
-        {
-            <div class="col-4 ">
-           
-                <div class="category-card box-shadow" style="background-image: url(@product.img);">
-                    <div class="category-body" style="display: flex ; flex-direction: column">
-                    
-                        <h4 style="color: white; font-weight: bold">@product.Name</h4>
-                        <h5 style="color: white; font-weight: bold">@product.Price$</h5>
-                        <form asp-action="DeleteItem" method="post" asp-route-id="@product.Id">
-                            <input class="large material-icons" value="delete" type="submit"/>
-                        </form>
+@if (products.Count > 0)
+{
+    <div class="Homebody container text-center">
+
+        <h1 style="font-family: Pattaya,serif;">Your Cart</h1>
+        <div class="row order-body">
+            @foreach (var product in products)
+            {
+                <div class="col-4 ">
+
+                    <div class="category-card box-shadow" style="background-image: url(@product.img);">
+                        <div class="category-body" style="display: flex ; flex-direction: column">
+
+                            <h4 style="color: white; font-weight: bold">@product.Name</h4>
+                            <h5 style="color: white; font-weight: bold">@product.Price$</h5>
+                            <form asp-action="DeleteItem" method="post" asp-route-id="@product.Id">
+                                <input class="large material-icons btn btn-outline-primary" value="remove_shopping_cart" type="submit"/>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
-        }
-        
-        
+            }
+
+
+        </div>
+        <div style="margin-top: 20px">
+            <h3 style="font-family: Pattaya,serif;">Total price</h3>
+            <h3 style="font-family: Pattaya,serif;">@cart.TotalPrice$</h3>
+        </div>
+        <form asp-action="SubmitOrder" method="post">
+            <input type="submit" value="Submit order" class="btn btn-outline-primary">
+        </form>
     </div>
-    <div style="margin-top: 20px">
-        <h3 style="font-family: Pattaya,serif;">Total price</h3>
-        <h3 style="font-family: Pattaya,serif;">@cart.TotalPrice$</h3>
-    </div>
-    <form asp-action="SubmitOrder" method="post">
-        <input type="submit" value="Submit order">
-    </form>
-</div>
+}
