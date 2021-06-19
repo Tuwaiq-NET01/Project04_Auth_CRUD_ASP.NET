@@ -29,9 +29,30 @@ Conference Room Manager (CRM)
 
 
 ### Demo  
- .....
+
+ 
+
+https://user-images.githubusercontent.com/82468827/122655658-be030f00-d15c-11eb-89af-138f12f12e58.mp4
+
+![TestPassed](https://user-images.githubusercontent.com/82468827/122655676-decb6480-d15c-11eb-83d2-88fe3cb2dae5.jpg)
+ 
+ 
 ### Wireframe  
- .....   
+
+ ![ERD](https://user-images.githubusercontent.com/82468827/122655669-c8bda400-d15c-11eb-80d1-a5e5ec7a6239.jpg)
+![home](https://user-images.githubusercontent.com/82468827/122655670-cce9c180-d15c-11eb-8453-4b38891b85c8.jpg)
+
+
+ ![register](https://user-images.githubusercontent.com/82468827/122655678-ea1e9000-d15c-11eb-8396-faa9870c8b8c.jpg)
+![signIn](https://user-images.githubusercontent.com/82468827/122655679-ee4aad80-d15c-11eb-98df-8c637756bece.jpg)
+![rooms](https://user-images.githubusercontent.com/82468827/122655684-f1de3480-d15c-11eb-8782-bc348a7ce997.jpg)
+![details](https://user-images.githubusercontent.com/82468827/122655688-f9054280-d15c-11eb-98fe-82440f5bc5a8.jpg)
+
+ 
+ 
+ 
+ 
+ 
 ### Prerequisites
 - NET 5 
 - ASP.NET MVC
@@ -54,7 +75,7 @@ clone the repo
 ### Author
 Mutaz Alajlan
 ### License & Resource
- .....
+BootstrapMade
 
 
 </div>
