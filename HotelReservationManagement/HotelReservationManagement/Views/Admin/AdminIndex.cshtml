@@ -1,0 +1,123 @@
+﻿
+@{
+    var users = (List<AdvanceUser>)ViewData["Users"];
+    var bookings = (List<RoomBookingModel>)ViewData["Bookings"];
+    var hotels = (List<HotelModel>)ViewData["hotels"];
+    var rooms = (List<RoomModel>)ViewData["rooms"];
+}
+
+@foreach (var booking in bookings)
+{
+    foreach (var user in users)
+    {
+        if (user.Id == booking.UserId)
+        {
+            <div class="card" style="margin-bottom:15px;">
+                <div class="p-4">
+                    <h3>Client Details</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">First Name</th>
+                                <th scope="col">Last Name</th>
+                                <th scope="col">Date of Birth</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Mobile Number</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="row">@user.FirstName</td>
+                                <td scope="row">@user.LastName</td>
+                                <td scope="row">@user.DateOfBirth.ToShortDateString()</td>
+                                <td scope="row">@user.Email</td>
+                                <td scope="row">@user.MobileNumber</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                    <div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Booking Date</th>
+                                    <th scope="col">From Date</th>
+                                    <th scope="col">To Date</th>
+                                    <th scope="col">Number of Guests</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td scope="row">@booking.RoomBookingId</td>
+                                    <td scope="row">@booking.BookingDate.ToShortDateString()</td>
+                                    <td scope="row">@booking.fromDate.ToShortDateString()</td>
+                                    <td scope="row">@booking.toDate.ToShortDateString()</td>
+                                    <td scope="row">@booking.NumberOfGuests</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                </div>
+
+                <div class="p-4">
+                    <h3>Room details</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Room Type</th>
+                                <th scope="col">Room Price</th>
+                                <th scope="col">Room Description</th>
+
+                                <th scope="col">Hotel Name</th>
+                                <th scope="col">Phone Number</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var room in rooms)
+                            {
+
+                                if (room.RoomId == booking.RoomId)
+                                {
+                                    <tr>
+                                        <td scope="row">@room.RoomType</td>
+                                        <td scope="row">@room.RoomPrice</td>
+                                        <td scope="row">@room.RoomDescribtion</td>
+
+                                        @foreach (var h in hotels)
+                                        {
+                                            if (h.HotelId == room.HotelId)
+                                            {
+                                                <td scope="row">@h.HotelName</td>
+                                                <td scope="row">@h.PhoneNumber</td>
+                                            }
+
+                                        }
+
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <div class="p-4">
+                    <a style="margin-bottom:10px; margin-left:8px; margin-top:20px;" class="btn btn-primary" asp-controller="Bookings" asp-action="UserBookingEdit" asp-route-id=@booking.RoomBookingId>Edit</a>
+                    <form method="post" asp-controller="Bookings" asp-action="UserBookingDelete" asp-route-id="@booking.RoomBookingId">
+                        <input type="submit" value="Delete" class="btn btn-danger" />
+                    </form>
+                </div>
+            </div>
+
+        }
+
+    }
+
+}
+
+<div>
+    <a class="btn btn-primary" asp-action="AdminBookingCreate" asp-controller="Bookings">Add New Booking</a>
+</div>

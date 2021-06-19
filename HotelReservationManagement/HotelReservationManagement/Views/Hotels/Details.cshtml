@@ -40,7 +40,7 @@
                 <li class="list-group-item"><strong>Room Status :</strong>@r.RoomStatus</li>
             </ul>
             <div class="card-body">
-                <a type="button" class="btn btn-light" asp-controller="rooms" asp-action="details" asp-route-id="@r.RoomId"> Details </a>
+                <a type="button" class="btn btn-light" asp-controller="rooms" asp-action="details" asp-route-id="@r.RoomId"> Details</a>
                 <a type="button" class="btn btn-light" asp-controller="bookings" asp-action="create" asp-route-id="@r.RoomId"> Book </a>
 
                 @if (user !=null && user.Admin == true)

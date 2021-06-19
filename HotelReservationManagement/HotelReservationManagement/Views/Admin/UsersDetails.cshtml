@@ -1,0 +1,39 @@
+﻿@{
+    var users = (List<AdvanceUser>)ViewData["users"];
+}
+
+@foreach (var user in users)
+{
+    if (user.Admin == true)
+    {
+        continue;
+    }
+    <div class="card" style="margin-bottom:15px;">
+        <div class="p-4">
+            <h3>Client Details</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">User Id</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Date of Birth</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Mobile Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="col">@user.Id</td>
+                        <td scope="row">@user.FirstName</td>
+                        <td scope="row">@user.LastName</td>
+                        <td scope="row">@user.DateOfBirth.ToShortDateString()</td>
+                        <td scope="row">@user.Email</td>
+                        <td scope="row">@user.MobileNumber</td>
+                    </tr>
+                </tbody>
+            </table>
+           <a class="btn btn-warning" asp-controller="Admin" asp-action="UserBookingDetails" asp-route-id="@user.Id">more...</a>
+    </div>
+</div>
+}

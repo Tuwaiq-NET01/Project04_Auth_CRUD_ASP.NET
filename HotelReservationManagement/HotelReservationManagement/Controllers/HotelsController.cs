@@ -16,12 +16,14 @@ namespace HotelReservationManagement.Controllers
         private readonly ApplicationDbContext _db;
         
         private readonly UserManager<AdvanceUser> _userManager;
+        private ApplicationDbContext context;
 
         public HotelsController(UserManager<AdvanceUser> userManager, ApplicationDbContext context)
         {
             _userManager = userManager;
             _db = context;
         }
+
 
         //GET:/Hotels
 
@@ -39,6 +41,14 @@ namespace HotelReservationManagement.Controllers
             ViewData["Hotels"] = Hotels;
             return View();
         }
+        
+        //FORTESTINg
+        public List<HotelModel> getAllHotels()
+        {
+            List<HotelModel> hotel = _db.Hotels.ToList();
+            return hotel;
+        }
+
 
         //Get: /Hotels/id
         public IActionResult Details(int? id)
@@ -63,7 +73,8 @@ namespace HotelReservationManagement.Controllers
 
             return View();
         }
-        
+
+
         //GET - /hotels/create
         [Authorize]
         public IActionResult Create()
@@ -71,15 +82,24 @@ namespace HotelReservationManagement.Controllers
             return View();
         }
 
+        //FOR TESTING
+        public void createHotel(HotelModel hotel)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Hotels.Add(hotel);
+                _db.SaveChanges();
+            }
+        }
+
         [HttpPost]
         [Authorize]
-
+        //POST: //Create
         public IActionResult Create([Bind("HotelId", "HotelImage","HotelName", "City", "State", "ZipCode", "PhoneNumber")] HotelModel hotel)
         {
             if (ModelState.IsValid)//check the state of the model
             {
-                _db.Hotels.Add(hotel);
-                _db.SaveChanges();
+                createHotel(hotel);
                 return RedirectToAction("Index");
             }
             return View(hotel);

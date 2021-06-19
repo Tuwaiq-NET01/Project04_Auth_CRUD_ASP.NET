@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAgJbSXxqtGEawZPmCy8cj1wAAAAACAAAAAAAQZgAAAAEAACAAAADJ3mRcR8lzqav9Wemvs3fXvsyr7c3aNDp8D3m2mI4BGQAAAAAOgAAAAAIAACAAAACmnmrBv9mhkAo5O5ZNw0ntXUt3NCcYBRyTg5BUwLH4kyAAAAAnhrjP08r4N9EIoap03bVIyjsi/oQ/FL8XtcSSFbxuWUAAAAAGSn/x+Lpzr9vy9FuU2YqMaNKuq3vdaU45Twe5kJ3PM5drEwf6R1/9cmmiREV8N08KUPFuPwia6zgLFfvXzmGV</EncryptedPassword>
+    <History>False|2021-06-19T20:24:43.1552997Z;False|2021-06-19T23:19:36.5755019+03:00;False|2021-06-19T23:12:05.6565514+03:00;False|2021-06-19T23:10:28.4450966+03:00;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <EFMigrations Include="HotelReservationManagement.Data.ApplicationDbContext">
+      <Value>Data Source=tcp:hotelreservationmanagementdbserver.database.windows.net,1433%3bInitial Catalog=HotelReservationManagement_db%3bUser Id=arwa%40hotelreservationmanagementdbserver%3bPassword=101A2r3W4a91</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

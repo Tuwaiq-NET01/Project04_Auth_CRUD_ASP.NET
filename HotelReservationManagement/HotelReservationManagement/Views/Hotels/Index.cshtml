@@ -14,50 +14,43 @@
 
     @foreach (var hotel in Hotels)
     {
-        <div class="card flex-row">
-            <img class="card-img-left example-card-img-responsive" src="@hotel.HotelImage" />
+        <div class="card flex-row mb-4" >
+            <img class="card-img-left example-card-img-responsive" src="@hotel.HotelImage" style="width:400px; height:100%;" />
             <div class="card-body">
                 <h4 class="card-title h5 h4-sm">@hotel.HotelName</h4>
                 <p class="card-text"><strong>Hotel Id :</strong> @hotel.HotelName</p>
                 <p class="card-text"><strong>Phone Number:</strong> @hotel.PhoneNumber</p>
                 <p class="card-text"><strong>City: </strong>@hotel.City</p>
 
-                <button type="button" class="btn btn-dark"><a style="color:white" href="/Hotels/details/@hotel.HotelId">Show</a></button>
-                <a class="btn btn-primary" asp-controller="Hotels" asp-action="Edit" asp-route-id=@hotel.HotelId>Edit</a>
+                <button type="button" class="btn btn-dark mb-2"><a style="color:white" href="/Hotels/details/@hotel.HotelId">Show</a></button>
+                <a class="btn btn-primary mb-2" asp-controller="Hotels" asp-action="Edit" asp-route-id=@hotel.HotelId>Edit</a>
                 <form method="post" asp-controller="Hotels" asp-action="Delete" asp-route-id="@hotel.HotelId">
                     <input type="submit" value="Delete" class="btn btn-danger" />
                 </form>
             </div>
-            
-
         </div>
 
-    }
+     }
 
     <a class="btn btn-primary" asp-controller="Hotels" asp-action="Create"> Add New Hotel</a>
 
-}
+ }
 
 else
 {
     @foreach (var hotel in Hotels)
     {
-        <div class="card flex-row">
-            <img class="card-img-left example-card-img-responsive" src="@hotel.HotelImage" />
+        <div class="card flex-row mb-4">
+            <img class="card-img-left example-card-img-responsive" src="@hotel.HotelImage" style="width:400px; height:100%;" />
             <div class="card-body">
                 <h4 class="card-title h5 h4-sm">@hotel.HotelName</h4>
-
+                <p class="card-text"><strong>Hotel Id :</strong> @hotel.HotelName</p>
                 <p class="card-text"><strong>Phone Number:</strong> @hotel.PhoneNumber</p>
-                <p class="card-text"><strong>City:</strong> @hotel.City</p>
+                <p class="card-text"><strong>City: </strong>@hotel.City</p>
 
-                <button type="button" class="btn btn-dark"><a style="color:white" href="/Hotels/details/@hotel.HotelId">Show</a></button>
-                <a class="btn btn-primary" asp-controller="Hotels" asp-action="Edit" asp-route-id=@hotel.HotelId>Edit</a>
-                <form method="post" asp-controller="Hotels" asp-action="Delete" asp-route-id="@hotel.HotelId">
-                    <input type="submit" value="Delete" class="btn btn-danger" />
-                </form>
+                <button type="button" class="btn btn-dark mb-2"><a style="color:white" href="/Hotels/details/@hotel.HotelId">Show</a></button>
             </div>
         </div>
-
     }
 
     <a class="btn btn-primary mr-4" asp-controller="Home" asp-action="Index"> Back Home</a>

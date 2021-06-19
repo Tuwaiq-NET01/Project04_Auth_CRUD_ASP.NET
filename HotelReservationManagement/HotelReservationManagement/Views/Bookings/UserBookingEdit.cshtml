@@ -1,0 +1,46 @@
+﻿@model RoomBookingModel
+@{ 
+    var bookings = (RoomBookingModel)ViewData["Bookings"];
+
+}
+
+<form asp-action="UserBookingEdit" method="post" class="form-horizontal">
+    <div class="form-group">
+        <input type="hidden" asp-for="UserId" disabled/>
+        <input type="hidden" asp-for="RoomId" value="@bookings.RoomId" disabled/>
+     </div>
+
+    <div class="form-group">
+        <label asp-for="BookingDate">Booking Date</label>
+        <div>
+            <input type="datetime" asp-for="BookingDate" value="@bookings.BookingDate" disabled />
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="fromDate">Check In</label>
+        <div>
+            <input type="datetime" asp-for="fromDate" value="@bookings.fromDate" disabled/>
+            <input asp-for="fromDate"/>
+        </div>
+
+    </div>
+
+    <div class="form-group">
+        <label asp-for="toDate">Check out</label>
+        <div>
+            <input  type="datetime" asp-for="toDate" value="@bookings.toDate" disabled/>
+            <input asp-for="toDate" value="@bookings.toDate" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="NumberOfGuests">Number of Guests</label>
+        <div>
+            <input asp-for="NumberOfGuests" value="@bookings.NumberOfGuests" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="Update" />
+    </div>
+</form>

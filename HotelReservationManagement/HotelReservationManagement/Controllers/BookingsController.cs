@@ -14,6 +14,7 @@ namespace HotelReservationManagement.Controllers
     [Authorize]
     public class BookingsController : Controller
     {
+       
         private readonly ApplicationDbContext _db;
         private readonly UserManager<AdvanceUser> _userManager;
 
@@ -24,7 +25,6 @@ namespace HotelReservationManagement.Controllers
         }
 
         
-
         //GET: /Bookings/Details/id
         public IActionResult Details(int? id)
         {
@@ -52,12 +52,20 @@ namespace HotelReservationManagement.Controllers
         [Authorize]
         public IActionResult Create(int id, [Bind("RoomId", "UserId", "BookingDate", "fromDate", "toDate","NumberOfGuests")] RoomBookingModel roomBooking)
         {
-            roomBooking.RoomId = id;
-            roomBooking.UserId = _userManager.GetUserId(HttpContext.User);
+            if(id == 0 || id == null)
+            {
+                return View("_NotFound");
+            }
+            else
+            {
+                roomBooking.RoomId = id;
+                roomBooking.UserId = _userManager.GetUserId(HttpContext.User);
+            }
             AdvanceUser user = _userManager.FindByIdAsync(roomBooking.UserId).Result;
             roomBooking.BookingDate = DateTime.Now;
 
             //var bookings = _db.RoomBookings.Where(booking => booking.UserId == "32dd251c-5637-4e5f-a487-ea2e1afc506b").ToList();
+
             if (ModelState.IsValid)
             {
                 _db.RoomBookings.Add(roomBooking);
@@ -93,6 +101,52 @@ namespace HotelReservationManagement.Controllers
 
             return View();
         }
+        [Authorize]
+        //GET: /Bookings/UserBookingEdit/userid
+        public IActionResult UserBookingEdit(int? id)
+        {
+            //var userid = _userManager.GetUserId(HttpContext.User);
+            //AdvanceUser user = _userManager.FindByIdAsync(userid).Result;
+
+            var bookings = _db.RoomBookings.ToList().Find(booking => booking.RoomBookingId == id);
+            if(id == null || bookings == null)
+            {
+                return View("_NotFound");
+            }
+            ViewData["Bookings"] = bookings;
+
+            return View();
+        }
+
+        //POST: /Bookings/UserBookingEdit/id
+        [HttpPost]
+        [Authorize]
+        public IActionResult UserBookingEdit(int id, [Bind("BookingDate", "fromDate", "toDate", "NumberOfGuests")] RoomBookingModel rb)
+        {
+            var roomBookings = _db.RoomBookings.ToList().Find(p => p.RoomBookingId == id);
+            roomBookings.BookingDate = rb.BookingDate;
+            roomBookings.fromDate = rb.fromDate;
+            roomBookings.toDate = rb.toDate;
+            roomBookings.NumberOfGuests = rb.NumberOfGuests;    
+            _db.RoomBookings.Update(roomBookings);
+            _db.SaveChanges();
+            return RedirectToAction("UserBookingIndex");
+        }
+
+        //POST - /Hotels/delete/id
+        [HttpPost]
+        public IActionResult UserBookingDelete(int? id)
+        {
+            var roomBookings = _db.RoomBookings.ToList().Find(p => p.RoomBookingId == id);
+            if (id == null || roomBookings == null)
+            {
+                return View("_NotFound");
+            }
+            _db.RoomBookings.Remove(roomBookings);
+            _db.SaveChanges();
+            return RedirectToAction("UserBookingIndex");
+        }
+
     }
 }
       
