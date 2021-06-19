@@ -1,16 +1,25 @@
-﻿
+﻿@{ 
+    Layout = "_Layout";
+    var courses = (List<CoursesModel>)ViewData["courses"];
+    var Information = (List<InfoModel>)ViewData["Information"];
+
+}
 <div class="container">
     <div class="row ">
         <h1>Courses :</h1>
     </div>
-    <div class="row">
-            <div class="clo">
-                <div>
-                    <a asp-controller="Files_Uploaded" asp-action="Dotnet">Dotnet</a>
-                    <a asp-controller="Files_Uploaded" asp-action="React">React</a>
-                    <a asp-controller="Files_Uploaded" asp-action="Design">Design pattrens</a>
-                    <a asp-controller="Files_Uploaded" asp-action="Unit">Unit Testing</a>
-                </div>
-            </div>
+    @foreach (var course in courses)
+    {
+<div class="card" style="width: 18rem;">
+    <img src="@course.imgurl" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">@course.subject</h5>
+        <a asp-controller="Courses" asp-action="details" asp-route-id="@course.id">show</a>
+        <form method="post" asp-action="Delete" asp-route-id="@course.id" asp-controller="Courses">
+            <button type="submit" class="btn btn-danger" value="Delete">Delete</button>
+        </form>
+        <a href="/courses/edit/@course.id" class="btn btn-primary">Edit</a>
     </div>
+</div>
+    }
 </div>

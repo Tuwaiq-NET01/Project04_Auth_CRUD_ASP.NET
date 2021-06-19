@@ -21,7 +21,7 @@ namespace finalProject.Controllers
         [AllowAnonymous]
         public IActionResult Index()
         {
-            return View();
+            return View("Index");
         }
 
         public IActionResult Privacy()

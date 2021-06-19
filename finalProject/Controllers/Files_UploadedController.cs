@@ -1,8 +1,10 @@
 ﻿using finalProject.Data;
 using finalProject.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -18,38 +20,31 @@ namespace finalProject.Controllers
         }
         public IActionResult Index()
         {
+            return View("Index");
+        }
+
+        [HttpPost]
+        public IActionResult Index(IFormFile postedFile)
+        {
+
+            // List<string> uploadedFiles = new List<string>();
+            // foreach (IFormFile postedFile in postedFiles)
+            // {
+            if (postedFile.Length > 0)
+            {
+                string fileName = Path.GetFileName(postedFile.FileName);
+                string Dir = Environment.CurrentDirectory + "/UploadedFiles";
+                if (!Directory.Exists(Dir))
+                {
+                    Directory.CreateDirectory(Dir);
+                }
+                string path = Path.Combine(Dir, fileName);
+                using (FileStream stream = new FileStream(path, FileMode.Create))
+                {
+                    postedFile.CopyTo(stream);
+                }
+            }
             return View();
-        }
-
-        public IActionResult Dotnet()
-        {
-            var course = _db.Courses.Where<CoursesModel>(course => course.subject == "Dot Net").First();
-            course.Files = _db.Files.Where(file => file.course_id == course.id).ToList();
-            ViewData["Dotnet"] = course;
-            return View(course);
-          
-        }
-
-        public IActionResult React()
-        {
-            var course = _db.Courses.Where<CoursesModel>(course => course.subject == "React").First();
-            course.Files = _db.Files.Where(file => file.course_id == course.id).ToList();
-            ViewData["React"] = course;
-            return View(course);
-        }
-        public IActionResult Design()
-        {
-            var course = _db.Courses.Where<CoursesModel>(course => course.subject == "Design patterns").First();
-            course.Files = _db.Files.Where(file => file.course_id == course.id).ToList();
-            ViewData["Design"] = course;
-            return View(course);
-        }
-        public IActionResult Unit()
-        {
-            var course = _db.Courses.Where<CoursesModel>(course => course.subject == "Unit testing").First();
-            course.Files = _db.Files.Where(file => file.course_id == course.id).ToList();
-            ViewData["Unit"] = course;
-            return View(course);
         }
     }
 }

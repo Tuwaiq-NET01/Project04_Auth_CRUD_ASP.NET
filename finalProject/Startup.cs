@@ -40,11 +40,11 @@ namespace finalProject
         .AddCookie();
 
             services.AddControllersWithViews(o => o.Filters.Add(new AuthorizeFilter()));
-
+            //
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
-
+            //
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -68,7 +68,6 @@ namespace finalProject
 
             app.UseAuthentication();
 
-            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

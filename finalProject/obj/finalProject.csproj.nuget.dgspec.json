@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\SAFCSP\\source\\repos\\finalProject\\finalProject\\finalProject.csproj": {}
+    "C:\\Users\\SAFCSP\\Desktop\\Project04_Auth_CRUD_ASP.NET - Copy\\finalProject\\finalProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\SAFCSP\\source\\repos\\finalProject\\finalProject\\finalProject.csproj": {
+    "C:\\Users\\SAFCSP\\Desktop\\Project04_Auth_CRUD_ASP.NET - Copy\\finalProject\\finalProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\SAFCSP\\source\\repos\\finalProject\\finalProject\\finalProject.csproj",
+        "projectUniqueName": "C:\\Users\\SAFCSP\\Desktop\\Project04_Auth_CRUD_ASP.NET - Copy\\finalProject\\finalProject.csproj",
         "projectName": "finalProject",
-        "projectPath": "C:\\Users\\SAFCSP\\source\\repos\\finalProject\\finalProject\\finalProject.csproj",
+        "projectPath": "C:\\Users\\SAFCSP\\Desktop\\Project04_Auth_CRUD_ASP.NET - Copy\\finalProject\\finalProject.csproj",
         "packagesPath": "C:\\Users\\SAFCSP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\SAFCSP\\source\\repos\\finalProject\\finalProject\\obj\\",
+        "outputPath": "C:\\Users\\SAFCSP\\Desktop\\Project04_Auth_CRUD_ASP.NET - Copy\\finalProject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\SAFCSP\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -46,19 +46,29 @@
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.7, )"
+              "version": "[5.0.6, )"
             },
             "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[5.0.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.InMemory": {
               "target": "Package",
               "version": "[5.0.7, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[5.0.7, )"
+              "version": "[5.0.6, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.7, )"
+              "version": "[5.0.6, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[5.0.2, )"
             }
           },
           "imports": [

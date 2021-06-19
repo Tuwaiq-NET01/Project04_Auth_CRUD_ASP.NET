@@ -1,0 +1,23 @@
+﻿
+@model InfoModel
+@{
+    var Info = ViewData["course_id"];
+}
+<form asp-action="create" method="post" class="form-horizontal">
+    <div class="form-group">
+
+        <label asp-for="title">Title :</label>
+        <input asp-for="title" />
+
+        <label asp-for="url">URL : </label>
+        <input asp-for="url" />
+
+        <label asp-for="about">about :</label>
+        <input asp-for="about" />
+
+        <input type="hidden" asp-for="course_id" value="@Info" />
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary" value="create">Create</button>
+    </div>
+</form>

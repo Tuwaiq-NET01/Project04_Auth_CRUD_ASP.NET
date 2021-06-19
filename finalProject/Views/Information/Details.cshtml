@@ -1,0 +1,10 @@
+﻿@{
+    var Information = (List<InfoModel>)ViewData["Information"];
+}
+@foreach (var Info in Information)
+{
+    <h1>@Info.title</h1>
+    <h1>@Info.url</h1>
+    <h1>@Info.about</h1>
+
+}

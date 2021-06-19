@@ -11,8 +11,5 @@ namespace finalProject.Models
         public int id { get; set; }
         public string name { get; set; }
         public string email { get; set; }
-
-        [ForeignKey("CoursesModel")]
-        public int course_id { get; set; }
     }
 }

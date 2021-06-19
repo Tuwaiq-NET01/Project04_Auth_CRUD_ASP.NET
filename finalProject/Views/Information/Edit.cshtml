@@ -1,0 +1,27 @@
+﻿@model finalProject.Models.InfoModel
+@{
+    var Info = (InfoModel)ViewData["Information"];
+}
+<form asp-action="Edit" method="post" class="form-horizontal">
+
+    <div class="form-group">
+        <input type="hidden" asp-for="id" value="@Info.id" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="title">Title :</label>
+        <input asp-for="title" value="@Info.title" />
+
+        <label asp-for="url"> URL:</label>
+        <input asp-for="url" value="@Info.url" />
+
+        <label asp-for="about">about :</label>
+        <input asp-for="about" value="@Info.about" />
+
+        <input type="hidden" asp-for="course_id" value="@Info.course_id" />
+
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary" value="update">Edit</button>
+    </div>
+</form>

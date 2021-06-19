@@ -1,0 +1,19 @@
+﻿@model CoursesModel
+@{
+    var Profile = ViewData["Profile"];
+}
+<form asp-action="create" method="post" class="form-horizontal">
+
+    <input type="hidden" asp-for="ProfileId" value="@Profile" />
+
+    <div class="form-group">
+        <label asp-for="subject">subject</label>
+        <input asp-for="subject" />
+
+        <label asp-for="imgurl">img url</label>
+        <input asp-for="imgurl" />
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary" value="create">Create</button>
+    </div>
+</form>

@@ -11,14 +11,11 @@ namespace finalProject.Models
         public int id { get; set; }
         public string name { get; set; }
         public DateTime date { get; set; }
+        public string path { get; set; }
 
-        [ForeignKey("StudentModel")]
-        public int student_id { get; set; }
-        [ForeignKey("CoursesModel")]
+        [ForeignKey("courses")]
         public int course_id { get; set; }
-
-
-
+        public CoursesModel courses { get; set; }
 
     }
 }

@@ -1,0 +1,24 @@
+﻿@{ 
+    var course = (CoursesModel)ViewData["course"];
+    var information = (List<InfoModel>)ViewData["Information"];
+}
+<div class="container">
+    <div class="row ">
+    </div>
+    @foreach (var info in information)
+    {
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">@info.title</h5>
+        <p class="card-text">@info.url</p>
+        <p class="card-text">@info.about</p>
+        <form method="post" asp-action="Delete" asp-route-id="@course.id" asp-controller="Information">
+            <button type="submit" class="btn btn-danger" value="Delete">Delete</button>
+        </form>
+        <a href="/Information/edit/@info.id" class="btn btn-primary">Edit</a>
+    </div>
+</div>
+
+    }
+
+</div>
