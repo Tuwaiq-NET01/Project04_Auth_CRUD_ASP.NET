@@ -1,9 +1,9 @@
 <div dir="rtl" align="right" >
 ![Tuwaiq](https://i.ibb.co/SV2BSn5/tuwaiq.png)
-----
-# (Dark white Code studio) | اسم التطبيق
-
  
+----
+# (App_Name) | اسم التطبيق
+  .......
  ### المقدمــة | Introduction 
 استديو دارك وايت كود 
 
