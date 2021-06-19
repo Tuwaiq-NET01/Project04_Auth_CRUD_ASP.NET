@@ -1,0 +1,51 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using AppStore.Data
+@inject SignInManager<ApplicationUser> SignInManager
+
+
+@{
+    ViewData["Title"] = "Apps Page";
+    var Apps = (List<AppModel>) ViewBag.Apps;
+    var Search = (string) ViewBag.Search;
+
+}
+
+
+<div class="container text-center">
+    <div class="category-title mb-3">
+        <h3>@((Search!=null)? "Search Result for "+@Search :"App Store")</h3>
+        <hr>
+    </div>
+    <div class="row app-row">
+        @{
+            foreach (var app in Apps)
+            {
+                <a asp-controller="Apps" asp-action="Details" asp-route-id="@app.Id" class="col-md-5 app-card d-flex flex-row">
+                    <div class="app-icon">
+                        <img src="@app.Icon" alt="@app.Name">
+                    </div>
+                    <div class="app-details text-left ml-2">
+                        <p class="font-weight-bold">@app.Name</p>
+                        <p>@app.Description</p>
+                        <div id="avg-rating" class="mr-4">
+                            @{
+                                for (int i = 0; i < 5; i++)
+                                {
+                                    if (i < Math.Round(app.AverageRating))
+                                    {
+                                        <span class="fa fa-star checked"></span>
+                                    }
+                                    else
+                                    {
+                                        <span class="fa fa-star"></span>
+                                    }
+                                }
+                            }
+                            @app.Ratings.Count
+                        </div>
+                    </div>
+                </a>
+            }
+        }
+    </div>
+</div>

@@ -17,5 +17,9 @@ namespace AppStore.Models
         
         public List<DownloadModel> Downloads { get; set; }
         
+        public List<RatingModel> Ratings { get; set; }
+        
+        public List<AppCategoryModel> AppCategory { get; set; }
+        
     }
 }

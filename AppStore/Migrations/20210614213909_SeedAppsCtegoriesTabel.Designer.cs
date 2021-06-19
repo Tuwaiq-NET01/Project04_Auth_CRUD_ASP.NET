@@ -4,14 +4,16 @@ using AppStore.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AppStore.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210614213909_SeedAppsCtegoriesTabel")]
+    partial class SeedAppsCtegoriesTabel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -44,9 +46,6 @@ namespace AppStore.Migrations
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("datetimeoffset");
 
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -63,9 +62,6 @@ namespace AppStore.Migrations
 
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
-
-                    b.Property<string>("ProfilePic")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
@@ -397,9 +393,6 @@ namespace AppStore.Migrations
                     b.Property<string>("Review")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("ReviewDate")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
@@ -586,7 +579,7 @@ namespace AppStore.Migrations
             modelBuilder.Entity("AppStore.Models.RatingModel", b =>
                 {
                     b.HasOne("AppStore.Models.AppModel", "App")
-                        .WithMany("Ratings")
+                        .WithMany()
                         .HasForeignKey("AppId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -663,8 +656,6 @@ namespace AppStore.Migrations
                     b.Navigation("AppCategory");
 
                     b.Navigation("Downloads");
-
-                    b.Navigation("Ratings");
                 });
 
             modelBuilder.Entity("AppStore.Models.CategoryModel", b =>

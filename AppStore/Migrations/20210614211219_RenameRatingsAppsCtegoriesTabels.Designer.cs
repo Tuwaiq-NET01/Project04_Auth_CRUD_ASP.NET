@@ -4,14 +4,16 @@ using AppStore.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AppStore.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210614211219_RenameRatingsAppsCtegoriesTabels")]
+    partial class RenameRatingsAppsCtegoriesTabels
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -44,9 +46,6 @@ namespace AppStore.Migrations
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("datetimeoffset");
 
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -63,9 +62,6 @@ namespace AppStore.Migrations
 
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
-
-                    b.Property<string>("ProfilePic")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
@@ -110,92 +106,6 @@ namespace AppStore.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("AppsCategories");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            AppId = 1,
-                            CategoryId = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            AppId = 1,
-                            CategoryId = 3
-                        },
-                        new
-                        {
-                            Id = 3,
-                            AppId = 2,
-                            CategoryId = 2
-                        },
-                        new
-                        {
-                            Id = 4,
-                            AppId = 2,
-                            CategoryId = 3
-                        },
-                        new
-                        {
-                            Id = 5,
-                            AppId = 3,
-                            CategoryId = 1
-                        },
-                        new
-                        {
-                            Id = 6,
-                            AppId = 3,
-                            CategoryId = 2
-                        },
-                        new
-                        {
-                            Id = 7,
-                            AppId = 3,
-                            CategoryId = 3
-                        },
-                        new
-                        {
-                            Id = 8,
-                            AppId = 4,
-                            CategoryId = 4
-                        },
-                        new
-                        {
-                            Id = 9,
-                            AppId = 4,
-                            CategoryId = 5
-                        },
-                        new
-                        {
-                            Id = 10,
-                            AppId = 4,
-                            CategoryId = 6
-                        },
-                        new
-                        {
-                            Id = 11,
-                            AppId = 5,
-                            CategoryId = 6
-                        },
-                        new
-                        {
-                            Id = 12,
-                            AppId = 5,
-                            CategoryId = 7
-                        },
-                        new
-                        {
-                            Id = 13,
-                            AppId = 6,
-                            CategoryId = 4
-                        },
-                        new
-                        {
-                            Id = 14,
-                            AppId = 6,
-                            CategoryId = 8
-                        });
                 });
 
             modelBuilder.Entity("AppStore.Models.AppModel", b =>
@@ -312,48 +222,6 @@ namespace AppStore.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Chatting"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "News"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "Social Networking"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Name = "Adventure"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Name = "Action"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Name = "Strategy"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Name = "Puzzle"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Name = "Building"
-                        });
                 });
 
             modelBuilder.Entity("AppStore.Models.DownloadModel", b =>
@@ -396,9 +264,6 @@ namespace AppStore.Migrations
 
                     b.Property<string>("Review")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("ReviewDate")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
@@ -586,7 +451,7 @@ namespace AppStore.Migrations
             modelBuilder.Entity("AppStore.Models.RatingModel", b =>
                 {
                     b.HasOne("AppStore.Models.AppModel", "App")
-                        .WithMany("Ratings")
+                        .WithMany()
                         .HasForeignKey("AppId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -663,8 +528,6 @@ namespace AppStore.Migrations
                     b.Navigation("AppCategory");
 
                     b.Navigation("Downloads");
-
-                    b.Navigation("Ratings");
                 });
 
             modelBuilder.Entity("AppStore.Models.CategoryModel", b =>

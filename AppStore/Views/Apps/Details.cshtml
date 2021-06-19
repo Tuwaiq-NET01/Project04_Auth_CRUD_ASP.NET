@@ -1,0 +1,157 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using AppStore.Data
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    var App = (AppModel) ViewBag.App;
+    var SignedIn = SignInManager.IsSignedIn(User);
+    var UserId = @UserManager.GetUserId(User);
+    var downloaded = false;
+    var reviewed = false;
+    foreach (var download in App.Downloads)
+    {
+        if (download.UserId == UserId)
+        {
+            downloaded = true;
+        }
+    }
+    foreach (var review in App.Ratings)
+    {
+        if (review.UserId == UserId)
+        {
+            reviewed = true;
+        }
+    }
+}
+
+@functions
+{
+    void stars(double rate)
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            if (i < rate)
+            {
+                <span class="fa fa-star checked"></span>
+            }
+            else
+            {
+                <span class="fa fa-star"></span>
+            }
+        }
+    }
+}
+
+<div class="app-details d-flex flex-row">
+    <div class="app-icon d-flex align-items-center">
+        <img src="@App.Icon" alt="@App.Name">
+    </div>
+    <div class="App-Info ml-4 mt-4">
+        <h3>@App.Name</h3>
+        <p class="font-weight-bold">@App.Description</p>
+        <a asp-controller="Categories" asp-action="GeneralCategory" asp-route-category="@App.GeneralCategory">
+            <span class="badge bg-primary text-white">@App.GeneralCategory</span>
+        </a>
+        @{
+            <div>
+                @foreach (var category in App.AppCategory)
+                {
+                    <a asp-controller="Categories" asp-action="SpecificCategory" asp-route-id="@category.CategoryId">
+                        <span class="badge rounded-pill bg-info text-white my-2 mr-2">@category.Category.Name</span>
+                    </a>
+                }
+            </div>
+        }
+        <div class="app-additional-details d-flex flex-column flex-sm-row">
+            <div id="avg-rating" class="mr-4">
+                @{
+                    stars(Math.Round(App.AverageRating));
+                    @App.Ratings.Count
+                }
+            </div>
+            <p class="mr-4">@App.DownloadsCount Downloads </p>
+            <p>Size @App.Size </p>
+        </div>
+    </div>
+</div>
+<hr>
+<div class="app-Buttons d-flex flex-row justify-content-around">
+    @{
+        if (SignedIn)
+        {
+            <form asp-controller="Apps" asp-action="Details" method="post" asp-route-id="@App.Id">
+                <button type="submit" @((downloaded == true) ? "class=btn\tbtn-dark disabled" : "class=btn\tbtn-success")>Download</button>
+            </form>
+            <a asp-controller="Ratings" asp-action="Create" asp-route-id="@App.Id">
+                <button @((reviewed || !downloaded) ? "class=btn\tbtn-dark disabled" : "class=btn\tbtn-info")>Review</button>
+            </a>
+        }
+        else
+        {
+            <h3>
+                <a asp-area="Identity" asp-page="/Account/Login">Login</a> or
+                <a asp-area="Identity" asp-page="/Account/Register">Register</a> To Download or Review
+            </h3>
+        }
+    }
+</div>
+<hr>
+<h3>Reviews Section</h3>
+<hr>
+
+<div class="App-Reviews">
+    @{
+        if (App.Ratings.Count > 0)
+        {
+            foreach (var rating in App.Ratings)
+            {
+                <div class="user-review-details">
+
+                    @if (rating.User.ProfilePic!=null)
+                    {
+                    <img class="user-profile-pic" src="@rating.User.ProfilePic" alt="@rating.User.Name">
+                    }
+                    else
+                    {
+                    <img class="user-profile-pic" src="https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg" alt="@rating.User.Name">
+                    }
+                    <div class="d-flex flex-column flex-sm-row justify-content-between">
+                        <div class="">
+                            <p>By: @rating.User.Name</p>
+                            <div>
+                                <span class="mr-3">
+                                    @{
+                                        var rate = Math.Round(rating.Rating);
+                                        stars(rate);
+                                    }
+                                    @rating.Rating
+                                </span>
+                                <span>@rating.ReviewDate</span>
+                            </div>
+                        </div>
+                        @if (rating.UserId == UserId)
+                        {
+                            <div class="d-flex flex-row">
+                                <a asp-controller="Ratings" asp-action="Edit" asp-route-id="@rating.Id">
+                                    <button class="btn btn-warning mr-3">Edit Review</button>
+                                </a>
+                                <form asp-controller="Ratings" asp-action="Delete" asp-route-id="@rating.Id" method="post">
+                                    <button class="btn btn-danger " type="submit"> Delete Review </button>
+                                </form>
+                            </div>
+                        }
+                    </div>
+                    <div class="User-review-Comment my-4">
+                        <p>@rating.Review</p>
+                    </div>
+                    <hr>
+                </div>
+            }
+        }
+        else
+        {
+            <h3>No Reviews</h3>
+        }
+    }
+</div>

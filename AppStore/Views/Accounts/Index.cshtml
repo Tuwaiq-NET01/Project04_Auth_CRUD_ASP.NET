@@ -1,0 +1,58 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using AppStore.Data
+@inject UserManager<ApplicationUser> UserManager
+
+
+@{
+    var Downloads = (List<AppModel>) ViewBag.UserDownloads;
+    var name = @UserManager.Users.FirstOrDefault(u => u.Id == UserManager.GetUserId(User)).Name;
+}
+
+<div class="account-title mb-3 text-center">
+    <h3>Hello @name This is Your Reviewed And Downloaded Apps</h3>
+    <hr>
+</div>
+<div class="row user-app-row">
+    @{
+        foreach (var app in Downloads)
+        {
+            foreach (var d in app.Downloads)
+            {
+                var rated = false;
+                <div class="user-app-card col-md-3 mb-4 text-center">
+                    <a asp-controller="Apps" asp-action="Details" asp-route-id="@app.Id">
+                        <div class="app-icon ">
+                            <img src="@app.Icon" alt="@app.Name">
+                        </div>
+                        <p class="text-center font-weight-bold mt-2">@app.Name</p>
+                    </a>
+                    <hr>
+                    <p>Downloaded at: @d.DownloadDate.ToString("d")</p>
+                    <hr>
+                    <div class="review">
+                        @foreach (var r in app.Ratings)
+                        {
+                            rated = true;
+                            <p>Reviewd at: @r.ReviewDate.ToString("d")</p>
+                            <div class="d-flex flex-row justify-content-center">
+                                <a asp-controller="Ratings" asp-action="Edit" asp-route-id="@r.Id">
+                                    <button class="btn btn-warning mr-3">Edit Review</button>
+                                </a>
+                                <form asp-controller="Ratings" asp-action="Delete" asp-route-id="@r.Id" method="post">
+                                    <button class="btn btn-danger " type="submit"> Delete Review </button>
+                                </form>
+                            </div>
+                        }
+                        @if (!rated)
+                        {
+                            <p>&nbsp;</p>
+                            <a asp-controller="Ratings" asp-action="Create" asp-route-id="@app.Id">
+                                <button class="btn btn-info">Review</button>
+                            </a>
+                        }
+                    </div>
+                </div>
+            }
+        }
+    }
+</div>

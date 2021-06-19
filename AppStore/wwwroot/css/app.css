@@ -1,0 +1,67 @@
+﻿a {
+    text-decoration: none !important;
+}
+
+
+
+
+.app-row, .user-app-row {
+    column-gap: 2rem;
+    justify-content: space-between;
+}
+
+.user-app-row {
+    justify-content: space-around;
+}
+
+.app-card, .user-app-card {
+    align-items: center;
+    justify-content: start;
+    padding: 5px;
+    color: #212121;
+    background: #fff;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+    transition-property: opacity, box-shadow;
+    transition: 0.5s ease-out;
+}
+
+.user-app-card {
+    margin: 1rem 0;
+    padding: 20px 10px;
+}
+
+.app-card:hover {
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
+
+.app-row:hover > * {
+    opacity: 0.6;
+}
+
+.app-row:hover > *:hover {
+    opacity: 1;
+}
+
+.app-icon img {
+    width: 100px;
+    height: 100px;
+}
+
+main {
+    padding: 10px;
+    background: #fff;
+    border-radius: 10px;
+}
+
+
+.user-profile-pic{
+    width: 100px;
+    height: 100px;
+    float: left;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+

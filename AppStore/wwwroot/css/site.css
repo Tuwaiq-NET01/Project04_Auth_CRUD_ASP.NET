@@ -61,6 +61,11 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
+  background: #eee;
+
+}
+.checked{
+  color: orange;
 }
 .footer {
   position: absolute;
@@ -69,3 +74,5 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
+

@@ -1,8 +1,33 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Identity
+@using AppStore.Data
+@inject SignInManager<ApplicationUser> SignInManager
+
+@{
     ViewData["Title"] = "Home Page";
+    var Apps = (List<AppModel>) ViewBag.Apps;
+    var SignedIn = SignInManager.IsSignedIn(User);
+
 }
 
-<div class="text-center">
+<div class="container text-center">
+    <div class="row">
+        @{
+            foreach (var app in Apps)
+            {
+                <div class="col-md-6 app-card d-flex flex-row align-items-center">
+                    <div class="app-icon">
+                        <img width="100px" src="@app.Icon" alt="@app.Name">
+                    </div>
+                    <div class="app-details text-left ml-2">
+                        <p class="font-weight-bold">@app.Name</p>
+                        <p>@app.Description</p>
+                        <p>@app.AverageRating/5</p>
+                    </div>
+                </div>
+            }
+
+        }
+    </div>
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
