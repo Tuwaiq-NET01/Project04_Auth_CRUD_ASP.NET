@@ -40,8 +40,26 @@ namespace School.Controllers
         public IActionResult Details(int? id)
         {
             var Student = _db.Students.FirstOrDefault(s => s.StudentId == id);
+            var Room = _db.Rooms.FirstOrDefault(r => r.StudentId == id);
             ViewBag.Student = Student;
+            if(Room == null)
+            {
+                var Rooms = _db.Rooms.Where(r => r.StudentId == null).ToList();
+                ViewBag.Rooms = Rooms;
+            }
+            ViewBag.Room = Room;
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult AddRoom(int id, int room)
+        {
+            var tmpRoom = _db.Rooms.FirstOrDefault(r => r.RoomId == room);
+            tmpRoom.StudentId = id;
+            _db.Rooms.Update(tmpRoom);
+            _db.SaveChanges();
+
+            return RedirectToAction("Details", new { id });
         }
 
         public IActionResult Create()

@@ -1,5 +1,7 @@
 ﻿@{
     Student student = ViewBag.Student;
+    Room room = ViewBag.Room;
+    List<Room> rooms = ViewBag.Rooms;
     ViewData["title"] = "Student Details";
 }
 <div class="bg-light text-center rounded rounded-3 m-auto p-5 col-6">
@@ -8,12 +10,31 @@
         <p>ID: @student.StudentId</p>
         <p>Student Name: @student.FirstName @student.LastName</p>
         <p>Student Email: @student.Email</p>
-        <a href="/Students" class="btn btn-primary">Back</a>
 
+        @if (room == null)
+        {
+            <form asp-action="AddRoom" asp-route-id=@student.StudentId method="post">
+                <span>Choose Room:</span>
+                <select id="room" name="room">
+
+                    @foreach (var tmpRoom in rooms)
+                    {
+                        <option value=@tmpRoom.RoomId>@tmpRoom.RoomId</option>
+                    }
+                </select>
+                <button class="btn btn-success">Add Room</button>
+            </form>
+        }
+        else
+        {
+            <p>Room Id: @room.RoomId</p>
+            <p>Room Size: @room.RoomSize</p>
+        }
+        <a href="/Students" class="btn btn-primary">Back</a>
     }
     else
     {
-
         <p>Data not found</p>
+        <a href="/Students" class="btn btn-primary">Back</a>
     }
 </div>
