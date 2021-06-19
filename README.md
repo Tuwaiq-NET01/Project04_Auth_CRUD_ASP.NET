@@ -10,14 +10,27 @@
   <br/>
  تطبيق إيجار يسمح للمستخدم بعرض سيارته الني يرغب في تأجيرها على مستخدمين آخرين بالسعر الذي يقوم بتحديده. التطبيق أيضا يسمح للمستخدم بإستئجار سيارات مستخدمين آخرين بأسعار منافسة للسوق
  <br/>
+ <br/>
 
 ### Demo  
  <img src="./Resources/Ejar_Demo.gif" />
   <br/>
+  <br/>
   <img src="./Resources/Ejar_Demo2.gif" />
+
+ <br/>
+  <br/>
+  <br/>
+  <br/>
+
+### ERD  
+<img src="./Resources/ERD_Ejar.png" />
+<br/>
+<br/>
 
 ### Wireframe  
   <img src="./Resources/ASP_Wireframe_Ejar.png" />
+  <br/>
   <br/>
 
 ### Set up  
