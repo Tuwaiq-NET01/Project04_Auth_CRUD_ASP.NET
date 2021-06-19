@@ -284,7 +284,6 @@ C:\Users\b0c0a\source\repos\Project04_Auth_CRUD_ASP.NET\School\bin\Debug\net5.0\
 C:\Users\b0c0a\source\repos\Project04_Auth_CRUD_ASP.NET\School\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
 C:\Users\b0c0a\source\repos\Project04_Auth_CRUD_ASP.NET\School\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\b0c0a\source\repos\Project04_Auth_CRUD_ASP.NET\School\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\b0c0a\source\repos\Project04_Auth_CRUD_ASP.NET\School\obj\Debug\net5.0\School.csprojAssemblyReference.cache
 C:\Users\b0c0a\source\repos\Project04_Auth_CRUD_ASP.NET\School\obj\Debug\net5.0\School.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\b0c0a\source\repos\Project04_Auth_CRUD_ASP.NET\School\obj\Debug\net5.0\School.AssemblyInfoInputs.cache
 C:\Users\b0c0a\source\repos\Project04_Auth_CRUD_ASP.NET\School\obj\Debug\net5.0\School.AssemblyInfo.cs
@@ -343,3 +342,5 @@ C:\Users\b0c0a\Source\Repos\Project04_Auth_CRUD_ASP.NET\School\obj\Debug\net5.0\
 C:\Users\b0c0a\Source\Repos\Project04_Auth_CRUD_ASP.NET\School\obj\Debug\net5.0\Razor\Views\Rooms\Details.cshtml.g.cs
 C:\Users\b0c0a\Source\Repos\Project04_Auth_CRUD_ASP.NET\School\obj\Debug\net5.0\Razor\Views\Rooms\Edit.cshtml.g.cs
 C:\Users\b0c0a\Source\Repos\Project04_Auth_CRUD_ASP.NET\School\obj\Debug\net5.0\Razor\Views\Rooms\Index.cshtml.g.cs
+C:\Users\b0c0a\Source\Repos\Project04_Auth_CRUD_ASP.NET\School\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\Users\b0c0a\Source\Repos\Project04_Auth_CRUD_ASP.NET\School\obj\Debug\net5.0\School.csprojAssemblyReference.cache
