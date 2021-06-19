@@ -491,3 +491,4 @@ C:\Users\amalf\source\repos\_Platform_\obj\Debug\net5.0\Razor\Views\Ambassadors\
 C:\Users\amalf\source\repos\_Platform_\obj\Debug\net5.0\Razor\Views\Ambassadors\Details.cshtml.g.cs
 C:\Users\amalf\source\repos\_Platform_\obj\Debug\net5.0\Razor\Views\Ambassadors\Edit.cshtml.g.cs
 C:\Users\amalf\source\repos\_Platform_\obj\Debug\net5.0\Razor\Views\Shared\_FooterPartial.cshtml.g.cs
+C:\Users\amalf\source\repos\_Platform_\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.InMemory.dll

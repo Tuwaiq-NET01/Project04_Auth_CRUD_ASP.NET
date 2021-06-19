@@ -1,6 +1,7 @@
 ﻿using _Platform_.Data;
 using _Platform_.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +12,13 @@ namespace _Platform_.Controllers
     public class CharitiesController : Controller
     {
         private readonly ApplicationDbContext _db;
+
+
         public CharitiesController(ApplicationDbContext context)
         {
             _db = context;
         }
+
         public IActionResult Index()
         {
             var Charities = _db.Charity.ToList();
