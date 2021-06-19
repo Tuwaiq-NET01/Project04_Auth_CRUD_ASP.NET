@@ -39,4 +39,6 @@
   ### Author
     Anas Alhmoud
   ### License & Resource
-   .....
+   - Code released under the MIT License
+   - Bootstrap [released under the MIT License](https://github.com/twbs/bootstrap/blob/main/LICENSE)
+   - JQuery [released under the MIT License](https://github.com/jquery/jquery/blob/main/LICENSE.txt)
