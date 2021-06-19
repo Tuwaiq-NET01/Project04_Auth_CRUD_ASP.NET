@@ -1,0 +1,41 @@
+﻿
+@{
+    var BookResult = ViewData["BookResult"] as BookModel;
+}
+<!--Table-->
+<table class="table table-hover table-fixed">
+
+    <!--Table head-->
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Author</th>
+            <th>Publisher</th>
+            <th>Image</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <!--Table head-->
+    <!--Table body-->
+    <tbody>
+        @{
+
+            <tr>
+                <th scope="row">@BookResult.Id</th>
+                <td>@BookResult.Name</td>
+                <td>@BookResult.Author.Name</td>
+                <td>@BookResult.Publisher.Name</td>
+                <td><img src="@BookResult.Image" width="50" height="50" /></td>
+                <td>@BookResult.Description</td>
+            </tr>
+
+        }
+
+
+    </tbody>
+    <!--Table body-->
+
+</table>
+<a asp-controller="Books" asp-action="Index">Back to Books List</a>
+<!--Table-->

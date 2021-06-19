@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "Add Book";
+    var BookResult = ViewData["BookResult"] as BookModel;
+}
+@model Book_Project.Models.BookModel
+
+<link rel="stylesheet" href="~/css/Add.css">
+
+
+<div class="container">
+    <div class=" text-center mt-5 ">
+        <h1>Edit</h1>
+    </div>
+    <div class="row ">
+        <div class="col-lg-7 mx-auto">
+            <div class="card mt-2 mx-auto p-4 bg-light">
+                <div class="card-body bg-light">
+                    <div class="container">
+                        <form asp-action="Edit" method="post">
+                            <div class="controls">
+                                <div class="row">
+
+                                    <div class="col-md-6">
+                                        <div class="form-group"> <label asp-for="Name">Book Name *</label> <input asp-for="Name" type="text" value="@BookResult.Name" placeholder="Please enter the anime title *" required="required"> </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group"> <label asp-for="Image">Image Link</label> <input asp-for="Image" type="text" value="@BookResult.Image" placeholder="Please enter the Image link "> </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group"> <label asp-for="AuthorId">Author ID* </label> <input asp-for="AuthorId" type="text" value="@BookResult.AuthorId" placeholder="Please enter the Video link " required="required"> </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group"> <label asp-for="PublisherId">Publisher ID* </label> <input asp-for="PublisherId" type="text" value="@BookResult.PublisherId" placeholder="Please enter the Video link " required="required"> </div>
+                                    </div>
+
+
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group"> <label asp-for="Description">Story</label> <textarea asp-for="Description" value="@BookResult.Description" placeholder="........." rows="4"></textarea> </div>
+                                    </div>
+                                    <div class="col-md-12"> <input type="submit" class="btn btn-danger btn-send pt-2 btn-block " value="Submit"> </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div> <!-- /.8 -->
+        </div> <!-- /.row-->
+    </div>
+</div>

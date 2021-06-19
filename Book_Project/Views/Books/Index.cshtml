@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Book_Project.Models.BookModel>
+
+<br />
+
+<h1>Books List</h1>
+
+<br />
+
+<a asp-action="Add" type="button" class="btn btn-primary">Add Book</a>
+
+<!--Table-->
+<table class="table table-hover table-fixed">
+
+    <!--Table head-->
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Author</th>
+            <th>Image</th>
+            <th>Options</th>
+        </tr>
+    </thead>
+    <!--Table head-->
+    <!--Table body-->
+    <tbody>
+        @{
+
+            foreach (var Book in Model)
+            {
+
+                <tr>
+                    <th scope="row">@Book.Id</th>
+                    <td>@Book.Name</td>
+                    <td>@Book.Author.Name</td>
+                    <td><img src="@Book.Image" width="50" height="50" /></td>
+                    <td>
+                        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                            <div class="btn-group mr-2" role="group" aria-label="First group">
+                                <a asp-controller="Books" asp-action="Details" asp-route-id="@Book.Id" type="button" class="waves-effect waves-light btn btn-primary" style="margin-right:5px"><i class="fas fa-search" aria-hidden="true"></i></a>
+                                <a asp-controller="Books" asp-action="Edit" asp-route-id="@Book.Id" type="button" class="waves-effect waves-light btn btn-warning" style="margin-right:5px"><i class="fas fa-edit" aria-hidden="true"></i></a>
+                                <form method="post">
+                                    <button asp-controller="Books" asp-action="Delete" asp-route-id="@Book.Id" type="submit" class="waves-effect waves-light btn btn-danger" style="margin-right:5px"><i class="fas fa-trash-alt" aria-hidden="true"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+            }
+
+        }
+    </tbody>
+    <!--Table body-->
+
+</table>
+<!--Table-->
