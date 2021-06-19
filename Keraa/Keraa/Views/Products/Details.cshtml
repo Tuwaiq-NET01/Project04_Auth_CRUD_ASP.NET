@@ -1,16 +1,58 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Identity
+@using Keraa.Data
+@inject UserManager<ApplicationUser> UserManager
+@{
     var Product = (ProductModel)ViewData["Product"];
     var token = "";
 }
 
 <style>
     #map {
-        height: 400px;
-        /* The height is 400 pixels */
-        width: 100%;
+        height: 200px;
+        /* The height is 100 pixels */
+        width: 550px;
         /* The width is the width of the web page */
+        left: -15px;
+    }
+
+    #D-bar {
+    }
+
+    #D-close {
+        position: absolute;
+        top: 0px;
+        left: 95%;
+    }
+
+    #D-chat {
+        position: absolute;
+        top: 50px;
+        left: 95%;
+    }
+
+    #D-edit {
+        position: absolute;
+        top: 100px;
+        left: 95%;
+    }
+
+    #D-delete {
+        position: absolute;
+        top: 150px;
+        left: 95%;
+    }
+
+    #cvrImage {
+        position: absolute;
+        top: 5%;
+        left: -250px;
+        border: hidden;
+        border-radius: 200px;
+        width: 335px;
+        height: 335px;
     }
 </style>
+
 <script>
     // Initialize and add the map
     function initMap() {
@@ -31,34 +73,73 @@
 </script>
 
 
-<div class="card" style="width: 18rem;">
-    <div class="card-body">
-        <h5 class="card-title">Name: @Product.Name</h5>
-        <p class="card-text">Description: @Product.ShortDesc</p>
-    </div>
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item">Id: @Product.Id</li>
-        <li class="list-group-item">Catagory: @Product.Catagory</li>
 
-    </ul>
-    <div>
-        <h3>My Google Maps Demo</h3>
-        <!--The div element for the map -->
-        <div id="map"></div>
 
-        <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
-        <script src="https://maps.googleapis.com/maps/api/js?key=@token&callback=initMap&libraries=&v=weekly"
-                async></script>
+
+<center class="card mb-3" style="max-width: 550px; position: center; margin: 0 auto; border: hidden; background-color: #fd7e14; ">
+    <div class="row g-0" dir="rtl">
+        <div class="col-md-12">
+            <div class="card-body" style="text-align: center; margin-left: 50px;">
+                <h3 class="card-title">@Product.Name</h3>
+                <p class="card-text">
+                    <span style="font-weight: bold;">التصنيف: </span>
+                    @Product.Catagory
+                </p>
+                <p class="card-text">
+                    <span style="font-weight: bold;">الوصف: </span>
+                    @Product.ShortDesc
+                </p>
+                <p class="card-text">
+                    <span style="font-weight: bold;">متاحة : </span>
+                    @Product.IsRented
+                </p>
+
+            </div>
+        </div>
+        <div>
+            <!--The div element for the map -->
+            <div id="map"></div>
+
+            <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+            <script src="https://maps.googleapis.com/maps/api/js?key=@token&callback=initMap&libraries=&v=weekly"
+                    async></script>
+        </div>
+
     </div>
+
+
+    <span id="D-bar">
+        <span id="D-close">
+            <button href type="button" onclick="location.href='/Products';" class="close" aria-label="Close">
+                <span aria-hidden="true">&<</span>
+            </button>
+        </span>
+        <span id="D-chat">
+            <a class="btn btn-outline-warning" asp-controller="ChatRooms" asp-action="Chat" asp-route-OwnerId="@Product.OwnerId">
+                <span aria-hidden="true">&times;</span>
+            </a>
+        </span>
+        @if (UserManager.GetUserId(User) == Product.OwnerId)
+        {
+            <span id="D-edit">
+                <a class="btn btn-outline-primary" asp-controller="Products" asp-action="Edit" asp-route-id="@Product.Id">
+                    <span aria-hidden="true">5</span>
+                </a>
+            </span>
+            <span id="D-delete">
+                <form method="post" asp-controller="Products" asp-action="Delete" asp-route-id="@Product.Id">
+                    <input type="submit" value=&times; class="btn btn-danger" />
+
+                </form>
+@*                <form asp-controller="Products" asp-action="Delete" asp-route-id="@Product.Id" method="POST">
+                    <a class="btn btn-danger" href="*">
+                        <span aria-hidden="true">&times;</span>
+                    </a>
+                </form>*@
+            </span>
+        }
+<div class="">
+    <img id="cvrImage" src=@Product.CoverImage alt="...">
 </div>
-
-
-@*Normal HTML*@
-@*<a href="/products">Back to products</a>*@
-
-@*HTML Helper*@
-@*@Html.ActionLink("Back to Products", "Index","Products")*@
-
-
-@*Tag Helper*@
-<a asp-controller="Products" asp-action="Index">Back to products</a>
+    </span>
+</center>

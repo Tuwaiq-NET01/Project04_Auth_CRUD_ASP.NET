@@ -2,34 +2,76 @@
 @{
     var Product = (ProductModel)ViewData["Product"];
 }
-<form asp-action="Edit" method="post" class="form-horizontal">
-    <div class="form-group">
-        <div>
-            <input type="hidden" asp-for="Id" />
+
+<style>
+    #D-close {
+        position: absolute;
+        top: 0px;
+        left: 95%;
+    }
+    #cvrImage {
+        position: absolute;
+        top: 5%;
+        left: -270px;
+        border: hidden;
+        border-radius: 200px;
+        width: 335px;
+        height: 335px;
+    }
+</style>
+
+<center class="card mb-3" style="max-width: 550px; position: center; margin: 0 auto; border: hidden; background-color: #fd7e14; ">
+    <div class="row g-0" dir="rtl">
+        <div class="col-md-12">
+            <div class="card-body" style="text-align: center; margin-left: 50px;">
+                <form asp-action="Edit" method="post" class="form-horizontal">
+                    <div class="form-group">
+                        <div>
+                            <input type="hidden" asp-for="Id" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Name">أسم المنتج</label>
+                        <div>
+                            <input type="text" class="form-control"  asp-for="Name" value="@Product.Name" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Catagory">التصنيف</label>
+                        <div>
+                            <input type="text" class="form-control"asp-for="Catagory" value="@Product.Catagory" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ShortDesc">الوصف</label>
+                        <div>
+                            <textarea class="form-control" name="ShortDesc" rows="8" cols="35">@Product.ShortDesc</textarea>
+@*                            <input type="text" class="form-control" asp-for="ShortDesc" value="@Product.ShortDesc" />
+*@
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div>
+                            <img id="cvrImage" src=@Product.CoverImage alt="...">
+                            <input type="hidden" asp-for="CoverImage" value="@Product.CoverImage" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-outline-success" value="Update" />
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 
-    <div class="form-group">
-        <label asp-for="Name">Name</label>
-        <div>
-            <input asp-for="Name" value="@Product.Name" />
-        </div>
-    </div>
 
-    <div class="form-group">
-        <label asp-for="ShortDesc">Description</label>
-        <div>
-            <input asp-for="ShortDesc" value="@Product.ShortDesc" />
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="CoverImage">Price</label>
-        <div>
-            <input asp-for="CoverImage" value="@Product.CoverImage" />
-        </div>
-    </div>
-    <div class="form-group">
-        <input type="submit" class="btn btn-primary" value="Update" />
-    </div>
-</form>
+    <span id="D-bar">
+        <span id="D-close">
+            <button type="button" onclick="location.href = '/Products/Details/@Product.Id';" class="btn badge-danger close" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </span>
+    </span>
+</center>

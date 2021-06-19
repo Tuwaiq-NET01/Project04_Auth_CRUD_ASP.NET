@@ -54,25 +54,30 @@ namespace Keraa.Controllers
             if (ModelState.IsValid) //check the state of model
             {
                 var user = await _userManager.GetUserAsync(User);
-               /* List<string> Coordinate = await Utilities.GetCurrentCoordinates();
+                List<string> Coordinate = await Utilities.GetCurrentCoordinates();
                 product.LocationLat = Coordinate[0];
-                product.LocationLng = Coordinate[1];*/
-               product.OwnerId = user.Id;
+                product.LocationLng = Coordinate[1];
+                product.OwnerId = user.Id;
                 _db.Products.Add(product);
                 _db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("MyHub");
             }
             return View(product);
         }
 
 
         //GEt - /products/edit/id
-        public IActionResult Edit(int? id)
+        public async Task<IActionResult> Edit(int? id)
         {
             var Product = _db.Products.ToList().Find(p => p.Id == id);
             if (id == null || Product == null)
             {
                 return View("_NotFound");
+            }
+            var user = await _userManager.GetUserAsync(User);
+            if (Product.OwnerId != user.Id)
+            {
+                return Unauthorized(new { Message = "You are not authorized to edit this product" });
             }
             ViewData["Product"] = Product;
             return View();
@@ -103,7 +108,7 @@ namespace Keraa.Controllers
                 try
                 {
                     await _db.SaveChangesAsync();
-                    return RedirectToAction(nameof(Index));
+                    return RedirectToAction(nameof(MyHub));
                 }
                 catch (DbUpdateException /* ex */)
                 {
@@ -113,12 +118,7 @@ namespace Keraa.Controllers
                         "see your system administrator. And can Find me at GitHub: @1Riyad");
                 }
             }
-
-
-/*
-        public async Task<IActionResult> Edit([Bind("Id", "Name", "ShortDesc", "CoverImage")] ProductModel prod)
-        {*/
-                _db.Products.Update(prod);
+            _db.Products.Update(prod);
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -126,16 +126,22 @@ namespace Keraa.Controllers
 
         // POST - /products/delete/id
         [HttpPost]
-        public IActionResult Delete(int? id)
+        public async Task<IActionResult> Delete(int? id)
         {
             var Product = _db.Products.ToList().FirstOrDefault(p => p.Id == id);
             if (id == null || Product == null)
             {
                 return View("_NotFound");
             }
+            var user = await _userManager.GetUserAsync(User);
+            if (Product.OwnerId != user.Id)
+            {
+                return BadRequest(new { Message= "You are not authorized to delete this product" });
+            }
+
             _db.Products.Remove(Product);
             _db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("MyHub");
         }
 
 
@@ -151,7 +157,7 @@ namespace Keraa.Controllers
                 return View("_NotFound");
             }
             ViewData["products"] = Product;
-            return View("Index", Product);
+            return View(Product);
 
         }
 

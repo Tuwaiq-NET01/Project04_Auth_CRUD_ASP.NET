@@ -1,6 +1,74 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using Microsoft.AspNetCore.Identity
+@using Keraa.Data
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
 @{
+    var userchats = (List<ChatRoomModel>)ViewData["UserChats"];
 }
-<h1> The Hub Of all user chat rooms </h1>
+<h1> The Chat Rooms Hub</h1>
+
+<div class="card">
+
+    @foreach (var room in userchats)
+    {
+        <div class="card-deck">
+            <span>
+                <a class="btn " asp-controller="ChatRooms" asp-action="Room" asp-route-RoomId="@room.RoomId">
+
+                    <div class="row align-items-center">
+                        @if (UserManager.GetUserId(User) == room.ProductOwnerId)
+                        {
+                            <div class="col">
+                                <img src=@room.Other.Image style="border-radius:100px; height:25px;width:25px" />
+                            </div>
+                            <div class="col">
+                                <h4>@room.Other.Name</h4>
+                            </div>
+
+                            <div class="col">
+                                @if (room.Other.IsOnline)
+                                {
+                                    <span class="badge bg-success">Online</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-danger">Offline</span>
+                                }
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="col">
+                                <img src=@room.Other.Image style="border-radius:100px;height:25px;width:25px" />
+                            </div>
+                            <div class="col">
+                                <h4>@room.ProductOwner.Name</h4>
+                            </div>
+                            <div class="col">
+                            @if (room.ProductOwner.IsOnline)
+                            {
+                                <span class="badge bg-success">Online</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-danger">Offline</span>
+                            }
+                            </div>
+                        }
+                    </div>
+                </a>
+            </span>
+
+        </div>
+    }
+</div>
+
+<style>
+    .card {
+        height: 500px;
+        border-radius: 15px !important;
+        background-color: rgba(0,0,0,0.4) !important;
+    }
+</style>
+

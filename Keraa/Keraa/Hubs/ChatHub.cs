@@ -17,7 +17,7 @@ namespace Keraa.Hubs
 
         public async Task SendMessage(string roomName, string user, string message)
         {
-            await Clients.Group(roomName).SendAsync("ReceiveMessage", user, message);
+            await Clients.Group(roomName).SendAsync("ReceiveMessage", user, message, Context.UserIdentifier);
             Console.WriteLine(Context.User.Identity.Name);
             Console.WriteLine(Context.UserIdentifier);
             Console.WriteLine("----send----");

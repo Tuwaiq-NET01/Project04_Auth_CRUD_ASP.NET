@@ -3,23 +3,30 @@
 @model ProductModel
 
 
+<style>
+    #upload_widget{
+        position: relative;
+        top: 30%;
+    }
+    #cvrImage {
+        position: absolute;
+        top: -100px;
+        left: -270px;
+        border: hidden;
+        border-radius: 200px;
+        width: 335px;
+        height: 335px;
+        background-color: #f1ac72;
+    }
+</style>
+
 
 <br />
 <br />
-<div class="card mb-3" style="max-width: 700px; position: center; margin:0 auto; border:hidden">
+<div class="card mb-3" style="max-width: 550px; position: center; margin: 0 auto; border: hidden; background-color: #fd7e14;" >
     <div class="row g-0">
         <div class="card-img-overlay" style="position: relative;" id="ImgC">
-            <img style="border-radius: 12px;
-                width: 235px;
-                height: 250px;
-                margin: 0;
-                margin-left:10px;
-                position: absolute;
-                top: 50%;
-                -ms-transform: translateY(-50%);
-                transform: translateY(-50%);
-                background-color:darkkhaki" />
-            <button id="upload_widget" class="cloudinary-button">Upload Image</button>
+            <a id="upload_widget" class="cloudinary-button"><img id="cvrImage"></a>
         </div>
         <div class="col-md-8">
             <div class="card-body" style="text-align: center; margin-left: 35px;">
@@ -28,43 +35,38 @@
                 <center class="card-text">
                     <form asp-action="Create" method="post" class="form-horizontal">
                         <div class="form-group">
-                            <label hidden="" asp-for="Id">Id</label>
                             <div>
-                                <input hidden="" asp-for="Id" />
+                                <input type="hidden" asp-for="Id" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Name">أسم المنتج</label>
+                            <div>
+                                <input type="text" class="form-control" asp-for="Name" />
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label asp-for="Name">Name</label>
+                            <label asp-for="Catagory">التصنيف</label>
                             <div>
-                                <input asp-for="Name" />
+                                <input type="text" class="form-control" asp-for="Catagory" />
                             </div>
                         </div>
-
                         <div class="form-group">
-                            <label asp-for="CoverImage">CoverImage</label>
+                            <label asp-for="ShortDesc">الوصف</label>
                             <div>
-                                <input id="imageInput" asp-for="CoverImage" />
-                                <span asp-validation-for="CoverImage" class="text-danger"></span>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label asp-for="ShortDesc">Description</label>
-                            <div>
-                                <textarea asp-for="ShortDesc" rows="8" cols="35"></textarea>
+                                <textarea class="form-control" asp-for="ShortDesc" name="ShortDesc" rows="8" cols="35"></textarea>
                                 <span asp-validation-for="ShortDesc" class="text-danger"></span>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label asp-for="Catagory">Catagory</label>
                             <div>
-                                <input asp-for="Catagory" />
+                                <input id="imageInput" type="hidden" asp-for="CoverImage" />
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="submit" class="btn btn-primary" value="Submit" />
+                            <input type="submit" class="btn btn-outline-success" value="submit" />
                         </div>
                     </form>
                 </center>
@@ -97,7 +99,7 @@
             console.log('Done! Here is the image info: ', result.info);
             ig = result.info.secure_url;
             df.value = ig;
-            coverImage.childNodes[1].src = ig;// to fetch the img source for #ImgC
+            coverImage.childNodes[1].childNodes[0].src = ig;// to fetch the img source for #ImgC
             var h = coverImage.childNodes[1]
             console.log(h)
         }

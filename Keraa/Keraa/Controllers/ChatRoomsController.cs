@@ -2,6 +2,7 @@
 using Keraa.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,9 +21,15 @@ namespace Keraa.Controllers
         }
 
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var user = await _userManager.GetUserAsync(User);
+            var UserChats = _db.ChatRooms.Include(c => c.ProductOwner).Include(c => c.Other).Where(u => u.ProductOwnerId == user.Id || u.OtherId == user.Id).ToList();
+
+            //var UserChats = _db.ChatRooms.Where(u => u.ProductOwnerId == user.Id || u.OtherId == user.Id).ToList();
+            //var OtherUsersInfo = 
+            ViewData["UserChats"] = UserChats;
+            return View( new { ist= true });
         }
 
         public async Task<IActionResult> Chat(string OwnerId)
@@ -48,8 +55,12 @@ namespace Keraa.Controllers
             var user = await _userManager.GetUserAsync(User);
             var room = _db.ChatRooms.ToList().Find(room => room.RoomId == roomId && (room.ProductOwnerId == user.Id || room.OtherId == user.Id));
             if (room == null) { return BadRequest(new {Message="You dont have the primisstion to access this room"}); }
-            ViewData["RoomId"] = roomId;
+            var userProfile = _db.UserProfiles.ToList().Find(profile => profile.Id == user.Id);
+            ViewBag.roomInfo = room;
+            ViewBag.Profile = userProfile;
             return View();
+            // var roomInfo = new { RoomId = room.RoomId, UserName = userProfile.Name, UserImage = userProfile.Image};
+            //return Ok(roomInfo);
         }
 
         public IActionResult Notify(string OwnerId, string RoomId)
@@ -58,3 +69,9 @@ namespace Keraa.Controllers
         }
     }
 }
+
+/*
+var roomInfo =
+    from category in _db.ChatRooms
+    join prod in _db.UserProfiles on category.OtherId equals prod.Id
+    select new { ProductName = prod.Name, Category = category.RoomId };*/

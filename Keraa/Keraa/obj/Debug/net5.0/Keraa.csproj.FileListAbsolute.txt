@@ -175,3 +175,6 @@ C:\Users\SAFCSP\Desktop\dotNetBootcamp\AspDotNet\Proj\Project04_Auth_CRUD_ASP.NE
 C:\Users\SAFCSP\Desktop\dotNetBootcamp\AspDotNet\Proj\Project04_Auth_CRUD_ASP.NET\Keraa\Keraa\bin\Debug\net5.0\libman.json
 C:\Users\SAFCSP\Desktop\dotNetBootcamp\AspDotNet\Proj\Project04_Auth_CRUD_ASP.NET\Keraa\Keraa\obj\Debug\net5.0\Razor\Views\ChatRooms\Room.cshtml.g.cs
 C:\Users\SAFCSP\Desktop\dotNetBootcamp\AspDotNet\Proj\Project04_Auth_CRUD_ASP.NET\Keraa\Keraa\obj\Debug\net5.0\Razor\Views\ChatRooms\Index.cshtml.g.cs
+C:\Users\SAFCSP\Desktop\dotNetBootcamp\AspDotNet\Proj\Project04_Auth_CRUD_ASP.NET\Keraa\Keraa\obj\Debug\net5.0\Razor\Views\Shared\_HomeLayout.cshtml.g.cs
+C:\Users\SAFCSP\Desktop\dotNetBootcamp\AspDotNet\Proj\Project04_Auth_CRUD_ASP.NET\Keraa\Keraa\obj\Debug\net5.0\Razor\Views\Shared\_BackgroundPartial.cshtml.g.cs
+C:\Users\SAFCSP\Desktop\dotNetBootcamp\AspDotNet\Proj\Project04_Auth_CRUD_ASP.NET\Keraa\Keraa\obj\Debug\net5.0\Razor\Views\Products\MyHub.cshtml.g.cs

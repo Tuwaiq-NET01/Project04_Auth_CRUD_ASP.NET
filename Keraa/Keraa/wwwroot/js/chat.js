@@ -3,18 +3,53 @@
 var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
 //eventHub.server.joinGroup("my-awsm-group");
 var room = document.getElementById("roomChat").value;
+var userId = document.getElementById("userId").value;
+var userImage = document.getElementById("userImage").value;
 
 
 //Disable send button until connection is established
 document.getElementById("sendButton").disabled = true;
 
-connection.on("ReceiveMessage", function (user, message) {
-    var li = document.createElement("li");
+/*connection.on("ReceiveMessage", function (user, message) {
+    var li = document.createElement("div");
     document.getElementById("messagesList").appendChild(li);
     // We can assign user-supplied strings to an element's textContent because it
     // is not interpreted as markup. If you're assigning in any other way, you 
     // should be aware of possible script injection concerns.
-    li.textContent = `${user} says ${message}`;
+    if (user == "1f4f9201-dd10-464f-8dff-2426be4d5f27") {*/
+
+connection.on("ReceiveMessage", function (user, message, id) {
+    var li = document.createElement("div");
+    document.getElementById("messagesList").appendChild(li);
+    if (userId == id) {
+
+        li.innerHTML = ` <div class="d-flex justify-content-end mb-4">
+                <div class="msg_cotainer_send">
+                    ${message}
+                    <span class="msg_time_send">${user}</span>
+                </div>
+                <div class="img_cont_msg">
+                    <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img_msg">
+                </div>
+            </div>`;
+    } else {
+        li.innerHTML =
+            `
+        <div class="d-flex justify-content-start mb-4">
+                <div class="img_cont_msg">
+                    <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img_msg">
+                </div>
+                    <div class="msg_cotainer">
+                ${message}
+                    <span class="msg_time">${user}</span>
+            </div>
+        </div>
+        `;
+    }
+/*    li.textContent = `${user} says ${message}`;
+*/
+
+
 });
 
 
