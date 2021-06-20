@@ -3,15 +3,26 @@
 }
 
 
-<div class="card" style="width: 18rem;">
-    <div class="card-body">
-        <h5 class="card-title">Id: @Songs.Id</h5>
-    </div>
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item">Name: @Songs.Name</li>
-        <li class="list-group-item">Type: @Songs.Type</li>
-    </ul>
-</div>
+<center>
 
+    <center class="center-from">
 
-<a asp-controller="Songs" asp-action="Index">Back to Songs</a>
+        <div class="card mt-3" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Some Details</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Song Name : @Songs.Name</li>
+                <li class="list-group-item">Song Type : @Songs.Type</li>
+            </ul>
+        </div>
+
+    </center>
+
+<form asp-controller="Songs" asp-action="Index">
+    <input type="submit" value="Back to Songs" class="btn btn-danger mt-3" />
+
+</form>
+</center>
+
+@*<a asp-controller="Songs" asp-action="Index">Back to Songs</a>*@

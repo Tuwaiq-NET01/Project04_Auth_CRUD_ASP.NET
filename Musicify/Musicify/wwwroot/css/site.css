@@ -72,3 +72,70 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
+ /**/
+input {
+    padding: 8px;
+    border: 0;
+    border-radius: 8px;
+    box-shadow: 1px 3px 8px rgba(0,0,0,0.2);
+    margin-top: 15px
+}
+
+.from-group {
+    margin-top: 15px
+}
+
+.center-form{
+    width:350px;
+    padding:15px
+}
+/**/
+
+select {
+    padding: 8px;
+    border: 0;
+    border-radius: 8px;
+    box-shadow: 1px 3px 8px rgba(0,0,0,0.2);
+    margin-top: 15px
+}
+
+button {
+    padding: 8px;
+    border: 0;
+    border-radius: 8px;
+    box-shadow: 1px 3px 8px rgba(0,0,0,0.2);
+    margin-top: 15px
+}
+
+/**/
+.table-curved {
+    border-radius: 10px;
+    border-left: 0px;
+}
+
+    .table-curved th {
+        border-top: none;
+    }
+
+        .table-curved th:first-child {
+            border-radius: 10px 0 0 0;
+        }
+
+        .table-curved th:last-child {
+            border-radius: 0 10px 0 0;
+        }
+
+        .table-curved th:only-child {
+            border-radius: 10px 10px 0 0;
+        }
+
+    .table-curved tr:last-child td:first-child {
+        border-radius: 0 0 0 10px;
+    }
+
+    .table-curved tr:last-child td:last-child {
+        border-radius: 0 0 10px 0;
+    }
+
+    /**/

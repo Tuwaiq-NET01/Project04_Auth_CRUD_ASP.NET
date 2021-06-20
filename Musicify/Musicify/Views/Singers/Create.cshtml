@@ -1,34 +1,50 @@
 ﻿@model SingerModel
 
-<form asp-action="create" method="post" class="from-horizontal">
 
-   @* <div class="from-group">
-        <label asp-for="Id">Id</label>
-        <input asp-for="Id" />
-    </div>*@
+<center>
 
-    <div class="from-group">
-        <label asp-for="Name">Name</label>
-        <input asp-for="Name" />
-    </div>
+    <center class="center-form">
+        <form asp-action="create" method="post" class="from-horizontal">
 
-    <div class="from-group">
-        <label asp-for="Photo">Photo</label>
-        <input asp-for="Photo" />
-        <span asp-validation-for="Photo"></span>
-    </div>
-
-    <div class="from-group">
-        <label asp-for="Info">Info</label>
-        <input asp-for="Info" />
-        <span asp-validation-for="Info"></span>
-    </div>
-
-    <div class="from-group">
-
-        <input type="submit" class="btn-btn-primary" value="Submit" />
-    </div>
+            <div class="card border-danger mt-5 " style="max-width: 20rem;" wfd-id="63">
+                <div class="card-header " wfd-id="65" >Add Singer</div>
+                <div class="card-body p-3" wfd-id="64">
 
 
+                    <div class="from-group from-horizontal">
+                        <label asp-for="Name" class="col-6" style="color:black">Singer Name</label>
+                        <input asp-for="Name" class="col-6" />
+                    </div>
 
-</form>
+                    <div class="from-group from-horizontal">
+                        <label asp-for="Photo" class="col-6" style="color:black">Singer Photo (URL)</label>
+                        <input asp-for="Photo" class="col-6" />
+                        <span asp-validation-for="Photo"></span>
+                    </div>
+
+                    <div class="from-group  from-horizontal">
+                        <label asp-for="Info" class="col-6" style="color:black">Singer Info</label>
+                        <input asp-for="Info" class="col-6" />
+                        <span asp-validation-for="Info"></span>
+                    </div>
+
+                    <div class="from-group">
+
+                        <input type="submit" class="btn btn-outline-danger" value="Submit" />
+                    </div>
+
+
+                </div>
+            </div>
+
+            @* <div class="from-group">
+                    <label asp-for="Id">Id</label>
+                    <input asp-for="Id" />
+                </div>*@
+
+
+
+
+        </form>
+    </center>
+</center>

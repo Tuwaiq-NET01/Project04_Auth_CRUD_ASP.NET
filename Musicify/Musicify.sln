@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31129.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Musicify", "Musicify\Musicify.csproj", "{995F84AC-B7E8-4B29-BCB2-3B9DD9391E03}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Musicify", "Musicify\Musicify.csproj", "{995F84AC-B7E8-4B29-BCB2-3B9DD9391E03}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestMusicify", "TestMusicify\TestMusicify.csproj", "{19E55ACE-60E3-4B66-91D4-3A05705C8CBD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{995F84AC-B7E8-4B29-BCB2-3B9DD9391E03}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{995F84AC-B7E8-4B29-BCB2-3B9DD9391E03}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{995F84AC-B7E8-4B29-BCB2-3B9DD9391E03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19E55ACE-60E3-4B66-91D4-3A05705C8CBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19E55ACE-60E3-4B66-91D4-3A05705C8CBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19E55ACE-60E3-4B66-91D4-3A05705C8CBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19E55ACE-60E3-4B66-91D4-3A05705C8CBD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -40,7 +40,7 @@ namespace Musicify.Areas.Identity.Pages.Account
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
-            _db = Context;
+            _db = Context; // here
         }
 
         [BindProperty]

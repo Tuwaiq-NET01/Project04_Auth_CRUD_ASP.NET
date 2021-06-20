@@ -9,6 +9,10 @@ namespace Musicify.Data
 {
     public class ApplicationUser : IdentityUser
     {
+        // M2M
         public ICollection<FavoriteModel> Favorites { get; set; }
+
+        //O2M
+        public ICollection<PlayListModel> PlayLists { get; set; }
     }
 }

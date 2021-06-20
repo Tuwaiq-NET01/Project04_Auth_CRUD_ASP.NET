@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Musicify.Data;
 using Musicify.Models;
 using System;
 using System.Collections.Generic;
@@ -12,14 +13,20 @@ namespace Musicify.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ApplicationDbContext _db;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger , ApplicationDbContext db)
         {
             _logger = logger;
+            _db = db;
         }
 
+
+     
         public IActionResult Index()
         {
+            var Songs = _db.Songs.ToList();
+            ViewData["Songs"] = Songs;
             return View();
         }
 
@@ -27,6 +34,7 @@ namespace Musicify.Controllers
         {
             return View();
         }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

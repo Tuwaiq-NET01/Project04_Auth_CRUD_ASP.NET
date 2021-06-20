@@ -232,7 +232,7 @@ namespace Musicify.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("SongId")
+                    b.Property<int>("SongId")
                         .HasColumnType("int");
 
                     b.Property<string>("UserId")
@@ -245,6 +245,48 @@ namespace Musicify.Data.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Favorites");
+                });
+
+            modelBuilder.Entity("Musicify.Models.PlayListModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("PlayLists");
+                });
+
+            modelBuilder.Entity("Musicify.Models.PlayListSongModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("PlayListId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SongId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PlayListId");
+
+                    b.HasIndex("SongId");
+
+                    b.ToTable("playListSongs");
                 });
 
             modelBuilder.Entity("Musicify.Models.ProfileModel", b =>
@@ -318,16 +360,6 @@ namespace Musicify.Data.Migrations
                     b.HasIndex("SingerId");
 
                     b.ToTable("Songs");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Sw3at alaseel",
-                            SingerId = 2,
-                            Type = "Classic",
-                            URL = "https://soundcloud.com/talal_maddah/w2bhodwmmfxr"
-                        });
                 });
 
             modelBuilder.Entity("Musicify.Data.ApplicationUser", b =>
@@ -392,7 +424,9 @@ namespace Musicify.Data.Migrations
                 {
                     b.HasOne("Musicify.Models.SongModel", "Song")
                         .WithMany("Favorites")
-                        .HasForeignKey("SongId");
+                        .HasForeignKey("SongId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Musicify.Data.ApplicationUser", "User")
                         .WithMany("Favorites")
@@ -401,6 +435,34 @@ namespace Musicify.Data.Migrations
                     b.Navigation("Song");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Musicify.Models.PlayListModel", b =>
+                {
+                    b.HasOne("Musicify.Data.ApplicationUser", "User")
+                        .WithMany("PlayLists")
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Musicify.Models.PlayListSongModel", b =>
+                {
+                    b.HasOne("Musicify.Models.PlayListModel", "PlayList")
+                        .WithMany("playListSongs")
+                        .HasForeignKey("PlayListId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Musicify.Models.SongModel", "Song")
+                        .WithMany("playListSongs")
+                        .HasForeignKey("SongId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("PlayList");
+
+                    b.Navigation("Song");
                 });
 
             modelBuilder.Entity("Musicify.Models.ProfileModel", b =>
@@ -423,6 +485,11 @@ namespace Musicify.Data.Migrations
                     b.Navigation("Singer");
                 });
 
+            modelBuilder.Entity("Musicify.Models.PlayListModel", b =>
+                {
+                    b.Navigation("playListSongs");
+                });
+
             modelBuilder.Entity("Musicify.Models.SingerModel", b =>
                 {
                     b.Navigation("Song");
@@ -431,11 +498,15 @@ namespace Musicify.Data.Migrations
             modelBuilder.Entity("Musicify.Models.SongModel", b =>
                 {
                     b.Navigation("Favorites");
+
+                    b.Navigation("playListSongs");
                 });
 
             modelBuilder.Entity("Musicify.Data.ApplicationUser", b =>
                 {
                     b.Navigation("Favorites");
+
+                    b.Navigation("PlayLists");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Musicify.Data;
 using Musicify.Models;
 using System;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace Musicify.Controllers
 {
+    [Authorize]
     public class SingersController : Controller
     {
         private readonly ApplicationDbContext _db;
@@ -43,6 +45,7 @@ namespace Musicify.Controllers
         [HttpGet]
         public IActionResult Create()
         {
+            
             return View();
 
         }
@@ -97,6 +100,25 @@ namespace Musicify.Controllers
             _db.Singers.Remove(Singers);
             _db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        // UT Test For delete 
+        public void DeleteSinger(int id) {
+
+            var Singers = _db.Singers.ToList().Find(p => p.Id == id);
+            if (id == null || Singers == null)
+            {
+                throw new NullReferenceException();
+            }
+            _db.Singers.Remove(Singers);
+            _db.SaveChanges();
+
+        }
+
+        public List<SingerModel> getAllSingers()
+        {
+            return  _db.Singers.ToList();
+
         }
     }
 }

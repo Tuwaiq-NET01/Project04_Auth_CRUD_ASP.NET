@@ -1,0 +1,32 @@
+﻿@model PlayListModel
+
+
+<center>
+
+    <center class="center-from">
+        <form asp-action="create" method="post" class="from-horizontal">
+
+            <div class="card border-danger mt-5 " style="max-width: 20rem;" wfd-id="63">
+                <div class="card-header " wfd-id="65" >Add PlayList</div>
+                <div class="card-body p-3" wfd-id="64">
+
+                    <div class="from-group from-horizontal">
+                        <label asp-for="Name" class="col-6" style="color:black">Name</label>
+                        <input asp-for="Name" class="col-6" />
+                    </div>
+
+                    <div class="from-group">
+
+                        <input type="submit" class="btn btn-outline-danger" value="Submit" />
+                    </div>
+
+
+                </div>
+            </div>
+
+
+
+
+        </form>
+    </center>
+</center>

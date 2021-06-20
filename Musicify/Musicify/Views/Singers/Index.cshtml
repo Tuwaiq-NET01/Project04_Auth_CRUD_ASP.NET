@@ -3,36 +3,79 @@
     var count = 0;
 }
 
-<table class="table table-light">
-    <thead>
-        <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Name</th>
-            <th scope="col">Photo</th>
-            <th scope="col">Info</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var Singer in Singers)
-        {
-            <tr>
-                @{count++;}
-                <th scope="row">@count</th>
-                <td>@Singer.Name</td>
-                <td><img src="@Singer.Photo" width="150px" height="210px"/></td>
-                <td>@Singer.Info </td>
-                <td><button type="button" class="btn btn-dark"><a style="color:white" href="/Singers/details/@Singer.Id"> SHOW </a></button></td>
-                <td><button type="button" class="btn btn-dark"><a style="color:white" href="/Singers/edit/@Singer.Id"> Edit </a></button></td>
-                <td>
-                    <form asp-action="Delete" asp-route-id="@Singer.Id" method="post">
-                        <input type="submit" value="Destroy" class="btn btn-danger" />
-                    </form>
-                </td>
 
+<div style="backdrop-filter: blur(10px)">
+    <table class="table table-hover table-danger mt-3 table-curved " style="opacity:0.7;">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Photo</th>
+                <th scope="col">Info</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
 
             </tr>
-        }
+        </thead>
+        <tbody>
+            @foreach (var Singer in Singers)
+            {
+                <tr class="table-dark">
+
+                    @{count++;}
+                    <td scope="row">@count</td>
+                    <td>@Singer.Name</td>
+                    <td><img src="@Singer.Photo" width="150px" height="210px" /></td>
+                    <td>@Singer.Info </td>
+
+                    <td><button type="button" class="btn btn-outline-danger"><a style="color:white" href="/Singers/edit/@Singer.Id"> Edit </a></button></td>
+                    <td>
+                        <form asp-action="Delete" asp-route-id="@Singer.Id" method="post">
+                            <input type="submit" value="Destroy" class="btn btn-danger" />
+                        </form>
+                    </td>
+                </tr>
+            }
 
 
-    </tbody>
-</table>
+        </tbody>
+    </table>
+
+</div>
+
+@*<table class="table table-light">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Photo</th>
+                <th scope="col">Info</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var Singer in Singers)
+            {
+                <tr>
+                    @{count++;}
+                    <th scope="row">@count</th>
+                    <td>@Singer.Name</td>
+                    <td><img src="@Singer.Photo" width="150px" height="210px"/></td>
+                    <td>@Singer.Info </td>
+                    <td><button type="button" class="btn btn-dark"><a style="color:white" href="/Singers/details/@Singer.Id"> SHOW </a></button></td>
+                    <td><button type="button" class="btn btn-dark"><a style="color:white" href="/Singers/edit/@Singer.Id"> Edit </a></button></td>
+                    <td>
+                        <form asp-action="Delete" asp-route-id="@Singer.Id" method="post">
+                            <input type="submit" value="Destroy" class="btn btn-danger" />
+                        </form>
+                    </td>
+
+
+                </tr>
+            }
+
+
+        </tbody>
+    </table>*@

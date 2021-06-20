@@ -1,0 +1,97 @@
+﻿@model PlayListSongModel
+
+@{
+ var song = (SongModel) ViewData["Song"];
+ var list = (List<PlayListModel>) ViewData["List"];
+}
+
+
+<center>
+
+    <center class="center-form">
+        <form asp-action="AddToPL" method="post">
+
+            <div class="card border-danger mt-5 " style="max-width: 20rem;" wfd-id="63">
+                <div class="card-header " wfd-id="65">Add To PlayList</div>
+                <div class="card-body p-3" wfd-id="64">
+
+                    <input id="singerIdInput" asp-for="PlayListId" type="hidden" value="" />
+
+                    <input type="hidden" asp-for="SongId" value="@song.Id" />
+
+                    @*<div class="from-group">
+                            <select asp-for="PlayListId">
+                                @{
+                         foreach(var l in list){
+                                    <option value="@l.Id">@l.Name</option>
+                         }}
+                            </select>
+                            <span asp-validation-for="PlayListId"></span>
+
+                        </div>*@
+
+                    <div class="btn-group mt-3" role="group" aria-label="Button group with nested dropdown" wfd-id="412">
+                        <button type="button" class="btn btn-dark" wfd-id="609">Choose PlayList</button>
+                        <div class="btn-group" role="group" wfd-id="413">
+                            <button id="btnGroupDrop1" type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" wfd-id="614"></button>
+                            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1" wfd-id="414">
+                                @*   <a class="dropdown-item" href="#">Dropdown link</a>
+                                    <a class="dropdown-item" href="#">Dropdown link</a>*@
+
+                                @foreach (var l in list)
+                                {
+                                <a class="dropdown-item" href="#" onclick="document.getElementById('singerIdInput').value=@l.Id">@l.Name</a>
+                                }
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="from-group">
+
+                        <input type="submit" value="Add to PlayList" class="btn btn-outline-danger" />
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </center>
+</center>
+
+
+
+
+@*            <ul>
+                @{
+    foreach(var l in list){
+                    <li>Name Of List : @l.Name List Id : @l.Id</li>
+    }
+                }
+            </ul>
+*@
+
+@*
+    <div>
+        <label asp-for="PlayListId">Playlist Id</label>
+        <input asp-for="PlayListId" />
+    </div>*@
+
+
+@*<div class="from-group">
+        <select asp-for="PlayListId">
+            @{
+        foreach(var l in list){
+                <option value="@l.Id">@l.Name</option>
+                }}
+        </select>
+        <span asp-validation-for="PlayListId"></span>
+
+
+    </div>*@
+@*<label asp-for="SingerId">Singer</label>
+    <input asp-for="SingerId" />
+    <span asp-validation-for="SingerId"></span>*@
+
+@*<input type="submit" value="Add to PlayList" class="btn btn-primary" />*@
+

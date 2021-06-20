@@ -1,0 +1,75 @@
+﻿@{
+    var PlayLists = (List<PlayListModel>)ViewData["PlayLists"];
+    var count = 0;
+}
+
+
+
+
+<div style="backdrop-filter: blur(10px)">
+    <table class="table table-hover table-danger mt-3 table-curved " style="opacity:0.7; ">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var PlayList in PlayLists)
+            {
+                <tr class="table-dark">
+
+                    @{count++;}
+                    <th scope="row">@count</th>
+                    <td>@PlayList.Name</td>
+
+                    <td><button type="button" class="btn btn-outline-danger"><a style="color:white" href="/PlayLists/details/@PlayList.Id"> SHOW </a></button></td>
+
+                    <td>
+                        <form asp-action="Delete" asp-route-id="@PlayList.Id" method="post">
+                            <input type="submit" value="Remove" class="btn btn-danger" />
+                        </form>
+                    </td>
+                </tr>
+            }
+
+
+        </tbody>
+    </table>
+
+</div>
+
+
+@*
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var PlayList in PlayLists)
+            {
+                <tr>
+                    @{count++;}
+                    <th scope="row">@count</th>
+                    <td>@PlayList.Name</td>
+
+                    <td><button type="button" class="btn btn-dark"><a style="color:white" href="/PlayLists/details/@PlayList.Id"> SHOW </a></button></td>
+
+                    <td>
+                        <form asp-action="Delete" asp-route-id="@PlayList.Id" method="post">
+                            <input type="submit" value="Remove" class="btn btn-danger" />
+                        </form>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>*@
