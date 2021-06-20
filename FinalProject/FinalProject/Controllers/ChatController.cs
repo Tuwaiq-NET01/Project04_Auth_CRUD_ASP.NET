@@ -18,21 +18,28 @@ namespace FinalProject.Controllers
             _userManager = UserManager;
             _db = context;
         }
+        /*public ChatController(ApplicationDbContext context)
+        {
+            _db = context;
+        }*/
         public IActionResult Index()
         {
-            /*var all = _db.Chats.Where(s => s.UserId == _userManager.GetUserId(User) || s.To == _userManager.GetUserId(User)).ToList();
-            ViewBag.From = all;
-            //ViewBag.From = _db.Chats.Where(s => s.).FirstOrDefault();
-            return View();*/
             var all = _db.Chats.Where(s => s.UserId == _userManager.GetUserId(User) || s.To == _userManager.GetUserId(User)).ToList();
             ViewBag.all = all;
             var allPro = _db.Profiles.ToList();
             ViewBag.pro = allPro;
             return View();
         }
-        public List<ChatModel> Get(string id)
+        public List<ChatModel> Get(int id)
         {
-            return _db.Chats.Where(s => s.UserId == id).ToList();
+            return _db.Chats.Where(s => s.Id == id).ToList();
+        }
+        public int GetChat(int id)
+        {
+            var res = _db.Chats.Where(s => s.Id == id).Select(s => s.Id).FirstOrDefault();
+            if(res == id)
+            return id;
+            return 0;
         }
         public IActionResult Two(int id)
         {
@@ -47,8 +54,6 @@ namespace FinalProject.Controllers
             var temp = (_userManager.GetUserId(User) == img1 ? img2 : img1);
             var toImg = _db.Profiles.Where(s => s.UserId == temp).Select(s => s.Image).FirstOrDefault();
             ViewBag.img = toImg;
-            /* var all = _db.Chats.ToList();*/
-            //var allMsgs = _db.Messages.Where(p => p.ChatId == id).Select(p => p.Data).ToList();
             var allMsgs = _db.Messages.Where(p => p.ChatId == id).ToList();
             ViewBag.msgs = allMsgs;
             return View();
@@ -68,16 +73,12 @@ namespace FinalProject.Controllers
         {
             
             var convertToId = _db.Profiles.First(s => s.PhoneNomber == chat.To).UserId;
-            //if (ModelState.IsValid)
-            //{
             if (chat.To.Length != 10 && chat.To[0] != 0 && chat.To[1] != 5)
             {
                 return BadRequest("Invalid phone number");
             }
             if (!_db.Profiles.Any(o => o.UserId == convertToId))
             {
-                /*await _db.Chats.AddAsync(chat);
-                await _db.SaveChangesAsync();*/
                 return BadRequest("No Phone Number found");
             }
             if (_db.Chats.Any(o => (o.UserId == _userManager.GetUserId(User) && o.To == convertToId) || (o.To == _userManager.GetUserId(User) && o.UserId == convertToId)))
@@ -86,18 +87,12 @@ namespace FinalProject.Controllers
                 
                 return Redirect("/Chat/Two/"+ idd.FirstOrDefault());
             }
-            /*_db.Chats.Add(chat);
-            _db.SaveChanges();*/
-            //return RedirectToAction("Index");
-            //}
-            //return Ok(chat);
             chat.To = convertToId;
             await _db.Chats.AddAsync(chat);
             await _db.SaveChangesAsync();
             var idd1 = _db.Chats.Where(o => (o.UserId == _userManager.GetUserId(User) && o.To == convertToId) || (o.To == _userManager.GetUserId(User) && o.UserId == convertToId)).Select(s => s.Id);
 
             return Redirect("/Chat/Two/" + idd1.FirstOrDefault());
-            //return Redirect("/Chat");
 
         }
     }
