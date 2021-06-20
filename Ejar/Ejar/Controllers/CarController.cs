@@ -21,24 +21,41 @@ namespace Ejar.Controllers
 			_db = context;
 		}
 
-		public IActionResult Index(int? id)
+		public AccountModel getUserAccount(int id)
 		{
-			var car = _db.Car.ToList().Find(c => c.Id == id);
-			var Images = _db.Image.Where(i => i.CarId == car.Id).ToList();
-			foreach (var img in Images)
-			{
-				car.Images.Add(img);
-			}
-			if (id == null || car == null)
-			{
-				return View("_NotFound");
-			}
-			ViewBag.Car = car;
 			int i = Convert.ToInt32(User.FindFirst(ClaimTypes.NameIdentifier).Value);
 			var user = _db.User.FirstOrDefault(u => u.Id == i);
 			user.Account = _db.Account.Where(a => a.UserId == user.Id).FirstOrDefault<AccountModel>();
-			ViewBag.Account = user.Account;
-			return View(car);
+
+			return user.Account;
+		}
+		public CarModel getCar(int id)
+		{
+			var car = _db.Car.ToList().Find(c => c.Id == id);
+			var Images = _db.Image.Where(i => i.CarId == car.Id).ToList();
+			if (Images != null)
+			{
+				foreach (var img in Images)
+				{
+					car.Images.Add(img);
+				}
+			}
+			if (id == null || car == null)
+			{
+				return null;
+			}
+
+			return car;
+		}
+		public IActionResult Index(int id)
+		{
+
+			ViewBag.Car = getCar(id);
+			
+			
+			ViewBag.Account = getUserAccount(id);
+			
+			return View();
 		}
 
 		public IActionResult Create()

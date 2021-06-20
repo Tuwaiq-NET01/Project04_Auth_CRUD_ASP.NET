@@ -4,7 +4,7 @@ using System;
 namespace UnitTestEjar
 {
 	[TestClass]
-	public class CarControllerTest
+	public class UnitTest1
 	{
 		[TestMethod]
 		public void TestMethod1()

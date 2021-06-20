@@ -5,37 +5,58 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="61bb5a3b-a46c-4995-bb86-c7ef1d8cbe7d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.vs/Ejar/DesignTimeBuild/.dtbcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/Ejar/DesignTimeBuild/.dtbcache.v2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EjarTests/CarControllerTest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EjarTests/HomeControllerTest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EjarTests/ManageControllerTest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EjarTests/RentalControllerTest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EjarTests/SeedingDb.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Ejar/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Ejar/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.vs/Ejar/v16/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/Ejar/v16/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejar/Controllers/ManageController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/Controllers/ManageController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejar/Controllers/RentalController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/Controllers/RentalController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ejar.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ejar/Controllers/CarController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/Controllers/CarController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ejar/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/Controllers/HomeController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ejar/Ejar.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/Ejar.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejar/Models/TripModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/Models/TripModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejar/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/Views/Home/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejar/Views/Manage/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/Views/Manage/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejar/Views/Rental/Price.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/Views/Rental/Price.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejar/Views/Rental/Rent.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/Views/Rental/Rent.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Ejar.StaticWebAssets.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Ejar.StaticWebAssets.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Ejar.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Ejar.Views.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Ejar.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Ejar.Views.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Ejar.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Ejar.deps.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Ejar.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Ejar.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Ejar.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Ejar.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Microsoft.AspNetCore.Cryptography.Internal.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Microsoft.AspNetCore.Cryptography.Internal.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Microsoft.AspNetCore.Identity.UI.Views.V4.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Microsoft.AspNetCore.Identity.UI.Views.V4.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Microsoft.AspNetCore.Identity.UI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Microsoft.AspNetCore.Identity.UI.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.Design.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.Design.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.SqlServer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.SqlServer.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Microsoft.Extensions.FileProviders.Embedded.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Microsoft.Extensions.FileProviders.Embedded.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Microsoft.Extensions.Identity.Core.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Microsoft.Extensions.Identity.Core.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Microsoft.Extensions.Identity.Stores.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Microsoft.Extensions.Identity.Stores.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/ref/Ejar.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/ref/Ejar.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/Ejar.MvcApplicationPartsAssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/Ejar.MvcApplicationPartsAssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/Ejar.RazorTargetAssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/Ejar.RazorTargetAssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/Ejar.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/Ejar.Views.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/Ejar.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/Ejar.Views.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/Ejar.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/Ejar.assets.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/Ejar.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/Ejar.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/Ejar.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/Ejar.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/Ejar.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/Ejar.csproj.FileListAbsolute.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/Ejar.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/Ejar.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/Ejar.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/Ejar.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/Razor/Views/Home/Index.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/Razor/Views/Home/Index.cshtml.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/Razor/Views/Manage/Index.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/Razor/Views/Manage/Index.cshtml.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/Razor/Views/Rental/Price.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/Razor/Views/Rental/Price.cshtml.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/Razor/Views/Rental/Rent.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/Razor/Views/Rental/Rent.cshtml.g.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/ref/Ejar.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/ref/Ejar.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/staticwebassets/Ejar.StaticWebAssets.Manifest.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/staticwebassets/Ejar.StaticWebAssets.Manifest.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/staticwebassets/Ejar.StaticWebAssets.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/staticwebassets/Ejar.StaticWebAssets.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ejar/obj/Ejar.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/obj/Ejar.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ejar/obj/Ejar.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/obj/Ejar.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ejar/obj/Ejar.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/obj/Ejar.csproj.nuget.g.targets" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ejar/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/obj/project.assets.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ejar/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Images/ERD.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ejar/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnitTestEjar/Properties/AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTestEjar/Properties/AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnitTestEjar/UnitTest1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTestEjar/UnitTest1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnitTestEjar/UnitTestEjar.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTestEjar/UnitTestEjar.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnitTestEjar/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTestEjar/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnitTestEjar/packages.config" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTestEjar/packages.config" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +66,22 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2E9BEEB1-8083-4F4B-9ABE-A5F3DB1BC8BD/1B2/ExecutionContext.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <changedPaths>
+      <option value="$PROJECT_DIR$/EjarTests/SeedingDb.cs" />
+      <option value="$PROJECT_DIR$/Ejar/Controllers/CarController.cs" />
+      <option value="$PROJECT_DIR$/Ejar/Controllers/HomeController.cs" />
+      <option value="$PROJECT_DIR$/Ejar/ManageControllerTest.cs" />
+      <option value="$PROJECT_DIR$/EjarTests/ManageControllerTest.cs" />
+      <option value="$PROJECT_DIR$/EjarTests/HomeControllerTest.cs" />
+      <option value="$PROJECT_DIR$/EjarTests/Test.cs" />
+      <option value="$PROJECT_DIR$/EjarTests/CarControllerTest.cs" />
+      <option value="$PROJECT_DIR$/EjarTests/RentalControllerTest.cs" />
+    </changedPaths>
+  </component>
   <component name="ProjectId" id="1uBOU4Z1l25eGePb7KOBxC3t8hQ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -52,6 +89,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34991708" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -98,15 +137,54 @@
       <option name="presentableId" value="Default" />
       <updated>1624135530928</updated>
       <workItem from="1624135546356" duration="88000" />
+      <workItem from="1624144685454" duration="11675000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/EjarTests/Test.cs</url>
+          <line>10</line>
+          <properties documentPath="C:\Users\Turki\Desktop\Tuwaiq\Dotnet\Project04_Auth_CRUD_ASP.NET\Ejar\EjarTests\CarControllerTest.cs" initialLine="29" containingFunctionPresentation="method 'Test_getUserAccount'">
+            <startOffsets>
+              <option value="785" />
+            </startOffsets>
+            <endOffsets>
+              <option value="786" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="Frame#EjarTests.Tests.Test_getUserAccount" memberName="Expected_FirstName" />
+        <PinnedItemInfo parentTag="Frame#EjarTests.Tests.Test_getUserAccount" memberName="Actual_FirstName" />
+        <PinnedItemInfo parentTag="Frame#EjarTests.Tests.Test_getUserAccount" memberName="account" />
+        <PinnedItemInfo parentTag="Frame#EjarTests.Tests.Test_getUserAccount" memberName="carController" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>

@@ -22,6 +22,13 @@ namespace Ejar.Controllers
 
 		}
 
+		public List<CarModel> getAllCars()
+		{
+			List<CarModel> Cars = _db.Car.ToList();
+			
+			return Cars;
+
+		}
 		public IActionResult Index()
 		{
 			List<CarModel> Cars = null;
@@ -32,21 +39,26 @@ namespace Ejar.Controllers
 			}
 			else
 			{
-				Cars = _db.Car.ToList();
+				Cars = getAllCars(); 
 			}
 			
 
 			foreach (var car in Cars)
 			{
 				var Images = _db.Image.Where(i => i.CarId == car.Id).ToList();
-				foreach (var img in Images)
+				if (Images != null)
 				{
-					car.Images.Add(img);
+					foreach (var img in Images)
+					{
+						car.Images.Add(img);
+					}
 				}
 			}
+
 			ViewBag.Cars = Cars;
 			return View();
 		}
+		
 		[Authorize]
 		public IActionResult Profile()
 		{
