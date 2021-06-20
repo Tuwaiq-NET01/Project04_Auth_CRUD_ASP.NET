@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 using System.Text.Json.Serialization;
 
 namespace TuwaiqCVMaker.Models
@@ -7,9 +9,10 @@ namespace TuwaiqCVMaker.Models
     public class Resume
     {
         public int Id { get; set; }
+        [Required] public string Title { get; set; }
         [Required] public string Name { get; set; }
         [Required] public string Template { get; set; }
-        [Required] public string UserId { get; set; }
+        [NotNull] public string UserId { get; set; }
         [JsonIgnore] public ApplicationUser User { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
@@ -20,6 +23,7 @@ namespace TuwaiqCVMaker.Models
         public void Copy(Resume resume)
         {
             this.Name = resume.Name;
+            this.Title = resume.Title;
             this.Template = resume.Template;
             this.Email = resume.Email;
             this.Phone = resume.Phone;

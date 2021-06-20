@@ -18,13 +18,11 @@ namespace TuwaiqCVMaker.Controllers
     [Route("api/v1/resumes/{resumeId:int}/[controller]")]
     public class SkillsController : ControllerBase
     {
-        private readonly UserManager<ApplicationUser> _userManager;
         private ApplicationDbContext _db;
         
-        public SkillsController(ApplicationDbContext db, UserManager<ApplicationUser> userManager)
+        public SkillsController(ApplicationDbContext db)
         {
             this._db = db;
-            this._userManager = userManager;
         }
         
         // GET: api/v1/Resumes/{resumeId}/Skills
@@ -80,7 +78,7 @@ namespace TuwaiqCVMaker.Controllers
             
             resume.Skills.Add(skill);
             await this._db.SaveChangesAsync();
-            return CreatedAtRoute($"api/v1/resumes/{resumeId}/skills", skill);
+            return Created($"api/v1/resumes/{resumeId}/skills", skill);
         }
 
         // PUT: api/v1/Resumes/{resumeId}/Skills/{id}
