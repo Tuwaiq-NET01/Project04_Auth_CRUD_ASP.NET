@@ -1,7 +1,6 @@
-  
-![Tuwaiq](https://i.ibb.co/SV2BSn5/tuwaiq.png)
-  
-
+<div align="center">
+<img  src="https://i.ibb.co/SV2BSn5/tuwaiq.png" />
+</div>
 
 ----
 
@@ -15,26 +14,26 @@ An MVC-based, ASP.NET-powered website to provide you with the organic choices yo
  
  ---
 
- ![Demo 1](demo-1.png)
+ ![Demo 1](https://raw.githubusercontent.com/NorahMAlmutairi/Project04_Auth_CRUD_ASP.NET/main/demo-1.PNG)
  
  ---
  
 
- ![Demo 2](demo-2.png)
+ ![Demo 2](https://raw.githubusercontent.com/NorahMAlmutairi/Project04_Auth_CRUD_ASP.NET/main/demo-2.PNG)
  
  ---
  
 
- ![Demo 3](demo-3.png)
+ ![Demo 3](https://raw.githubusercontent.com/NorahMAlmutairi/Project04_Auth_CRUD_ASP.NET/main/demo-3.PNG)
  
  ---
  
 
- ![Demo 4](demo-4.png)
+ ![Demo 4](https://raw.githubusercontent.com/NorahMAlmutairi/Project04_Auth_CRUD_ASP.NET/main/demo-4.PNG)
  
  ---
  
- ![Demo 5](demo-5.png)
+ ![Demo 5](https://raw.githubusercontent.com/NorahMAlmutairi/Project04_Auth_CRUD_ASP.NET/main/demo-5.PNG)
  
  ---
 
@@ -53,7 +52,7 @@ Execute the following command to have the schema and seeding data:
 
 Database Entity-Relation Diagram (ERD):
  
- ![ER Diagram](ER%20Diagram.png)
+ ![ER Diagram](https://raw.githubusercontent.com/NorahMAlmutairi/Project04_Auth_CRUD_ASP.NET/main/ER%20Diagram.PNG)
  
  ---
 
