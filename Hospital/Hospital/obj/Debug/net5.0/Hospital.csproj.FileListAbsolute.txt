@@ -174,8 +174,10 @@ C:\Users\Abdullah\Desktop\Tuwaiq\DotNET\Final Project\Project04_Auth_CRUD_ASP.NE
 C:\Users\Abdullah\Desktop\Tuwaiq\DotNET\Final Project\Project04_Auth_CRUD_ASP.NET\Hospital\Hospital\obj\Debug\net5.0\ref\Hospital.dll
 C:\Users\Abdullah\Desktop\Tuwaiq\DotNET\Final Project\Project04_Auth_CRUD_ASP.NET\Hospital\Hospital\obj\Debug\net5.0\Hospital.pdb
 C:\Users\Abdullah\Desktop\Tuwaiq\DotNET\Final Project\Project04_Auth_CRUD_ASP.NET\Hospital\Hospital\obj\Debug\net5.0\Hospital.genruntimeconfig.cache
-C:\Users\Abdullah\Desktop\Tuwaiq\DotNET\Final Project\Project04_Auth_CRUD_ASP.NET\Hospital\Hospital\obj\Debug\net5.0\Hospital.csprojAssemblyReference.cache
 C:\Users\Abdullah\Desktop\Tuwaiq\DotNET\Final Project\Project04_Auth_CRUD_ASP.NET\Hospital\Hospital\obj\Debug\net5.0\Razor\Views\Patients\Create.cshtml.g.cs
 C:\Users\Abdullah\Desktop\Tuwaiq\DotNET\Final Project\Project04_Auth_CRUD_ASP.NET\Hospital\Hospital\obj\Debug\net5.0\Razor\Views\Patients\Edit.cshtml.g.cs
 C:\Users\Abdullah\Desktop\Tuwaiq\DotNET\Final Project\Project04_Auth_CRUD_ASP.NET\Hospital\Hospital\obj\Debug\net5.0\Razor\Views\DocProfiles\Details.cshtml.g.cs
 C:\Users\Abdullah\Desktop\Tuwaiq\DotNET\Final Project\Project04_Auth_CRUD_ASP.NET\Hospital\Hospital\obj\Debug\net5.0\Razor\Views\DocProfiles\Index.cshtml.g.cs
+C:\Users\Abdullah\Desktop\Tuwaiq\DotNET\Final Project\Project04_Auth_CRUD_ASP.NET\Hospital\Hospital\obj\Debug\net5.0\Razor\Views\Appointments\Create.cshtml.g.cs
+C:\Users\Abdullah\Desktop\Tuwaiq\DotNET\Final Project\Project04_Auth_CRUD_ASP.NET\Hospital\Hospital\obj\Debug\net5.0\Razor\Views\Appointments\Edit.cshtml.g.cs
+C:\Users\Abdullah\Desktop\Tuwaiq\DotNET\Final Project\Project04_Auth_CRUD_ASP.NET\Hospital\Hospital\obj\Debug\net5.0\Razor\Views\Appointments\Index.cshtml.g.cs

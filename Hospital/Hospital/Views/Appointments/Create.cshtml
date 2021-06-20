@@ -1,0 +1,75 @@
+﻿@model Appointment
+
+@{ 
+    var Docs = (List<Doctor>)ViewData["Doctors"];
+    var P = (List<Patient>)ViewData["Patients"];
+    var App = (List<Appointment>)ViewData["Appointments"];
+}
+
+
+<h1>Create Appointment Page</h1>
+
+<form asp-action="Create" method="post" class="form-horizontal">
+
+    <div class="form-group">
+        <label asp-for="PatientId">Patient's Name</label>
+        <div>
+            <select name="PatientId" id="Id">
+            @foreach (var item in P)
+            {
+
+                <option value="@item.Id">@item.Name</option>
+
+            }
+        </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DoctorId">Doctor's Name</label>
+        <div>
+            
+            <select name="DoctorId" id="Id">
+            @foreach (var item in Docs)
+            {
+
+                <option value="@item.Id">@item.Name</option>
+
+            }
+        </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Speciality">Speciality</label>
+        <div>
+            <select name="Speciality" id="Id">
+                @foreach (var item in Docs)
+                {
+
+                    <option value="@item.Speciality">@item.Speciality</option>
+
+                }
+            </select>
+            </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Date">Date</label>
+        <div>
+            <input asp-for="Date" type="date" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Time">Time</label>
+        <div>
+            <input asp-for="Time" type="time" />
+        </div>
+    </div>
+
+    <div>
+        <input type="submit" class="btn btn-primary" />
+    </div>
+</form>
+

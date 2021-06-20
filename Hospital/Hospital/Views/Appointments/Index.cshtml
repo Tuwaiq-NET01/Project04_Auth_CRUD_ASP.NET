@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "Appointments";
+    var App = (List<Appointment>)ViewData["Appointments"];
+
+}
+<h2>Today's Appointments</h2>
+<div class="main-content">
+    <table class="table">
+        <tr>
+            <th>Id</th>
+            <th>Patient's Name</th>
+            <th>Doctor's Name</th>
+            <th>Speciality</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+
+        @foreach (var item in App)
+        {
+            var d = string.Format("{0:dd/MM/yyyy}", item.Date);
+            var t = item.Time.ToShortTimeString();
+            <tr>
+                <td>
+                    @item.Id
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item.Patient.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item.Doctor.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item.Speciality)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => d)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => t)
+                </td>
+                <td>
+                    <a class="btn btn-outline-primary" asp-controller="Appointments" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                </td>
+                <td>
+                    <form method="post" asp-controller="Appointments" asp-action="Delete" asp-route-id="@item.Id">
+                        <input type="submit" value="Delete" class="btn btn-outline-danger" />
+                    </form>
+                </td>
+            </tr>
+        }
+    </table>
+    <a asp-controller="Appointments" asp-action="Create"><button class="btn btn-outline-primary">Create Appointment</button></a>
+</div>

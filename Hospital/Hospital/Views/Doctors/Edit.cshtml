@@ -2,6 +2,7 @@
 
 @{
     var Doc = (Doctor)ViewBag.Doctors;
+    
 }
 <h1>Update Doctor Profile</h1>
 
@@ -19,7 +20,12 @@
     <div class="form-group">
         <label asp-for="Gender">Doctor's Gender</label>
         <div>
-            <input asp-for="Gender" value="@Doc.Gender" />
+            @*<input asp-for="Gender" value="@Doc.Gender" />*@
+            <select name="Gender" id="Id">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="@Doc.Gender" selected disabled hidden>@Doc.Gender</option>
+            </select>
         </div>
     </div>
 

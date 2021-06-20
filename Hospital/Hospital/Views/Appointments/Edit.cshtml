@@ -1,0 +1,84 @@
+﻿@model Appointment
+
+@{
+    var Appointment = (Appointment)ViewBag.Appointment;
+    var P = (List<Patient>)ViewData["Patients"];
+    var Doc = (List<Doctor>)ViewData["Doctors"];
+}
+<h1>Edit Appointment</h1>
+
+<form asp-action="Edit" method="post" asp-route-id="@Appointment.Id" class="form-horizontal">
+    <div class="form-group">
+        <div>
+            <input type="hidden" asp-for="Id" value="@Appointment.Id" />
+        </div>
+        <label asp-for="PatientId">Patient's Name</label>
+        <div>
+            @*<input asp-for="PatientId" value="@Appointment.PatientId" />*@
+
+            <select name="PatientId" id="Id">
+                @foreach (var item in P)
+                {
+
+                    <option value="@item.Id">@item.Name</option>
+
+                }
+                <option value="@Appointment.PatientId" selected hidden>@Appointment.Patient.Name</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DoctorId">Doctor's Name</label>
+        <div>
+            @*<input asp-for="DoctorId" value="@Appointment.DoctorId" />*@
+            <select name="DoctorId" id="Id">
+                @foreach (var item in Doc)
+                {
+
+                    <option value="@item.Id">@item.Name</option>
+                    
+                    
+
+                }
+                <option value="@Appointment.DoctorId" selected hidden>@Appointment.Doctor.Name</option>
+            </select>
+            
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Speciality">Speciality</label>
+        <div>
+            @*<input asp-for="Speciality" value="@Appointment.Speciality" />*@
+            <select name="Speciality" id="Id">
+                @foreach (var item in Doc)
+                {
+
+                    <option value="@item.Speciality">@item.Speciality</option>
+
+                }
+                <option value="@Appointment.Speciality" selected hidden>@Appointment.Doctor.Speciality</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Date">Date</label>
+        <div>
+            <input asp-for="Date" type="date" value="@string.Format("{0:yyyy-MM-dd}",Appointment.Date)" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Time">Time</label>
+        <div>
+            <input asp-for="Time" type="time" value="@string.Format("{0:HH:mm}",Appointment.Time)" />
+        </div>
+    </div>
+
+    <div>
+        <input type="submit" class="btn btn-primary" />
+    </div>
+</form>
+

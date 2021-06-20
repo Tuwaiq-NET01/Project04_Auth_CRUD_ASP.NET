@@ -19,7 +19,12 @@
     <div class="form-group">
         <label asp-for="Gender">Patient's Gender:</label>
         <div>
-            <input asp-for="Gender" value="@Patient.Gender" />
+            @*<input asp-for="Gender" value="@Patient.Gender" />*@
+            <select name="Gender" id="Id">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="@Patient.Gender" selected disabled hidden>@Patient.Gender</option>
+            </select>
         </div>
     </div>
 

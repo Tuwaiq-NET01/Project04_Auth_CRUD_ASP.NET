@@ -13,8 +13,11 @@
 
     <div class="form-group">
         <label asp-for="Gender">Gender:</label>
-        <div>
-            <input asp-for="Gender" />
+        <div class="form-check">
+            <input type="radio" id="Male" name="Gender" value="Male">
+            <label for="Male">Male</label><br>
+            <input type="radio" id="Female" name="Gender" value="Female">
+            <label for="Female">Female</label><br>
         </div>
     </div>
 
