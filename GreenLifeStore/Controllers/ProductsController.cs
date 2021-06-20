@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using GreenLifeStore.Models;
 using Microsoft.AspNetCore.Mvc;
 using GreenLifeStore.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace GreenLifeStore.Controllers
 {
@@ -100,6 +101,21 @@ namespace GreenLifeStore.Controllers
             _db.Products.Remove(Product);
             _db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public IActionResult Details2(int? id)
+        {
+            var options = new DbContextOptionsBuilder<ApplicationDbContext>().UseInMemoryDatabase(databaseName: "GreenLifeStoreTestDB").Options;
+            var db = new ApplicationDbContext(options);
+
+            var Product = db.Products.ToList().Find(product => product.ProductId == id);
+            if (id == null || Product == null)
+            {
+                return View("_NotFound");
+            }
+            ViewData["Product"] = Product;
+            return View(Product);
+
         }
     }
 }

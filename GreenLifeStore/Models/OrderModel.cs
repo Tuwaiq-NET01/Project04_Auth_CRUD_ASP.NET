@@ -14,7 +14,7 @@ namespace GreenLifeStore.Models
         [Key]
         public int OrderId { get; set; }
         public DateTime OrderDate { get; set; }
-        public int TotalPrice { get; set; }
+        public float TotalPrice { get; set; }
 
 
         //Navigation properties (one to many) , users -> orders : one user has many orders but one order is only to one user
@@ -23,7 +23,7 @@ namespace GreenLifeStore.Models
         [ForeignKey("UserId")]
         public IdentityUser Users { get; set; }
         public List<OrderProductModel> OrderProduct { get; set; }
-        public List<BranchProductModel> BranchProduct { get; set; }
+      
 
 
     }

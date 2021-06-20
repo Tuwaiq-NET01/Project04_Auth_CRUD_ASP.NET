@@ -1,15 +1,20 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
-
+    var products = (List<ProductModel>)ViewData["products"];
 }
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        button{
+            padding-top: 1.25rem !important;
+        }
+    </style>
 </head>
 
+
 <div class="text-center">
-    <h1 class="display-3">Welcome</h1>
 
     <div class="container">
 
@@ -53,12 +58,25 @@
 </div>
 
 
+<h3 class="text-center text-success text header">All Products </h3>
+
+<div class="card-columns pb-5" >
+
+    @foreach (var product in products)
+    {
+        <div class="card text-center">
+            <img src="@product.Image" class="card-img-top " style="max-width:200px" alt="@product.Name">
+            <div class="card-body">
+                <h5 class="card-title">@product.Name</h5>
+                <button type="button" class="btn btn-outline-success border-success"> Add to cart </button>
+
+            </div>
+        </div>
+
+    }
 
 
-
-
-
-
-
+   
+</div>
 
 

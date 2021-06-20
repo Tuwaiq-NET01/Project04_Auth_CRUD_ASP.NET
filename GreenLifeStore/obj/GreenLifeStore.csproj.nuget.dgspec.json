@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Norah\\source\\repos\\GreenLifeStore\\GreenLifeStore\\GreenLifeStore.csproj": {}
+    "C:\\Users\\Norah\\Desktop\\Project04_Auth_CRUD_ASP.NET\\GreenLifeStore\\GreenLifeStore.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Norah\\source\\repos\\GreenLifeStore\\GreenLifeStore\\GreenLifeStore.csproj": {
+    "C:\\Users\\Norah\\Desktop\\Project04_Auth_CRUD_ASP.NET\\GreenLifeStore\\GreenLifeStore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Norah\\source\\repos\\GreenLifeStore\\GreenLifeStore\\GreenLifeStore.csproj",
+        "projectUniqueName": "C:\\Users\\Norah\\Desktop\\Project04_Auth_CRUD_ASP.NET\\GreenLifeStore\\GreenLifeStore.csproj",
         "projectName": "GreenLifeStore",
-        "projectPath": "C:\\Users\\Norah\\source\\repos\\GreenLifeStore\\GreenLifeStore\\GreenLifeStore.csproj",
+        "projectPath": "C:\\Users\\Norah\\Desktop\\Project04_Auth_CRUD_ASP.NET\\GreenLifeStore\\GreenLifeStore.csproj",
         "packagesPath": "C:\\Users\\Norah\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Norah\\source\\repos\\GreenLifeStore\\GreenLifeStore\\obj\\",
+        "outputPath": "C:\\Users\\Norah\\Desktop\\Project04_Auth_CRUD_ASP.NET\\GreenLifeStore\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -66,6 +66,10 @@
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.7, )"
+            },
+            "Microsoft.EntityFrameworkCore.InMemory": {
               "target": "Package",
               "version": "[5.0.7, )"
             },

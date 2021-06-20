@@ -2,6 +2,7 @@
 using GreenLifeStore.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,10 @@ namespace GreenLifeStore.Controllers
         [AllowAnonymous]
         public IActionResult Index()
         {
+            var Products = _db.Products.ToList();
+
+            ViewData["Products"] = Products;
+
             return View();
         }
 
@@ -31,6 +36,18 @@ namespace GreenLifeStore.Controllers
         public IActionResult About()
         {
             return View();
+        }
+
+        public IActionResult HomeIndex()
+        {
+            var options = new DbContextOptionsBuilder<ApplicationDbContext>()
+           .UseInMemoryDatabase(databaseName: "TestDB").Options;
+            var db = new ApplicationDbContext(options);
+
+            var products = db.Products.ToList();
+            ViewData["Products"] = products;
+
+            return View("Index");
         }
 
 

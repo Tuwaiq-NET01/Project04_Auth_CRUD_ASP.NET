@@ -16,6 +16,8 @@ namespace GreenLifeStore.Models
         public string Image { get; set; }
 
         public List<OrderProductModel> OrderProduct { get; set; }
+        public List<BranchProductModel> BranchProduct { get; set; }
+
 
 
 

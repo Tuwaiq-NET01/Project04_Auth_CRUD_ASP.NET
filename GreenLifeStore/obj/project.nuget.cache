@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ObeaGQ8kzoENWnTa3ufs9I/THPpFZoFSJq7RcOECPqNqne3Lo0DtzLvdCfiyHB4ujcKp8HqzzMAslbxd7dW8pg==",
+  "dgSpecHash": "z1K8f0HnqWvtaa+0x7Gk3RwZb9rjxdo/axL5qZSNRgn/8RRd4A4B5/suIz52c/dJR7xgPvqwS4BveMw1sRlBsg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Norah\\source\\repos\\GreenLifeStore\\GreenLifeStore\\GreenLifeStore.csproj",
+  "projectFilePath": "C:\\Users\\Norah\\Desktop\\Project04_Auth_CRUD_ASP.NET\\GreenLifeStore\\GreenLifeStore.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Norah\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Norah\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.7\\microsoft.aspnetcore.cryptography.internal.5.0.7.nupkg.sha512",
@@ -24,6 +24,7 @@
     "C:\\Users\\Norah\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\5.0.7\\microsoft.entityframeworkcore.abstractions.5.0.7.nupkg.sha512",
     "C:\\Users\\Norah\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\5.0.7\\microsoft.entityframeworkcore.analyzers.5.0.7.nupkg.sha512",
     "C:\\Users\\Norah\\.nuget\\packages\\microsoft.entityframeworkcore.design\\5.0.7\\microsoft.entityframeworkcore.design.5.0.7.nupkg.sha512",
+    "C:\\Users\\Norah\\.nuget\\packages\\microsoft.entityframeworkcore.inmemory\\5.0.7\\microsoft.entityframeworkcore.inmemory.5.0.7.nupkg.sha512",
     "C:\\Users\\Norah\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\5.0.7\\microsoft.entityframeworkcore.relational.5.0.7.nupkg.sha512",
     "C:\\Users\\Norah\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\5.0.7\\microsoft.entityframeworkcore.sqlserver.5.0.7.nupkg.sha512",
     "C:\\Users\\Norah\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\5.0.0\\microsoft.extensions.caching.abstractions.5.0.0.nupkg.sha512",

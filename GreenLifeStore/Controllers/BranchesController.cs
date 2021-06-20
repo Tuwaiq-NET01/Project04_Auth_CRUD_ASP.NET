@@ -1,6 +1,7 @@
 ﻿using GreenLifeStore.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,17 @@ namespace GreenLifeStore.Controllers
             return View();
         }
 
+        public IActionResult BranchesIndex()
+        {
+            var options = new DbContextOptionsBuilder<ApplicationDbContext>()
+           .UseInMemoryDatabase(databaseName: "TestDB").Options;
+            var db = new ApplicationDbContext(options);
+
+            var Branches = db.Branches.ToList();
+            ViewData["Branches"] = Branches;
+
+            return View("Index");
+        }
 
 
     }

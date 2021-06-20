@@ -11,7 +11,14 @@ namespace GreenLifeStore.Models
         [Key]
         public int BranchId { get; set; }
         public string Name { get; set; }
+        public string City { get; set; }
         public string Address { get; set; }
+        public string Telephone { get; set; }
+        public string Mobile { get; set; }
+        public string Email { get; set; }
+
+
+
 
         public List<BranchProductModel> BranchProduct { get; set; }
 

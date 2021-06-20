@@ -1,17 +1,18 @@
 using GreenLifeStore.Controllers;
-using GreenLifeStore.Data;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
-
-namespace GreenLifeStoreTests
+namespace GreenLifeStoreTest
 {
-    [TestClass]
-    public class UnitTest1
+    [TestFixture]
+    public class PrivacyControllerTest
     {
-        [TestMethod]
+        [SetUp]
+        public void Setup()
+        {
+        }
+
+        [Test]
         public void TestPrivacyView()
         {
             //Arrange
@@ -24,13 +25,7 @@ namespace GreenLifeStoreTests
 
             //Assert
             Assert.AreEqual("Index", viewresult.ViewName);
-
-
-        
-
-
-    
-            
+      
     }
 }
     }

@@ -3,29 +3,48 @@
     var Branches = (List<BranchModel>)ViewData["Branches"];
 
 }
-
-<h3>Branches</h3>
-<table class="table table-dark table-hover">
-    <thead>
-        <tr>
-            <td>Id </td>
-            <td> Name</td>
-            <td> Address</td>
-        </tr>
-    </thead>
-    <tbody>
-
-        @foreach (var branch in Branches)
-        {
-            <tr>
-                <td>@branch.BranchId</td>
-                <td>@branch.Name</td>
-                <td>@branch.Address</td>
+<style>
+#padding{
+    padding : 10px;
+    margin :20px;
+    padding-left:80px;
+}
+.card{
+    min-height: 100px
+}
 
 
-            </tr>
+</style>
 
-        }
-    </tbody>
+<h2 class="text-center text-success text header" > Our Branches</h2>
 
-</table>
+@*<div class="row justify-content-center">*@
+<center>
+    <div class="container">
+        <div class="row">
+            @foreach (var branch in Branches)
+            {
+
+
+                <div class="col-3" id="padding">
+                    <div class="card text-white bg-success" style="width: 18rem; height:300px">
+                        <div class="card-body">
+                            <h5 class="card-title">@branch.Name - @branch.City</h5>
+                            <p class="card-text">@branch.Address, @branch.City </p>
+                            <p class="card-text">Telephone: @branch.Telephone</p>
+                            <p class="card-text">Mobile: @branch.Mobile</p>
+                            <p class="card-text">@branch.Email</p>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            }
+        </div>
+    </div>
+</center>
+
+
+

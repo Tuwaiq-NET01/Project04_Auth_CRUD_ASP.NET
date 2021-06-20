@@ -29,12 +29,56 @@ namespace GreenLifeStore.Data.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("City")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Mobile")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Telephone")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("BranchId");
 
                     b.ToTable("Branches");
+
+                    b.HasData(
+                        new
+                        {
+                            BranchId = 1,
+                            Address = "Takhassusi Street, Al Nakheel District",
+                            City = "Riyadh",
+                            Email = "info@GreenLife.com",
+                            Mobile = "0507076701",
+                            Name = "Green Life Store",
+                            Telephone = "011 629 4056"
+                        },
+                        new
+                        {
+                            BranchId = 2,
+                            Address = "Omar ibn Al Khattab Street, Al Faisaliyah District",
+                            City = "Dammam",
+                            Email = "info@GreenLife.com",
+                            Mobile = "0557889843",
+                            Name = "Green Life Store",
+                            Telephone = "013 634 4742"
+                        },
+                        new
+                        {
+                            BranchId = 3,
+                            Address = "Abdullah Al Khayl Street, Al Khalidiyyah District",
+                            City = "Jeddah",
+                            Email = "info@GreenLife.com",
+                            Mobile = "0567584822",
+                            Name = "Green Life Store",
+                            Telephone = "012 645 4344"
+                        });
                 });
 
             modelBuilder.Entity("GreenLifeStore.Models.BranchProductModel", b =>
@@ -45,16 +89,83 @@ namespace GreenLifeStore.Data.Migrations
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("OrderModelOrderId")
-                        .HasColumnType("int");
-
                     b.HasKey("BranchId", "ProductId");
-
-                    b.HasIndex("OrderModelOrderId");
 
                     b.HasIndex("ProductId");
 
                     b.ToTable("BranchProduct");
+
+                    b.HasData(
+                        new
+                        {
+                            BranchId = 1,
+                            ProductId = 1
+                        },
+                        new
+                        {
+                            BranchId = 1,
+                            ProductId = 2
+                        },
+                        new
+                        {
+                            BranchId = 1,
+                            ProductId = 3
+                        },
+                        new
+                        {
+                            BranchId = 1,
+                            ProductId = 4
+                        },
+                        new
+                        {
+                            BranchId = 2,
+                            ProductId = 5
+                        },
+                        new
+                        {
+                            BranchId = 2,
+                            ProductId = 6
+                        },
+                        new
+                        {
+                            BranchId = 2,
+                            ProductId = 7
+                        },
+                        new
+                        {
+                            BranchId = 2,
+                            ProductId = 8
+                        },
+                        new
+                        {
+                            BranchId = 2,
+                            ProductId = 1
+                        },
+                        new
+                        {
+                            BranchId = 3,
+                            ProductId = 9
+                        },
+                        new
+                        {
+                            BranchId = 3,
+                            ProductId = 10
+                        },
+                        new
+                        {
+                            BranchId = 3,
+                            ProductId = 1
+                        },
+                        new
+                        {
+                            BranchId = 3,
+                            ProductId = 2
+                        },
+                        new
+                        {
+                            BranchId = 3,
+                            ProductId = 3
+                        });
                 });
 
             modelBuilder.Entity("GreenLifeStore.Models.OrderModel", b =>
@@ -67,8 +178,8 @@ namespace GreenLifeStore.Data.Migrations
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("TotalPrice")
-                        .HasColumnType("int");
+                    b.Property<float>("TotalPrice")
+                        .HasColumnType("real");
 
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
@@ -78,6 +189,29 @@ namespace GreenLifeStore.Data.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Orders");
+
+                    b.HasData(
+                        new
+                        {
+                            OrderId = 1,
+                            OrderDate = new DateTime(2021, 6, 19, 4, 41, 48, 871, DateTimeKind.Local).AddTicks(3275),
+                            TotalPrice = 236.5f,
+                            UserId = "12e2ec6e-45f1-4ac4-bcec-6aca5cd56456"
+                        },
+                        new
+                        {
+                            OrderId = 2,
+                            OrderDate = new DateTime(2021, 6, 19, 4, 41, 48, 872, DateTimeKind.Local).AddTicks(9865),
+                            TotalPrice = 216.5f,
+                            UserId = "9846fc6d-733e-4f26-90f6-0599199363be"
+                        },
+                        new
+                        {
+                            OrderId = 3,
+                            OrderDate = new DateTime(2021, 6, 19, 4, 41, 48, 872, DateTimeKind.Local).AddTicks(9940),
+                            TotalPrice = 67f,
+                            UserId = "bb091c98-1b17-4907-bcae-5eb8141f6195"
+                        });
                 });
 
             modelBuilder.Entity("GreenLifeStore.Models.OrderProductModel", b =>
@@ -93,6 +227,58 @@ namespace GreenLifeStore.Data.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("OrderProduct");
+
+                    b.HasData(
+                        new
+                        {
+                            OrderId = 1,
+                            ProductId = 1
+                        },
+                        new
+                        {
+                            OrderId = 1,
+                            ProductId = 2
+                        },
+                        new
+                        {
+                            OrderId = 1,
+                            ProductId = 3
+                        },
+                        new
+                        {
+                            OrderId = 1,
+                            ProductId = 4
+                        },
+                        new
+                        {
+                            OrderId = 2,
+                            ProductId = 1
+                        },
+                        new
+                        {
+                            OrderId = 2,
+                            ProductId = 2
+                        },
+                        new
+                        {
+                            OrderId = 2,
+                            ProductId = 7
+                        },
+                        new
+                        {
+                            OrderId = 3,
+                            ProductId = 6
+                        },
+                        new
+                        {
+                            OrderId = 3,
+                            ProductId = 8
+                        },
+                        new
+                        {
+                            OrderId = 3,
+                            ProductId = 3
+                        });
                 });
 
             modelBuilder.Entity("GreenLifeStore.Models.ProductModel", b =>
@@ -117,6 +303,88 @@ namespace GreenLifeStore.Data.Migrations
                     b.HasKey("ProductId");
 
                     b.ToTable("Products");
+
+                    b.HasData(
+                        new
+                        {
+                            ProductId = 1,
+                            Image = "https://www.l-organic.com/wp-content/uploads/2018/05/naturya-wheatgrass-1-600x600.jpg",
+                            Name = "Naturya Organic Wheatgrass Powder",
+                            Price = 97f,
+                            ProductDetails = "High in protein which contributes to the growth and maintenance of muscle mass Rich in iron which contributes to the normal transport of oxygen around the body and the reduction of tiredness and fatigue Natural source of vitamin A which contributes to the maintenance of normal skin and vision"
+                        },
+                        new
+                        {
+                            ProductId = 2,
+                            Image = "https://www.l-organic.com/wp-content/uploads/2021/03/51BStX6N-L._AC_SS450_.jpg",
+                            Name = "Clearspring Matcha Pouch",
+                            Price = 90.5f,
+                            ProductDetails = "Matcha is a finely milled vibrant green tea powder made from the highest quality Japanese tea leaves. Clearspring Organic Premium Matcha comes from Uji, a region high in the hills around Kyoto, renowned for producing the best Japanese teas. Only accessibly by foot, this remote area is unpolluted and rich in friendly bugs such as spiders, ladybirds, praying mantis and dragonflies to keep the pests under control (best to use organic matcha as non-organic matcha is grown using excessive amounts of agricultural fertilisers and pesticides)."
+                        },
+                        new
+                        {
+                            ProductId = 3,
+                            Image = "https://www.l-organic.com/wp-content/uploads/2018/09/hampstead-peppermint.jpg",
+                            Name = "Hampstead Organic Peppermint Tea",
+                            Price = 17f,
+                            ProductDetails = "Hampsteads organic peppermint infusion is a full flavoured, and heady. It is a unique blend of the two best loved mints, peppermint and spearmint. This gives added depth, and a fresh, tangy finish with a lingering sweet after taste. Deliciously refreshing hot or iced as a cooling summer cocktail, it is the perfect pick-me-up during the day or after a meal to cleanse the palate and aid digestion."
+                        },
+                        new
+                        {
+                            ProductId = 4,
+                            Image = "https://www.l-organic.com/wp-content/uploads/2018/04/alphabites-600x600.jpg",
+                            Name = "Bear Alphabites Cocoa Cereal",
+                            Price = 32f,
+                            ProductDetails = "Alphabites are a delicious healthy breakfast with no refined sugar or salt. Grrr. We use coconut blossom nectar, which low GI** and naturally high in calcium."
+                        },
+                        new
+                        {
+                            ProductId = 5,
+                            Image = "https://www.l-organic.com/wp-content/uploads/2018/10/natures-path-crispy-rice.jpg",
+                            Name = "Nature’s Path Crispy Rice Cereal",
+                            Price = 30f,
+                            ProductDetails = "Nature’s Path Organic Gluten Free Crispy Rice Cereal is a delicious, crunchy cereal that has been wonderfully made with organic brown rice."
+                        },
+                        new
+                        {
+                            ProductId = 6,
+                            Image = "https://www.l-organic.com/wp-content/uploads/2018/03/Doves-Farm-Organic-Corn-Flakes-325g-1-600x600.jpg",
+                            Name = "Doves Farm Organic Corn Flakes",
+                            Price = 29f,
+                            ProductDetails = "Doves Farm Organic Corn Flakes are gluten free and low in fat. Start your day with a bowl of our delicious golden flakes which are grown under the Italian sun. We’ve added malted rice syrup to create our delicious breakfast suitable for all the family."
+                        },
+                        new
+                        {
+                            ProductId = 7,
+                            Image = "https://www.l-organic.com/wp-content/uploads/2019/01/amisa-fruity-oat-600x600.png",
+                            Name = "Amisa Fruity Oat Muesli Cranberry & Strawberry",
+                            Price = 29f,
+                            ProductDetails = "Amisa Organic Gluten Free Fruity Oat Muesli is a delicious gluten free muesli, with tangy cranberries, juicy strawberries, and sunflower seeds."
+                        },
+                        new
+                        {
+                            ProductId = 8,
+                            Image = "https://www.l-organic.com/wp-content/uploads/2018/02/88.jpg",
+                            Name = "Biona Maple Syrup Waffles",
+                            Price = 21f,
+                            ProductDetails = "Organic wholegrain waffles with rich maple syrup filling. Perfect for dunking, crunching or munching on the go!"
+                        },
+                        new
+                        {
+                            ProductId = 9,
+                            Image = "https://www.l-organic.com/wp-content/uploads/2019/01/biona-apple-juice-1l.jpg",
+                            Name = "Biona Organic Pressed Apple Juice",
+                            Price = 27f,
+                            ProductDetails = "Unfiltered pure organic apple juice, with the bits. Biona organic cloudy Apple Juice is simply pressed, so more of its goodness reaches your glass."
+                        },
+                        new
+                        {
+                            ProductId = 10,
+                            Image = "https://www.l-organic.com/wp-content/uploads/2020/05/Biona-Organic-Peach-Halves-in-Rice-Syrup-550g--600x600.jpg",
+                            Name = "Biona Organic Peach Halves",
+                            Price = 40f,
+                            ProductDetails = "Naturally sweet and delicious, Peach Halves in Rice Syrup contains no added beet or cane sugar. Picked at the peak of ripeness and minimally processed,"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -327,12 +595,8 @@ namespace GreenLifeStore.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("GreenLifeStore.Models.OrderModel", null)
-                        .WithMany("BranchProduct")
-                        .HasForeignKey("OrderModelOrderId");
-
                     b.HasOne("GreenLifeStore.Models.ProductModel", "Product")
-                        .WithMany()
+                        .WithMany("BranchProduct")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -428,13 +692,13 @@ namespace GreenLifeStore.Data.Migrations
 
             modelBuilder.Entity("GreenLifeStore.Models.OrderModel", b =>
                 {
-                    b.Navigation("BranchProduct");
-
                     b.Navigation("OrderProduct");
                 });
 
             modelBuilder.Entity("GreenLifeStore.Models.ProductModel", b =>
                 {
+                    b.Navigation("BranchProduct");
+
                     b.Navigation("OrderProduct");
                 });
 #pragma warning restore 612, 618
