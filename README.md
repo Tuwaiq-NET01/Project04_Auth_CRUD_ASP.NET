@@ -13,6 +13,7 @@
 ### Wireframe  
  ![](https://raw.githubusercontent.com/Abdullah-ALHaif/Project04_Auth_CRUD_ASP.NET/main/photo_2021-06-20_06-00-20.jpg)
  ![](https://raw.githubusercontent.com/Abdullah-ALHaif/Project04_Auth_CRUD_ASP.NET/main/photo_2021-06-20_06-39-22.jpg)
+ ![](https://raw.githubusercontent.com/Abdullah-ALHaif/Project04_Auth_CRUD_ASP.NET/main/photo_2021-06-20_06-39-28.jpg)
   
 ### Set up  
 ### Prerequisites
