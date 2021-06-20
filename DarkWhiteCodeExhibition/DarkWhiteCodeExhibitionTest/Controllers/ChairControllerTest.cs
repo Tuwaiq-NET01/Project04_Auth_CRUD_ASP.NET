@@ -1,4 +1,5 @@
-﻿using DarkWhiteCodeExhibition.Controllers;
+using DarkWhiteCodeExhibition.Controllers;
+using DarkWhiteCodeExhibition.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NUnit.Framework;
@@ -14,11 +15,13 @@ namespace DarkWhiteCodeExhibitionTest.Controllers
     [TestFixture]
     class ChairControllerTest
     {
+        private readonly ApplicationDbContext _context;
+
         [Test]
-        public void ArtTest()
+        public void IndexChair()
         {
             //Arrange
-            ChairController Art = new ChairController(null);
+            ChairController Art = new ChairController(_context);
             //Act
             ViewResult viewObj = Art.Index() as ViewResult;
             //Assert
