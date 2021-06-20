@@ -31,6 +31,9 @@ You can view the application's wireframe <a href="https://imgur.com/a/GEeGkqV" r
 - ASP.NET MVC
 - Microsoft SQL Server 
 
+### Database
+ ``` dotnet ef database update```
+
 ## Built With
 
 ### Front-End  
