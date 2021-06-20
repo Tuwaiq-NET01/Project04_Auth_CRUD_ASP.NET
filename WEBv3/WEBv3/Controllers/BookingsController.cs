@@ -80,7 +80,6 @@ namespace WEBv3.Controllers
         }
 
 
-        [Authorize]
 
         // PUT: api/Tours/5
         [Route("aprove/{id}")]
@@ -111,7 +110,7 @@ namespace WEBv3.Controllers
             client.Host = "smtp.gmail.com";
             client.Port = 587; //25           
             client.UseDefaultCredentials = false;
-            System.Net.NetworkCredential basicCredential1 = new System.Net.NetworkCredential("rhmbooking123@gmail.com", "");
+            System.Net.NetworkCredential basicCredential1 = new System.Net.NetworkCredential("rhmbooking123@gmail.com", "98d39sdK@000");
             client.Credentials = basicCredential1;
             try
             {

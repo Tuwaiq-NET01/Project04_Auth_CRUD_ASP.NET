@@ -56,7 +56,7 @@ const getAll = () => {
     {/* <div class="header-img"></div> */}
 
     <section className="img-banner d-flex align-items-center justify-content-center">
-            <h1>hi</h1> 
+            {/* <h1>hi</h1>  */}
 </section>
 
 
@@ -65,9 +65,9 @@ const getAll = () => {
     return(
 <div class="card cardOne">
  <div class="card-header"> <b>{m.place}</b> </div>
-  <img src= {m.image}  alt="capture" style={{width: "370px", height:"300px" }} /> 
+  <img src= {m.imageSrc}  alt="capture" style={{width: "370px", height:"300px" }} /> 
   <div class="card-body">
-    <p> Description : {m.description}</p>
+    <p> cuisine : {m.description}</p>
 
   </div>
   <Link to={`/book/${m.tourId}`}      className="btn btn-warning"   >Book   </Link> 

@@ -1,8 +1,12 @@
 import React, { useState,useEffect } from 'react';
 import { Router, Link, navigate } from '@reach/router';
 import axios from 'axios';
+import CharNavbar from './CharNavbar'
+import Storage from './Storage';
 
 function Display(props) {
+
+  
 
 
 
@@ -13,12 +17,18 @@ function Display(props) {
     getAll();
 },[ ]);
 
-
+const getToken = () =>{
+  return Storage.get("token")
+};
 const getAll = () => {
      
   console.log("handle submit")
 
-  axios.get(`https://localhost:44364/api/TourBookings/${props.pk}`)
+  axios.get(`https://localhost:44364/api/TourBookings/${props.pk}`, {
+           
+    headers: {
+        "Authorization": `Bearer ${getToken()}`
+    }})
     .then((res) => {
       console.log(res.data)
       setAllBookings(res.data)
@@ -46,10 +56,15 @@ const deleteBooking  = (tourId) => {
 
 
 
-const approve  = (tourId) => {
+const approve  = (id) => {
   console.log("handle approve")
-  axios.put(`https://localhost:44364/api/Bookings/aprove/${tourId}/`)
+  axios.put(`https://localhost:44364/api/Bookings/aprove/${id}/`,{
+           
+    headers: {
+        "Authorization": `Bearer ${getToken()}`
+    }})
     .then((res) => {
+      console.log("aproved")
       window.location.reload( );
   
     })
@@ -61,20 +76,7 @@ const approve  = (tourId) => {
   return (
     <div>
       
-<nav class="navbar blue navbar-expand-md  ">
-  
-  <div class="navbar-collapse collapse" id="navbar4">
-      <ul class="navbar-nav">
-       
-          <li className="nav-item"><Link className ="nav-link pr-3 nav-item-home" to="/">Home </Link></li> 
-   
-          <li className="nav-item"><Link className ="nav-link pr-3 nav-item-home" to="/addTour">Add a new tour </Link></li>
-          {/* <li className="nav-item"><Link className ="nav-link pr-3 nav-item-home" to="/test">test </Link></li> */}
-          <li className="nav-item"><Link className ="nav-link pr-3 nav-item-home" to="/Dashboard">Dashboard </Link></li>
-
-      </ul>
-  </div>
-</nav>
+<CharNavbar />
 
 
 
