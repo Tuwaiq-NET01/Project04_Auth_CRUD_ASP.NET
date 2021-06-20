@@ -15,7 +15,7 @@ namespace Final_projectTest.Contraller
             HomeController ControllerObj = new HomeController(null);
 
 
-                ViewResult viewResult = ControllerObj.Privacy() as ViewResult;
+                ViewResult viewResult = ControllerObj.Index() as ViewResult;
 
                 Assert.AreEqual("Index", viewResult.ViewName);
             
