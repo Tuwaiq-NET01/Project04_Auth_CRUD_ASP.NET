@@ -28,6 +28,15 @@ namespace Hospital.Controllers
             return View(DocP);
         }
 
+        public IActionResult Details()
+        {
+            var DocP = _db.DocProfiles.ToList();
+            ViewData["DocProfiles"] = DocP;
+            var Docs = _db.Doctors.ToList();
+            ViewData["Doctors"] = Docs;
+            return View(DocP);
+        }
+
         //CREATE
         //GET - /DocProfiles/create
         public IActionResult Create()
