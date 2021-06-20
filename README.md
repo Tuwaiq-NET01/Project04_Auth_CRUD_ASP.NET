@@ -2,8 +2,6 @@
 
 <div dir="rtl" align="right">
 
-# Ezz Restaurant
-
 ### المقدمــة | Introduction
 موقع الكتروني يتيح لك محادثة مباشرة مع الآخرين
 
