@@ -67,7 +67,7 @@ const getAll = () => {
  <div class="card-header"> <b>{m.place}</b> </div>
   <img src= {m.image}  alt="capture" style={{width: "370px", height:"300px" }} /> 
   <div class="card-body">
-    <p> cuisine : {m.description}</p>
+    <p> Description : {m.description}</p>
 
   </div>
   <Link to={`/book/${m.tourId}`}      className="btn btn-warning"   >Book   </Link> 
