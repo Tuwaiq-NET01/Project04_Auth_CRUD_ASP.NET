@@ -1,0 +1,10 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "VulnViewSQLite",
+            "database": "${workspaceFolder:Web}/app.db"
+        }
+    ]
+}
