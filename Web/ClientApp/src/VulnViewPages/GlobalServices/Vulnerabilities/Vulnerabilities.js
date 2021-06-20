@@ -53,7 +53,7 @@ export default function Vulnerabilities() {
                 res.data.forEach(item => tmpObj[item.id] = item.name.trim());
                 // console.log(tmpObj[88]);
                 setCNAsDict(tmpObj)
-                setCNAs([<option key={-1} value={1}>Any</option>, ...res.data.map((cna, key) => <option key={key} value={cna.id}>{cna.name.trim()}</option>)])
+                setCNAs([<option key={-1} value="1">Any</option>, ...res.data.map((cna, key) => <option key={key} value={cna.id}>{cna.name.trim()}</option>)])
             })
         Promise.all([CNAsPromise]).then(axios.get(`${endpoint}/API/CVEs`).then(res => addToVulnList(res.data)))
     }
@@ -63,6 +63,7 @@ export default function Vulnerabilities() {
     }
 
     const search = () => {
+        setCounter(1)
         setVulnList([])
         axios.get(`${endpoint}/API/CVEs?` +
             `${id > 0 ? `cve-id=${id}&` : ""}` +
@@ -73,8 +74,8 @@ export default function Vulnerabilities() {
             `${maxCvss3 > 0 ? `from-cvss3=${maxCvss3}&` : ""}` +
             `${fromDate > 0 ? `from-date=${fromDate}&` : ""}` +
             `${toDate > 0 ? `to-date=${toDate}&` : ""}` +
-            `${cna > 1 ? `cna=${cna}&` : ""}` +
-            ``).then(res => addToVulnList(res.data))
+            `${cna > 2 ? `cna=${cna}&` : ""}` +
+            `x=1`).then(res => addToVulnList(res.data))
     }
 
 
@@ -104,11 +105,11 @@ export default function Vulnerabilities() {
                                     <InputGroupAddon addonType="prepend">
                                         <InputGroupText>CVE-</InputGroupText>
                                     </InputGroupAddon>
-                                    <Input name="search-cve-year" placeholder="2021" id="search-cve-year-input" value={year} onChange={e => setYear(e.target.value)} />
+                                    <Input name="search-cve-year" placeholder="" id="search-cve-year-input" value={year} onChange={e => setYear(e.target.value)} />
                                     <InputGroupAddon addonType="append">
                                         <InputGroupText>-</InputGroupText>
                                     </InputGroupAddon>
-                                    <Input name="search-cve-id" placeholder="1234" id="search-cve-id-input" value={id} onChange={e => setId(e.target.value)} />
+                                    <Input name="search-cve-id" placeholder="" id="search-cve-id-input" value={id} onChange={e => setId(e.target.value)} />
                                 </InputGroup>
                             </Col>
 
@@ -168,7 +169,7 @@ export default function Vulnerabilities() {
                             </Col>
 
                             <Col>
-                                <Button className="mt-3 btn btn-lg" color="primary" onClick={search}>Search</Button>
+                                <Button className="mt-3 btn btn-lg" color="primary" onClick={() => { setCounter(1); search() }}>Search</Button>
                             </Col>
 
                             {/* <Col>

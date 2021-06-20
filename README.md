@@ -1,51 +1,44 @@
-# Project04_Auth_CRUD_ASP.NET
+<div dir="rtl" align="right" >
+  
+![Tuwaiq](https://i.ibb.co/SV2BSn5/tuwaiq.png)
 
-<div dir="rtl" align="right">
+---
 
-فكرة المشروع
+# VulnView
 
-بناء مشروع متكامل باستخدام ASP.NET MVC  قائم على فكرة من اختيارك وتتضمن المتطلبات الأساسية لبناء تطبيق ASP.NET MVC مع  Entity Framework Core وSql Server.
+View, add, manipulate, and search for record of vulnerabilities and weaknesses found in IT systems.
 
+## Demo
 
-قبل بداية المشروع 
+![ER Diagram](demo.png)
 
-عمل Wireframes و ERD والتأكيد مع أحد المدربين قبل البدء بتنفيذ المشروع. بداية المشروع بالنسخة رقم  v.1
+## Set up
 
-متطلبات المشروع
+- NET 5
+- ASP.NET MVC
+- Microsoft SQL Server
+- Node (React)
 
+## Database ER Diagram
 
-- استخدام نمط MVC 
-- إنشاء على الأقل 4 من Controllers
-- إنشاء على الأقل 4 Model 
-- إنشاء على الأقل 6 Views
-    - استخدام مكتبة Bootstrap مع Razor 
-    - استخدام partial view للعناصر المتكررة في الواجهات
-- استخدام وظائف CRUD مع ASP.NET 
-- استخدام إطار عمل Entity Framework Core
-- استخدام CodeFirst Approach لإنشاء قاعدة البيانات
-- استخدام قاعدة بيانات MSSQL 
-    - ان تكون قاعدة البيانات متعددة الجداول
-    - يجب ان تتضمن قاعدة البيانات على الاقل احد العلاقات التالية:
-        - علاقة one-to-one
-        - علاقة one-to-many
-        - علاقة many-to-many
-- تطبيق Authentication 
-- قم بتطبيق Unit Testing (اختبار على الاقل One Action Method لكل Controller)
+![ER Diagram](erd.png)
 
+## Front-End
 
-إضافة | Bonus 
-- قم باستخدام أحد مفاهيم Design Patterns في مشروعك لحل مشكلةٍ ما
-- إنشاء APIs 
-- عمل Deploy للمشروع على Azure
-- استخدام React مع ASP.NET أو أي Framework 
-- استخدام WebSockets في ASP.NET core
-- التعامل مع الـThird party APIs  {SMS Message, Google Maps,….} 
-    - مصادر للـAPIs
-    - الاول: Any API over 1400 Public APIs: https://any-api.com/
-    - الثاني: API Search: http://apis.io/
-- رفع صور او ملفات 
-    -  باستخدام الـthird-party:
-        - Cloudinary: https://cloudinary.com/
-        -  AWS: https://aws.amazon.com/s3/?nc2=h_ql_prod_st_s3
-    - حفظها  بالـLocal server 
+- HTML
+- CSS
+- JS
+- React
+- Bootstrap
+
+## Back-End
+
+- ASP.NET MVC
+- MSSQL Server
+- EF Core
+
+## Author
+
+Abdulrahman Al-Maneea
+
 </div>
