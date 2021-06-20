@@ -1,8 +1,26 @@
 import React, { useState,useEffect } from 'react';
 import { Router, Link, navigate } from '@reach/router';
 import axios from 'axios';
+import { GoogleLogin } from 'react-google-login';
 
 const Book = (props) => {
+
+  const responseGoogle = (response) => {
+    console.log("reham success");
+  
+      console.log(response.profileObj);
+      setEmail(response.profileObj.email)
+      setFirstName(response.profileObj.name)
+      this.setState({ disabled: "painted" })
+    }
+  
+const  responseGoogle2 = (response) => {
+      console.log("reham failure");
+  
+      console.log(response);
+    }
+
+
 
 
 
@@ -89,7 +107,14 @@ const Book = (props) => {
 
 
 <div className="container-md ">
+<GoogleLogin
+  clientId="398296389829-ukici9lqlsjfu4soj6rl44fblhln277n.apps.googleusercontent.com"
+  onSuccess={responseGoogle}
+  onFailure={responseGoogle2}
+    cookiePolicy={'single_host_origin'}
+  isSignedIn={true}
 
+/>
 <div class="card col-md-12 p-3">
         <div class="row ">
 
@@ -143,7 +168,7 @@ const Book = (props) => {
 
 
             <div class="col-md-4">
-                <img class="" src={TourData.image} style={{width: "300px", height:"300px" }} />
+                <img class="" src={TourData.imageSrc} style={{width: "300px", height:"300px" }} />
             </div>
 
 
@@ -166,7 +191,7 @@ const Book = (props) => {
 <form>
   <div class="form-group">
     <label for="formGroupExampleInput">FirstName</label>
-    <input type="text" class="form-control" id="formGroupExampleInput"  onChange = {(e)=>setFirstName(e.target.value)} />
+    <input type="text" class="form-control" id="formGroupExampleInput"  onChange = {(e)=>setFirstName(e.target.value)} value ={firstName} />
   </div>
   <div class="form-group">
     <label for="formGroupExampleInput2">LastName</label>
@@ -176,7 +201,7 @@ const Book = (props) => {
 
   <div class="form-group">
     <label for="formGroupExampleInput2">email</label>
-    <input type="email" class="form-control" id="formGroupExampleInput2" onChange = {(e)=>setEmail(e.target.value)}  />
+    <input type="email" class="form-control" id="formGroupExampleInput2" onChange = {(e)=>setEmail(e.target.value)}  value ={email} />
   </div>
 
   <div class="form-group">

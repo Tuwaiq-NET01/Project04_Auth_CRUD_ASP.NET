@@ -17,8 +17,8 @@ const AddTour = (props) => {
     const [pickupLocation, setPickupLocation]    = useState("")  //  done
     const [returnsAt, setReturnsAt]              = useState("")  //  done
     const [departsAt, setDepartsAt]              = useState("")  //  done  
-    const [image, setImage]                      = useState("")  //  done
-
+ //   const [image, setImage]                      = useState("")  //  done
+    const [imageFile, setImage] = useState(null)  //  done
 
     const [tourGuide, setTourGuide]              = useState("")  //      
     const [transport, setTransport]              = useState("")  //     
@@ -27,8 +27,23 @@ const AddTour = (props) => {
     const [food, setFood]                        = useState("")  //     
     // const [tourId, setTourId]                    = useState(props.pk)  // 
     const [msg, setMessageSubmit]                = useState ("") //
-     
-    const handleSubmit = (e) => {
+    const [tourID, setTourId]                     = useState ("") //
+
+
+
+
+
+    const formData = new FormData()
+    formData.append('imageFile', imageFile)
+    formData.append('id', tourID)
+
+
+
+    const getToken = () =>{
+        return Storage.get("token")
+    };
+    
+    async function  handleSubmit (e)  {
         e.preventDefault();
         console.log("handle submit")
         // setjwtStr(Storage.get("token"))
@@ -45,7 +60,7 @@ const AddTour = (props) => {
             "pickupLocation": pickupLocation,
             "returnsAt": returnsAt,
             "departsAt": departsAt,
-            "image": image,
+        
           
             "included": {
            
@@ -57,27 +72,64 @@ const AddTour = (props) => {
           
           
              
-            }
+            }}
           
            
             
-          }
      
          
         
-          const getToken = () =>{
-            return Storage.get("token")
-        };
-        
-        axios
+       
+           axios
           .post('https://localhost:44364/api/Tours/?format=json',addPlce, 
           {headers: {
             "Authorization": `Bearer ${getToken()}`
-        }}).then((res) => {
-          setMessageSubmit("submitted") } )
-            .catch((err) =>  setMessageSubmit("Not Submitted")
-            );
+        }}). then ((res) => {
+          setMessageSubmit("submitted")
+            setTourId(res.data.tourId)
+            formData.append('id', res.data.tourId)
+         console.log("the  id", res.data.tourId)
+         .then((res) => {
+
+         })
+        
+        } )
+        
+            .catch((err) =>  setMessageSubmit("Not Submitted") )
+
+
+               
+
+             
+
+
+           
+
     }
+
+
+
+const handleImage =()=>{
+
+    axios.put('https://localhost:44364/api/Tours/img/?format=json',formData, {headers: {
+        "Authorization": `Bearer ${getToken()}`
+    }}).then((res) => {
+        
+        
+        console.log("submitted2");
+        
+        setMessageSubmit("submitted2")
+    
+        navigate("/dashboard");
+    })
+
+        
+        .catch((err) =>  setMessageSubmit("Not Submitted2")
+    )
+
+
+
+}
 
 
     return (
@@ -142,14 +194,12 @@ const AddTour = (props) => {
                     </div>
                     </div>
 
-
-
-                    <div class="form-group row">
+                    {/* <div class="form-group row">
                         <label for="" class="col-sm-2 col-form-label"> Image</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="" onChange = {(e)=>setImage(e.target.value)}  />
                     </div>
-                    </div>
+                    </div> */}
                     <div class="form-group row">
                         <label for="" class="col-sm-2 col-form-label"> Pickup Location</label>
                         <div class="col-sm-10">
@@ -228,6 +278,15 @@ const AddTour = (props) => {
                    
                 
                 <button className="btn mb-4  btn-lg btn-block" id = "Charbtn" type='submit' onClick = {handleSubmit}>Add</button>
+
+                <div class="form-group row">
+                                    <label for="" class="col-sm-2 col-form-label"> Image</label>
+                                    <div class="col-sm-10">
+                                    <input id="image-uploader" class="form-control-file" type="file" accept="image/*" onChange={(e) => setImage(e.target.files[0])}/>
+                                    </div>
+                    </div>
+                    <button className="btn mb-4  btn-lg btn-block" id = "Charbtn" type='submit' onClick = {handleImage}>submit</button>
+
             </div>
 
             <p>{msg}</p>

@@ -6,12 +6,12 @@ import Storage from './Storage';
 const Register = () => {
 
     const [firstname, setFirstName]            = useState(""); 
-	const [lastname, setLastName]              = useState("");
+	const [lastname, setLastName]                = useState("");
     const [email, setEmail]                    = useState("");       
     const [password, setPassword]              = useState("");
     const [username, setUsername]              = useState("");
-    const [emailError, setemailError]            = useState([]);
-    const [passError, setPassError]            = useState([]);
+    const [validationssss, setError]           = useState("");
+   
 
 
     const handleSubmit = (e) => {
@@ -27,25 +27,23 @@ const Register = () => {
        "password": password
         
           }
-            
-             
-              
-        
-  
         axios
           .post('https://localhost:44364/api/Auth/register/', addUser)
           .then((res) => {
               console.log(addUser)
-              Storage.set("token", res.data.access_token)
-              console.log("token:", Storage.get("token"))
-              navigate("/EmployeeDashboard");
+           //   console.log(addinfo)
+              navigate("/dashboard");
+              // Storage.clear();
+              Storage.set("token", res.data.token);
+              // console.log("token:", Storage.get("token"))
   
             } )  .catch(function (error) {
               if (error.response) {
+                //console.log(error)
                 // Request made and server responded
-                console.log(error.response.data);
-                setemailError(error.response.data.email);
-                setPassError(error.response.data.password1);
+              console.log(error.response.data.errors);
+                  setError("Invalid or incomplated data");
+                
 
               }  
             });          
@@ -54,16 +52,12 @@ const Register = () => {
 
     return (
         <>
-
-        
-
          <div className = "lopage">
          <div   className = "logbody">
            <div class="login-wrapper">
     <form action="" class="form">
       <img src="./img/avatar.png" alt="" />
       <h2>Sign up</h2>
-   
       <div class="input-group">
 		<input id="pass" type="" id="loginUser" data-type=""  onChange={(e) => setEmail(e.target.value)} value={email}  />
         <label for="loginEmail">Email</label>
@@ -100,16 +94,33 @@ const Register = () => {
         <label for="loginPassword">LastName</label>
       </div>
 
+
+      <div class="input-group">
+ <p>  { validationssss}</p>
+      {/* {err.map((error, index) => {
+              return (
+
+                <p  key={index} style = {{color: "#f7816d;"}}>  {index}  </p>
+
+                )
+              })
+              } */}
+ </div>
+{/* <div>
+{errors.map(item => <p key={item.id} name={item.name} > </p>)} 
+
+ </div> */}
+
+
+
 	  <div className = "btnflex">
       <input type="submit" value="Siugn up" class="submit-btn"   onClick={handleSubmit} />
 	  <Link className="buttonflex" to="/login" >Log in</Link>
 	  </div> 
-     <p>{emailError}</p>
-     <p>{passError}</p>
+    
 
       {/* <a href="#forgot-pw" class="forgot-pw">Forgot Password?</a> */}
      </form>
-
   </div>  
   </div>
   </div>
