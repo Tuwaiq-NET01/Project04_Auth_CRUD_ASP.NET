@@ -1,0 +1,32 @@
+@model NoteModel
+@{
+    var notes = (ICollection<NoteModel>)ViewData["notes"];
+}
+
+<a asp-controller="Notes" asp-action="Create"><button class="btn btn-info">Add Note</button></a>
+
+<div class="row">
+    @foreach (var item in notes)
+    {
+        <div class="card col-3 mt-4 mx-2" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">@item.Title</h5>
+                <p class="card-text">
+                    @if (item.Content.Length > 100)
+                    {
+                        item.Content = item.Content.Substring(0, 100) + "...";
+                    }
+                    @item.Content
+                </p>
+            </div>
+                <div class="text-right mb-1">
+                    <form style="display: inline;" method="POST" asp-controller="Notes" asp-action="Delete"
+                    asp-route-id=@item.Id>
+                        <button class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+                    </form>
+                    <a asp-controller="Notes" asp-action="Edit" asp-route-id=@item.Id class="btn btn-primary"><i
+                        class="bi bi-pencil-square"></i></a>
+                </div>
+        </div>
+    }
+</div>

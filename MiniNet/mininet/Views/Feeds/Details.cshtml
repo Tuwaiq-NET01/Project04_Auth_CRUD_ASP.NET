@@ -1,0 +1,30 @@
+@{
+    var feedItems = (ICollection<RssItemDTO>)ViewData["feedItems"];
+}
+
+
+@foreach (var item in feedItems)
+{
+    <article class=" my-5 ">
+    <h4> @item.Title </h4>
+    <p class='hdesc' hidden> @item.Description</p>
+    <p class='desc'></p>
+    @if (item.Link != "")
+        {
+            <a href="@item.Link"> @item.Link </a>
+        }
+    </article>
+}
+
+<script>
+    window.onload = function () {
+        var hiddenDescs = document.querySelectorAll('.hdesc');
+        var descs = document.querySelectorAll('.desc');
+        console.log(hiddenDescs, descs);
+        hiddenDescs.forEach((hdesc, index) => {
+            var parser = new DOMParser()
+            var doc = parser.parseFromString(hdesc.innerHTML, 'text/html')
+            descs[index].innerHTML = doc.documentElement.innerText
+        })
+    }
+</script>
