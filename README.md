@@ -38,7 +38,7 @@ the project provides a service that helps the companies or individuals who organ
 - Back-End
 - ASP.NET MVC
 
-EF Core
+
 ##### Author
 Reham Anazi
 
