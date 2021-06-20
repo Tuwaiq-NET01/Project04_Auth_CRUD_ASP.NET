@@ -1,0 +1,18 @@
+body {
+  background-image: url("https://divenetphil.com/wp-content/uploads/2020/07/Divenet_NewSlider_8.jpg");
+  background-color: #cccccc;
+  height: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  color: #FFFFFF;
+}
+
+#root{
+  margin-bottom: 50px;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

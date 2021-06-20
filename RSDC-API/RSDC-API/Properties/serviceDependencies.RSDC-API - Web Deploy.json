@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "mssql2": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourcegroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/rsdc-apidbserver/databases/RSDC-API_db",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionStrings",
+      "secretStore": "AzureAppSettings"
+    }
+  }
+}

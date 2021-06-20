@@ -1,55 +1,159 @@
 # Project04_Auth_CRUD_ASP.NET
 
-<div dir="rtl" align="right">
 
-فكرة المشروع
+![Tuwaiq](https://i.ibb.co/SV2BSn5/tuwaiq.png)
 
-بناء مشروع متكامل باستخدام ASP.NET MVC  قائم على فكرة من اختيارك وتتضمن المتطلبات الأساسية لبناء تطبيق ASP.NET MVC مع  Entity Framework Core وSql Server.
+# مركز البحر الأحمر للغوص
 
-
-قبل بداية المشروع 
-
-عمل Wireframes و ERD والتأكيد مع أحد المدربين قبل البدء بتنفيذ المشروع. بداية المشروع بالنسخة رقم  v.1
-
-متطلبات المشروع
+## المقدمــة
+مرز البحر الأحمر للغوص للتدريب ولبيع جميع أدوات الغوص
+- الاشتراك في المركز للمدرب والمتدرب 
+- الاشتراك في المسابقات
+- بيع أدوات الغوص
 
 
-- استخدام نمط MVC 
-- إنشاء على الأقل 4 من Controllers
-- إنشاء على الأقل 4 Model 
-- إنشاء على الأقل 6 Views
-    - استخدام مكتبة Bootstrap مع Razor 
-    - استخدام partial view للعناصر المتكررة في الواجهات
-- استخدام وظائف CRUD مع ASP.NET 
-- استخدام إطار عمل Entity Framework Core
-- استخدام CodeFirst Approach لإنشاء قاعدة البيانات
-- استخدام قاعدة بيانات MSSQL 
-    - ان تكون قاعدة البيانات متعددة الجداول
-    - يجب ان تتضمن قاعدة البيانات على الاقل احد العلاقات التالية:
-        - علاقة one-to-one
-        - علاقة one-to-many
-        - علاقة many-to-many
-- تطبيق Authentication 
-- قم بتطبيق Unit Testing على مشروعك
-    
+### Demo  
+[![Demo](Images/Demo/1.png)](https://youtu.be/yzeIFIsOHKE)
+
+ ## Important Links
+
+- [Deployed API](https://rsdc-api.azurewebsites.net)
+- [Deployed Client](https://adelkalu.github.io/RSDC-React/)
+
+### Catalog of Routes
+
+#### User:
+Verb         |	URI Pattern  | Description
+------------ | ------------- |-------------
+POST   | https://localhost:44344/api/register | Sign up
+POST   | https://localhost:44344/api/login | Login
+
+#### Members:
+Verb         |	URI Pattern  | Description
+------------ | ------------- |-------------
+POST   | https://localhost:44344/api/members    | Add new
+GET    | https://localhost:44344/api/members    | Get all  
+GET    | https://localhost:44344/api/members/id | Get specific  
+PUT    | https://localhost:44344/api/members/id | Edit 
+DELETE | https://localhost:44344/api/members/id | Delete 
+
+#### Coaches:
+Verb         |  URI Pattern  | Description
+------------ | ------------- |-------------
+POST   | https://localhost:44344/api/coaches    | Add new
+GET    | https://localhost:44344/api/coaches    | Get all  
+GET    | https://localhost:44344/api/coaches/id | Get specific  
+PUT    | https://localhost:44344/api/coaches/id | Edit 
+DELETE | https://localhost:44344/api/coaches/id | Delete 
+
+#### Types:
+Verb         |  URI Pattern  | Description
+------------ | ------------- |-------------
+POST   | https://localhost:44344/api/types    | Add new
+GET    | https://localhost:44344/api/types    | Get all  
+GET    | https://localhost:44344/api/types/id | Get specific  
+PUT    | https://localhost:44344/api/types/id | Edit 
+DELETE | https://localhost:44344/api/types/id | Delete 
+
+#### Story:
+Verb         |  URI Pattern  | Description
+------------ | ------------- |-------------
+POST   | https://localhost:44344/api/stores    | Add new
+GET    | https://localhost:44344/api/stores    | Get all  
+GET    | https://localhost:44344/api/stores/id | Get specific  
+PUT    | https://localhost:44344/api/stores/id | Edit 
+DELETE | https://localhost:44344/api/stores/id | Delete 
+
+#### Tournaments:
+Verb         |  URI Pattern  | Description
+------------ | ------------- |-------------
+POST   | https://localhost:44344/api/tournaments    | Add new
+GET    | https://localhost:44344/api/tournaments    | Get all  
+GET    | https://localhost:44344/api/tournaments/id | Get specific  
+PUT    | https://localhost:44344/api/tournaments/id | Edit 
+DELETE | https://localhost:44344/api/tournaments/id | Delete 
+
+### Wireframe  
+![](Images/wireframe1.png)
+![](Images/wireframe2.png)
+![](Images/wireframe3.png)
+
+### ERD  
+![](Images/1.png)
+
+### Unit Test
+CRUD working test with database
+
+![](Images/6.png)
+
+### Swagger
+![](Images/7.png)
+![](Images/9.png)
+![](Images/8.png)
 
 
+### Set up  
+### Prerequisites
+- NET 5 
+- ASP.NET MVC
+- Microsoft SQL Server 
 
+### Set up  
+ #### Database
+ ``` dotnet ef database update```
 
+### Front-End-React
+#### Set up and Installation instructions
+You need to add these command in react app:
+1. React Router DOM:
+  ```
+   npm install react-router-dom 
+   ```
+ Add this import in the js file you use it:
+  ```
+ import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+```
 
-إضافة | Bonus 
-- قم باستخدام أحد مفاهيم Design Patterns في مشروعك لحل مشكلةٍ ما
-- إنشاء APIs 
-- عمل Deploy للمشروع على Azure
-- استخدام React مع ASP.NET أو أي Framework 
-- استخدام WebSockets في ASP.NET core
-- التعامل مع الـThird party APIs  {SMS Message, Google Maps,….} 
-    - مصادر للـAPIs
-    - الاول: Any API over 1400 Public APIs: https://any-api.com/
-    - الثاني: API Search: http://apis.io/
-- رفع صور او ملفات 
-    -  باستخدام الـthird-party:
-        - Cloudinary: https://cloudinary.com/
-        -  AWS: https://aws.amazon.com/s3/?nc2=h_ql_prod_st_s3
-    - حفظها  بالـLocal server 
-</div>
+2. Axios:
+  ```
+  npm install axios
+  ```
+ Add this import in the js file you use it:
+  ```
+import axios from 'axios';
+  ```
+
+3. jsonwebtoken:
+  ```
+  npm install jsonwebtoken
+  ```
+ Add this import in the js file you use it:
+  ```
+import { decode } from "jsonwebtoken";
+  ```
+
+4. React-Bootstrap:
+  ```
+  npm install react-bootstrap bootstrap
+  ```
+ Add this import in the index.js:
+  ```
+ import 'bootstrap/dist/css/bootstrap.min.css';
+  ```
+ 
+### Back-End  
+ - ASP.NET MVC
+ - MSSQL Server
+ - EF Core
+ - Type my authentication
+- JWT
+ - Unit Test
+
+### Author
+Adel Kalu
+### License & Resource
+[Asp.Net Core 5 Rest API Step by Step](https://dev.to/moe23/asp-net-core-5-rest-api-step-by-step-2mb6)
+
+[Asp Net Core 5 Rest API Authentication with JWT Step by Step](https://dev.to/moe23/asp-net-core-5-rest-api-authentication-with-jwt-step-by-step-140d)
+
+[Unit Test](https://www.youtube.com/watch?v=ddrR440JtiA&list=LL)

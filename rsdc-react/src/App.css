@@ -1,0 +1,180 @@
+.flip-card {
+  margin-bottom: 150px;
+  margin-right: 50px;
+  background-color: transparent;
+  width: 300px;
+  height: 200px;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  float:left; 
+
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+/* Style the back side */
+.flip-card-back {
+  background-color: dodgerblue;
+  color: white;
+  transform: rotateY(180deg);
+  height: 300px;
+}
+
+.App {
+  text-align: center;
+}
+.table {
+  display:block; 
+}
+.row { 
+  display:block;
+}
+.cell {
+  display:inline-block;
+  margin: 30px;
+}
+.img{
+  width: 80px;
+  height: 40px;
+}
+.img1{
+  float: right;
+  width: 50%;
+  height: 300px;
+}
+
+.img2{
+  float: right;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.q2{
+  background-color: #61dafb;
+  /* background-color: #e6c1a6; */
+  float:left;
+  margin: 50px;
+  margin-left: 25%;
+  padding: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 550px;
+  width: 50%;
+  font-size: 20px;
+  position: relative;
+}
+
+nav{
+  background-color: #fff;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  width: 100%;
+}
+@media only screen and (max-width: 700px) {
+  nav{
+    padding-bottom: 200px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .left{
+    float: left;
+    padding-right: 20px;
+    padding-top: 6px;
+    width: 100%;
+  }
+  .right{
+    float: left;
+    padding-right: 20px;
+    padding-top: 6px;
+    width: 100%;
+  }
+}
+.footer{
+  float: left;
+  background-color: #fff;
+  text-align: center;
+  width: 100%;
+  height: 25px;
+  position: fixed; 
+  bottom:0;
+
+}
+.right{
+  float: right;
+  padding-right: 20px;
+  padding-top: 6px;
+  text-align: center;
+}
+.left{
+  padding-left: 20px;
+  text-align: center;
+}
+
+.contact{
+  margin: 20px;
+}
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
