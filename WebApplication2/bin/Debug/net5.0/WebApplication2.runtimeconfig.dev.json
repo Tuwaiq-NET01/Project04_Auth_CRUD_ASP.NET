@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\sulta\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\sulta\\.nuget\\packages"
+    ]
+  }
+}
