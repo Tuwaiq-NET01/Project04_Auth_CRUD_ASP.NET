@@ -4,14 +4,16 @@ using BlogPlatform.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BlogPlatform.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210616155134_UpdatePersonTable")]
+    partial class UpdatePersonTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -35,9 +37,6 @@ namespace BlogPlatform.Migrations
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("ImageUrl")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -69,40 +68,6 @@ namespace BlogPlatform.Migrations
                     b.ToTable("ArticleTags");
                 });
 
-            modelBuilder.Entity("BlogPlatform.Models.Comment", b =>
-                {
-                    b.Property<int>("CommentId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("ArticleId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("AuthorId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("AuthorId1")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Body")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("CommentId");
-
-                    b.HasIndex("ArticleId");
-
-                    b.HasIndex("AuthorId1");
-
-                    b.ToTable("Comments");
-                });
-
             modelBuilder.Entity("BlogPlatform.Models.Person", b =>
                 {
                     b.Property<string>("Id")
@@ -118,9 +83,6 @@ namespace BlogPlatform.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("DateJoined")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("DisplayName")
                         .HasColumnType("nvarchar(max)");
 
@@ -131,9 +93,6 @@ namespace BlogPlatform.Migrations
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
-
-                    b.Property<string>("ImageUrl")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -355,23 +314,6 @@ namespace BlogPlatform.Migrations
                     b.Navigation("Tag");
                 });
 
-            modelBuilder.Entity("BlogPlatform.Models.Comment", b =>
-                {
-                    b.HasOne("BlogPlatform.Models.Article", "Article")
-                        .WithMany("Comments")
-                        .HasForeignKey("ArticleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("BlogPlatform.Models.Person", "Author")
-                        .WithMany("Comments")
-                        .HasForeignKey("AuthorId1");
-
-                    b.Navigation("Article");
-
-                    b.Navigation("Author");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -426,15 +368,11 @@ namespace BlogPlatform.Migrations
             modelBuilder.Entity("BlogPlatform.Models.Article", b =>
                 {
                     b.Navigation("ArticleTags");
-
-                    b.Navigation("Comments");
                 });
 
             modelBuilder.Entity("BlogPlatform.Models.Person", b =>
                 {
                     b.Navigation("Articles");
-
-                    b.Navigation("Comments");
                 });
 
             modelBuilder.Entity("BlogPlatform.Models.Tag", b =>
