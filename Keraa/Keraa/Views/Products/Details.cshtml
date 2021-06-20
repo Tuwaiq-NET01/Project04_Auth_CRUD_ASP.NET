@@ -1,9 +1,11 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using Keraa.Data
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
 @inject UserManager<ApplicationUser> UserManager
 @{
     var Product = (ProductModel)ViewData["Product"];
-    var token = "";
+    var token = @Configuration["GoogleToken"];
 }
 
 <style>
@@ -139,8 +141,8 @@
                 </form>
             </span>
         }
-<div class="">
-    <img id="cvrImage" src=@Product.CoverImage alt="...">
-</div>
+        <div class="">
+            <img id="cvrImage" src=@Product.CoverImage alt="...">
+        </div>
     </span>
 </center>

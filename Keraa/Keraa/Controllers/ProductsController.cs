@@ -3,6 +3,7 @@ using Keraa.Models;
 using Microsoft.AspNetCore.Identity; // for:_userManager
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,11 +16,13 @@ namespace Keraa.Controllers
 
         private readonly ApplicationDbContext _db;
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly IConfiguration Configuration;
 
-        public ProductsController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
+        public ProductsController(ApplicationDbContext context, UserManager<ApplicationUser> userManager, IConfiguration configuration)
         {
             _db = context;
             _userManager = userManager;
+            Configuration = configuration;
         }
         public IActionResult Index()
         {
@@ -54,7 +57,7 @@ namespace Keraa.Controllers
             if (ModelState.IsValid) //check the state of model
             {
                 var user = await _userManager.GetUserAsync(User);
-                List<string> Coordinate = await Utilities.GetCurrentCoordinates();
+                List<string> Coordinate = await Utilities.GetCurrentCoordinates(Configuration["GoogleToken"]);
                 product.LocationLat = Coordinate[0];
                 product.LocationLng = Coordinate[1];
                 product.OwnerId = user.Id;
