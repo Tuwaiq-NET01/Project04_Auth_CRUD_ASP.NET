@@ -20,23 +20,23 @@ the project provides a service that helps the companies or individuals who organ
 
 
 ##### Prerequisites
-NET 5
-ASP.NET MVC
-Microsoft SQL Server
-JSON Web Token
-Google oAUth Sign-in
-System.Net.Mail Namespace
+
+- ASP.NET MVC
+- Microsoft SQL Server
+- JSON Web Token
+- Google oAUth Sign-in
+- System.Net.Mail Namespace
 ##### Set up
 ##### Database
-MSSQL Server
+- MSSQL Server
 
 ##### Front-End
-CSS
-JS
-React library 
-Bootstrap
-Back-End
-ASP.NET MVC
+- CSS
+- JS
+- React library 
+- Bootstrap
+- Back-End
+- ASP.NET MVC
 
 EF Core
 ##### Author
