@@ -4,6 +4,15 @@
 the project provides a service that helps the companies or individuals who organize tours, they can manage tours online and the tourists also can book tours online. 
  
 ##### Demo
+![home](https://user-images.githubusercontent.com/82495629/122665035-9d16da00-d1ad-11eb-8db4-acfcfa37ad3f.PNG)
+![signup](https://user-images.githubusercontent.com/82495629/122665039-a56f1500-d1ad-11eb-9ff5-354ae28a4668.PNG)
+![login](https://user-images.githubusercontent.com/82495629/122665044-ac962300-d1ad-11eb-8d2f-71ccf39483a9.PNG)
+![dashboard](https://user-images.githubusercontent.com/82495629/122665046-b0c24080-d1ad-11eb-8ba1-591a018fe0df.PNG)
+![Capture](https://user-images.githubusercontent.com/82495629/122665054-bddf2f80-d1ad-11eb-8534-bd16bb1c1998.PNG)
+![update](https://user-images.githubusercontent.com/82495629/122665058-c172b680-d1ad-11eb-8031-ce60ef73aa5d.PNG)
+![book2](https://user-images.githubusercontent.com/82495629/122665065-cdf70f00-d1ad-11eb-9341-235cec7af882.PNG)
+
+
 ##### Wireframe
 ##### Set up
 ##### Prerequisites
