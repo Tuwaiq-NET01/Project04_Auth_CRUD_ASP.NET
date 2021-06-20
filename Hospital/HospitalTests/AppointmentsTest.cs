@@ -19,21 +19,21 @@ namespace HospitalTests
             var options = new DbContextOptionsBuilder<ApplicationDbContext>().UseInMemoryDatabase("HospitalDatabase").Options;
             _db = new ApplicationDbContext(options);
 
-            /*DateTime date = new DateTime(2021, 06, 25, 0, 0, 0);
-            DateTime time = new DateTime(0000, 00, 00, 16, 30, 0);
+            DateTime date = new DateTime(2021, 06, 25, 0, 0, 0);
+            DateTime time = new DateTime(0001, 01, 01, 16, 30, 0);
             var appointment1 = new Appointment
             {
                 Id = 12,
-                PatientId=1,
-                DoctorId=4,
-                Speciality= "Dentist",
-                Date=date,
-                Time=time
+                PatientId = 1,
+                DoctorId = 4,
+                Speciality = "Dentist",
+                Date = date,
+                Time = time
 
             };
 
             this._db.Appointments.Add(appointment1);
-            this._db.SaveChanges();*/
+            this._db.SaveChanges();
         }
 
         [Test]
@@ -43,7 +43,7 @@ namespace HospitalTests
             var result = controller.Index() as ViewResult;
             var appointments = result.ViewData["Appointments"] as List<Appointment>;
 
-            Assert.AreEqual(appointments.Count, 0);
+            Assert.AreEqual(appointments[0].Speciality, "Dentist");
             Assert.Pass();
         }
     }

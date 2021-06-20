@@ -30,9 +30,9 @@ namespace HospitalTests
         {
             var controller = new Doctors(this._db);
             var result = controller.Index() as ViewResult;
-            var appointments = result.ViewData["Doctors"] as List<Doctor>;
+            var Doc = result.ViewData["Doctors"] as List<Doctor>;
 
-            Assert.AreEqual(appointments.Count, 0);
+            Assert.AreEqual(Doc.Count, 0);
             Assert.Pass();
         }
     }
