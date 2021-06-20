@@ -80,6 +80,7 @@ namespace WEBv3.Controllers
         }
 
 
+        [Authorize]
 
         // PUT: api/Tours/5
         [Route("aprove/{id}")]

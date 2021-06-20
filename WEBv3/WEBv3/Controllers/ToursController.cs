@@ -78,6 +78,7 @@ namespace WEBv3.Controllers
 */
 
         // GET: api/Tours/5
+           [Authorize]
 
         [HttpGet("{id:int}")]
         public async Task<ActionResult<Tour>> GetOne([FromRoute] int id)
@@ -110,6 +111,7 @@ namespace WEBv3.Controllers
 
 
 
+        [Authorize]
 
         // PUT: api/Tours/5
         [HttpPut("{id}")]
@@ -166,12 +168,13 @@ Food */
 
         }
 
-        
 
 
 
 
 
+
+        [Authorize]
 
         // POST: api/Tours
         [HttpPost]
@@ -188,6 +191,7 @@ Food */
 
 
 
+        [Authorize]
 
 
         // DELETE: api/Tours/5

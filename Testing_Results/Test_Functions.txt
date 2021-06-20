@@ -1,0 +1,61 @@
+
+I used Postman Test for my project since the controllers are API and the response usually status with JSON body or not it depends on the situation.
+
+
+
+________________________________________________________________________________________-
+https://localhost:44364/api/Auth/register
+
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+
+pm.test("Response time is less than 200ms", function () {
+    pm.expect(pm.response.responseTime).to.be.below(500);
+});
+pm.test("Successful POST request", function () {
+    pm.expect(pm.response.code).to.be.oneOf([200, 202]);
+});
+-------------------------------------------------------------------------------------
+
+
+
+https://localhost:44364/api/AllTours
+
+
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+pm.environment.get("variable_key");
+
+pm.test("Successful POST request", function () {
+    pm.expect(pm.response.code).to.be.oneOf([200,200]);
+});
+
+-----------------------------------------------------------------------------------------
+
+https://localhost:44364/api/Tours
+pm.test("Response time is less than 200ms", function () {
+    pm.expect(pm.response.responseTime).to.be.below(500);
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(401);
+});
+});
+
+__________________________________________________________________________________________
+https://localhost:44364/api/Tours   
+
+pm.test("Successful POST request", function () {
+    pm.expect(pm.response.code).to.be.oneOf([200, 202]);
+});
+pm.environment.get("variable_key");
+__________________________________________________________________________________________
+
+https://localhost:44364/api/Tours
+
+
+pm.test("Successful POST request", function () {
+    pm.expect(pm.response.code).to.be.oneOf([400, 401]);
+});
+pm.environment.get("variable_key");

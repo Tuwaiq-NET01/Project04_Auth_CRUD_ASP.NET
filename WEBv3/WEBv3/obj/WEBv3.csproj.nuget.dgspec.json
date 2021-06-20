@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\rhm30\\OneDrive\\Desktop\\Tuwiq\\ASP.NET\\PROJECTS\\Project_04\\original_version_pro4-main\\WEBv3\\WEBv3\\WEBv3.csproj": {}
+    "C:\\Users\\rhm30\\OneDrive\\Desktop\\Tuwiq\\ASP.NET\\PROJECTS\\ForSubmission\\Project04_Auth_CRUD_ASP.NET\\WEBv3\\WEBv3\\WEBv3.csproj": {}
   },
   "projects": {
-    "C:\\Users\\rhm30\\OneDrive\\Desktop\\Tuwiq\\ASP.NET\\PROJECTS\\Project_04\\original_version_pro4-main\\WEBv3\\WEBv3\\WEBv3.csproj": {
+    "C:\\Users\\rhm30\\OneDrive\\Desktop\\Tuwiq\\ASP.NET\\PROJECTS\\ForSubmission\\Project04_Auth_CRUD_ASP.NET\\WEBv3\\WEBv3\\WEBv3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rhm30\\OneDrive\\Desktop\\Tuwiq\\ASP.NET\\PROJECTS\\Project_04\\original_version_pro4-main\\WEBv3\\WEBv3\\WEBv3.csproj",
+        "projectUniqueName": "C:\\Users\\rhm30\\OneDrive\\Desktop\\Tuwiq\\ASP.NET\\PROJECTS\\ForSubmission\\Project04_Auth_CRUD_ASP.NET\\WEBv3\\WEBv3\\WEBv3.csproj",
         "projectName": "WEBv3",
-        "projectPath": "C:\\Users\\rhm30\\OneDrive\\Desktop\\Tuwiq\\ASP.NET\\PROJECTS\\Project_04\\original_version_pro4-main\\WEBv3\\WEBv3\\WEBv3.csproj",
+        "projectPath": "C:\\Users\\rhm30\\OneDrive\\Desktop\\Tuwiq\\ASP.NET\\PROJECTS\\ForSubmission\\Project04_Auth_CRUD_ASP.NET\\WEBv3\\WEBv3\\WEBv3.csproj",
         "packagesPath": "C:\\Users\\rhm30\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rhm30\\OneDrive\\Desktop\\Tuwiq\\ASP.NET\\PROJECTS\\Project_04\\original_version_pro4-main\\WEBv3\\WEBv3\\obj\\",
+        "outputPath": "C:\\Users\\rhm30\\OneDrive\\Desktop\\Tuwiq\\ASP.NET\\PROJECTS\\ForSubmission\\Project04_Auth_CRUD_ASP.NET\\WEBv3\\WEBv3\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\rhm30\\AppData\\Roaming\\NuGet\\NuGet.Config",

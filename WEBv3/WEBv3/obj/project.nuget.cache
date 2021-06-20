@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aBFJD6OWQDrsAXk/l7kGykh8SC3Y6PlFtf2fnuOSjQaZLo4ZbINNnv9Lbod1CCOD9WLtKgkjqAgNApykC4tKhg==",
+  "dgSpecHash": "/GhyEzcLdCVFmJKtRoj/8Vw+ZVcnN2bu+GhwJZgPKh3gOPXhUXili9N7J5IcwND73JsIRZjwaSwTnve3o6Wvww==",
   "success": true,
-  "projectFilePath": "C:\\Users\\rhm30\\OneDrive\\Desktop\\Tuwiq\\ASP.NET\\PROJECTS\\Project_04\\original_version_pro4-main\\WEBv3\\WEBv3\\WEBv3.csproj",
+  "projectFilePath": "C:\\Users\\rhm30\\OneDrive\\Desktop\\Tuwiq\\ASP.NET\\PROJECTS\\ForSubmission\\Project04_Auth_CRUD_ASP.NET\\WEBv3\\WEBv3\\WEBv3.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\rhm30\\.nuget\\packages\\coverlet.collector\\3.0.3\\coverlet.collector.3.0.3.nupkg.sha512",
     "C:\\Users\\rhm30\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

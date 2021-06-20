@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace WEBv3.Controllers
 {
 
-  //  [Authorize]
+   [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class TourBookings : ControllerBase
