@@ -1,0 +1,26 @@
+﻿
+@section Scripts {
+    <partial name="_MyLayoutPartial" />
+}
+<h1>ContactUs</h1>
+
+<form asp-action="Create" method="post" class="form-horizantal">
+
+
+    <div class="form-group">
+        <label>Email</label>
+        <div>
+            <input type="text" value="Email@email.com" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>What in you're mind</label>
+        <div>
+            <textarea></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn-btn-primary" value="Send" />
+    </div>
+</form>

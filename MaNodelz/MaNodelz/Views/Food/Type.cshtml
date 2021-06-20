@@ -1,27 +1,47 @@
-﻿@model FoodModel
-
+﻿
+@{ List<FoodModel> food = (List<FoodModel>)ViewData["TypeMatch"];
+    List<FavoriteModel> fav = (List<FavoriteModel>)ViewData["Fav"];
+    FoodModel food1 = (FoodModel)ViewData["TypeMatchs"];
+}
 @{
     ViewData["Title"] = "Details";
+
 }
+<style>
+    .card-m {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-gap: .3rem;
+    }
+</style>
 
-<h1>@Model.FoodType</h1>
+<h1>@food1.FoodType</h1>
 
-<div>
-    <h4>Merchent</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.FoodName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.FoodImage)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.FoodTobePrepared)
-        </dt>
-    </dl>
+
+<br />
+<br />
+
+<div class="card-m">
+    @foreach (FoodModel prd in food)
+    {
+        <div class="card" style="width: 18rem;">
+            <a asp-controller="Food" asp-action="Details" asp-route-id="@prd.Id"><img class="card-img-top" src="@prd.FoodImage" /> </a>
+            <div class="card-body">
+                <h5 class="card-title">@prd.FoodName</h5>
+                <h4>Type of the Food: <a asp-controller="Food" asp-action="Type" asp-route-type="@prd.FoodType">@prd.FoodType</a></h4>
+                <div style="display:flex; left:100%">
+                    <form asp-controller="Favorite" asp-action="AddToFavCart" asp-route-id="@prd.Id" method="post" class="form-horizantal">
+                        <input type="submit" class="btn btn-danger" value="Favorite" />
+                    </form>
+                    <a class="btn btn-dark" asp-controller="Food" asp-action="Edit" asp-route-id="@prd.Id">Edit</a>
+                    <form method="post" asp-controller="Food" asp-action="Delete" asp-route-id="@prd.Id">
+                        <input type="submit" value="Delete" class="btn btn-dark" />
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    }
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+
+

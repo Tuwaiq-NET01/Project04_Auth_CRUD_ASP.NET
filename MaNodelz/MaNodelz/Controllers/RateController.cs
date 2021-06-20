@@ -10,7 +10,7 @@ namespace MaNodelz.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            return RedirectToAction("Details", "Food");
         }
     }
 }

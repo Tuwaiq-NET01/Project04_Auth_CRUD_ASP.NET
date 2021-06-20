@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.31129.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaNodelz", "MaNodelz\MaNodelz.csproj", "{D3874EC6-71BE-4163-9E37-D25BDC89AEF4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaNodelzTest", "MaNodelzTest\MaNodelzTest.csproj", "{DECA4B5D-8381-4421-BC4A-8442F1DEAB6D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{D3874EC6-71BE-4163-9E37-D25BDC89AEF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3874EC6-71BE-4163-9E37-D25BDC89AEF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D3874EC6-71BE-4163-9E37-D25BDC89AEF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DECA4B5D-8381-4421-BC4A-8442F1DEAB6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DECA4B5D-8381-4421-BC4A-8442F1DEAB6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DECA4B5D-8381-4421-BC4A-8442F1DEAB6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DECA4B5D-8381-4421-BC4A-8442F1DEAB6D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

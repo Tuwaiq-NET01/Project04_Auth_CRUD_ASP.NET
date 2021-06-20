@@ -104,6 +104,74 @@ namespace MaNodelz.Migrations
                     b.HasIndex("FoodId");
 
                     b.ToTable("Comments");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Content = "The dish was amazing",
+                            FoodId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Content = "Dude it's NARUTO'S NODELZZZ OMGGG",
+                            FoodId = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Content = "The dish was amazing",
+                            FoodId = 4
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Content = "The dish was amazing",
+                            FoodId = 5
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Content = "The dish was amazing",
+                            FoodId = 6
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Content = "The dish was amazing",
+                            FoodId = 7
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Content = "The dish was amazing",
+                            FoodId = 8
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Content = "The dish was amazing",
+                            FoodId = 9
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Content = "The dish was amazing",
+                            FoodId = 10
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Content = "The dish was amazing",
+                            FoodId = 10
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Content = "The dish was amazing",
+                            FoodId = 12
+                        });
                 });
 
             modelBuilder.Entity("MaNodelz.Models.FavoriteModel", b =>
@@ -167,6 +235,37 @@ namespace MaNodelz.Migrations
                             FoodTobePrepared = new TimeSpan(0, 0, 20, 10, 0),
                             FoodType = "Nodelz"
                         });
+                });
+
+            modelBuilder.Entity("MaNodelz.Models.RateModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("FoodId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("NumberOfRatesOnFood")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("RateByuser")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("TotalRate")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FoodId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Rate");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<int>", b =>
@@ -323,7 +422,26 @@ namespace MaNodelz.Migrations
                         .IsRequired();
 
                     b.HasOne("MaNodelz.ApplicationUser", "User")
+                        .WithMany("Favorites")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Food");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("MaNodelz.Models.RateModel", b =>
+                {
+                    b.HasOne("MaNodelz.Models.FoodModel", "Food")
                         .WithMany()
+                        .HasForeignKey("FoodId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MaNodelz.ApplicationUser", "User")
+                        .WithMany("Rate")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -382,6 +500,13 @@ namespace MaNodelz.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("MaNodelz.ApplicationUser", b =>
+                {
+                    b.Navigation("Favorites");
+
+                    b.Navigation("Rate");
                 });
 
             modelBuilder.Entity("MaNodelz.Models.FoodModel", b =>

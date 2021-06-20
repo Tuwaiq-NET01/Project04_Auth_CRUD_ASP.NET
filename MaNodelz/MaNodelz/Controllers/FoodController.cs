@@ -26,14 +26,21 @@ namespace MaNodelz.Controllers
             
         }
 
+        // GET: /Food/Type/?type=""
         public IActionResult Type (string? type="")
         {
             if (string.IsNullOrWhiteSpace(type))
             {
                 throw new ArgumentException($"'{nameof(type)}' cannot be null or whitespace.", nameof(type));
             }
+            var TypeMatchs = _db.Food.ToList().Find(details => details.FoodType == type);
+            if (type == null || TypeMatchs == null)
+            {
+                return View("_NotFound");
+            }
+            ViewData["TypeMatchs"] = TypeMatchs;
 
-            var TypeMatch = _db.Food.ToList().Find(details => details.FoodType == type);
+            var TypeMatch = _db.Food.ToList().FindAll(details => details.FoodType == type);
             if (type == null || TypeMatch == null)
             {
                 return View("_NotFound");
@@ -42,14 +49,18 @@ namespace MaNodelz.Controllers
             return View(TypeMatch);
         }
 
-        // GET: /Merchents/id
+        // GET: /Food/id
         public IActionResult Details(int? id)
         {
+            var commentsDetails = _db.Comments.ToList().Find(commentsDetails => commentsDetails.Id == id);
             var details = _db.Food.ToList().Find(details => details.Id == id);
             if (id == null || details == null)
             {
                 return View("_NotFound");
             }
+            var comments = _db.Comments.ToList().FindAll(commentsDetails => commentsDetails.FoodId == id);
+            ViewData["comments"] = comments;
+            ViewData["CDetails"] = commentsDetails;
             ViewData["Details"] = details;
             return View(details);
         }
@@ -93,7 +104,7 @@ namespace MaNodelz.Controllers
             return RedirectToAction("Index");
         }
 
-        // POST - /Appointments/delete/id
+        // POST - /Food/delete/id
         [HttpPost]
         public IActionResult Delete(int id)
         {

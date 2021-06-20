@@ -168,3 +168,6 @@ D:\Tuwaiq\AspDotNet\Project04_Auth_CRUD_ASP.NET\MaNodelz\MaNodelz\obj\Debug\net5
 D:\Tuwaiq\AspDotNet\Project04_Auth_CRUD_ASP.NET\MaNodelz\MaNodelz\obj\Debug\net5.0\Razor\Views\Food\Edit.cshtml.g.cs
 D:\Tuwaiq\AspDotNet\Project04_Auth_CRUD_ASP.NET\MaNodelz\MaNodelz\obj\Debug\net5.0\Razor\Views\Food\Type.cshtml.g.cs
 D:\Tuwaiq\AspDotNet\Project04_Auth_CRUD_ASP.NET\MaNodelz\MaNodelz\obj\Debug\net5.0\MaNodelz.csprojAssemblyReference.cache
+D:\Tuwaiq\AspDotNet\Project04_Auth_CRUD_ASP.NET\MaNodelz\MaNodelz\obj\Debug\net5.0\Razor\Views\Favorite\AddToFavCart.cshtml.g.cs
+D:\Tuwaiq\AspDotNet\Project04_Auth_CRUD_ASP.NET\MaNodelz\MaNodelz\obj\Debug\net5.0\Razor\Views\Shared\_MyLayoutPartial.cshtml.g.cs
+D:\Tuwaiq\AspDotNet\Project04_Auth_CRUD_ASP.NET\MaNodelz\MaNodelz\obj\Debug\net5.0\Razor\Views\ContactUs\Index.cshtml.g.cs

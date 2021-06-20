@@ -1,48 +1,51 @@
-﻿@model FoodModel
+﻿@*@model FoodModel*@
+@*@model CommentModel*@
 
 @{
     ViewData["Title"] = "Details";
+    FoodModel food1 = (FoodModel)ViewData["Details"];
+    List<CommentModel> c = (List<CommentModel>)ViewData["comments"];
+    CommentModel comments = (CommentModel)ViewData["CDetails"];
+    var space = "\t";
 }
 
-<h1>Details</h1>
+<h2>@food1.FoodName</h2>
 
-<div>
-    <h4>Merchent</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.FoodName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.FoodName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.FoodDescription)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.FoodDescription)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.FoodImage)
-        </dt>
-        <dd class="col-sm-10">
-            <img src="@Html.DisplayFor(model => model.FoodImage)" /> 
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.FoodType)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.FoodType)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.FoodTobePrepared)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.FoodTobePrepared)
-        </dd>
-    </dl>
+<hr/>    
+<br />
+<div style=" display:grid; grid-template-columns: 3fr 1fr 1fr; grid-gap: .1rem">
+    <div style=" padding-left:.5em;">
+        <figure class="figure">
+            <img style=" height:20em; width:30em " src="@food1.FoodImage" class="figure-img img-fluid rounded" alt="@food1.FoodName">
+        </figure>
+    </div>
+    <div style=" padding-left:.5em; margin-left:3rem">
+        <h4>@space Food Type:</h4>
+        <p style="width:20em">
+            @food1.FoodType
+        </p>
+        <h4>@space Food Description:</h4>
+        <p style="width:20em">
+            @food1.FoodDescription
+        </p>
+        <h4>@space Time it takes to make the dish prepared: </h4>
+        <p>@food1.FoodTobePrepared</p>
+    </div>
+    <div style=" padding-left:.1em">
+        <h3>@space Comments:</h3>
+       
+    <ul>
+        @if (comments.Id == food1.Id)
+            {
+                foreach (CommentModel cmt in c) { <li style="width:20em">@cmt.Content</li>}
+            
+}
+        else
+        {
+            <li style="width:20em">No Comments yet on this Food</li>
+        }
+    </ul>
+    </div>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+<br />
+<br />

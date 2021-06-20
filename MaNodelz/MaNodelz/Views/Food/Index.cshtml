@@ -1,4 +1,15 @@
-﻿   @{ List<FoodModel> food = (List<FoodModel>)ViewData["Food"]; }
+﻿@{ List<FoodModel> food = (List<FoodModel>)ViewData["Food"];
+    FavoriteModel fav = (FavoriteModel)ViewData["TypeMatchs"];
+
+}
+<style>
+    .card-m {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-gap: .3rem;
+    }
+
+</style>
 
 <h2>Behold the Yummy dishes</h2>
 
@@ -7,7 +18,40 @@
 <br />
 <br />
 <a class=" btn btn-dark" asp-controller="Food" asp-action="Create" asp-route-id="">Add</a>
-<table style="width:100%; align-content:center" class="table table table-striped ">
+<div class="card-m" >
+    @foreach (FoodModel prd in food)
+    {
+        <div class="card" style="width: 18rem;">
+            <a asp-controller="Food" asp-action="Details" asp-route-id="@prd.Id"><img class="card-img-top" src="@prd.FoodImage" /> </a>
+            <div class="card-body">
+                <h5 class="card-title">@prd.FoodName</h5>
+                <h4>Type of the Food: <a asp-controller="Food" asp-action="Type" asp-route-type="@prd.FoodType">@prd.FoodType</a></h4>
+                <div style="display:flex; right:80%; top:80%">
+                    <form  asp-controller="Favorite"  asp-action="AddToFavCart"asp-route-id="@prd.Id" method="post" class="form-horizantal">
+                        <input type="submit" class="btn btn-danger" value="Favorite" />
+                    </form>
+                        <a class="btn btn-dark" asp-controller="Food" asp-action="Edit" asp-route-id="@prd.Id">Edit</a>
+                        <form method="post" asp-controller="Food" asp-action="Delete" asp-route-id="@prd.Id">
+                            <input type="submit" value="Delete" class="btn btn-dark" />
+                        </form>
+                </div>
+
+            </div>
+        </div>
+    }
+</div>
+
+
+
+
+
+
+
+
+
+
+
+@*<table style="width:100%; align-content:center" class="table table table-striped ">
     <thead class="thead-dark " style=" align-content:center">
         <tr>
             <th>ID</th>
@@ -36,4 +80,4 @@
 
     }
 </table>
-
+*@

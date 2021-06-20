@@ -19,22 +19,22 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Food" asp-action="Index">What we Have</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Food" asp-action="Type" asp-route-type="Nodelz">Nodelz</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Type" asp-route-type="Chinese">Chinese</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Food" asp-action="Type" asp-route-type="Chinese">Chinese</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Type" asp-route-type="Japanese">Jpanese</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Food" asp-action="Type" asp-route-type="Japanese">Jpanese</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Favorite" asp-action="AddToFavCart">Favorite</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="ContactUs" asp-action="Index">ContactUs</a>
                         </li>
                     </ul>
                     <partial name="_LoginPartial" />
