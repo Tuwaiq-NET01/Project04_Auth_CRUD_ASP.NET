@@ -47,6 +47,7 @@ You can view the application's wireframe <a href="https://imgur.com/a/GEeGkqV" r
  - Microsoft SQL Server
  - Google Maps API
  - EF Core
+ - ASP.NET Identity
  
 ### Author
 Reema Ibrahim Alyousef
