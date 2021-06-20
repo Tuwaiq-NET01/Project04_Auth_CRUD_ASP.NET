@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAMp/G+yWuFUK9C9zOvC0IoAAAAAACAAAAAAAQZgAAAAEAACAAAAB8SsiK6ubcdbTDSmpZLsXL8xf1sKiw7H8Q3OPlywOW7gAAAAAOgAAAAAIAACAAAACFkoCX13YgHV74rQxInnX8zpRTFb49FY4jIyYTMyPh4YAAAAASdrrFLSB8EhX0K0mfEkdBrq1xZzaEdbhil6iJOU4G31/kUbKesVY+jaIaWd0sD+USUTcrXtAZVX4twr5Kj8FNrgCaS5r0qULDUAJ2dWAqhQQvcvDBjnTftHobn9P7DXw5nxB6iFPPhD6Xy+Wi8srwjyenWOfMRH07MCMdxtQSW0AAAADsd9YmoBcH2CYHQb0LwSrpbAKebM8JNgmRXABxsyBgLZXegrWu1wqrATcZTyplSMMoW3q5EUzAD9rk+SIxbuGX</EncryptedPassword>
+    <History>True|2021-06-20T00:52:39.3030788Z;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Data Source=tcp:techme-dashboarddbserver.database.windows.net,1433%3bInitial Catalog=TechME_Dashboard_db%3bUser Id=Rahaf%40techme-dashboarddbserver%3bPassword=Rr123456#</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="TechME_Dashboard.Data.TechMEDbContext">
+      <Value>Data Source=tcp:techme-dashboarddbserver.database.windows.net,1433%3bInitial Catalog=TechME_Dashboard_db%3bUser Id=Rahaf%40techme-dashboarddbserver%3bPassword=Rr123456#</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

@@ -12,6 +12,7 @@
         <tr>
             <th scope="col">Course ID</th>
             <th scope="col">Course Name</th>
+            <th scope="col"> Instructor Name </th>
             <th scope="col">Detail   </th>
             <th scope="col"> Edit    </th>
             <th scope="col"> Delate   </th>
@@ -28,12 +29,14 @@
           <tr>
             <th scope="row">@course.Course_ID</th>
             <td>@course.Course_Name</td>
+              <td>@course.Instructor.Instructor_Name</td>
             <td><button type="button" class="btn btn-dark"><a style="color:white" href="/Courses/Details/@course.Course_ID"> SHOW </a></button></td>
             <td><button type="button" class="btn btn-dark"><a style="color:white" href="/Courses/Edit/@course.Course_ID"> Edit </a></button></td>
             <td>
             <form method="post" asp-action="Delete" asp-controller="Courses" asp-route-id="@course.Course_ID">
             <input type="submit" style="color:white" class="btn btn-dark" value="Delete" />
-                    </form>
+                    
+            </form>
            </td>
           </tr>
           }

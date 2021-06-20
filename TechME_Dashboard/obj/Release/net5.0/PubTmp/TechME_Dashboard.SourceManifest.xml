@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sitemanifest>
+  <IisApp path="C:\Users\hiro1\Desktop\Project04_Auth_CRUD_ASP.NET\TechME_Dashboard\obj\Release\net5.0\PubTmp\Out\" />
+  <dbfullsql path="C:\Users\hiro1\Desktop\Project04_Auth_CRUD_ASP.NET\TechME_Dashboard\obj\Release\net5.0\PubTmp\EFSQLScripts\TechME_Dashboard.Data.TechMEDbContext.sql" />
+</sitemanifest>

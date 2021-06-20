@@ -10,7 +10,7 @@ using TechME_Dashboard.Models;
 
 namespace TechME_Dashboard.Controllers
 {
-    [Authorize(Roles = "User")]
+    [Authorize]
 
     public class ContactsController : Controller
     {

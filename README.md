@@ -4,11 +4,17 @@
 #  <div dir="rtl" align="Center" > اسم التطبيق | (TechME Dashbord)  </div>
   .......
 ### المقدمــة | Introduction 
+  فكرة هذا الموقع عبارة عن لوحة تحكم يقوم بادارتها المستخدم  من خلال حذف واضافة وتعديل المعلومات على  الجداول  .
  ......
-### Demo  
+### Demo
+https://techmedashboard.azurewebsites.net/  
  .....
 ### Wireframe  
- .....   
+ ...
+ <Img src="Image from iOS.jpg"> wirefram..
+  <Img src="Image from iOS (1).jpg"> ER Diagram  .. 
+ 
+
 ### Set up  
 ### Prerequisites
 - NET 5 
@@ -28,7 +34,8 @@
  - MSSQL Server
  - EF Core
 ### Author
- ..... 
+ 
+رهف القحطاني 
 ### License & Resource
  .....
 </div>

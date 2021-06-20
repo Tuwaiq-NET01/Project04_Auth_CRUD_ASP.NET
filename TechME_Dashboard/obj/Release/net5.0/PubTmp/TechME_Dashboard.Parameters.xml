@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="TechMEDashboard" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\hiro1\\Desktop\\Project04_Auth_CRUD_ASP\.NET\\TechME_Dashboard\\obj\\Release\\net5\.0\\PubTmp\\Out\\$" />
+  </parameter>
+  <parameter name="TechME_Dashboard.Data.TechMEDbContext" description="" value="Data Source=tcp:techme-dashboarddbserver.database.windows.net,1433;Initial Catalog=TechME_Dashboard_db;User Id=Rahaf@techme-dashboarddbserver;Password=Rr123456#" tags="dbfullsql">
+    <parameterEntry kind="ProviderPath" scope="dbfullsql" match="^C:\\Users\\hiro1\\Desktop\\Project04_Auth_CRUD_ASP\.NET\\TechME_Dashboard\\obj\\Release\\net5\.0\\PubTmp\\EFSQLScripts\\TechME_Dashboard\.Data\.TechMEDbContext\.sql$" />
+  </parameter>
+</parameters>

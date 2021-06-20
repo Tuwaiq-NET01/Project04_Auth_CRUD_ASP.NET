@@ -1,5 +1,7 @@
 ﻿
-
+@{
+    ViewData["Title"] = "Home Page";
+}
 
 <div class="text-center">
 
@@ -20,7 +22,7 @@
 ">
                 <div class="thumbnail"><img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c3R1ZGVudHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" /></div>
                 <h1 class="title"> <a asp-controller="Trainees" asp-action="Index"> Trainees's Dashbord. </a>  </h1>
-               @* <p class="description">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>*@
+                @* <p class="description">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>*@
             </div>
             <div class="product" product-id="4" product-color="#E9967A">
                 <div class="thumbnail"><img src="https://images.unsplash.com/photo-1557200134-90327ee9fafa?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGNvbnRhY3QlMjB1c3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" /></div>
@@ -29,9 +31,13 @@
             </div>
             <div class="product" product-id="6" product-color="#00008B">
                 <div class="thumbnail"><img src="https://images.pexels.com/photos/5989943/pexels-photo-5989943.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" /></div>
-                <h1 class="title"> <a class="nav-link " asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Admin Profile:
-                    <br>@User.Identity.Name!</a> </h1>
-               @* <p class="description">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>*@
+                <h1 class="title">
+                    <a class="nav-link " asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">
+                        Admin Profile:
+                        <br>@User.Identity.Name!
+                    </a>
+                </h1>
+                @* <p class="description">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>*@
             </div>
             <div class="product" product-id="5" product-color="#5F9EA0">
                 <div class="thumbnail"><img src="https://images.unsplash.com/photo-1606857521015-7f9fcf423740?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8b2ZmaWNlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" /></div>

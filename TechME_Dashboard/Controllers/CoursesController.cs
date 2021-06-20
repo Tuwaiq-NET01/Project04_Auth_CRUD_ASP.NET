@@ -38,15 +38,17 @@ namespace TechME_Dashboard.Controllers
 
         // GET: course/ID
         [HttpGet]
-        public IActionResult Details(int? ID)
+        public IActionResult Details(int? ID ,InstructorModel Inst)
         {
+            var Instructor = _db.Instructor.ToList().Find(Instructor => Instructor.Instructor_ID == ID);
             var Course = _db.Course.ToList().Find(Course => Course.Course_ID == ID);
             if (ID == null || Course == null)
             {
                 return View("_NotFound");
             }
+            ViewData["Instructor"] = Course;
             ViewData["Course"] = Course;
-            return View(Course);
+            return View(Course );
 
         }
 
@@ -56,14 +58,14 @@ namespace TechME_Dashboard.Controllers
         {
             return View();
         }
-        public void CreateCourse (CourseModel Course)
+    /*    public void CreateCourse (CourseModel Course)
         {
             if (ModelState.IsValid)
             {
                 _db.Course.Add(Course);
                 _db.SaveChanges();         
             }
-           }
+           }*/
 
         //POST - /Courses/create
         [HttpPost]
@@ -73,7 +75,7 @@ namespace TechME_Dashboard.Controllers
             {
                 /*_db.Course.Add(Courses);
                 _db.SaveChanges();*/
-                CreateCourse(Courses);
+              /*  CreateCourse(Courses);*/
                 return RedirectToAction("Course");
 
             }
