@@ -10,11 +10,13 @@ the project provides a service that helps the companies or individuals who organ
 ![dashboard](https://user-images.githubusercontent.com/82495629/122665046-b0c24080-d1ad-11eb-8ba1-591a018fe0df.PNG)
 ![Capture](https://user-images.githubusercontent.com/82495629/122665054-bddf2f80-d1ad-11eb-8534-bd16bb1c1998.PNG)
 ![update](https://user-images.githubusercontent.com/82495629/122665058-c172b680-d1ad-11eb-8031-ce60ef73aa5d.PNG)
+![Capture1111](https://user-images.githubusercontent.com/82495629/122665121-16163180-d1ae-11eb-960e-043b45232a79.PNG)
+
 ![book2](https://user-images.githubusercontent.com/82495629/122665065-cdf70f00-d1ad-11eb-9341-235cec7af882.PNG)
 
 
-##### Wireframe
-##### Set up
+
+
 ##### Prerequisites
 NET 5
 ASP.NET MVC
