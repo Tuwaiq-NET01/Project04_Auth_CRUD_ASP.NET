@@ -110,7 +110,7 @@ namespace WEBv3.Controllers
             client.Host = "smtp.gmail.com";
             client.Port = 587; //25           
             client.UseDefaultCredentials = false;
-            System.Net.NetworkCredential basicCredential1 = new System.Net.NetworkCredential("rhmbooking123@gmail.com", "98d39sdK@000");
+            System.Net.NetworkCredential basicCredential1 = new System.Net.NetworkCredential("rhmbooking123@gmail.com", "");
             client.Credentials = basicCredential1;
             try
             {
