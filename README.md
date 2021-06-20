@@ -11,7 +11,7 @@
  كراء هو تطبيق لجميع فئات المجتمع. حيث في كراء يوجد جميع المستلزمات الجاهزة للإجار. فبإمكانك استئجار ما يلزمك لفترة محددة دون التورط بشراء منتجد جديد, والذي بدورة قد لا يلزمك إلا لعدة مرات. بالإضافة الي مقدرتك بالتسجيل في الموقع وعرض منتجاتك!
     في كراء: استأجر  وأجّر.. وأيضا تواصل مع الاخرين! يوجد خاصية التواصل مع ممتلكي المنتجات بشكل خاص ودون توقف! 
  ### Demo  
- .....
+ ![Demo](https://github.com/1Riyad/Project04_Auth_CRUD_ASP.NET/blob/main/Keraa/IMGs/Demo.gif)
 ### Wireframe  
 <a href="https://github.com/1Riyad/Project04_Auth_CRUD_ASP.NET/tree/main/Keraa/IMGs">Can be found here</a> 
 ### Set up  
