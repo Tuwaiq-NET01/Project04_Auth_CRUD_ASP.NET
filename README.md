@@ -1,8 +1,11 @@
 <div dir="rtl" align="right" >
+  
 ![Tuwaiq](https://i.ibb.co/SV2BSn5/tuwaiq.png)
+  
 ----
-# (App_Name) | اسم التطبيق
-  Hospital
+  
+# Hospital : اسم التطبيق
+  
 ### المقدمــة | Introduction 
  عبارة عن قاعدة بيانات لمستشفى ويتم عن طريقها إدارة ملفات الأطباء والمرضى وجدولة المواعيد
 ### Demo  
