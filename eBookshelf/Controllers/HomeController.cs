@@ -55,5 +55,17 @@ namespace eBookshelf.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        public Boolean Check_Minus(int? id)
+        {
+            if (id < 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
     }
 }

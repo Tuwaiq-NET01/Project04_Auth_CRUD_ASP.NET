@@ -38,6 +38,7 @@ namespace eBookshelf.Controllers
             _context = context;
             _config = config;
         }
+
         // GET: EBook
         public async Task<IActionResult> Index()
         {
@@ -66,8 +67,7 @@ namespace eBookshelf.Controllers
 
             return View(ebookModel);
         }
-        
-
+       
         //public void epub(byte[] b)
         //{
         //    // Read an epub file

@@ -1,7 +1,7 @@
 @model eBookshelf.Models.EbookViewModel
 @{
     ViewData["Title"] = "Create";
-   // var file = ViewBag.FileForm;
+    // var file = ViewBag.FileForm;
 }
 
 
@@ -9,6 +9,7 @@
 
 <hr />
 <div class="row">
+
     <div class="col-md-4">
             <form method="post" enctype="multipart/form-data" asp-action="Create">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -24,16 +25,24 @@
                 </div>
 
                 <div class="form-group">
-                    <input type="submit" value="Create" class="btn btn-outline-dark mt-auto" />
+                    <input type="submit" value="Create" onclick="loader()"  class="btn btn-outline-dark mt-auto" />
                 </div>
             </form>
     </div>
 </div>
-
+<button id="loader" style="display: none" class="btn btn-dark" disabled>
+    <span class="spinner-grow spinner-grow-sm"></span>
+    Uploading..
+</button>
 <div>
     <a class="btn btn-outline-dark mt-auto" asp-action="Index">Back to List</a>
 </div>
-
+<script>
+    function loader() {
+        console.log("HERE")
+        document.getElementById("loader").style.display = flex;
+    }
+</script>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

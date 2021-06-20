@@ -1,6 +1,8 @@
 @model eBookshelf.Models.EbookModel
 
 @{
+
+
     ViewData["Title"] = "Details";
 }
 
@@ -65,5 +67,6 @@
 </div>
 <div>
     <a class="btn btn-outline-dark mt-auto" asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a class="btn btn-outline-danger mt-auto" asp-action="Delete" asp-route-id="@Model.Id">Delete</a> |
     <a class="btn btn-outline-dark mt-auto" asp-action="Index">Back to List</a>
 </div>
