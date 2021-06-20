@@ -12,7 +12,7 @@ the project provides a service that helps the companies or individuals who organ
 ![Capture1111](https://user-images.githubusercontent.com/82495629/122665121-16163180-d1ae-11eb-960e-043b45232a79.PNG)
 
 ![book2](https://user-images.githubusercontent.com/82495629/122665065-cdf70f00-d1ad-11eb-9341-235cec7af882.PNG)
-#### After Aprove 
+#### After the organizer click on approve the customer will receive the confirmation email 
 ![Capture2225](https://user-images.githubusercontent.com/82495629/122665348-5b872e80-d1af-11eb-84bb-85bcc18a79b5.PNG)
 
 
