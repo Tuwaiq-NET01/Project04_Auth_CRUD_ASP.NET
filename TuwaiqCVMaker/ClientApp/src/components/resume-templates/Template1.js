@@ -1,10 +1,20 @@
 import React, { PureComponent } from 'react';
-import { Row, Col, Card, CardImg, ListGroup, ListGroupItem, Label } from 'reactstrap';
+import { Row, Col, Card, CardImg, ListGroup, ListGroupItem, Label, Progress } from 'reactstrap';
 
 class Template1 extends PureComponent {
     constructor(props) {
         super(props);
         this.resume = props.resume;
+        this.progress = [
+            (<><div className="text-center">25%</div>
+            <Progress value={25} /></>),
+            (<><div className="text-center">50%</div>
+            <Progress value={50} /></>),
+            (<><div className="text-center">75%</div>
+            <Progress value={75} /></>),
+            (<><div className="text-center">100%</div>
+            <Progress value={100} /></>)
+        ];
     }
     render() {
         return (
@@ -58,7 +68,7 @@ class Template1 extends PureComponent {
                         <ListGroup>
                         {
                             this.resume.skills.map((skill, index) => {
-                                return <ListGroupItem key={index}>{skill.name}</ListGroupItem>;
+                                return <ListGroupItem key={index}>{skill.name} {this.progress[Math.floor(Math.random() * 4)]}</ListGroupItem>;
                             })
                         }
                         </ListGroup>
