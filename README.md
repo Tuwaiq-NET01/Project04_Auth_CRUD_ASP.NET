@@ -10,6 +10,8 @@ GiftShop / متجر الهداية
 This project is about a gift shop that sells flowers, sweets, and balloons. It helps distribute gifts to strengthen our social relationships to the people around us. Spreading happiness in a professional and distinctive way.
 
 ### Demo  
+ https://yasminsgiftshop.azurewebsites.net/
+ 
 ![WeatherApp](https://github.com/Yasmin-AlGhamdi/Project04_Auth_CRUD_ASP.NET/blob/main/GiftShop.gif)
 ### Wireframe  
 <img src="https://github.com/Yasmin-AlGhamdi/Project04_Auth_CRUD_ASP.NET/blob/main/WireFrame/HomePage.jpeg"/>
