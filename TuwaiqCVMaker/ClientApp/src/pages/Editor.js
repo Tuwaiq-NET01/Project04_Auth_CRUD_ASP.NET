@@ -48,7 +48,6 @@ function Editor(props) {
             .then(() => setRedirect(true))
             .catch(err => console.log(err));
         } else {
-            console.log(path + `/${resume.id}`);
             axios.put(path + `/${resume.id}`, data, config)
             .then(() => setRedirect(true))
             .catch(err => console.log(err));
@@ -64,11 +63,7 @@ function Editor(props) {
 
     const deleteSkill = (index) => {
         const temp = skills;
-        console.log("skills before");
-        console.log(...temp);
         temp.splice(index, 1);
-        console.log("skills after");
-        console.log(...temp);
         setSkills([...temp]);
     }
 

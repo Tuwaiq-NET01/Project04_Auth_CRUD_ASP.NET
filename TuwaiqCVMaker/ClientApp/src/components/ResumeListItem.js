@@ -34,7 +34,7 @@ function ResumeListItem(props) {
                     <CardBody style={{height: "100%"}}>
                         <CardTitle className="mt-auto" tag="h5">{props.resume.title}</CardTitle>
                         <div style={{ display: "flex",alignSelf: "right" }}></div>
-                        <Button>Preview</Button>
+                        <Button onClick={() => setPreview(true)}>Preview</Button>
                         <Button onClick={() => setEdit(true)}>Edit</Button>
                         <Button onClick={() => props.delete(props.resume, props.index)}>Delete</Button>
                     </CardBody>

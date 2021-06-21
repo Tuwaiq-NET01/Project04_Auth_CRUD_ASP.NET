@@ -4,7 +4,7 @@ class Template2 extends PureComponent {
     render() {
         return (
             <div>
-                
+                Template 2
             </div>
         )
     }
