@@ -12,3 +12,73 @@ code {
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
+
+.resume {
+  background-color: #fff;
+}
+.resume-header {
+  color: #fff;
+  background-color: #1b6ec2;
+}
+.resume-body {
+  color: #000;
+}
+
+.resume-introduction-text {
+  font-size: large;
+}
+
+.home-body {
+  background-color: #fff;
+  min-height: 400px;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+.home-body::before {
+  content: '';
+  background-color: #5C5D69;
+  transform: skew(45deg);
+  position: absolute;
+  left: 48%;
+  height: 10%;
+  width: 7%;
+}
+
+.home-body::after {
+  content: '';
+  background-color: #5C5D69;
+  transform: skew(-45deg);
+  position: absolute;
+  left: 52%;
+  height: 10%;
+  width: 7%;
+}
+
+@media only screen and (max-width: 400px) {
+  .home-body::before {
+    content: '';
+    background-color: #5C5D69;
+    transform: skew(45deg);
+    position: absolute;
+    left: 40%;
+    top: -1px;
+    height: 10%;
+    width: 20%;
+  }
+  
+  .home-body::after {
+    content: '';
+    background-color: #5C5D69;
+    transform: skew(-45deg);
+    position: absolute;
+    left: 50%;
+    top: -1px;
+    height: 10%;
+    width: 20%;
+  }
+}

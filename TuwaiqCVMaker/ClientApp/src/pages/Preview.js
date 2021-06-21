@@ -8,6 +8,7 @@ function Preview(props) {
     const componentRef = useRef();
     const resume = props.location.state.resume;
     let Template = <h1>Unknown template</h1>;
+    console.log(resume);
 
     switch(resume.template) {
         case "Template1":
@@ -20,10 +21,12 @@ function Preview(props) {
 
     return (
         <div>
-            <ReactToPrint
-                trigger={() => <Button>Download</Button>}
-                content={() => componentRef.current}
-            />
+            <div className="text-center mb-5">
+                <ReactToPrint
+                    trigger={() => <Button>Download Resume</Button>}
+                    content={() => componentRef.current}
+                />
+            </div>
             <div ref={componentRef}>
                 {Template}
             </div>
