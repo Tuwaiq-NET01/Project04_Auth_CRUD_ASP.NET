@@ -18,9 +18,9 @@ namespace Web.Controllers
     [Route("/API/[controller]")]
     public class CVEsController : ControllerBase
     {
-        private readonly ILogger<WeatherForecastController> _logger;
+        private readonly ILogger<CVEsController> _logger;
         private readonly VulnDbContext _db;
-        public CVEsController(ILogger<WeatherForecastController> logger, VulnDbContext db)
+        public CVEsController(ILogger<CVEsController> logger, VulnDbContext db)
         {
             _logger = logger;
             _db = db;
@@ -36,7 +36,7 @@ namespace Web.Controllers
             dbQ = q.To != null ? dbQ.Where(cve => cve.CreatedAt <= q.To) : dbQ;
             if (q.CNA != null)
             {
-                var dbCna = _db.CNAs.Where(record => record.Name.ToLower() == q.CNA.ToLower()).FirstOrDefault();
+                var dbCna = _db.CNAs.Where(record => record.Id == q.CNA).FirstOrDefault();
                 if (dbCna == null) return 0;
                 dbQ = dbQ.Where(cve => cve.CNA == dbCna.Id);
             }
@@ -57,7 +57,7 @@ namespace Web.Controllers
             dbQ = q.CVSSv3Max != null && q.CVSSv3Max > 0 ? dbQ.Where(cve => cve.CVSSv3Impact <= Math.Min((double)q.CVSSv3Max, 10) * 10) : dbQ;
             if (q.CNA != null)
             {
-                var dbCna = _db.CNAs.Where(record => record.Name.ToLower() == q.CNA.ToLower()).FirstOrDefault();
+                var dbCna = _db.CNAs.Where(record => record.Id == q.CNA).FirstOrDefault();
                 if (dbCna == null) return 0;
                 dbQ = dbQ.Where(cve => cve.CNA == dbCna.Id);
             }
@@ -65,7 +65,7 @@ namespace Web.Controllers
         }
 
         [HttpPost]
-        [AllowAnonymous]
+        // [AllowAnonymous]
         [Consumes(MediaTypeNames.Application.Json)]
         public ActionResult CreateCVE([Bind] CVE cve)
         {
@@ -102,7 +102,7 @@ namespace Web.Controllers
             if (q.CVSSv3Max != null && q.CVSSv3Max > 0) dbQ = dbQ.Where(c => c.CVSSv3Impact <= q.CVSSv3Max * 10);
             if (q.CNA != null)
             {
-                var dbCna = _db.CNAs.Where(record => record.Name.ToLower() == q.CNA.ToLower()).FirstOrDefault();
+                var dbCna = _db.CNAs.Where(record => record.Id == q.CNA).FirstOrDefault();
                 if (dbCna == null) return null;
                 dbQ = dbQ.Where(cve => cve.CNA == dbCna.Id);
             }
@@ -142,9 +142,8 @@ namespace Web.Controllers
             return dbQ.Take(q.Limit ?? 10).AsAsyncEnumerable();
         }
 
-        [HttpPatch]
         [HttpPut]
-        [AllowAnonymous]
+        // [AllowAnonymous]
         [Consumes(MediaTypeNames.Application.Json)]
         public ActionResult UpdateCVE([FromQuery(Name = "cve-id")] string id, [FromQuery(Name = "cve-year")] int year, [Bind] CVE cve)
         {
@@ -165,7 +164,7 @@ namespace Web.Controllers
         }
 
         [HttpDelete]
-        [AllowAnonymous]
+        // [AllowAnonymous]
         public ActionResult DeleteCVE([FromQuery(Name = "cve-id")] string id, [FromQuery(Name = "cve-year")] int year)
         {
             if (!_db.CVEs.Where(item => item.Year == year && item.Id == id).Any()) return NotFound();
@@ -196,7 +195,7 @@ namespace Web.Controllers
             [FromQuery(Name = "to-cvssv2")] public double? CVSSv2Max { get; set; }
             [FromQuery(Name = "from-cvssv3")] public double? CVSSv3Min { get; set; }
             [FromQuery(Name = "to-cvssv3")] public double? CVSSv3Max { get; set; }
-            [FromQuery(Name = "cna")] public string CNA { get; set; }
+            [FromQuery(Name = "cna")] public int? CNA { get; set; }
             [FromQuery(Name = "cvss2")] public bool UseCVSSv2 { get; set; }
             [FromQuery(Name = "cvss3")] public string UseCVSSv3 { get; set; }
             [FromQuery(Name = "offset")] public int? Offset { get; set; }

@@ -18,9 +18,9 @@ namespace Web.Controllers
     [Route("/API/[controller]")]
     public class CNAsController : ControllerBase
     {
-        private readonly ILogger<WeatherForecastController> _logger;
+        private readonly ILogger<CNAsController> _logger;
         private readonly VulnDbContext _db;
-        public CNAsController(ILogger<WeatherForecastController> logger, VulnDbContext db)
+        public CNAsController(ILogger<CNAsController> logger, VulnDbContext db)
         {
             _logger = logger;
             _db = db;
@@ -51,7 +51,6 @@ namespace Web.Controllers
             return dbQ.AsAsyncEnumerable();
         }
 
-        [HttpPatch]
         [HttpPut]
         [AllowAnonymous]
         [Consumes(MediaTypeNames.Application.Json)]

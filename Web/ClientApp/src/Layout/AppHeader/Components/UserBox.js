@@ -69,7 +69,7 @@ class UserBox extends React.Component {
               //   </div>
               // </div>
             }
-            {/* <LoginMenu /> */}
+            <LoginMenu />
           </div>
         </div>
       </Fragment>

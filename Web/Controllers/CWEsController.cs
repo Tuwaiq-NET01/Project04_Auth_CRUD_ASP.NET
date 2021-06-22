@@ -18,9 +18,9 @@ namespace Web.Controllers
     [Route("/API/[controller]")]
     public class CWEsController : ControllerBase
     {
-        private readonly ILogger<WeatherForecastController> _logger;
+        private readonly ILogger<CWEsController> _logger;
         private readonly VulnDbContext _db;
-        public CWEsController(ILogger<WeatherForecastController> logger, VulnDbContext db)
+        public CWEsController(ILogger<CWEsController> logger, VulnDbContext db)
         {
             _logger = logger;
             _db = db;

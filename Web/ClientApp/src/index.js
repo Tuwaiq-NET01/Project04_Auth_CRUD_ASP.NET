@@ -15,7 +15,7 @@ const rootElement = document.getElementById('root');
 const renderApp = Component => {
   ReactDOM.render(
     <Provider store={store}>
-      <Router>
+      <Router basename={document.getElementsByTagName("base")[0].getAttribute('href')}>
         <Component />
       </Router>
     </Provider>,

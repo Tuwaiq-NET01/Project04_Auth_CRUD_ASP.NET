@@ -76,7 +76,7 @@ const AppMain = () => {
                     </div>
                 </div>
             }>
-                <Route path="/Insert" component={Insert} />
+                <AuthorizeRoute path="/Insert" component={Insert} />
             </Suspense>
 
             {/* Update */}
@@ -88,7 +88,7 @@ const AppMain = () => {
                     </div>
                 </div>
             }>
-                <Route path="/Update" component={Update} />
+                <AuthorizeRoute path="/Update" component={Update} />
             </Suspense>
 
 
@@ -101,7 +101,7 @@ const AppMain = () => {
                     </div>
                 </div>
             }>
-                <Route path="/Remove" component={Remove} />
+                <AuthorizeRoute path="/Remove" component={Remove} />
             </Suspense>
 
             {/* DEV */}

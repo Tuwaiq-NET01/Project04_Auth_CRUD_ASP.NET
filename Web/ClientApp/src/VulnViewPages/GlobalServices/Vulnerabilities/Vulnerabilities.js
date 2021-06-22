@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react'
 import {
     Card, CardTitle, CardBody, Row, Col, Label, InputGroup,
     InputGroupAddon, InputGroupText, Input, FormGroup, CustomInput,
-    Table, Button
+    Table, Button, Modal, ModalHeader, ModalBody, ModalFooter
 } from 'reactstrap'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import PageTitle from '../../../Layout/AppMain/PageTitle'
@@ -21,7 +21,7 @@ export default function Vulnerabilities() {
     const [fromDate, setFromDate] = useState(0)
     const [toDate, setToDate] = useState(0)
     const [cna, setCna] = useState(2)
-    const [counter, setCounter] = useState(1)
+    let [counter, setCounter] = useState(1)
     const [init, setInit] = useState(false)
     const [vulnList, setVulnList] = useState([])
     const [CNAs, setCNAs] = useState(null)
@@ -37,8 +37,18 @@ export default function Vulnerabilities() {
                 <td>{vulns[i].cvsSv2Impact == 255 ? "-" : vulns[i].cvsSv2Impact / 10}</td>
                 <td>{vulns[i].cvsSv3Impact == 255 ? "-" : vulns[i].cvsSv3Impact / 10}</td>
                 <td>{vulns[i].cnaNavigation.name.trim()}</td>
+                <td>
+                    <Button color="primary mx-1">
+                        <i className="fas fa-info-circle" /> More
+                    </Button>
+                    {/* <Button color="primary mx-1">
+                        <i className="fas fa-pen" /> Edit
+                    </Button>
+                    <Button color="danger mx-1">
+                        <i className="fas fa-trash-alt" /> Remove
+                    </Button> */}
+                </td>
             </tr>])
-            // console.log(CNAsDict[vulns[i].cna]);
             setCounter(counter => counter + 1)
         }
 
@@ -64,6 +74,7 @@ export default function Vulnerabilities() {
 
     const search = () => {
         setCounter(1)
+        counter = 1
         setVulnList([])
         axios.get(`${endpoint}/API/CVEs?` +
             `${id > 0 ? `cve-id=${id}&` : ""}` +
@@ -77,8 +88,6 @@ export default function Vulnerabilities() {
             `${cna > 2 ? `cna=${cna}&` : ""}` +
             `x=1`).then(res => addToVulnList(res.data))
     }
-
-
 
 
     return (
@@ -192,36 +201,11 @@ export default function Vulnerabilities() {
                                     <th>CVSS v2 Score</th>
                                     <th>CVSS v3 Score</th>
                                     <th>Numbering Authority</th>
+                                    <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {/* <tr>
-                                    <th scope="row">1</th>
-                                    <td>sTable cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                </tr> */}
+
                                 {vulnList}
                             </tbody>
                         </Table>

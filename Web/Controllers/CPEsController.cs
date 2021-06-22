@@ -19,10 +19,10 @@ namespace Web.Controllers
     [Route("/API/[controller]")]
     public class CPEsController : ControllerBase
     {
-        private readonly ILogger<WeatherForecastController> _logger;
+        private readonly ILogger<CPEsController> _logger;
         private readonly VulnDbContext _db;
         private static readonly Regex _cpeVectorRegex = new Regex(@"^cpe:2\.3(:([^:]*(\\:)*)+){11}$", RegexOptions.Compiled);
-        public CPEsController(ILogger<WeatherForecastController> logger, VulnDbContext db)
+        public CPEsController(ILogger<CPEsController> logger, VulnDbContext db)
         {
             _logger = logger;
             _db = db;
@@ -91,7 +91,6 @@ namespace Web.Controllers
             return dbQ.AsAsyncEnumerable();
         }
 
-        [HttpPatch]
         [HttpPut]
         [AllowAnonymous]
         [Consumes(MediaTypeNames.Application.Json)]
