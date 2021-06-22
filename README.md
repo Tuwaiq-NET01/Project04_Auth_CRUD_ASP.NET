@@ -10,7 +10,7 @@ View, add, manipulate, and search for record of vulnerabilities and weaknesses f
 
 ## Demo
 
-![ER Diagram](demo.png)
+![Demo](https://raw.githubusercontent.com/AWManeea/Project04_Auth_CRUD_ASP.NET/main/demo.PNG)
 
 ## Set up
 
@@ -21,7 +21,7 @@ View, add, manipulate, and search for record of vulnerabilities and weaknesses f
 
 ## Database ER Diagram
 
-![ER Diagram](erd.png)
+![ER Diagram](https://raw.githubusercontent.com/AWManeea/Project04_Auth_CRUD_ASP.NET/main/erd.PNG)
 
 ## Front-End
 
