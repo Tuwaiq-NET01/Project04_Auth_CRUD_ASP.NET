@@ -5,16 +5,6 @@ class Template1 extends PureComponent {
     constructor(props) {
         super(props);
         this.resume = props.resume;
-        this.progress = [
-            (<><div className="text-center">25%</div>
-            <Progress value={25} /></>),
-            (<><div className="text-center">50%</div>
-            <Progress value={50} /></>),
-            (<><div className="text-center">75%</div>
-            <Progress value={75} /></>),
-            (<><div className="text-center">100%</div>
-            <Progress value={100} /></>)
-        ];
     }
     render() {
         return (
@@ -22,12 +12,12 @@ class Template1 extends PureComponent {
                 <Row className="text-center resume-header">
                     <Col xs="4">
                         <Card>
-                            <CardImg top width="100%" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwhgREKJpawVaEkD5aRXudpG-Q3gec7qWcSA&usqp=CAU" alt="Card image cap" />
+                            <CardImg top width="100%" src={this.resume.personalPicture} alt="Card image cap" />
                         </Card>
                     </Col>
                     <Col xs="4">
                         <h1 className="mt-3">{this.resume.name}</h1>
-                        <h5>Graphic Designer &amp; Web developer</h5>
+                        <h5>{this.resume.jobDescription}</h5>
                     </Col>
                 </Row>
                 <Row className="resume-body mt-5">
@@ -73,7 +63,13 @@ class Template1 extends PureComponent {
                         <ListGroup>
                         {
                             this.resume.skills.map((skill, index) => {
-                                return <ListGroupItem key={index}>{skill.name} {this.progress[Math.floor(Math.random() * 4)]}</ListGroupItem>;
+                                return (
+                                    <ListGroupItem key={index}>
+                                        {skill.name}
+                                        <div className="text-center">{25 * skill.level}%</div>
+                                        <Progress value={25 * skill.level} />
+                                    </ListGroupItem>
+                                );
                             })
                         }
                         </ListGroup>

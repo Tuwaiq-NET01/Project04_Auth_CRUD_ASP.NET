@@ -7,8 +7,8 @@ import Template2 from '../components/resume-templates/Template2';
 function Preview(props) {
     const componentRef = useRef();
     const resume = props.location.state.resume;
+    resume.personalPicture = resume.personalPicture && !(resume.personalPicture == "") ? resume.personalPicture : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwhgREKJpawVaEkD5aRXudpG-Q3gec7qWcSA&usqp=CAU";
     let Template = <h1>Unknown template</h1>;
-    console.log(resume);
 
     switch(resume.template) {
         case "Template1":
