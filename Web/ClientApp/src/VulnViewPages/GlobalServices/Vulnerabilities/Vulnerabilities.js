@@ -7,6 +7,7 @@ import {
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import PageTitle from '../../../Layout/AppMain/PageTitle'
 import axios from 'axios';
+import Vulnerability from './Vulnerability'
 const endpoint = process.env.VULNVIEW_API_ENDPOINT
 
 export default function Vulnerabilities() {
@@ -26,11 +27,29 @@ export default function Vulnerabilities() {
     const [vulnList, setVulnList] = useState([])
     const [CNAs, setCNAs] = useState(null)
     const [CNAsDict, setCNAsDict] = useState({})
+    const [searchQuery, setSearchQuery] = useState('')
 
     const addToVulnList = (vulns) => {
         for (let i = 0; i < vulns.length; i++) {
-            setVulnList(vulnList => [...vulnList, <tr key={counter + i}>
-                <td>{counter + i}</td>
+            setVulnList(vulnList => [...vulnList,
+            <Vulnerability
+                key={counter + i}
+                counter={counter + i}
+                year={vulns[i].year}
+                id={vulns[i].id}
+                createdAt={vulns[i].createdAt}
+                updatedAt={vulns[i].updatedAt}
+                cvsSv2Impact={vulns[i].cvsSv2Impact}
+                cvsSv3Impact={vulns[i].cvsSv3Impact}
+                cnaNavigation={vulns[i].cnaNavigation}
+                description={vulns[i].description}
+            />
+            ])
+            setCounter(counter => counter + 1)
+        }
+    }
+
+    {/* <td>{counter + i}</td>
                 <td>CVE-{vulns[i].year}-{vulns[i].id}</td>
                 <td>{vulns[i].createdAt.split("T")[0]}</td>
                 <td>{vulns[i].updatedAt.split("T")[0]}</td>
@@ -41,19 +60,8 @@ export default function Vulnerabilities() {
                     <Button color="primary mx-1">
                         <i className="fas fa-info-circle" /> More
                     </Button>
-                    {/* <Button color="primary mx-1">
-                        <i className="fas fa-pen" /> Edit
-                    </Button>
-                    <Button color="danger mx-1">
-                        <i className="fas fa-trash-alt" /> Remove
-                    </Button> */}
                 </td>
-            </tr>])
-            setCounter(counter => counter + 1)
-        }
-
-    }
-
+            </tr> */}
 
     if (!init) {
         setInit(true)
@@ -69,24 +77,25 @@ export default function Vulnerabilities() {
     }
 
     const paginate = () => {
-        axios.get(`${endpoint}/API/CVEs?offset=${counter}`).then(res => addToVulnList(res.data))
+        axios.get(`${endpoint}/API/CVEs?offset=${counter}&${searchQuery}`).then(res => addToVulnList(res.data))
     }
 
     const search = () => {
         setCounter(1)
         counter = 1
         setVulnList([])
-        axios.get(`${endpoint}/API/CVEs?` +
-            `${id > 0 ? `cve-id=${id}&` : ""}` +
+        let sq = (`${id > 0 ? `cve-id=${id}&` : ""}` +
             `${year > 0 ? `cve-year=${year}&` : ""}` +
             `${minCvss2 > 0 ? `from-cvss2=${minCvss2}&` : ""}` +
             `${maxCvss2 > 0 ? `from-cvss2=${maxCvss2}&` : ""}` +
             `${minCvss3 > 0 ? `from-cvss3=${minCvss3}&` : ""}` +
             `${maxCvss3 > 0 ? `from-cvss3=${maxCvss3}&` : ""}` +
-            `${fromDate > 0 ? `from-date=${fromDate}&` : ""}` +
-            `${toDate > 0 ? `to-date=${toDate}&` : ""}` +
+            `${fromDate != 0 ? `from-date=${fromDate}&` : ""}` +
+            `${toDate != 0 ? `to-date=${toDate}&` : ""}` +
             `${cna > 2 ? `cna=${cna}&` : ""}` +
-            `x=1`).then(res => addToVulnList(res.data))
+            `x=1`)
+        setSearchQuery(sq)
+        axios.get(`${endpoint}/API/CVEs?${sq}`).then(res => addToVulnList(res.data))
     }
 
 
@@ -172,7 +181,7 @@ export default function Vulnerabilities() {
 
                             <Col sm={6} md={6} xl={3}>
                                 <FormGroup>
-                                    <Label for="to-date">From Date <span className={"text-secondary"}>(Optional)</span></Label>
+                                    <Label for="to-date">To Date <span className={"text-secondary"}>(Optional)</span></Label>
                                     <Input value={toDate} onChange={e => setToDate(e.target.value)} type="date" name="to-date" />
                                 </FormGroup>
                             </Col>

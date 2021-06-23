@@ -87,7 +87,7 @@ namespace Web.Controllers
             if (q.Vector != null) dbQ = dbQ.Where(c => c.vector.Contains(q.Vector.ToLower()));
 
             if (q.Offset != null && q.Offset > 0) dbQ = dbQ.Skip((int)q.Offset);
-            if (q.Limit != null && q.Limit > 0) dbQ = dbQ.Take(q.Limit ?? 10);
+            dbQ = dbQ.Take(q.Limit ?? 10);
             return dbQ.AsAsyncEnumerable();
         }
 

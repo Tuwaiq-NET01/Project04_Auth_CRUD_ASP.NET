@@ -85,11 +85,26 @@ namespace Web.Controllers
             return Ok();
         }
 
+
+        [HttpGet("{Year}/{Id}")]
+        [AllowAnonymous]
+        public Task<CVE> ReadCVE(string Id, int Year) => _db
+                .CVEs
+                .Include(cve => cve.CNANavigation)
+                .Include(cve => cve.References)
+                .Include(cve => cve.CveCweJunctions)
+                .ThenInclude(junc => junc.CWE)
+                .Include(cve => cve.CveCpeJunctions)
+                .ThenInclude(junc => junc.CPE)
+                .Where(cve => cve.Id == Id && cve.Year == Year).FirstOrDefaultAsync();
+
         [HttpGet]
         [AllowAnonymous]
         public IAsyncEnumerable<CVE> ReadCVEs([FromQuery] CVEQuery q)
         {
-            IQueryable<CVE> dbQ = _db.CVEs.Include(cve => cve.CNANavigation);
+            IQueryable<CVE> dbQ = _db
+                .CVEs
+                .Include(cve => cve.CNANavigation);
 
             // Filters
             if (q.Id != null) dbQ = dbQ.Where(c => c.Id.Contains(q.Id));

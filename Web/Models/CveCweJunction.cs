@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 using Microsoft.EntityFrameworkCore;
 
 #nullable disable
@@ -21,6 +22,7 @@ namespace Web.Models
 
         [ForeignKey("CVEYear,CVEId")]
         [InverseProperty(nameof(Models.CVE.CveCweJunctions))]
+        [JsonIgnore]
         public virtual CVE CVE { get; set; }
         [ForeignKey(nameof(CWEId))]
         [InverseProperty("CveCweJunctions")]

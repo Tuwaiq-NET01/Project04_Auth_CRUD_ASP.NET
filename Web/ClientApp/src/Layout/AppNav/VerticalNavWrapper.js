@@ -7,8 +7,8 @@ import {
   // MainNav,
   GlobalServices,
   AdministrativeNav,
-  PersonalNav,
-  MiscNav,
+  // PersonalNav,
+  // MiscNav,
 } from "./NavItems";
 
 class Nav extends Component {
@@ -41,14 +41,14 @@ class Nav extends Component {
           iconNamePrefix=""
           classNameStateIcon="pe-7s-angle-down"
         />
-        <h5 className="app-sidebar__heading">Vuln View</h5>
+        {/* <h5 className="app-sidebar__heading">Vuln View</h5>
         <MetisMenu
           content={MiscNav}
           activeLinkFromLocation
           className="vertical-nav-menu"
           iconNamePrefix=""
           classNameStateIcon="pe-7s-angle-down"
-        />
+        /> */}
       </Fragment>
     );
   }
