@@ -1,7 +1,6 @@
 # Project 4 In .Net 
-# (App_Name) | اسم التطبيق
-### Exam App
-# المقدمــة | Introduction 
+# Exam App| اسم التطبيق
+## المقدمــة | Introduction 
 ### موقع يقوم بعمل اختبار للطلاب وتصحيح الاجابات تلقائيا مع مؤقت زمني
 
 ### Set up  
