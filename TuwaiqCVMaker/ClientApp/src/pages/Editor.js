@@ -72,7 +72,7 @@ function Editor(props) {
             <h1 className="text-center" >Resume Editor</h1>
             <Form className="mt-5" >
                 <FormGroup>
-                    <Label for="title">Title</Label>
+                    <Label for="title">Resume Title</Label>
                     <Input type="text" name="title" id="title" placeholder="Backend developer resume" value={title} onChange={(event) => setTitle(event.target.value)}/>
                 </FormGroup>
 

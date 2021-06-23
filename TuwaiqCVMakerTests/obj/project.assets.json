@@ -1521,6 +1521,19 @@
           "lib/netstandard2.1/Moq.dll": {}
         }
       },
+      "Moyasar/2.2.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.CSharp": "4.5.0",
+          "Newtonsoft.Json": "9.0.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/Moyasar.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Moyasar.dll": {}
+        }
+      },
       "NETStandard.Library/2.0.0": {
         "type": "package",
         "dependencies": {
@@ -2965,7 +2978,8 @@
           "Microsoft.EntityFrameworkCore.Relational": "5.0.5",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.5",
           "Microsoft.EntityFrameworkCore.Tools": "5.0.5",
-          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "5.0.2"
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "5.0.2",
+          "Moyasar": "2.2.0"
         },
         "compile": {
           "bin/placeholder/TuwaiqCVMaker.dll": {}
@@ -5281,6 +5295,26 @@
         "moq.4.16.1.nupkg.sha512",
         "moq.nuspec",
         "moq.png"
+      ]
+    },
+    "Moyasar/2.2.0": {
+      "sha512": "Fb9pbxYhvZPUBaZHuVP0sn2yxxjEKIfqyCyvhB4B2+B/p8J2z9sKWTl/R2lsUApjQOsSBgknezF2hetNEyh9Pg==",
+      "type": "package",
+      "path": "moyasar/2.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/net40/Moyasar.dll",
+        "lib/net45/Moyasar.dll",
+        "lib/net451/Moyasar.dll",
+        "lib/net452/Moyasar.dll",
+        "lib/net46/Moyasar.dll",
+        "lib/net461/Moyasar.dll",
+        "lib/netstandard2.0/Moyasar.dll",
+        "moyasar.2.2.0.nupkg.sha512",
+        "moyasar.nuspec",
+        "package-icon.png"
       ]
     },
     "NETStandard.Library/2.0.0": {

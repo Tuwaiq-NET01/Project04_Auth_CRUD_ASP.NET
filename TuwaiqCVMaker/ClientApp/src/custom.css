@@ -19,6 +19,8 @@ code {
 .resume-header {
   color: #fff;
   background-color: #1b6ec2;
+  width: 100%;
+  margin: 0;
 }
 .resume-body {
   color: #000;

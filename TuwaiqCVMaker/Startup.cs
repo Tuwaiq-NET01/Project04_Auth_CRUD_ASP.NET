@@ -1,3 +1,4 @@
+using System;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -8,6 +9,7 @@ using TuwaiqCVMaker.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Moyasar;
 
 namespace TuwaiqCVMaker
 {
@@ -23,6 +25,9 @@ namespace TuwaiqCVMaker
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            MoyasarService.ApiKey = Configuration.GetValue("Moyasar_Test_Api_Private_Key", "");
+            Console.WriteLine("Api key: " + MoyasarService.ApiKey);
+            
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));

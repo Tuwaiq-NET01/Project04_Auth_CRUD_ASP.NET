@@ -8,6 +8,7 @@
         <SpaRoot>ClientApp\</SpaRoot>
         <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <UserSecretsId>679fed9d-8d9c-4ca9-9a05-ec7779b915fa</UserSecretsId>
     </PropertyGroup>
 
     <ItemGroup>
@@ -20,6 +21,7 @@
         <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.5" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.5" />
         <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
+        <PackageReference Include="Moyasar" Version="2.2.0" />
     </ItemGroup>
     <ItemGroup>
         <!-- Don't publish the SPA source files, but do show them in the project files list -->

@@ -12,7 +12,7 @@ function Resumes() {
     const [redirect, setRedirect] = useState(false);
     
     const { containerProps, indicatorEl } = useLoading({
-        loading: true,
+        loading: loading,
         indicator: <BallTriangle color="#343a40" width="50%" />,
     });
 

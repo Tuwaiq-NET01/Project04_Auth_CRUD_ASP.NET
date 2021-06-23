@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TuwaiqCVMaker.Data;
 using TuwaiqCVMaker.Models;
+using TuwaiqCVMaker.Services;
 
 namespace TuwaiqCVMaker.Controllers
 {
@@ -75,7 +76,7 @@ namespace TuwaiqCVMaker.Controllers
             if (resume.UserId != userId)
                 return Unauthorized();
 
-            resume.Copy(input);
+            resume.Copy(3, input);
             await this._db.SaveChangesAsync();
             return Ok(resume);
         }

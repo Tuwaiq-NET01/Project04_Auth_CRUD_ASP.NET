@@ -7,6 +7,7 @@ namespace TuwaiqCVMaker.Models
     {
         public int Id { get; set; }
         [Required] public string Name { get; set; }
+        [Required] public int Level { get; set; }
         [Required] public int ResumeId { get; set; }
         [JsonIgnore] public Resume Resume { get; set; }
     }

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "kAeNhHw9QKh/eRz8CsI3rUwERvYjjUDyPKoP5mLy9P3K3BVErDMNR07I3WK39EEzl22MlUgEdc4Jzv0CJVfJOQ==",
+  "dgSpecHash": "qIE0yg5iGTY5wSMkyBLtuxqgtXFVzwUI4zEMCn/810u9lf4w5g0BA0Fq8gWYoKZWbPhG1K+sK2l06GbNw+cQOg==",
   "success": true,
   "projectFilePath": "C:\\Users\\WinDows\\RiderProjects\\TuwaiqCVMaker\\TuwaiqCVMakerTests\\TuwaiqCVMakerTests.csproj",
   "expectedPackageFiles": [
@@ -85,6 +85,7 @@
     "C:\\Users\\WinDows\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\WinDows\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\WinDows\\.nuget\\packages\\moq\\4.16.1\\moq.4.16.1.nupkg.sha512",
+    "C:\\Users\\WinDows\\.nuget\\packages\\moyasar\\2.2.0\\moyasar.2.2.0.nupkg.sha512",
     "C:\\Users\\WinDows\\.nuget\\packages\\netstandard.library\\2.0.0\\netstandard.library.2.0.0.nupkg.sha512",
     "C:\\Users\\WinDows\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
     "C:\\Users\\WinDows\\.nuget\\packages\\nuget.frameworks\\5.0.0\\nuget.frameworks.5.0.0.nupkg.sha512",

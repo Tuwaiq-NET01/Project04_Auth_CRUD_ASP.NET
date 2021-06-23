@@ -58,6 +58,11 @@ class Template1 extends PureComponent {
                         </div>
                     </Col>
                 </Row>
+                <Row>
+                    <Col>
+                        <hr/>
+                    </Col>
+                </Row>
                 <Row className="resume-body">
                     <Col xs={{size: 1, offset: 3}}>
                         <Label><h2>Skills</h2></Label>
