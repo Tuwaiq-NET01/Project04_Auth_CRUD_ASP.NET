@@ -46,8 +46,8 @@ export default function UpdateCVE() {
             setCvss2(0)
             setCvss3(0)
             setDescription('')
-            setSearchId('1234')
-            setSearchYear(2021)
+            setSearchId(id)
+            setSearchYear(year)
             setSearchBtnText("Search")
         }
         else {
