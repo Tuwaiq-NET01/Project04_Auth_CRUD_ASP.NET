@@ -31,6 +31,7 @@ MiniNet هو تطبيق يقوم بجمع و تتبع تحديثات كل ما �
  - .NET Core 5 MVC
  - Entity Framework - Code First Approach
  - Microsoft SQL Database
+ - CodeHollow Feed Reader Library
 
 
 ### Author
