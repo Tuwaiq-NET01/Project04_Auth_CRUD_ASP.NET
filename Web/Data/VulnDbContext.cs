@@ -32,7 +32,7 @@ namespace Web.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Name=VulnDbConnection");
+                optionsBuilder.UseSqlServer("Server=.;Database=testing_db;Trusted_Connection=True;MultipleActiveResultSets=true");
             }
         }
 
