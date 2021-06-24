@@ -39,6 +39,7 @@
  - React
  - Reactstrap
  - React To Print
+ - @agney/react-loading
  - axios
 ### Back-End
  - <span>Asp.</span>net core API

@@ -3,7 +3,6 @@ import { Redirect } from "react-router-dom";
 import { Row, Col, Card, CardImg,
     CardBody, CardTitle, Button } from 'reactstrap';
 
-// https://cdn.iconscout.com/icon/premium/png-512-thumb/cv-187-634524.png
 function ResumeListItem(props) {
     const [edit, setEdit] = useState(false);
     const [preview, setPreview] = useState(false);
