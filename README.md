@@ -29,7 +29,7 @@
    #### Database
    ``` dotnet ef database update```
   ### Front-End  
-   - HTML
+   - CSHTML
    - CSS
    - JS
    - Bootstrap 
