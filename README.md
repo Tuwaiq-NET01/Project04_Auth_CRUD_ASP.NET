@@ -65,6 +65,7 @@ https://user-images.githubusercontent.com/82478321/122554323-7fc4fd00-d041-11eb-
  - ASP.NET MVC
  - MSSQL Server
  - EF Core
+ - Google Map API
 
  ### How to Clone Project 
  in command line 
