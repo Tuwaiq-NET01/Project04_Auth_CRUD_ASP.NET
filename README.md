@@ -24,7 +24,7 @@
 
 ### ERD
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embeddedchart/ef70edba-1b47-46b7-a7e6-cf53ba7284fc" id="JYOOu3yyf3mC"></iframe></div>
+<img src="HealthChoice_Proj4/ERD.png">
 ## Set up  
 
 ### Prerequisites
