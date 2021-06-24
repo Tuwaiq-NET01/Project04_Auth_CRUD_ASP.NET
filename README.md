@@ -1,13 +1,13 @@
-<div dir="rtl" align="left" >
+<div align="left" >
   
 ![Tuwaiq](https://i.ibb.co/SV2BSn5/tuwaiq.png)
   
 
 ----
 
-# (Library) | اسم التطبيق
+# (Library) 
 
-<div dir="rtl" align="center"  >
+<div align="center" >
         
 ![library](https://user-images.githubusercontent.com/82483633/122647076-1ae5d180-d12b-11eb-8d87-245951cf40f0.PNG)
         
