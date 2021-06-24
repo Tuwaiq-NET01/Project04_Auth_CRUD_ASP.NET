@@ -32,6 +32,7 @@
    - CSHTML
    - CSS
    - Bootstrap 
+   - Font Awesome
   ### Back-End 
    - ASP.NET_MVC
    - MSSQL Server
