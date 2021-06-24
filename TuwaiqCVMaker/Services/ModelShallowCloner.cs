@@ -12,8 +12,8 @@ namespace TuwaiqCVMaker.Services
 
             var fields = type.GetProperties();
             var fieldsToClone = toClone.GetProperties();
-            
-            for (int i = 3; i < fields.Length; i++)
+
+            for (int i = startPropertyIndex; i < fields.Length; i++)
                 fields[i].SetValue(obj1, fieldsToClone[i].GetValue(obj2));
         }
     }
