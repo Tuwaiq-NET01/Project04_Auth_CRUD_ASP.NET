@@ -1,24 +1,31 @@
 <div dir="rtl" align="Center" >
-<<<<<<< HEAD
+
 ![Tuwaiq] (https://i.ibb.co/SV2BSn5/tuwaiq.png)
-======= 
->>>>>>>
-----
-#  <div dir="rtl" align="Center" > اسم التطبيق | (TechME Dashbord)  </div>
-  .......
-### المقدمــة | Introduction 
+
+
+  
+  
+  #   <div dir="rtl" align="Center" > اسم التطبيق | (TechME Dashbord)  </div>
+ 
+  ### المقدمــة | Introduction
+  
   فكرة هذا الموقع عبارة عن لوحة تحكم يقوم بادارتها مدير النظام من خلال حذف واضافة وتعديل المعلومات على  الجداول  .
  ......
 ### Demo
-<Img src="Demo.png"> wirefram..
-https://techmedashboard.azurewebsites.net/  
- .....
+  
+  [https://techmedashboard.azurewebsites.net/]
+<Img src="Demo.png">
+
+<br>  
+.....
 ### Wireframe  
+  
  ...
- <Img src="image Home.png"> wirefram..
- <Img src="Dashbordpng.png"> wirefram..
- <Img src="Contact .png"> wirefram..
-  <Img src="Untitled Workspace.jpg"> ER Diagram  .. 
+ <Img src="image Home.png"> wirefram..<br>
+ <Img src="Dashbordpng.png"> wirefram..<br>
+ <Img src="Contact .png"> wirefram..<br>
+ ### ER Diagram 
+  <Img src="Untitled Workspace.jpg">  .. ER Diagram 
  
 
 ### Set up  
