@@ -1,5 +1,8 @@
-![Tuwaiq](https://i.ibb.co/SV2BSn5/tuwaiq.png)
-
+<p align="center">
+  <img src="https://i.ibb.co/SV2BSn5/tuwaiq.png">
+  <br>
+  <img width="460" src="https://raw.githubusercontent.com/AWManeea/Project04_Auth_CRUD_ASP.NET/main/logo.png">
+</p>
 ---
 
 # VulnView
