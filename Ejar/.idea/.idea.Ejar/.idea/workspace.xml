@@ -5,58 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="61bb5a3b-a46c-4995-bb86-c7ef1d8cbe7d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/EjarTests/CarControllerTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EjarTests/HomeControllerTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EjarTests/ManageControllerTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EjarTests/RentalControllerTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EjarTests/SeedingDb.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Ejar/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Ejar/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/Ejar/DesignTimeBuild/.dtbcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/Ejar/DesignTimeBuild/.dtbcache.v2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.vs/Ejar/v16/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/Ejar/v16/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejar.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejar/Controllers/CarController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/Controllers/CarController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejar/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/Controllers/HomeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejar/Ejar.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/Ejar.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Ejar.StaticWebAssets.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Ejar.StaticWebAssets.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Ejar.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Ejar.Views.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Ejar.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Ejar.Views.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Ejar.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Ejar.deps.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Ejar.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Ejar.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Ejar.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Ejar.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Microsoft.AspNetCore.Cryptography.Internal.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Microsoft.AspNetCore.Cryptography.Internal.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Microsoft.AspNetCore.Identity.UI.Views.V4.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Microsoft.AspNetCore.Identity.UI.Views.V4.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Microsoft.AspNetCore.Identity.UI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Microsoft.AspNetCore.Identity.UI.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.Design.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.Design.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.SqlServer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.SqlServer.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Microsoft.Extensions.FileProviders.Embedded.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Microsoft.Extensions.FileProviders.Embedded.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Microsoft.Extensions.Identity.Core.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Microsoft.Extensions.Identity.Core.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Microsoft.Extensions.Identity.Stores.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/Microsoft.Extensions.Identity.Stores.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/ref/Ejar.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/bin/Debug/net5.0/ref/Ejar.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/Ejar.MvcApplicationPartsAssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/Ejar.MvcApplicationPartsAssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/Ejar.RazorTargetAssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/Ejar.RazorTargetAssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/Ejar.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/Ejar.Views.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/Ejar.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/Ejar.Views.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/Ejar.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/Ejar.assets.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/Ejar.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/Ejar.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/Ejar.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/Ejar.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/Ejar.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/Ejar.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/Ejar.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/Ejar.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/Ejar.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/Ejar.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/ref/Ejar.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/ref/Ejar.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/staticwebassets/Ejar.StaticWebAssets.Manifest.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/staticwebassets/Ejar.StaticWebAssets.Manifest.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/staticwebassets/Ejar.StaticWebAssets.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/obj/Debug/net5.0/staticwebassets/Ejar.StaticWebAssets.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejar/obj/Ejar.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/obj/Ejar.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejar/obj/Ejar.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/obj/Ejar.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejar/obj/Ejar.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/obj/Ejar.csproj.nuget.g.targets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejar/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejar/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejar/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTestEjar/Properties/AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTestEjar/Properties/AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTestEjar/UnitTest1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTestEjar/UnitTest1.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTestEjar/UnitTestEjar.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTestEjar/UnitTestEjar.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTestEjar/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTestEjar/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTestEjar/packages.config" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTestEjar/packages.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ejar/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/Ejar/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EjarTests/obj/Debug/net5.0/EjarTests.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/EjarTests/obj/Debug/net5.0/EjarTests.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EjarTests/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/EjarTests/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +92,8 @@
       <option name="presentableId" value="Default" />
       <updated>1624135530928</updated>
       <workItem from="1624135546356" duration="88000" />
-      <workItem from="1624144685454" duration="11675000" />
+      <workItem from="1624144685454" duration="12097000" />
+      <workItem from="1624529390761" duration="1007000" />
     </task>
     <servers />
   </component>
@@ -156,6 +112,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
