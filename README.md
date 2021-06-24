@@ -4,8 +4,8 @@
   
 ----
   
-# (App_Name) | اسم التطبيق
-  MaNodelz
+# MaNodelz | اسم التطبيق
+  
   
 ### المقدمــة | Introduction 
  A Nodelz resturant thats provide variety of asian food. aimed mainly for nodels... I know i have only one nodelz dish :)
