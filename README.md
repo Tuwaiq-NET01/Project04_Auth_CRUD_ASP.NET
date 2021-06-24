@@ -6,10 +6,6 @@
 
 View, add, manipulate, and search for record of vulnerabilities and weaknesses found in IT systems.
 
-## Demo
-
-![Demo](https://raw.githubusercontent.com/AWManeea/Project04_Auth_CRUD_ASP.NET/main/demo.PNG)
-
 ## Set up
 
 - NET 5
@@ -17,9 +13,26 @@ View, add, manipulate, and search for record of vulnerabilities and weaknesses f
 - Microsoft SQL Server
 - Node (React)
 
+## Wireframe
+
+---
+
+![Wireframe](https://raw.githubusercontent.com/AWManeea/Project04_Auth_CRUD_ASP.NET/main/wireframe.png)
+
+---
+
 ## Database ER Diagram
 
-![ER Diagram](https://raw.githubusercontent.com/AWManeea/Project04_Auth_CRUD_ASP.NET/main/erd.PNG)
+--- 
+
+![ER Diagram](https://raw.githubusercontent.com/AWManeea/Project04_Auth_CRUD_ASP.NET/main/erd.png)
+
+---
+
+
+## Demo
+
+![Demo](https://raw.githubusercontent.com/AWManeea/Project04_Auth_CRUD_ASP.NET/main/demo.png)
 
 ## Front-End
 
@@ -27,7 +40,7 @@ View, add, manipulate, and search for record of vulnerabilities and weaknesses f
 - CSS
 - JS
 - React
-- Bootstrap
+- Bootstrap (Reactstrap)
 
 ## Back-End
 
