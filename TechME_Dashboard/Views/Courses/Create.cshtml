@@ -36,10 +36,19 @@
         <div>
             <input asp-for="Course_Image" />
         </div>
+        </div >
+
+     <div class="form-group">
+         <label> test </label>
+            <label asp-for="Instructor_ID"> Instructor's ID </label>
+            <div>
+                <input asp-for="Instructor_ID" />
+            </div>
     </div>
-    <div class="form-group">
-        <input type="submit" class="btn btn-primary" value="Submit" />
-    </div>
+
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary" value="Submit" />
+        </div>
 </form> 
 
 <a asp-controller="Courses" asp-action="Index"> Back to Courses</a>

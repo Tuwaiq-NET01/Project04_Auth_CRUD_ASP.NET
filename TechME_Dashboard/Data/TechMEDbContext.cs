@@ -45,12 +45,11 @@ namespace TechME_Dashboard.Data
                 .WithMany(I => I.TraineeInstructor)
                 .HasForeignKey(TI => TI.Instructor_ID)
                 .OnDelete(DeleteBehavior.Cascade);
-
-
-            /*   modelBuilder.Entity<InstructorModel>()
-                   .HasMany<CourseModel>(C => C.Courses)
-                   .WithOne(I => I.Instructor)
-                   .OnDelete(DeleteBehavior.Cascade);*/
+/*
+            modelBuilder.Entity<InstructorModel>()
+                .HasMany<CourseModel>(C => C.Courses)
+                .WithOne(I => I.Instructor)
+                .OnDelete(DeleteBehavior.Cascade);*/
 
             base.OnModelCreating(modelBuilder);
 

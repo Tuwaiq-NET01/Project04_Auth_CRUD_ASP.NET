@@ -6,7 +6,6 @@
     Layout = "_Layout";
 }
 
-
 <table class="table" style="width:100%;text-align:center;">
     <thead>
         <tr>
@@ -29,7 +28,7 @@
           <tr>
             <th scope="row">@course.Course_ID</th>
             <td>@course.Course_Name</td>
-              <td>@course.Instructor.Instructor_Name</td>
+            @*  <td>Instructor.Instructor_ID</td>*@
             <td><button type="button" class="btn btn-dark"><a style="color:white" href="/Courses/Details/@course.Course_ID"> SHOW </a></button></td>
             <td><button type="button" class="btn btn-dark"><a style="color:white" href="/Courses/Edit/@course.Course_ID"> Edit </a></button></td>
             <td>

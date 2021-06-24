@@ -29,12 +29,12 @@ namespace TechME_Dashboard.Controllers
 
             return View();
         }
-        public List<CourseModel> GetAllCourses()
+    /*    public List<CourseModel> GetAllCourses()
         {
             List<CourseModel> Course = _db.Course.ToList();
             return Course;
 
-        }
+        }*/
 
         // GET: course/ID
         [HttpGet]
@@ -69,14 +69,13 @@ namespace TechME_Dashboard.Controllers
 
         //POST - /Courses/create
         [HttpPost]
-        public IActionResult Create([Bind("Course_Name", "Course_Category", "Course_Description", "Course_Image")] CourseModel Courses)
+        public IActionResult Create([Bind("Course_Name", "Course_Category", "Course_Description", "Course_Image", "Instructor_ID")] CourseModel Courses)
         {
             if (ModelState.IsValid) //check the state of modelSS
             {
-                /*_db.Course.Add(Courses);
-                _db.SaveChanges();*/
-              /*  CreateCourse(Courses);*/
-                return RedirectToAction("Course");
+                _db.Course.Add(Courses);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
 
             }
             return View(Courses);

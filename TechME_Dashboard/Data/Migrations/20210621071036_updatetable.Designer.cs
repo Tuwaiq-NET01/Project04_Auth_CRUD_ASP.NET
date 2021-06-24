@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TechME_Dashboard.Data;
 
 namespace TechME_Dashboard.Data.Migrations
 {
     [DbContext(typeof(TechMEDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210621071036_updatetable")]
+    partial class updatetable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -436,7 +438,7 @@ namespace TechME_Dashboard.Data.Migrations
             modelBuilder.Entity("TechME_Dashboard.Models.CourseModel", b =>
                 {
                     b.HasOne("TechME_Dashboard.Models.InstructorModel", "Instructor")
-                        .WithMany()
+                        .WithMany("Courses")
                         .HasForeignKey("Instructor_ID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -489,6 +491,8 @@ namespace TechME_Dashboard.Data.Migrations
 
             modelBuilder.Entity("TechME_Dashboard.Models.InstructorModel", b =>
                 {
+                    b.Navigation("Courses");
+
                     b.Navigation("TraineeInstructor");
                 });
 

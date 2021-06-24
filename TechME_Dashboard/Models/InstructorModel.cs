@@ -17,7 +17,7 @@ namespace TechME_Dashboard.Models
         [StringLength(20, MinimumLength = 2)]
         public string Instructor_BIO { get; set; }
         public string Instructor_Image { get; set; }
-        public ICollection<CourseModel> Courses { get; set; }
+ /*       public ICollection<CourseModel> Courses { get; set; }*/
          public ICollection<TraineeInstructorModel> TraineeInstructor { get; set; }
 
     }
