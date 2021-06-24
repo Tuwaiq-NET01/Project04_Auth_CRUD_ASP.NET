@@ -31,7 +31,6 @@
   ### Front-End  
    - CSHTML
    - CSS
-   - JS
    - Bootstrap 
   ### Back-End 
    - ASP.NET_MVC
