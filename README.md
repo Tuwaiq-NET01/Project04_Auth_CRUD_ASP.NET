@@ -55,6 +55,7 @@ https://github.com/Turkiajq/FinalProject.git
  - ASP.NET MVC
  - MSSQL Server
  - EF Core
+ - Unit Test
  
 ### Author
  Turki Alqurashi
