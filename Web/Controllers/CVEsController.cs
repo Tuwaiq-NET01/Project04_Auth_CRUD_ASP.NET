@@ -65,7 +65,7 @@ namespace Web.Controllers
         }
 
         [HttpPost]
-        // [AllowAnonymous]
+        [AllowAnonymous]
         [Consumes(MediaTypeNames.Application.Json)]
         public ActionResult CreateCVE([Bind] CVE cve)
         {
@@ -158,7 +158,7 @@ namespace Web.Controllers
         }
 
         [HttpPut]
-        // [AllowAnonymous]
+        [AllowAnonymous]
         [Consumes(MediaTypeNames.Application.Json)]
         public ActionResult UpdateCVE([FromQuery(Name = "cve-id")] string id, [FromQuery(Name = "cve-year")] int year, [Bind] CVE cve)
         {
@@ -179,7 +179,7 @@ namespace Web.Controllers
         }
 
         [HttpDelete]
-        // [AllowAnonymous]
+        [AllowAnonymous]
         public ActionResult DeleteCVE([FromQuery(Name = "cve-id")] string id, [FromQuery(Name = "cve-year")] int year)
         {
             if (!_db.CVEs.Where(item => item.Year == year && item.Id == id).Any()) return NotFound();

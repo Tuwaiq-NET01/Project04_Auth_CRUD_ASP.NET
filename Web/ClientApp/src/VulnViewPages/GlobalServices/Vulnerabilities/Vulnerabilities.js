@@ -117,7 +117,7 @@ export default function Vulnerabilities() {
                     <CardBody>
                         <CardTitle>Search CVE Records</CardTitle>
                         <Row>
-                            <Col sm={6} md={8} xl={3}>
+                            <Col sm={6} md={6} xl={3}>
                                 <Label for="search-cve-year">CVE Number</Label>
                                 <InputGroup>
                                     <InputGroupAddon addonType="prepend">
@@ -186,7 +186,7 @@ export default function Vulnerabilities() {
                                 </FormGroup>
                             </Col>
 
-                            <Col>
+                            <Col className="center text-center">
                                 <Button className="mt-3 btn btn-lg" color="primary" onClick={() => { setCounter(1); search() }}>Search</Button>
                             </Col>
 

@@ -93,7 +93,7 @@ export default function UpdateCVE() {
 
     const updateCve = () => {
         setUpdateBtnText(<img src={loading} style={{ width: "2rem" }} />)
-        axios.patch(`${endpoint}/API/CVEs?cve-id=${searchId}&cve-year=${searchYear}`, {
+        axios.put(`${endpoint}/API/CVEs?cve-id=${searchId}&cve-year=${searchYear}`, {
             year: year,
             id: id,
             description: description,
