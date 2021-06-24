@@ -1,0 +1,107 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@inject UserManager<IdentityUser> UserManager
+@model OrderModel
+@{
+    var Carts = (List<CartModel>)ViewBag.Cart;
+    string user = UserManager.GetUserId(User);
+    float total = 0;
+}
+
+<h3>
+    All
+    <small class="text-muted">Cart</small>
+</h3>
+<center class=" grid-container">
+    <table class="table" style="width:1000px">
+        <thead>
+            <tr>
+                <th scope="col">Image</th>
+                <th scope="col">ProductName</th>
+                <th scope="col">Description</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Price</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var Product in Carts)
+            {
+                if (Product.UserId == user)
+                {
+                    total = total + Product.Price;
+                    <tr>
+                        <td><img src="@Product.Image" style="height:200px;width:200px" /></td>
+                        <td>@Product.ProductName</td>
+                        <td>@Product.Description</td>
+                        <td>@Product.Quantity</td>
+                        <td>@Product.Price</td>
+                        <td>
+                            <button href="#delete" data-toggle="modal" class="btn btn btn-danger">DELETE</button>
+                        </td>
+                    </tr>
+                    <div class="modal" id="delete">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Delete Post</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    ARE YOU SURE ?
+                                </div>
+                                <div class="modal-footer form-group">
+                                    <form method="post" asp-controller="Cart" asp-action="Delete" asp-route-id="@Product.Id">
+                                        <input type="submit" value="DELET" class="btn btn-danger" />
+                                    </form>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+</table>
+</center>
+<center>
+    <button class="btn" style="background-color:cadetblue;">Total Price @total SR</button>
+    <button class="btn" style="background-color:cadetblue;" href="#complete" data-toggle="modal">Complete Order</button>
+    <div class="modal" id="complete">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Delete Post</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form asp-controller="Cart" asp-action="Create_Order" method="post" class=" form-horizontal">
+                        <div class="modal-body">
+                            <div hidden class=" form-group">
+                                <label asp-for="UserId"></label>
+                                <input asp-for="UserId" value="@user" />
+                            </div>
+                            <div class=" form-group">
+                                <label asp-for="Address">Address</label>
+                                <input asp-for="Address" />
+                            </div>
+                            <div class=" form-group">
+                                <label asp-for="TotalPrice">Total Price :</label>
+                                <input readonly asp-for="TotalPrice" value="@total" />
+                                <span>SR</span>
+                            </div>
+                            <div class=" form-group">
+                            <label>Payment Method</label>
+                            <input readonly value="Cash On Delivery" />
+                             </div>
+                        </div>
+                        <input type="submit" value="checkout" class="btn" style="background-color:cadetblue;" />
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+</center>

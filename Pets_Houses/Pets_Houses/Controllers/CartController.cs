@@ -74,7 +74,6 @@ namespace Pets_Houses.Controllers
         [HttpPost]
         public IActionResult Create_Order([Bind("UserId", "Address", "TotalPrice")] OrderModel Order)
         {
-
             DateTime localDate = DateTime.Now;
             Order.Date_Time = localDate.ToString();
             if (ModelState.IsValid)

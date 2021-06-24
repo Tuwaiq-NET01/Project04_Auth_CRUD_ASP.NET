@@ -94,3 +94,4 @@ C:\Users\Taghr\source\repos\Pets_Houses\Pets_Houses\obj\Debug\net5.0\Razor\Views
 C:\Users\Taghr\source\repos\Pets_Houses\Pets_Houses\obj\Debug\net5.0\Razor\Views\User\Orders.cshtml.g.cs
 C:\Users\Taghr\source\repos\Pets_Houses\Pets_Houses\obj\Debug\net5.0\Razor\Views\User\OrderDetails.cshtml.g.cs
 C:\Users\Taghr\source\repos\Pets_Houses\Pets_Houses\obj\Debug\net5.0\Razor\Views\Orders\Index.cshtml.g.cs
+C:\Users\Taghr\source\repos\Pets_Houses\Pets_Houses\obj\Debug\net5.0\Razor\Views\Cart\Index.cshtml.g.cs
