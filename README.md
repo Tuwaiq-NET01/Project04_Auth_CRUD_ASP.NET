@@ -1,5 +1,10 @@
 <div dir="rtl" align="Center" >
+<<<<<<< HEAD
 ![Tuwaiq] (https://i.ibb.co/SV2BSn5/tuwaiq.png)
+=======
+[Tuwaiq] (https://i.ibb.co/SV2BSn5/tuwaiq.png)
+  
+>>>>>>> 577bec212abdbb9274d2ec5294f82a13bc3994d5
 ----
 #  <div dir="rtl" align="Center" > اسم التطبيق | (TechME Dashbord)  </div>
   .......
