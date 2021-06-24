@@ -21,7 +21,7 @@
 ![Capture](https://user-images.githubusercontent.com/82477641/122654269-ff8ebc80-d152-11eb-8a98-9de89c772e22.PNG)
   
 ### ERD
-    ![ERD](https://user-images.githubusercontent.com/82477641/123218701-b6cd5f80-d4d4-11eb-9f80-d19d0d0b1f66.PNG)
+![ERD](https://user-images.githubusercontent.com/82477641/123218701-b6cd5f80-d4d4-11eb-9f80-d19d0d0b1f66.PNG)
 
     
 ### Set up  
