@@ -1,15 +1,12 @@
 <p align="center">
-  <img src="https://i.ibb.co/SV2BSn5/tuwaiq.png">
-  <br>
-  <img width="460" src="https://raw.githubusercontent.com/AWManeea/Project04_Auth_CRUD_ASP.NET/main/logo.png">
+  <img width="300" src="https://raw.githubusercontent.com/AWManeea/Project04_Auth_CRUD_ASP.NET/main/logo.png">
 </p>
----
 
-# VulnView
-
-View, add, manipulate, and search for record of vulnerabilities and weaknesses found in IT systems.
+View, add, manipulate, and search for record of vulnerabilities and weaknesses found in IT systems. We provide a large pool of connected datasets that aim to provide a single source of truth regarding IT vulnerabilities. With the comprehensive APIs and easy-to-use portal, you can guarantee to stay ahead of the game when it comes to knowing the sources of danger and protecting from them in a timely manner.
 
 ## Set up
+
+The project is developed mainly with the following technologies:
 
 - NET 5
 - ASP.NET MVC
@@ -18,20 +15,11 @@ View, add, manipulate, and search for record of vulnerabilities and weaknesses f
 
 ## Wireframe
 
----
-
 ![Wireframe](https://raw.githubusercontent.com/AWManeea/Project04_Auth_CRUD_ASP.NET/main/wireframe.png)
-
----
 
 ## Database ER Diagram
 
---- 
-
 ![ER Diagram](https://raw.githubusercontent.com/AWManeea/Project04_Auth_CRUD_ASP.NET/main/erd.png)
-
----
-
 
 ## Demo
 
@@ -40,7 +28,7 @@ View, add, manipulate, and search for record of vulnerabilities and weaknesses f
 ## Front-End
 
 - HTML
-- CSS
+- CSS (SCSS)
 - JS
 - React
 - Bootstrap (Reactstrap)
@@ -50,6 +38,8 @@ View, add, manipulate, and search for record of vulnerabilities and weaknesses f
 - ASP.NET MVC
 - MSSQL Server
 - EF Core
+- Swagger API Documentation
+- Identity Server
 
 ## Author
 
