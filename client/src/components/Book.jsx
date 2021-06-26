@@ -2,7 +2,7 @@ import React, { useState,useEffect } from 'react';
 import { Router, Link, navigate } from '@reach/router';
 import axios from 'axios';
 import { GoogleLogin } from 'react-google-login';
-
+import PartialNav from "./PartialNav"
 const Book = (props) => {
 
   const responseGoogle = (response) => {
@@ -89,20 +89,8 @@ const  responseGoogle2 = (response) => {
 
     return (
         <div>
-    <nav class="navbar yellow navbar-expand-md  ">
-  
-  <div class="navbar-collapse collapse" id="navbar4">
-      <ul class="navbar-nav">
-       
-          <li className="nav-item"><Link className ="nav-link pr-3 nav-item-home" to="/">Home </Link></li> 
-   
-          {/* <li className="nav-item"><Link className ="nav-link pr-3 nav-item-home" to="/aboutus">About us </Link></li> */}
-          {/* <li className="nav-item"><Link className ="nav-link pr-3 nav-item-home" to="/test">test </Link></li> */}
-
-      </ul>
-  </div>
-</nav>
-
+ 
+<PartialNav />
 
 
 
@@ -128,7 +116,12 @@ const  responseGoogle2 = (response) => {
                     <h5>included</h5>
 
 
+          {(() => {   
+           if (included.tourGuide == true) {
+          return (<p> Tour Guide   &#9989; </p>)
+         } else { return (<p> Tour Guide   &#10060; </p>)}
 
+        })()}
 
          {(() => {   
            if (included.food == true) {

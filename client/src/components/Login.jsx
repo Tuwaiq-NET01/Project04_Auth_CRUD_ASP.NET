@@ -2,13 +2,13 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Link, navigate } from '@reach/router';
 import Storage from './Storage';
-
+import PartialNav from "./PartialNav"
 const Login = () => {
 
 
-	const [logemail, setLog] = useState("");
-	const [logPass, setLogPass] = useState("");
-	//	const [emailError, setemailError]            = useState([]);
+	const [logemail, setLog]           = useState("");
+	const [logPass, setLogPass]        = useState("");
+	const [error, setError]            = useState([]);
 	//  const [passError, setPassError]              = useState([]);
 
 
@@ -38,6 +38,7 @@ const Login = () => {
 			})
 			.catch((error) => {
 				console.error(error);
+				setError("Invalid email or password")
 				//	setemailError(error.response.data.email);
 				//	setPassError(error.response.data.password);	
 			});
@@ -48,6 +49,10 @@ const Login = () => {
 
 
 	return (
+		<>
+
+<PartialNav />
+
 		<div className="lopage">
 			<div className="logbody">
 
@@ -73,9 +78,7 @@ const Login = () => {
 
 						</div>
 
-						{/* <p> {emailError}</p>
-	  <p> { passError}</p> */}
-						{/* <a href="#forgot-pw" class="forgot-pw">Forgot Password?</a> */}
+	<p className = "error">{error}</p>
 					</form>
 
 
@@ -83,7 +86,7 @@ const Login = () => {
 
 			</div>
 		</div>
-
+</>
 	);
 };
 

@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, {useState, useEffect} from 'react';
 import { Link, navigate } from '@reach/router';
 import Storage from './Storage';
-
+import PartialNav from './PartialNav';
 const Register = () => {
 
     const [firstname, setFirstName]            = useState(""); 
@@ -10,7 +10,7 @@ const Register = () => {
     const [email, setEmail]                    = useState("");       
     const [password, setPassword]              = useState("");
     const [username, setUsername]              = useState("");
-    const [validationssss, setError]           = useState("");
+    const [validations, setError]           = useState(null);
    
 
 
@@ -41,8 +41,9 @@ const Register = () => {
               if (error.response) {
                 //console.log(error)
                 // Request made and server responded
+                
               console.log(error.response.data.errors);
-                  setError("Invalid or incomplated data");
+                  setError("Please complete all fields  ")
                 
 
               }  
@@ -52,6 +53,17 @@ const Register = () => {
 
     return (
         <>
+
+<nav class="navbar yellow navbar-expand-md navbar-dark ">
+  
+  <div class="navbar-collapse collapse" id="navbar4">
+      <ul class="navbar-nav">
+          <li className="nav-item"><Link className ="nav-link pr-3 nav-item-home" to="/">Home </Link></li> 
+      </ul>
+  </div>
+</nav>
+
+
          <div className = "lopage">
          <div   className = "logbody">
            <div class="login-wrapper">
@@ -96,8 +108,7 @@ const Register = () => {
 
 
       <div class="input-group">
- <p>  { validationssss}</p>
-      {/* {err.map((error, index) => {
+      {/* {validationssss..map((error, index) => {
               return (
 
                 <p  key={index} style = {{color: "#f7816d;"}}>  {index}  </p>
@@ -118,6 +129,7 @@ const Register = () => {
 	  <Link className="buttonflex" to="/login" >Log in</Link>
 	  </div> 
     
+    <p  className = "error">  {validations}</p>
 
       {/* <a href="#forgot-pw" class="forgot-pw">Forgot Password?</a> */}
      </form>

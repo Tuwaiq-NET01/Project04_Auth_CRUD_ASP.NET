@@ -11,6 +11,7 @@ import Book from './components/Book';
 import Display from './components/Display';
 import Register from './components/Register';
 import Authenticatiion from './components/Auth';
+import Addpic  from './components/Addpic';
 
 function App() {
   const isValidUser = Authenticatiion.IsUserLoggedIn();
@@ -27,6 +28,7 @@ function App() {
         <AddTour path="/addTour" />
         <Home path="/" />
         <Book path="/book/:pk" />
+        <Addpic path="/addpic/:pk" />
 
         <Register path="/register" />
 

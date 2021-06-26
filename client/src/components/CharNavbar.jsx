@@ -37,7 +37,7 @@ function CharNavbar() {
 {(() => {
         if (item.title == "Log Out") {
           return (
-            <button onClick = {logout}  className ="btn btn-link">
+            <button onClick = {logout}  className ="btn shadow-none text-light ">
             {item.icon}
             <span className ="CNspan">{item.title}</span>
           </button>

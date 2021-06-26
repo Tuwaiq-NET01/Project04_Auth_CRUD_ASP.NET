@@ -3,10 +3,18 @@ import { Router, Link, navigate } from '@reach/router';
 import axios from 'axios';
 import CharNavbar from './CharNavbar'
 import Storage from './Storage';
+import Authenticatiion from './Auth';
 
 function Display(props) {
 
   
+  if (!Authenticatiion.IsUserLoggedIn()) {
+
+    navigate("/login");
+
+    console.log("User is not loged in");
+    //redirect to login
+  }
 
 
 
@@ -90,7 +98,12 @@ const approve  = (id) => {
         <table className="table table-striped" >
       <tbody>
         <tr className="bg-dark text-light">
-        <th>Booking</th>
+        <th>First name </th>
+        <th>Last name </th>
+        <th>Email </th>
+        <th>Adult</th>
+        <th>Child</th>
+        <th>total</th>
         <th>Actions</th>
         <th></th>
 
@@ -98,7 +111,12 @@ const approve  = (id) => {
         {allBookings.map((b,i)=>{
   return(    
 <tr >
-<td>{b.firstName}  {b.lastName}   {b.total}</td>
+<td>{b.firstName}</td>
+<td> {b.lastName}</td>
+<td>  {b.email}</td>
+<td>  {b.adult}</td>
+<td>  {b.child}</td>
+<td> {b.total}</td>
 <td>
 <button className="btn btn-outline-danger btn-sm"  onClick={()=>deleteBooking(b.id)} >Cancel </button>
 </td> 

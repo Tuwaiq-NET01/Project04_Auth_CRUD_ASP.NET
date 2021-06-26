@@ -169,11 +169,6 @@ Food */
         }
 
 
-
-
-
-
-
         [Authorize]
 
         // POST: api/Tours
@@ -189,6 +184,27 @@ Food */
         }
 
 
+        // Need to try this code with casting later 
+
+        /*
+
+                [Authorize]
+
+                // POST: api/Tours
+                [HttpPost]
+                public async Task<ActionResult<Tour>> Create([FromBody] object tour)
+                {
+
+                    var to = (Tour)tour;
+                    var token = Request.Headers[HeaderNames.Authorization].FirstOrDefault();
+                    var userId = decodepaloads(token);
+                    to.UserId = userId;
+                    await this._db.Tours.AddAsync(to);
+                    await this._db.SaveChangesAsync();
+                    return Ok(to);
+                }
+
+        */
 
 
         [Authorize]

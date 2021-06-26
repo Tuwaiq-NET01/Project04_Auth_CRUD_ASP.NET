@@ -4,12 +4,23 @@ import axios from 'axios';
 import { Router, Link, navigate } from '@reach/router';
 import Storage from './Storage';
 import CharNavbar from './CharNavbar'
+import Authenticatiion from './Auth';
 
 
 
-   
+ 
   
 const Update = (props) => {
+    
+  if (!Authenticatiion.IsUserLoggedIn()) {
+
+    navigate("/login");
+
+    console.log("User is not loged in");
+    //redirect to login
+  }
+
+
 
     const [place, setPlace]                      = useState("")  //  done    
     const [description, setDescription]          = useState("")  //  done
@@ -21,11 +32,11 @@ const Update = (props) => {
     const [image, setImage]                      = useState("")  //  done
 
 
-    const [tourGuide, setTourGuide]              = useState("")  //      
-    const [transport, setTransport]              = useState("")  //     
-    const [entiranceFees, setEntiranceFees]      = useState("")  //    
-    const [pickUpAndDrop, setPickUpAndDrop]      = useState("")  //    
-    const [food, setFood]                        = useState("")  //     
+    const [tourGuide, setTourGuide]              = useState(false)  //      
+    const [transport, setTransport]              = useState(false)  //     
+    const [entiranceFees, setEntiranceFees]      = useState(false)  //    
+    const [pickUpAndDrop, setPickUpAndDrop]      = useState(false)  //    
+    const [food, setFood]                        = useState(false)  //     
     const [tourId, setTourId]                    = useState(props.pk)  // 
     const [msg, setMessageSubmit]                = useState ("") //
 
@@ -108,7 +119,10 @@ const Update = (props) => {
             "Authorization": `Bearer ${getToken()}`
         }})
           .then((res) => {
-          setMessageSubmit(" submitted") } )
+          setMessageSubmit(" submitted")
+        
+          navigate(`/addpic/${tourId}`);
+        } )
             .catch((err) =>  setMessageSubmit("Not Submitted")
             );
     }
@@ -124,35 +138,35 @@ const Update = (props) => {
                 <div className="Dform">
                     <div className="header">
                     <h1>Welcome!</h1>
-                            <p>Please provide the place information below.</p>
+                            <p>Please update the place information below.</p>
                     </div> 
-                    <form>
+                    <form   onSubmit = {handleSubmit}>
                 <div className="inputcontainer">
                     <div class="form-group row">
                         <label for="" class="col-sm-2 col-form-label">place</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="" onChange = {(e)=>setPlace(e.target.value)}   value={place} />
+                            <input type="text" class="form-control" id="" onChange = {(e)=>setPlace(e.target.value)}   value={place} required />
                         </div>
                     </div>
                 
                     <div class="form-group row">
                         <label for="" class="col-sm-2 col-form-label">description</label>
                         <div class="col-sm-10">
-                            <textarea  rows="4" class="form-control" cols="30" onChange = {(e)=>setDescription(e.target.value)} value={description} ></textarea>
+                            <textarea  rows="4" class="form-control" cols="30" onChange = {(e)=>setDescription(e.target.value)} value={description}  required></textarea>
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="" class="col-sm-2 col-form-label"> adult price</label>
                         <div class="col-sm-10">
-                            <input type="number" class="form-control" id="" onChange = {(e)=>setAdultPrice(e.target.value)}   value={adultPrice} />
+                            <input type="number" class="form-control" id="" onChange = {(e)=>setAdultPrice(e.target.value)}   value={adultPrice} required />
                     </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="" class="col-sm-2 col-form-label"> child price</label>
                         <div class="col-sm-10">
-                            <input type="number" class="form-control" id="" onChange = {(e)=>setChildPrice(e.target.value)}   value={childPrice} />
+                            <input type="number" class="form-control" id="" onChange = {(e)=>setChildPrice(e.target.value)}   value={childPrice}  required/>
                     </div>
                     </div>
 
@@ -160,7 +174,7 @@ const Update = (props) => {
                     <div class="form-group row">
                         <label for="" class="col-sm-2 col-form-label"> Departs</label>
                         <div class="col-sm-10">
-                            <input type="datetime-local" class="form-control" id="" onChange = {(e)=>setDepartsAt(e.target.value)}  value={departsAt} />
+                            <input type="datetime-local" class="form-control" id="" onChange = {(e)=>setDepartsAt(e.target.value)}  value={departsAt} required />
                     </div>
 
 
@@ -168,29 +182,23 @@ const Update = (props) => {
                     <div class="form-group row">
                         <label for="" class="col-sm-2 col-form-label"> Returns</label>
                         <div class="col-sm-10">
-                            <input type="datetime-local" class="form-control" id="" onChange = {(e)=>setReturnsAt(e.target.value)} value={returnsAt} />
+                            <input type="datetime-local" class="form-control" id="" onChange = {(e)=>setReturnsAt(e.target.value)} value={returnsAt}  required/>
                     </div>
                     </div>
 
 
 
-                    <div class="form-group row">
-                        <label for="" class="col-sm-2 col-form-label"> Image</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="" onChange = {(e)=>setImage(e.target.value)}  value={image} />
-                    </div>
-                    </div>
+                 
+                 
                     <div class="form-group row">
                         <label for="" class="col-sm-2 col-form-label"> Pickup Location</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="" onChange = {(e)=>setPickupLocation(e.target.value)} value={pickupLocation}  />
+                            <input type="text" class="form-control" id="" onChange = {(e)=>setPickupLocation(e.target.value)} value={pickupLocation}  required />
                     </div>
                     </div>
 
 
                  
-
-              
 
                     <div class="">
                         <label for="" class="col-sm-2 col-form-label"> Tour Guide </label>
@@ -257,7 +265,7 @@ const Update = (props) => {
                     </div>
                    
                 
-                <button className="btn mb-4  btn-lg btn-block" id = "Charbtn" type='submit' onClick = {handleSubmit}>Update</button>
+                <button className="btn mb-4  btn-lg btn-block" id = "Charbtn" type='submit'>Next</button>
             </div>
             <p>{msg}</p>
             </form>

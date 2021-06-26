@@ -22,11 +22,11 @@
 
 .Dform {
 	height: 35%;
-	border: 5px solid #99cbfa;
-	border-radius: 20%;
-	margin-top: 1em;
+	border: 5px solid #94ccdd;
+	/* border-radius: 20%; */
+	/* margin-top: 1em; */
 	flex-direction: column;
-	background-color: #eceff3;
+	background-color: #ffffff;
 	display: flex;
 	padding: 45px;
 	width: 700px;
@@ -47,3 +47,4 @@
 .cont {
 	padding-left: 400px;
 }
+

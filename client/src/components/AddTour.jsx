@@ -4,11 +4,21 @@ import axios from 'axios';
 import { Router, Link, navigate } from '@reach/router';
 import Authenticatiion from './Auth';
 import Storage from './Storage';
-
 import CharNavbar from './CharNavbar'
-   
+  
   
 const AddTour = (props) => {
+
+    
+  if (!Authenticatiion.IsUserLoggedIn()) {
+
+    navigate("/login");
+
+    console.log("User is not loged in");
+    //redirect to login
+  }
+
+
 
     const [place, setPlace]                      = useState("")  //  done    
     const [description, setDescription]          = useState("")  //  done
@@ -20,11 +30,11 @@ const AddTour = (props) => {
  //   const [image, setImage]                      = useState("")  //  done
     const [imageFile, setImage] = useState(null)  //  done
 
-    const [tourGuide, setTourGuide]              = useState("")  //      
-    const [transport, setTransport]              = useState("")  //     
-    const [entiranceFees, setEntiranceFees]      = useState("")  //    
-    const [pickUpAndDrop, setPickUpAndDrop]      = useState("")  //    
-    const [food, setFood]                        = useState("")  //     
+    const [tourGuide, setTourGuide]              = useState(false)  //      
+    const [transport, setTransport]              = useState(false)  //     
+    const [entiranceFees, setEntiranceFees]      = useState(false)  //    
+    const [pickUpAndDrop, setPickUpAndDrop]      = useState(false)  //    
+    const [food, setFood]                        = useState(false)  //     
     // const [tourId, setTourId]                    = useState(props.pk)  // 
     const [msg, setMessageSubmit]                = useState ("") //
     const [tourID, setTourId]                     = useState ("") //
@@ -76,9 +86,6 @@ const AddTour = (props) => {
           
            
             
-     
-         
-        
        
            axios
           .post('https://localhost:44364/api/Tours/?format=json',addPlce, 
@@ -89,13 +96,12 @@ const AddTour = (props) => {
             setTourId(res.data.tourId)
             formData.append('id', res.data.tourId)
          console.log("the  id", res.data.tourId)
-         .then((res) => {
+     
+         navigate(`/addpic/${res.data.tourId}`);
 
-         })
-        
         } )
         
-            .catch((err) =>  setMessageSubmit("Not Submitted") )
+            .catch((err) => console.log(err) )
 
 
                
@@ -148,33 +154,33 @@ const handleImage =()=>{
                     <h1>Welcome!</h1>
                             <p>Please provide the place information below.</p>
                     </div> 
-                    <form>
+                    <form   onSubmit = {handleSubmit}>
                 <div className="inputcontainer">
                     <div class="form-group row">
                         <label for="" class="col-sm-2 col-form-label">place</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="" onChange = {(e)=>setPlace(e.target.value)}  />
+                            <input type="text" class="form-control" id="" onChange = {(e)=>setPlace(e.target.value)}  required />
                         </div>
                     </div>
                 
                     <div class="form-group row">
                         <label for="" class="col-sm-2 col-form-label">description</label>
                         <div class="col-sm-10">
-                            <textarea  rows="4" class="form-control" cols="30" onChange = {(e)=>setDescription(e.target.value)}  ></textarea>
+                            <textarea  rows="4" class="form-control" cols="30" onChange = {(e)=>setDescription(e.target.value)}  required ></textarea>
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="" class="col-sm-2 col-form-label"> adult price</label>
                         <div class="col-sm-10">
-                            <input type="number" class="form-control" id="" onChange = {(e)=>setAdultPrice(e.target.value)}  />
+                            <input type="number" class="form-control" id="" onChange = {(e)=>setAdultPrice(e.target.value)}  required />
                     </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="" class="col-sm-2 col-form-label"> child price</label>
                         <div class="col-sm-10">
-                            <input type="number" class="form-control" id="" onChange = {(e)=>setChildPrice(e.target.value)}  />
+                            <input type="number" class="form-control" id="" onChange = {(e)=>setChildPrice(e.target.value)}  required />
                     </div>
                     </div>
 
@@ -182,7 +188,7 @@ const handleImage =()=>{
                     <div class="form-group row">
                         <label for="" class="col-sm-2 col-form-label"> Departs</label>
                         <div class="col-sm-10">
-                            <input type="datetime-local" class="form-control" id="" onChange = {(e)=>setDepartsAt(e.target.value)}  />
+                            <input type="datetime-local" class="form-control" id="" onChange = {(e)=>setDepartsAt(e.target.value)}  required />
                     </div>
 
 
@@ -190,7 +196,7 @@ const handleImage =()=>{
                     <div class="form-group row">
                         <label for="" class="col-sm-2 col-form-label"> Returns</label>
                         <div class="col-sm-10">
-                            <input type="datetime-local" class="form-control" id="" onChange = {(e)=>setReturnsAt(e.target.value)}  />
+                            <input type="datetime-local" class="form-control" id="" onChange = {(e)=>setReturnsAt(e.target.value)} required />
                     </div>
                     </div>
 
@@ -203,7 +209,7 @@ const handleImage =()=>{
                     <div class="form-group row">
                         <label for="" class="col-sm-2 col-form-label"> Pickup Location</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="" onChange = {(e)=>setPickupLocation(e.target.value)}  />
+                            <input type="text" class="form-control" id="" onChange = {(e)=>setPickupLocation(e.target.value)} required />
                     </div>
                     </div>
 
@@ -277,15 +283,14 @@ const handleImage =()=>{
                     </div>
                    
                 
-                <button className="btn mb-4  btn-lg btn-block" id = "Charbtn" type='submit' onClick = {handleSubmit}>Add</button>
+                <button className="btn mb-4  btn-lg btn-block" id = "Charbtn" type='submit' >Next</button>
 
                 <div class="form-group row">
-                                    <label for="" class="col-sm-2 col-form-label"> Image</label>
                                     <div class="col-sm-10">
-                                    <input id="image-uploader" class="form-control-file" type="file" accept="image/*" onChange={(e) => setImage(e.target.files[0])}/>
+                                    {/* <input id="image-uploader" class="form-control-file" type="file" accept="image/*" onChange={(e) => setImage(e.target.files[0])}/> */}
                                     </div>
                     </div>
-                    <button className="btn mb-4  btn-lg btn-block" id = "Charbtn" type='submit' onClick = {handleImage}>submit</button>
+                    {/* <button className="btn mb-4  btn-lg btn-block" id = "Charbtn" type='submit' onClick = {handleImage}>submit</button> */}
 
             </div>
 
