@@ -71,7 +71,7 @@ Note: the service is in its first version, so expect some bugs.
 
 ## Tech Stack - التكنولوجيا المستخدمة
 
-### <a href="https://bitchunk.azurewebsites.net/swagger/index.html" target="_blank">Backend</a> - الخلفية
+### <a href="https://bitchunkapi.herokuapp.com/swagger/index.html" target="_blank">Backend</a> - الخلفية
 
 - .NET Core 5 Web API with 5 Controllers
 - Entity Framework - Code First Approach
