@@ -32,8 +32,7 @@ namespace backend
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
+            services.AddDbContext<ApplicationDbContext>(opt => opt.UseInMemoryDatabase("Bitchunk-db"));
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
@@ -73,8 +72,9 @@ namespace backend
             });
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ApplicationDbContext context)
         {
+            context.Database.EnsureCreated();
 
             app.UseDeveloperExceptionPage();
 
