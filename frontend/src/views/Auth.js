@@ -57,10 +57,10 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const emptyNewUser = {
-  username: '',
-  email: '',
-  password: '',
-  name: '',
+  username: 'admin',
+  email: 'admin@bitchunk.co',
+  password: 'Admin1325!',
+  name: 'Younes Alturkey',
   creationDate: `2021-06-15T20:25:55.772Z`,
   accountType: 'Free',
   currentQuota: 0,
