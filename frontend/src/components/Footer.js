@@ -42,7 +42,7 @@ export default function Footer() {
         <Grid item lg={3} md={12} xs={12} align="center">
           <ButtonBase
             className={classes.button}
-            href="https://bitchunkapi.herokuapp.com/swagger/index.html"
+            href="https://bitchunk-api.azurewebsites.net/swagger/index.html"
             target="_blank"
           >
             <Typography align="center">Bitchunk API</Typography>
