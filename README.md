@@ -11,7 +11,8 @@
 
 ### Browse  
 The Project has been deployed to Azure:
- https://myhospital.azurewebsites.net/
+
+https://myhospital.azurewebsites.net/
   
 ### Prerequisites
 - NET 5 
