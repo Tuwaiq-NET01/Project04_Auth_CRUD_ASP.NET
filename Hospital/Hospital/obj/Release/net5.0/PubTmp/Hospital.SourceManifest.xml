@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sitemanifest>
+  <IisApp path="C:\Users\Abdullah\Desktop\Tuwaiq\DotNET\Final Project\Project04_Auth_CRUD_ASP.NET\Hospital\Hospital\obj\Release\net5.0\PubTmp\Out\" />
+  <dbfullsql path="C:\Users\Abdullah\Desktop\Tuwaiq\DotNET\Final Project\Project04_Auth_CRUD_ASP.NET\Hospital\Hospital\obj\Release\net5.0\PubTmp\EFSQLScripts\Hospital.Data.ApplicationDbContext.sql" />
+</sitemanifest>

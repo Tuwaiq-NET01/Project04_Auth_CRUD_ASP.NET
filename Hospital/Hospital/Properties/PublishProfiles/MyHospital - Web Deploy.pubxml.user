@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAAIEqoH+Ft0+RMRnGUeOvMgAAAAACAAAAAAAQZgAAAAEAACAAAAAyFaA9MgfSRUfWgQVasH7I3TuooMtIdLFHtdk1zlWgAwAAAAAOgAAAAAIAACAAAAAtQnTozyMnIfqkXsHa4GBF/7OFme4MEDGeCcflCgdgQIAAAAAXzbEC0ZOvZAF5ISDZsCOibRH1+uTE47ySY9m83MTUoOrdQkWBui9cY9rjUEEzpLFHJ96F70X8I4kppN3OOuAhFagUZCR7Z9S4qzgA4zJwWs3saNyzQWQSnp0nfUZr+2AnMa7n51iF6JALgt0PXXjusMrFAcIIwA/yBFOkN6tLF0AAAABboHRl3iNhqlfmJjYsXsI4GvVf07r1Dxu4oXqIV4as51yvqtrFzRwWaSpvqxsj2LCO49Y7vEUmDQiyJrWpxRde</EncryptedPassword>
+    <History>True|2021-08-07T03:39:48.9556883Z;True|2021-08-05T10:59:05.9984440+03:00;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Data Source=tcp:myhospital.database.windows.net,1433%3bInitial Catalog=Hospital%3bUser Id=aalhaif%40myhospital%3bPassword=Axis8770-</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="Hospital.Data.ApplicationDbContext">
+      <Value>Data Source=tcp:myhospital.database.windows.net,1433%3bInitial Catalog=Hospital%3bUser Id=aalhaif%40myhospital%3bPassword=Axis8770-</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

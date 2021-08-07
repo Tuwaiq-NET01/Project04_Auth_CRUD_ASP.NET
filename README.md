@@ -8,14 +8,11 @@
   
 ### المقدمــة | Introduction 
  عبارة عن قاعدة بيانات لمستشفى ويتم عن طريقها إدارة ملفات الأطباء والمرضى وجدولة المواعيد
-### Demo  
- .....
-### Wireframe  
- ![](https://raw.githubusercontent.com/Abdullah-ALHaif/Project04_Auth_CRUD_ASP.NET/main/photo_2021-06-20_06-00-20.jpg)
- ![](https://raw.githubusercontent.com/Abdullah-ALHaif/Project04_Auth_CRUD_ASP.NET/main/photo_2021-06-20_06-39-22.jpg)
- ![](https://raw.githubusercontent.com/Abdullah-ALHaif/Project04_Auth_CRUD_ASP.NET/main/photo_2021-06-20_06-39-28.jpg)
+
+### Browse  
+The Project has been deployed to Azure:
+ https://myhospital.azurewebsites.net/
   
-### Set up  
 ### Prerequisites
 - NET 5 
 - ASP.NET MVC
@@ -31,7 +28,7 @@
  - Bootstrap 
 ### Back-End 
  - ASP.NET MVC
- - MSSQL Server
+ - Microsoft SQL Server
  - EF Core
 ### Author
  Abdullah AL Haif 

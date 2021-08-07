@@ -1,4 +1,5 @@
 ﻿using Hospital.Data;
+using Hospital.Filters;
 using Hospital.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -34,15 +35,15 @@ namespace Hospital.Controllers
 
         //POST - /Patients/create
         [HttpPost]
+        [ValidationFilterAttribute] // Our Validation Filter
         public IActionResult Create([Bind("Id", "Name", "Gender", "DOB", "Phone", "Email")] Patient patients)
         {
-            if (ModelState.IsValid)
-            {
-                _db.Patients.Add(patients);
-                _db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return RedirectToAction("Create");
+
+            _db.Patients.Add(patients);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+
+            return RedirectToAction("Create"); //Unreachable because of our validation filter..
         }
 
         //UPDATE
@@ -76,6 +77,12 @@ namespace Hospital.Controllers
             _db.Patients.Remove(patients);
             _db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        [ServiceFilter(typeof(AddHeaderAttribute))]
+        public IActionResult TestResultFilter()
+        {
+            return View();
         }
 
     }
